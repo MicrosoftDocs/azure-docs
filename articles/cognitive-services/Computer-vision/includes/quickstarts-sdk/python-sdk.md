@@ -83,6 +83,9 @@ Use your client object to analyze the visual features of a remote image. First s
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
 
+> [!TIP]
+> You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) for scenarios involving local images.
+
 ### Get image description
 
 The following code gets the list of generated captions for the image. See [Describe images](../../concept-describing-images.md) for more details.
@@ -158,6 +161,9 @@ Computer Vision can read visible text in an image and convert it to a character 
 First, use the following code to call the **read** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
+
+> [!TIP]
+> You can also read text from a local image. See the [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) methods, such as **read_in_stream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) for scenarios involving local images.
 
 ### Get Read results
 
