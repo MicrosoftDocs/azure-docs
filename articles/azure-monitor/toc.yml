@@ -990,6 +990,8 @@
         href: insights/vminsights-health-overview.md
       - name: Enable
         href: insights/vminsights-health-enable.md
+      - name: Alerts
+        href: insights/vminsights-health-alerts.md
       - name: Configure monitors in portal
         href: insights/vminsights-health-configure.md
       - name: Configure monitors at scale

@@ -71,17 +71,17 @@ Notification received at time t2
 - toKnowMoreAboutThisStateTransition: Navigation link to the state transition happened at time t2.
 
 ## Notifications
-To be proactively notified of an alert triggered by guest health, create an [action group](../platform/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../platform/alerts-action-rules.md) that uses that action group.
+To be proactively notified of an alert triggered by guest health, create an [action group](../platform/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../platform/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
 
 In the **Monitor** menu in the Azure portal, select **Alerts**.  Select **Manage actions** and then **Action rules (preview)**. 
 
 ![New action rule](media/vminsights-health-alerts/action-rule-new.png)
 
-Click **New action rule** to create a new rule. Click **Select** next to scope and select your subscription for the scope.
+Click **New action rule** to create a new rule. Click **Select** next to scope and select either a subscription, resource group, or one or more specific virtual machines. The notification will only be fired for virtual machines that fall within the scope.
 
 ![Action rule scope](media/vminsights-health-alerts/action-rule-scope.png)
 
-Click **Add** next to **Filter**. Create a filter where **Monitor service Equals VM Insights - Health**.
+Click **Add** next to **Filter**. Create a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Monitor name** to specify a specific monitor or **Severity** to match alerts from all monitors that match a particular severity.
 
 ![Action rule filter](media/vminsights-health-alerts/action-rule-filter.png)
 
