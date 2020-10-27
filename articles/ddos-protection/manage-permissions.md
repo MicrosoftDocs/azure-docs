@@ -20,7 +20,7 @@ A DDoS protection plan works across regions and subscriptions. The same plan can
 
 ## Prerequisites
 
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection-2.md).
+- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md).
 
 ## Permissions
 
