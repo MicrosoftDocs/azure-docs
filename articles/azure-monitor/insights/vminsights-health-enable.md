@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
+ms.date: 10/26/2020
 
 ---
 
@@ -31,25 +31,10 @@ Azure Monitor for VMs guest health has the following limitations in public previ
 
 - Virtual machine must be onboarded to Azure Monitor for VMs.
 - User executing onboarding steps must have a minimum Contributor level access to the subscription where virtual machine and data collection rule are located.
-
-## Overview
-
-You must perform the following steps in each subscription to enabled Azure Monitor for VMs guest health:
-
-- Register required Azure resource providers.
-- Create Azure Monitor Agent Data Collection Rule (DCR).
-
-The following steps must be performed on each VM to enable it for guest health monitoring:
-
-- Onboard the VM to Azure Monitor for VMs.
-- Deploy Azure Monitor Guest VM Health Agent on target virtual machine.
-- Create association for the DCR to the VM.
-
-
+- Required Azure resource providers must be registered as described in the following section.
 
 
 ## Register required ARM Resource Providers
-
 The following Azure resource providers need to registered for your subscription to enable Azure Monitor for VMs guest health. 
 
 - Microsoft.WorkloadMonitor
@@ -62,35 +47,172 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Microsoft.Insights/register?api-version=2019-10-01
 ```
 
-## Create Azure Monitor Data Collection Rule (DCR)
-[Data Collection Rules (DCR)](../platform/data-collection-rule-overview.md) define data coming into Azure Monitor and specify where that data should be sent or stored. 
 
-Azure Monitor Agent Data Collection Rule (Azure object) must be created in order for health data to start flowing. DCR must be created in the same region as target Log Analytics workspace of the VM. It is recommended to have one DCR containing VM Health rules per subscription and all DCRs in a dedicated resource group such as `AzureMonitor-DataCollectionRules`.
+## Enable a virtual machine using the Azure portal
+When you enable guest health for a virtual machine in the Azure portal, all required configuration is performed for you. Click the link next to the upgrade message for a virtual machine that's already been enabled for Azure Monitor for VMs to enable guest health. Click the **Upgrade** button to install the guest health extension and create the association with the data collection rule. You can also select multiple virtual machines to upgrade them together.
 
-Create DCR using `Health.DataCollectionRule.template.json` Azure Resource Manager (ARM) template. Run template in the subscription and resource group where DCR is to be created. Provide the following values to template parameters:
+![Enable health feature on virtual machine](media/vminsights-health-enable/enable-agent.png)
 
-- __Default Health Data Collection Rule Name__ - leave default.
-- __Destination Workspace Resource Id__ - Log Analytics workspace used for VM data collection (can be seen in portal under Monitor/Virtual Machines). Note: see pre-requisites above to ensure workspace region is supported by this preview.
-- __Data Collection Rule Location__ - region code (ex: eastus, westeurope) of the DCR. Must match region of Log Analytics workspace.
 
-## Enable VM using the Azure portal
-Click the **Upgrade** option for a VM that's already been enabled for Azure Monitor for VMs to enable guest health. This will install the guest health extension and create the association with the DCR. 
+## Enable a virtual machine using the Azure portal
+There are two steps required to enable virtual machines using Azure resource manager.
 
-\<screenshot\>
+- Create data collection rule.
+- Install the guest health extension on each virtual machine
+- Associate thje 
 
-## Enable VM using resource manager templates
-You can enable a VM for guest health using the following resource manager template. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
+### Create Azure Monitor Data Collection Rule (DCR)
+The monitoring configuration for Azure Monitor for VMs guest health is stored in [Data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Install the data collection rule defined in the resource manager template below to enable all monitors for the virtual machines with the guest health extension. You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md).
+
+> [!NOTE]
+> If you enable a virtual machine using the Azure portal, the same data collection rule described here is created. In this case, you do not need to perform this step.
+
+Deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md). 
+
+For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile Health.DataCollectionRule.template.json -TemplateParameterFile Health.DataCollectionRule.template.parameters.json
+```
+
+# [CLI](#tab/cli)
+
+```cli
+az deployment group create --name GuestHealthDeployment --resource-group my-resource-group --template-file Health.DataCollectionRule.template.json --parameters Health.DataCollectionRule.template.parameters.json
+```
+
+---
+
+The template requires values for the following parameters:
+
+- **Default Health Data Collection Rule Name**: Keep the default name defined in the template.
+- **Destination Workspace Resource Id**: Resource ID of the Log Analytics workspace used for virtual machine data collection.
+- **Data Collection Rule Location**: Region of the data collection rule. This must match the region of Log Analytics workspace.
+
+
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "defaultHealthDataCollectionRuleName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the name of the data collection rule to create."
+      },
+      "defaultValue": "Microsoft-VMInsights-Health"
+    },
+    "destinationWorkspaceResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to store virtual machine health data."
+      }
+    },
+    "dataCollectionRuleLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRules",
+      "name": "[parameters('defaultHealthDataCollectionRuleName')]",
+      "location": "[parameters('dataCollectionRuleLocation')]",
+      "apiVersion": "2019-11-01-preview",
+      "properties": {
+        "description": "Data collection rule for VM Insights health.",
+        "dataSources": {
+          "extensions": [
+            {
+              "name": "Microsoft-VMInsights-Health",
+              "streams": [
+                "Microsoft-HealthStateChange"
+              ],
+              "extensionName": "HealthExtension",
+              "extensionSettings": {
+                "schemaVersion": "1.0",
+                "contentVersion": "",
+                "healthRuleOverrides": [
+                  {
+                    "scopes": [ "*" ],
+                    "monitors": ["root"],
+                    "alertConfiguration": {
+                      "isEnabled": true
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "destinations": {
+          "logAnalytics": [
+            {
+              "workspaceResourceId": "[parameters('destinationWorkspaceResourceId')]",
+              "name": "Microsoft-HealthStateChange-Dest"
+            }
+          ]
+        },
+        "dataFlows": [
+          {
+            "streams": [
+              "Microsoft-HealthStateChange"
+            ],
+            "destinations": [
+              "Microsoft-HealthStateChange-Dest"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+### Sample parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "healthDataCollectionRuleResourceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
+      },
+      "dataCollectionRuleLocation": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+
+
+## Enable virtual machines using resource manager templates
+Use the following resource manager template to enable a virtual machine for guest health. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
 For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.
 
+
+# [PowerShell](#tab/powershell)
+
 ```powershell
-New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
+New-AzResourceGroupDeployment -Name GuestHealthDeployment -ResourceGroupName my-resource-group -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
 ```
+
+# [PowerShell](#tab/cli)
 
 ```cli
 az deployment group create --name GuestHealthDeployment --resource-group my-resource-group --template-file Health.VirtualMachine.template.json --parameters Health.VirtualMachine.template.parameters.json
 ```
+
+---
 
 ### Template file
 
@@ -231,3 +353,7 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
   }
 }
 ```
+
+## Next steps
+
+- [Customize monitors enabled by Azure Monitor for VMs](vminsights-health-configure.md)
