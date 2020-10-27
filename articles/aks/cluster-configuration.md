@@ -163,7 +163,10 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 * For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (for example, `crictl ps`). 
    * It doesn't provide the complete functionality of the docker CLI. It's intended for troubleshooting only.
    * `crictl` offers a more kubernetes-friendly view of containers, with concepts like pods, etc. being present.
-* `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker’s json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+* `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker’s json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](
+
+
+azure-monitor/insights/container-insights-enable-new-cluster.md))
 * You can no longer access the docker engine, `/var/run/docker.sock`, or use Docker-in-Docker (DinD).
   * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) instead. Additionally AKS doesn't  support running any out of band commands on the agent nodes that could cause instability.
   * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is strongly discouraged. Kubernetes isn't fully aware of those consumed resources, and those approaches present numerous issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
@@ -242,7 +245,7 @@ Like the temporary disk, an ephemeral OS disk is included in the price of the vi
 > [!IMPORTANT]
 >When a user does not explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given nodepool configuration.
 
-When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series) in parentheses next to IO throughput ("cache size in GiB").
+When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
 
 Ephemeral OS requires at least version 0.4.63 of the aks-preview CLI extension.
 
