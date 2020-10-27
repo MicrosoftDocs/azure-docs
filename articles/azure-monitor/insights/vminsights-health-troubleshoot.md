@@ -34,11 +34,10 @@ Verify that the system assigned identity is enabled on the virtual machine. Sele
 
 [![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)](media/vminsights-health-troubleshoot/system-identity.png)
 
-## Verify data collection rule
+### Verify data collection rule
 Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.
 
 ## Error message for bad request due to insufficient permissions
 Microsoft.WorkloadMonitor resource provider wasn’t registered in the subscription.
 
-## Generic error message
-File support ticket.
+[![Bad request](media/vminsights-health-troubleshoot/extensions.png)](media/vminsights-health-troubleshoot/bad-request.png)
