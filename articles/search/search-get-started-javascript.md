@@ -364,7 +364,7 @@ Open the **Overview** of your search service in the Azure portal. Select the **I
 
 In the next step, you'll add data to index. 
 
-## 2 - Load Documents 
+## 2 - Load documents 
 
 
 In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](search-indexer-overview.md). In this case, we'll programatically push the documents to the index.
