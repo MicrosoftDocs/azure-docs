@@ -180,6 +180,12 @@
                 href: ./rest-api-throttling.md
               - name: Versioning
                 href: ./rest-api-versioning.md
+            - name: Development
+              items:
+              - name: Fiddler
+                href: ./rest-api-fiddler.md
+              - name: Postman
+                href: ./rest-api-postman.md 
     - name: Feature management
       items:
         - name: .NET Core library
