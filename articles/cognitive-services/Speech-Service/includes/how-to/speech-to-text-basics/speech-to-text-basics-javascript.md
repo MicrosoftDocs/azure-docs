@@ -142,7 +142,8 @@ function fromFile() {
 fromFile();
 ```
 
-Using a push stream as input assumes that the file stream's position is set to the *start of the data*, skipping the headers. The API will still work in certain cases if the header has not been skipped, but for the best results consider implementing logic to read the headers and set the position to the start of the audio data.
+Using a push stream as input assumes that the audio data is a raw PCM, e.g. skipping any headers.
+The API will still work in certain cases if the header has not been skipped, but for the best results consider implementing logic to read off the headers so the `fs` starts at the *start of the audio data*.
 
 ---
 
