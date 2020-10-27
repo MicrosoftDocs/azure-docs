@@ -1,5 +1,5 @@
 ---
-title: Create a snapshot of a VHD in Azure 
+title: Create a snapshot of a VHD using the Azure CLI 
 description: Learn how to create a copy of a VHD in Azure as a back up or for troubleshooting issues.
 author: roygara
 manager: twooley
@@ -11,7 +11,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Create a snapshot 
+# Create a snapshot using the portal or Azure CLI
 
 Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure FXT Edge Filer specifications | Microsoft Docs
-description: Physical and environmental specifications for Azure FXT Edge Filer hardware
+description: Learn about the physical and environmental specifications for Microsoft Azure FXT Edge Filer hardware.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
@@ -23,7 +23,7 @@ This article explains the hardware specifications for Azure FXT Edge Filer hardw
 
 ## Drive specifications
 
-The system has ten drive bays, accessible from the front. Each populated drive is labeled on the right with capacity information. 
+The system has ten drive bays, accessible from the front. Each populated drive is labeled on the right with capacity information.
 
 Drive numbers are printed on the space between drives. In the Azure FXT Edge Filer, drive 0 is the top left drive, and drive 1 is directly underneath it.
 
@@ -34,10 +34,9 @@ Drive numbers are printed on the space between drives. In the Azure FXT Edge Fil
 | 0, 1             | OS     | 480 GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: 3.2 TB NVMe SSD <br> FXT 6400: 1.6 TB NVMe SSD |
 
-
 ## Dimensions and weight
 
-The Azure FXT Edge Filer is designed to fit in a standard 19" equipment rack and is one rack unit high (1U). 
+The Azure FXT Edge Filer is designed to fit in a standard 19" equipment rack and is one rack unit high (1U).
 
 <!-- 10x2.5 inches version -->
 
@@ -79,15 +78,15 @@ This section gives power ratings and measurements for the Azure FXT Edge Filer.
 
 <!-- matches the Dell regulatory label exactly -->
 
-### Power and thermal measurements 
+### Power and thermal measurements
 
-Azure FXT Edge Filer nodes use variable speed fans, so power depends on temperature and load. Maximum fan speeds can be reached at certain combinations of high load and elevated ambient temperatures. 
+Azure FXT Edge Filer nodes use variable speed fans, so power depends on temperature and load. Maximum fan speeds can be reached at certain combinations of high load and elevated ambient temperatures.
 
-These charts give power consumption and thermal output measurements for commonly used voltage-frequency combinations. 
+These charts give power consumption and thermal output measurements for commonly used voltage-frequency combinations.
 
-| FXT 6600 power at room temperature <br />(22° C, 71.6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6600 power at room temperature <br />(22° C, 71.6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Voltage (V) | 100 | 120 | 208 | 230 | 240 | 
+| Voltage (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequency (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Current (A) | 5.02 | 4.16 |2.40 | 2.20 | 2.16 |
 | Apparent Power (VA) | 502 | 499 | 499 | 506 | 518|
@@ -95,9 +94,9 @@ These charts give power consumption and thermal output measurements for commonly
 | Real Power (W) | 497 |494 | 489 | 496 | 508 |
 | Thermal Dissipation (BTU/Hr) |1696 | 1686 | 1669 | 1692 | 1733 |
 
-| FXT 6600 power at maximum fan speeds | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6600 power at maximum fan speeds | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Voltage (V) | 100 |120 | 208 | 230 | 240| 
+| Voltage (V) | 100 |120 | 208 | 230 | 240|
 | Frequency (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Current (A) | 5.98 | 5.01 | 2.81 | 2.55 | 2.48 |
 | Apparent Power (VA) | 598 | 601 | 584 | 587 | 595 |
@@ -105,13 +104,13 @@ These charts give power consumption and thermal output measurements for commonly
 | Real Power (W) | 592 | 595 | 573 | 575 | 583 |
 | Thermal Dissipation (BTU/Hr) | 2020 |2031 | 1954 | 1961 | 1990 |
 
-| FXT 6400 power at room temperature <br />(22° C, 71.6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6400 power at room temperature <br />(22° C, 71.6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
 | Voltage (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequency (Hz) |60 | 60 | 60 | 50 | 50 |
 | Current (A) | 4.63 | 3.86 | 2.24 | 2.04 | 1.94 |
 | Apparent Power (VA) | 463 | 463 | 466 | 469 | 466 |
-| Power Factor | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 | 
+| Power Factor | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
 | Real Power (W) | 458 | 459 | 457 | 460 | 456 |
 | Thermal Dissipation (BTU/Hr) | 1564 | 1565 | 1558 | 1569 | 1557 |
 
@@ -138,10 +137,10 @@ This section gives specifications for the hardware's ambient environment.
 | Maximum dew point         | 29°C (84°F)                       | 33°C (91°F)                 |
 | Altitude                  | up to 3048 meters (10,000 feet), subject to temperature de-rating noted below | up to 12,000 meters (39,370 feet) |
 
-> [!NOTE] 
+> [!NOTE]
 > **Altitude temperature de-rating:** Maximum temperature is reduced by 1°C/300 m (1°F/547 ft) above 950 m (3,117 ft).
 
-### Airflow, shock, and vibration 
+### Airflow, shock, and vibration
 
 | Attribute         | Specification |
 |-------------------|---------------|
@@ -151,13 +150,13 @@ This section gives specifications for the hardware's ambient environment.
 | Vibration, operational     | 0.26 G<sub>RMS</sub> 5 Hz to 350 Hz random         |
 | Vibration, non-operational | 1.88 G<sub>RMS</sub> 10 Hz to 500 Hz for 15 minutes (all six sides tested)  |
 
-## Safety regulation compliance 
+## Safety regulation compliance
 
-Azure FXT Edge Filer complies with the listed regulations. 
+Azure FXT Edge Filer complies with the listed regulations.
 
-| Category       | Regulatory specification | 
+| Category       | Regulatory specification |
 |----------------|--------------------------|
-| General safety | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
+| General safety | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 |
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Class D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |
 | Energy         | Commission Regulation (EU) No. 617/2013  |
 | RoHS           |    EN 50581:2012   |

@@ -1,20 +1,22 @@
 ---
 title: What is Personalizer?
-description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+description: Personalizer is a cloud-based service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: overview
-ms.date: 04/20/2020
-#Customer intent:
+ms.date: 08/27/2020
+ms.custom: cog-serv-seo-aug-2020
+keywords: personalizer, Azure personalizer, machine learning 
 ---
 
 # What is Personalizer?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use the Personalizer service to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, the system monitors real-time user behavior and reports a reward score back to the Personalizer service. This ensures continuous improvement of the machine learning model, and Personalizer's ability to select the best content item based on the contextual information it receives.
 
-Azure Personalizer is a cloud-based API service that helps your client application choose the best, single _content_ item to show each user. The service selects the best item, from content items, based on collective real-time information you provide about content and context.
+> [!TIP]
+> Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
 
-After you present the content item to your user, your system monitors user behavior and reports a reward score back to Personalizer to improve its ability to select the best content based on the context information it receives.
-
-**Content** can be any unit of information such as text, images, urls, or emails that you want to select from to show to your user.
+Before you get started, feel free to try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
 
 <!--
 ![What is personalizer animation](./media/what-is-personalizer.gif)
@@ -22,7 +24,7 @@ After you present the content item to your user, your system monitors user behav
 
 ## How does Personalizer select the best content item?
 
-Personalizer uses **reinforcement learning** to select the best item (_action_) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products to choose from.
+Personalizer uses **reinforcement learning** to select the best item (_action_) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products.
 
 The **Rank** call takes the action item, along with features of the action, and context features to select the top action item:
 
@@ -30,27 +32,31 @@ The **Rank** call takes the action item, along with features of the action, and 
 * **Context features** - features of your users, their context or their environment when using your app
 
 The Rank call returns the ID of which content item, __action__, to show to the user, in the **Reward Action ID** field.
-The __action__ shown to the user is chosen with machine learning models, trying to maximize the total amount of rewards over time.
 
-Several example scenarios are:
+The __action__ shown to the user is chosen with machine learning models, that try to maximize the total amount of rewards over time.
 
-|Content type|**Actions (with features)**|**Context features**|Returned Reward Action ID<br>(display this content)|
+### Sample scenarios
+
+Let's take a look at a few scenarios where Personalizer can be used to select the best content to render for a user.
+
+|Content type|Actions (with features)|Context features|Returned Reward Action ID<br>(display this content)|
 |--|--|--|--|
 |News list|a. `The president...` (national, politics, [text])<br>b. `Premier League ...` (global, sports, [text, image, video])<br> c. `Hurricane in the ...` (regional, weather, [text,image]|Device news is read from<br>Month, or season<br>|a `The president...`|
 |Movies list|1. `Star Wars` (1977, [action, adventure, fantasy], George Lucas)<br>2. `Hoop Dreams` (1994, [documentary, sports], Steve James<br>3. `Casablanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Type of user<br>|3. `Casablanca`|
 |Products list|i. `Product A` (3 kg, $$$$, deliver in 24 hours)<br>ii. `Product B` (20 kg, $$, 2 week shipping with customs)<br>iii. `Product C` (3 kg, $$$, delivery in 48 hours)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|ii. `Product B`|
 
-Personalizer used reinforcement learning to select the single best action, known as _reward action ID_, based on a combination of:
-* Trained model - past information the Personalizer service received
-* Current data - Specific actions with features and context features
+Personalizer used reinforcement learning to select the single best action, known as _reward action ID_. The machine learning model uses: 
 
-## When to call Personalizer
+* A trained model - information previously received from the personalize service used to improve the machine learning model
+* Current data - specific actions with features and context features
 
-Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
+## When to use Personalizer
+
+Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called each time your application presents content. This is known as an **event**, noted with an _event ID_.
 
 Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. The reward score is between 0 and 1. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
 
-## Personalizer content requirements
+## Content requirements
 
 Use Personalizer when your content:
 
@@ -63,7 +69,7 @@ Since Personalizer uses collective information in near real-time to return the s
 * Log individual users' preferences or history
 * Require cleaned and labeled content
 
-## How to design and implement Personalizer for your client application
+## How to design for and implement Personalizer
 
 1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each [Personalizer Resource](how-to-settings.md) you create is considered one Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
@@ -90,13 +96,28 @@ Since Personalizer uses collective information in near real-time to return the s
         * Or sometime later in an offline system
     1. [Evaluate your loop](concepts-offline-evaluation.md) with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
 
+## Complete a quickstart
+
+We offer quickstarts in C#, JavaScript, and Python. Each quickstart is designed to teach you basic design patterns, and have you running code in less than 10 minutes. 
+
+* [Quickstart: How to use the Personalizer client library](sdk-learning-loop.md)
+
+After you've had a chance to get started with the Personalizer service, try our tutorials and learn how to use Personalizer in web applications, chat bots, or an Azure Notebook.
+
+* [Tutorial: Use Personalizer in a .NET web app](tutorial-use-personalizer-web-app.md)
+* [Tutorial: Use Personalizer in a .NET chat bot](tutorial-use-personalizer-chat-bot.md)
+* [Tutorial: Use Personalizer in an Azure Notebook](tutorial-use-azure-notebook-generate-loop-data.md)
+
+## Reference 
+
+* [Personalizer C#/.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
+* [Personalizer JavaScript SDK](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [Personalizer Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [REST APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
+
 ## Next steps
 
-
-* [How Personalizer works](how-personalizer-works.md)
-* [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
-* [Learn about features and actions for the Rank request](concepts-features.md)
-* [Learn about determining the score for the Reward request](concept-rewards.md)
-* [Quickstarts](sdk-learning-loop.md)
-* [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
-* [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
+> [!div class="nextstepaction"]
+> [How Personalizer works](how-personalizer-works.md)
+> [What is Reinforcement Learning?](concepts-reinforcement-learning.md)

@@ -13,7 +13,7 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 > [!NOTE]
 >
 > This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
-> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
 
 ## Using Azure Backup data model
 
@@ -32,7 +32,7 @@ This table provides details about alert related fields.
 | AlertSeverity_s |Text |Severity of the alert, for example, Critical |
 |AlertTimeToResolveInMinutes_s    | Number        |Time taken to resolve an alert. Blank for active alerts.         |
 |AlertConsolidationStatus_s   |Text         |Identify if the alert is a consolidated alert or not         |
-|CountOfAlertsConsolidated_s     |Number         |Number of alerts consolidated if it is a consolidated alert          |
+|CountOfAlertsConsolidated_s     |Number         |Number of alerts consolidated if it's a consolidated alert          |
 |AlertRaisedOn_s     |Text         |Type of entity the alert is raised on         |
 |AlertCode_s     |Text         |Code to uniquely identify an alert type         |
 |RecommendedAction_s   |Text         |Action recommended to resolve the alert         |
@@ -40,7 +40,7 @@ This table provides details about alert related fields.
 | BackupItemUniqueId_s |Text |Unique identifier of the backup item associated with the alert |
 | SchemaVersion_s |Text |Current version of the schema, for example **V2** |
 | State_s |Text |Current state of the alert object, for example, Active, Deleted |
-| BackupManagementType_s |Text |Provider type for performing backup, for example, IaaSVM, FileFolder to which this alert belongs to |
+| BackupManagementType_s |Text |Provider type for performing backup, for example, IaaSVM, FileFolder to which this alert belongs |
 | OperationName |Text |Name of the current operation, for example, Alert |
 | Category |Text |Category of diagnostics data pushed to Azure Monitor logs. Always AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
@@ -72,7 +72,7 @@ This table provides details about backup item-related fields.
 | SecondaryBackupProtectionState_s |Text |Whether secondary protection is enabled for the backup item|
 | SchemaVersion_s |Text |Version of the schema, for example, **V2** |
 | State_s |Text |State of the backup item object, for example, Active, Deleted |
-| BackupManagementType_s |Text |Provider type for performing backup, for example, IaaSVM, FileFolder to which this backup item belongs to |
+| BackupManagementType_s |Text |Provider type for performing backup, for example, IaaSVM, FileFolder to which this backup item belongs |
 | OperationName |Text |Name of the operation, for example, BackupItem |
 | Category |Text |Category of diagnostics data pushed to Azure Monitor logs. Always AzureBackupReport |
 | Resource |Text |Resource for which data is collected, for example, Recovery Services vault name |
@@ -89,14 +89,14 @@ This table provides details about backup item associations with various entities
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| EventName_s |Text |This field represents name of this event, it is always AzureBackupCentralReport |  
+| EventName_s |Text |This field represents name of this event. It's always AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Unique ID of the backup item |
-| SchemaVersion_s |Text |This field denotes current version of the schema, it is **V2** |
+| SchemaVersion_s |Text |This field denotes the current version of the schema. It is **V2** |
 | State_s |Text |Current state of the backup item association object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | BackupItemSourceSize_s |Text | Front-end size of the backup item |
 | BackupManagementServerUniqueId_s |Text | Field to uniquely identify the Backup Management Server the Backup Item is protected through, if applicable |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Log Analytics. It is AzureBackupReport |
 | OperationName |Text |This field represents name of the current operation - BackupItemAssociation |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedContainerUniqueId_s |Text |Unique identifier of the protected server associated with the backup item (Was ProtectedServerUniqueId_s in V1) |
@@ -139,7 +139,7 @@ This table provides details about job-related fields.
 | State_s |Text |Current state of the job object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - Job |
-| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs. It is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique identifier of the protected server associated the job |
 | ProtectedContainerUniqueId_s |Text | Unique ID to identify the protected container the job is run on |
@@ -154,8 +154,8 @@ This table provides details about job-related fields.
 | DataTransferredInMB_s | Number |Data transferred in MB for this job|
 | JobUniqueId_g |Text |Unique ID to identify the job |
 | RecoveryJobDestination_s |Text | Destination of a recovery job, where the data is recovered |
-| RecoveryJobRPDateTime_s |DateTime | The date, Time when the recovery point that is being recovered was created |
-| RecoveryJobRPLocation_s |Text | The location where the recovery point that is being recovered was stored|
+| RecoveryJobRPDateTime_s |DateTime | The date, time when the recovery point that's being recovered was created |
+| RecoveryJobRPLocation_s |Text | The location where the recovery point that's being recovered was stored|
 | SourceSystem |Text |Source system of the current data - Azure |
 | ResourceId |Text |Resource identifier for data being collected. For example, Recovery Services vault resource ID|
 | SubscriptionId |Text |Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
@@ -169,12 +169,12 @@ This table provides details about policy-related fields.
 
 | Field | Data Type | Versions Applicable | Description |
 | --- | --- | --- | --- |
-| EventName_s |Text ||This field represents name of this event, it is always AzureBackupCentralReport |
-| SchemaVersion_s |Text ||This field denotes current version of the schema, it is **V2** |
+| EventName_s |Text ||This field represents name of this event. It's always AzureBackupCentralReport |
+| SchemaVersion_s |Text ||This field denotes current version of the schema. It is **V2** |
 | State_s |Text ||Current state of the policy object, for example, Active, Deleted |
 | BackupManagementType_s |Text ||Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text ||This field represents name of the current operation - Policy |
-| Category |Text ||This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Category |Text ||This field represents category of diagnostics data pushed to Azure Monitor logs. It is AzureBackupReport |
 | Resource |Text ||This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text ||Unique ID to identify the policy |
 | PolicyName_s |Text ||Name of the policy defined |
@@ -191,7 +191,7 @@ This table provides details about policy-related fields.
 | MonthlyRetentionTimes_s |Text ||Date and time when monthly retention is configured |
 | MonthlyRetentionFormat_s |Text ||Type of configuration for monthly retention, for example, daily for day based, weekly for week based |
 | MonthlyRetentionDaysOfTheWeek_s |Text ||Days of the week selected for monthly retention |
-| MonthlyRetentionWeeksOfTheMonth_s |Text ||Weeks of the month when monthly retention is configured, for example, First, Last etc. |
+| MonthlyRetentionWeeksOfTheMonth_s |Text ||Weeks of the month when monthly retention is configured, for example, First, Last |
 | YearlyRetentionDuration_s |Decimal Number ||Total retention duration in years for configured backups |
 | YearlyRetentionTimes_s |Text ||Date and time when yearly retention is configured |
 | YearlyRetentionMonthsOfTheYear_s |Text ||Months of the year selected for yearly retention |
@@ -217,15 +217,15 @@ This table provides details about policy associations with various entities.
 
 | Field | Data Type | Versions Applicable | Description |
 | --- | --- | --- | --- |
-| EventName_s |Text ||This field represents name of this event, it is always AzureBackupCentralReport |
-| SchemaVersion_s |Text ||This field denotes current version of the schema, it is **V2** |
+| EventName_s |Text ||This field represents name of this event. It's always AzureBackupCentralReport |
+| SchemaVersion_s |Text ||This field denotes current version of the schema. It is **V2** |
 | State_s |Text ||Current state of the policy object, for example, Active, Deleted |
 | BackupManagementType_s |Text ||Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text ||This field represents name of the current operation - PolicyAssociation |
-| Category |Text ||This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Category |Text ||This field represents category of diagnostics data pushed to Azure Monitor logs. It is AzureBackupReport |
 | Resource |Text ||This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text ||Unique ID to identify the policy |
-| VaultUniqueId_s |Text ||Unique ID of the vault to which this policy belongs to |
+| VaultUniqueId_s |Text ||Unique ID of the vault to which this policy belongs |
 | BackupManagementServerUniqueId_s |Text |v2 |Field to uniquely identify the Backup Management Server the Backup Item is protected through, if applicable        |
 | SourceSystem |Text ||Source system of the current data - Azure |
 | ResourceId |Text ||Resource identifier for data being collected. For example, Recovery Services vault resource ID |
@@ -243,7 +243,7 @@ This table provides basic fields about Protected Containers. (Was ProtectedServe
 | ProtectedContainerUniqueId_s |Text | Field to uniquely identify a Protected Container |
 | ProtectedContainerOSType_s |Text |OS Type of the Protected Container |
 | ProtectedContainerOSVersion_s |Text |OS Version of the Protected Container |
-| AgentVersion_s |Text |Version number of Agent Backup or the Protection Agent (In case of SC DPM and MABS) |
+| AgentVersion_s |Text |Version number of Agent Backup or the Protection Agent (In the case of SC DPM and MABS) |
 | BackupManagementType_s |Text |Provider type for performing backup. For example, IaaSVM, FileFolder |
 | EntityState_s |Text |Current state of the protected server object. For example, Active, Deleted |
 | ProtectedContainerFriendlyName_s |Text |Friendly name of protected server |
@@ -261,12 +261,12 @@ This table provides details about storage-related fields.
 | --- | --- | --- |
 | CloudStorageInBytes_s |Decimal Number |Cloud backup storage used by backups, calculated based on latest value (This field is only for v1 schema)|
 | ProtectedInstances_s |Decimal Number |Number of protected instances used for calculating frontend storage in billing, calculated based on latest value |
-| EventName_s |Text |This field represents name of this event, it is always AzureBackupCentralReport |
-| SchemaVersion_s |Text |This field denotes current version of the schema, it is **V2** |
+| EventName_s |Text |This field represents name of this event. It's always AzureBackupCentralReport |
+| SchemaVersion_s |Text |This field denotes current version of the schema. It is **V2** |
 | State_s |Text |Current state of the storage object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - Storage |
-| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs. It is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique ID of the protected server for which storage is calculated |
 | VaultUniqueId_s |Text |Unique ID of the vault for storage is calculated |
@@ -288,7 +288,7 @@ This table provides basic storage-related fields connecting storage to other ent
 | Field | Data Type | Description |
 | --- | --- |  --- |
 | StorageUniqueId_s |Text |Unique ID used to identify the storage entity |
-| SchemaVersion_s |Text |This field denotes current version of the schema, it is **V2** |
+| SchemaVersion_s |Text |This field denotes current version of the schema. It is **V2** |
 | BackupItemUniqueId_s |Text |Unique ID used to identify the backup item related to the storage entity |
 | BackupManagementServerUniqueId_s |Text |Unique ID used to identify the backup management server related to the storage entity|
 | VaultUniqueId_s |Text |Unique ID used to identify the vault related to the storage entity|
@@ -301,11 +301,11 @@ This table provides details about vault-related fields.
 
 | Field | Data Type | Description |
 | --- | --- | --- |
-| EventName_s |Text |This field represents name of this event, it is always AzureBackupCentralReport |
-| SchemaVersion_s |Text |This field denotes current version of the schema, it is **V2** |
+| EventName_s |Text |This field represents name of this event. It's always AzureBackupCentralReport |
+| SchemaVersion_s |Text |This field denotes current version of the schema. It is **V2** |
 | State_s |Text |Current state of the vault object, for example, Active, Deleted |
 | OperationName |Text |This field represents name of the current operation - Vault |
-| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs. It is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | VaultUniqueId_s |Text |Unique ID of the vault |
 | VaultName_s |Text |Name of the vault |
@@ -456,35 +456,37 @@ Below are a few samples to help you write queries on Azure Backup data that resi
     ````
 
 ## V1 schema vs V2 schema
-Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to Azure Diagnostics table in a schema referred to as ***V1 schema***. Subsequently, new columns were added to support other scenarios and workloads, and diagnostics data was pushed in a new schema referred to as ***V2 schema***. 
 
-For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries. 
+Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to Azure Diagnostics table in a schema referred to as ***V1 schema***. Subsequently, new columns were added to support other scenarios and workloads, and diagnostics data was pushed in a new schema referred to as ***V2 schema***.  
 
-Refer to the third column 'Description' in the [data model](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
+For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries.
+
+Refer to the third column 'Description' in the [data model](#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
 
 ### Modifying your queries to use the V2 schema
-As the V1 schema is on a deprecation path, it is recommended to use only the V2 schema in all your custom queries on Azure Backup diagnostic data. Below is an example of how to update your queries to remove dependency on V1 schema:
 
-1. Identify if your query is using any field that is only applicable to V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
+As the V1 schema is on a deprecation path, it's recommended to use only the V2 schema in all your custom queries on Azure Backup diagnostic data. Below is an example of how to update your queries to remove dependency on V1 schema:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
-````
+1. Identify if your query is using any field that's only applicable to the V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
 
-The above query uses the field ProtectedServerUniqueId_s which is only applicable to V1 schema. The V2 schema equivalent of this field is ProtectedContainerUniqueId_s (refer tables above). The field BackupItemUniqueId_s is applicable even to V2 schema and the same field can be used in this query.
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
 
-2. Update the query to use the V2 schema field names. It is a recommended practice to use the filter 'where SchemaVersion_s=="V2"' in all your queries, so that only records corresponding to V2 schema are parsed by the query:
+    The above query uses the field ProtectedServerUniqueId_s, which is only applicable to V1 schema. The V2 schema equivalent of this field is ProtectedContainerUniqueId_s (refer tables above). The field BackupItemUniqueId_s is applicable even to V2 schema and the same field can be used in this query.
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| where SchemaVersion_s=="V2"
-| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
-````
+2. Update the query to use the V2 schema field names. It's a recommended practice to use the filter **where SchemaVersion_s=="V2"** in all your queries, so that only records corresponding to V2 schema are parsed by the query:
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## Next steps
 

@@ -81,17 +81,12 @@ For advanced users who want to incorporate online training and scoring into the 
 
 ![ASA Machine Learning app](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
-## Near real-time data warehousing
+## Real-time data warehousing
 
-Another common pattern is real-time data warehousing, also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from your application, [Azure Stream Analytics running on IoT Edge](stream-analytics-edge.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. Stream Analytics running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. The SQL output adapter can be used to output to SQL Data Warehouse; however, the maximum throughput is limited to 10 MB/s.
+Another common pattern is real-time data warehousing, also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from your application, [Azure Stream Analytics running on IoT Edge](stream-analytics-edge.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. Stream Analytics running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. Stream Analytics can support throughput rates of upto 200MB/sec while writing to Azure Synapse Analytics.
 
 ![ASA Data Warehousing](media/stream-analytics-solution-patterns/data-warehousing.png)
 
-One way to improve the throughput with some latency tradeoff is to archive the events into Azure Blob storage, and then [import them into SQL Data Warehouse with Polybase](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). You must manually stitch together output from Stream Analytics to blob storage and input from blob storage to SQL Data Warehouse by [archiving the data by timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md) and importing periodically.
-
-In this usage pattern, Azure Stream Analytics is used as a near real-time ETL engine. Newly arriving events are continuously transformed and stored for downstream analytics service consumption.
-
-![ASA high throughput Data Warehousing](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## Archiving real-time data for analytics
 
@@ -102,7 +97,7 @@ Most data science and analytics activities still happen offline. Data can be arc
 
 ## Use reference data for enrichment
 
-Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL Database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and SQL Data Warehouse.
+Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL Database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and Azure Synapse Analytics.
 
 
 ![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)

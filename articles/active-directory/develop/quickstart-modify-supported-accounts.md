@@ -1,6 +1,6 @@
 ---
-title: Modify Microsoft identify platform app accounts | Azure
-description: Configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
+title: "Quickstart: Modify Microsoft identify platform app accounts | Azure"
+description: In this quickstart, you configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -24,11 +24,7 @@ In this quickstart, you'll learn how to modify your application's configuration 
 
 ## Prerequisites
 
-To get started, make sure you complete these prerequisites:
-
-* Learn about the supported [permissions and consent](v2-permissions-and-consent.md), which is important to understand when building applications that need to be used by other users or applications.
-* Have a tenant that has applications registered to it.
-  * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
+* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
 
 ## Sign in to the Azure portal and select the app
 
@@ -75,13 +71,5 @@ By default, OAuth 2.0 implicit grant is disabled for applications. You can enabl
 
 ## Next steps
 
-Learn about these other related app management quickstarts for apps:
-
-* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
-* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
-* [Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
-
-To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-To learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md)

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: carlrab, davidph
+ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
 ---
@@ -47,7 +47,31 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 
 This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/). For "Issue type" select "Technical", for "Service" select "SQL Database Managed Instance", and for "Problem type" select "Other". In your request, state that you would like to be enrolled into limited public preview of Machine Learning for SQL Managed Instance with these details: logical server name, region, and subscription ID.
+If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
+
+1. On the **Create a support ticket** page, click **Create an Incident**.
+
+1. On the **Help + support** page, click **New support request** to create a new ticket.
+
+1. Select the following options:
+   - Issue type - **Technical**
+   - Subscription - *select your subscription*
+   - Service - **SQL Managed Instance**
+   - Resource - *select your managed instance*
+   - Summary - *enter a brief description of your request*
+   - Problem type - **Machine Learning Services for SQL Managed Instance (Preview)**
+   - Problem subtype - **Other issue or "How To" questions**
+
+1. Click **Next: Solutions**.
+
+1. Read the information about the preview, and then click **Next: Details**.
+
+1. On this page:
+   - For the question **Are you trying to sign up for the Preview?**, select **Yes**. 
+   - For **Description**, enter the specifics of your request, including the logical server name, region, and subscription ID that you want to enroll in the preview. Enter other details as appropriate.
+   - Select your preferred contact method. 
+
+1. When you're finished, click **Next: Review + create**, and then click **Create**.
 
 Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable Machine Learning Services for your existing or new database.
 

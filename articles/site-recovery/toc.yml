@@ -160,6 +160,10 @@
       href: hyper-v-vmm-secondary-support-matrix.md
     - name: Architecture for Hyper-V VM to a secondary site
       href: hyper-v-vmm-architecture.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
@@ -466,6 +470,8 @@
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Monitor Site Recovery with Azure Monitor Logs
     href: monitor-log-analytics.md
+  - name: Monitoring churn patterns on Virtual Machines
+    href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
 - name: Troubleshooting

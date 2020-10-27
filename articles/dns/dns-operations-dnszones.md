@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 ---
 # How to manage DNS Zones using PowerShell
 

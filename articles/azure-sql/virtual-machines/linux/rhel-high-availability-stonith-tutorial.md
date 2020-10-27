@@ -491,7 +491,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### Create a custom role for the fence agent
 
-Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Follow the tutorial to [Create an Azure custom role using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Your json file should look similar to the following:
 
@@ -902,7 +902,7 @@ On all SQL Server instances, save the credentials used for the SQL Server login.
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Screenshot shows the primary and secondary availability replicas.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### Add a database to the availability group
 

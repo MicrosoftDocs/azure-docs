@@ -6,7 +6,8 @@ ms.author: mbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 05/17/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI
@@ -75,7 +76,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
 
 ```azurecli-interactive
-az vm show --name "myVM" -g "MyResourceGroup"
+az vm encryption show --name "myVM" -g "MyResourceGroup"
 ```
 
 When encryption is enabled, you will see the following in the returned output:

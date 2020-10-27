@@ -1,6 +1,6 @@
 ---
 title: Optimize VM network throughput | Microsoft Docs
-description: Learn how to optimize Azure virtual machine network throughput.
+description: Optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 10/06/2020
 ms.author: steveesp
 
 ---
@@ -53,12 +53,12 @@ RSS is always enabled by default in an Azure Linux VM. Linux kernels released si
 
 ### Ubuntu for new deployments
 
-The Ubuntu Azure kernel provides the best network performance on Azure and has been the default kernel since September 21, 2017. In order to get this kernel, first install the latest supported version of 16.04-LTS, as follows:
+The Ubuntu Azure kernel is the most optimized for network performance on Azure. To get the latest optimizations, first install the latest supported version of 18.04-LTS, as follows:
 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04-LTS",
+"Sku": "18.04-LTS",
 "Version": "latest"
 ```
 
@@ -86,7 +86,7 @@ apt-get -y dist-upgrade
 
 #### Ubuntu Azure kernel upgrade for existing VMs
 
-Significant throughput performance can be achieved by upgrading to the Azure Linux kernel. To verify whether you have this kernel, check your kernel version.
+Significant throughput performance can be achieved by upgrading to the Azure Linux kernel. To verify whether you have this kernel, check your kernel version. It should be the same or later than the example.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -114,7 +114,7 @@ In order to get the latest optimizations, it is best to create a VM with the lat
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.4",
+"Sku": "7.7",
 "Version": "latest"
 ```
 
@@ -150,6 +150,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## Next steps
+* Deploy VMs close to each other for low latency with [Proximity Placement Group](../virtual-machines/windows/co-location.md)
 * See the optimized result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
 * Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

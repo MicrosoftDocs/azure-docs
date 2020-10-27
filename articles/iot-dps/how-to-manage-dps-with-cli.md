@@ -1,17 +1,18 @@
-﻿---
+---
 title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
 description: Learn how to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.service: iot-dps
+ms.service: iot-dps 
+ms.custom: devx-track-azurecli
 services: iot-dps 
 ---
 
 # How to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI is available on Windows, Linux, and MacOS. Azure CLI enables you to manage Azure IoT Hub resources, Device Provisioning service instances, and linked-hubs out of the box.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI is available on Windows, Linux, and macOS. Azure CLI enables you to manage Azure IoT Hub resources, Device Provisioning service instances, and linked-hubs out of the box.
 
 The IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
@@ -47,7 +48,7 @@ Complete the installation steps described previously before you begin. If you do
 az login
 ```
 
-![login](./media/how-to-manage-dps-with-cli/login.jpg)
+![Screenshot shows a command prompt window that runs the command az login.](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### 2. Create a resource group IoTHubBlogDemo in eastus
 

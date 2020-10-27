@@ -53,6 +53,7 @@ The different documents of HANA Large Instance guidance cover the following area
 - [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [High availability set up in SUSE by using the STONITH](./ha-setup-with-stonith.md)
 - [OS backup and restore for Type II SKUs of Revision 3 stamps](./os-backup-type-ii-skus.md)
+- [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Next steps**
 - Refer [Know the terms](hana-know-terms.md)

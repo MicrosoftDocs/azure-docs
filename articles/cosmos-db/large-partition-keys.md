@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
+ms.custom: devx-track-csharp
 ---
 
 # Create containers with large partition key
@@ -77,4 +78,4 @@ Currently, you cannot use containers with large partition key within in Power BI
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](account-overview.md)
+* [Work with Azure Cosmos account](./account-databases-containers-items.md)

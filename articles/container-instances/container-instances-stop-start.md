@@ -2,11 +2,13 @@
 title: Manually stop or start container group
 description: Learn how to manually stop or start a container group in Azure Container Instances.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/11/2020
 ---
 # Manually stop or start containers in Azure Container Instances
 
 The [restart policy](container-instances-restart-policy.md) setting of a container group determines how container instances start or stop by default. You can override the default setting by manually stopping or starting a container group.
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## Stop
 

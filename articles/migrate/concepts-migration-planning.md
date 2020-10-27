@@ -15,7 +15,7 @@ This article provides a quick guide to help build your migration plan to Azure w
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [server migration](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+- Get questions answered in the [Azure Migrate forum](https://docs.microsoft.com/answers/topics/azure-migrate.html)
 
 ## Define the goals of cloud migration
 
@@ -146,7 +146,7 @@ Before finalizing your migration plan, ensure that these key migration considera
 
 - Get support for your implementation if required. Many organizations opt for outside help to support their cloud migration. To move to Azure quickly and confidently with personalized assistance, consider an [Azure Expert Managed Service Provider](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF) or [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-Create an effective cloud migration plan that includes detailed information on the list/groups of applications you want to migrate, your app and database availability and downtime constraints, and desired migration milestones. Your migration plan should also factor in how long the data copy will take and include a considerate buffer for post-migration testing and cutover activities. The post-migration testing must include functional, integration, security, and performance testing use cases to ensure that the migrated applications work as expected and all the database objects and data relationships have successfully transferred to the Cloud. The post-migration testing must include functional, integration, security, and performance testing use cases to ensure that the migrated applications work as expected and all the database objects and data relationships have successfully transferred to the Cloud.  
+Create an effective cloud migration plan that includes detailed information on the list/groups of applications you want to migrate, your app and database availability and downtime constraints, and desired migration milestones. Your migration plan should also factor in how long the data copy will take and include a considerate buffer for post-migration testing and cutover activities. The post-migration testing must include functional, integration, security, and performance testing use cases to ensure that the migrated applications work as expected and all the database objects and data relationships have successfully transferred to the Cloud.  
 
 Use this analysis to build a migration roadmap and declare a maintenance window to migrate your applications and databases with minimal to zero downtime and limit the potential operational/business impact during migration.  
 
@@ -161,4 +161,4 @@ Once you are ready to migrate, use Azure Migrate’s *Server Migration tool* and
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
 - [Get started](https://youtu.be/wFfq3YPxYHE) with Azure Migrate.
-- Create an assessment for [VMware VMs](tutorial-assess-vmware.md) or [Hyper-V VMs](tutorial-assess-hyper-v.md).
+- Create an assessment for [VMware VMs](./tutorial-assess-vmware-azure-vm.md) or [Hyper-V VMs](tutorial-assess-hyper-v.md).

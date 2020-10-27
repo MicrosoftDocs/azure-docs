@@ -1,13 +1,9 @@
 ---
 title: How to troubleshoot the Azure Data Lake Analytics U-SQL runtime failures
 description: 'Learn how to troubleshoot U-SQL runtime failures.'
-services: data-lake-analytics
-author: guyhay
-ms.author: guyhay
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.workload: big-data
 ms.date: 10/10/2019
 ---
 # Learn how to troubleshoot U-SQL runtime failures due to runtime changes
@@ -27,7 +23,7 @@ In rare cases, Microsoft Support may pin a different version of a runtime as the
 
 ### Monitoring your jobs U-SQL runtime version
 
-You can see the history of which runtime version your past jobs have used in your account’s job history via the Visual Studio’s job browser or the Azure portal’s job history.
+You can see the history of which runtime version your past jobs have used in your account's job history via the Visual Studio's job browser or the Azure portal's job history.
 
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. Select **View All Jobs**. A list of all the active and recently finished jobs in the account appears.
@@ -36,17 +32,12 @@ You can see the history of which runtime version your past jobs have used in you
 
 ![Displaying the runtime version of a past job](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
 
-The available runtime versions change over time. The default runtime is always called “default” and we keep at least the previous runtime available for some time as well as make special runtimes available for a variety of reasons. Explicitly named runtimes generally follow the following format (italics are used for variable parts and [] indicates optional parts):
+The available runtime versions change over time. The default runtime is always called "default" and we keep at least the previous runtime available for some time as well as make special runtimes available for a variety of reasons. Explicitly named runtimes generally follow the following format (italics are used for variable parts and [] indicates optional parts):
 
 release_YYYYMMDD_adl_buildno[_modifier]
 
 For example, release_20190318_adl_3394512_2 means the second version of the build 3394512 of the runtime release of March 18 2019 and release_20190318_adl_3394512_private means a private build of the same release. Note: The date is related to when the last check-in has been taken for that release and not necessarily the official release date.
 
-The following are the currently available runtime versions.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669 the current default
-- release_20190703_adl_4713356
 
 ## Troubleshooting U-SQL runtime version issues
 

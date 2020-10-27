@@ -253,7 +253,7 @@ Takes a date string from one format and converts it into a different format.
    | Name | Required/ Repeating | Type | Notes |
    | --- | --- | --- | --- |
    | **source** |Required |String |Usually name of the attribute from the source object. |
-   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Required |String |Format of the output date. |
 
 ---

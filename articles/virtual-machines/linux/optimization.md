@@ -29,7 +29,7 @@ To achieve the highest IOps on Premium Storage disks where their cache settings 
 * If you use **XFS**, disable barriers using the mount option `nobarrier` (For enabling barriers, use the option `barrier`)
 
 ## Unmanaged storage account considerations
-The default action when you create a VM with the Azure CLI is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
+The default action when you create a VM with the Azure CLI is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
 
 If you create a VM with unmanaged disks, make sure that you attach disks from storage accounts residing in the same region as your VM to ensure close proximity and minimize network latency.  Each Standard storage account has a maximum of 20k IOps and a 500 TB size capacity.  This  limit works out to approximately 40 heavily used disks including both the OS disk and any data disks you create. For Premium Storage accounts, there is no Maximum IOps limit but there is a 32 TB size limit. 
 
@@ -42,7 +42,38 @@ By default when you create a VM, Azure provides you with an OS disk (**/dev/sda*
 ## Linux Swap Partition
 If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. If you [uploaded a custom Linux image](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that uses cloud-init, you also configure swap partitions using cloud-init.
 
-On Ubuntu Cloud Images, you must use cloud-init to configure the swap partition. For more information, see [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+You can't use the **/etc/waagent.conf** file to manage swap for all images that are provisioned and supported by cloud-init. For the full list of images, see [Using cloud-init](using-cloud-init.md). 
+
+The easiest way to manage swap for these images is to complete these steps:
+
+1. In the **/var/lib/cloud/scripts/per-boot** folder, create a file called **create_swapfile.sh**:
+
+   **$ sudo touch /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+1. Add the following lines to the file:
+
+   **$ sudo vi /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+   ```
+   #!/bin/sh
+   if [ ! -f '/mnt/swapfile' ]; then
+   fallocate --length 2GiB /mnt/swapfile
+   chmod 600 /mnt/swapfile
+   mkswap /mnt/swapfile
+   swapon /mnt/swapfile
+   swapon -a ; fi
+   ```
+
+   > [!NOTE]
+   > You can change the value according to your need and based on the available space in your resource disk, which varies based on the VM size being used.
+
+1. Make the file executable:
+
+   **$ sudo chmod +x /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+1. To create the swapfile, execute the script right after the last step:
+
+   **$ sudo /var/lib/cloud/scripts/per-boot/./create_swapfile.sh**
 
 For images without cloud-init support, VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS. This agent allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
 

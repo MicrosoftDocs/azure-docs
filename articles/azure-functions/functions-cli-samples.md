@@ -5,7 +5,7 @@ description: Azure CLI Samples - Azure Functions
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Azure CLI Samples

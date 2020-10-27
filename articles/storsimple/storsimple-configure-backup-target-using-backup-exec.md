@@ -405,15 +405,15 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 4.  In the **Storage** drop-down list, select the StorSimple volume where you want the archive job to store the data.
 
-    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Screenshot that shows the list where you need to select Storage.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Select **Verify**, and then select the **Do not verify data for this job** check box.
 
-    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Screenshot that shows where you select the Do not verify data for this job option.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Select **OK**.
 
-    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Screenshot that shows the backup definition properties.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  In the **Backup** column, add a new stage. For the source, use **incremental**. For the target, choose the StorSimple volume where the incremental backup job is archived. Repeat steps 1-6.
 
@@ -444,7 +444,7 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1. [Install Azure PowerShell](/powershell/azure/overview).
+1. [Install Azure PowerShell](/powershell/azure/).
 2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
 3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
    ```powershell

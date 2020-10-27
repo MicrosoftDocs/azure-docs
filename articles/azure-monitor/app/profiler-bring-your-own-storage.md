@@ -59,7 +59,7 @@ _Figure 1.1_
 If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### Link your Storage Account with your Application Insights resource
-To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two options:
+To configure BYOS for code-level diagnostics (Profiler/Debugger), there are three options:
 
 * Using Azure PowerShell Cmdlets
 * Using Azure Command Line Interface (CLI)

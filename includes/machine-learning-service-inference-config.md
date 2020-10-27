@@ -44,7 +44,7 @@ You can include full specifications of an Azure Machine Learning [environment](h
                         "pip": [
                             "azureml-defaults",
                             "azureml-telemetry",
-                            "scikit-learn",
+                            "scikit-learn==0.22.1",
                             "inference-schema[numpy-support]"
                         ]
                     }

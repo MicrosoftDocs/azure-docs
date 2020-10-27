@@ -97,7 +97,7 @@ landingContent:
           - text:  Boot configuration update error
             url: ./troubleshoot-vm-boot-configure-update.md
           - text:  VM lifecycle and states
-            url: ../windows/states-lifecycle.md
+            url: ../states-lifecycle.md
 
   # Card
   - title: Unexpected VM restart
@@ -119,13 +119,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text:  Virtual Disks FAQ
-            url: ../windows/faq-for-disks.md
+            url: ../faq-for-disks.md
           - text:  Troubleshoot allocation failures when resizing a VM
             url: ./allocation-failure.md
           - text:  Understanding the temporary drive on your VM
-            url: ../windows/managed-disks-overview.md#temporary-disk
+            url: ../managed-disks-overview.md#temporary-disk
           - text:  Overview of Azure Managed Disks
-            url: ../windows/managed-disks-overview.md
+            url: ../managed-disks-overview.md
 
   # Card
   - title: Disk encryption issues
@@ -145,7 +145,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text:  Troubleshooting shared image galleries-replication is slow
-            url: ../windows/troubleshooting-shared-images.md#replication-is-slow
+            url: ../troubleshooting-shared-images.md#replication-is-slow
         
    # Card
   - title: VM Extension issues

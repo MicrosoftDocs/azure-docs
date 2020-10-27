@@ -25,7 +25,7 @@ and host the docker image in a container registry that is accessible by customer
 - Customer-specific API Keys/Credentials to access the data from the weather partner’s system
 - VM SKU details (Partners can provide this in case their docker has specific VM requirements, otherwise customers can choose from supported VM SKUs in Azure)
 
-Using the above docker information, customer will register a weather partner in their FarmBeats instance. To know more about how customers can use the docker to ingest weather data in FarmBeats, see the guide to [get weather data](https://docs.microsoft.com/azure/industry/agriculture/get-weather-data-from-weather-partner)
+Using the above docker information, customer will register a weather partner in their FarmBeats instance. To know more about how customers can use the docker to ingest weather data in FarmBeats, see the guide to [get weather data](./get-weather-data-from-weather-partner.md)
 
 ## Connector docker development
 
@@ -34,10 +34,10 @@ Using the above docker information, customer will register a weather partner in 
 The FarmBeats APIs contain Swagger technical documentation. For information on all the APIs and their
 corresponding requests or responses, see [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-If you have installed FarmBeats, you can access your FarmBeats swagger at [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+If you have installed FarmBeats, you can access your FarmBeats swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Note that “-api” is appended to your FarmBeats website name.
-The API endpoint will be: [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+The API endpoint will be: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### Datahub lib
 
@@ -69,9 +69,9 @@ To enable customers to authenticate with the partner-side APIs during the docker
    }
 }
 ```
-The API service serializes this dict and stores it in a [KeyVault](https://docs.microsoft.com/azure/key-vault/basic-concepts).
+The API service serializes this dict and stores it in a [KeyVault](../../key-vault/general/basic-concepts.md).
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) is used to orchestrate weather jobs and spins up resources to execute the docker code. It also provides a mechanism to push data securely to the VM where the docker job executes. The API credentials, which are now securely stored in the KeyVault are read as secure strings from the KeyVault and made available as extended properties in the working directory of the docker container as activity.json (path to the file is "/mnt/working_dir/activity.json") The docker code can read the credentials from this file during run-time to access partner-side APIs on behalf of the customer. The credentials will be available in the file as follows:
+[Azure Data Factory](../../data-factory/introduction.md) is used to orchestrate weather jobs and spins up resources to execute the docker code. It also provides a mechanism to push data securely to the VM where the docker job executes. The API credentials, which are now securely stored in the KeyVault are read as secure strings from the KeyVault and made available as extended properties in the working directory of the docker container as activity.json (path to the file is "/mnt/working_dir/activity.json") The docker code can read the credentials from this file during run-time to access partner-side APIs on behalf of the customer. The credentials will be available in the file as follows:
 
 ```json
 { 
@@ -87,7 +87,7 @@ The FarmBeats lib provides helper functions to enable partners to read the crede
 
 The lifetime of the file is only during the docker code execution and will be deleted after the docker run ends.
 
-For more details on how ADF pipelines and activities work, see [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping).
+For more details on how ADF pipelines and activities work, see [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](../../data-factory/copy-activity-schema-and-type-mapping.md).
 
 **HTTP request headers**
 
@@ -133,7 +133,7 @@ This component will be invoked every time a FarmBeats user runs a job of your /J
 
 ### Details of the objects
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Description |
   --- | ---
   Name  | Name of the weather data model |
   Description  | Provide a meaningful description of the model. |
@@ -146,7 +146,7 @@ This component will be invoked every time a FarmBeats user runs a job of your /J
   weatherMeasures > AggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation, Sum, Total
   weatherMeasures > Depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
   weatherMeasures > Description  | Provide a meaningful description of the measurement. |
-  **JobType** |  |
+  **JobType** | **Description** |
   Name  | name of the Job - for example Get_Daily_Forecast; the job that customer will run to get weather data|
   pipelineDetails > parameters > name  | name of the parameter |
   pipelineDetails > parameters > type | either of String, Int, Float, Bool, Array |
@@ -155,7 +155,7 @@ This component will be invoked every time a FarmBeats user runs a job of your /J
   pipelineDetails > parameters > description | Description of the parameter |
   Properties  | Additional properties from the manufacturer.
   Properties > **programRunCommand** | docker run command - this command will be executed when the customer runs the weather job. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Description** |
   weatherDataModelId  | ID of the corresponding WeatherDataModel that was created during bootstrap|
   location  | represents latitude, longitude, and elevation |
   Name | Name of the object |
@@ -179,7 +179,7 @@ The Connector docker should have the ability to send updates on the metadata. Ex
 
 ## Weather Data (Telemetry) specifications
 
-The weather data is mapped to a canonical message that is pushed to an Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send weather data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry, refer to [Sending telemetry to an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+The weather data is mapped to a canonical message that is pushed to an Azure Event Hub for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send weather data to FarmBeats, you will need to create a client that sends messages to an event hub in FarmBeats. To know more about sending telemetry, refer to [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Here's a sample Python code that sends telemetry as a client to a specified event hub.
 

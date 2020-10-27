@@ -19,6 +19,9 @@ ms.author: juliako
 ---
 
 # H264 Multiple Bitrate 720p Audio 5.1
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 `Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs. You can either use a `preset name` to specify into which format you would like to encode your media file. Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding. You would then pass the custom preset to the encoder. For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  This topic shows the `H264 Multiple Bitrate 720p Audio 5.1` preset in XML and JSON format.  

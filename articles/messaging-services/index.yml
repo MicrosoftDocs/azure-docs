@@ -86,13 +86,13 @@ conceptualContent:
     # Card
     - title: Send and receive events
       links:
-        - url: ../event-hubs/get-started-dotnet-standard-send-v2.md
+        - url: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
           itemType: quickstart
           text: Send and receive events from Azure Event Hubs using .NET Core
         - url: ../event-hubs/event-hubs-java-get-started-send.md
           itemType: quickstart
           text: Use Java to send events to or receive events from Azure Event Hubs
-        - url: ../event-hubs/get-started-python-send-v2.md
+        - url: ../event-hubs/event-hubs-python-get-started-send.md
           itemType: quickstart
           text: Send events to or receive events from event hubs by using Python
       # footerLink

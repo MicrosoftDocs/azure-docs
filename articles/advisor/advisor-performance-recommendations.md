@@ -2,7 +2,7 @@
 title: Improve performance of Azure apps with Advisor
 description: Use performance recommendations in Azure Advisor to improve the speed and responsiveness of your business-critical applications.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 07/29/2020
 ---
 
 # Improve the performance of Azure applications by using Azure Advisor
@@ -15,7 +15,7 @@ You can use [time-to-live (TTL) settings](../traffic-manager/traffic-manager-per
 
 Azure Advisor identifies Traffic Manager profiles that have a longer TTL configured. It recommends configuring the TTL to either 20 seconds or 60 seconds, depending on whether the profile is configured for [Fast Failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## Improve database performance by using SQL Database Advisor
+## Improve database performance by using SQL Database Advisor (temporarily disabled)
 
 Azure Advisor provides a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your databases. SQL Database Advisor assesses the performance of your databases by analyzing your usage history. It then offers recommendations that are best suited for running the database's typical workload.
 
@@ -46,32 +46,32 @@ Advisor identifies virtual machines with standard disks that have a high volume 
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. Virtual machine disks that use Premium Storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrate any virtual machine disks that require high IOPS to Premium Storage.
 
-## Remove data skew on your SQL Data Warehouse tables to increase query performance
+## Remove data skew on your Azure Synapse Analytics tables to increase query performance
 
 Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## Create or update outdated table statistics in your SQL Data Warehouse tables to increase query performance
+## Create or update outdated table statistics in your Azure Synapse Analytics tables to increase query performance
 
-Advisor identifies tables that don't have up-to-date [table statistics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) and recommends creating or updating the statistics. The query optimizer in Azure SQL Data Warehouse uses up-to-date statistics to estimate the cardinality or number of rows in query results. These estimates enable the query optimizer to create a query plan to provide the fastest performance.
+Advisor identifies tables that don't have up-to-date [table statistics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) and recommends creating or updating the statistics. The query optimizer in Azure Synapse Analytics uses up-to-date statistics to estimate the cardinality or number of rows in query results. These estimates enable the query optimizer to create a query plan to provide the fastest performance.
 
 ## Improve MySQL connection management
 
 Advisor analysis can indicate that your application connecting to a MySQL server might not be managing connections efficiently. This condition could lead to unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can make these improvements by configuring a server-side connection pooler, like ProxySQL.
 
 
-## Scale up to optimize cache utilization on your SQL Data Warehouse tables to increase query performance
+## Scale up to optimize cache utilization on your Azure Synapse Analytics tables to increase query performance
 
-Azure Advisor detects whether your SQL Data Warehouse tables have a high cache-used percentage and a low hit percentage. This condition indicates high cache eviction, which can affect the performance of your SQL Data Warehouse instance. Advisor recommends that you scale up your SQL Data Warehouse instance to ensure you allocate enough cache capacity for your workload.
+Azure Advisor detects whether your Azure Synapse Analytics tables have a high cache-used percentage and a low hit percentage. This condition indicates high cache eviction, which can affect the performance of your Azure Synapse Analytics instance. Advisor recommends that you scale up your Azure Synapse Analytics instance to ensure you allocate enough cache capacity for your workload.
 
-## Convert SQL Data Warehouse tables to replicated tables to increase query performance
+## Convert Azure Synapse Analytics tables to replicated tables to increase query performance
 
 Advisor identifies tables that aren't replicated tables but that would benefit from conversion. It suggests that you convert these tables. Recommendations are based on:
 - The size of the replicated table. 
 - The number of columns. 
 - The table distribution type. 
-- The number of partitions on the SQL Data Warehouse table. 
+- The number of partitions on the Azure Synapse Analytics table. 
 
-Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse recommendations](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [Azure Synapse Analytics recommendations](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## Migrate your storage account to Azure Resource Manager to get the latest Azure features
 
@@ -137,15 +137,40 @@ Cache instances perform best when they're not running under high memory pressure
 
 ## Add regions with traffic to your Azure Cosmos DB account
 
-Advisor detects Azure Cosmos DB accounts that have traffic from a region that isn't currently configured. It recommends adding that region. Doing so improves latency for requests coming from that region and ensures availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Advisor detects Azure Cosmos DB accounts that have traffic from a region that isn't currently configured. It recommends adding that region. Doing so improves latency for requests coming from that region and ensures availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB.](../cosmos-db/distribute-data-globally.md)
 
 ## Configure your Azure Cosmos DB indexing policy by using custom included or excluded paths
 
-Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](https://aka.ms/cosmosdb/modify-index-policy)
+Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](/azure/cosmos-db/index-policy)
 
 ## Set your Azure Cosmos DB query page size (MaxItemCount) to -1 
 
-Azure Advisor identifies Azure Cosmos DB containers that are using a query page size of 100. It recommends using a page size of -1 for faster scans. [Learn more about MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identifies Azure Cosmos DB containers that are using a query page size of 100. It recommends using a page size of -1 for faster scans. [Learn more about MaxItemCount.](../cosmos-db/sql-api-query-metrics.md)
+
+## Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance
+Azure Advisor analyses the system logs in the past 7 days and identifies if your cluster has encountered the following scenarios:
+1. High WAL sync time latency 
+2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
+
+These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase. The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications. 
+To read more on this feature, [learn more](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## Review Azure Data Explorer table cache-period (policy) for better performance (Preview)
+This recommendation surfaces Azure Data Explorer tables which have a high number of queries that look back beyond the configured cache period (policy) (You will see the top 10 tables by query percentage that access out-of-cache data). The recommended action to improve the cluster's performance: Limit queries on this table to the minimal necessary time range (within the defined policy). Alternatively, if data from the entire time range is required, increase the cache period to the recommended value.
+
+## Improve performance by optimizing MySQL temporary-table sizing
+Advisor analysis indicates that your MySQL server may be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This may result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions. [Learn more](https://aka.ms/azure_mysql_tmp_table)
+
+## Distribute data in server group to distribute workload among nodes
+Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
+
+## Improve user experience and connectivity by deploying VMs closer to Windows Virtual Desktop deployment location
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience. [Learn more about connection latency here](../virtual-desktop/connection-latency.md).
+
+## Upgrade to the latest version of the Immersive Reader SDK
+We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
+Learn more about [Immersive reader SDK](../cognitive-services/immersive-reader/index.yml).
+
 
 ## How to access performance recommendations in Advisor
 
@@ -159,6 +184,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor cost recommendations](advisor-cost-recommendations.md)
 * [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)

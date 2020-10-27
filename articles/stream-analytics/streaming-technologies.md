@@ -50,4 +50,4 @@ Azure Stream Analytics is Microsoft's proprietary technology and is only availab
 * [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 * [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Create a Stream Analytics job by using Visual Studio Code](quick-create-vs-code.md)
+* [Create a Stream Analytics job by using Visual Studio Code](quick-create-visual-studio-code.md)

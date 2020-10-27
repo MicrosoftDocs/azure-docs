@@ -60,9 +60,9 @@ landingContent:
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
           - text: Using C# SDK
-            url: sdk-authoring.md?pivots=programming-language-csharp
+            url: azure-sdk-quickstart.md?pivots=programming-language-csharp
           - text: Using Python SDK
-            url: sdk-authoring.md?pivots=programming-language-python
+            url: azure-sdk-quickstart.md?pivots=programming-language-python
 
       - linkListType: how-to-guide
         links:
@@ -91,7 +91,7 @@ landingContent:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
           - text: Using SDK
-            url: sdk-authoring.md
+            url: azure-sdk-quickstart.md
 
       - linkListType: how-to-guide
         links:
@@ -111,7 +111,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using SDK
-            url: sdk-query-prediction-endpoint.md
+            url: azure-sdk-quickstart.md
       - linkListType: quickstart
         links:
           - text: With C# using REST
@@ -141,11 +141,9 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: Troubleshooting
-            url: troubleshooting.md
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/LUIS
-          - text: Influence service with UserVoice
-            url: https://cognitive.uservoice.com/forums/551524-luis
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
+        - text: Troubleshooting
+          url: troubleshooting.md

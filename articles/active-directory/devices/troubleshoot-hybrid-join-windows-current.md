@@ -27,8 +27,8 @@ For other Windows clients, see the article [Troubleshooting hybrid Azure Active 
 This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
 - Device-based Conditional Access
-- [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
+- [Enterprise roaming of settings](./enterprise-state-roaming-overview.md)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 This document provides troubleshooting guidance to resolve potential issues.
 
@@ -98,7 +98,7 @@ This field indicates whether the device is joined to an on-premises Active Direc
 
 #### WorkplaceJoined : NO
 
-This field indicates whether the device is registered with Azure AD as a personal device (marked as *Workplace Joined*). This value should be **NO** for a domain-joined computer that is also hybrid Azure AD joined. If the value is **YES**, a work or school account was added prior to the completion of the hybrid Azure AD join. In this case, the account is ignored when using the Anniversary Update version of Windows 10 (1607).
+This field indicates whether the device is registered with Azure AD as a personal device (marked as *Workplace Joined*). This value should be **NO** for a domain-joined computer that is also hybrid Azure AD joined. If the value is **YES**, a work or school account was added prior to the completion of the hybrid Azure AD join. In this case, the account is ignored when using Windows 10 version 1607 or later.
 
 #### AzureAdJoined : YES
 

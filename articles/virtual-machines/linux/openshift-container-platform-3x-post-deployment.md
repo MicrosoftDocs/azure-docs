@@ -5,11 +5,11 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Post-deployment tasks

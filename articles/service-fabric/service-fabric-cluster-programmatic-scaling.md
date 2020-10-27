@@ -6,6 +6,7 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
+ms.custom: devx-track-csharp
 ---
 
 # Scale a Service Fabric cluster programmatically 

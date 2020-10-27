@@ -4,6 +4,7 @@ description: Learn how to monitor and diagnose your Service Fabric services on a
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-csharp
 ---
 
 # Monitor and diagnose services in a local Linux machine development setup

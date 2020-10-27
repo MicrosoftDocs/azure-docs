@@ -3,7 +3,7 @@ title: Monitor a new Azure Kubernetes Service (AKS) cluster | Microsoft Docs
 description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers subscription.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Enable monitoring of a new Azure Kubernetes Service (AKS) cluster
@@ -25,7 +25,7 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 
 ## Enable using Terraform
 
-If you are [deploying a new AKS cluster using Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), you specify the arguments required in the profile [to create a Log Analytics workspace](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) if you do not chose to specify an existing one. 
+If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) if you do not chose to specify an existing one. 
 
 >[!NOTE]
 >If you choose to use Terraform, you must be running the Terraform Azure RM Provider version 1.17.0 or above.
@@ -114,3 +114,4 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 * If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
 
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+

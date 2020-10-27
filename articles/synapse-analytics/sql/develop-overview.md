@@ -6,7 +6,7 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -20,8 +20,8 @@ The goal of these articles is to help you develop the optimal technical approach
 ## Key design decisions
 The articles below highlight concepts and design decisions for Synapse SQL development:
 
-|                                                          |   SQL pool   | SQL on-demand |
-| -----------------------------------------------------    | ---- | ---- |
+| Article | SQL pool | SQL on-demand |
+| ------- | -------- | ------------- |
 | [Connections](connect-overview.md)                    | Yes | Yes |
 | [Resource classes and concurrency](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | No |
 | [Transactions](develop-transactions.md)              | Yes | No |
@@ -39,8 +39,8 @@ The articles below highlight concepts and design decisions for Synapse SQL devel
 
 Below you'll find essential articles that emphasize specific coding techniques, tips, and recommendations for development:
 
-|                                            | SQL pool | SQL on-demand |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Article | SQL pool | SQL on-demand |
+| ------- | -------- | ------------- |
 | [Stored procedures](develop-stored-procedures.md)  | Yes                | No                      |
 | [Labels](develop-label.md)                           | Yes                | No                      |
 | [Views](develop-views.md)                             | Yes                | Yes                     |

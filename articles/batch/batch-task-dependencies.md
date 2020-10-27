@@ -3,7 +3,7 @@ title: Create task dependencies to run tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 ms.topic: how-to
 ms.date: 05/22/2017
-ms.custom: H1Hack27Feb2017
+ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 ---
 # Create task dependencies to run tasks that depend on other tasks
 

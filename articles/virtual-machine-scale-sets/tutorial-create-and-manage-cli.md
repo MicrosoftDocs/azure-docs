@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create and manage an Azure virtual machine scale set
+title: 'Tutorial: Create & manage an Azure VM scale set – Azure CLI'
 description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with the Azure CLI

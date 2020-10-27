@@ -13,7 +13,7 @@ ms.custom:
 
 # Getting started with the Azure Maps Power BI visual
 
-<Token>**APPLIES TO:** ![yes](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![yes](media/power-bi-visual/yes.png) Power BI service for designers & developers ![yes](media/power-bi-visual/yes.png) Power BI Desktop ![no](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
+<Token>**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
 
 This article shows how to use the Microsoft Azure Maps visual for Power BI.
 
@@ -30,6 +30,9 @@ The Azure Maps visual connects to cloud service hosted in Azure to retrieve loca
 
 -   Details about the area the map is focused on are sent to Azure to retrieve images needed to render the map canvas (also known as map tiles). 
 -   Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding). 
+-   Telemetry data may be collected on the health of the visual (i.e. crash reports), if the telemetry option in Power BI is enabled.
+
+Other than the scenarios described above, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
 
 You, or your administrator, may need to update your firewall to allow access to the Azure Maps platform which uses the following URL.
 

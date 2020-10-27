@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create and manage an Azure virtual machine scale set
+title: 'Tutorial: Create & manage an Azure VM scale set – Azure PowerShell'
 description: Learn how to use Azure PowerShell to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with Azure PowerShell
@@ -61,6 +61,9 @@ New-AzVmss `
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.
+
+> [!IMPORTANT]
+> If you are unable to connect to your scale set, you may need to create a Network Security Group by adding the *[-SecurityGroupName "mySecurityGroup"](/powershell/module/az.compute/new-azvmss)* parameter.
 
 
 ## View the VM instances in a scale set

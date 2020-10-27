@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
+ms.custom: devx-track-js
 ---
 
 ## Prerequisites
@@ -20,7 +21,7 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 ## Unpack the Speech SDK for JavaScript into that folder
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in five files being unpacked, including `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 The latter file is optional, and is useful for debugging into the SDK code.
 
 ## Create an index.html page

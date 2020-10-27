@@ -127,4 +127,4 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](sql-data-warehouse-restore-points.md)
 - [Learn How to restore to Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Open an Azure Synapse Analytics support request](https://go.microsoft.com/fwlink/?linkid=857950)

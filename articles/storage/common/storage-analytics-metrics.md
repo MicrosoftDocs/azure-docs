@@ -1,6 +1,6 @@
 ---
 title: "Azure Storage Analytics metrics (classic)"
-description: Learn how to use Storage Analytics metrics in Azure Storage.
+description: Learn how to use Storage Analytics metrics in Azure Storage. Learn about transaction and capacity metrics, how metrics are stored, enabling metrics, and more.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
+ms.custom: "monitoring, devx-track-csharp"
 ---
 # Azure Storage Analytics metrics (classic)
 
@@ -170,7 +170,10 @@ Consider setting up alerts in the [Azure portal](https://portal.azure.com) so yo
 >
 
 ## Access metrics data programmatically  
-The following listing shows sample C# code that accesses the minute metrics for a range of minutes and displays the results in a console window. The code sample uses the Azure Storage client library version 4.x or later, which includes the **CloudAnalyticsClient** class that simplifies accessing the metrics tables in storage.  
+The following listing shows sample C# code that accesses the minute metrics for a range of minutes and displays the results in a console window. The code sample uses the Azure Storage client library version 4.x or later, which includes the **CloudAnalyticsClient** class that simplifies accessing the metrics tables in storage. 
+
+> [!NOTE]
+> The **CloudAnalyticsClient** class is not included in the Azure Blob storage client library v12 for .NET. On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use classic metrics, we recommend that you transition to metrics in Azure Monitor prior to that date. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

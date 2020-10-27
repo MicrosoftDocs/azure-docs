@@ -1,14 +1,15 @@
 ---
 title: How to secure a single page application with non-interactive sign-in
 titleSuffix: Azure Maps
-description: How to configure a single page application with non-interactive Azure AD Role based access control and Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+description: How to configure a single page application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
+ms.custom: devx-track-js
 ---
 
 # How to secure a single page application with non-interactive sign-in
@@ -30,7 +31,7 @@ Create a secured web service application which is responsible for authentication
 
 3. [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
 
-4. Grant role based access for the system-assigned identity to the Azure Maps account. See [Grant role based access](#grant-role-based-access) for details.
+4. Grant role-based access for the system-assigned identity to the Azure Maps account. See [Grant role-based access](#grant-role-based-access) for details.
 
 5. Write code for the Azure function to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
@@ -94,14 +95,14 @@ Create a secured web service application which is responsible for authentication
         });
     ```
 
-## Grant role based access
+## Grant role-based access
 
-You grant *role-based access control* (RBAC) by assigning the system-assigned identity to one or more Azure role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
+You grant *Azure role-based access control (Azure RBAC)* access by assigning the system-assigned identity to one or more Azure role definitions. To view Azure role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
 
 1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignment**.
 
     > [!div class="mx-imgBorder"]
-    > ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Grant access using Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Function App**. Select the principal by name. Then select **Save**.
 

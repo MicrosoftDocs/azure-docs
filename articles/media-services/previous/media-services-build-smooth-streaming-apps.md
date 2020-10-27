@@ -15,9 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
-# How to Build a Smooth Streaming Windows Store Application  
+# How to Build a Smooth Streaming Windows Store Application
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). For more information, see [Player Framework for Windows 8](https://playerframework.codeplex.com/). 
 
@@ -49,7 +52,7 @@ In this lesson, you will create a Windows Store application with a MediaElement 
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
 
-For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). 
+For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](https://developer.microsoft.com/en-us/windows/). 
 This lesson contains the following procedures:
 
 1. Create a Windows Store project
@@ -1042,4 +1045,3 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

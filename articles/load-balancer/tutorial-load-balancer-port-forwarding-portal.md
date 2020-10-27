@@ -35,6 +35,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For all steps in this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
+## Prerequisites
+
+* An Azure subscription.
+
 ## Create a Standard load balancer
 
 First, create a public Standard load balancer that can balance traffic load over VMs. A Standard load balancer supports only a Standard public IP address. When you create a Standard load balancer, you also create a new Standard public IP address, which is configured as the load balancer front end and named **LoadBalancerFrontEnd** by default. 

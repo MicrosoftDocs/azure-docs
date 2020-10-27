@@ -6,6 +6,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-csharp
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
@@ -20,7 +21,7 @@ ms.author: erhopf
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 
@@ -85,7 +86,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. Find and replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Find and replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find and replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription.
 
 1. Save the changes to the script.
 

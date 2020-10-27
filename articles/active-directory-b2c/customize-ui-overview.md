@@ -9,7 +9,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 09/24/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -29,7 +30,7 @@ If you use [user flows](user-flow-overview.md), you can change the look of your 
 You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customization for user flows.
 
 > [!TIP]
-> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding (preview)](#company-branding-preview) feature described later in this article.
+> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](#company-branding) feature described later in this article.
 
 ### Custom policies
 
@@ -153,13 +154,11 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 | Multi-factor authentication | Customers can verify their phone numbers (using text or voice) during sign-up or sign-in. |
 | Error | Provides error information to the customer. |
 
-## Company branding (preview)
+## Company branding
 
 You can customize your user flow pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/customize-branding.md).
 
 To customize your user flow pages, you first configure company branding in Azure Active Directory, then you enable it in the page layouts of your user flows in Azure AD B2C.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### Configure company branding
 
@@ -175,7 +174,6 @@ Keep these things in mind when you configure company branding in Azure AD B2C:
 
 * Company branding in Azure AD B2C is currently limited to **background image**, **banner logo**, and **background color** customization. The other properties in the company branding pane, for example those in **Advanced settings**, are *not supported*.
 * In your user flow pages, the background color is shown before the background image is loaded. We recommended you choose a background color that closely matches the colors in your background image for a smoother loading experience.
-* The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
 
 ### Enable branding in user flow pages
 
@@ -183,7 +181,7 @@ Once you've configured company branding, enable it in your user flows.
 
 1. In the left menu of the Azure portal, select **Azure AD B2C**.
 1. Under **Policies**, select **User flows (policies)**.
-1. Select the user flow for which you'd like to enable company branding. Company branding is **not supported** for the *Sign in v1* and *Profile editing v1* user flow types.
+1. Select the user flow for which you'd like to enable company branding. Company branding is **not supported** for the standard *Sign in* and standard *Profile editing* user flow types.
 1. Under **Customize**, select **Page layouts**, and then select the layout you'd like to brand. For example, select **Unified sign up or sign in page**.
 1. For the **Page Layout Version (Preview)**, choose version **1.2.0** or above.
 1. Select **Save**.

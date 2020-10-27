@@ -12,7 +12,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create SQL Server on a Windows virtual machine with Azure PowerShell
@@ -143,13 +144,34 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!TIP]
    > It takes several minutes to create the VM.
 
-## Install the SQL IaaS Agent
+## Register with SQL VM RP 
 
-To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To install the agent on the new VM, run the following command after the VM is created.
+To get portal integration and SQL VM features, you must register with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+To get full functionality, you will need to register with the resource provider in full mode. However, doing so restarts the SQL Server service, so the recommended approach is to register in lightweight mode and then upgrade to full during a maintenance window. 
+
+First, register your SQL Server VM in lightweight mode: 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+Then during a maintenance window, upgrade to full mode: 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## Remote desktop into the VM
 

@@ -39,7 +39,7 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 1. Configure the new trigger with the settings as specified in the table below the image, and then select **Create Function**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Select the timer trigger in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Screenshot shows the New Function page with the Timer Trigger template selected." border="true":::
     
     | Setting | Suggested value | Description |
     |---|---|---|

@@ -1,12 +1,12 @@
 ---
 title: Design Azure Table storage for queries | Microsoft Docs
-description: Design tables for queries in Azure Table storage.
+description: Design tables for queries in Azure Table storage. Choose an appropriate partition key, optimize queries, and sort data for the Table service.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
 ---
 # Design for querying
@@ -32,7 +32,7 @@ The following examples assume the table service is storing employee entities wit
 | *Column name* | *Data type* |
 | --- | --- |
 | **PartitionKey** (Department Name) |String |
-| **RowKey** (Employee Id) |String |
+| **RowKey** (Employee ID) |String |
 | **FirstName** |String |
 | **LastName** |String |
 | **Age** |Integer |
@@ -80,14 +80,14 @@ There are additional considerations in your choice of **PartitionKey** that rela
 ## Optimizing queries for the Table service
 The Table service automatically indexes your entities using the **PartitionKey** and **RowKey** values in a single clustered index, hence the reason that point queries are the most efficient to use. However, there are no indexes other than that on the clustered index on the **PartitionKey** and **RowKey**.
 
-Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee id, or last name. The patterns described in [Table Design Patterns](table-storage-design-patterns.md) address these types of requirement and describe ways of working around the fact that the Table service does not provide secondary indexes:  
+Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee ID, or last name. The patterns described in [Table Design Patterns](table-storage-design-patterns.md) address these types of requirement and describe ways of working around the fact that the Table service does not provide secondary indexes:  
 
 * [Intra-partition secondary index pattern](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 * [Inter-partition secondary index pattern](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 * [Index Entities Pattern](table-storage-design-patterns.md#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
 
 ## Sorting data in the Table service
-The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**.  
+The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee ID value you use as the **RowKey** is an integer value, you should convert employee ID **123** to **00000123**.  
 
 Many applications have requirements to use data sorted in different orders: for example, sorting employees by name, or by joining date. The following patterns address how to alternate sort orders for your entities:  
 

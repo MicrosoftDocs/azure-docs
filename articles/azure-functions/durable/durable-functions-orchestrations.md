@@ -37,7 +37,7 @@ An orchestration's instance ID is a required parameter for most [instance manage
 
 ## Reliability
 
-Orchestrator functions reliably maintain their execution state by using the [event sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) design pattern. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to "dumping" the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
+Orchestrator functions reliably maintain their execution state by using the [event sourcing](/azure/architecture/patterns/event-sourcing) design pattern. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to "dumping" the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
 
 Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript/Python) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action appends to the execution history of the orchestration instance. The history is stored in a storage table. The commit action then adds messages to a queue to schedule the actual work. At this point, the orchestrator function can be unloaded from memory.
 
@@ -47,7 +47,7 @@ When an orchestration function is given more work to do (for example, a response
 > In order for the replay pattern to work correctly and reliably, orchestrator function code must be *deterministic*. For more information about code restrictions for orchestrator functions, see the [orchestrator function code constraints](durable-functions-code-constraints.md) topic.
 
 > [!NOTE]
-> If an orchestrator function emits log messages, the replay behavior may cause duplicate log messages to be emitted. See the [Logging](durable-functions-diagnostics.md#logging) topic to learn more about why this behavior occures and how to work around it.
+> If an orchestrator function emits log messages, the replay behavior may cause duplicate log messages to be emitted. See the [Logging](durable-functions-diagnostics.md#app-logging) topic to learn more about why this behavior occurs and how to work around it.
 
 ## Orchestration history
 
@@ -289,7 +289,7 @@ It isn't possible to pass multiple parameters to an activity function directly. 
 
 # [C#](#tab/csharp)
 
-In .NET you can also use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+In .NET you can also use [ValueTuples](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuples](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

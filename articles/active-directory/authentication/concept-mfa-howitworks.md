@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -63,4 +63,4 @@ To learn about licensing, see [Features and licenses for Azure Multi-Factor Auth
 To see MFA in action, enable Azure Multi-Factor Authentication for a set of test users in the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Enable Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Enable Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

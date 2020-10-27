@@ -9,11 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
-# Send events to a Azure Time Series Insights Gen1 environment by using an event hub
+# Send events to an Azure Time Series Insights Gen1 environment by using an event hub
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -50,9 +53,9 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 ## Add an Azure Time Series Insights instance
 
-In Azure Time Series Insights Gen 2 you can add contextual data to incoming telemetry using the Time Series Model (TSM). In TSM, your tags or signals are refered to as *instances,* and you can store contextual data in *instance fields.* The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about storing data in instance fields read the [Time Series Model](./concepts-model-overview.md) overview.
+In Azure Time Series Insights Gen2, you can add contextual data to incoming telemetry using the Time Series Model (TSM). In TSM, your tags or signals are referred to as *instances,* and you can store contextual data in *instance fields.* The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about storing data in instance fields read the [Time Series Model](./concepts-model-overview.md) overview.
 
-### Create a Azure Time Series Insights event source
+### Create an Azure Time Series Insights event source
 
 1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -68,15 +71,15 @@ In Azure Time Series Insights Gen 2 you can add contextual data to incoming tele
 
     [![Copy the value for the primary key connection string](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL creates and runs simulated windmill devices.
+1. Go to <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. The URL creates and runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
   
     [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Select **Click to start**. 
+1. Select **Click to start**.
 
     > [!TIP]
-    > The windmill simulator also creates JSON you can use as a payload with the [Azure Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > The windmill simulator also creates JSON you can use as a payload with the [Azure Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > The simulator will continue to send data until the browser tab is closed.
@@ -198,6 +201,6 @@ In Azure Time Series Insights Gen 2 you can add contextual data to incoming tele
 
 ## Next steps
 
-- [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
+* [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
 
-- Read more about [IoT Hub device messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Read more about [IoT Hub device messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

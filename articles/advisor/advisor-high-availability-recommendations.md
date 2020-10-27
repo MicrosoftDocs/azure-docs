@@ -2,28 +2,13 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 09/27/2020
 
 ---
 
 # Improve the reliability of your application by using Azure Advisor
 
 Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations from Advisor on the **Reliability** tab of the Advisor dashboard.
-
-## Ensure virtual machine fault tolerance
-
-To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
-
-> [!NOTE]
-> If you choose to create an availability set, you need to add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
-
-## Ensure availability set fault tolerance
-
-To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
-
-## Use managed disks to improve data reliability
-
-Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units aren't resilient to failures to single storage scale units during outages. Advisor identifies these availability sets and recommends migrating to Azure managed disks. This migration will ensure that the disks of the virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
 
 ## Check the version of your Check Point network virtual appliance image
 
@@ -55,7 +40,7 @@ If a Traffic Manager profile is configured for geographic routing, traffic is ro
 
 ## Use soft delete on your Azure storage account to save and recover data after accidental overwrite or deletion
 
-Enable [soft delete](../storage/blobs/soft-delete-overview.md) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
+Enable [soft delete](../storage/blobs/soft-delete-blob-overview.md) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
 
 ## Configure your VPN gateway to active-active for connection resiliency
 
@@ -70,30 +55,45 @@ Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends th
 - Custom Ipsec/IKE policy. 
 - Higher stability and availability.
 
+## Ensure virtual machine fault tolerance (temporarily disabled)
+
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
+
+> [!NOTE]
+> If you choose to create an availability set, you need to add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
+
+## Ensure availability set fault tolerance (temporarily disabled)
+
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
+
+## Use managed disks to improve data reliability (temporarily disabled)
+
+Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units aren't resilient to failures to single storage scale units during outages. Advisor identifies these availability sets and recommends migrating to Azure managed disks. This migration will ensure that the disks of the virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+
 ## Repair invalid log alert rules
 
-Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of a query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor detects log alert rules that have invalid queries specified in their condition section. 
+Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
-Configuring Azure Cosmos DB containers with Lazy indexing mode might affect the freshness of query results. Advisor detects containers configured this way and recommends switching to Consistent mode. [Learn more about indexing policies in Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Configuring Azure Cosmos DB containers with Lazy indexing mode might affect the freshness of query results. Advisor detects containers configured this way and recommends switching to Consistent mode. [Learn more about indexing policies in Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## Configure your Azure Cosmos DB containers with a partition key
 
-Azure Advisor identifies Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It recommends that you migrate these collections to new collections with a partition key definition so that they can be automatically scaled out by the service. [Learn more about choosing a partition key.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identifies Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It recommends that you migrate these collections to new collections with a partition key definition so that they can be automatically scaled out by the service. [Learn more about choosing a partition key.](../cosmos-db/partitioning-overview.md)
 
 ## Upgrade your Azure Cosmos DB .NET SDK to the latest version from NuGet
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from NuGet for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from NuGet for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## Upgrade your Azure Cosmos DB Spark connector to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](../cosmos-db/spark-connector.md)
 
 ## Consider moving to Kafka 2.1 on HDInsight 4.0
 
@@ -106,6 +106,12 @@ Starting July 1, 2020, you won't be able to create new Spark clusters by using S
 ## Enable virtual machine replication
 Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](../site-recovery/azure-to-azure-quickstart.md)
 
+## Upgrade to the latest version of the Azure Connected Machine agent
+The [Azure Connected Machine agent](../azure-arc/servers/manage-agent.md) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
+
+## Do not override hostname to ensure website integrity
+Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
+
 ## How to access high availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -117,6 +123,7 @@ Virtual machines that don't have replication enabled to another region aren't re
 For more information about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor cost recommendations](advisor-cost-recommendations.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)

@@ -1,22 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and 8x8.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate 8x8 with Azure Active Directory 
 * Enable your users to be automatically signed-in to 8x8 with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -45,7 +39,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * 8x8 supports **SP and IDP** initiated SSO
 
-* Once you configure 8x8 you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure 8x8 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -61,7 +55,7 @@ To configure the integration of 8x8 into Azure AD, you need to add 8x8 from the 
 1. In the **Add from the gallery** section, type **8x8** in the search box.
 1. Select **8x8** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for 8x8
+## Configure and test Azure AD SSO for 8x8
 
 Configure and test Azure AD SSO with 8x8 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in 8x8.
 
@@ -136,15 +130,23 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 ### Configure 8x8 Configuration Manager
 
-1. Log in to 8x8 [Configuration Manager](https://vo-cm.8x8.com/).
+1. To automate the configuration within 8x8, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up 8x8** will direct you to the 8x8 application. From there, provide the admin credentials to sign into 8x8. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup 8x8 manually, sign in to 8x8 [Configuration Manager](https://vo-cm.8x8.com/) as an administrator.
 
 1. From the home page click **Identity Management**.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![Screenshot that highlights the Identity Management tile.](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. Check **Single Sign On (SSO)** then select **Microsoft Azure AD**.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![Screenshot that highlights the Single Sign on (SSO) and Microsoft Azure AD options.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Copy the three URLs and signing certificate from the **Set up Single Sign-On with SAML** page in Azure AD into the **Microsoft Azure AD SAML Settings** section in 8x8 Configuration Manager.
 
@@ -166,23 +168,23 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 1. Select **Virtual Office Account Mgr** on Application Panel.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Screenshot that highlights the Virtual Office Account Mgr tile.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. Select **Business** account to manage and click **Sign In** button.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![Screenshot that highlights the Business option and Sign In button.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Click **ACCOUNTS** tab in the menu list.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![Screenshot that highlights the ACCOUNTS tab in the menu list.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. Click **Single Sign On** in the list of Accounts.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Screenshot that highlights the Single Sign On option.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Select **Single Sign On** under Authentication methods and click **SAML**.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Screenshot that highlights the SAML under Single Sign On.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. In the **SAML Single Sign on** section, perform the following steps:
 
@@ -206,18 +208,18 @@ In this section, you create a user called Britta Simon in 8x8. Work with [8x8 su
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the 8x8 tile in the Access Panel, you should be automatically signed in to the 8x8 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the 8x8 tile in the Access Panel, you should be automatically signed in to the 8x8 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try 8x8 with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect 8x8 with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect 8x8 with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

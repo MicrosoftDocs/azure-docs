@@ -17,7 +17,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Managing Media Services entities with REST  
+# Managing Media Services entities with REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
@@ -145,7 +147,7 @@ Host: media.windows.net
 ```
 
 ## Updating entities
-Depending on the entity type and the state that it is in, you can update properties on that entity through a PATCH, PUT, or MERGE HTTP requests. For more information about these operations, see [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Depending on the entity type and the state that it is in, you can update properties on that entity through a PATCH, PUT, or MERGE HTTP requests. For more information about these operations, see [PATCH/PUT/MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 The following code example shows how to update the Name property on an Asset entity.
 
@@ -186,4 +188,3 @@ Content-Length: 0
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

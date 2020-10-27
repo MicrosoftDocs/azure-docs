@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, srbozovi, bonova
+ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
 ---
 # Quickstart: Configure an Azure VM to connect to Azure SQL Managed Instance
@@ -68,7 +68,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
 1. Make sure that you're signed in to the Azure portal in another browser tab. Then, select the following button to create a client virtual machine and install SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Fill out the form using the information in the following table:
 
@@ -104,7 +104,7 @@ The following steps show you how to connect to your newly created virtual machin
 
 1. After deployment completes, go to the virtual machine resource.
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![Screenshot shows the Azure portal with the Overview page for a virtual machine selected and Connect highlighted.](./media/connect-vm-instance-configure/vm.png)  
 
 2. Select **Connect**.
 

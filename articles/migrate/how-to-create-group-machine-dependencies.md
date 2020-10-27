@@ -26,7 +26,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
-    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
     - You can associate a new or existing Log Analytics workspace with an Azure Migrate project.
     - You attach the workspace the first time that you set up dependency visualization for a machine. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
@@ -77,9 +77,9 @@ To install the agent on a Windows machine:
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://www.intigua.com/intigua-for-azure-migration).
-- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) about using these methods to install the MMA agent.
+- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
 - The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
-- [Learn more](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) about the Windows operating systems supported by MMA.
+- [Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the Windows operating systems supported by MMA.
 
 ### Install MMA on a Linux machine
 
@@ -90,7 +90,7 @@ To install the MMA on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Learn more](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) about the list of Linux operating systems support by MMA. 
+[Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA. 
 
 ## Install the Dependency agent
 
@@ -99,7 +99,7 @@ To install the MMA on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 - [Learn more](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
 
@@ -203,5 +203,3 @@ VMConnection
 ## Next steps
 
 [Create an assessment](how-to-create-assessment.md) for a group.
-
-

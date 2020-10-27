@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ---
 
@@ -24,7 +24,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a baseline model?**
 
-**A**: First, get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
+**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
 
 **Q: Do I always need to build a custom speech model?**
 
@@ -70,7 +70,7 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **Q: Are my requests throttled?**
 
-**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
+**A**: See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 **Q: How am I charged for dual channel audio?**
 
@@ -80,52 +80,14 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 > If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Increasing concurrency
+See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
-**Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
-
-**A**: You can scale up your model in increments of 20 concurrent requests.
-
-With the required information, create a support request in the [Azure support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Do not post the information on any of the public channels  (GitHub, Stackoverflow, ...) mentioned on the [support page](support.md).
-
-To increase concurrency for a ***custom model***, we need the following information:
-
-- The region where the model is deployed,
-- the endpoint ID of the deployed model:
-  - Got to the [Custom Speech Portal](https://aka.ms/customspeech),
-  - sign in (if necessary),
-  - select your project and deployment,
-  - select the endpoint you need the concurrency increase for,
-  - copy the `Endpoint ID`.
-
-To increase concurrency for a ***base model***, we need the following information:
-
-- The region of your service,
-
-and either
-
-- an access token for your subscription (see [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
-
-or
-
-- the Resource ID for your subscription:
-  - Go to the [Azure portal](https://portal.azure.com),
-  - select `Cognitive Services` in the search box,
-  - from the displayed services pick the Speech service you want the concurrency increased for,
-  - display the `Properties` for this service,
-  - copy the complete `Resource ID`.
-  
-**Q: Does increasing my concurrency limit increase my cost?**
-
-**A**: No, cost is based on usage. Increasing concurrency does not lead to higher costs. See our [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details on cost. 
-  
->[!NOTE]
->[Containers](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) do not require increases to concurrency limits, as containers are constrained only by the CPUs of the hardware they are hosted on.
 
 ## Importing data
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
 
-**A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload.
+**A**: The limit is due to the restriction on the size of a file for HTTP upload. See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md) for the actual limit.
 
 **Q: Can I zip my text files so I can upload a larger text file?**
 
@@ -186,17 +148,17 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **A**: Uploading a list of words will add the words to the vocabulary, but it won't teach the system how the words are typically used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they are used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better.
 
-## Tenant Model (Custom Speech with Office 365 data)
+## Tenant Model (Custom Speech with Microsoft 365 data)
 
 **Q: What information is included in the Tenant Model, and how is it created?**
 
-**A:** A Tenant Model is built using [public group](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
+**A:** A Tenant Model is built using [public group](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
 
 **Q: What speech experiences are improved by the Tenant Model?**
 
-**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using the Speech service; that also pass a user AAD token indicating membership to the enterprise.
+**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using the Speech service; that also pass a user Azure AD token indicating membership to the enterprise.
 
-The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech service applications.
+The speech experiences built into Microsoft 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech service applications.
 
 ## Next steps
 
