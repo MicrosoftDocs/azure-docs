@@ -153,7 +153,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
    ![Add new managed identity](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. Provide information about your managed identity, and then select **Create**, for example:
+1. Provide information about your managed identity, and then select **Review + Create**, for example:
 
    ![Create user-assigned managed identity](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
@@ -165,7 +165,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
    | **Location** | Yes | <*Azure-region*> | The Azure region where to store information about your resource. This example uses "West US". |
    |||||
 
-   Now you can add the user-assigned identity to your logic app. You can't add more than one user-assigned identity to your logic app.
+   After validating these details, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app. You can't add more than one user-assigned identity to your logic app.
 
 1. In the Azure portal, find and open your logic app in Logic App Designer.
 
