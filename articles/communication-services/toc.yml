@@ -84,6 +84,8 @@
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
 - name: Samples
   items:
   - name: Group calling hero sample
@@ -105,4 +107,4 @@
 - name: Resources
   items:
   - name: Release notes
-    href: https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md
+    href: https://github.com/Azure/Communication/blob/master/releasenotes
