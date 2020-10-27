@@ -1,4 +1,4 @@
-- name: Azure Stack Edge Pro and Data Box Gateway Documentation 
+- name: Azure Stack Edge Pro Documentation 
   href: /azure/databox-online/
   expanded: true
 - name: Azure Stack Edge Pro - GPU
