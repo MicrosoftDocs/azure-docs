@@ -64,13 +64,18 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 ## Restrict your storage account to a virtual network (preview)
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints.  To setup a function with a storage account secured with service endpoints:
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This preview feature currently only works with Windows Premium plans in West Europe.  To setup a function with a storage account restricted to a private network:
+
+> [!NOTE]
+> Restricting the storage account only currently works for Premium functions using Windows in West Europe
 
 1. Create a function with a storage account that does not have service endpoints enabled.
 1. Configure the function to connect to your virtual network.
 1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
-1. Enable service endpoints for the storage account.  Be sure to enable the subnet dedicated to your function apps for this service endpoint.
+1. Enable service endpoints or private endpoint for the storage account.  
+    * Be sure to enable the subnet dedicated to your function apps if using a service endpoint.
+    * Be sure to create a DNS record and configure your app to [work with private endpoint endpoints](#azure-dns-private-zones) if using private endpoint.
 1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
 1. Copy the connection string for this storage account.
 1. Update the **Application Settings** under **Configuration** for the function app to the following:
@@ -78,7 +83,6 @@ When you create a function app, you must create or link to a general-purpose Azu
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
     - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
     - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
-    - Create a new setting with the name `WEBSITE_CONTENTSKIPVALIDATION` and a value of `1`.
 1. Save the application settings.  
 
 The function app will restart and will now be connected to a secured storage account.
