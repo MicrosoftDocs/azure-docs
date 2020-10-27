@@ -13,6 +13,8 @@ ms.author: alkohli
 
 # Configure business continuity and disaster recovery for Azure Stack Edge VPN
 
+[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+
 This article describes how to configure business continuity and disaster recovery (BCDR) on a virtual private network (VPN) configured on an Azure Stack Edge device.
 
 This article applies to both Azure Stack Edge Pro R and Azure Stack Edge Mini R device.
