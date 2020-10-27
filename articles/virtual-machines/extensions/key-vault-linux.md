@@ -239,13 +239,22 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 Symbolic links or Symlinks are basically advanced shortcuts. A symbolic link will appear to be the same as the original file or folder it’s pointing at, even though it’s just a link. You can use symlinks to avoid monitoring the folder and get latest certificate automatically.
 
 You can implement the symlink `([VaultName].[ GetCertificateName])` for Linux to point it to the latest version of certificate PEM file in the Linux.
-```string_t CertificateLinkName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName();```
+
+```
+string_t CertificateLinkName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName();
+```
 
 The actual certificate file name will have version on it like below:
-```string_t CertificateFileName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName() + "." + certificate.GetVersionGuidString() + "." +  boost::lexical_cast<std::string>(certificate.GetNotBeforeAsUnixTime()) + "." +  boost::lexical_cast<std::string>(certificate.GetNotAfterAsUnixTime()) + ".PEM";```
+
+```
+string_t CertificateFileName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName() + "." + certificate.GetVersionGuidString() + "." +  boost::lexical_cast<std::string>(certificate.GetNotBeforeAsUnixTime()) + "." +  boost::lexical_cast<std::string>(certificate.GetNotAfterAsUnixTime()) + ".PEM";
+```
 
 For creating a symlink, use following syntax in terminal window:
+
+```
 ln -s <path to the file to be linked> <the path of the link to be created>
+```
 
 ### Frequently Asked Questions
 
