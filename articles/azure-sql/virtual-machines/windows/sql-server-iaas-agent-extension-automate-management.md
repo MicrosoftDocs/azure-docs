@@ -23,7 +23,7 @@ ms.custom: "seo-lt-2019"
 
 The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
-This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md),  or [VMs in bulk](sql-vm-resource-provider-bulk-register). 
+This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md),  or [VMs in bulk](sql-vm-resource-provider-bulk-register.md). 
 
 ## Overview
 
@@ -96,7 +96,7 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 To install the extension, register the SQL Server VM with the resource provider:
 - [Automatically for all current and future VMs in a subscription](sql-vm-resource-provider-automatic-registration.md)
 - [For a single VM](sql-vm-resource-provider-register.md)
-- [For multiple VMs in bulk](sql-vm-resource-provider-bulk-register)
+- [For multiple VMs in bulk](sql-vm-resource-provider-bulk-register.md)
 
 
 
@@ -147,6 +147,6 @@ You can also use the **Remove-AzVMSqlServerExtension** Azure Powershell cmdlet:
 
 ## Next steps
 
-To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md), or [VMs in bulk](sql-vm-resource-provider-bulk-register).
+To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md), or [VMs in bulk](sql-vm-resource-provider-bulk-register.md).
 
 For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).
