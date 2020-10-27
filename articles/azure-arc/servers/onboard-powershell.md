@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure using PowerShell
 description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc enabled servers using PowerShell.
-ms.date: 10/21/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
 ---
 
@@ -41,7 +41,7 @@ When the installation completes, the following message is returned:
 
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign in.
 
-    To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command::
+    To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
 
     ```azurepowershell
     Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
@@ -54,6 +54,41 @@ When the installation completes, the following message is returned:
     ```
 
     If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows at *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*, and on Linux at */var/opt/azcmagent/log/himds.log*.
+
+## Install the agent and connect to Azure using PowerShell remoting
+
+Instead of interactively installing the Conencted Machine agent and registering the Windows server with Azure Arc, you can use [PowerShell remoting](/powershell/scripting/learn/ps101/08-powershell-remoting).
+
+PowerShell remoting must be enabled on the remote computer. Use the `Enable-PSRemoting` cmdlet to enable PowerShell remoting.
+
+> [!NOTE]
+> This method is only supported on Windows.
+
+1. Open a PowerShell console as an Administrator.
+
+2. Sign into Azure by running the command `Connect-AzAccount`.
+
+3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign in.
+
+To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
+
+```azurepowershell
+$session = Connect-PSSession -ComputerName myMachineName
+Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+```
+
+The following example is the results of the command:
+
+```azurepowershell
+time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=978ab182-6cf0-4de3-a58b-53c8d0a3236a
+
+Name           Location OSName   Status     ProvisioningState
+----           -------- ------   ------     -----------------
+myMachineName  eastus   windows  Connected  Succeeded
+```
 
 ## Verify the connection with Azure Arc
 
