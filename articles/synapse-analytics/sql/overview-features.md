@@ -74,8 +74,8 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | **Users** |  N/A (only contained users are supported in databases) | Yes |
 | **[Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Yes. **Note:** only one Azure AD user can be unrestricted admin | Yes |
 | **SQL username/password authentication**| Yes | Yes |
-| **Azure Active Directory (AAD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users |
-| **Storage Azure Active Directory (AAD) passthrough authentication** | Yes | Yes |
+| **Azure Active Directory (Azure AD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users |
+| **Storage Azure Active Directory (Azure AD) passthrough authentication** | Yes | Yes |
 | **Storage SAS token authentication** | No | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) or instance-level [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). |
 | **Storage Access Key authentication** | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
 | **Storage [Managed Identity](../security/synapse-workspace-managed-identity.md) authentication** | Yes, using [Managed Service Identity Credential](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Yes, using `Managed Identity` credential. |
@@ -98,7 +98,7 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | **[Firewall rules](../security/synapse-workspace-ip-firewall.md)**| Yes | Yes |
 | **[Private endpoint](../security/synapse-workspace-managed-private-endpoints.md)**| Yes | Yes |
 
-SQL pool and SQL on-demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](/sql/t-sql/language-reference).
+Dedicated SQL pool and serverless SQL pool use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](/sql/t-sql/language-reference).
 
 ## Tools
 
@@ -113,7 +113,7 @@ You can use various tools to connect to Synapse SQL to query data.
 | **SQL Server Management Studio** | Yes | Yes, version 18.5 or higher |
 
 > [!NOTE]
-> You can use SSMS to connect to SQL on-demand (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
+> You can use SSMS to connect to serverless SQL pool (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
 
 Most of the applications use standard Transact-SQL language can query both provisioned and serverless consumption models of Synapse SQL.
 
@@ -145,7 +145,7 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | No | No |
 
 ## Next steps
-Additional information on best practices for SQL pool and SQL on-demand can be found in the following articles:
+Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
 
-- [Best Practices for SQL pool](best-practices-sql-pool.md)
-- [Best practices for SQL on-demand](best-practices-sql-on-demand.md)
+- [Best Practices for dedicated SQL pool](best-practices-sql-pool.md)
+- [Best practices for serverless SQL pool](best-practices-sql-on-demand.md)
