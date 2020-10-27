@@ -70,7 +70,7 @@
     href: my-account-portal-sign-ins-page.md
   - name: Change your portal settings
     href: my-account-portal-settings.md
-    name: Switch organizations
+  - name: Switch organizations
     href: cross-tenant-switcher.md
 - name: Security info help
   items:
