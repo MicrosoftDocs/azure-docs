@@ -16,7 +16,7 @@ This article provides information on the usage dashboard in Partner Center. This
 To access the usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under **Commercial Marketplace**.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).
 
 ## Usage dashboard
 
@@ -114,10 +114,10 @@ If you have multiple offers that use custom meters, the metered billing usage re
 
 ## Next Steps
 
-- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](./summary-dashboard.md).
 - For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and reviews dashboard in commercial marketplace analytics](./partner-center-portal/ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).

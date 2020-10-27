@@ -11,12 +11,12 @@ ms.author: mingshen
 
 # Summary dashboard in commercial marketplace analytics
 
-This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
+This article provides information on the **Summary** dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
-To access the Summary dashboard, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
+To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
 
 ## Summary dashboard
 
@@ -92,7 +92,7 @@ Note the following:
 - The heatmap has a supplementary grid to view the details of customer count, order count, and normalized usage hours for the specific location.
 - You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by selecting the **Home** button in the map.
 
-> [!NOTE]
+> [!TIP]
 > You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by selecting the “thumbs up” or “thumbs down” icon.
 
 ## Next steps
