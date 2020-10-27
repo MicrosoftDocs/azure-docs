@@ -11,7 +11,7 @@ ms.date: 10/26/2020
 
 # Tutorial: Use Catalog insights
 
-Catalog Insights is a collection of six reports - asset, scan, glossary, classifications, labeling, and file extensions. Catalog Insights provides value to the data consumers and data producers who are managing their data estate through Babylon.
+Catalog Insights is a collection of six reports - asset, scan, glossary, classifications, labeling, and file extensions. Catalog Insights provides value to the data consumers, data producers, and security administrators who are managing their data estate through Babylon.
 
 In this tutorial, learn about:
 * Asset Insights
@@ -70,12 +70,14 @@ Sign in to the [Azure portal](https://portal.azure.com).
     
     |Option  |Description  |
     |---------|---------|
-    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
-    |**Overall statistics**     | Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.        |
-    |**Top classifications**     |  Use the **Top classifications** graph to view the most commonly used classifications found in your content, such as credit card numbers or national identification numbers.       |
-    | | |
+    |**Time selector**     | Adjust the time selectors as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
+    |**Total sources with classified data**  |Use the **Total sources with classified data** graph to view the numbers of classified data found in various sources, over the last 30 days. |
+    | **Top classification categories by sources** |Use the **Top classification categories by sources** graph to view the number of sources that contain top classification categories |
+    |**Top classifications**     |  Use the **Top classifications** graphs for files and tables to view the most commonly used classifications found in your content, such as credit card numbers or national identification numbers.       |
+    |**Classification activity** | Use the **Classified data (daily activity)** graphs to view the number of classified files found for files and tables over time. |
 
-1. Click **View all classifications** to drill down further. 
+1. Click **View report details** to drill down further. 
 
     On the detailed classification report, use the following methods to modify the data displayed:
     
