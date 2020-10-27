@@ -121,7 +121,7 @@ Use the following procedure:
 1. In Azure portal, click  **Alerts**.
 2. In the top pane, click  **Manage Actions**. The **Add action group** window appears.
 
-    ![Action Groups](media/itsmc-overview/action-groups.png)
+    [![Action Groups](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. Select the **Subscription** and **Resource Group** where you want to create your action group. Provide **Action Group Name** and **Display Name** for your action group. Click on **Next: Notifications**.
 
@@ -131,7 +131,7 @@ Use the following procedure:
 5. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click on the pen that represents **Edit details**.
 6. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
 
-    ![ITSM Action details](media/itsmc-overview/itsm-action-details.png)
+    ![ITSM Action details](media/itsmc-overview/itsm-action-configuration.png)
 
 7. Select **Work Item** type from the drop-down menu.
 
