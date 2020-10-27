@@ -1,5 +1,5 @@
 ---
-title: live events and Live Outputs concepts in Azure Media Services v3
+title: live events and live outputs concepts in Azure Media Services v3
 titleSuffix: Azure Media Services
 description: This topic provides an overview of live events and live outputs in Azure Media Services v3.
 services: media-services
@@ -17,20 +17,20 @@ ms.date: 10/23/2020
 ms.author: inhenkel
 
 ---
-# live events and Live Outputs in Media Services
+# Live events and live outputs in Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services lets you deliver live events to your customers on the Azure cloud. To set up your live streaming events in Media Services v3, you need to understand the concepts discussed in this article.
 
 > [!TIP]
-> For customers migrating from Media Services v2 APIs, the **live event** entity replaces **Channel** in v2 and **Live Output** replaces **Program**.
+> For customers migrating from Media Services v2 APIs, the **live event** entity replaces **Channel** in v2 and **live output** replaces **Program**.
 
-## live events
+## Live events
 
 [live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a live event, a primary and secondary input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmented-MP4) input protocol. For the RTMP ingest protocol, the content can be sent in the clear (`rtmp://`) or securely encrypted on the wire(`rtmps://`). For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`.  
 
-## live event types
+## Live event types
 
 A [live event](/rest/api/media/liveevents) can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). The types are set during creation using [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
@@ -76,8 +76,8 @@ When creating a live event, you can specify the following options:
   * None: Strictly respects the output resolution specified in the encoding preset without considering the pixel aspect ratio or display aspect ratio of the input video.
   * AutoSize:  Overrides the output resolution and changes it to match the display aspect ratio of the input, without padding. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the value in the preset is overridden, and the output will be at 1280x720, which maintains the input aspect ratio of 16:9
   * AutoFit: Pads the output (with either letterbox or pillar box) to honor the output resolution, while ensuring that the active video region in the output has the same aspect ratio as the input. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the output will be at 1280x1280, which contains an inner rectangle of 1280x720 at aspect ratio of 16:9, with pillar box regions 280 pixels wide at the left and right.
-* Streaming protocol (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You can't change the protocol option while the live event or its associated Live Outputs are running. If you require different protocols, create a separate live event for each streaming protocol.
-* Input ID which is a unique identifier for the input.
+* Streaming protocol (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You can't change the protocol option while the live event or its associated live outputs are running. If you require different protocols, create a separate live event for each streaming protocol.
+* Input ID which is a globally unique identifier for the live event input stream.
 * Status hostname prefix which includes none (in which case a random 128 bit hex string will be used), Use live event name, or Use custom name.  When you choose to use a customer name this value is the Custom hostname prefix.
 * You can reduce end-to-end latency between the live broadcast and the playback by setting the input key frame interval, which is the duration (in seconds), of each media segment in the HLS output. The value should be a non-zero integer in the range of 0.5 to 20 seconds.  The value defaults to 2 seconds if *neither* of the input or output key frame intervals are set. The key frame interval is only allowed on pass-through events.
 * When creating the event, you can set it to autostart. <br/>When autostart is set to true, the live event will be started after creation. The billing starts as soon as the live event starts running. You must explicitly call Stop on the live event resource to halt further billing. Alternatively, you can start the event when you're ready to start streaming.
@@ -85,7 +85,7 @@ When creating a live event, you can specify the following options:
 > [!NOTE}
 > * The max framerate is 30 fps for both Standard and Premium encoding.]
 
-## Standby mode
+## StandBy mode
 
 When you create a live event, you can set it to Standby mode. While the event is in Standby mode, you can edit the Description, the Static hostname prefix and restrict input and preview access settings.  Standby mode is still a billable mode, but is priced differently than when you start a live stream.
 
@@ -107,7 +107,7 @@ Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#
 > [!TIP]
 > To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens and curly brackets (if any). The string will be unique across all live events and its length is guaranteed to be 32.
 
-## live event ingest URLs
+## Live event ingest URLs
 
 Once the live event is created, you can get ingest URLs that you'll provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md).
 
@@ -161,7 +161,7 @@ You can either use non-vanity URLs or vanity URLs.
 `rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
 `rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
-##### Smooth Streaming
+##### Smooth streaming
 
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
@@ -177,27 +177,27 @@ In the following paths, `<live-event-name>` means either the name given to the e
 `rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
 `rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
-##### Smooth Streaming
+##### Smooth streaming
 
 `http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
-## live event preview URL
+## Live event preview URL
 
-Once the live event starts receiving the contribution feed, you can use its preview endpoint to preview and validate that you're receiving the live stream before further publishing. After you've checked that the preview stream is good, you can use the live event to make the live stream available for delivery through one or more (pre-created) Streaming Endpoints. To accomplish this, create a new [Live Output](/rest/api/media/liveoutputs) on the live event.
+Once the live event starts receiving the contribution feed, you can use its preview endpoint to preview and validate that you're receiving the live stream before further publishing. After you've checked that the preview stream is good, you can use the live event to make the live stream available for delivery through one or more (pre-created) Streaming Endpoints. To accomplish this, create a new [live output](/rest/api/media/liveoutputs) on the live event.
 
 > [!IMPORTANT]
 > Make sure that the video is flowing to the preview URL before continuing!
 
-## live event long-running operations
+## Live event long-running operations
 
 For details, see [long-running operations](media-services-apis-overview.md#long-running-operations).
 
-## Live Outputs
+## Live outputs
 
-Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [Live Output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
+Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
 
-For detailed information about Live Outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
+For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
 ## Frequently asked questions
 
