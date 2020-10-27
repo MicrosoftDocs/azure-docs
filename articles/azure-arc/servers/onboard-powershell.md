@@ -29,7 +29,7 @@ When the installation completes, the following message is returned:
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
-## Install and validate the agent
+## Install the agent and connect to Azure
 
 1. Open a PowerShell console with elevated privileges.
 
@@ -51,7 +51,7 @@ When the installation completes, the following message is returned:
 
 If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows at *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*, and on Linux at */var/opt/azcmagent/log/himds.log*.
 
-## Install the agent and connect to Azure using PowerShell remoting
+## Install and connect using PowerShell remoting
 
 Perform the following steps to configure the target Windows server or machine with Azure Arc enabled servers. PowerShell remoting must be enabled on the remote computer. Use the `Enable-PSRemoting` cmdlet to enable PowerShell remoting.
 
