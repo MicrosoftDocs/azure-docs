@@ -62,18 +62,10 @@ GitHub can now authenticate to your function app in Azure.
 
 Setting up the environment is done using a language-specific publish setup action.
 
-|**Language**  |**Setup Action**  |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**ASP.NET**     | `actions/setup-dotnet` |
-|**Java**     | `actions/setup-java` |
-|**JavaScript** | `actions/setup-node` |
-|**Python**     | `actions/setup-python` |
-
-
 # [.NET](#tab/dotnet)
 
-The following example shows the part of the workflow that uses the `actions/setup-dotnet` action to set up the environment:
+.NET (including ASP.NET) uses the the `actions/setup-dotnet` action.  
+The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
     - name: Setup DotNet 2.2.402 Environment
@@ -84,7 +76,8 @@ The following example shows the part of the workflow that uses the `actions/setu
 
 # [Java](#tab/java)
 
-The following example shows the part of the workflow that uses the  `actions/setup-java` action to set up the environment:
+Java uses the  `actions/setup-java` action.  
+The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
     - name: Setup Java 1.8.x
@@ -97,7 +90,8 @@ The following example shows the part of the workflow that uses the  `actions/set
 
 # [JavaScript](#tab/javascript)
 
-The following example shows the part of the workflow that uses the `actions/setup-node` action to set up the environment:
+JavaScript (Node.js) uses the `actions/setup-node` action.  
+The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
 
@@ -109,7 +103,8 @@ The following example shows the part of the workflow that uses the `actions/setu
 
 # [Python](#tab/python)
 
-The following example shows the part of the workflow that uses the `actions/setup-python` action to set up the environment:
+Python uses the `actions/setup-python` action.  
+The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
     - name: Setup Python 3.7 Environment
