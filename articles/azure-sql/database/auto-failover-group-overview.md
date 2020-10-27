@@ -416,6 +416,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Set-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifies configuration of a failover group |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Triggers failover of a failover group to the secondary server |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adds one or more databases to a failover group|
+| [remove-azsqldatabasefromfailovergroup](/powershell/module/az.sql/remove-azsqldatabasefromfailovergroup)|Removes one or more databases from a failover group|
 
 # [Azure CLI](#tab/azure-cli)
 
