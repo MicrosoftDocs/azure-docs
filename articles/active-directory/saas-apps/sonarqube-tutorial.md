@@ -120,7 +120,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your Sonarqube company site as an administrator.
 
-1. Go to the **Administration > Configuration > Security** and then navigate to **SAML**.
+1. Click on **Administration > Configuration > Security** and go to the **SAML Plugin** perform the following steps.
+
+1. Copy the following details from the IdP metadata and paste them into the corresponding text fields in the SonarQube plugin.
+	1. IdP Entity ID
+	2. Login URL
+	3. X.509 Certificate 
+1. Save all the details.
+	![saml plugin IDP](./media/sonarqube-tutorial/sso-idp-metadata.png)
 
 1. On the **SAML** page, perform the following steps:
 
@@ -148,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Sonarqube test user
 
-In this section, you create a user called B.Simon in Sonarqube. Work with [Sonarqube Client support team](https://www.sonarsource.com/support/) to add the users in the Sonarqube platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called B.Simon in Sonarqube. Work with [Sonarqube Client support team](https://www.sonarsource.com/support/) to add the users in the Sonarqube platform. Users must be created and activated before you use single sign-on. 
 
 ## Test SSO 
 
@@ -163,4 +170,3 @@ In this section, you test your Azure AD single sign-on configuration with follow
 ## Next steps
 
 * Once you configure the Sonarqube you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
