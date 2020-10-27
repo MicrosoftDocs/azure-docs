@@ -87,7 +87,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST API**](/rest/api/sql/servers/createorupdate):
 
    Sample request
 
