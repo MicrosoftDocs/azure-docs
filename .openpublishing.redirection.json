@@ -5905,7 +5905,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/templates/cross-resource-group-deployment.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/cross-scope-deployment",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-resource-group",
       "redirect_document_id": false
     },
     {
@@ -6195,7 +6195,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-cross-resource-group-deployment.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/cross-resource-group-deployment",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-resource-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/cross-scope-deployment.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-resource-group",
       "redirect_document_id": false
     },
     {
@@ -42651,6 +42656,10 @@
       "source_path": "articles/monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-managing-nagios-zabbix-scom",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-managing-nagios-zabbix-scom.md",
+      "redirect_url": "/azure/azure-monitor/platform/alert-management-solution"
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md",
