@@ -16,7 +16,7 @@ ms.date: 10/26/2020
 
 # Key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server
 
-The functionality of [Machine Learning Services in Azure SQL Managed Instance (preview)](machine-learning-services-overview.md) is nearly identical to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Following are some key differences.
+The functionality of [Machine Learning Services in Azure SQL Managed Instance (preview)](machine-learning-services-overview.md) is nearly identical to [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning). Following are some key differences.
 
 > [!IMPORTANT]
 > Machine Learning Services in Azure SQL Managed Instance is currently in public preview. To sign up, see [Sign up for the preview](machine-learning-services-overview.md#signup).
@@ -28,13 +28,13 @@ During the preview, the service has the following limitations:
 - Loopback connections do not work (see [Loopback connection to SQL Server from a Python or R script](/sql/machine-learning/connect/loopback-connection)).
 - External Resource pools are not supported.
 - Only Python and R are supported. External languages such as Java cannot be added.
-- Scenarios using the [Message Passing Interface](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) (MPI) are not supported.
+- Scenarios using the [Message Passing Interface](/message-passing-interface/microsoft-mpi) (MPI) are not supported.
 
 In case of a Service Level Objective (SLO) update, update the SLO and raise a support ticket to re-enable the dedicated resource limits for R/Python.
 
 ## Language support
 
-Machine Learning Services in SQL Managed Instance and SQL Server support both Python and R [extensibility framework](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). The key differences are:
+Machine Learning Services in SQL Managed Instance and SQL Server support both Python and R [extensibility framework](/sql/advanced-analytics/concepts/extensibility-framework). The key differences are:
 
 - The initial versions of Python and R are different between Machine Learning Services in SQL Managed Instance and SQL Server:
 
@@ -47,20 +47,21 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
 
 ## Packages
 
-Python and R package management work differently between SQL Managed Instance and SQL Server. The difference is:
+Python and R package management work differently between SQL Managed Instance and SQL Server. These differences are:
 
 - There is no support for packages that depend on external runtimes (like Java) or need access to OS APIs for installation or usage.
+- Packages can perform outbound network calls (change from earlier in the preview). You can set the right outbound security rules at the [Network Security Group](/azure/virtual-network/network-security-groups-overview) level to enable outbound network calls.
 
 For more information about managing Python and R packages, see:
 
-- [Get Python package information](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
-- [Get R package information](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Get Python package information](/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Get R package information](/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
 
 ## Resource governance
 
-It is not possible to limit R resources through [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) and external resource pools.
+It is not possible to limit R resources through [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) and external resource pools.
 
-During the public preview, R resources are set to a maximum of 20% of the SQL Managed Instance resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+During the public preview, R resources are set to a maximum of 20% of the SQL Managed Instance resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](../database/purchasing-models.md).
 
 ### Insufficient memory error
 
@@ -75,5 +76,5 @@ Memory usage depends on how much is used in your R scripts and the number of par
 ## Next steps
 
 - See the overview, [Machine Learning Services in Azure SQL Managed Instance](machine-learning-services-overview.md).
-- To learn how to use Python in Machine Learning Services, see [Run Python scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
-- To learn how to use R in Machine Learning Services, see [Run R scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- To learn how to use Python in Machine Learning Services, see [Run Python scripts](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- To learn how to use R in Machine Learning Services, see [Run R scripts](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
