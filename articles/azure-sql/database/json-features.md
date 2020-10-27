@@ -190,6 +190,4 @@ The collection of orders formatted as a JSON array and provided as a parameter t
 
 To learn how to integrate JSON into your application, check out these resources:
 
-To learn about various scenarios for integrating JSON into your application, see the demos in this [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) or find a scenario that matches your use case in [JSON Blog posts](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).
-
-
+To learn about various scenarios for integrating JSON into your application, see the demos in this [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) or find a scenario that matches your use case in [JSON Blog posts](/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).
