@@ -146,6 +146,9 @@ Create a new method to detect faces. The `DetectFaceExtract` method processes th
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
+> [!TIP]
+> You can also detect faces in a local image. See the [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) methods such as **DetectWithStreamAsync**.
+
 ### Display detected face data
 
 The rest of the `DetectFaceExtract` method parses and prints the attribute data for each detected face. Each attribute must be specified separately in the original face detection API call (in the **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** list). The following code processes every attribute, but you will likely only need to use one or a few.
@@ -195,6 +198,9 @@ Notice that this code defines a variable `sourceImageFileName`. This variable co
 Next, add the following code to create a **Person** object for each person in the Dictionary and add the face data from the appropriate images. Each **Person** object is associated with the same **PersonGroup** through its unique ID string. Remember to pass the variables `client`, `url`, and `RECOGNITION_MODEL1` into this method.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
+
+> [!TIP]
+> You can also create a **PersonGroup** from local images. See the [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) methods such as **AddFaceFromStreamAsync**.
 
 ### Train the PersonGroup
 
