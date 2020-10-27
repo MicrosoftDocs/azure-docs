@@ -33,7 +33,7 @@ Here are the two basic components of a file:
 - **File metadata**: The file metadata has these subcomponents:
    * File attributes like read-only
    * File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
-   * Timestamps, most notably the creation and last-modified timestamps
+   * Timestamps, most notably the creation, and last-modified timestamps
    * An alternative data stream, which is a space to store larger amounts of nonstandard properties
 
 File fidelity in a migration can be defined as the ability to:
