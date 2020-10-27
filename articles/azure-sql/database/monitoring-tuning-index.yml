@@ -84,7 +84,7 @@ landingContent:
           - text: Detectable performance patterns
             url: intelligent-insights-troubleshoot-performance.md
           - text: Intelligent query processing
-            url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+            url: /sql/relational-databases/performance/intelligent-query-processing
       - linkListType: video
         links:
           - text: Intelligent Insights
@@ -104,7 +104,7 @@ landingContent:
           - text: Application and database tuning
             url: performance-guidance.md
           - text: Using Query Store
-            url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+            url: /sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
           - text: Using extended events
             url: xevent-db-diff-from-svr.md
           - text: Hyperscale performance diagnostics
@@ -130,4 +130,4 @@ landingContent:
       - linkListType: video
         links:
           - text: Dynamic scalability
-            url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player  
+            url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player
