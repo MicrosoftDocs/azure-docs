@@ -159,10 +159,10 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Resource Name** | Yes | <*user-assigned-identity-name*> | The name to give your user-assigned identity. This example uses "Fabrikam-user-assigned-identity". |
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for the Azure subscription to use |
-   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the resource group to use. Create a new group, or select an existing group. This example creates a new group named "fabrikam-managed-identities-RG". |
-   | **Location** | Yes | <*Azure-region*> | The Azure region where to store information about your resource. This example uses "West US". |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the resource group to use. Create a new group, or select an existing group. This example creates a new group named `fabrikam-managed-identities-RG`. |
+   | **Region** | Yes | <*Azure-region*> | The Azure region where to store information about your resource. This example uses "West US". |
+   | **Name** | Yes | <*user-assigned-identity-name*> | The name to give your user-assigned identity. This example uses `Fabrikam-user-assigned-identity`. |
    |||||
 
    After validating these details, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app. You can't add more than one user-assigned identity to your logic app.
