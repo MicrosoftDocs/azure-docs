@@ -65,7 +65,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > After you upload these documents, you can still remove some of the documents or upload additional ones.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Screenshot that highlights the Add documents button.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### Analyze your documents
 
