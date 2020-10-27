@@ -46,7 +46,7 @@ Complete these steps to make changes to a plan for an offer that you've already 
 1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
 1. Select the plan **Name**, **Pricing model**, or **Availability**. *Currently, plans are available only in English (United States)*.
 1. Select **Save draft** after making any changes to the plan name, description, or audience availability.
-1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
+1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](../review-publish-offer.md)** page opens and provides a completion status for your updates.
 1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the updated offer is available for you to review and approve.
 
 ## Offer a virtual machine plan at a new price
