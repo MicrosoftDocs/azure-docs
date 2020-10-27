@@ -20,7 +20,7 @@ ms.date: 04/09/2020
 
 This article describes how to configure the Azure-SSIS integration runtime (IR) with Azure SQL Database geo-replication for the SSISDB database. When a failover occurs, you can ensure that the Azure-SSIS IR keeps working with the secondary database.
 
-For more info about geo-replication and failover for SQL Database, see [Overview: Active geo-replication and auto-failover groups](../sql-database/sql-database-geo-replication-overview.md).
+For more info about geo-replication and failover for SQL Database, see [Overview: Active geo-replication and auto-failover groups](../azure-sql/database/auto-failover-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
