@@ -105,7 +105,7 @@ share. (For example, `\\storageaccount.file.core.windows.net\msixshare\appfolder
     -  The **Active** status lets users interact with the package.
     -  The **Inactive** status causes Windows Virtual Desktop to ignore the package and not deliver it to users.
 
-1. When you're done, select **Save**.
+7. When you're done, select **Save**.
 
 ## Prepare the VHD image for Azure
 
@@ -153,7 +153,7 @@ Next, you'll need to publish the apps into the package.
 
 To publish the apps:
 
-1. in the Windows Virtual Desktop resource provider, select the **Application groups** tab.
+1. In the Windows Virtual Desktop resource provider, select the **Application groups** tab.
 
 2. Select the application group you want to publish the apps to.
 
@@ -205,7 +205,7 @@ Next, you'll need to change the MSIX package state to either **Active** or **Ina
 
 To change the package state with the Applications list:
 
-1. Select **MSIX packages**. You should see a list of all existing MSIX packages within the host pool.
+1. Go to your host pool and select **MSIX packages**. You should see a list of all existing MSIX packages within the host pool.
 
 2. Select the MSIX packages whose states you need to change, then select **Change state**.
 
@@ -213,7 +213,7 @@ To change the package state with the Applications list:
 
 To change the package state with an update package:
 
-1. Select **MSIX packages**. You should see a list of all existing MSIX packages within the host pool.
+1. Go to your host pool and select **MSIX packages**. You should see a list of all existing MSIX packages within the host pool.
 
 2. Select the name of the package whose state you want to change from the MSIX package list. This will open the **Update package** tab.
 
@@ -245,7 +245,7 @@ To remove individual MSIX apps from your package:
 
 2. Select the application group you want to remove MSIX apps from.
 
-3. Open the **Applications** tab and select **Applications**.
+3. Open the **Applications** tab.
 
 4. Select the app you want to remove, then select **Remove**.
 
