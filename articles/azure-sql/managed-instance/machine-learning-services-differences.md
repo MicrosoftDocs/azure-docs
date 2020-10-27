@@ -11,7 +11,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 05/27/2020
+ms.date: 10/26/2020
 ---
 
 # Key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server
@@ -49,7 +49,6 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
 
 Python and R package management work differently between SQL Managed Instance and SQL Server. These differences are:
 
-- Packages cannot perform outbound network calls. This limitation is similar to the [default firewall rules for Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, but can't be changed in SQL Managed Instance.
 - There is no support for packages that depend on external runtimes (like Java) or need access to OS APIs for installation or usage.
 
 For more information about managing Python and R packages, see:
