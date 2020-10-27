@@ -299,6 +299,8 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: CheckProof
+        href: checkproof-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -1508,6 +1510,8 @@
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
+      - name: Sentry
+        href: sentry-tutorial.md
       - name: Sequr
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions

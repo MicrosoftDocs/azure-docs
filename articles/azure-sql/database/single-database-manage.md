@@ -4,7 +4,7 @@ description: Learn about creating and managing servers and single databases in A
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

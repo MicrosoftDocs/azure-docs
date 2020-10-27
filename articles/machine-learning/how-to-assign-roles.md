@@ -10,7 +10,7 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
+ms.custom: how-to, seodec18, devx-track-azurecli
 
 ---
 

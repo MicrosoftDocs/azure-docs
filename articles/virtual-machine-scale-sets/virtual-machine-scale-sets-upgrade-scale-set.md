@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Modify a virtual machine scale set
