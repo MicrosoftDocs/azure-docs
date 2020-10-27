@@ -13,7 +13,7 @@ ms.date: 10/26/2020
 ms.custom: devx-track-js
 ---
 
-# Quickstart: Create an Azure Cognitive Search index in Node.js using REST APIs
+# Quickstart: Create an Azure Cognitive Search index using the Javascript SDK
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)

@@ -4348,7 +4348,7 @@
     },
     {
       "source_path": "articles/search/search-get-started-nodejs.md",
-      "redirect_url": "azure/search/search-get-started-javascript",
+      "redirect_url": "/azure/search/search-get-started-javascript",
       "redirect_document_id": false
     },
     {
