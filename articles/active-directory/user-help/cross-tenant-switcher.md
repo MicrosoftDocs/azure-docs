@@ -44,7 +44,7 @@ If the organization you selected has additional security requirements, you might
 
 After you switch organizations, all portal pages will reflect the organization you selected.
 
-> [!Note]
+> [!Important]
 >The password you use to sign in to your home organization is the one used to sign you in to other organizations. Please be aware that:
 >
 >- If you're signed in to an organization that isn't your home organization and then select **Password** on the **My Account** Overview page or other places where it appears, you are immediately switched back to your home organization.
