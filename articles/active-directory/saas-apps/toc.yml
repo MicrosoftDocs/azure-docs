@@ -1510,6 +1510,8 @@
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
+      - name: Sentry
+        href: sentry-tutorial.md
       - name: Sequr
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
@@ -1858,6 +1860,8 @@
         href: workboard-tutorial.md
       - name: Workday
         href: workday-tutorial.md
+      - name: Workday Mobile Application
+        href: workday-mobile-tutorial.md
       - name: Workfront
         href: workfront-tutorial.md
       - name: Workgrid

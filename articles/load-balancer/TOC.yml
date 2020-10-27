@@ -110,7 +110,7 @@
     - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
       displayName: ARM
-  - name: Configure TCP idle timeout for Load Balancer
+  - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
