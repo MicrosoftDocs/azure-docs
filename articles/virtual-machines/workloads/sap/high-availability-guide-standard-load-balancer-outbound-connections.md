@@ -160,7 +160,7 @@ The architecture would look like:
    1. Save  
 
    The firewall rule would look like:
-   ![Outbound connection with Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   ![Diagram that shows what the firewall would look like.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Create User Defined Route from the subnet of your VMs to the private IP of **MyAzureFirewall**.
    1. As you are positioned on the Route Table, click Routes. Select Add. 

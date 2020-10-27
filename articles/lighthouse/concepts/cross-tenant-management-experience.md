@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
 ---
 
@@ -65,6 +65,10 @@ Most tasks and services can be performed on delegated resources across managed t
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
+[Azure Blueprints](../../governance/blueprints/index.yml):
+
+- Use Azure Blueprints to orchestrate the deployment of resource templates and other artifacts (requires [additional access](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) to prepare the customer subscription)
+
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
 - From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription.
@@ -72,6 +76,10 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
+
+[Azure Migrate](../../migrate/index.yml):
+
+- Create migration projects in the customer tenant and migrate VMs
 
 [Azure Monitor](../../azure-monitor/index.yml):
 
@@ -151,7 +159,7 @@ Support requests:
 With all scenarios, please be aware of the following current limitations:
 
 - Requests handled by Azure Resource Manager can be performed using Azure Lighthouse. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as Key Vault secrets access or storage data access) aren't supported with Azure Lighthouse. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations.
-- Role assignments must use role-based access control (RBAC) [built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
+- Role assignments must use [Azure built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 - While you can onboard subscriptions that use Azure Databricks, users in the managing tenant can't launch Azure Databricks workspaces on a delegated subscription at this time.
 - While you can onboard subscriptions and resource groups that have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](../../role-based-access-control/deny-assignments.md) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can't create their own deny assignments (user-assigned deny assignments).
 

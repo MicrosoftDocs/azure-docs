@@ -51,9 +51,11 @@ Private Link, which is disabled by default, requires extensive networking knowle
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
-Standard load balancers do not automatically provide the [public outbound NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) like basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
+Standard load balancers do not automatically provide the [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) like basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
 
 ### Prepare your environment
+
+For successgfull creation of private link services, you must explicitly [disable network policies for private link service](../private-link/disable-private-link-service-network-policy.md).
 
 The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is [forced](../firewall/forced-tunneling.md) to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
 

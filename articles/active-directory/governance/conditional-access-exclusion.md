@@ -33,7 +33,7 @@ As another example, you may be using [named locations](../conditional-access/loc
 
 ![Named locations in Conditional Access](./media/conditional-access-exclusion/named-locations.png)
 
-Unfortunately, some users may still have a valid reason to sign in from these blocked countries/regions. For example, users could be traveling for work and need to access corporate resources. In this case, the Conditional Access policy to block these countries/regions could use a cloud security group for the excluded users from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
+Unfortunately, some users may still have a valid reason to sign in from these blocked countries/regions. For example, users could be traveling for work and need to access corporate resources. In this case, the Conditional Access policy to block these countries/regions could use a cloud security group for the excluded users from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../enterprise-users/groups-self-service-management.md).
 
 Another example might be that you have a Conditional Access policy [blocking legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). However, if you have some users that need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that blocks legacy authentication methods.
 

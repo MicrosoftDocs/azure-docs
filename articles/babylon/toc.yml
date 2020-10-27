@@ -29,6 +29,8 @@
       href: starter-kit-tutorial-4.md
     - name: 5 - Glossary terms
       href: starter-kit-tutorial-5.md
+    - name: 6 - Catalog Insights
+      href: starter-kit-tutorial-6.md    
   - name: Use the REST APIs
     href: tutorial-using-rest-apis.md
 #- name: Samples
@@ -40,7 +42,7 @@
     href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
-  - name: Resource Sets
+  - name: Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
@@ -74,6 +76,9 @@
       displayName: Register and scan Azure SQL DB Managed Instance
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
+      displayName: Register and scan Azure Synapse Analytics
+    - name: Register and scan Azure Synapse Analytics
+      href: register-scan-azure-synapse-analytics.md
   - name: Classify
     items: 
     - name: Use classifications
@@ -99,9 +104,11 @@
     - name: Map and discover insights
       href: map-discover.md
     - name: View classification insights
-      href: classification-reporting-data-azure-blob-storage.md
+      href: classification-insights.md
     - name: View sensitivity label insights
-      href: sensitivity-label-reporting-data-azure-blob-storage.md
+      href: sensitivity-insights.md
+    - name: View file extension insights
+      href: file-extension-insights.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Provide feedback

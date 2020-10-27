@@ -342,7 +342,7 @@ In Azure Cosmos DB, the indexing policy can be updated using any of the below me
 An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
 
 > [!NOTE]
-> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. Learn more about [indexing transformations](indexing-policy.md#modifying-the-indexing-policy)
+> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. Learn more about [indexing transformations](index-policy.md#modifying-the-indexing-policy)
 
 ## Use the Azure portal
 
@@ -743,6 +743,13 @@ Update the container with changes
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+
+Retrieve the index transformation progress from the response headers
+```python
+container_client.read(populate_quota_info = True,
+                      response_hook = lambda h,p: print(h['x-ms-documentdb-collection-index-transformation-progress']))
+```
+
 ---
 
 ## Next steps
