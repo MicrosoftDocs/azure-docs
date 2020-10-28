@@ -325,7 +325,7 @@ This behavior also works with nested arrays. For example, the following `count` 
 }
 ```
 
-The power of `count` is in the `where` condition. When it's specified, the policy engine enumerates the array members and evaluate each against the condition, counting how many array members evaluated to `true`. Specifically, in each iteration of the `where` condition evaluation, the policy engine selects a single array member ***i*** and evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. Having only one array member available in each iteration provides a way to apply complex conditions on each individual array member.
+The power of `count` is in the `where` condition. When it's specified, Azure Policy enumerates the array members and evaluate each against the condition, counting how many array members evaluated to `true`. Specifically, in each iteration of the `where` condition evaluation, Azure Policy selects a single array member ***i*** and evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. Having only one array member available in each iteration provides a way to apply complex conditions on each individual array member.
 
 Example:
 ```json
