@@ -16,7 +16,7 @@ ms.custom: subject-security-benchmark
 
 This security
 baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Azure Resource Manager. The Azure Security Benchmark
+1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Resource Manager. The Azure Security Benchmark
 provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Azure Resource Manager. **Controls** not applicable to Azure Resource Manager have been excluded.
@@ -39,7 +39,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable - Azure Resource Manager does not currently support Azure Private Link and Azure Private Endpoints.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Not applicable
 
@@ -50,7 +50,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -61,7 +61,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -72,7 +72,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -83,7 +83,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -94,7 +94,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -105,7 +105,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -116,7 +116,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -127,7 +127,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -138,7 +138,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -149,7 +149,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -164,7 +164,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Resource Manager, for timestamps in the logs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -183,7 +183,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -198,7 +198,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -209,7 +209,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -220,7 +220,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; ARM does not offer separate logging for customers.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -231,7 +231,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data. 
 
-Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -239,7 +239,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -256,7 +256,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 - [How to alert on Log Analytics log data](../azure-monitor/learn/tutorial-response.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -267,7 +267,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Not applicable; Azure Resource Manager does not produce anti-malware related logs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -278,7 +278,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Not applicable; Azure Resource Manager does not produce DNS query logs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -289,7 +289,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -308,7 +308,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -319,7 +319,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Not applicable - Azure Resource Manager does not have the concept of default passwords. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -342,7 +342,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -355,7 +355,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -370,7 +370,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -385,7 +385,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -400,7 +400,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -413,7 +413,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -426,7 +426,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -441,7 +441,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -456,7 +456,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -473,7 +473,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -484,7 +484,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Azure Resource Manager does not store customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -501,7 +501,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -512,7 +512,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure account. There is no public endpoint to protect or isolate.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -525,7 +525,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -538,7 +538,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [Understand data protection in Azure Resource Manager](management/azure-resource-manager-security-controls.md#data-protection)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -549,7 +549,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Azure Resource Manager does not store customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -562,7 +562,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -575,7 +575,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [Azure customer data protection](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -588,7 +588,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [Understand data protection in Azure Resource Manager](management/azure-resource-manager-security-controls.md#data-protection)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -601,7 +601,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -616,7 +616,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Resource Manager.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Microsoft
 
@@ -627,7 +627,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -638,7 +638,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -649,7 +649,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Resource Manager.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -660,7 +660,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Microsoft performs discovered management on the underlying systems that support Azure Resource Manager.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -683,7 +683,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -696,7 +696,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 - [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -720,7 +720,7 @@ More related details are provided below,
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -731,7 +731,7 @@ More related details are provided below,
 
 **Guidance**: Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -748,7 +748,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -759,7 +759,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -770,7 +770,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -781,7 +781,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -801,7 +801,7 @@ More related details are provided below,
 
 - [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -812,7 +812,7 @@ More related details are provided below,
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -825,7 +825,7 @@ More related details are provided below,
 
 - [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -836,7 +836,7 @@ More related details are provided below,
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -847,7 +847,7 @@ More related details are provided below,
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -874,7 +874,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 - [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -885,7 +885,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -906,7 +906,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 - [How to lock resources to prevent unexpected changes](management/lock-resources.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -917,7 +917,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -932,7 +932,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -943,7 +943,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -958,7 +958,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 - [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -969,7 +969,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -982,7 +982,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -993,7 +993,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1004,7 +1004,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Not applicable, ARM doesn't support customer-managed keys or persist customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1015,7 +1015,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Not applicable, ARM doesn't support customer-managed keys or persist customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1032,7 +1032,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1047,7 +1047,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Resource Manager), however it does not run on customer content.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1060,7 +1060,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1071,7 +1071,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1089,7 +1089,7 @@ source/templates and that users redeploy from that source of truth.  Template Ex
 bootstrap that process but isn’t robust enough to count for disaster
 recover.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1100,7 +1100,7 @@ recover.
 
 **Guidance**: Not applicable - Azure Resource Manager template export cannot be used to capture data at REST. For resource configurations, the recommendation would be that infrastructure is created from source/templates and that users redeploy from that source of truth.  Template Export can help bootstrap that process but isn’t robust enough to count for disaster recover.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1113,7 +1113,7 @@ recover.
 
 - [Deploy resources with ARM templates and Azure portal](templates/deploy-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1128,7 +1128,7 @@ recover.
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1149,7 +1149,7 @@ recover.
 
 - [Use NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1160,7 +1160,7 @@ recover.
 
 **Guidance**: Not applicable - Azure Resource Manager does not have specific ASC monitoring for this control.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1173,7 +1173,7 @@ recover.
 
 - [NIST's publication--Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1185,7 +1185,7 @@ recover.
 **Guidance**: 
 Not applicable - Azure Resource Manager does not have specific ASC monitoring for this control.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1200,7 +1200,7 @@ Not applicable - Azure Resource Manager does not have specific ASC monitoring fo
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1213,7 +1213,7 @@ Not applicable - Azure Resource Manager does not have specific ASC monitoring fo
 
 - [How to configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1232,7 +1232,7 @@ Not applicable - Azure Resource Manager does not have specific ASC monitoring fo
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
