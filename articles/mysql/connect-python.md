@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: [mvc, seo-python-october2019, devx-track-python]
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/18/2020
+ms.date: 10/28/2020
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for MySQL
@@ -66,7 +66,7 @@ Get the connection information you need to connect to Azure Database for MySQL f
    
    :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL server name 2":::
 
-## step 1: Create a table and insert data
+## Step 1: Create a table and insert data
 
 Use the following code to connect to the server and database, create a table, and load data by using an **INSERT** SQL statement.The code imports the mysql.connector library, and uses the method:
 - [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function to connect to Azure Database for MySQL using the [arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. 
@@ -131,7 +131,7 @@ else:
 
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
-## Step2 : Read data
+## Step 2: Read data
 
 Use the following code to connect and read the data by using a **SELECT** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
