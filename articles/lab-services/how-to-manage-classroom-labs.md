@@ -102,7 +102,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
-3. Confirm that you see all the labs in the selected lab account. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user (outside the scheduled time).
+
+    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+1. Confirm that you see all the labs in the selected lab account. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user (outside the scheduled time).
 
     ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
 3. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account. 
