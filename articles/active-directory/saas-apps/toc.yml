@@ -1016,6 +1016,8 @@
         href: litmus-tutorial.md
       - name: Learnster
         href: learnster-tutorial.md
+      - name: Lexion
+        href: lexion-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-tutorial.md
       - name: LinkedIn Learning
@@ -1878,6 +1880,8 @@
         href: workstars-tutorial.md
       - name: Workteam
         href: workteam-tutorial.md
+      - name: Workware
+        href: workware-tutorial.md
       - name: Wrike
         href: wrike-tutorial.md
       - name: XaitPorter
@@ -1961,10 +1965,6 @@
         href: alertmedia-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
-      - name: Apple Business Manager
-        href: apple-business-manager-provision-tutorial.md
-      - name: Apple School Manager
-        href: apple-school-manager-provision-tutorial.md
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
@@ -2083,8 +2083,6 @@
         href: mindtickle-provisioning-tutorial.md
       - name: Miro
         href: miro-provisioning-tutorial.md
-      - name: myday
-        href: myday-provision-tutorial.md
     - name: N - Z
       items:
       - name: Netskope Administrator Console
