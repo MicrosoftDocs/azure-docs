@@ -125,7 +125,7 @@ To implement these policies:
         > Each parameter has a tooltip explaining the options available to you.
         >
         > Azure Policy's parameters tab (1) provides access to similar configuration options as Security Center's workflow automation page (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparing the parameters in continuous export with Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparing the parameters in workflow automation with Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
 
@@ -157,5 +157,5 @@ For related material, see:
 - [Security recommendations in Azure Security Center](security-center-recommendations.md)
 - [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 - [About Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-- [Logic Apps connectors](/connectors/)
+- [Connectors for Azure Logic Apps](../connectors/apis-list.md)
 - [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas)

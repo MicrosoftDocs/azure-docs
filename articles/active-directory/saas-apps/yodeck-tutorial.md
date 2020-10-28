@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with Yodeck, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![image](common/both-preintegrated-signon.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/both-preintegrated-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://app.yodeck.com/login`
@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with Yodeck, perform the following steps:
 
 1. To automate the configuration within **Yodeck**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![image](./media/target-process-tutorial/install_extension.png)
+	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
 
 1. After adding extension to the browser, click on **setup Yodeck** will direct you to the Yodeck application. From there, provide the admin credentials to sign into Yodeck. The browser extension will automatically configure the application for you and automate steps 3-5.
 
@@ -125,11 +125,11 @@ To configure Azure AD single sign-on with Yodeck, perform the following steps:
 
 1. Click on **User Settings** option form the top right corner of the page and select **Account Settings**.
 
-	![Yodeck Configuration](./media/yodeck-tutorial/configure1.png)
+	![Screenshot shows with Account Settings selected for the user.](./media/yodeck-tutorial/configure1.png)
 
 1. Select **SAML** and perform the following steps:
 
-	![Yodeck Configuration](./media/yodeck-tutorial/configure2.png)
+	![Screenshot shows the SAML tab where you can perform these steps.](./media/yodeck-tutorial/configure2.png)
 
 	a. Select **Import from URL**.
 
@@ -199,15 +199,15 @@ To enable Azure AD users to sign in to Yodeck, they must be provisioned into Yod
 
 2. Click on **User Settings** option form the top right corner of the page and select **Users**.
 
-	![Add Employee](./media/yodeck-tutorial/user1.png)
+	![Screenshot shows with Users selected for the user.](./media/yodeck-tutorial/user1.png)
 
 3. Click on **+User** to open the **User Details** tab.
 
-	![Add Employee](./media/yodeck-tutorial/user2.png)
+	![Screenshot shows the Users button.](./media/yodeck-tutorial/user2.png)
 
 4. On the **User Details** dialog page, perform the following steps:
 
-	![Add Employee](./media/yodeck-tutorial/user3.png)
+	![Screenshot shows the User Details tab where you can perform these steps.](./media/yodeck-tutorial/user3.png)
 
 	a. In the **First Name** textbox, type the first name of the user like **Britta**.
 
