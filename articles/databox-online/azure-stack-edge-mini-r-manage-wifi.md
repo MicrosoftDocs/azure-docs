@@ -19,7 +19,7 @@ This article describes how to manage wireless network connectivity on your Azure
 
 Your Azure Stack Edge Mini R device can operate both when wired to the network or via a wireless network. The device has a Wi-Fi port that must be enabled to allow the device to connect to a wireless network. 
 
-Your device has 5 ports, PORT 1 through PORT 4 and a fifth Wi-Fi port. Here is a diagram of the back plane of a Mini R device when connected to a wireless network.
+Your device has five ports, PORT 1 through PORT 4 and a fifth Wi-Fi port. Here is a diagram of the back plane of a Mini R device when connected to a wireless network.
 
 ![Cabling for Wi-Fi](./media/azure-stack-edge-mini-r-deploy-install/wireless-cabled.png)
 
@@ -107,7 +107,7 @@ For more information, see [DHCP Bridging Mode](https://www.cisco.com/c/en/us/sup
 
 #### Bridging configuration example
 
-To enable the DHCP bridging functionality on the controller, you must disable the DHCP proxy feature on the controller. To enable DHCP bridging using the command-line:
+To enable the DHCP bridging functionality on the controller, you must disable the DHCP proxy feature on the controller. To enable DHCP bridging using the command line:
 
 ```powershell
 (Cisco Controller) > config dhcp proxy disable
@@ -131,7 +131,7 @@ To enable the passive client feature for wireless local area network (WLAN) on a
 
 * The interface associated to the WLAN must have a VLAN tagging enabled.
 * Multicast VLAN must be enabled for the WLAN.
-* GARP forwarding must to be enabled on the WLC.
+* GARP forwarding must be enabled on the WLC.
 
 For more information, see [Multicast VLAN Information About Multicast Optimization](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/wlan_interfaces.html).
 
