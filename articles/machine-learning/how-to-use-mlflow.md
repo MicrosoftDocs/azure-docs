@@ -356,6 +356,9 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
+> [!NOTE]
+> A community-driven repository of examples using mlflow can be found at https://github.com/Azure/azureml-examples.
+
 ## Next steps
 
 * [Manage your models](concept-model-management-and-deployment.md).

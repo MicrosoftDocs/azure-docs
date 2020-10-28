@@ -102,7 +102,7 @@ Once a plan is published, the plan-level details can no longer be changed:
 
 ### Upper limits
 
-The maximum number of dimensions that can be configured for a single offer is 18 unique dimensions.
+The maximum number of dimensions that can be configured for a single offer is 30 unique dimensions.
 
 ## Get support
 

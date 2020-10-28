@@ -35,7 +35,7 @@ In this tutorial you will:
 
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
-4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
+4. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
 
 5. Download the [rentalCarSimulation C# project](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
 
@@ -80,7 +80,7 @@ In this tutorial, you only track one vehicle. After you set up the Azure service
 
 3. An Azure function is triggered because of its event subscription to device telemetry events.
 
-4. The function logs the vehicle device location coordinates, event time, and the device ID. It then uses the [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to determine whether the car has driven outside the geofence. If it has traveled outside the geofence boundaries, the function stores the location data received from the event into a blob container. The function also queries the [Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate the coordinate location to a street address, and stores it with the rest of the device location data.
+4. The function logs the vehicle device location coordinates, event time, and the device ID. It then uses the [Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence) to determine whether the car has driven outside the geofence. If it has traveled outside the geofence boundaries, the function stores the location data received from the event into a blob container. The function also queries the [Search Address Reverse](/rest/api/maps/search/getsearchaddressreverse) to translate the coordinate location to a street address, and stores it with the rest of the device location data.
 
 The following diagram shows a high-level overview of the system.
 
@@ -92,9 +92,9 @@ The following figure highlights the geofence area in blue. The rental car's rout
 
 ## Create an Azure storage account
 
-To store car violation tracking data, create a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts) in your resource group. If you haven't created a resource group, follow the directions in [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, you'll name your resource group *ContosoRental*.
+To store car violation tracking data, create a [general-purpose v2 storage account](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) in your resource group. If you haven't created a resource group, follow the directions in [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). In this tutorial, you'll name your resource group *ContosoRental*.
 
-To create a storage account, follow the instructions in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). In this tutorial, name the storage account *contosorentalstorage*, but in general you can name it anything you like.
+To create a storage account, follow the instructions in [create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal). In this tutorial, name the storage account *contosorentalstorage*, but in general you can name it anything you like.
 
 When you successfully create your storage account, you then need to create a container to store logging data.
 
@@ -112,7 +112,7 @@ When you successfully create your storage account, you then need to create a con
 
 ## Upload a geofence
 
-Next, use the [Postman app](https://www.getpostman.com) to [upload the geofence](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) to Azure Maps. The geofence defines the authorized geographical area for our rental vehicle. You'll be using the geofence in your Azure function to determine whether a car has moved outside the geofence area.
+Next, use the [Postman app](https://www.getpostman.com) to [upload the geofence](./geofence-geojson.md) to Azure Maps. The geofence defines the authorized geographical area for our rental vehicle. You'll be using the geofence in your Azure function to determine whether a car has moved outside the geofence area.
 
 Follow these steps to upload the geofence by using the Azure Maps Data Upload API: 
 
@@ -267,14 +267,14 @@ The following map shows four vehicle location points outside the geofence. Each 
 
 To explore the Azure Maps APIs used in this tutorial, see:
 
-* [Get Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
-* [Get Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+* [Get Search Address Reverse](/rest/api/maps/search/getsearchaddressreverse)
+* [Get Geofence](/rest/api/maps/spatial/getgeofence)
 
 For a complete list of Azure Maps REST APIs, see:
 
-* [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+* [Azure Maps REST APIs](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
+* [IoT Plug and Play](../iot-pnp/index.yml)
 
 To get a list of devices that are Azure certified for IoT, visit:
 
@@ -286,4 +286,4 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 
 
 > [!div class="nextstepaction"]
-> [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+> [Send telemetry from a device](../iot-hub/quickstart-send-telemetry-dotnet.md)
