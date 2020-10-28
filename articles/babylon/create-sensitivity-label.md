@@ -23,60 +23,64 @@ When your cloud data roams, you want it to do so in a secure, protected way that
 
 Sensitivity labels in Babylon enable you to:
 
-- Enforce protection settings such as encryption or watermarks on labeled data stores. 
+- **Enforce protection settings** such as encryption or watermarks on labeled data stores. 
 
-- Protect data in apps and services across different platforms. 
+- **Protect data in apps and services** across different platforms. 
 
-- Protect data stored in different formats such as Azure blob storage, Azure files, and SQL columns. 
+- **Protect data stored in different formats** such as Azure blob storage, Azure files, and SQL columns. 
 
-- Automatically recognize labels on pre-labelled content.
+- **Automatically recognize labels** on pre-labelled content.
 
-- Classify data without using any protection settings. 
+- **Classify data only**, without using any protection settings. 
 
 With sensitivity labels, you can classify data across your data estate and then enforce protection settings based on that classification.
 
 ## Create sensitivity labels in Microsoft 365
 
-During public preview, sensitivity labels for Babylon are created and managed using Microsoft 365, so an active M365 license is required. Sensitivity labels created in Babylon are available for the following data types: 
+During public preview, sensitivity labels for Babylon are created and managed using Microsoft 365, so an active M365 license is required. 
 
-**Automatic labeling of files:**
-- Azure Blob Storage
-- Azure files
+Sensitivity labels are supported in Babylon for the following data types:
 
-**Automatic labeling of SQL columns:**
-- SQL server
-- Azure SQL database
-- Azure SQL Database Manage instance
+|Data type  |Sources  |
+|---------|---------|
+|Automatic labeling for files     |     - Azure Blob Storage </br>- Azure files   |
+|Automatic labeling for SQL columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed instance       |
 
-Once labeled, Babylon labeling reports provide deep insights on all of your labeled content within Babylon.   
+Scan your content to apply automatic labels. The Babylon [classification](classification-insights.md) and [labeling](sensitivity-insights.md) reports provide insights on all of the labeled content in Babylon.
 
 ## Create or modify a sensitivity label
 
 If you don't already have sensitivity labels, you'll need to create them. Existing sensitivity labels will also need to be modified to include the new data asset types within Babylon. Perform both of these activities in Microsoft 365 Security and Compliance Center. 
 
-Use of this feature requires an active M365 license. 
+> [!NOTE]
+> This procedure requires an active M365 license. 
+> 
 
-- **To create a new sensitivity label or modify an existing label:** 
+#### Create a new sensitivity label or modify an existing label
 
-    1. Open the Microsoft 365 Security and Compliance Center. 
+1. Open the Microsoft 365 Security and Compliance Center. 
 
-    1. Under **Solutions**, select **Information protection**, then select **Create sensitivity label**. 
+1. Under **Solutions**, select **Information protection**, then select **Create sensitivity label**. 
 
-    1. Name the label, and in the Scope options, select **files and emails** and **SQL Columns**.
+1. Name the label, and in the Scope options, select **files and emails** and **SQL Columns**.
     
     :::image type="content" source="media/create-sensitivity-label/m365-create-label-scope.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center":::
 
-- **To define autolabeling rules for files,** follow these [M365 autolabeling instructions](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps). 
+#### Define autolabeling rules for files
 
-    :::image type="content" source="media/create-sensitivity-label/m365-create-auto-labeling-rules-files.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center":::
+To define autolabeling rules for files, follow the instructions in the [Microsoft 365 documentation](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps). 
 
-- **To define autolabeling rules for SQL columns:**
+For example:
 
-    1. Within the create sensitivity label wizard, under the **Azure asset** option, select the **Auto Labeling for Azure SQL Column** checkbox and add the relevant sensitive information types for the label. 
+:::image type="content" source="media/create-sensitivity-label/m365-create-auto-labeling-rules-files.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center":::
+
+#### Define autolabeling rules for SQL columns
+
+1. Within the create sensitivity label wizard, under the **Azure asset** option, select the **Auto Labeling for Azure SQL Column** checkbox and add the relevant sensitive information types for the label. 
         
     :::image type="content" source="media/create-sensitivity-label/m365-create-auto-labeling-rules-sql.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center":::
 
-    1. Save and close the modification or addition of your new label. 
+1. Save and close the modification or addition of your new label. 
 
 ## Search for files based on labels
 
@@ -92,15 +96,15 @@ In Babylon, files with sensitivity labeling are marked as **Microsoft extended**
 - [Labeled files in Azure files](#labeled-files-in-azure-files)
 - [Labeled files in SQL tables](#labeled-files-in-sql-tables)
 
-### Labeled files in Azure Blob Storage
+#### Labeled files in Azure Blob Storage
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage":::
 
-### Labeled files in Azure files
+#### Labeled files in Azure files
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-azure.png" alt-text="View a sensitivity label on a file in your Azure file storage":::
 
-### Labeled files in SQL tables
+#### Labeled files in SQL tables
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-sql.png" alt-text="View a sensitivity label on an SQL table":::
 
