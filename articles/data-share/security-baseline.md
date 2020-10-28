@@ -40,7 +40,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: By design even though Azure Data Share resources can be deployed into a virtual network, the traffic to and from the Azure Data Share resources cannot be enforced by or passed through a network security group. The resources can be only accessed through Azure Resource Manager.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -51,7 +51,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: By design even though Azure Data Share resources can be deployed into a virtual network, the traffic to and from the Azure Data Share resources cannot be enforced by or passed through a network security group. The resources can be only accessed through Azure Resource Manager.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -62,7 +62,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -73,7 +73,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, DDoS Protection Standard, or other network dependent appliances such as an Azure Firewall.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -84,7 +84,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that produce network packets that can be recorded and viewed by customers. Azure Data Share does not produce network packets that are customer facing, and is not designed to deploy into Azure virtual networks.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -95,7 +95,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that deploy into Azure virtual networks. Azure Data Share cannot and is not designed to deploy into Azure virtual networks.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -106,7 +106,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can host web applications such as App Service and Azure Virtual Machines. Azure Data Share is not intended to host web applications, so there is no need to describe managing traffic to those applications.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -117,7 +117,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Data Share does not currently support service tags, and is not designed to deploy into Azure virtual networks.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -128,7 +128,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Data Share does not have or depend on network resources by design. This control is intended to describe how to maintain secure configurations for your networking components.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -139,7 +139,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -150,7 +150,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Not applicable; Azure Data Share does not have or depend on any networking components, so the configurations of these resources cannot be monitored.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -165,7 +165,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Data Share does not support configuring your own time synchronization sources. The Azure Data Share service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -178,7 +178,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -197,7 +197,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 - [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/diagnostic-settings.md-legacy) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -208,7 +208,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 **Guidance**: Not applicable; Azure Data Share does not expose any operating system configurations or security logs to customers. Microsoft is responsible for monitoring the underlying service's compute infrastructure.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -223,7 +223,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 - [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -242,7 +242,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -257,7 +257,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 - [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -268,7 +268,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not produce or expose any anti-malware logging to customers. For all Microsoft managed resources, Microsoft handles the anti-malware logging.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -279,7 +279,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not produce or process DNS query logs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -290,7 +290,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not expose a command line to users.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -305,7 +305,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not have local level administrator accounts which would need to be inventoried by the customer.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -316,7 +316,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not Applicable; Azure Data Share doesn't have the concept of default passwords.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -327,7 +327,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not have the concept of any local-level or Azure Active Directory administrator accounts which customers can use or manage.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -340,7 +340,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 - [Understand SSO with Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-o)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -351,7 +351,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -362,7 +362,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -378,7 +378,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -389,7 +389,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share doesn't support capability of approved location as condition for access.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -400,7 +400,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -411,7 +411,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -422,7 +422,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -433,7 +433,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -444,7 +444,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share doesn't store customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -459,7 +459,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not support integration with Azure Information Protection because of this you cannot leverage information protection features with it such as information tagging, or labeling such as an Azure Information Protection.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -470,7 +470,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -481,7 +481,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -492,7 +492,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -503,7 +503,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -516,7 +516,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -527,7 +527,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not interact with compute hosts or containers which offer host-based data loss prevention.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -538,7 +538,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not store sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -549,7 +549,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -564,7 +564,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Data Share.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -575,7 +575,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Microsoft performs patch management on the underlying operating systems that support Azure Data Share.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -586,7 +586,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share doesn't support third-party software installations.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -597,7 +597,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share cannot have vulnerability management software installed and doesn't produce vulnerability scan data that is accessible by customers which could be compared for change.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -608,7 +608,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Azure Data Share does not have any standard risk-rating or scoring system in place for vulnerability scan results.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -623,7 +623,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; Azure Data Share does not integrate with Azure Resource Graph or allow for automated asset discovery.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -634,7 +634,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -645,7 +645,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -656,7 +656,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -667,7 +667,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: It is recommended that you define an have an inventory of Azure resources which have been approved for usage as per your organizational policies and standards prior, then monitor for unapproved Azure resources with Azure Policy, or Azure Resource Graph.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -678,7 +678,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -693,7 +693,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 Azure Data Share does not expose the OS or allow you to install 3rd party software applications on its resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -704,7 +704,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share either does not expose any compute resources or allow you to install software applications on any of its resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -715,7 +715,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -726,7 +726,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not allow you to install software applications on any of its resources or this information is not queryable.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -737,7 +737,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -748,7 +748,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not allow the customer to execute scripts directly in its resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -759,7 +759,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall to separate high risk applications.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -774,7 +774,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not integrate with Azure Policy and resource aliases.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -785,7 +785,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -796,7 +796,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share doesn't have any resource configurations.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -807,7 +807,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -818,7 +818,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -829,7 +829,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -840,7 +840,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -851,7 +851,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -862,7 +862,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -873,7 +873,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -884,7 +884,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share doesn't require customers to manage any secrets.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -895,7 +895,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -906,7 +906,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -921,7 +921,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not produce customer facing anti-malware logs or allow for the customer to install anti-malware software onto its resources. For the underlying infrastructure Microsoft handles the anti-malware scanning of platform resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -932,7 +932,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not allow for files to be uploaded, this control is intended for Azure services that can receive or store customer files.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -943,7 +943,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not allow for anti-malware solutions to be installed on it's resources. For the underlying platform Microsoft handles updating any anti-malware software and signatures.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -958,7 +958,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not store customer data and the service is not designed to be backed up.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -969,7 +969,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not store customer data and the service is not designed to be backed up.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -980,7 +980,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not store customer data and the service is not designed to be backed up.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -991,7 +991,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Not applicable; Azure Data Share does not store customer data and the service is not designed to be backed up.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1006,7 +1006,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1017,7 +1017,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1028,7 +1028,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1039,7 +1039,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1050,7 +1050,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1061,7 +1061,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1076,7 +1076,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
