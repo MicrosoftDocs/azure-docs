@@ -56,7 +56,7 @@ You can assign users to administrative units individually or as a bulk operation
 
    1. Select the administrative unit to which you want to add users.
 
-   1. Select **All users** > **Add members from .csv file**. You can then download the comma-separated values (CSV) template and edit the file. The format is simple and needs a single user principal name to be added on each line. After the file is ready, save it to an appropriate location, and then upload it as part of this step.
+   1. Select **Users** > **Bulk activities** > **Bulk add members**. You can then download the comma-separated values (CSV) template and edit the file. The format is simple and needs a single user principal name to be added on each line. After the file is ready, save it to an appropriate location, and then upload it as part of this step.
 
       ![Screenshot of the "Users" pane for assigning users to an administrative unit as a bulk operation.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -73,7 +73,7 @@ Add-AzureADMSAdministrativeUnitMember -Id $administrativeunitObj.ObjectId -RefOb
 
 ### Use Microsoft Graph
 
-Run the following commands:
+Replace the placeholder with test information and run the following command:
 
 ```http
 Http request
@@ -118,7 +118,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 
 ### Use Microsoft Graph
 
-Run the following command:
+Replace the placeholder with test information and run the following command::
 
 ```http
 https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -150,9 +150,11 @@ Run the following command:
 Remove-AzureADMSAdministrativeUnitMember -Id $auId -MemberId $memberUserObjId
 ```
 
-### Microsoft Graph
+### Use Microsoft Graph
 
-   https://graph.microsoft.com/v1.0/directory/administrativeUnits/{adminunit-id}/members/{user-id}/$ref
+Replace the placeholders with test information and run the following command:
+
+`https://graph.microsoft.com/v1.0/directory/administrativeUnits/{adminunit-id}/members/{user-id}/$ref`
 
 ## Remove multiple users as a bulk operation
 
