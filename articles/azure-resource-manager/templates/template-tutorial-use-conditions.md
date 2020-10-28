@@ -83,7 +83,7 @@ Here is the procedure to make the changes:
 1. Replace the three **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.
 1. Remove the following variable definition:
 
-    ![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Screenshot that highlights the variable definitions that you need to remove.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Add the following two parameters to the beginning of the parameters section:
 
@@ -116,7 +116,7 @@ Here is the procedure to make the changes:
 
     The updated storage account definition looks like:
 
-    ![Resource Manager use condition](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Screenshot that shows the updated storage account definition.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Update the **storageUri** property of the virtual machine resource definition with the following value:
 
     ```json
