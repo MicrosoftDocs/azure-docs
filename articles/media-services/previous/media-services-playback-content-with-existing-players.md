@@ -47,11 +47,11 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 #### PlayReady with Token
 
-[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
+[https://docs.adobe.com/content/help/en/primetime/drm/multi-drm-workflows/license-token-req-resp-ref/playready-license-token-request.html](https://docs.adobe.com/content/help/en/primetime/drm/multi-drm-workflows/license-token-req-resp-ref/playready-license-token-request.html)
 
 ### DASH Players
 
-[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
+"https://dashplayer.azurewebsites.net"
 
 [https://dashif.org](https://dashif.org)
 
