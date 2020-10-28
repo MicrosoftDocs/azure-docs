@@ -38,7 +38,7 @@ To register your SQL Server VM with the resource provider, you'll need:
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - An Azure Resource Model [Windows Server 2008 (or greater) virtual machine](../../../virtual-machines/windows/quick-create-portal.md) with [SQL Server 2008 (or greater)](https://www.microsoft.com/sql-server/sql-server-downloads) deployed to the public or Azure Government cloud. 
-- The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [Azure Powershell](/powershell/azure/new-azureps-module-az). 
+- The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [Azure Powershell (5.0 minimum)](/powershell/azure/new-azureps-module-az). 
 
 
 ## Register subscription with RP

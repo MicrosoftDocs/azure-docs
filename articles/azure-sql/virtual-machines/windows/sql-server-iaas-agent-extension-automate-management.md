@@ -100,11 +100,14 @@ To install the extension, register the SQL Server VM with the resource provider:
 
 ### Install on a VM with a single named SQL Server instance
 
-The SQL Server IaaS extension will work with a named instance on SQL Server if the default instance is uninstalled and the SQL IaaS extension is reinstalled.
+The SQL Server IaaS extension will work with a named instance on SQL Server if that is the only SQL Server instance available on the SQL Server VM. The extension will fail to install on VMs that have multiple SQL Server instances. 
 
-To use a named instance of SQL Server, follow these steps:
+To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL VM resource provider](sql-vm-resource-provider-register.md) to install the extension.
+
+Alternatively, to use a named instance with an Azure marketplace SQL Server image, follow these steps: 
+
    1. Deploy a SQL Server VM from Azure Marketplace. 
-   1. Uninstall the IaaS extension from the [Azure portal](https://portal.azure.com).
+   1. [Unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resouce provider. 
    1. Uninstall SQL Server completely within the SQL Server VM.
    1. Install SQL Server with a named instance within the SQL Server VM. 
    1. Install the IaaS extension from the Azure portal.  
@@ -136,17 +139,6 @@ The previous command confirms that the agent is installed and provides general s
     $sqlext.AutoBackupSettings
    ```
 
-## Removal
-
-In the Azure portal, you can uninstall the extension by selecting the ellipsis in the **Extensions** window of your virtual machine properties. Then select **Delete**.
-
-![Uninstalling the SQL Server IaaS Agent extension in Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
-
-You can also use the **Remove-AzVMSqlServerExtension** Azure Powershell cmdlet:
-
-   ```powershell-interactive
-    Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
-   ```
 
 ## Limitations
 
@@ -243,6 +235,10 @@ There is no impact when using the *NoAgent* and *lightweight* manageability mode
 The two service names are:
 - `SqlIaaSExtensionQuery` (Display name - `Microsoft SQL Server IaaS Query Service`)
 - `SQLIaaSExtension` (Display name - `Microsoft SQL Server IaaS Agent`)
+
+**How do I remove the extension?**
+
+Remove the extension by [unregistering](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resouce provider. 
 
 
 ## Next steps
