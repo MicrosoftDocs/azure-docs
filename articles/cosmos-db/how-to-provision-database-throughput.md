@@ -67,7 +67,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 See the following articles to learn about provisioned throughput in Azure Cosmos DB:
 
-* [Globally scale provisioned throughput](scaling-throughput.md)
+* [Globally scale provisioned throughput](./request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [How to provision standard (manual) throughput for a container](how-to-provision-container-throughput.md)
 * [How to provision autoscale throughput for a container](how-to-provision-autoscale-throughput.md)

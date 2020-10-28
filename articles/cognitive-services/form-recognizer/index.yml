@@ -143,7 +143,7 @@ landingContent:
           - text: .NET SDK
             url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
-            url: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
+            url: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/?view=azure-python
           - text: Java SDK
             url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK
@@ -155,9 +155,7 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://go.microsoft.com/fwlink/?linkid=2090535
-          - text: Stack Overflow
-            url: https://go.microsoft.com/fwlink/?linkid=2087186
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context

@@ -65,7 +65,6 @@
     href: load-balancer-multivip-overview.md
   - name: Outbound proxy
     href: load-balancer-outbound-connections.md
-  - name: TCP reset and TCP idle timeout
   - name: Outbound rules
     href: outbound-rules.md
   - name: TCP reset on idle timeout
@@ -111,7 +110,7 @@
     - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
       displayName: ARM
-  - name: Configure TCP idle timeout for Load Balancer
+  - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
