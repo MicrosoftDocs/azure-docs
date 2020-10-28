@@ -35,7 +35,7 @@ This tutorial shows you how to do the following tasks:
 > * Start a pipeline run
 > * Monitor the pipeline and activity runs
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](/azure/data-factory/quickstart-create-data-factory-portal).
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](./quickstart-create-data-factory-portal.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

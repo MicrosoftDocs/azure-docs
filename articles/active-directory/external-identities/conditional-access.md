@@ -108,5 +108,5 @@ Currently, risk-based sign-in policies cannot be applied to B2B users because th
 See the following articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](what-is-b2b.md)
-* [Azure AD B2B collaboration licensing](licensing-guidance.md)
+* [External Identities pricing](external-identities-pricing.md)
 * [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](faq.md)

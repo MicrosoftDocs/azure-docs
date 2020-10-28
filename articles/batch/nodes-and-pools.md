@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 10/21/2020
 
 ---
 # Nodes and pools in Azure Batch
@@ -21,7 +21,7 @@ All compute nodes in Batch also include:
 
 - A standard [folder structure](files-and-directories.md) and associated [environment variables](jobs-and-tasks.md) that are available for reference by tasks.
 - **Firewall** settings that are configured to control access.
-- [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
+- [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes (unless you [create your pool with remote access disabled](pool-endpoint-configuration.md)).
 
 By default, nodes can communicate with each other, but they can't communicate with virtual machines that are not part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. These public IP addresses are created by Batch and may change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they won't change unexpectedly.
 
@@ -63,7 +63,7 @@ There are two types of pool configurations available in Batch.
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
 
-When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
+The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
 
 ### Cloud Services Configuration
 
