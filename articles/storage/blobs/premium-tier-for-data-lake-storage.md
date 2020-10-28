@@ -5,6 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 10/28/2020
 ms.author: normesta
 ---
@@ -104,4 +105,4 @@ Premium tier for Azure Data Lake Storage is available in the following regions.
 
 ## Next steps
 
-See the premium tier for Azure Data Lake Storage [bog announcement](https://www.microsoft.com).
+See the premium tier for Azure Data Lake Storage [blog announcement](https://www.microsoft.com).
