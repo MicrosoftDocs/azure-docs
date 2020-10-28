@@ -241,11 +241,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/databox-online/azure-stack-edge-contact-microsoft-support.md",
-      "redirect_url": "/azure/databox-gateway/databox-gateway-contact-microsoft-support",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/databox-online/data-box-gateway-2007-release-notes.md",
       "redirect_url": "/azure/databox-gateway/data-box-gateway-2007-release-notes",
       "redirect_document_id": false
