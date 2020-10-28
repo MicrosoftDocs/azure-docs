@@ -68,7 +68,7 @@ Nine Azure resources are defined in the template:
 
 ## Deploy the template
 
-### Azure CLI
+**Azure CLI**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -84,7 +84,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-### Azure PowerShell
+**Azure PowerShell**
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
@@ -96,7 +96,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-### Azure portal
+**Azure portal**
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -114,7 +114,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Clean up resources
 
-### Azure CLI
+**Azure CLI**
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
@@ -123,7 +123,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
     --name myResourceGroupNAT
 ```
 
-### Azure PowerShell
+**Azure PowerShell**
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group and all resources contained within.
 
@@ -131,7 +131,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-### Azure portal
+**Azure portal**
 
 When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group **myResourceGroupNAT** that contains the NAT gateway, and then select **Delete**.
 
