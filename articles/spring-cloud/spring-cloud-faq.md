@@ -36,7 +36,7 @@ East US, East US 2, Central US, South Central US, West US 2, West Europe, North 
 
 ### Is any customer data stored outside of the specified region?
 
-Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. Learn more about geo and region from [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/).
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
