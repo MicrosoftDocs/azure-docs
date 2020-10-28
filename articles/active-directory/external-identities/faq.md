@@ -127,7 +127,7 @@ Yes. For more information, see [Conditional Access for B2B collaboration users](
 Yes. Azure AD B2B collaboration supports allow lists and deny lists. 
 
 ### What licenses do we need to use Azure AD B2B?
-For information about what licenses your organization needs to use Azure AD B2B, see [Azure Active Directory B2B collaboration licensing guidance](licensing-guidance.md).
+For information about what licenses your organization needs to use Azure AD B2B, see [External Identities pricing](external-identities-pricing.md).
 
 ### Next steps
 

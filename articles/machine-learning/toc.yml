@@ -526,6 +526,8 @@
     - name: Azure Pipelines for CI/CD
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+    - name: GitHub Actions for CI/CD
+      href: how-to-github-actions-machine-learning.md
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md
