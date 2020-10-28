@@ -147,7 +147,7 @@ Create a new method to detect faces. The `DetectFaceExtract` method processes th
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
 > [!TIP]
-> You can also detect faces in a local image. See the [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) methods such as **DetectWithStreamAsync**.
+> You can also detect faces in a local image. See the [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) methods such as **DetectWithStreamAsync**.
 
 ### Display detected face data
 
@@ -200,7 +200,7 @@ Next, add the following code to create a **Person** object for each person in th
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
 > [!TIP]
-> You can also create a **PersonGroup** from local images. See the [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) methods such as **AddFaceFromStreamAsync**.
+> You can also create a **PersonGroup** from local images. See the [IPersonGroupPerson](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) methods such as **AddFaceFromStreamAsync**.
 
 ### Train the PersonGroup
 
