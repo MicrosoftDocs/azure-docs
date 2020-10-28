@@ -233,7 +233,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you'll need to **convert them to DTDL** to use them with Azure Digital Twins. The DTDL version will then become the source of truth for the model within Azure Digital Twins.
 
-For more on this process, see [*How-to: Convert industry-standard models](how-to-convert-models.md).
+For more on this process, see [*How-to: Convert industry-standard models*](how-to-convert-models.md).
 
 ## Next steps
 
