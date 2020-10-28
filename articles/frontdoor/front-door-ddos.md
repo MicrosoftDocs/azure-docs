@@ -27,7 +27,7 @@ Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only p
 
 ## Capacity absorption
 
-Front Door is a massively scaled, globally distributed service. We have many customers, including Microsoft's own large-scale cloud products, that receive hundreds of thousands of requests each second. Front Door is located at the edge of Azure's network, which means we can absorb and geographically isolate large volume attacks. This can prevent malicious traffic from going any further than the edge of the Azure network.
+Front Door is a massively scaled, globally distributed service. We have many customers, including Microsoft's own large-scale cloud products, that receive hundreds of thousands of requests each second. Front Door is located at the edge of Azure's network, absorbing and geographically isolating large volume attacks. This can prevent malicious traffic from going any further than the edge of the Azure network.
 
 ## Web Application Firewall (WAF)
 
@@ -35,8 +35,13 @@ Front Door is a massively scaled, globally distributed service. We have many cus
 
 * Using the managed rule set provides protection against a number of common attacks.
 * Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
-* IP addresses and ranges that you identify as malicious can be blocked.* Rate limiting can be applied to prevent IP addresses from calling your service too frequently.
+* IP addresses and ranges that you identify as malicious can be blocked.
+* Rate limiting can be applied to prevent IP addresses from calling your service too frequently.
 * You can create [custom WAF rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures.
+
+## Caching
+
+[Front Door's caching capabilities](./front-door-caching.md) can be used to protect backends from large traffic volumes due to an attack. Cached resources will be returned from the Front Door edge nodes so they don't get forwarded to your backend. Even short cache expiry times (seconds or minutes) on dynamic responses can greatly reduce load on backend services. See [Caching considerations](../architecture/best-practices/caching.md) and [Cache-aside pattern](../architecture/patterns/cache-aside.md) for more information about caching concepts and patterns.
 
 ## For further protection
 
