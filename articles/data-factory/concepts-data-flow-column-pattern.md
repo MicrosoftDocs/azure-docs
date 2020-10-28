@@ -30,7 +30,7 @@ Use the [expression builder](concepts-data-flow-expression-builder.md) to enter 
 
 The two expression boxes below the match condition specify the new names and values of the affected columns. Use `$$` to reference the existing value of the matched field. The left expression box defines the name and the right expression box defines the value.
 
-![Screenshot shows the Derived column’s settings tab.](media/data-flow/edit-column-pattern.png "Column Patterns")
+![Screenshot shows the Derived column's settings tab.](media/data-flow/edit-column-pattern.png "Column Patterns")
 
 The above column pattern matches every column of type double and creates one derived column per match. By stating `$$` as the column name field, each matched column is updated with the same name. The value of the each column is the existing value rounded to two decimal points.
 

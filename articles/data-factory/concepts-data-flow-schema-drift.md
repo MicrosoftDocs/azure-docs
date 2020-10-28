@@ -68,7 +68,7 @@ To explicitly reference drifted columns, you can quickly generate mappings for t
 
 In the generated Derived Column transformation, each drifted column is mapped to its detected name and data type. In the above data preview, the column 'movieId' is detected as an integer. After **Map Drifted** is clicked, movieId is defined in the Derived Column as `toInteger(byName('movieId'))` and included in schema views in downstream transformations.
 
-![Screenshot shows the Derived Column’s Settings tab.](media/data-flow/mapdrifted2.png "Map drifted")
+![Screenshot shows the Derived Column's Settings tab.](media/data-flow/mapdrifted2.png "Map drifted")
 
 ## Next steps
 In the [Data Flow Expression Language](data-flow-expression-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".
