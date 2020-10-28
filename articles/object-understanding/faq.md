@@ -115,6 +115,6 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **A:** The application can specify the location of diagnostics archives. The OU sample app writes diagnostics to the **TempState** folder.
 
-**Q: Why the source OBJ model doesn't align with the physical object, when using the pose returned by OU Unity SDK?**
+**Q: Why does the source model not align with the physical object when using the pose returned by the Object Anchors Unity SDK?**
 
 **A:** Unity may change the coordinate system when importing an OBJ model. For example, OU Unity SDK flips Z coordinate when converting from RH to LH, but Unity editor may apply an additional rotation about either X or Y axis. A developer can figure out this additional rotation by visualizing and comparing the coordinate systems.
