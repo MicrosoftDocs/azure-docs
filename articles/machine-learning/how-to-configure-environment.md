@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
+ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
 ---
 
 # Set up a development environment for Azure Machine Learning
@@ -117,6 +117,9 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 
 See the [Azure Machine Learning notebooks repository](https://github.com/Azure/MachineLearningNotebooks) to get started with Azure Machine Learning and Jupyter Notebooks.
 
+> [!NOTE]
+> A community-driven repository of examples can be found at https://github.com/Azure/azureml-examples.
+
 ### <a id="vscode"></a>Visual Studio Code
 
 To use Visual Studio Code for development:
@@ -134,10 +137,10 @@ There is nothing to install or configure for a compute instance.
 
 Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> To prevent incurring charges for an unused compute instance, [stop the compute instance](how-to-create-manage-compute-instance.md#manage).
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
@@ -223,7 +226,7 @@ Use these settings:
 | Setting |Applies to| Value |
 |----|---|---|
 | Cluster name |always| yourclustername |
-| Databricks Runtime |always|Non-ML Runtime 6.5 (scala 2.11, spark 2.4.3) |
+| Databricks Runtime |always|Non-ML Runtime 7.1 (scala 2.21, spark 3.0.0) |
 | Python version |always| 3 |
 | Workers |always| 2 or higher |
 | Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML<br>only| Memory optimized VM preferred |
@@ -233,19 +236,18 @@ Wait until the cluster is running before proceeding further.
 
 ### Install the correct SDK into a Databricks library
 
-Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster.
+Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. For automated ML skip to the [SDK for Databricks with automated machine learning section](#sdk-for-databricks-with-automated-machine-learning).
 
 1. Right-click the current Workspace folder where you want to store the library. Select **Create** > **Library**.
 
-1. Choose **only one** option (no other SDK installation are supported)
+1. Choose the following option (no other SDK installation are supported)
 
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
-   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > No other SDK extras can be installed. Choose only one of the preceding options [`databricks`] or [`automl`].
+   > No other SDK extras can be installed. Choose only the [`databricks`] option .
 
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
@@ -265,11 +267,17 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
 
 If install was successful, the imported library should look like one of these:
 
-SDK for Databricks **_without_** automated machine learning
+#### SDK for Databricks
 ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK for Databricks **WITH** automated machine learning
-![SDK with automated machine learning installed on Databricks](./media/how-to-configure-environment/automlonadb.png)
+#### SDK for Databricks with automated machine learning
+If the cluster was created with Databricks non ML runtime 7.1 or above, run the following command in the first cell of your notebook to install the AML SDK.
+
+```
+%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
+```
+For Databricks non ML runtime 7.0 and lower, install the AML SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
+
 
 ### Start exploring
 

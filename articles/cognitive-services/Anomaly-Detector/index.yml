@@ -99,6 +99,13 @@ landingContent:
           url: https://aka.ms/adadvisorsjoin
         - text: Featured user-generated content
           url: user-generated-content.md
+  
+- title: Help and feedback
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 
 - title: Reference
   linkLists:

@@ -6,6 +6,8 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
+ms.reviewer: cynthn
+
 ---
 
 # Deploy Azure Monitor for SAP Solutions with Azure portal
@@ -41,11 +43,14 @@ Sign in to the Azure portal at https://portal.azure.com
 
 2. Select **Add provider** and choose **SAP HANA** from the drop down. 
 
+   > [!IMPORTANT]
+   > Ensure that SAP HANA provider is configured for SAP HANA 'master' node.
+
 3. Input the Private IP for the HANA server.
 
 4. Input the name of the Database tenant you want to use. You can choose any tenant however, we recommend using **SYSTEMDB** as it enables a wider array of monitoring  areas. 
 
-5. Input the SQL port number associated with your HANA database. The port number should be in the format of **[3]** + **[instance#]** + **[13]** or **[3]** + **[instance#]** + **[15]**. For example, 30013 or 30015. 
+5. Input the SQL port number associated with your HANA database. The port number should be in the format of **[3]** + **[instance#]** + **[13]**. For example, 30013. 
 
 6. Input the Database username you want to use. Ensure that database user has the **monitoring** and **catalog read** roles assigned. 
 

@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
+ms.date: 10/02/2020
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
@@ -29,7 +29,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - If you need a **Standard Load Balancer(SLB)** deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then **attach** it to the AML workspace.
 
-- If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](/azure/aks/limit-egress-traffic). Th egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
+- If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](/azure/aks/limit-egress-traffic). The egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
     - The cluster can use the Public IP created by default with the BLB or SLB, Or
     - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route. For more information, see [Customize cluster egress with a user-defined-route](/azure/aks/egress-outboundtype).
     
@@ -273,6 +273,31 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
+
+## Detach an AKS cluster
+
+To detach a cluster from your workspace, use one of the following methods:
+
+> [!WARNING]
+> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+
+# [Python](#tab/python)
+
+```python
+aks_target.detach()
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To detach the existing cluster to your workspace, use the following command. Replace `myaks` with the name that the AKS cluster is attached to your workspace as. Replace `myresourcegroup` with the resource group that contains your workspace. Replace `myworkspace` with your workspace name.
+
+```azurecli
+az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
+```
+
+# [Portal](#tab/azure-portal)
+
+In Azure Machine Learning studio, select __Compute__, __Inference clusters__, and the cluster you wish to remove. Use the __Detach__ link to detach the cluster.
 
 ## Next steps
 

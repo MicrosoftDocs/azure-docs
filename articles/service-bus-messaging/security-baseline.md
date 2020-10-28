@@ -14,7 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Service Bus
 
-The Azure Security Baseline for Service Bus contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+The Azure Security Baseline for Service Bus contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+
+To see how Service Bus completely maps to the Azure Security Benchmark, see the [full Service Bus security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network security
 
@@ -58,7 +60,7 @@ Use Azure Security Center and follow network protection recommendations to help 
 
 - [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
-- [Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -107,7 +109,7 @@ You may also construct custom policy definitions if the built-in definitions do 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Built-in Policy for Service Bus namespace](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
+- [Azure Built-in Policy for Service Bus namespace](./policy-reference.md#azure-service-bus-messaging)
 
 - [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
@@ -125,7 +127,7 @@ Use any of the built-in Azure policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags. 
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags) 
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md) 
 
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md) 
 
@@ -139,7 +141,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Service Bus. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -173,7 +175,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to enable Diagnostic Settings for Azure Service Bus](service-bus-diagnostic-logs.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -223,13 +225,13 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for Service Bus, these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for Service Bus, these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
 - [Built-in roles for Azure Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -269,7 +271,7 @@ You may also construct custom policy definitions if the built-in definitions do 
 
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
 
-**Guidance**: Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). A key advantage of using Azure AD with Azure Service Bus is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https://servicebus.azure.net/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Service Bus resources.
+**Guidance**: Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). A key advantage of using Azure AD with Azure Service Bus is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https://azure.microsoft.com/services/service-bus/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Service Bus resources.
 
 - [How to authenticate an application with Azure AD to access Service Bus resources](authenticate-application.md)
 
@@ -308,7 +310,7 @@ You may also construct custom policy definitions if the built-in definitions do 
 **Guidance**: 
 Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -345,7 +347,7 @@ Use Azure AD named locations to allow access only from specific logical grouping
 
 In additional, regularly rotate your Service Bus namespace's shared access signature.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -361,7 +363,7 @@ In additional, regularly rotate your Service Bus namespace's shared access signa
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. Then in Azure Monitor you can configure desired log alerts for certain actions that occur in the logs.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Authorize access to Service Bus resources using Azure Active Directory](authenticate-application.md)
 
@@ -373,7 +375,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Active Directory's Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to your Service Bus-enabled resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -401,7 +403,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use tags on resources related to your Service Bus to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -411,11 +413,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement separate subscriptions and management groups for development, test, and production. Service Bus namespaces should be separated by virtual networks with private endpoints configured and tagged appropriately.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and utilize tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and utilize tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -435,7 +437,7 @@ Microsoft manages the underlying infrastructure for Azure Service Bus and has im
 
 - [Allow access to Azure Service Bus namespaces via private endpoints](private-link-service.md)
 
-- [Understand Network Security Groups and Service Tags](/azure/virtual-network/security-overview)
+- [Understand Network Security Groups and Service Tags](../virtual-network/network-security-groups-overview.md)
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -505,7 +507,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -525,11 +527,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Service Bus namespaces and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -572,7 +574,7 @@ You may also construct custom policy definitions if the built-in definitions do 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -601,9 +603,9 @@ You may also construct custom policy definitions if the built-in definitions do 
 
 Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custom policies to audit or enforce configurations.
 
-- [Azure Built-in policies for Service Bus ](/azure/service-bus-messaging/policy-samples)
+- [Azure Built-in policies for Service Bus ](./policy-reference.md)
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -651,7 +653,7 @@ Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custo
 
 - [Configure customer-managed keys for Service Bus](configure-customer-managed-key.md)
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -729,7 +731,7 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 
 - [How to configure customer-managed keys for encrypting Azure Service Bus data at rest](configure-customer-managed-key.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -739,7 +741,7 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 
 **Guidance**: Enable soft-delete in Key Vault to protect keys against accidental or malicious deletion. Azure Service Bus requires customer-managed keys to have Soft Delete and Do Not Purge configured.
 
-- [How to enable soft-delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Set up a key vault with keys](../event-hubs/configure-customer-managed-key.md)
 
@@ -774,7 +776,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -844,5 +846,5 @@ Use workflow automation feature Azure Security Center to automatically trigger r
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

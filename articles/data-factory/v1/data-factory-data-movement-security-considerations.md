@@ -49,7 +49,7 @@ In this article, we review security considerations in the following two data mov
 
 ## Cloud scenarios
 ### Securing data store credentials
-Azure Data Factory protects your data store credentials by **encrypting** them by using **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, refer [Azure Storage Security Overview](../../security/fundamentals/storage-overview.md).
+Azure Data Factory protects your data store credentials by **encrypting** them by using **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, refer [Azure Storage Security Overview](../../storage/blobs/security-recommendations.md).
 
 ### Data encryption in transit
 If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS.
@@ -64,7 +64,7 @@ Some data stores support encryption of data at rest. We suggest that you enable 
 Transparent Data Encryption (TDE) in Azure Synapse Analytics helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### Azure SQL Database
-Azure SQL Database also supports transparent data encryption (TDE), which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the data without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
+Azure SQL Database also supports transparent data encryption (TDE), which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the data without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### Azure Data Lake Store
 Azure Data Lake store also provides encryption for data stored in the account. When enabled, Data Lake store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [Security in Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
@@ -97,7 +97,7 @@ The credentials for your on-premises data stores are stored locally (not in the 
 - Use [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can use the encrypted credentials returned by this cmdlet and add it to **EncryptedCredential** element of the **connectionString** in the JSON file that you use with the [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. This option and the click-once application are the most secure options. 
 
 #### JavaScript cryptography library-based encryption
-You can encrypt data store credentials using [JavaScript Cryptography library](https://www.microsoft.com/download/details.aspx?id=52439) from the [Copy Wizard](data-factory-copy-wizard.md). When you select this option, the Copy Wizard retrieves the public key of gateway and uses it to encrypt the data store credentials. The credentials are decrypted by the gateway machine and protected by Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
+You can encrypt data store credentials using [JavaScript Cryptography library](https://www.microsoft.com/download/details.aspx?id=52439) from the [Copy Wizard](data-factory-copy-wizard.md). When you select this option, the Copy Wizard retrieves the public key of gateway and uses it to encrypt the data store credentials. The credentials are decrypted by the gateway machine and protected by Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)).
 
 **Supported browsers:** IE8, IE9, IE10, IE11, Microsoft Edge, and latest Firefox, Chrome, Opera, Safari browsers. 
 
@@ -106,7 +106,7 @@ You can launch the click-once based credential manager app from Azure portal/Cop
   
 ![HTTPS port for the gateway](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-Currently, Data Management Gateway uses a single **certificate**. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is used by the click-once credential manager application to securely connect to the gateway machine for setting data store credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) on the machine with gateway. 
+Currently, Data Management Gateway uses a single **certificate**. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is used by the click-once credential manager application to securely connect to the gateway machine for setting data store credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) on the machine with gateway. 
 
 > [!NOTE]
 > Older gateways that were installed before November 2016 or of version 2.3.xxxx.x continue to use credentials encrypted and stored on cloud. Even if you upgrade the gateway to the latest version, the credentials are not migrated to an on-premises machine    
@@ -142,7 +142,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ![IPSec VPN with gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### Firewall configurations and whitelisting IP address of gateway
+### Firewall configurations and filtering IP address of gateway
 
 #### Firewall requirements for on-premises/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
@@ -158,7 +158,7 @@ The following table provides **outbound port** and domain requirements for the *
 | `*.azuredatalakestore.net` | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
 
 > [!NOTE] 
-> You may have to manage ports/ whitelisting domains at the corporate firewall level as required by respective data sources. This table only uses Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store as examples.   
+> You may have to manage ports/filtering domains at the corporate firewall level as required by respective data sources. This table only uses Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store as examples.   
 
 The following table provides **inbound port** requirements for the **windows firewall**.
 
@@ -168,15 +168,15 @@ The following table provides **inbound port** requirements for the **windows fir
 
 ![Gateway port requirements](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### IP configurations/ whitelisting in data store
-Some data stores in the cloud also require whitelisting of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is whitelisted/ configured in firewall appropriately.
+#### IP configurations/filtering in data store
+Some data stores in the cloud also require approving of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is approved/configured in firewall appropriately.
 
-The following cloud data stores require whitelisting of IP address of the gateway machine. Some of these data stores, by default, may not require whitelisting of the IP address. 
+The following cloud data stores require approving of IP address of the gateway machine. Some of these data stores, by default, may not require approving of the IP address. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## Frequently asked questions
@@ -185,12 +185,10 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 **Answer:** We do not support this feature yet. We are actively working on it.
 
 **Question:** What are the port requirements for the gateway to work?
-**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure Synapse Analytics is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
+**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure Synapse Analytics is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and filtering IP addresses](#firewall-configurations-and-filtering-ip-address-of gateway) section. 
 
 **Question:** What are certificate requirements for Gateway?
 **Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
 
 ## Next steps
 For information about performance of copy activity, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md).
-
- 

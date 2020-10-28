@@ -143,7 +143,7 @@ When no selection is made from the dropdown, the `newOrExisting` property value 
     "value": "<default guid>"
   },
   "objectId": {
-    "value": "<default guid>"
+    "value": ["<default guid>"]
   },
   "password": {
     "value": "<password>"
@@ -168,7 +168,7 @@ When **Create new** or an existing application identifier is selected from the d
     "value": "<guid>"
   },
   "objectId": {
-    "value": "<guid>"
+    "value": ["<guid>"]
   },
   "password": {
     "value": "<password>"

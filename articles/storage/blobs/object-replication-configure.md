@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -33,7 +33,7 @@ A storage account can serve as the source account for up to two destination acco
 
 When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
 
-To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure Role-Based Access Control (RBAC) documentation.
+To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
 ### Configure object replication when you have access to both storage accounts
 
@@ -234,7 +234,7 @@ az storage account or-policy show \
 
 If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
-Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure Role-Based Access Control (RBAC) documentation.
+Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
 The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
@@ -341,6 +341,49 @@ az storage account or-policy create \
     -resource-group <resource-group> \
     --source-account <source-account-name> \
     --policy @policy.json
+```
+
+---
+
+## Check the replication status of a blob
+
+You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
+
+# [Azure portal](#tab/portal)
+
+To check the replication status for a blob in the source account in the Azure portal, follow these steps:
+
+1. Navigate to the source account in the Azure portal.
+1. Locate the container that includes the source blob.
+1. Select the blob to display its properties. If the blob has been replicated successfully, you'll see in the **Object replication** section that the status is set to *Complete*. The replication policy ID and the ID for the rule governing object replication for this container are also listed.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
+
+# [PowerShell](#tab/powershell)
+
+To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To check the replication status for a blob in the source account with Azure CLI, get the value of the object replication **status** property, as shown in the following example:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
 ```
 
 ---

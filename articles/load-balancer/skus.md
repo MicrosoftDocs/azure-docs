@@ -49,7 +49,9 @@ For more information, see [Load balancer limits](https://docs.microsoft.com/azur
 
 - SKUs aren't mutable. You can't change the SKU of an existing resource.
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
-- [Move subscription operations](../azure-resource-manager/management/move-resource-group-and-subscription.md) aren't supported for Standard Load Balancer and Standard Public IP resources.
+- [Move operations](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - Resource group move operations (within same subscription) **are supported** for Standard Load Balancer and Standard Public IP. 
+  - [Subscription group move operations](../azure-resource-manager/management/move-support-resources.md) are **not** supported for Standard Load Balancer and Standard Public IP resources.
 
 ## Next steps
 

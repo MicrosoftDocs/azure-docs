@@ -54,6 +54,15 @@ Flexible servers are best suited for
 
 For detailed overview of flexible server deployment mode, refer [flexible server overview](flexible-server/overview.md).
 
+## Contacts
+For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
+
+In addition, consider the following points of contact as appropriate:
+
+- To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+
 ## Next steps
 
 Learn more about the two deployment modes for Azure Database for MySQL and choose the right options based on your needs.

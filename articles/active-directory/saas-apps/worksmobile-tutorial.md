@@ -136,7 +136,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 3. You can use Microsoft Access Panel. When you click the LINE WORKS tile in the Access Panel, this will redirect to LINE WORKS Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-
 ## Next steps
 
 Once you configure LINE WORKS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+

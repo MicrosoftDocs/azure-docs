@@ -161,7 +161,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* For customers in Brazil, the commcercial marketplace through Cloud Solution Providers (CSP) uses USD.
+\* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
 \** Free and BYOL VM images only.
 
@@ -176,7 +176,7 @@ To adjust any price before you publish, just export the pricing spreadsheet, mod
 
 The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
 
-Microsoft receives payments from customers in their local currency, and pays you in your local currency. Microsoft converts the customer local currency to your local currency using the exchange rate of the day of purchase.
+Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 
 > [!NOTE]
 > Microsoft converts offer prices using the Microsoft Treasury exchange rates.
@@ -191,7 +191,7 @@ For details on how to enter prices for specific offer types, refer to these arti
 
 - [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md)
 - [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md)
-- [Create an Azure virtual machine offer](partner-center-portal/azure-vm-create-offer.md)
+- [Create an Azure virtual machine offer](azure-vm-create.md)
 - [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)

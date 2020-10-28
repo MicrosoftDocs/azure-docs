@@ -47,7 +47,7 @@ Before running all cells in the notebook, check if the compute instance is runni
 
 1. Download [Predict NYC Taxi Tips.ipynb](https://go.microsoft.com/fwlink/?linkid=2144301).
 
-1. Launch the Azure Machine Learning workspace in [Azure Machine Learning Studio](https://ml.azure.com).
+1. Launch the Azure Machine Learning workspace in [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Go to **Notebooks** and click **Upload files**, select "Predict NYC Taxi Tips.ipynb" that you downloaded and upload the file.
    ![Upload file](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)

@@ -63,7 +63,7 @@ Do the following steps to edit a bandwidth schedule.
 
 4. After the schedule is modified, the list of schedules is updated to reflect the modified schedule.
 
-    ![Modify user](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modify user 2](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## Delete a schedule

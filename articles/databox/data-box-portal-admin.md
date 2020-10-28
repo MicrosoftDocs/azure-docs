@@ -198,7 +198,7 @@ Perform the following steps to download the order history.
 
 You can also view the chain of custody logs that include the audit logs and the BOM files.
 
-![Logs in storage accounts](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Logs in storage accounts 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## View order status
 
@@ -218,8 +218,8 @@ Here are the statuses for an import order.
 |Received     | Your device is received and scanned at the Azure datacenter. <br> Once the shipment is inspected, device upload will start.      |
 |Data copy     | Data copy is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
-|Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal. See [examples of copy logs when upload completed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal. See [examples of copy logs when upload completed with errors](./data-box-logs.md#upload-completed-with-errors).   |
+|Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](./data-box-logs.md#upload-completed-with-warnings).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
 |Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
 
@@ -234,9 +234,9 @@ Here are the statuses for an export order.
 |Processed     | Order processing is complete. As per your order, the device is prepared for data copy in the datacenter. Device shares are created.         |
 |Data copy in progress     | Data copy from the specified Azure Storage accounts to the device is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
 |Copy completed     | Data copy from the specified Azure Storage accounts to the device is complete. A verbose log file (if the option was enabled in the order) and a copy log are created in your storage account. The verbose log contains the information on all the files (name, path, computation checksum) that are copied to the device. The copy log contains the summary of the copy process including a list of files that could not be copied due to any errors.<br> The storage account data stays as-is. |
-|Copy completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download completed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Copy completed with warnings| Data copy from Azure Storage account was completed but the data had non-critical errors. <br> Review the copy logs using the path provided in the Azure portal. Make a note of the non-critical errors. See [examples of copy logs when download completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Copy failed with errors| Data copy from Azure Storage account failed and the order is terminated. A device will not be shipped.<br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Copy completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download completed with errors](./data-box-logs.md#upload-completed-with-errors).   |
+|Copy completed with warnings| Data copy from Azure Storage account was completed but the data had non-critical errors. <br> Review the copy logs using the path provided in the Azure portal. Make a note of the non-critical errors. See [examples of copy logs when download completed with warnings](./data-box-logs.md#upload-completed-with-warnings).   |
+|Copy failed with errors| Data copy from Azure Storage account failed and the order is terminated. A device will not be shipped.<br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](./data-box-logs.md#upload-completed-with-errors).   |
 |Dispatched     |Order has shipped. Use the tracking ID displayed in your order in the portal to track the shipment.        |
 |Delivered     |Shipment was delivered to the address specified in the order.        |
 |Picked up     |Your return shipment was picked up and scanned by the carrier.         |
