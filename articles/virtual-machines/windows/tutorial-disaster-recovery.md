@@ -19,24 +19,24 @@ In this tutorial, you replicate an Azure Windows virtual machine (VM) to a secon
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Enable disaster recovery for a VM
+> * Enable disaster recovery for a Windows VM
 > * Run a disaster recovery drill
 > * Stop replicating the VM after the drill
 
 When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. Continuous replication begins. VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
 ## Prerequisites
 
-1. Check that your Azure subscription allows you to create a VM in the target region. If you just created your free Azure account, you're the administrator of your subscription and you have the permissions you need.
+1. Check that your Azure subscription allows you to create a VM in the target region. If you just created your free Azure account, you're the administrator of the subscription, and you have the permissions you need.
 2. If you're not the subscription administrator, work with the administrator to assign you:
-    - The Virtual Machine Contributor built-in role, or specific permissions to:
+    - Either the Virtual Machine Contributor built-in role, or specific permissions to:
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
         - Write to an Azure-managed disk.
     - The Site Recovery Contributor built-in role, to manage Site Recovery operations in the vault. 
-3. We recommend you use one of these VMs in this tutorial:
-    - A Windows VM running Windows Server 2012 or later. The VM disk shouldn't be encrypted for this tutorial.
-    - A Linux VM running a [supported operating system](../../site-recovery/azure-to-azure-support-matrix.md#linux).
+3. We recommend you use a Windows VM running Windows Server 2012 or later. The VM disk shouldn't be encrypted for the purpose of this tutorial.
 4. If VM outbound connections use a URL-based proxy, make sure it can access these URLs. Using an authenticated proxy isn't supported.
 
     **Name** | **Public cloud** | **Government cloud** | **Details**
@@ -47,6 +47,7 @@ When you enable replication for a VM, the Site Recovery Mobility service extensi
     Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery monitoring and diagnostic data. 
 
 4. If you're using network security groups (NSGs) to limit network traffic for VMs, create NSG rules that allow outbound connectivity (HTTPS 443) for the VM using these service tags (groups of IP addresses). Try out the rules on a test NSG first.
+
     **Tag** | **Allow** | **Details**
     --- | --- | ---
     Storage tag | Allows data to be written from the VM to the cache storage account.
@@ -54,11 +55,8 @@ When you enable replication for a VM, the Site Recovery Mobility service extensi
     EventsHub tag | Allows access to Site Recovery monitoring.
     AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
     GuestAndHybridManagement | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
-5. Make sure VMs have the latest root certificates. 
-
-    - On Windows VMs, install the latest Windows updates.
-    - On Linux VMs, follow the guidance provided by your Linux distributor, to get the latest trusted root certificates and certificate revocation list on the VM.
-
+5.  On Windows VMs, install the latest Windows updates, to make sure that VMs have the latest root certificates.
+ 
 ## Enable disaster recovery
 
 1. In the Azure portal, open the VM properties page.
@@ -103,9 +101,6 @@ After the replication job finishes, you can check the VM replication status.
 Run a drill to make sure disaster recovery works as expected. When you run a test failover, it creates a copy of the VM, with no impact on ongoing replication, or on your production environment. The VM is automatically cleaned up by Site Recovery after the drill.
 
 1. In the VM disaster recovery page, select **Test failover**.
-
-    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover.png" alt-text="Button to select test failover.":::
-
 2. In **Test failover**, leave the default *Latest (lowest RPO)* setting for the recovery point.
 
    This option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
