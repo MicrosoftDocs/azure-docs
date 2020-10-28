@@ -95,7 +95,7 @@ Azure Firewall uses a static public IP address for your virtual network resource
 
 - Secure applications with Azure Active Directory (Azure AD) to ensure authentication
 
-- Disable TLS 1.2 on the app
+- Set minimum TLS version to 1.2
 
 - Set the app to HTTPS only 
 
@@ -111,7 +111,7 @@ To secure an internet accessible app in the multi-tenant App Service:
 
 - Secure applications with Azure AD to ensure authentication
 
-- Disable TLS 1.2 on the app
+- Set minimum TLS version to 1.2
 
 - Set the app to HTTPS only 
 
