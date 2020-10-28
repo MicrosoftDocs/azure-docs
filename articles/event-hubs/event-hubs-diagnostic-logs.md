@@ -2,7 +2,7 @@
 title: Set up diagnostic logs - Azure Event Hub | Microsoft Docs
 description: Learn how to set up activity logs and diagnostic logs for event hubs in Azure.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/27/2020
 ---
 
 # Set up diagnostic logs for an Azure event hub
@@ -183,7 +183,6 @@ Kafka user error log JSON includes elements listed in the following table:
 | `Message` | Informational message, which provides details about an error |
 
 ## Event Hubs virtual network connection event schema
-
 Event Hubs virtual network (VNet) connection event JSON includes elements listed in the following table:
 
 | Name | Description |
@@ -195,6 +194,8 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | `Reason` | Provides a reason why the action was done |
 | `Count` | Number of occurrences for the given action |
 | `ResourceId` | Azure Resource Manager resource ID. |
+
+Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. Enable IP filtering, and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs doesn't support IPv6 ranges. 
 
 ### Example
 
