@@ -50,7 +50,7 @@
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
     - name: Contact Microsoft Support
-      href: azure-stack-edge-contact-microsoft-support.md
+      href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
       - name: 2007 - Current
