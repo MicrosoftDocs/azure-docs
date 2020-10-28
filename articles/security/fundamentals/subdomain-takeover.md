@@ -48,7 +48,7 @@ A common scenario for a subdomain takeover:
 
     1. The threat actor provisions an Azure resource with the same FQDN of the resource you previously controlled. In this example, `app-contogreat-dev-001.azurewebsites.net`.
 
-    1. Traffic being sent to the subdomain `myapp.contoso.com` is now routed to the malicious actor’s resource where they control the content.
+    1. Traffic being sent to the subdomain `greatapp.contoso.com` is now routed to the malicious actor’s resource where they control the content.
 
 
 
