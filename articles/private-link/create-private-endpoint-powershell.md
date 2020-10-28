@@ -1,25 +1,40 @@
 ---
-title: 'Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs'
-description: Learn about Azure Private Link
+title: 'Quickstart - Create an Azure Private Endpoint using Azure PowerShell'
+description: Use this quickstart to learn how to create a Private Endpoint using the Azure PowerShell.
 services: private-link
-author: malopMSFT
+author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/16/2019
+ms.date: 10/27/2019
 ms.author: allensu
 
 ---
-# Create a private endpoint using Azure PowerShell
-A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. 
+# Quickstart: Create a Private Endpoint using Azure PowerShell
 
-In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a logical SQL server with an Azure private endpoint using Azure PowerShell. Then, you can securely access SQL Database from the VM.
+Get started with Azure Private Link by using a Private Endpoint to connect securely to an Azure web app.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+In this quickstart, you'll create a private endpoint for an Azure web app and deploy a virtual machine to test the private connection.  
+
+Private endpoints can be created for different kinds of Azure services, such as Azure SQL and Azure Storage.
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Web App with a **PremiumV2-tier** or higher app service plan deployed in your Azure subscription.  
+    * For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
+    * For a detailed tutorial on creating a web app and an endpoint, see [Tutorial: Connect to a web app using an Azure Private Endpoint](tutorial-private-endpoint-webapp-portal.md).
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
-Before you can create your resources, you must create a resource group that hosts the Virtual Network and the private endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+
+* Named **CreatePrivateEndpointQS-rg**.
+* 
 
 ```azurepowershell
 
