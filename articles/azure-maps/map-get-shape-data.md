@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Get shape data
 
-This article shows you how to get data of shapes that are drawn on the map. We use the **drawingManager.getSource()** function inside [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). There are various scenarios when you want to extract geojson data of a drawn shape and use it elsewhere.  
+This article shows you how to get data of shapes that are drawn on the map. We use the **drawingManager.getSource()** function inside [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). There are various scenarios when you want to extract geojson data of a drawn shape and use it elsewhere.  
 
 
 ## Get data from drawn shape
@@ -50,10 +50,10 @@ Learn how to use additional features of the drawing tools module:
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
