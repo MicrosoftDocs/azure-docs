@@ -179,7 +179,7 @@ The Connector docker should have the ability to send updates on the metadata. Ex
 
 ## Weather Data (Telemetry) specifications
 
-The weather data is mapped to a canonical message that is pushed to an Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send weather data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry, refer to [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+The weather data is mapped to a canonical message that is pushed to an Azure Event Hub for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send weather data to FarmBeats, you will need to create a client that sends messages to an event hub in FarmBeats. To know more about sending telemetry, refer to [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Here's a sample Python code that sends telemetry as a client to a specified event hub.
 

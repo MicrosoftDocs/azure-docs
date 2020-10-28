@@ -288,6 +288,4 @@ In this final step, configure the load balancer using either the [Azure portal](
 
 ## Next steps
 
-You can also use [Az SQL VM CLI](availability-group-az-cli-configure.md) to configure an availability group. 
-
-
+You can also use [Az SQL VM CLI](./availability-group-az-commandline-configure.md) to configure an availability group.
