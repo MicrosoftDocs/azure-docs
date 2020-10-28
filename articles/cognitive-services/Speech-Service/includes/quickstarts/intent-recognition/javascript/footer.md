@@ -14,3 +14,4 @@ ms.author: erhopf
 
 > [!div class="nextstepaction"]
 > [Explore JavaScript samples on GitHub](https://aka.ms/speech/github-javascript)
+> [See the advanced LUIS sample on GitHub](https://github.com/Azure/pizza_luis_bot)
