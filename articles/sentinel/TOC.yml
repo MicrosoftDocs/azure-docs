@@ -23,22 +23,30 @@
     href: tutorial-respond-threats-playbook.md    
 - name: Concepts
   items:
-  - name: Assign permissions using roles
-    href: roles.md
-  - name: Advanced multistage attack detection
-    href: fusion.md
-  - name: Bring your own machine learning platform
-    href: bring-your-own-ml.md
-  - name: Extend Azure Sentinel across workspaces and tenants
-    href: extend-sentinel-across-workspaces-tenants.md
-  - name: Identify advanced threats with UEBA
-    href: identify-threats-with-entity-behavior-analytics.md
-  - name: Import threat intelligence into Azure Sentinel
-    href: import-threat-intelligence.md
-  - name: Use external data with watchlists
-    href: watchlists.md
-  - name: Normalize your data across tables
-    href: normalization.md
+  - name: Azure Sentinel basic concepts
+    items:
+    - name: Events, alerts, and incidents
+      href: events-alerts-and-incidents.md
+    - name: Classify data using entities
+      href: entities-in-azure-sentinel.md
+  - name: Azure Sentinel feature concepts
+    items:
+    - name: Assign permissions using roles
+      href: roles.md
+    - name: Advanced multistage attack detection
+      href: fusion.md
+    - name: Bring your own machine learning platform
+      href: bring-your-own-ml.md
+    - name: Extend Azure Sentinel across workspaces and tenants
+      href: extend-sentinel-across-workspaces-tenants.md
+    - name: Identify advanced threats with UEBA
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Import threat intelligence into Azure Sentinel
+      href: import-threat-intelligence.md
+    - name: Use external data with watchlists
+      href: watchlists.md
+    - name: Normalize your data across tables
+      href: normalization.md
   - name: Security
     items:
     - name: Security baseline
