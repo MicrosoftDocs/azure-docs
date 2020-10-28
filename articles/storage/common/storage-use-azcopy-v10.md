@@ -32,7 +32,7 @@ First, download the AzCopy V10 executable file to any directory on your computer
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
 > [!NOTE]
-> If you want to copy data to and from your [Azure Table storage](/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
+> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
 
 ## Run AzCopy
@@ -75,14 +75,14 @@ By using Azure Active Directory, you can provide credentials once instead of hav
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity, managed identity, or service principal.
+If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) has been assigned to your user identity, managed identity, or service principal.
 
 > User identities, managed identities, and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
-- [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 These roles can be assigned to your security principal in any of these scopes:
 
@@ -91,14 +91,14 @@ These roles can be assigned to your security principal in any of these scopes:
 - Resource group
 - Subscription
 
-To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 > [!NOTE]
 > Keep in mind that Azure role assignments can take up to five minutes to propagate.
 
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
-To learn more, see [Access control in Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-access-control).
+To learn more, see [Access control in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
 
 #### Authenticate a user identity
 
@@ -132,9 +132,9 @@ Before you run a script, you have to sign-in interactively at least one time so 
 
 You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
-To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
+To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
+To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 
 ##### Using a client secret
 
@@ -200,7 +200,7 @@ To learn more about how to enable a system-wide managed identity or create a use
 
 ##### Using a system-wide managed identity
 
-First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
 Then, in your command console, type the following command, and then press the ENTER key.
 
@@ -210,7 +210,7 @@ azcopy login --identity
 
 ##### Using a user-assigned managed identity
 
-First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
 Then, in your command console, type any of the following commands, and then press the ENTER key.
 
@@ -242,7 +242,7 @@ This example command recursively copies data from a local directory to a blob co
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview).
+To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
 ## Transfer files
 

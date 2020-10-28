@@ -266,7 +266,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 | partitionOptions | Specifies the data partitioning options used to load data from Azure Synapse Analytics. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Azure Synapse Analytics is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | ***Under `partitionSettings`:*** | | |
-| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
+| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
 
@@ -473,7 +473,7 @@ Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an effici
 - If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into Azure Synapse Analytics.
 
 > [!TIP]
-> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase).
+> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase). When using PolyBase with Azure Integration Runtime, effective Data Integration Units (DIUs) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by Synapse engine.
 
 The following PolyBase settings are supported under `polyBaseSettings` in copy activity:
 
@@ -666,6 +666,9 @@ Azure Synapse Analytics [COPY statement](/sql/t-sql/statements/copy-into-transac
 
 >[!NOTE]
 >Currently Data Factory only support copy from COPY statement compatible sources mentioned below.
+
+>[!TIP]
+>When using COPY statement with Azure Integration Runtime, effective Data Integration Units (DIUs) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by Synapse engine.
 
 Using COPY statement supports the following configuration:
 
