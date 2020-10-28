@@ -67,7 +67,7 @@ To access Media Services API, you need to collect the following data points.
 |Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
 
-### Get AAD auth info from the Azure portal
+### Get Azure Active Directory auth info from the Azure portal
 
 To get the information, follow these steps:
 
