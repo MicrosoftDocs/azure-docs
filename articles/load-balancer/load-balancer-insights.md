@@ -21,13 +21,13 @@ Through [Azure Monitor for Networks](https://docs.microsoft.com/azure/azure-moni
 >Please note this feature is in Preview and the functional dependency view and preconfigured dashboard may change to improve this experience
 
 >[!IMPORTANT]
->The Standard Load Balancer is required to see metrics from the Load Balancer namespace in the pre-configured metrics dashboard. You will still be able to see metrics from the VM, VMSS, and Connection Monitor namespaces however, we recommend [upgrading to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) for any production workloads to take advantage of the robust set of Load Balancer metrics.
+>The Standard Load Balancer is required to see metrics from the Load Balancer namespace in the pre-configured metrics dashboard. You will still be able to see metrics from the VM, virtual machine scale set, and Connection Monitor namespaces however, we recommend [upgrading to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) for any production workloads to take advantage of the robust set of Load Balancer metrics.
 
 ## Functional dependency view
 
 The functional dependency view will enable you to picture even the most complex load balancer setups. With visual feedback on your latest Load Balancer configuration, you can make updates while keeping your configuration in mind.
 
-You can access this view by visiting the Insights blade of your Load Balancer resource in Azure .
+You can access this view by visiting the Insights blade of your Load Balancer resource in Azure.
 
 :::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="Depecition of the functional dependency view. The frontend of the load balancer can be seen connecting to the backend pool members via the rules configured. For Standard Load Balancer, the lines from load-balancing rules to the backend pool instances are color-coded based on health probe status." border="true":::
 
@@ -35,7 +35,7 @@ For Standard Load Balancers, your backend pool resources are color-coded with He
 
 ## Metrics dashboard
 
-From the Insights sub-blade of your Load Balancer you can select More Detailed Metrics to view a pre-configured [Azure Monitor Workbook](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard will show the Load Balancer status and links to relevant documentation at the top of the page.
+From the Insights blade of your Load Balancer, you can select More Detailed Metrics to view a pre-configured [Azure Monitor Workbook](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard will show the Load Balancer status and links to relevant documentation at the top of the page.
 
 At first you'll be presented with the Overview tab. You can navigate through the available tabs each of which contain visuals relevant to a specific aspect of your Load Balancer. Explicit guidance for each is available in the dashboard at the bottom of each tab.
 
@@ -61,12 +61,12 @@ A workflow for viewing these graphs is provided at the bottom of the page with c
 The Data Throughput tab allows you to review your inbound and outbound throughput to identify if your traffic patterns are as expected. It will show the inbound and outbound data throughput split by Frontend IP and Frontend Port so that you can identify if how the services you have running are performing individually.
 
 ### Flow Distribution
-The Flow Distribution Tab will help you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and VMSS instance is receiving. 
+The Flow Distribution Tab will help you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and virtual machine scale set instance is receiving. 
 
 These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you are approaching the [per VM flow limit](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) for your machine size.
 
 ### Connection Monitors
-The Connection Monitors tab will show you the round-trip latency on a global map for all of the [Connection Monitors](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  you've configured. These visuals provide useful information for services with strict latency requirements and can inform whether you need to add additional region deployments or  move to a [cross-regional load balancing](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) model
+The Connection Monitors tab will show you the round-trip latency on a global map for all of the [Connection Monitors](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  you've configured. These visuals provide useful information for services with strict latency requirements. To meet your requirements you may need to add additional regional deployments or  move to a [cross-regional load balancing](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) model
 
 ### Metric Definitions
 The Metric Definitions tab contains all the information shown in the [Multi-dimensional Metrics article](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
