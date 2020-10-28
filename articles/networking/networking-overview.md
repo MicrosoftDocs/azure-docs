@@ -23,7 +23,8 @@ The networking services in Azure provide a variety of networking capabilities th
 
 ## <a name="connect"></a>Connectivity services
  
-This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual Network (VNet), ExpressRoute, VPN Gateway, Virtual WAN,Virtual network NAT Gateway, Azure DNS, Azure Peering service, and Azure Bastion.
+This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual Network (VNet), ExpressRoute, VPN Gateway, Virtual WAN, Virtual network NAT Gateway, Azure DNS, Azure Peering service, and Azure Bastion.
+
 
 ### <a name="vnet"></a>Virtual network
 
@@ -129,6 +130,8 @@ Azure Content Delivery Network (CDN) offers developers a global solution for rap
 
 ### <a name="frontdoor"></a>Azure Front Door Service
 Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../frontdoor/front-door-overview.md).
+
+:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Front Door Service overview":::
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
