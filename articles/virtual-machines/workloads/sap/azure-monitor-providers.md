@@ -52,12 +52,16 @@ In public preview, customers can expect to see the following data with High-avai
 ![Azure Monitor for SAP solutions providers - High Availability cluster](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
 To configure High-availability cluster provider, there are two primary steps involved: 
-1. Install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) in *each* node within Pacemaker cluster 
+1. Install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) in *each* node within the Pacemaker cluster 
     - Customers can use Azure Automation scripts to deploy High-availability cluster. The scripts will install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) on each cluster node.  
     - or customers can perform manual installation, following the steps on [this page](https://github.com/ClusterLabs/ha_cluster_exporter) 
-2. Configure High-availability cluster provider in *each* node within Pacemaker cluster  
-  To configure the High-availability cluster provider, Prometheus URL, Cluster name, Host name and System ID are needed.   
-  Customers are recommended to configure one provider per cluster node.   
+2. Configure a High-availability cluster provider for *each* node within the Pacemaker cluster  
+  To configure the High-availability cluster provider, the following information is required:
+    - Name - this is a name for this provider, and should be unique for this Azure Monitor for SAP solutions instance
+    - Prometheus Endpoint - this is usually http://<servername or ip address>:9664/metrics
+    - SID - for SAP systems, use the SAP SID.  For other systems (eg. NFS clusters), use a three character name for the cluster, distinct from other clusters monitored   
+    - Cluster name - this is the cluster name used when creating the cluster, and can be found in the cluster property "cluster-name"
+    - Hostname - this is the Linux hostname of the VM  
 
 ## Provider type Microsoft SQL server
 
