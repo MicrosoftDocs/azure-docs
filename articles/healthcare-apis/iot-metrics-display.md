@@ -1,6 +1,6 @@
 ---
-title: Displaying Azure IoT Connector for FHIR (preview) Metrics
-description: This article explains the displaying of Azure IoT Connector for FHIR (preview) Metrics
+title: View and configure Azure IoT Connector for FHIR (preview) Metrics
+description: This article explains the displaying and configuring of Azure IoT Connector for FHIR (preview) Metrics
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 10/28/2020
 ms.author: jasteppe
 ---
 
-# Displaying Metrics for Azure IoT Connector for FHIR (preview) 
+# View and configure Azure IoT Connector for FHIR (preview) Metrics 
 
 In this article, you'll learn how to view Azure IoT Connector for FHIR* Metrics. 
 
@@ -52,7 +52,7 @@ The displayed IoT Connector Metrics are as follows:
 
 6. **Total Error Count** Developers - Please add verbiage. 
 
-## Focusing on Azure IoT Connector for FHIR (preview) Metrics
+## Focusing and configuring Azure IoT Connector for FHIR (preview) Metrics
 In this example, we will be focusing on the **Number of Incoming Messages**.
 
 1. Select a point-in-time that you want to focus on.
