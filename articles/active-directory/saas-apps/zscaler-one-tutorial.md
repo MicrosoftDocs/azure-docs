@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with Zscaler One, perform the following ste
 
 5. Your Zscaler One application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 6. In addition to above, Zscaler One application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 	
@@ -114,9 +114,9 @@ To configure Azure AD single sign-on with Zscaler One, perform the following ste
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot shows User claims with the option to Add new claim.](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -159,7 +159,7 @@ To configure Azure AD single sign-on with Zscaler One, perform the following ste
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
-	![Administration](./media/zscaler-one-tutorial/ic800206.png "Administration")
+	![Screenshot shows the Zscaler One site with steps as described.](./media/zscaler-one-tutorial/ic800206.png "Administration")
 
 	a. Under Authentication Type, choose **SAML**.
 
@@ -187,7 +187,7 @@ To configure Azure AD single sign-on with Zscaler One, perform the following ste
 
 6. On the **Configure User Authentication** dialog page, perform the following steps:
 
-    ![Administration](./media/zscaler-one-tutorial/ic800207.png)
+    ![Screenshot shows the Configure User Authentication dialog box with Activate selected.](./media/zscaler-one-tutorial/ic800207.png)
 
 	a. Hover over the **Activation** menu near the bottom left.
 
@@ -270,15 +270,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
 
-	![image](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
+	![Screenshot shows the Users and groups dialog box where you can select a user.](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
 
 6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
 
-	![image](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
+	![Screenshot shows the Select Role dialog box where you can choose a user role.](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
 
 7. In the **Add Assignment** dialog select the **Assign** button.
 
-	![image](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
+	![Screenshot shows the Add Assignment dialog box where you can select Assign.](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
 
 ### Create Zscaler One test user
 

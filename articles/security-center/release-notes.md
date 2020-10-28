@@ -33,7 +33,7 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 - [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
-- [Regulatory Compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
+- [Regulatory compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines (preview)
@@ -74,7 +74,7 @@ For more details of this recommendation and all other Security Center recommenda
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
 
 
-### Regulatory Compliance dashboard now includes option to remove standards
+### Regulatory compliance dashboard now includes option to remove standards
 
 Security Center's regulatory compliance dashboard provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
 
