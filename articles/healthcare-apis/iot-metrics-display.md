@@ -40,17 +40,17 @@ In this article, you'll learn how to view and configure Azure IoT Connector for 
 ## Azure IoT Connector for FHIR (preview) Metrics types
 The displayed IoT Connector Metrics are as follows:
 
-1. **Number of Incoming Messages:** Developers - Please add verbiage.
+**Number of Incoming Messages:** Developers - Please add verbiage.
 
-2. **Number of Normalized Messages:** Developers - Please add verbiage.
+**Number of Normalized Messages:** Developers - Please add verbiage.
 
-3. **Number of Message Groups:** Developers - Please add verbiage.
+**Number of Message Groups:** Developers - Please add verbiage.
 
-4. **Average Normalized Stage Latency:** Developers - Please add verbiage.
+**Average Normalized Stage Latency:** Developers - Please add verbiage.
 
-5. **Average Group Stage Latency:** Developers - Please add verbiage. 
+**Average Group Stage Latency:** Developers - Please add verbiage. 
 
-6. **Total Error Count** Developers - Please add verbiage. 
+**Total Error Count** Developers - Please add verbiage. 
 
 ## Focusing and configuring Azure IoT Connector for FHIR (preview) Metrics
 In this example, we will be focusing on the **Number of Incoming Messages** Metrics.
