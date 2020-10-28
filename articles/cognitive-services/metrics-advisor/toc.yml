@@ -7,8 +7,6 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Explore the demo site
-    href: quickstarts/explore-demo.md
   - name: Use the web portal
     href: quickstarts/web-portal.md
   - name: Use the REST API

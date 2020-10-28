@@ -39,7 +39,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Upload a Drawing package
 
-Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload the Drawing package to Azure Maps resources.
+Use the [Data Upload API](/rest/api/maps/data/uploadpreview) to upload the Drawing package to Azure Maps resources.
 
 The Data Upload API is a long running transaction that implements the pattern defined here. Once the operation completes, we'll use the `udid` to access the uploaded package to convert it. Follow the steps below to obtain the `udid`.
 
@@ -159,11 +159,11 @@ The sample Drawing package should be converted without errors or warnings. Howev
 
 ## Create a dataset
 
-The dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset. The steps below show you how to create a dataset.
+The dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset. The steps below show you how to create a dataset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
+2. Make a **POST** request to the [Dataset Create API](/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -219,7 +219,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 ## Query datasets with WFS API
 
- Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). With the WFS API you can query for feature collections, a specific collection, or a specific feature with a feature **ID**. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
+ Datasets can be queried using  [WFS API](/rest/api/maps/wfs). With the WFS API you can query for feature collections, a specific collection, or a specific feature with a feature **ID**. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
@@ -229,7 +229,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
+3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
 
     ```json
     {
@@ -299,7 +299,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
+2. Make a **POST** request to the [Create Stateset API](/rest/api/maps/featurestate/createstatesetpreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -397,7 +397,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
 
-The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+The [Feature Get States API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
 
 To learn more about the different Azure Maps Creator services discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
 

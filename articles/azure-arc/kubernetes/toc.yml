@@ -33,3 +33,7 @@
   - name: Azure Policy built-ins 
     displayName: samples, policies, definitions
     href: policy-reference.md
+- name: Resources
+  items:
+    - name: Azure Arc jumpstart
+      href: https://github.com/microsoft/azure_arc

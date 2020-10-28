@@ -67,7 +67,7 @@ Microsoft is responsible for the lifecycle management of NSX-T appliances, such 
 
 ## Backup and restoration
 
-Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, use a Service Request in the Azure portal to request restoration.
+Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
 
 ## Next steps
 

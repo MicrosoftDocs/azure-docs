@@ -42,7 +42,7 @@ The following table compares Files, Blobs, Disks, Queues, and Tables, and shows 
 | **Azure Files** |Offers fully managed cloud file shares that you can access from anywhere via the industry standard Server Message Block (SMB) protocol.<br><br>You can mount Azure file shares from cloud or on-premises deployments of Windows, Linux, and macOS. | You want to "lift and shift" an application to the cloud that already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to replace or supplement on-premises file servers or NAS devices.<br><br> You want to store development and debugging tools that need to be accessed from many virtual machines. |
 | **Azure Blobs** | Allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
-| **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Azure Tables** | Allow you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table storage versus the Azure Cosmos DB Table API, see [Developing with Azure Cosmos DB Table API and Azure Table storage](../../cosmos-db/table-support.md). |
 
 ## Blob storage
@@ -89,7 +89,7 @@ For more information about Azure Queues, see [Introduction to Queues](../queues/
 
 ## Table storage
 
-Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../tables/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
+Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../tables/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md).
 
 For more information about Table storage, see [Overview of Azure Table storage](../tables/table-storage-overview.md).
 
@@ -111,7 +111,7 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 - **Azure AD authorization over SMB for Azure Files.** Azure Files supports identity-based authorization over SMB (Server Message Block) through either Azure Active Directory Domain Services (Azure AD DS) or on-premises Active Directory Domain Services (preview). Your domain-joined Windows VMs can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md) and [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
 - **Authorization with Shared Key.** The Azure Storage Blob, Files, Queue, and Table services support authorization with Shared Key. A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, see [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
-- **Anonymous access to containers and blobs.** A container and its blobs may be publicly available. When you specify that a container or blob is public, anyone can read it anonymously; no authentication is required. For more information, see [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md).
+- **Anonymous access to containers and blobs.** A container and its blobs may be publicly available. When you specify that a container or blob is public, anyone can read it anonymously; no authentication is required. For more information, see [Manage anonymous read access to containers and blobs](../blobs/anonymous-read-access-configure.md).
 
 ## Encryption
 
@@ -127,7 +127,7 @@ The Azure Storage client libraries provide methods for encrypting data from the 
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## Transfer data to and from Azure Storage
 
@@ -156,7 +156,7 @@ You can access resources in a storage account by any language that can make HTTP
 
 - [Storage Resource Provider REST API](/rest/api/storagerp/)
 - [Storage Resource Provider Client Library for .NET](/dotnet/api/overview/azure/storage/management)
-- [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### Azure Storage data movement API and library references
 
