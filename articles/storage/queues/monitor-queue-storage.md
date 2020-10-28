@@ -41,7 +41,7 @@ Azure Queue storage collects the same kinds of monitoring data as other Azure re
 
 See [Azure Queue storage monitoring data reference](monitor-queue-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Queue storage.
 
-Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 You can continue using classic metrics and logs if you want to. In fact, classic metrics and logs are available in parallel with metrics and logs in Azure Monitor. The support remains in place until Azure Storage ends the service on legacy metrics and logs.
 
@@ -265,7 +265,7 @@ Metrics for Azure Queue storage are in these namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-For a list of all Azure Monitor support metrics, which includes Azure Queue storage, see [Azure Monitor supported metrics](/azure/azure-monitor/platform/metrics-supported).
+For a list of all Azure Monitor support metrics, which includes Azure Queue storage, see [Azure Monitor supported metrics](../../azure-monitor/platform/metrics-supported.md).
 
 
 ### Accessing metrics
@@ -321,7 +321,7 @@ Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.A
  
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Queue storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
 #### List the account-level metric definition
 
@@ -508,22 +508,22 @@ Logs sent to an event hub aren't stored as a file, but you can verify that the e
 
 ![Audit logs](media/monitor-queue-storage/event-hub-log.png)
 
-You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
+You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ### Accessing logs in a Log Analytics workspace
 
 You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries.
 
-For more information, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/log-query/get-started-portal).
+For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/log-query/get-started-portal.md).
 
 Data is stored in the **StorageQueueLogs** table.  
 
 #### Sample Kusto queries
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Queue storage. These queries work with the [new language](/azure/azure-monitor/log-query/log-query-overview).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Queue storage. These queries work with the [new language](../../azure-monitor/log-query/log-query-overview.md).
 
 > [!IMPORTANT]
-> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) for details.
 
 Use these queries to help you monitor your Azure Storage accounts:
 

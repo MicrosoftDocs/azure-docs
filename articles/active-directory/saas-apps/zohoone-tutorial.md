@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Zoho One Domain and URLs single sign-on information](common/idp-relay.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-relay.png)
 
     a. In the **Identifier** text box, type a URL:
     `one.zoho.com`
@@ -111,8 +111,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 5. If you wish to configure the application in **SP** initiated mode, perform the following step:
 
-
-    ![Zoho One Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
