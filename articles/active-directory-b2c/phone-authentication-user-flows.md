@@ -79,9 +79,9 @@ Here's an example showing how to add phone sign-up to a new user flow.
 
 7. Enter a **Name** for the user flow. For example, *signupsignin1*.
 8. In the **Identity providers** section, under **Local accounts**, select **Phone signup**.
-<!---
+
    ![User flow phone signup option selected](media/phone-authentication-user-flows/user-flow-phone-signup.png)
--->
+
 9. Under **Social identity providers**, select any other identity providers you want to allow for this user flow.
 
    > [!NOTE]
