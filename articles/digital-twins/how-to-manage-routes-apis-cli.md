@@ -183,11 +183,11 @@ One route should allow multiple notifications and event types to be selected.
 `CreateEventRoute` is the SDK call that is used to add an event route. Here is an example of its usage:
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
+EventRoute er = new EventRoute("<your-endpointName>");
 er.Filter = "true"; //Filter allows all messages
 await CreateEventRoute(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
 
