@@ -40,7 +40,7 @@ ms.date: 05/01/2020
 
 5. From your storage account pane, select **Access keys** and copy the *Connection string* value for the key. Save this value as this is the *Storage Account Connection String* value that you will need to provide in the publishing portal to receive leads for your marketplace offer.
 
-     An example of a connection sting is:
+     An example of a connection string is:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
@@ -50,7 +50,7 @@ ms.date: 05/01/2020
 
 6. From your storage account page, select **Blobs**.
 
-   ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Screenshot of Azure storage account page with Blobs selected](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Once on the blobs page, select the **+ Container** button.
 
