@@ -21,17 +21,15 @@ Your Azure Stack Edge Mini R device can operate both when wired to the network o
 
 Your device has 5 ports, PORT 1 through PORT 4 and a fifth Wi-Fi port. Here is a diagram of the back plane of a Mini R device when connected to a wireless network.
 
-![Cabling for Wi-Fi](./media/azure-stack-edge-k-series-deploy-install/wireless-cabled.png) 
+![Cabling for Wi-Fi](./media/azure-stack-edge-mini-r-deploy-install/wireless-cabled.png)
 
 
 ## Add, connect to Wi-Fi profile
 
-Do the following steps in the Azure portal to add and connect to a Wi-Fi profile.
+Do the following steps in the local UI of your device to add and connect to a Wi-Fi profile.
 
-1. On the **Network** tile, select **Configure**.  
+1. Go to the **Get started** page in the local web UI of your device. On the **Network** tile, select **Configure**.  
     
-    ![Local web UI "Network settings" tile](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-6.png)
-
     On your physical device, there are five network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. The fifth port is the Wi-Fi port. 
 
     [![Local web UI "Network settings" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png#lightbox)  
