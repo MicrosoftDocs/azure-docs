@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/25/2020
+ms.date: 10/28/2020
 ---
 
 # Quickstart: Create an Azure Database for MySQL server in the Azure portal
@@ -21,31 +21,31 @@ An Azure subscription is required. If you don't have an Azure subscription, crea
 ## Create an Azure Database for MySQL Single Server
 Go to the [Azure portal](https://portal.azure.com/) to create an MySQL Single Server database. Search for and select *Azure Database for MySQL*.
 
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
+   >[!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
 
 1. Select **Add**.
 
 2. On the Create a Azure Database for MySQL page , select  **Single server**.
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/choose-singleserver.png" alt-text="Choose single server":::
+   >[!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/choose-singleserver.png" alt-text="Choose single server":::
 
 3. Now enter the basic settings for a new Single server.
 
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Create server form":::
+   >[!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Create server form":::
 
-**Setting** | **Suggested value** | **Field description**
----|---|---
-Subscription | your subscription | Select the desired Azure Subscription.
-Resource group | *myresourcegroup* | A new or an existing resource group from your subscription.
-Server name | *mydemoserver* | Enter a unique name. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-Data source |*None* | Select None to create a new server from scratch. Select Backup only if you were restoring from a geo-backup of an existing server.
-Admin username | *mydemoadmin* | Enter your server admin username. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
-Password | your password | A new password for the server admin user. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
-Location |your desired location | Select a location from the dropdown list.
-Version | latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)
-Compute + Storage | use defaults| The default pricing tier is General Purpose with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days** with Geographically Redundant backup option.<br/>Learn about the [pricing](https://azure.microsoft.com/pricing/details/mysql/) and update the defaults if needed.
+   **Setting** | **Suggested value** | **Field description**
+   ---|---|---
+   Subscription | your subscription | Select the desired Azure Subscription.
+   Resource group | *myresourcegroup* | A new or an existing resource group from your subscription.
+   Server name | *mydemoserver* | Enter a unique name. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+   Data source |*None* | Select None to create a new server from scratch. Select Backup only if you were restoring from a geo-backup of an existing server.
+   Admin username | *mydemoadmin* | Enter your server admin username. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
+   Password | your password | A new password for the server admin user. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
+   Location |your desired location | Select a location from the dropdown list.
+   Version | latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)
+   Compute + Storage | use defaults| The default pricing tier is General Purpose with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days** with Geographically Redundant backup option.<br/>Learn about the [pricing](https://azure.microsoft.com/pricing/details/mysql/) and update the defaults if needed.
 
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized.
@@ -54,8 +54,8 @@ Compute + Storage | use defaults| The default pricing tier is General Purpose wi
 
 5. Wait for the portal page to display **your deployment is complete**. Select **Go to resource** to go to the newly created server page.
 
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/deploymentcomplete.png" alt-text="successful deployment":::
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/deploymentcomplete.png" alt-text="successful deployment":::
 
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
@@ -65,13 +65,13 @@ By default the server created is protected with a firewall. To connect you must 
 
 1. Go to **Connection security** from left-side menu for your server resource. Don't know how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Connection security - Firewall rules":::
+   >[!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Connection security - Firewall rules":::
 
 2. Select **Add current client IP address** and then select **Save**.
 
-> [!NOTE]
-> Check if your network allows outbound traffic over port 3306 that is used by Azure Database for MySQL to avoid connectivity issues.
+   > [!NOTE]
+   > Check if your network allows outbound traffic over port 3306 that is used by Azure Database for MySQL to avoid connectivity issues.
 
 You can add additional IPs or provide an IP range to connect to your server from those IPs. For more information, see [How to manage firewall rules on Azure Database for MySQL server](./concepts-firewall-rules.md)
 
@@ -79,7 +79,7 @@ You can add additional IPs or provide an IP range to connect to your server from
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Connect to the server with mysql command-line client
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to the server.
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](../cloud-shell/overview) to connect to the server.
 
 
 1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password, and subscription for your newly created server from the **Overview** section as shown in the image below.
@@ -151,7 +151,5 @@ To delete the server, you can click on **Delete** button on **Overview** page of
 
 > [!div class="nextstepaction"]
 >[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
-
-[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
 
 [Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
