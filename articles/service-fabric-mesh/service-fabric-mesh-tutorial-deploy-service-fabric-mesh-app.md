@@ -5,7 +5,7 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
-ms.custom: mvc, devcenter 
+ms.custom: mvc, devcenter , devx-track-azurecli
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 

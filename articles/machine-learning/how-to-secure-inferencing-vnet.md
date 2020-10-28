@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
 
 ---
 

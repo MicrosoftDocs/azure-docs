@@ -57,9 +57,10 @@ You can send email notifications to individuals or to all users with specific Az
 1. To apply the security contact information to your subscription, select **Save**.
 
 
-## See also
+## Next steps
+
 To learn more about security alerts, see the following pages:
 
 - [Security alerts - a reference guide](alerts-reference.md)--Learn about the security alerts you might see in Azure Security Center's Threat Protection module
 - [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts
-- [Workflow automation](workflow-automation.md)--Automate responses to alerts with custom notification logic
+- [Automate responses to Security Center triggers](workflow-automation.md)--Use automation to respond to Security Center triggers with custom notification logic
