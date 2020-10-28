@@ -58995,7 +58995,7 @@
     },
     {
       "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
-      "redirect_url": "azure/cognitive-services/metrics-advisor/overview",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/overview",
       "redirect_document_id": false
     }    
   ]
