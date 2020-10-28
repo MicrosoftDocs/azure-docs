@@ -29,21 +29,21 @@ The severity of the alert created by guest health directly maps to the severity 
 ## Alert lifecycle
 An [Azure alert](../platform/alerts-overview.md) will be created for each virtual machine anytime it changes to a **Warning** or **Critical** state. View the alert from **Alerts** in the **Azure Monitor** menu or the virtual machine's menu in the Azure portal.
 
-If an alert is already in **Fired** state when the virtual machine state changes, then a second alert won't be created, but the severity of the same alert will be changed to match the severity of the virtual machine. For example, if the virtual machine changes to **Critical** state when a **Warning** alert was already in **Fired** state, that alert's severity will be changed to **Sev1**. If the virtual machine changes to a **Warning** state when a **Sev1** alert was already in **Fired** state, that alert's severity will be changed to **Sev2**. If the virtual machine moves back to a **Healthy** state, then the alert will be resolved with severity changed to **Sev4**.
+If an alert is already in **Fired** state when the virtual machine state changes, then a second alert won't be created, but the severity of the same alert will be changed to match the state of the virtual machine. For example, if the virtual machine changes to **Critical** state when a **Warning** alert was already in **Fired** state, that alert's severity will be changed to **Sev1**. If the virtual machine changes to a **Warning** state when a **Sev1** alert was already in **Fired** state, that alert's severity will be changed to **Sev2**. If the virtual machine moves back to a **Healthy** state, then the alert will be resolved with severity changed to **Sev4**.
 
 ## Viewing alerts
-View alerts created by Azure Monitor for MVs guest health with other [alerts in the Azure portal](../platform/alerts-overview.md#alerts-experience). You can select **Alerts** from the **Azure Monitor** menu to view alerts for all monitored resources, or select **Alerts** from a virtual machine's menu to view alerts for just that virtual machine.
+View alerts created by Azure Monitor for VMs guest health with other [alerts in the Azure portal](../platform/alerts-overview.md#alerts-experience). You can select **Alerts** from the **Azure Monitor** menu to view alerts for all monitored resources, or select **Alerts** from a virtual machine's menu to view alerts for just that virtual machine.
 
 ## Alert properties
-The properties of the alert are described in the following table.
+
+### Properties in the Azure portal
+The properties of the alert when you view it in the Azure portal are described in the following table.
 
 | Property | Description |
 |:---|:---|
 | Monitor state before alert was created | State of monitor or virtual machine before this alert was fired the first time. |
 | Monitor state when alert was created | State of monitor or virtual machine when the alert was fired the first time. This is the state that caused the alert to fire. |
-| To know more about the state transition when alert was created | Link to VM Health page where you can see the exact state transition. This state transition represents the instance when monitor first went from **Healthy** state to a non-healthy state. |
-
-The values of each property will depending on whether you view them in the Azure portal or receive them from a notification. 
+| To know more about the state transition when alert was created | Link to VM Health page where you can see the exact state transition. This state transition represents the instance when the monitor first went from **Healthy** state to a non-healthy state. |
 
 For example, a monitor goes from **Healthy** to **Critical** at time t0, and a new alert is fired with **Sev1**. It then goes from **Critical** to **Warning** at time t1, and the alert severity is updated to **Sev2**. It becomes **Healthy** at time t2, and the alert is resolved.
 
@@ -53,24 +53,34 @@ The alert properties will have these values during this entire sequence.
 - Monitor state when alert was created: Critical
 - To know more about the state transition when alert was created: Navigation link to the state transition happened at time t0.
 
-If you create an action rule to send notifications though, it will have different properties at each time.
+
+### Properties in notifications
+The properties of the alert included in notifications are described in the following table.
+
+| Property | Description |
+|:---|:---|
+| Previous monitor state | State of monitor or virtual machine before it changed the state. If the alert severity update triggers this notification, this property represents the state that was just before severity update. |
+| Current monitor state | State of monitor or virtual machine when it changed the state. If the alert severity update triggers this notification, this property represents the new state. |
+| To know more about this state transition | Link to VM Health page where you can see the exact state transition. This state transition represents the instance when monitor changed state that triggered this notification. |
+
+Using the example above, notifications would have the following properties at each time.
 
 Notification received at time t0
-- previousMonitorState: Healthy
-- currentMonitorState: Critical
-- toKnowMoreAboutThisStateTransition: Navigation link to the state transition happened at time t0.
+- Previous monitor state: Healthy
+- Current monitor state: Critical
+- To know more about this state transition: Navigation link to the state transition happened at time t0.
 
 Notification received at time t1
-- previousMonitorState: Critical
-- currentMonitorState: Warning
-- toKnowMoreAboutThisStateTransition: Navigation link to the state transition happened at time t1.
+- Previous monitor state: Critical
+- Current monitor state: Warning
+- To know more about this state transition: Navigation link to the state transition happened at time t1.
 
 Notification received at time t2
-- previousMonitorState: Warning
-- currentMonitorState: Healthy
-- toKnowMoreAboutThisStateTransition: Navigation link to the state transition happened at time t2.
+- Previous monitor state: Warning
+- Current monitor state: Healthy
+- To know more about this state transition: Navigation link to the state transition happened at time t2.
 
-## Notifications
+## Configure notifications
 To be proactively notified of an alert triggered by guest health, create an [action group](../platform/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../platform/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
 
 In the **Monitor** menu in the Azure portal, select **Alerts**.  Select **Manage actions** and then **Action rules (preview)**. 
@@ -81,11 +91,11 @@ Click **New action rule** to create a new rule. Click **Select** next to scope a
 
 ![Action rule scope](media/vminsights-health-alerts/action-rule-scope.png)
 
-Click **Add** next to **Filter**. Create a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Monitor name** to specify a specific monitor or **Severity** to match alerts from all monitors that match a particular severity.
+Click **Add** next to **Filter**. Create a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Severity** to match alerts from all monitors that match a particular severity.
 
 ![Action rule filter](media/vminsights-health-alerts/action-rule-filter.png)
 
-In **Define on thin scope**, select **Action group** and then select the action group to associate with the monitor. Give the rule a name and select the action group it should be saved in. Click **Create** to create the rule.
+In **Define on this scope**, select **Action group** and then select the action group to associate with the monitor. Give the rule a name and select the resource group it should be saved in. Click **Create** to create the rule.
 
 ![Action rule](media/vminsights-health-alerts/action-rule.png)
 

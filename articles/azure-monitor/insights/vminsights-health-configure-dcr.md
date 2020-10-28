@@ -13,9 +13,30 @@ ms.date: 10/15/2020
 [Azure Monitor for VMs guest health](vminsights-health-overview.md) allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring across multiple virtual machines using data collection rules.
 
 
+## Monitors
+The health state of a virtual machine is determined by the [rollup of health](vminsights-health-configure.md#health-rollup-policy) from each of its monitors. There are two types of monitors in Azure Monitor for VMs guest health as shown in the following table.
 
-> [!NOTE]
-> See [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md) for an explanation of health states and criteria and configuring them in the Azure portal. That article will assist you in determining the detailed monitoring that you want to configure. This article focuses on implementing that monitoring logic using data collection rules.
+| Monitor |	Description |
+|:---|:---|
+| Unit monitor | Measures some aspect of a resource or application. This might be checking a performance counter to determine the performance of the resource, or its availability. |
+| Aggregate Monitor | Groups multiple monitors to provide a single aggregated health state. An aggregate monitor can contain one or more unit monitors and other aggregate monitors. |
+
+The set of monitors used by Azure Monitor for VMs guest health and their configuration can't be directly changed. You can create [overrides](#overrides) though which modify the behavior of the default configuration. Overrides are defined in data collection rules. You can create multiple data collection rules each containing multiple overrides to achieve your required monitoring configuration.
+
+## Monitor properties
+The following table describes the properties that can be configured on each monitor.
+
+| Property | Monitors | Description |
+|:---|:---|:---|
+| Enabled | Aggregate<br>Unit | If true, the state  monitor is calculated and contributes to the health of the virtual machine. It can triiger an alert of alerting is enabled. |
+| Alerting | Aggregate<br>Unit | If true, an alert is triggered for the monitor when it moves to an unhealthy state. If false, the state of the monitor will still contribute to the health of the virtual machine which could trigger an alert. |
+| Warning | Unit | Criteria for the warning state. If none, then the monitor will never enter a warning state. |
+| Critical | Unit | Criteria for the critical state. If none, then the monitor will never enter a critical state. |
+| Evaluation frequency | Unit | Frequency the health state is evaluated. |
+| Lookback | Unit | Size of lookback window in seconds. See [monitorConfiguration element](#monitorconfiguration-element) for detailed description. |
+| Evaluation Type | Unit | Defines which value to use from the sample set. See [monitorConfiguration element](#monitorconfiguration-element) for detailed description. |
+| Min sample | Unit | Minimum number of values to use to calculate value. |
+| Max sample | Unit | Maximum number of values to use to calculate value. |
 
 
 ## Default configuration
@@ -201,7 +222,7 @@ In case there are less samples in lookback interval than `minSamples`, monitor w
 
 | Element | Mandatory | Description | 
 |:---|:---|:---|
-| `evaluationFrequencySecs` | No | Defines frequency for health state evaluation. Each monitor is evaluated at the time agent starts and on a regular interval defined by this parameter thereafter. |
+| `evaluationFrequencySecs` | No | Defines frequency for health state evaluation. Each monitor is evaluated at the time the agent starts and on a regular interval defined by this parameter thereafter. |
 | `lookbackSecs`   | No | Size of lookback window in seconds. |
 | `evaluationType` | No | `min` – take minimum value from entire sample set<br>`max` - take maximum value from entire sample set<br>`avg` – take average of samples set values<br>`all` – compare every single value in the set to thresholds. Monitor switches state if and only if all samples in the set satisfy threshold condition. |
 | `minSamples`     | No | Minimum number of values to use to calculate value. |
