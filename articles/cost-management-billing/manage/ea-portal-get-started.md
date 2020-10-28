@@ -53,7 +53,7 @@ You can manage and act on your Azure EA invoice. Your invoice is a representatio
 
 To view usage summary, download reports, and manage enrollment invoices, see [Azure Enterprise enrollment invoices](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
 
-## Now that you're familiar with the basics of onboarding, here are some additional links to help you get started
+## Now that you're familiar with the basics, here are some additional links to help you get onboarded
 
 [Azure EA pricing](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) provides details on how usage is calculated and goes over charges for various Azure services in the Enterprise Agreement where the calculations are more complex.
 
