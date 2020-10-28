@@ -928,20 +928,20 @@ module AzureMaps {
 
 > [!NOTE]
 > The interactive map controls in the Azure Maps SDK's have helper functions for converting between geospatial positions and viewport pixels. 
-> - [Web SDK: Map pixel and position calculations](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Web SDK: Map pixel and position calculations](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## Next steps
 
 Directly access map tiles from the Azure Maps REST services:
 
 > [!div class="nextstepaction"]
-> [Get map tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Get map tiles](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Get traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Get traffic flow tiles](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Get traffic incident tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Get traffic incident tiles](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Learn more about geospatial concepts:
 

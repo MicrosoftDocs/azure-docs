@@ -781,7 +781,7 @@
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
   - name: Ask a question - Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
+    href: /answers/topics/azure-data-factory.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature

@@ -76,7 +76,7 @@ Follow the steps to add users to Azure AD:
 5. Select the new user's name, and then complete the required fields for that user.
 6. Select **Create**.
 
-For information about managing Azure AD users, see [Add or delete users in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
+For information about managing Azure AD users, see [Add or delete users in Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Next steps
 
