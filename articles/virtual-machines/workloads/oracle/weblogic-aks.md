@@ -11,13 +11,25 @@ ms.reviewer: cynthn
 ---
 # What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?
 
-This page describes the solutions for running Oracle WebLogic Server (WLS) on the Azure Kuberetes Service. These solutions are jointly developed and supported by Oracle and Microsoft.
+This page describes the solutions for running Oracle WebLogic Server (WLS) on the Azure Kuberetes Service (AKS). These solutions are jointly developed and supported by Oracle and Microsoft.
 
 It is also possible to run WLS on Azure Virtual Machines. The solutions to do so are described in [this Microsoft article](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-weblogic). 
 
 WLS is a leading Java application server running some of the most mission critical enterprise Java applications across the globe. WLS forms the middleware foundation for the Oracle software suite. Oracle and Microsoft are committed to empowering WLS customers with choice and flexibility to run workloads on Azure as a leading cloud platform.
 
-The Azure WLS solutions are aimed at making it as easy as possible to lift and shift your Java EE applications to Azure virtual machines by automating most boilerplate operations. The solutions automatically provision virtual network, storage, Java, and Linux resources. With minimal effort, WebLogic Server is installed. The solutions can set up security with a network security group, load balancing with Azure App Gateway and authentication with Azure Active Directory. You may also automatically connect to your existing database including Azure PostgreSQL, Azure SQL, and Oracle DB on the Oracle Cloud or Azure. The road map for the solutions includes the ability to enable distributed logging and distributed caching via Oracle Coherence. Microsoft and Oracle are partnering to enable similar functionality for WebLogic and the Azure Kubernetes Service (AKS).
+WLS is certified by Oracle and Microsoft to run well on AKS. The WLS on AKS solutions are aimed at making it as easy as possible to run your containerized and orchestrated Java EE applications on Docker and Kubernetes infrastructure in a reliable, scalable, manageable and supported fashion. WLS clusters are fully enabled to run on Kubernetes via the WebLogic Kubernetes Operator (hereafter referred to simply as the 'Operator'). The Operator follows the standard Kubernetes operator pattern. It simplifies the management and operation of WebLogic domains and deployments on Kubernetes by automating otherwise manual tasks and adding additional operational reliability features. The Operator supports Oracle WebLogic Sever 12c, Oracle Fusion Middleware Infrastructure 12c and beyond. We have tested the official Docker images for WLS 12.2.1.3 and 12.2.1.4 with the Operator. For details on the Operator, please refer to the documentation at the end of this article.
+
+In addition to certifying WLS on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts and samples for running WLS on AKS. [This guidance](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/) is incorporated into the Operator documentation and is aimed at making production WLS on AKS deployments as easy as possible. 
+
+Official WebLogic Server Docker image
+Failover achieved via Kubernetes persistent volumes
+For Domain in PV, we support Azure Files volumes accessed through a persistent volume claim
+We will use Azure Files as a Kubernetes volume
+Azure Load Balancers are supported when provisioned using a Kubernetes Service of type=LoadBalancer.
+Further ease-of-use and Azure service integrations possible via Marketplace offering mirroring virtual machines solutions
+
+
+The solutions automatically provision virtual network, storage, Java, and Linux resources. With minimal effort, WebLogic Server is installed. The solutions can set up security with a network security group, load balancing with Azure App Gateway and authentication with Azure Active Directory. You may also automatically connect to your existing database including Azure PostgreSQL, Azure SQL, and Oracle DB on the Oracle Cloud or Azure. The road map for the solutions includes the ability to enable distributed logging and distributed caching via Oracle Coherence. Microsoft and Oracle are partnering to enable similar functionality for WebLogic and the Azure Kubernetes Service (AKS).
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="You can use the Azure portal to deploy WebLogic Server on Azure":::
 
@@ -53,16 +65,10 @@ Beyond what is automatically provisioned by the solutions, customers have comple
 
 ## Next steps
 
-Explore the offers on Azure.
+Explore running WLS on AKS.
 
 > [!div class="nextstepaction"]
-> [Oracle WebLogic Server Single Node](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls)
+> [Guidance, scripts and samples for running Oracle WebLogic Server on the Azure Kubernetes Service](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)
 
 > [!div class="nextstepaction"]
-> [Oracle WebLogic Server with Admin Server](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin)
-
-> [!div class="nextstepaction"]
-> [Oracle WebLogic Server Cluster](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)
-
-> [!div class="nextstepaction"]
-> [Oracle WebLogic Server Dynamic Cluster](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster)
+> [WebLogic Kubernetes Operator](https://oracle.github.io/weblogic-kubernetes-operator/)
