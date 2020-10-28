@@ -41,9 +41,6 @@ For Copy activity, with this connector you can:
 - [Preserve file metadata during copy](#preserve-metadata-during-copy).
 - [Preserve ACLs](#preserve-acls) when copying from Azure Data Lake Storage Gen1/Gen2.
 
->[!IMPORTANT]
->If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Data Lake Storage Gen2, you must use [managed identity authentication](#managed-identity) for ADLS Gen2.
-
 ## Get started
 
 >[!TIP]
@@ -62,7 +59,8 @@ The Azure Data Lake Storage Gen2 connector supports the following authentication
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->When using PolyBase or COPY statement to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Synapse. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+>- If want to use the public Azure integration runtime to connect to the Data Lake Storage Gen2 by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
+>- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Synapse. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
 
 ### Account key authentication
 

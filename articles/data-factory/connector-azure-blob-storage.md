@@ -43,9 +43,6 @@ For the Copy activity, this Blob storage connector supports:
 - Copying blobs as is, or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 - [Preserving file metadata during copy](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->If you enable the **Allow trusted Microsoft services to access this storage account** option in Azure Storage firewall settings and want to use the Azure integration runtime to connect to Blob storage, you must use [managed identity authentication](#managed-identity).
-
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -62,7 +59,8 @@ This Blob storage connector supports the following authentication types. See the
 - [Managed identities for Azure resource authentication](#managed-identity)
 
 >[!NOTE]
->When you're using PolyBase or COPY statement to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
+>- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
+>- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
