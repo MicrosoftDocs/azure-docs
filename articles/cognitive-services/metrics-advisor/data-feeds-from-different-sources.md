@@ -73,7 +73,7 @@ Create an **Credential entity** and use it for authenticating to your data sourc
 
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
-* **Connection String**: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#view-account-access-keys) article for information on retrieving this string.
+* **Connection String**: See the Azure Blob Storage [connection string](../../storage/common/storage-account-keys-manage.md#view-account-access-keys) article for information on retrieving this string.
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
