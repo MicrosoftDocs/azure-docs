@@ -6,7 +6,7 @@ author: saveenr
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: overview
-ms.date: 09/12/2020 
+ms.date: 10/28/2020 
 ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
@@ -15,20 +15,20 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Enterprise analytics must work massive scale on any kind of data, whether raw, refined, or highly curated. This required enterprises to stitch together big data and data warehousing technologies such as Spark and SQL into rich data pipelines that work across data in relational stores and data lakes. Solutions like this are difficult to build, secure, and maintain. The complexity delays deliverying the insight enteprises need.
+Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions like are difficult to build, maintain, and secure. Their complexity delays delivering the insight enteprises need.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data analytics systems. At its core, Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. Synapse has a web-based **Studio** that provides a single place for management, monitoring, coding, and security. Synapse features deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. **Synapse Studio** provides a unified experience for management, monitoring, coding, and security. Synapse has deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
 
 ## Key features & benefits
 
 ### Industry-leading SQL
 
 * **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
+scenarios using standard and familiar T-SQL experiences. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
 
 * Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL, by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### Industry-standard Apache Spark
 
