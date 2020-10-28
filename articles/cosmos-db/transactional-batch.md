@@ -89,7 +89,7 @@ using (failedBatchResponse)
 }
 ```
 
-## How is that TransactionalBatch executed
+## How is TransactionalBatch executed
 
 When ExecuteAsync is called, all operations in the TransactionalBatch are grouped, serialized into a single payload, and sent as a single request to the Azure Cosmos DB service.
 
@@ -108,4 +108,4 @@ Currently, there are two known limits:
 
 * Learn more about [what you can do with TransactionalBatch](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/TransactionalBatch)
 
-* Visit our [documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) for further implementation details
+* Visit our [samples](sql-api-dotnet-v3sdk-samples.md) for more ways to use our Cosmos DB .NET SDK
