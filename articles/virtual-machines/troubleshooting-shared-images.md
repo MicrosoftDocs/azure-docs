@@ -17,7 +17,7 @@ ms.reviewer: cynthn
 If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the `--debug` switch with CLI and the `-Debug` switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
-**Issues with creating or modifying a gallery**
+## Issues with creating or modifying a gallery ##
 
 *Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
 **Cause**: The given name for the gallery does not meet the naming requirements.  
@@ -43,7 +43,7 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: You already have an existing gallery in the resource group with the same name and have tried to create another gallery with the same name but in a different region.  
 **Workaround**: Either use a different gallery or a different resource group.
 
-**Issues with creating or modifying image definitions**
+## Issues with creating or modifying image definitions ##
 
 *Changing property 'galleryImage.properties.<property\>' is not allowed.*  
 **Cause**: You attempted to change the OS type, OS state, hyper V generation, offer, publisher, SKU. Changing any of these properties is not permitted.  
@@ -121,7 +121,7 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: ZRS storage account type is used in a region that does not yet support this.  
 **Workaround**: Change the storage account type to 'Premium\_LRS' or 'Standard\_LRS'. Please check our documentation for the latest [list of regions](/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
 
-**Issues with creating or updating image versions**
+## Issues with creating or updating image versions ##
 
 *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 **Cause**: The <region\> is incorrect or requires an access request  
@@ -272,7 +272,7 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: Shared Image Gallery does not currently support using a disk encryption set in a different subscription.  
 **Workaround**: Create the image version and disk encryption set in the same subscription.
 
-**Create virtual machines and scalesets from image version**
+## Issues creating virtual machines and scalesets from image version ##
 
 *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantId1\> is not authorized to access linked subscription <subscriptionId2\>.*  
 **Cause**: The virtual machine or scaleset was created using a SIG image in another tenant. You have attempted to add a disk to the virtual machine or in the case of a scaleset, make a change to the scaleset model. The logged-in user account or app registration does not have access to the subscription  
