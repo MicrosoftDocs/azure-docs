@@ -49,26 +49,18 @@ The Ubuntu VM is deployed to a subnet that's associated with the NAT gateway res
 Nine Azure resources are defined in the template:
 
 * **[Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)**: Creates a network security group.
-
 * **[Microsoft.Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: Creates a security rule.
-
 * **[Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)**: Creates a public IP address.
-
 * **[Microsoft.Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)**: Creates a public IP prefix.
-
 * **[Microsoft.Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)**: Creates a virtual machine.
-
 * **[Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)**: Creates a virtual network.
-
 * **[Microsoft.Network/natGateways](/azure/templates/microsoft.network/natgateways)**: Creates a NAT gateway resource.
-
 * **[Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets)**: Creates a virtual network subnet.
-
 * **[Microsoft.Network/networkinterfaces](/azure/templates/microsoft.network/networkinterfaces)**: Creates a network interface.
 
 ## Deploy the template
 
-### Azure CLI
+**Azure CLI**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -84,7 +76,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-### Azure PowerShell
+**Azure PowerShell**
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
@@ -96,7 +88,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-### Azure portal
+**Azure portal**
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -114,7 +106,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Clean up resources
 
-### Azure CLI
+**Azure CLI**
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
@@ -123,7 +115,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
     --name myResourceGroupNAT
 ```
 
-### Azure PowerShell
+**Azure PowerShell**
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group and all resources contained within.
 
@@ -131,7 +123,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-### Azure portal
+**Azure portal**
 
 When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group **myResourceGroupNAT** that contains the NAT gateway, and then select **Delete**.
 

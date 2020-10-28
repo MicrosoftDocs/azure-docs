@@ -88,6 +88,22 @@ Flow logs will have the following fields:
 
 Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
 
+## Sample log outputs
+
+The following screenshots are example log outputs:
+
+### DDoSMitigationFlowLogs
+
+![DDoS Protection DDoSMitigationFlowLogs](./media/ddos-attack-telemetry/ddos-mitigation-flow-logs.png)
+
+### DDoSProtectionNotifications
+
+![DDoS Protection DDoSProtectionNotifications](./media/ddos-attack-telemetry/ddos-protection-notifications.png)
+
+### DDoSMitigationReports
+
+![DDoS Protection DDoSMitigationReports](./media/ddos-attack-telemetry/ddos-mitigation-reports.png)
+
 ## Next steps
 
 In this tutorial, you learned how to:
