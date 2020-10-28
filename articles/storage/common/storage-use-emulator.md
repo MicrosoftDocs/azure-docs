@@ -91,7 +91,7 @@ Once you've installed and started the Storage Emulator, you can test your code a
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-For more information on connection strings, see [Configure Azure Storage connection strings](../storage-configure-connection-string.md).
+For more information on connection strings, see [Configure Azure Storage connection strings](./storage-configure-connection-string.md).
 
 ### Authorize with a shared access signature
 
@@ -157,7 +157,7 @@ Beginning with version 3.1, the Storage Emulator supports read-access geo-redund
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> For programmatic access to the secondary with the Storage Emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
+> For programmatic access to the secondary with the Storage Emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Microsoft Azure Storage Client Library for .NET](/previous-versions/azure/dn261237(v=azure.100)) for details.
 >
 >
 
@@ -325,7 +325,7 @@ There are no differences specific to Queue storage in the emulator.
 ## Next steps
 
 * Evaluate the cross-platform, community-maintained open-source Storage Emulator [Azurite](https://github.com/azure/azurite). 
-* [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
+* [Azure Storage samples using .NET](./storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with resources in your cloud Storage account, and in the Storage Emulator.
 
 ## See Also

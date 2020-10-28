@@ -103,7 +103,7 @@ Self-service app management requires some initial setup by a Global Administrato
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Enterprise applications** > **All applications**.
 4. In the application list, find and open the app.
-5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](../manage-apps/view-applications-portal.md).)
+5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](../manage-apps/add-application-portal-setup-sso.md).)
 6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](../manage-apps/access-panel-manage-self-service-access.md).) 
 
     > [!NOTE]
@@ -118,4 +118,4 @@ See the following articles on Azure AD B2B collaboration:
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [How do Azure Active Directory admins add B2B collaboration users?](add-users-administrator.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)
-- [Azure AD B2B collaboration licensing](licensing-guidance.md)
+- [External Identities pricing](external-identities-pricing.md)

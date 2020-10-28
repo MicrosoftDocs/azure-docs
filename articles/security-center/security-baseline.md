@@ -105,7 +105,7 @@ Configure Security Center's data collection to send security data and events fro
 
 Alternatively, you can send data produced by Security Center to Azure Sentinel or a third-party SIEM.
 
-- [Export security alerts and recommendations](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
@@ -347,7 +347,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 By default Azure Security Center data is stored in the Security Center backend service. If your organization has added requirements to store this data in your own resources you can configure a Log Analytics workspace to store Security Center data, alerts, and recommendations. When using your own workspace you can add further separation by configuring different workspaces according to which environment the data originated in.
 
-- [Export security alerts and recommendations](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
