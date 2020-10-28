@@ -15,22 +15,22 @@ ms.collection: M365-identity-device-management
 
 # What is inter-directory provisioning?
 
-A directory is a shared information infrastructure, that is used for locating, managing, administering and organizing items and network resources.  Examples of applications that use directory services are Microsoft Active Directory and Azure AD.  Identities help directory systems make determinations such who has access to what and who is allowed to use this or that resource.
+A directory is a shared information infrastructure, that is used for locating, managing, administering, and organizing items and network resources.  Examples of applications that use directory services are Microsoft Active Directory and Azure AD.  Identities help directory systems make determinations such as who has access to what, and who is allowed to use specific resources.
 
-Inter-directory provisioning is provisioning an identity between two different directory services systems.   The most common scenario for inter-directory provisioning is when a user already in Active Directory is provisioned into Azure AD. This has been accomplished by agents such as Azure AD Connect sync or Azure AD Connect cloud provisioning.
+Inter-directory provisioning is provisioning an identity between two different directory services systems.   The most common scenario for inter-directory provisioning is when a user already in Active Directory is provisioned into Azure AD. This provisioning can be accomplished by agents such as Azure AD Connect sync or Azure AD Connect cloud provisioning.
 
 Inter-directory provisioning allows us to create [hybrid identity](../hybrid/whatis-hybrid-identity.md) environments.
 
 
 ## What types of inter-directory provisioning does Azure AD support
 
-Azure AD currently supports 3 methods for accomplishing inter-directory provisioning. These are:
+Azure AD currently supports three methods for accomplishing inter-directory provisioning. These methods are:
 
-- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including robuts inter-directory provisioning from Active Directory to Azure AD.
+- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
 
 - [Azure AD Connect Cloud Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) - Microsoft's on-premises identity and access management solution that helps you manage the users, credentials, policies, and access within your organization. Additionally, MIM provides advanced inter-directory provisioing to achieve hybrid identity environments for Active Directory, Azure AD, and other directories.
+- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) - Microsoft's on-premises identity and access management solution that helps you manage the users, credentials, policies, and access within your organization. Additionally, MIM provides advanced inter-directory provisioning to achieve hybrid identity environments for Active Directory, Azure AD, and other directories.
 
 ### Key benefits
 
