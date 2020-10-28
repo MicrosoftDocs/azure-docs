@@ -341,8 +341,6 @@
         href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Monitor your workload - portal
         href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Restore your data warehouse
-        href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Manage workloads
         items:
         - name: Analyze your workload
@@ -437,10 +435,6 @@
       href: ./spark/vscode-tool-synapse.md
     - name: Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
-    - name: Run a regression experiment using Azure AutoML
-      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-    - name: Create a classification model using Apache Spark MLlib
-      href: ./spark/apache-spark-machine-learning-mllib-notebook.md    
   - name: Concepts
     items:
     - name: Apache Spark concepts
