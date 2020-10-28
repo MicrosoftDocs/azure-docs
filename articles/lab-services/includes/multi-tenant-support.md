@@ -1,4 +1,4 @@
-If you are an admin or a lab owner who is part of multiple Azure AD tenants, you can navigate between tenants in [Azure Lab Services portal](https://labs.azure.com) (from the top-right corner). 
+If you are an admin or a lab owner who is part of multiple Azure AD tenants, you can navigate between tenants from the Azure Lab Services portal (the top-right corner). 
 
 ![Pick a tenant](../media/multi-tenant-support/picker.png)
 
