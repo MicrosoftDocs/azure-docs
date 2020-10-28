@@ -12,9 +12,9 @@ This script creates an Azure Batch account in Batch service mode and shows how t
 service. Allocated compute nodes are subject to a separate vCPU (core) quota and the account can be 
 authenticated either via shared key credentials or an Azure Active Directory token.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+  - This tutorial requires version 2.0.20 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). 
 
 ## Example script
 
