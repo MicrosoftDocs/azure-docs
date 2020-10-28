@@ -83,11 +83,11 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    2. Specify the **Secret Access Key** value.
    3. Select **Finish**.
    
-      ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![Screenshot shows the New Linked Service pane where you can enter values.](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. You will see a new connection. Select **Next**.
    
-   ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   ![Screenshot shows your new connection.](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
 5. In the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder/file, select **Choose**, and then select **Next**:
 
@@ -95,7 +95,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 6. Choose the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**:
 
-    ![Specify output folder](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    ![Screenshot shows the Choose the input file or folder where you can select Copy file recursively and Binary Copy.](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
 	
 7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen1**, and select **Continue**:
 
@@ -113,7 +113,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    ![Specify Data Lake Storage Gen1 account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 
 
-    ![Specify output folder](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
+    ![Screenshot shows the folder path you enter.](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
 
 10. In the **Settings** page, select **Next**:
 
