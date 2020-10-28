@@ -15,6 +15,8 @@ ms.author: yitoh
 ---
 # Azure DDoS Protection Standard overview
 
+This article answers common questions about Azure DDoS Protection Standard. 
+
 ## What is a Distributed Denial of Service (DDoS) attack?
 Distributed denial of service, or DDoS, is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is resources being depleted, affecting the application’s availability and ability to service its customers. Over the past few years, the industry has seen a sharp increase in attacks, with attacks becoming more sophisticated and larger in magnitude. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 
