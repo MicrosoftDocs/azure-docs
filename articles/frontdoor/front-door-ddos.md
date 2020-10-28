@@ -19,11 +19,11 @@ Azure Front Door has several features and characteristics that can help to preve
 
 ## Integration with Azure DDoS Protection Basic
 
-Front Door's public IP addresses are protected by Azure DDoS Protection. You don't need to enable or configure it - it's enabled automatically. This service provides protection for the Azure platform. For further information, see [Azure DDoS Protection](../security/fundamentals/ddos-best-practices.md).
+Front Door's public IP addresses are protected by Azure DDoS Protection. You don't need to enable or configure it - it's enabled automatically. This service provides protection for the Azure platform. For more information, see [Azure DDoS Protection](../security/fundamentals/ddos-best-practices.md).
 
 ## Protocol blocking
 
-Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid HTTP requests with a known `Host` header. This behaviour helps to mitigate attacks that are spread across a range of protocols and ports.
+Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid HTTP requests with a known `Host` header. This behavior helps to mitigate attacks that are spread across a range of protocols and ports.
 
 ## Capacity absorption
 
