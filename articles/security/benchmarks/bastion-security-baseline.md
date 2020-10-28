@@ -553,15 +553,17 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39773.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: 
+
+Not applicable; Azure Bastion is a PaaS service and does not allow the Azure Security Center 'Security Reader' role to be configured for the service
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
@@ -570,7 +572,19 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+
+- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
+
+- [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
+
+- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json) 
+
+Use Azure Virtual Machine Inventory to automate the collection of information about software on Virtual Machines. Software Name, Version, publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
+
+- [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
+
+Azure Bastion does not allow running an application or installation of software on its resources.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -578,7 +592,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-3: Use only approved Azure services
 
@@ -587,7 +601,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
+
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general) 
+
+- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -595,7 +615,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-4: Ensure security of asset lifecycle management
 
@@ -604,15 +624,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion is a PaaS service and customer can not use the offering's capabilities to inventory and manage assets
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -621,7 +641,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+
+- [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -629,7 +651,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-6: Use only approved applications in compute resources
 
@@ -638,15 +660,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion is a Paas service does not allow customers to install applications on them.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Logging and Threat Detection
 
@@ -659,15 +681,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Bastion does not currently produce customer facing resource logs that can be used for threat detection.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -676,15 +698,35 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Bastion service is accessed over Azure portal. User can enable logs related to identity and access management when Azure Bastion is accessed.
+
+Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
+
+Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+
+Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+
+Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+
+Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+
+Audit activity reports in the Azure Active Directory
+
+../../active-directory/reports-monitoring/concept-audit-logs.md 
+
+- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
+
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection) 
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-3: Enable logging for Azure network activities
 
@@ -693,15 +735,17 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Customer can enable Azure bastion resource logs. Use these diagnostics log to view which users connected to which workloads, at what time, from where, and other such relevant logging information. User can configure these logs to be sent to a storage account for long term retention and auditing.
+
+../../bastion/diagnostic-logs.md
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-4: Enable logging for Azure resources
 
@@ -710,15 +754,21 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Bastion resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+
+- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md) 
+
+- [Enable Azure resource logs for Azure Bastion ](../../bastion/diagnostic-logs.md)
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
 
@@ -727,15 +777,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion does not produce or process any security related logs which would need to be collected centrally for management or analysis.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-6: Configure log storage retention
 
@@ -744,7 +794,8 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Bastion does not currently produce any security-related logs. Customer can enable resource logging for the service and set any log retention customer is unable to set any log retention.
+../../bastion/diagnostic-logs.md
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -752,7 +803,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-7: Use approved time synchronization sources
 
@@ -761,15 +812,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Bastion does not support configuring your own time synchronization sources. The Azure Bastion service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Incident Response
 
