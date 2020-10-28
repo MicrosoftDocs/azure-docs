@@ -39,22 +39,22 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 
 ### SDK supported pre-aggregated metrics table
 
-| Current Production SDKs      | Standard Metrics (SDK Pre Aggregation) | [TrackMetric API](api-custom-events-metrics.md#trackmetric) (No SDK Pre-Aggregation) | Custom Metrics (SDK Pre Aggregation)|
-|------------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
-| .NET Core and .NET Framework | Supported (V2.13.1+)     | Supported                                 | Supported (V2.7.2+) via [GetMetric](get-metric.md) |
-| Java                         | Not Supported            | Supported                                 | Not Supported                           |
-| Node.js                      | Not Supported            | Supported                                 | Not Supported                           |
-| Python                       | Not Supported            | Supported                                 | Supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Current Production SDKs | Standard Metrics (SDK Pre Aggregation) | Custom Metrics (without SDK Pre-Aggregation) | Custom Metrics (with SDK Pre Aggregation)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core and .NET Framework | Supported (V2.13.1+)| Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supported (V2.7.2+) via [GetMetric](get-metric.md) |
+| Java                         | Not Supported       | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not Supported                           |
+| Node.js                      | Not Supported       | Supported via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not Supported                           |
+| Python                       | Not Supported       | Supported                                 | Supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
 
 ### Codeless supported pre-aggregated metrics table
 
-| Current Production SDKs | Standard Metrics (SDK Pre Aggregation) | [TrackMetric API](api-custom-events-metrics.md#trackmetric) (No SDK Pre-Aggregation) | Custom Metrics (SDK Pre Aggregation)|
+| Current Production SDKs | Standard Metrics (SDK Pre Aggregation) | Custom Metrics (without SDK Pre-Aggregation) | Custom Metrics (with SDK Pre Aggregation)|
 |-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
 | ASP.NET                 | Supported <sup>1<sup>    | Not Supported                             | Not Supported                           |
 | ASP.NET Core            | Supported <sup>2<sup>    | Not Supported                             | Not Supported                           |
 | Java                    | Not Supported            | Not Supported                             | [Supported](/java-in-process-agent.md#metrics) |
-|Node.js                  | Not Supported            | Not Supported                             | Not Supported                           |
+| Node.js                 | Not Supported            | Not Supported                             | Not Supported                           |
 
 1. ASP.NET codeless attach on App Service only emits metrics in "full" monitoring mode. ASP.NET codeless attach on App Service, VM/VMSS, and On-Premises emits standard metrics without dimensions. SDK is required for all dimensions.
 2. ASP.NET Core codeless attach on App Service emits standard metrics without dimensions. SDK is required for all dimensions.
