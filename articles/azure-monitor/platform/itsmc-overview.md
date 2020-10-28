@@ -34,9 +34,9 @@ For information about legal terms and the privacy policy, see [Microsoft Privacy
 
 You can start using ITSMC by completing the following steps:
 
-1.	[Add ITSMC.](#add-the-it-service-management-connector-solution)
+1.	[Add ITSMC.](#add-it-service-management-connector)
 2.	[Create an ITSM connection.](#create-an-itsm-connection)
-3.	[Use the connection.](#using-the-solution)
+3.	[Use the connection.](#use-itsmc)
 
 
 ##  Add IT Service Management Connector
@@ -67,7 +67,7 @@ Before you can create a connection, you need to add ITSMC.
 When the ITSMC resource is deployed, a notification appears at the upper right corner of the window.
 
 
-## Create an ITSM  connection
+## Create an ITSM connection
 
 After you've installed ITSMC, you can create a connection.
 
