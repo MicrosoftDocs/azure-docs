@@ -72,7 +72,7 @@ After the certificate request has been signed by the Issuer, you can bring back 
     ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.	You will see that certificate has now been added in Certificates list. Select this new certificate you had just created. The current state of the certificate would be ‘disabled’ as it hasn’t been issued by the CA yet.
 7. Click on **Certificate Operation** tab and select **Download CSR**.
- ![Certificate properties](../media/certificates/create-csr-merge-csr/download-csr.png)
+ ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.	Take .csr file to the CA for the request to get signed.
 9.	Once the request is signed by the CA, bring back the certificate file to **merge the Signed request** in the same Certificate Operation screen.
