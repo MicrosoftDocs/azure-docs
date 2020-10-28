@@ -74,7 +74,7 @@ landingContent:
         links:
           - text: Manage Data Box Gateway shares
             url: data-box-gateway-manage-shares.md
-          - Text: Manage via PowerShell
+          - text: Manage via PowerShell
             url: data-box-gateway-connect-powershell-interface.md
 
   # Card
