@@ -13,7 +13,7 @@ ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device', devx-track-cshar
 
 # Set up X.509 security in your Azure IoT hub
 
-This tutorial shows the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we use the open-source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *root certificate authority (CA)*.
+This tutorial shows the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we use the open-source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For a production environment, you should purchase the certificates from a *root certificate authority (CA)*. Also, in production, make sure you have a strategy in place to handle certificate rollover when a device certificate or a CA certificate expires.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 

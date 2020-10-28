@@ -372,12 +372,13 @@ Supported certificates include:
 
 * **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL](https://www.openssl.org/) and [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) utility for this purpose. Only works with thumbprint authentication. 
 
-A device may either use an X.509 certificate or a security token for authentication, but not both.
+A device may either use an X.509 certificate or a security token for authentication, but not both. With X.509 certificate authentication, make sure you have a strategy in place to handle certificate rollover when an existing certificate expires.
 
 The following functionality is not supported for devices that use X.509 CA authentication:
 
 * HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
 * File uploads (all protocols).
+
 
 For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](iot-hub-security-x509-get-started.md).
 
