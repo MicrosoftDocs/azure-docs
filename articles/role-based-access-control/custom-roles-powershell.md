@@ -41,7 +41,7 @@ To create custom roles, you need:
 To list the roles that are available for assignment at a scope, use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command. The following example lists all roles that are available for assignment in the selected subscription.
 
 ```azurepowershell
-Get-AzRoleDefinition | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name
 ```
 
 ```Example
