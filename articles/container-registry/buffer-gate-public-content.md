@@ -8,7 +8,7 @@ ms.date: 10/27/2020
 
 # Manage public content with Azure Container Registry
 
-An [Azure container registry](container-registry-overview.md) hosts your container images and other artifacts in a private, authenticated Azure environment. However, your environment may have dependencies on public content such as public container images, [Helm charts](https://helm.sh/), [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) policies, or other artifacts. For example, you might run [nginx](https://hub.docker.com/_/nginx) for service routing or `docker build FROM alpine` by pulling images directly from Docker Hub or another public registry. 
+An [Azure container registry](container-registry-intro.md) hosts your container images and other artifacts in a private, authenticated Azure environment. However, your environment may have dependencies on public content such as public container images, [Helm charts](https://helm.sh/), [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) policies, or other artifacts. For example, you might run [nginx](https://hub.docker.com/_/nginx) for service routing or `docker build FROM alpine` by pulling images directly from Docker Hub or another public registry. 
 
 Without proper controls, having dependencies on public registry content can introduce risks to your image development and deployment workflows. Mitigating the risks involves keeping local copies of public content. For more information, see the [Open Container Initiative blog](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
 
@@ -45,27 +45,27 @@ To authenticate using `docker login`, omit the password on the command line. Whe
 
 ### Authenticate from Azure services
 
-Several Azure services including App Service and Azure Container Instances support pulling images from public registries such as Docker Hub for container deployments. If you need to deploy an image from Docker Hub, we recommend configuring settings to authenticate using a Docker Hub account. Examples
+Several Azure services including App Service and Azure Container Instances support pulling images from public registries such as Docker Hub for container deployments. If you need to deploy an image from Docker Hub, we recommend configuring settings to authenticate using a Docker Hub account. Example settings:
 
-**App Service** settings:
+**App Service**
 
 * **Image source**: Docker Hub
 * **Repository access**: Private
-* **Login**: Docker Hub username
-* **Password**: Docker Hub password
+* **Login**: \<Docker Hub username>
+* **Password**: \<Docker Hub password>
 
 For details, see [Docker Hub authenticated pulls on App Service](https://azure.github.io/AppService/2020/10/15/Docker-Hub-authenticated-pulls-on-App-Service.html).
 
-**Azure Container Instances** settings:
+**Azure Container Instances**
 
 * **Image source**: Docker Hub or other registry
 * **Image type**: Private
 * **Image registry login server**: docker.io
-* **Image registry user name**: Docker Hub username
-* **Image registry password**: Docker Hub password
-* **Image**: docker.io/\<repo name\>:<tag>
+* **Image registry user name**: \<Docker Hub username>
+* **Image registry password**: \<Docker Hub password>
+* **Image**: docker.io/\<repo name\>:\<tag>
 
-Later sections of this article provide details about managing the images in a private Azure container registry instead, removing the dependency on Docker Hub. 
+The remaining sections of this article provide details about how to manage the images instead in a private Azure container registry, removing the dependency on Docker Hub. 
 
 ## Import images to an Azure container registry
  
@@ -84,11 +84,11 @@ az acr import \
   --password <Docker Hub password>
 ```
  
-When importing images, consider the geographic location of your image deployments and when possible choose a registry in a nearby Azure region. Import to a [geo-replicated](container-registry-geo-replication.md) registry when you need to support deployments in multiple regions.
+When importing images, consider the geographic location of your image deployments. When possible, choose a registry in a nearby Azure region. Import to a [geo-replicated](container-registry-geo-replication.md) registry when you need to support deployments in multiple regions.
 
 ## Maintain base images in separate registry
  
-For most organizations, we recommend a dedicated registry (or registries) to manage base images, separate from a registry to host application images. This arrangement decouples the management of base images from consumption by developers, build systems, or downstream deployments. While it's possible to share a single registry with multiple development teams, different teams might have different requirements for specific images or registry capabilities such as [virtual network access](container-registry-private-link.md) or [geo-replication](container-registry-geo-replication.md).
+For most organizations, we recommend a dedicated registry (or registries) to manage base images, separate from a registry to host application images. This arrangement decouples the management of base images from consumption by developers, build systems, or downstream deployments. While it's possible to share a single registry with multiple teams, different teams might have different requirements for specific images or registry capabilities such as [virtual network access](container-registry-private-link.md) or [geo-replication](container-registry-geo-replication.md).
 
 ## Automate base image updates
 
@@ -109,7 +109,7 @@ Using a [multi-step task](container-registry-tasks-multi-step.md) defined in a Y
 
 Developers of application images should ensure that their dependencies on public content are migrated to a private registry and that their code references the migrated content. For example, a `Docker FROM` statement in a Dockerfile should reference an image in a private base image registry instead of a public registry. 
 
-Similar to automating a base image update in an Azure container registry, set up an [ACR Task](container-registry-tasks-overview.md) to automate builds of application images. You can set up an automated image build task to track base image updates in your private base registry. For examples of application image build triggered by base image updates, see:
+Similar to automating a base image update, set up an [ACR Task](container-registry-tasks-overview.md) to automate builds of application images. You can set up an automated image build task to track base image updates in your private base registry. For examples, see:
 
 * [Tutorial: Automate container image builds when a base image is updated in an Azure container registry](container-registry-tutorial-base-image-update.md)
 * [Tutorial: Automate container image builds when a base image is updated in another private container registry](container-registry-tutorial-private-base-image-update.md)
@@ -125,4 +125,4 @@ Similar to automating a base image update in an Azure container registry, set up
 ## Next steps
  
 * Learn more about using [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
-* For a detailed example of using ACR tasks to import and maintain public artifacts and the applications that depend on them, see [How to consume and maintain public content with Azure Container Registry Tasks](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md)
+* For a detailed example of using ACR tasks to maintain public artifacts and the applications that depend on them, see [How to consume and maintain public content with Azure Container Registry Tasks](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md)
