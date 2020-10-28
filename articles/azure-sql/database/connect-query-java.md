@@ -9,20 +9,20 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Use Java and JDBC with  Azure SQL Database
 
-This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
+This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure SQL Database](/azure/sql-database/).
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
-- A supported [Java Development Kit](https://aka.ms/azure-jdks), version 8 (included in Azure Cloud Shell).
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
 
 ## Prepare the working environment
@@ -64,7 +64,7 @@ az group create \
 The first thing we'll create is a managed Azure SQL Database server.
 
 > [!NOTE]
-> You can read more detailed information about creating Azure SQL Database servers in [Quickstart: Create an Azure SQL Database single database](/azure/sql-database/sql-database-single-database-get-started).
+> You can read more detailed information about creating Azure SQL Database servers in [Quickstart: Create an Azure SQL Database single database](./single-database-create-quickstart.md).
 
 In [Azure Cloud Shell](https://shell.azure.com/), run the following command:
 
@@ -493,4 +493,4 @@ az group delete \
 
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)  
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
-- [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
