@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is Azure DDoS Protection Standard?
             url: ddos-protection-overview.md
-      - linkListType: concept
+      - linkListType: architecture
         links:
           - text: Azure DDoS Protection Standard features
             url: ddos-protection-standard-features.md
