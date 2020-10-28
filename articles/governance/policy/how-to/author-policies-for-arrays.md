@@ -291,7 +291,8 @@ When using the `field()` function on the example resource content, the results a
 
 ## Count expressions
 
-[Count](../concepts/definition-structure.md#count) expressions are a later addition to the policy language. They allow to count how many array members meet a complex condition and compare this number to a target value. The syntax is:
+[Count](../concepts/definition-structure.md#count) expressions count how many array members meet a condition and compare the count to a target value. They are more intuitive and versatile tool for evaluating arrays compared to field conditions. The syntax is:
+
 ```json
 {
   "count": {
@@ -302,7 +303,7 @@ When using the `field()` function on the example resource content, the results a
 }
 ```
 
-When used without a 'where' condition, `count()` simply returns the length of an array. With the example resource content from the previous section, the following `count` expression is evaluated to `true` since `stringArray` has three members:
+When used without a 'where' condition, `count` simply returns the length of an array. With the example resource content from the previous section, the following `count` expression is evaluated to `true` since `stringArray` has three members:
 
 ```json
 {
