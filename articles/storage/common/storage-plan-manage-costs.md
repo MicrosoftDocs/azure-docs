@@ -51,19 +51,19 @@ This section covers each option in more detail.
 
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
 
-To learn more, see [Optimize costs for Blob storage with reserved capacity](/azure/storage/blobs/storage-blob-reserved-capacity).
+To learn more, see [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
 #### Organize data into access tiers
 
 You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.    
 
-To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
 #### Automatically move data between access tiers
 
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
-To learn more, see [Manage the Azure Blob storage lifecycle](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+To learn more, see [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## Create budgets
 

@@ -32,8 +32,8 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
-  - name : Node.js
-    href: search-get-started-nodejs.md
+  - name : JavaScript
+    href: search-get-started-javascript.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
