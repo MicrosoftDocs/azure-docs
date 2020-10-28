@@ -17,12 +17,12 @@ ms.collection: M365-identity-device-management
 
 ![HR provisioning](./media/what-is-hr-driven-provisioning/cloud2a.png)
 
-HR driven provisioning is the process of creating digital identities based on a human resources systems.  The HR systems, become the start-of-authority for these newly created digital identities.  This is often the starting point for numerous provisioning processes when a new digital identity is created.  For example, if a new employee joins your company, they are created in the human resource system.  This is in turn triggers the provisioning of a user account into Active Directory and then Azure AD Connect provisions this account to Azure AD, etc.
+HR driven provisioning is the process of creating digital identities based on a human resources system.  The HR systems, become the start-of-authority for these newly created digital identities and is often the starting point for numerous provisioning processes.  For example, if a new employee joins your company, they are created in the human resource system.  The creation, triggers the provisioning of a user account into Active Directory and then Azure AD Connect provisions this account to Azure AD, etc.
 
-HR driven provisioning can be based either on-premises based or cloud based.
+HR driven provisioning can be either on-premises based or cloud based.
 
 ## On-premises based HR provisioning
-On-premises based HR provisioning is accomplished by using an HR system, that is local to your on-premises computer network, and a means of provisioning new digital identities.
+On-premises based HR provisioning is accomplished by using a local HR system and a means of provisioning new digital identities.
 
 HR systems come in a variety of packages, software bundles and may use SQL servers, LDAP directories, etc.
 
