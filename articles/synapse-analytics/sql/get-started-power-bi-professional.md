@@ -49,7 +49,7 @@ Parameters:
 There are two steps prior to using samples:
 
 1. Create database for your views
-2. Create credentials to be used by Sserverless SQL pool to access files in storage
+2. Create credentials to be used by serverless SQL pool to access files in storage
 
 ### Create database
 
