@@ -27,15 +27,15 @@ Use the Azure Queue storage client library v12 for JavaScript to:
 
 Additional resources:
 
-* [API reference documentation](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [API reference documentation](/javascript/api/@azure/storage-queue/)
 * [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * Current [Node.js](https://nodejs.org/en/download/) for your operating system.
 
 ## Setting up
@@ -132,9 +132,9 @@ The following diagram shows the relationship between these resources.
 
 Use the following JavaScript classes to interact with these resources:
 
-* [QueueServiceClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
-* [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-* [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage): The `QueueMessage` class represents the individual objects returned when calling [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient?view=azure-node-latest#receivemessages-queuereceivemessageoptions-) on a queue.
+* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): The `QueueMessage` class represents the individual objects returned when calling [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) on a queue.
 
 ## Code examples
 
@@ -170,9 +170,9 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 Decide on a name for the new queue. The code below appends a UUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Create an instance of the [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient) class. Then, call the [create](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) method to create the queue in your storage account.
+Create an instance of the [QueueClient](/javascript/api/@azure/storage-queue/queueclient) class. Then, call the [create](/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) method to create the queue in your storage account.
 
 Add this code to the end of the `main` function:
 
@@ -193,7 +193,7 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [sendMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) method. It also saves the [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage) returned from the third `sendMessage` call. The returned `sendMessageResponse` is used to update the message content later in the program.
+The following code snippet adds messages to queue by calling the [sendMessage](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) method. It also saves the [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage) returned from the third `sendMessage` call. The returned `sendMessageResponse` is used to update the message content later in the program.
 
 Add this code to the end of the `main` function:
 
@@ -210,7 +210,7 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [peekMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) method. The `peekMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [peekMessages](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) method. The `peekMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `main` function:
 
@@ -228,7 +228,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in `messageId` and `popReceipt` from the response that was saved earlier in the code. The `sendMessageResponse` properties identify which message to update.
+Update the contents of a message by calling the [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in `messageId` and `popReceipt` from the response that was saved earlier in the code. The `sendMessageResponse` properties identify which message to update.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -245,7 +245,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### Receive messages from a queue
 
-Download previously added messages by calling the [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) method.  In the `numberOfMessages` field, pass in the maximum number of messages to receive for this call.
+Download previously added messages by calling the [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) method.  In the `numberOfMessages` field, pass in the maximum number of messages to receive for this call.
 
 Add this code to the end of the `main` function:
 
@@ -262,7 +262,7 @@ console.log("Messages received, requestId:", receivedMessagesResponse.requestId)
 
 Delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-Delete messages by calling the [deleteMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) method. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+Delete messages by calling the [deleteMessage](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) method. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `main` function:
 
@@ -285,7 +285,7 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​delete](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) method.
+The following code cleans up the resources the app created by deleting the queue using the [​delete](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) method.
 
 Add this code to the end of the `main` function and save the file:
 
@@ -350,7 +350,7 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript documentation](https://docs.microsoft.com/azure/developer/javascript/)
+> [Azure for JavaScript documentation](/azure/developer/javascript/)
 
 * To learn more, see the [Azure Storage Queue client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

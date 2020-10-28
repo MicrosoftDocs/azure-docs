@@ -56,7 +56,7 @@ Security Center has out-of-the-box integration with Microsoft Graph Security API
 You can use this API to stream alerts from your **entire tenant** (and data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
 
 - **Splunk Enterprise and Splunk Cloud** - [Use the Microsoft Graph Security API Add-On for Splunk](https://splunkbase.splunk.com/app/4564/) 
-- **Power BI** - [Connect to the Microsoft Graph Security API in Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-graph-security)
+- **Power BI** - [Connect to the Microsoft Graph Security API in Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow** - [Follow the instructions to install and configure the Microsoft Graph Security API application from the ServiceNow Store](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar** - [IBM's Device Support Module for Azure Security Center via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
@@ -86,4 +86,4 @@ This page explained how to ensure your Azure Security Center alert data is avail
 
 - [What is Azure Sentinel?](../sentinel/overview.md)
 - [Alert validation in Azure Security Center](security-center-alert-validation.md) - Verify your alerts are correctly configured
-- [Continuously export security alerts and recommendations](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)

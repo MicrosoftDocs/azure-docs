@@ -252,7 +252,7 @@
           href: identity-provider-twitter-custom.md
       - name: SAML providers
         items:
-        - name: ADFS
+        - name: AD FS
           href: identity-provider-adfs2016-custom.md
           displayName: SAML
         - name: Salesforce

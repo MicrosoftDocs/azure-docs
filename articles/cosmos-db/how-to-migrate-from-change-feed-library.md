@@ -18,7 +18,7 @@ This article describes the required steps to migrate an existing application's c
 The .NET V3 SDK has several breaking changes, the following are the key steps to migrate your application:
 
 1. Convert the `DocumentCollectionInfo` instances into `Container` references for the monitored and leases containers.
-1. Customizations that use `WithProcessorOptions` should be updated to use `WithLeaseConfiguration` and `WithPollInterval` for intervals, `WithStartTime` [for start time](how-to-configure-change-feed-start-time.md), and `WithMaxItems` to define the maximum item count.
+1. Customizations that use `WithProcessorOptions` should be updated to use `WithLeaseConfiguration` and `WithPollInterval` for intervals, `WithStartTime` [for start time](./change-feed-processor.md#starting-time), and `WithMaxItems` to define the maximum item count.
 1. Set the `processorName` on `GetChangeFeedProcessorBuilder` to match the value configured on `ChangeFeedProcessorOptions.LeasePrefix`, or use `string.Empty` otherwise.
 1. The changes are no longer delivered as a `IReadOnlyList<Document>`, instead, it's a `IReadOnlyCollection<T>` where `T` is a type you need to define, there is no base item class anymore.
 1. To handle the changes, you no longer need an implementation, instead you need to [define a delegate](change-feed-processor.md#implementing-the-change-feed-processor). The delegate can be a static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
@@ -55,4 +55,4 @@ You can now proceed to learn more about change feed processor in the following a
 
 * [Overview of change feed processor](change-feed-processor.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)
-* [Change feed processor start time](how-to-configure-change-feed-start-time.md)
+* [Change feed processor start time](./change-feed-processor.md#starting-time)
