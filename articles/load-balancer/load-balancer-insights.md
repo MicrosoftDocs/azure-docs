@@ -17,6 +17,9 @@ ms.author: errobin
 
 Through [Azure Monitor for Networks](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview) you are provided functional dependency visualizations and pre-configured metrics dashboard for your Load Balancers. This enables you to make informed design decisions and rapidly localize, diagnose, and resolve any faults.
 
+>[!NOTE] 
+>Please note this feature is in Preview and the functional dependency view and preconfigured dashboard may change to improve this experience
+
 >[!IMPORTANT]
 >The Standard Load Balancer is required to see metrics from the Load Balancer namespace in the pre-configured metrics dashboard. You will still be able to see metrics from the VM, VMSS, and Connection Monitor namespaces however, we recommend [upgrading to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) for any production workloads to take advantage of the robust set of Load Balancer metrics.
 
@@ -57,13 +60,13 @@ The Flow Distribution Tab will help you visualize and manage the number of flows
 This can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic, for example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you are approach the [per VM flow limit](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) for your machine size.
 
 ### Connection Monitors
-The Connection Monitors tab will show you the round-trip latency on a global map for all of the [Connection Monitors](https://docs.microsoft.com/ azure/network-watcher/connection-monitor)  you have configured. This is useful information for services with strict latency requirements and can inform whether you need to add additional region deployments or  move to a (cross-regional load balancing)[ https://docs.microsoft.com/ azure/load-balancer/cross-region-overview] model
+The Connection Monitors tab will show you the round-trip latency on a global map for all of the [Connection Monitors](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  you have configured. This is useful information for services with strict latency requirements and can inform whether you need to add additional region deployments or  move to a [cross-regional load balancing](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) model
 
 ### Metric Definitions
-The Metric Definitions tab contains all the information shown in the [Multi-dimensional Metrics article]( https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+The Metric Definitions tab contains all the information shown in the [Multi-dimensional Metrics article](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
 
 ## Next Steps
 * Review the dashboard and provide feedback using the below link if there is anything that can be improved
-* [Review the metrics documentation to ensure you understand how each metric is calculated](
-* [Create Connection Monitors for your Load Balancer](https://docs.microsoft.com /azure/network-watcher/connection-monitor)
-* Create your own workbooks, you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Review the metrics documentation to ensure you understand how each metric is calculated](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
+* [Create Connection Monitors for your Load Balancer](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
+* [Create your own workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
