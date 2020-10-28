@@ -24,27 +24,84 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Feature availability in Azure clouds
 
-| Feature|Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+> [!div class="op_single_selector"]
+> - [Africa](#tab/africa/)
+> - [Asia Pacific]
+> - [Australia]
+> - [Austria]
+> - [Azure Government]
+> - [Brazil]
+> - [Canada]
+> - [China]
+> - [Europe]
+> - [France]
+> - [Germany]
+> - [Greece]
+> - [India]
+> - [Israel]
+> - [Italy]
+> - [Japan]
+> - [Korea]
+> - [Mexico]
+> - [New Zealand]
+> - [Norway]
+> - [Poland]
+> - [Qatar]
+> - [Spain]
+> - [Switzerland]
+> - [Taiwan]
+> - [United Arab Emirates]
+> - [United Kingdom]
+> - [United States]
+
+
+## [Africa](#tab/africa/)
+
+| Feature| Availability |
+| --- | --- |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Available |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available |
+| [StandardEncoderPreset](encoding-concept.md) | Available |
+| [LiveEvents](live-streaming-overview.md) | Available |
+| [StreamingEndpoints](streaming-endpoint-concept.md) | Available |
+| [LiveTranscription](live-transcription.md) | Available |
+
+## [Azure Government](#tab/governmanet/)
+
+| Feature | DoD | USNat | USSec |
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Available | Not available | Not available | Not available |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available | Not available | Not available | Not available |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available | Not available | Not available | Not available |
+| [Azure EventGrid](reacting-to-media-services-events.md) | maybe? | Not available | Not available |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) | Not available  | Not available | Not available |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Not available | Not available | Not available |
+| [StandardEncoderPreset](encoding-concept.md) | Available | Available | Available |
+| [LiveEvents](live-streaming-overview.md) | Available | Available | Available |
+| [StreamingEndpoints](streaming-endpoint-concept.md) | Available | Available | Available |
+| [LiveTranscription](live-transcription.md) | Available |
+
+## [Azure Germany](#tab/germany/)
+
+| Feature | Germany Central (Sovereign) | Germany North (Public) | Germany Northeast (Sovereign) | Germany West Central (Public) |
+| --- | --- | --- | --- | --- |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Not available | Not vailable | Not available | Available |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Not available | Not available | Not available | Not available |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Not available | Not available | Not available | Not available |
 | [StandardEncoderPreset](encoding-concept.md) | Available | Available | Available | Available |
 | [LiveEvents](live-streaming-overview.md) | Available | Available | Available | Available |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Available | Available | Available | Available |
+| [LiveTranscription](live-transcription.md) | Available |
 
-## Feature availability in preview
+## [Azure China 21Vianet](#tab/china/)
 
-[LiveTranscription](live-transcription.md) is available in the following regions:
-
-- Southeast Asia
-- West Europe
-- North Europe
-- East US
-- Central US
-- South Central US
-- West US 2
-- Brazil South
+| Feature| Availability |
+| --- | --- | --- | --- | --- |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Available |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) | Available |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) | Available |
+| [StandardEncoderPreset](encoding-concept.md) | Available |
+| [LiveEvents](live-streaming-overview.md) | Available |
+| [StreamingEndpoints](streaming-endpoint-concept.md) |
+| [LiveTranscription](live-transcription.md) | Available |
 
 ## Regions/geographies/locations
 
