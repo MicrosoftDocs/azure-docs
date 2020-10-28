@@ -19,14 +19,9 @@ WLS is a leading Java application server running some of the most mission critic
 
 WLS is certified by Oracle and Microsoft to run well on AKS. The WLS on AKS solutions are aimed at making it as easy as possible to run your containerized and orchestrated Java EE applications on Docker and Kubernetes infrastructure in a reliable, scalable, manageable and supported fashion. WLS clusters are fully enabled to run on Kubernetes via the WebLogic Kubernetes Operator (hereafter referred to simply as the 'Operator'). The Operator follows the standard Kubernetes operator pattern. It simplifies the management and operation of WebLogic domains and deployments on Kubernetes by automating otherwise manual tasks and adding additional operational reliability features. The Operator supports Oracle WebLogic Sever 12c, Oracle Fusion Middleware Infrastructure 12c and beyond. We have tested the official Docker images for WLS 12.2.1.3 and 12.2.1.4 with the Operator. For details on the Operator, please refer to the documentation at the end of this article.
 
-In addition to certifying WLS on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts and samples for running WLS on AKS. [This guidance](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/) is incorporated into the Operator documentation and is aimed at making production WLS on AKS deployments as easy as possible. 
+In addition to certifying WLS on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts and samples for running WLS on AKS. [This guidance](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/) is incorporated into the Operator documentation and is aimed at making production WLS on AKS deployments as easy as possible. The guidance utilise official WLS Docker images provided by Oracle. Failover is achieved via Azure Files accessed through Kubernetes persistent volume claims. Azure Load Balancers are supported when provisioned using a Kubernetes Service of type 'LoadBalancer'.
 
-Official WebLogic Server Docker image
-Failover achieved via Kubernetes persistent volumes
-For Domain in PV, we support Azure Files volumes accessed through a persistent volume claim
-We will use Azure Files as a Kubernetes volume
-Azure Load Balancers are supported when provisioned using a Kubernetes Service of type=LoadBalancer.
-Further ease-of-use and Azure service integrations possible via Marketplace offering mirroring virtual machines solutions
+Further ease-of-use and Azure service integrations possible via Marketplace offering mirroring virtual machines solutions.
 
 
 The solutions automatically provision virtual network, storage, Java, and Linux resources. With minimal effort, WebLogic Server is installed. The solutions can set up security with a network security group, load balancing with Azure App Gateway and authentication with Azure Active Directory. You may also automatically connect to your existing database including Azure PostgreSQL, Azure SQL, and Oracle DB on the Oracle Cloud or Azure. The road map for the solutions includes the ability to enable distributed logging and distributed caching via Oracle Coherence. Microsoft and Oracle are partnering to enable similar functionality for WebLogic and the Azure Kubernetes Service (AKS).
