@@ -11,7 +11,4 @@ Azure VMware Solution offers a private cloud environment accessible from on-prem
 
 When deploying a private cloud, private networks for management, provisioning, and vMotion get created. Use these private networks to access vCenter and NSX-T Manager and virtual machine vMotion or deployment.  ExpressRoute Global Reach is used to connect private clouds to on-premises environments. The connection requires a virtual network with an ExpressRoute circuit in your subscription.
 
-
-
->[!NOTE]
->Access to the internet and Azure services are provisioned and provided to consume VMs on production networks when deploying a private cloud.  By default, internet access is disabled for new private clouds and, at any time, can be enabled or disabled.
+Resources, such as web servers and virtual machines, are accessible to the internet through the Azure Virtual WAN public IP functionality.  By default, internet access is disabled for new private clouds. For more information, see [How to use the public IP functionality in Azure VMware Solution](../public-ip-usage.md).
