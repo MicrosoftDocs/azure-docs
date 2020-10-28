@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2020
+ms.date: 10/28/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -192,8 +192,8 @@ To create a block blob account by using the Azure CLI, you must first install Az
 
    If you want to optimize your storage account for data analytics, then add `--hierarchical-namespace true` to the command. Enabling this setting with your BlockBlobStorage account gives you the [premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md).  To learn more about Data Lake Storage, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
    
-> [!NOTE]
-   > The hierarchical namespace feature in a block blob storage account is generally available in select regions. For more information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
+   > [!NOTE]
+   > The hierarchical namespace feature in a block blob storage account is in public preview. For information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
    
 ---
 
