@@ -31,9 +31,9 @@ Customers use this docker information to register a weather partner in their Far
 **REST API-based integration**
 
 The FarmBeats APIs contain Swagger technical documentation. For more information about the APIs and their
-corresponding requests or responses, see [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
+corresponding requests or responses, see the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-If you've installed FarmBeats, access your FarmBeats swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+If you've installed FarmBeats, access your FarmBeats Swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Note that *-api* is appended to your FarmBeats website name. The API endpoint is `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
@@ -123,94 +123,102 @@ You can customize the *bootstrap_manifest.json* file, and the reference bootstra
 
 - /**WeatherDataModel**: The WeatherDataModel metadata represents weather data. It corresponds to data sets that the source provides. For example, a DailyForecastSimpleModel might provide average temperature, humidity, and precipitation information once a day. By contrast, a DailyForecastAdvancedModel might provide much more information at hourly granularity. You can create any number of weather data models.
 - /**JobType**: FarmBeats has an extensible job management system. As a weather data provider, you'll have various datasets and APIs (for example, GetDailyForecasts). You can enable these datasets and APIs in FarmBeats by using JobType. After a job type is created, a customer can
-trigger jobs of that type to get weather data for their location or their farm of interest. For more information, see JobType and Job APIs in [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
+trigger jobs of that type to get weather data for their location or their farm of interest. For more information, see JobType and Job APIs in the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
 
 ### Jobs
 
-The Jobs component will be invoked every time a FarmBeats user runs a job of your /JobType that you created as part of the bootstrap process. The docker run command for the job is defined as part of the **/JobType** that you created.
-- The responsibility of the job will be to fetch data from the source and push it to FarmBeats. The parameters required to get the data should be defined as part of /JobType in the bootstrap process.
-- As part of the job, the program will have to create a **/WeatherDataLocation** based on the /WeatherDataModel that was created as part of the bootstrap process. The **/WeatherDataLocation** corresponds to a location (lat/long) which is provided by the user as a parameter to the job.
+The Jobs component is invoked every time a FarmBeats user runs a job of the /JobType that you created as part of the bootstrap process. The docker run command for the job is defined as part of the /JobType that you created.
 
-### Details of the objects
+The job fetches data from the source and pushes it to FarmBeats. During the bootstrap process, the parameters that are required to get the data should be defined as part of /JobType.
+
+As part of the job, the program must create a /WeatherDataLocation based on the /WeatherDataModel that was created during the bootstrap process. The /WeatherDataLocation corresponds to a location (latitude and longitude coordinates) that the user provided as a parameter for the job.
+
+### Object details
 
   WeatherDataModel | Description |
   --- | ---
-  Name  | Name of the weather data model |
-  Description  | Provide a meaningful description of the model. |
+  Name  | Name of the weather data model. |
+  Description  | A meaningful description of the model. |
   Properties  | Additional properties defined by the data provider. |
-  weatherMeasures > Name  | Name of the weather measure. For example humidity_max |
-  weatherMeasures > DataType  | either Double or Enum. If Enum, measureEnumDefinition is required |
-  weatherMeasures > measureEnumDefinition  | Only required if DataType is Enum. For example { "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 } |
-  weatherMeasures > Type  | type of weather telemetry data. For example “RelativeHumidity”. Following are the system-defined types: AmbientTemperature, NoUnit, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API or in the [Add Types and Units section](weather-partner-integration-in-azure-farmbeats.md#add-extendedtype) below
-  weatherMeasures > Unit | Unit of weather telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more, refer to the /ExtendedType API or in the [Add Types and Units section](weather-partner-integration-in-azure-farmbeats.md#add-extendedtype) below.
-  weatherMeasures > AggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation, Sum, Total
+  weatherMeasures > Name  | Name of the weather measure. For example, `humidity_max`. |
+  weatherMeasures > DataType  | Either `Double` or `Enum`. If `Enum`, `measureEnumDefinition` is required. |
+  weatherMeasures > measureEnumDefinition  | Required only if `DataType` is `Enum`. For example, `{ "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 }` |
+  weatherMeasures > Type  | Type of weather telemetry data. For example, `RelativeHumidity`. The system-defined types are AmbientTemperature, NoUnit, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, and PAR. To add more types, see the [Add ExtendedType](#add-extendedtype) section in this article.
+  weatherMeasures > Unit | Unit of weather telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more units, see the [Add ExtendedType](#add-extendedtype) section in this article.
+  weatherMeasures > AggregationType  | The type of aggregation. Possible values are None, Average, Maximum, Minimum, StandardDeviation, Sum, and Total.
   weatherMeasures > Depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
-  weatherMeasures > Description  | Provide a meaningful description of the measurement. |
-  **JobType** | **Description** |
-  Name  | name of the Job - for example Get_Daily_Forecast; the job that customer will run to get weather data|
-  pipelineDetails > parameters > name  | name of the parameter |
-  pipelineDetails > parameters > type | either of String, Int, Float, Bool, Array |
-  pipelineDetails > parameters > isRequired | boolean; true if required parameter, false if not; default is true |
-  pipelineDetails > parameters > defaultValue | Default value of the parameter |
-  pipelineDetails > parameters > description | Description of the parameter |
+  weatherMeasures > Description  | A meaningful description of the measurement. 
+
+  JobType | Description |
+  --- | ---
+  Name  | Name of the job. For example, Get_Daily_Forecast. The customer will run this job to get weather data.|
+  pipelineDetails > parameters > name  | Name of the parameter. |
+  pipelineDetails > parameters > type | The parameter type. Possible values include String, Int, Float, Bool, and Array. |
+  pipelineDetails > parameters > isRequired | The parameter's Boolean value. The value is true if the parameter is required. Otherwise, the value is false. The default is true. |
+  pipelineDetails > parameters > defaultValue | Default value of the parameter. |
+  pipelineDetails > parameters > description | Description of the parameter. |
   Properties  | Additional properties from the manufacturer.
-  Properties > **programRunCommand** | docker run command - this command will be executed when the customer runs the weather job. |
-  **WeatherDataLocation** | **Description** |
-  weatherDataModelId  | ID of the corresponding WeatherDataModel that was created during bootstrap|
-  location  | represents latitude, longitude, and elevation |
-  Name | Name of the object |
-  Description | Description |
-  farmId | **optional** ID of the farm - provided by customer as part of the job parameter |
+  Properties > programRunCommand | Docker run command. This command runs when the customer runs the weather job. |
+
+  WeatherDataLocation | Description |
+  --- | ---
+  weatherDataModelId  | ID of the corresponding WeatherDataModel that was created during the bootstrap process.|
+  location  | Latitude, longitude, and elevation. |
+  Name | Name of the object. |
+  Description | Description of the weather data location. |
+  farmId | (Optional) ID of the farm. The customer provides this ID as part of the job parameter. |
   Properties  | Additional properties from the manufacturer.
 
- For information on each of the objects and their properties, see [Swagger](https://aka.ms/FarmBeatsSwagger).
+ For information about each of the objects and their properties, see the [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
 
  > [!NOTE]
- > The APIs return unique IDs for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
+ > The APIs return unique IDs for each instance that's created. the translator for device management and metadata sync needs to retain this ID.
 
 **Metadata sync**
 
-The Connector docker should have the ability to send updates on the metadata. Examples of update scenarios are – Addition of new weather parameters in the weather provider’s dataset, Addition of functionality (eg. Addition of 30-Day Forecast)
+The Connector docker should be able to send updates on the metadata. For example, it should send updates when new  weather parameters are added in the weather provider's dataset or when functionality, such as a new 30-day forecast, is added.
 
 > [!NOTE]
-> Delete isn't supported for the metadata eg. weather data model.
+> Delete isn't supported for metadata in the weather data model.
 >
-> To update metadata, it's mandatory to call /Get/{ID} on the weather data model, update the changed properties, and then do a /Put/{ID} so that any properties set by the user aren't lost.
+> To update metadata, you have to call `/Get/{ID}` on the weather data model, update the changed properties, and then do a `/Put/{ID}` so that any properties that the user sets aren't lost.
 
-## Weather Data (Telemetry) specifications
+## Weather data (telemetry) specifications
 
-The weather data is mapped to a canonical message that is pushed to an Azure Event Hub for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send weather data to FarmBeats, you will need to create a client that sends messages to an event hub in FarmBeats. To know more about sending telemetry, refer to [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+The weather data is mapped to a canonical message that's pushed to an Azure event hub for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. 
 
-Here's a sample Python code that sends telemetry as a client to a specified event hub.
+To send weather data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information, see [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+
+The following sample Python code sends telemetry as a client to a specified event hub.
 
 ```python
 import azure
 from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
-EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
-EVENTHUBNAME = "<EventHub Name provided by customer>"
+EVENTHUBCONNECTIONSTRING = "<EventHub connection string provided by customer>"
+EVENTHUBNAME = "<EventHub name provided by customer>"
 
 write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
 sender = write_client.add_sender(partition="0")
 write_client.run()
 for i in range(5):
-    telemetry = "<Canonical Telemetry message>"
+    telemetry = "<Canonical telemetry message>"
     print("Sending telemetry: " + telemetry)
     sender.send(EventData(telemetry))
 write_client.stop()
 
 ```
 
-The canonical message format is as follows:
+Here's the canonical message format:
 
 ```json
 {
    "weatherstations": [
    {
-   "id": "id of the WeatherDataLocation",
+   "id": "ID of the WeatherDataLocation.",
    "weatherdata": [
    {
-     "timestamp": "timestamp of the data. For historical, this is the time for which the observations are sent. For forecast this is the time for which data is forecasted. Format is ISO 8601. Default time-zone is UTC",
-     "predictiontimestamp": "timestamp on which the forecast data is predicted i.e time of prediction. Required only for forecast data. Format is ISO 8601. Default timezone is UTC ",
+     "timestamp": "Timestamp of the data. For historical purposes, this is the time for which the observations are sent. For forecast, this is the time for which data is forecasted. Format is ISO 8601. Default time zone is UTC.",
+     "predictiontimestamp": "Timestamp on which the forecast data is predicted. I.e., the time of prediction. Required only for forecast data. Format is ISO 8601. Default time zone is UTC. ",
      "weathermeasurename1": <value>,
      "weathermeasurename2": <value>
      }
@@ -244,28 +252,28 @@ For example, here's a telemetry message:
 
 ## Troubleshooting and error management
 
-**Error Logging**
+### Error logging
 
-Since the partner job will be running in the existing job framework – the errors get logged the same way as errors for other pre-existing jobs in FarmBeats (like GetFarmData, SensorPlacement etc.). The ADF activity running within the ADF pipeline logs both STDERR and STDOUT. Both files are available in the "datahublogs-xxx" storage account within the FarmBeats resource group.
+The partner job runs in the existing job framework. So the errors are logged the same way as errors for other preexisting FarmBeats jobs (like GetFarmData and SensorPlacement). The Data Factory activity that runs within the Data Factory pipeline logs both `STDERR` and `STDOUT`. Both files are available in the `datahublogs-xxx` storage account within the FarmBeats resource group.
 
-The Datahub lib provides helper functions to enable logging as part of overall Datahub logs. More details [here](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
+The Datahub lib provides helper functions to enable logging as part of overall Datahub logs. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
 
-**Troubleshoot option or support**
+### Troubleshooting and support
 
-In the event that the customer is not able to receive weather data in the FarmBeats instance specified, the weather partner should provide support and a mechanism to troubleshoot the same.
+If the customer can't receive weather data in the FarmBeats instance, the weather partner should provide support and a mechanism to troubleshoot the problem.
 
 ## Add ExtendedType
 
-FarmBeats supports adding new sensor measure types and units. Note that a weather partner can add new units/types by updating the bootstrap_manifest.json file in the reference implementation [here](https://github.com/azurefarmbeats/noaa_docker)
+FarmBeats supports adding new sensor measure types and units. A weather partner can add new units or types by updating the *bootstrap_manifest.json* file in the [reference implementation](https://github.com/azurefarmbeats/noaa_docker).
 
-To add a new WeatherMeasure type, for example “PrecipitationDepth”, follow the steps below.
+Follow these steps to add a new WeatherMeasure type, for example, PrecipitationDepth.
 
-1. Make a GET request on /ExtendedType with the query filter - key = WeatherMeasureType
+1. Make a `GET` request on /ExtendedType by using the query `filter - key = WeatherMeasureType`.
 2. Note the ID of the returned object.
-3. Add the new type to the list in the returned object and make a PUT request on the /ExtendedType{ID} with the following new list. The input payload should be the same as the response received above and the new unit appended at the end of the list of values.
+3. Add the new type to the list in the returned object. Make a `PUT` request on the /ExtendedType{ID} with the following new list. The input payload should be the same as the response that you received earlier. The new unit should be appended at the end of the list of values.
 
-For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsSwagger).
+For more information about the /ExtendedType API, see the [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## Next steps
 
-Now you have a Connector docker that integrates with FarmBeats. Next you can see how to get weather data using your docker into FarmBeats. See [Get weather data](get-weather-data-from-weather-partner.md).
+Now you have a Connector docker that integrates with FarmBeats. Next, find out how to [get weather data](get-weather-data-from-weather-partner.md) by using your docker in FarmBeats. 
