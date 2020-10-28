@@ -23,7 +23,7 @@ WLS clusters are fully enabled to run on Kubernetes via the WebLogic Kubernetes 
 
 In addition to certifying WLS on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts, and samples for running WLS on AKS. [This guidance](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/) is incorporated into the Operator documentation and is aimed at making production WLS on AKS deployments as easy as possible. The guidance uses official WLS Docker images provided by Oracle. Failover is achieved via Azure Files accessed through Kubernetes persistent volume claims. Azure Load Balancers are supported when provisioned using a Kubernetes Service of type 'LoadBalancer'. The guidance allows a high degree of configuration and customization.
 
-The guidance currently assumes deploying the domain outside the Docker image and using the standard Docker images from Oracle. We will add guidance for enabling custom images with your domain inside a Docker image. Further ease-of-use and Azure service integrations are possible in the future via Marketplace offerings mirroring the WLS on Azure Virtual Machines solutions.
+The guidance currently assumes deploying the domain outside the Docker image and using the standard Docker images from Oracle. We'll add guidance for enabling custom images with your domain inside a Docker image. Further ease-of-use and Azure service integrations are possible in the future via Marketplace offerings mirroring the WLS on Azure Virtual Machines solutions.
 
 _These solutions are Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
 
