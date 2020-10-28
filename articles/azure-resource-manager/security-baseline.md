@@ -37,11 +37,11 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31986.).
 
-**Guidance**: In progress; After its release, customers should, where feasible, enable Private Link for control plane actions. This will block calls to Azure management and the control plane unless the caller is from a designated private endpoint/network or a trusted Microsoft source.
+**Guidance**: Not applicable - Azure Resource Manager does not currently support Azure Private Link and Azure Private Endpoints.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Shared
+**Responsibility**: Not applicable
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
@@ -229,11 +229,19 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32002.).
 
-**Guidance**: Not applicable; ARM does not offer separate logging for customers.
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data. 
+
+Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
+
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
+
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md) 
+
+- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Not applicable
+**Responsibility**: Shared
 
 ### 2.7: Enable alerts for anomalous activities
 
@@ -294,7 +302,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32007.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
 
@@ -343,13 +351,9 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32010.).
 
-**Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your Azure Resource Manager-related resources via API calls.
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations. 
 
-- [How to call Azure REST APIs](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
-
-- [How to register your client application (service principal) with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
-
-- [Azure Resource Manager API information](/rest/api/resources/)
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -554,7 +558,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32025.).
 
-**Guidance**: Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.
+**Guidance**: Use Azure AD RBAC to control access to data and resources, otherwise use service-specific access control methods.
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
@@ -573,7 +577,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -614,7 +618,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### 5.2: Deploy automated operating system patch management solution
 
@@ -669,7 +673,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32034.).
 
-**Guidance**: Use Azure Resource Graph to query for and discover all resources (such as compute, storage, network, ports, and protocols and so on) in your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources in your subscriptions.
+**Guidance**: Use Azure Resource Graph to query for and discover all resources (such as compute, storage, network, ports, and protocols, and so on) in your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources in your subscriptions.
 
 Although classic Azure resources may be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager resources.
 
@@ -856,9 +860,9 @@ More related details are provided below,
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32047.).
 
-**Guidance**: Use Azure Policy aliases "Microsoft.Resources" namespace to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
+**Guidance**: Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
 
-Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
+Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
 
 You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
@@ -922,7 +926,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32051.).
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates, and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
 - [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
@@ -948,7 +952,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32053.).
 
-**Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases "Microsoft.Resources" namespace to create custom policies to audit or enforce the network configuration of your Azure resources. You can also make use of built-in policy definitions related to your specific resources.  Additionally, you can use Azure Automation to deploy configuration changes.
+**Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You can also make use of built-in policy definitions related to your specific resources.  Additionally, you can use Azure Automation to deploy configuration changes.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -974,7 +978,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32055.).
 
-**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Resources" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
+**Guidance**: Use built-in Azure Policy definitions as well as custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -998,7 +1002,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32057.).
 
-**Guidance**: Not applicable, ARM doesn't support customer managed keys or persist customer data.
+**Guidance**: Not applicable, ARM doesn't support customer-managed keys or persist customer data.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1009,7 +1013,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32058.).
 
-**Guidance**: Not applicable, ARM doesn't support customer managed keys or persist customer data.
+**Guidance**: Not applicable, ARM doesn't support customer-managed keys or persist customer data.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1020,47 +1024,13 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32059.).
 
-**Guidance**: Implement Template security best
-practices on this page: Best
-practices for templates - Azure Resource Manager | Microsoft Docs
+**Guidance**: Use recommended practices when constructing your ARM template, these recommendations help you avoid common problems when using an ARM template to deploy a solution.
 
-- Always use parameters for user names and passwords (or secrets).
+Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
-- Use securestring for all passwords and secrets. If
-you pass sensitive data in a JSON object, use the secureObject type.
-Template parameters with secure string or secure object types can't be read
-after resource deployment.
+- [Implement Template security best practices](templates/template-best-practices.md)
 
-JSONCopy
-
-"parameters": {
-
-    
-"secretValue": {
-
-  
-      "type": "securestring",
-
-        
-"metadata": {
-
-            
-"description": "The value of the secret
-to store in the vault."
-
-        
-}
-
-    
-}
-
-}
-
-- Don't provide default values for user names, passwords, or any
-value that requires a secureString type.
-
-- Don't provide default values for properties that increase the
-attack surface area of the application.
+- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1139,7 +1109,7 @@ recover.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32065.).
 
-**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required.
+**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if necessary.
 
 - [Deploy resources with ARM templates and Azure portal](templates/deploy-portal.md)
 
@@ -1152,7 +1122,7 @@ recover.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32066.).
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates, and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
 - [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
@@ -1188,17 +1158,11 @@ recover.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32068.).
 
-**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
-
-Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
-
-- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
-
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+**Guidance**: Not applicable - Azure Resource Manager does not have specific ASC monitoring for this control.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 10.3: Test security response procedures
 
@@ -1218,13 +1182,12 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32069.).
 
-**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
-
-- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
+**Guidance**: 
+Not applicable - Azure Resource Manager does not have specific ASC monitoring for this control.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 10.5: Incorporate security alerts into your incident response system
 
