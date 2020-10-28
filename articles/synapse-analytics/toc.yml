@@ -191,7 +191,7 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md  
   - name: Concepts
     items:
-          - name: Back up and restore
+    - name: Back up and restore
       href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Data ingestion and preparation
       items:
