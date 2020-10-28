@@ -212,11 +212,11 @@ The API proxy module was designed to be customized to handle most common gateway
     1. On the **Module settings** tab, **Image URI**: `registry:latest`
     1. On the **Environment variables** tab, add the following environment variables:
 
-      | Name | Value |
-      | ---- | ----- |
-      | `REGISTRY_PROXY_REMOTEURL` | The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr.io:443`<br><br>For production scenarios, we recommend having all container images in a single private repository. If your downstream IoT Edge devices need to pull from multiple container registries, you need a registry module to map to each one. |
-      | `REGISTRY_PROXY_USERNAME` | Username to authenticate to the container registry. |
-      | `REGISTRY_PROXY_PASSWORD` | Password to authenticate to the container registry. |
+       | Name | Value |
+       | ---- | ----- |
+       | `REGISTRY_PROXY_REMOTEURL` | The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr.io:443`<br><br>For production scenarios, we recommend having all container images in a single private repository. If your downstream IoT Edge devices need to pull from multiple container registries, you need a registry module to map to each one. |
+       | `REGISTRY_PROXY_USERNAME` | Username to authenticate to the container registry. |
+       | `REGISTRY_PROXY_PASSWORD` | Password to authenticate to the container registry. |
 
     1. On the **Container create options** tab, paste:
 
