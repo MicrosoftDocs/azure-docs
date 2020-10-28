@@ -33,7 +33,7 @@ To enable or disable this feature (these prerequisites are not required to use t
     - **Azure Sentinel Contributor** at the workspace or resource group levels.
     - **Log Analytics Contributor** at the resource group or subscription levels.
 
-- Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](./azure-resource-manager/management/lock-resources.md).
+- Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 ## How to enable User and Entity Behavior Analytics
 
