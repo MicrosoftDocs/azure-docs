@@ -61,14 +61,14 @@ Perform the following steps to configure one or more Windows servers with Azure 
 
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
-    To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
+    * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
     
     ```azurepowershell
     $session = Connect-PSSession -ComputerName myMachineName
     Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
     ```
     
-    To install the Connected Machine agent on multiple remote machines at the same time, add a list of remote machine names separated by a comma.
+    * To install the Connected Machine agent on multiple remote machines at the same time, add a list of remote machine names separated by a comma.
 
     ```azurepowershell
     $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
