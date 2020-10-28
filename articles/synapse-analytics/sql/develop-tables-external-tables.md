@@ -190,7 +190,7 @@ WITH (
 }
 ```
 
-#### [SQL on-demand](#tab/sql-on-demand)
+#### [Serverless SQL pool](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  

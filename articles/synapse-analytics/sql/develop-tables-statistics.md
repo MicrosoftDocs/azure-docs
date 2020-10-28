@@ -643,7 +643,7 @@ Specifies a Transact-SQL statement that will return column values to be used for
 
 To create statistics on a column, provide a query that returns the column for which you need statistics.
 
-By default, if you don't specify otherwise, SQL on-demand uses 100%  of the data provided in the dataset when it creates statistics.
+By default, if you don't specify otherwise, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
 
 For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
 
