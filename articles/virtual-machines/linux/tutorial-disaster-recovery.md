@@ -99,7 +99,7 @@ After the replication job finishes, you can check the VM replication status.
 
 ## Run a drill
 
-Run a drill to make sure disaster recovery works as expected. When you run a test failover, it creates a copy of the VM, with no impact on ongoing replication, or on your production environment. The VM is automatically cleaned up by Site Recovery after the drill.
+Run a drill to make sure disaster recovery works as expected. When you run a test failover, it creates a copy of the VM, with no impact on ongoing replication, or on your production environment.
 
 1. In the VM disaster recovery page, select **Test failover**.
 2. In **Test failover**, leave the default *Latest (lowest RPO)* setting for the recovery point.
@@ -115,8 +115,12 @@ Run a drill to make sure disaster recovery works as expected. When you run a tes
     :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Test failover notifications."::: 
     
    After the test failover completes, the VM is in the *Cleanup test failover pending* state on the **Essentials** page. 
+  
+## Clean up resources
 
-5. To begin automatic cleanup, select **Cleanup test failover**.
+The VM is automatically cleaned up by Site Recovery after the drill. 
+ 
+1. To begin automatic cleanup, select **Cleanup test failover**.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Start cleanup on the Essentials page."::: 
 
@@ -124,37 +128,36 @@ Run a drill to make sure disaster recovery works as expected. When you run a tes
 
     :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Page to record notes and delete test VM."::: 
 
-7. The delete process begins. You can monitor progress in notifications
+7. The delete process begins. You can monitor progress in notifications.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notifications to monitor delete test VM."::: 
 
 
-## Stop replicating the VM
+### Stop replicating the VM
 
-After trying out this tutorial, you can stop replicating the source VM. When you disable replication:
+After completing a disaster recovery drill, we suggest you continue to try out a full failover. If you don't want to do a full failover, you can disable replication. This does the following:
 
-- The VM is removed from the Site Recovery list of replicated machines.
-- Site Recovery billing for the VM stops.
-- Source replication settings are cleaned up automatically.
-- The Site Recovery extension installed on the VM during replication isn't removed automatically. You need to remove it manually.
+- Removes the VM from the Site Recovery list of replicated machines.
+- Stops Site Recovery billing for the VM.
+- Automatically cleans up source replication settings.
 
-Disable as follows:
+Stop replication as follows:
 
 1. In the VM disaster recovery page, select **Disable Replication**.
 2. In **Disable Replication**, select the reasons that you want to disable replication. Then select **OK**.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Page to disable replication and provide a reason."::: 
 
-2. To uninstall the Site Recovery extension, go to the VM's **Settings** > **Extensions**.
+The Site Recovery extension installed on the VM during replication isn't removed automatically. If you disable replication for the VM, and you don't want to replicate it again at a later time, you can remove the Site Recovery extension manually, as follows: 
+
+2. Go the the VM **Settings** > **Extensions**.
 3. In the **Extensions** page, select each *Microsoft.Azure.RecoveryServices* entry for Linux.
 4. In the  properties page for the extension, select **Uninstall**.
 
 
-
-
 ## Next steps
 
-In this tutorial, you configured disaster recovery for an Azure VM, and ran a disaster recovery drill. Now, you can start the disaster recovery process for VMs as needed.
+In this tutorial, you configured disaster recovery for an Azure VM, and ran a disaster recovery drill. Now, you can perform a full failover for the VM.
 
 > [!div class="nextstepaction"]
 > [Fail over a VM to another region](../../site-recovery/azure-to-azure-tutorial-dr-drill.md)
