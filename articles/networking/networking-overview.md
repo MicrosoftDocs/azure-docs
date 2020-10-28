@@ -23,7 +23,7 @@ The networking services in Azure provide a variety of networking capabilities th
 
 ## <a name="connect"></a>Connectivity services
  
-This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual Network (VNet), ExpressRoute, VPN Gateway, Virtual WAN,Virtual network NAT Gateway, Azure DNS, Azure Peering service, and Azure Bastion.
+This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual Network (VNet), ExpressRoute, VPN Gateway, Virtual WAN, Virtual network NAT Gateway, Azure DNS, Azure Peering service, and Azure Bastion.
 
 ### <a name="vnet"></a>Virtual network
 
