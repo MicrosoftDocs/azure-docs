@@ -52,9 +52,9 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 ## Step 1: Connect and insert data
 Use the following code to connect and load the data by using `CREATE TABLE` and  `INSERT INTO` SQL statements. The code uses the methods of the `MySqlConnection` class:
-- [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
-- [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), sets the CommandText property
-- [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands. 
+- [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
+- [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand), sets the CommandText property
+- [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands. 
 
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database. 
 
@@ -303,4 +303,3 @@ namespace AzureMySqlExample
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
 [Cannot find what you are looking for?Let us know.](https://aka.ms/mysql-doc-feedback)
-
