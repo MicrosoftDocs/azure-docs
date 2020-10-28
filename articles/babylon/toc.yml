@@ -71,6 +71,9 @@
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
       displayName: Register and scan Azure SQL DB
+    - name: Azure SQL Database Managed Instance
+      href: register-scan-azure-sql-database-managed-instance.md
+      displayName: Register and scan Azure SQL DB Managed Instance
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
       displayName: Register and scan Azure Synapse Analytics
@@ -103,9 +106,11 @@
     - name: Create senstivity labels
       href: create-sensitivity-label.md
     - name: View classification insights
-      href: classification-reporting-data-azure-blob-storage.md
+      href: classification-insights.md
     - name: View sensitivity label insights
-      href: sensitivity-label-reporting-data-azure-blob-storage.md
+      href: sensitivity-insights.md
+    - name: View file extension insights
+      href: file-extension-insights.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Provide feedback
