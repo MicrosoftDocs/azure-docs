@@ -45,7 +45,7 @@
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Cognitive Search
-    href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
+    href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
 - name: Concepts
@@ -81,13 +81,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+      href: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/?view=azure-python
+      href: /python/api/azure-ai-formrecognizer/?view=azure-python
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+      href: /java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript
-      href: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
+      href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
   items:
   - name: Support & help options
