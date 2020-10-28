@@ -26,7 +26,7 @@ For an Azure Functions workflow, the file has three sections:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working function app hosted on Azure with a GitHub repository.   
     - [Quickstart: Create a function in Azure using Visual Studio Code](functions-create-first-function-vs-code.md)
@@ -64,7 +64,7 @@ Setting up the environment is done using a language-specific publish setup actio
 
 # [.NET](#tab/dotnet)
 
-.NET (including ASP.NET) uses the the `actions/setup-dotnet` action.  
+.NET (including ASP.NET) uses the `actions/setup-dotnet` action.  
 The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
