@@ -250,21 +250,6 @@ conceptualContent:
         url: ./develop/index.yml
         text: See more
 
-    - title: Partner application support
-      links:
-        - url: ./saas-apps/amazon-web-service-tutorial.md
-          itemType: tutorial
-          text: Azure AD single sign-on integration with Amazon Web Services
-        - url: ./saas-apps/workday-inbound-tutorial.md
-          itemType: tutorial
-          text: Configure Workday for automatic user provisioning
-        - url: ./develop/v2-howto-app-gallery-listing.md
-          itemType: get-started
-          text: Request to add your app to the Gallery
-      footerLink:
-        url: ./saas-apps/tutorial-list.md
-        text: See more apps
-
     - title: Privileged identity management (PIM)
       links:
         - url: ./privileged-identity-management/pim-getting-started.md
@@ -309,6 +294,21 @@ conceptualContent:
       footerLink:
         url: ./roles/index.yml
         text: See more
+
+    - title: Third-party applications
+      links:
+        - url: ./saas-apps/amazon-web-service-tutorial.md
+          itemType: tutorial
+          text: Azure AD single sign-on integration with Amazon Web Services
+        - url: ./saas-apps/workday-inbound-tutorial.md
+          itemType: tutorial
+          text: Configure Workday for automatic user provisioning
+        - url: ./develop/v2-howto-app-gallery-listing.md
+          itemType: get-started
+          text: Request to add your app to the Gallery
+      footerLink:
+        url: ./saas-apps/tutorial-list.md
+        text: See more apps
 
 additionalContent:
   sections:
