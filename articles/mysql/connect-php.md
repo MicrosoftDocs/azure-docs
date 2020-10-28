@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/01/2020
+ms.date: 10/28/2020
 ---
 
 # Quickstart: Use PHP to connect and query data in Azure Database for MySQL
@@ -19,15 +19,15 @@ For this quickstart you need:
 - Create an Azure Database for MySQL single server using [Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-|Action| Connectivity method|How-to guide|
-|:--------- |:--------- |:--------- |
-| **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
-| **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
-| **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
+    |Action| Connectivity method|How-to guide|
+    |:--------- |:--------- |:--------- |
+    | **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+    | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+    | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
 - [Create a database and non-admin user](/howto-create-users?tabs=single-server)
 - Install latest PHP version  for your operating system
-    - [PHP on MacOS](https://secure.php.net/manual/install.macosx.php)
+    - [PHP on macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP on Linux](https://secure.php.net/manual/install.unix.php)
     - [PHP on Windows](https://secure.php.net/manual/install.windows.php)
 
@@ -39,7 +39,7 @@ You can get the database server connection information from the Azure portal by 
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Navigate to the Azure Databases for MySQL page. You can search for and select **Azure Database for MySQL**.
-::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
+:::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
 
 2. Select your  MySQL server (such as **mydemoserver**).
 3. In the **Overview** page, copy the fully qualified server name next to **Server name** and the admin user name next to **Server admin login name**. To copy the server name or host name, hover over it and select the **Copy** icon.
