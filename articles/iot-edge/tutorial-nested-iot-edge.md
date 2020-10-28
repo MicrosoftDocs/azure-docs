@@ -4,7 +4,7 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 10/19/2020
+ms.date: 10/27/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -44,6 +44,8 @@ This tutorial uses a two device hierarchy for simplicity. One device, **topLayer
 To create a hierarchy of IoT Edge devices, you will need:
 
 * A computer (Windows or Linux) with internet connectivity.
+
+* Two Linux devices to configure as IoT Edge devices.
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -218,7 +220,7 @@ Install IoT Edge on both devices. If you don't have devices available, Azure vir
    >[!TIP]
    >To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
-1. Find the **certificates** section. Update the three certificate fields to point to the certificates that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>.
+1. Find the **certificates** section. Update the three certificate fields to point to the certificates that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>`.
 
    * **device_ca_cert**: File URI path to the device CA certificate unique to this device.
    * **device_ca_pk**: File URI path to the device CA private key unique to this device.
@@ -354,6 +356,10 @@ In the [Azure portal](https://ms.portal.azure.com/):
 1. Select **Save**, **Review + create**, and **Create** to complete the deployment.
 
 Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. Since this device is in a lower layer, it can't have direct connections to the cloud. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module which handles the image pull.
+
+On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
+
+You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## Clean up resources
 
