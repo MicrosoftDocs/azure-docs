@@ -70,7 +70,7 @@ The following image shows this setting in the **Create storage account** page.
 
 ## Regional availability
 
-Premium tier for Azure Data Lake Storage is generally available in the following regions.
+Premium tier for Azure Data Lake Storage is available in the following regions.
 
 |Region|Redundancy|
 |--|--|

@@ -115,7 +115,7 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 9. If you want to optimize your storage account for data analytics, then set **Hierarchical namespace** to **Enabled**. Otherwise, leave this option set to it's default value. Enabling this setting with your BlockBlobStorage account gives you the [premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md).  To learn more about Data Lake Storage, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
    > [!NOTE]
-   > The hierarchical namespace feature in a block blob storage account is generally available in select regions. For more information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
+   > The hierarchical namespace feature in a block blob storage account is in public preview. For information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
 
 8. Select **Review + create** to review the storage account settings.
 
@@ -159,7 +159,7 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
    If you want to optimize your storage account for data analytics, then add `-EnableHierarchicalNamespace $True` to the command. Enabling this setting with your BlockBlobStorage account gives you the [premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md).  To learn more about Data Lake Storage, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
    > [!NOTE]
-   > The hierarchical namespace feature in a block blob storage account is generally available in select regions. For more information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
+   > The hierarchical namespace feature in a block blob storage account is in public preview. For information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
 
 ## [Azure CLI](#tab/azure-cli)
 
