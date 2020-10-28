@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-network/ddos-protection-overview.md",
+      "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/manage-ddos-protection.md",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/ddos-protection-partner-onboarding.md",
+      "redirect_url": "/azure/ddos-protection/ddos-protection-partner-onboarding",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/configure-lvm.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-lvm",
       "redirect_document_id": false
@@ -21054,12 +21069,12 @@
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
-      "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-manage-ps.md",
-      "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
       "redirect_document_id": false
     },
     {
@@ -32880,11 +32895,6 @@
     {
       "source_path": "articles/security/azure-database-security-overview.md",
       "redirect_url": "/azure/security/fundamentals/database-security-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/security/azure-ddos-best-practices.md",
-      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
       "redirect_document_id": true
     },
     {
