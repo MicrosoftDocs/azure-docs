@@ -34,10 +34,10 @@ Globally distributed at Azure's network edges, Azure Front Door can absorb and g
 [Front Door's Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md) can be used to mitigate a number of different types of attacks. Some of the ways you can achieve this are:
 
 * Using the managed rule set provides protection against a number of common attacks.
-* Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md)
+* Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
 * IP addresses and ranges that you identify as malicious can be blocked.* Rate limiting can be applied to prevent IP addresses from calling your service too frequently.
 * You can create [custom WAF rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures.
 
 ## For further protection
 
-If you require further protection, then you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+If you require further protection, then you can enable [Azure DDoS Protection Standard](../security/fundamentals/ddos-best-practices.md#ddos-protection-standard) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
