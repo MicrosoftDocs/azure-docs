@@ -70,7 +70,7 @@ Create the web application in Azure AD for users to sign in. The web application
 
 Further understanding of single page application scenario:
 > [!div class="nextstepaction"]
-> [Single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Single-page application](../active-directory/develop/scenario-spa-overview.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]

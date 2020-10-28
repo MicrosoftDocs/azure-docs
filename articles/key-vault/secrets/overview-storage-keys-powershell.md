@@ -8,6 +8,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
+ms.custom: devx-track-azurepowershell
 
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
@@ -48,21 +49,21 @@ Key Vault is a Microsoft application that's pre-registered in all Azure AD tenan
 
 To complete this guide, you must first do the following:
 
-- [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.6.0).
+- [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 - [Create a key vault](quick-create-powershell.md)
 - [Create an Azure storage account](../../storage/common/storage-account-create.md?tabs=azure-powershell). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
-      
+
 
 ## Manage storage account keys
 
 ### Connect to your Azure account
 
-Authenticate your PowerShell session using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) cmdlet. 
+Authenticate your PowerShell session using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
-If you have multiple Azure subscriptions, you can list them using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) cmdlet, and specify the subscription you wish to use with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) cmdlet. 
+If you have multiple Azure subscriptions, you can list them using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, and specify the subscription you wish to use with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId <subscriptionId>
@@ -72,7 +73,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the "YourResourceGroupName", "YourStorageAccountName", and "YourKeyVaultName" placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
 
-We will also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlets to get your user ID and the context of your Azure storage account.
+We will also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) cmdlets to get your user ID and the context of your Azure storage account.
 
 ```azurepowershell-interactive
 $resourceGroupName = <YourResourceGroupName>
@@ -94,12 +95,12 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### Give Key Vault access to your storage account
 
-Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account. The Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the Azure built-in role [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role). 
+Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account. The Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the Azure built-in role [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role).
 
-Assign this role to the Key Vault service principal, limiting scope to your storage account, using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) cmdlet.
+Assign this role to the Key Vault service principal, limiting scope to your storage account, using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet.
 
 ```azurepowershell-interactive
-# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
+# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role."
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
@@ -117,11 +118,11 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-If Key Vault has already been added to the role on your storage account, you'll receive a *"The role assignment already exists."* error. You can also verify the role assignment, using the storage account "Access control (IAM)" page in the Azure portal.  
+If Key Vault has already been added to the role on your storage account, you'll receive a *"The role assignment already exists."* error. You can also verify the role assignment, using the storage account "Access control (IAM)" page in the Azure portal.
 
 ### Give your user account permission to managed storage accounts
 
-Use the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.6.0) cmdlet to update the Key Vault access policy and grant storage account permissions to your user account.
+Use the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to update the Key Vault access policy and grant storage account permissions to your user account.
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -133,7 +134,7 @@ Note that permissions for storage accounts aren't available on the storage accou
 
 ### Add a managed storage account to your Key Vault instance
 
-Use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet to create a managed storage account in your Key Vault instance. The  `-DisableAutoRegenerateKey` switch specifies NOT to regenerate the storage account keys.
+Use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) cmdlet to create a managed storage account in your Key Vault instance. The  `-DisableAutoRegenerateKey` switch specifies NOT to regenerate the storage account keys.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -154,12 +155,12 @@ Regeneration Period : 90.00:00:00
 Enabled             : True
 Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
-Tags                : 
+Tags                :
 ```
 
 ### Enable key regeneration
 
-If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. When it is time to rotate, Key Vault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time. This is the active key.
+If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. When it is time to rotate, Key Vault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time. This is the active key.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -180,7 +181,7 @@ Regeneration Period : 3.00:00:00
 Enabled             : True
 Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
-Tags                : 
+Tags                :
 ```
 
 ## Shared access signature tokens
@@ -189,16 +190,16 @@ You can also ask Key Vault to generate shared access signature tokens. A shared 
 
 The commands in this section complete the following actions:
 
-- Set an account shared access signature definition. 
+- Set an account shared access signature definition.
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
 - Verify that the shared access signature was saved in your key vault as a secret.
-- 
+-
 ### Set variables
 
 First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourStorageAccountName> and <YourKeyVaultName> placeholders.
 
-We will also use the Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) cmdlets to get the context of your Azure storage account.
+We will also use the Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) cmdlets to get the context of your Azure storage account.
 
 ```azurepowershell-interactive
 $storageAccountName = <YourStorageAccountName>
@@ -209,8 +210,8 @@ $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -
 
 ### Create a shared access signature token
 
-Create a shared access signature definition using the Azure PowerShell [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken?view=azps-2.6.0) cmdlets.
- 
+Create a shared access signature definition using the Azure PowerShell [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken) cmdlets.
+
 ```azurepowershell-interactive
 $start = [System.DateTime]::Now.AddDays(-1)
 $end = [System.DateTime]::Now.AddMonths(1)
@@ -225,7 +226,7 @@ The value of $sasToken will look similar to this.
 
 ### Generate a shared access signature definition
 
-Use the the Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet to create a shared access signature definition.  You can provide the name of your choice to the `-Name` parameter.
+Use the the Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) cmdlet to create a shared access signature definition.  You can provide the name of your choice to the `-Name` parameter.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
@@ -233,7 +234,7 @@ Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -Vaul
 
 ### Verify the shared access signature definition
 
-You can verify that the shared access signature definition has been stored in your key vault using the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-2.6.0) cmdlet.
+You can verify that the shared access signature definition has been stored in your key vault using the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
 
 First, find the shared access signature definition in your key vault.
 
@@ -251,7 +252,7 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-You can now use the [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) cmdlet and the secret `Name` property to view the content of that secret.
+You can now use the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet and the secret `Name` property to view the content of that secret.
 
 ```azurepowershell-interactive
 Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
@@ -263,4 +264,4 @@ The output of this command will show your SAS definition string.
 ## Next steps
 
 - [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
-- [Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
+- [Key Vault PowerShell reference](/powershell/module/az.keyvault/#key_vault)

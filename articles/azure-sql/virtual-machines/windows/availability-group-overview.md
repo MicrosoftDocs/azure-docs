@@ -35,7 +35,7 @@ The following diagram illustrates an availability group for SQL Server on Azure 
 
 ## VM redundancy 
 
-To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](/azure/availability-zones/az-overview).
+To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](../../../availability-zones/az-overview.md).
 
 An availability set is a grouping of resources which are configured such that no two land in the same availability zone. This prevents impacting multiple resources in the group during deployment roll outs. 
 
@@ -72,7 +72,7 @@ There are multiple options for deploying an availability group to SQL Server on 
 
 The following table provides a comparison of the options available: 
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -98,6 +98,6 @@ On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server
 
 ## Next steps
 
-Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](availability-group-az-cli-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
+Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md). 
+Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md).

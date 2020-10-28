@@ -17,7 +17,7 @@ Use the Face client library for .NET to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create a person group](#create-a-person-group)
 * [Identify a face](#identify-a-face)
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
@@ -119,7 +119,7 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create a person group](#create-a-person-group)
 * [Identify a face](#identify-a-face)
 
 ## Authenticate the client
@@ -145,6 +145,9 @@ In your **Main** method, define strings to point to the different recognition mo
 Create a new method to detect faces. The `DetectFaceExtract` method processes three of the images at the given URL and creates a list of **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** objects in program memory. The list of **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** values specifies which features to extract. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
+
+> [!TIP]
+> You can also detect faces in a local image. See the [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) methods such as **DetectWithStreamAsync**.
 
 ### Display detected face data
 
@@ -195,6 +198,9 @@ Notice that this code defines a variable `sourceImageFileName`. This variable co
 Next, add the following code to create a **Person** object for each person in the Dictionary and add the face data from the appropriate images. Each **Person** object is associated with the same **PersonGroup** through its unique ID string. Remember to pass the variables `client`, `url`, and `RECOGNITION_MODEL1` into this method.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
+
+> [!TIP]
+> You can also create a **PersonGroup** from local images. See the [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) methods such as **AddFaceFromStreamAsync**.
 
 ### Train the PersonGroup
 
