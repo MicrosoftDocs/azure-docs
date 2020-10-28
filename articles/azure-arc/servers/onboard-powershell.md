@@ -39,15 +39,15 @@ When the installation completes, the following message is returned:
 
     * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run:
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        ```
     
     * To install the Connected Machine agent on the target machine that communicates through a proxy server, run:
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+        
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        ```
 
 If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows at *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*, and on Linux at */var/opt/azcmagent/log/himds.log*.
 
@@ -63,17 +63,17 @@ Perform the following steps to configure one or more Windows servers with Azure 
 
     * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
     
-    ```azurepowershell
-    $session = Connect-PSSession -ComputerName myMachineName
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-    ```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
     
     * To install the Connected Machine agent on multiple remote machines at the same time, add a list of remote machine names separated by a comma.
 
-    ```azurepowershell
-    $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-    ```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
 
     The following example is the results of the command targeting a single machine:
     
