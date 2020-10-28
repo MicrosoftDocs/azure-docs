@@ -118,11 +118,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure PerimeterX SSO
 
-To configure single sign-on on **PerimeterX** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [PerimeterX support team](mailto:support@perimeterx.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login to your PerimeterX console with Admin permissions.
+
+1. Navigate to **Admin > ACCOUNTS** 
+
+    ![PerimeterX sso](./media/perimeterx-tutorial/accounts.png)
+
+1. Click **Edit**
+
+4.	In the Edit Account dialog, perform the following steps.
+
+    ![PerimeterX sso edit account](./media/perimeterx-tutorial/saml-sso.png)
+
+    a.	Check **Enable Single Sign-On (SSO)**
+
+    b.	Select **Azure SAML**.
+
+    c.  In the **SAML Endpoint** texbox, paste the **Login URL** value you copied the Azure portal.
+
+    d. In the **Issuer** texbox, Paste the Azure AD Identifier value copied from the Azure portal.
+
+    e. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
+
+    f. Click on **Save Changes**
 
 ### Create PerimeterX test user
 
-In this section, you create a user called Britta Simon in PerimeterX. Work with [PerimeterX support team](mailto:support@perimeterx.com) to add the users in the PerimeterX platform. Users must be created and activated before you use single sign-on.
+Please refer to the [PerimeterX Managing Users Guide](https://docs.perimeterx.com/pxconsole/docs/managing-users) for instructions on how to create the PerimeterX test user.
 
 ## Test SSO 
 
