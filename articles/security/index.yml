@@ -199,7 +199,7 @@ conceptualContent:
         - url: ./fundamentals/network-best-practices.md
           itemType: concept
           text:  Security best practices
-        - url: ./fundamentals/ddos-best-practices.md
+        - url: /azure/ddos-protection/fundamental-best-practices
           itemType: concept
           text:  DDoS Protection
 
