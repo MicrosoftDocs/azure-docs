@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/concepts-convert-models.md",
+      "redirect_url": "/azure/digital-twins/how-to-convert-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
       "redirect_document_id": false
