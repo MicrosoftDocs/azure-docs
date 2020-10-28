@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/28/2020
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -76,6 +76,7 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.DevTestLab
 
+* labs/virtualMachines - By default, limited to 800 instances. That limit can be increased by contacting support.
 * schedules
 
 ## Microsoft.EnterpriseKnowledgeGraph
@@ -108,6 +109,13 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * integrationAccounts
 * workflows
+
+## Microsoft.MachineLearningExperimentation
+
+* accounts/workspaces
+* accounts/workspaces/projects
+* teamAccounts/workspaces
+* teamAccounts/workspaces/projects
 
 ## Microsoft.Media
 
@@ -168,6 +176,10 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
 
+## Microsoft.PowerBIDedicated
+
+* capacities - By default, limited to 800 instances. That limit can be increased by contacting support.
+
 ## Microsoft.Relay
 
 * namespaces
@@ -180,18 +192,21 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * namespaces
 
-## Microsoft.ServiceFabricMesh
+## Microsoft.Singularity
 
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+* accounts
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/storageContainers
 
 ## Microsoft.Storage
 
 * storageAccounts
+
+## Microsoft.Sql
+
+* servers/databases
 
 ## Microsoft.Web
 
