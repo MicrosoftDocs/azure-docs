@@ -107,4 +107,4 @@ These are the credentials to use in your script.
 
 - Learn more about [Azure Key Vault](../key-vault/general/overview.md).
 - Review the [Azure Security Baseline for Batch](security-baseline.md).
-- Learn about Batch features such as [configuring access to compute nodes](pool-endpoint-configuration.md), [using Linux compute nodes](batch-linux-nodes), and [using private endpoints](private-connectivity.md).
+- Learn about Batch features such as [configuring access to compute nodes](pool-endpoint-configuration.md), [using Linux compute nodes](batch-linux-nodes.md), and [using private endpoints](private-connectivity.md).
