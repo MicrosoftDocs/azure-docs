@@ -193,7 +193,7 @@ await CreateEventRoute(client, "routeName", er);
 
 ### Event route sample code
 
-The following code sample shows how to create, list, and delete an event route:
+The following sample method shows how to create, list, and delete an event route:
 ```csharp
 private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
 {
