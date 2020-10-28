@@ -3,7 +3,7 @@ title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 # Customer intent: As a container registry owner, I want to send events to Event Grid
 # when container images are pushed to or deleted from my container registry so that
 # downstream applications can react to those events.
