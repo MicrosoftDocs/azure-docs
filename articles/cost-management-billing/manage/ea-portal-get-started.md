@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
 ---
@@ -52,6 +52,20 @@ If you’d like to know more about transferring an Enterprise subscription to a 
 You can manage and act on your Azure EA invoice. Your invoice is a representation of your bill and should be reviewed for accuracy.
 
 To view usage summary, download reports, and manage enrollment invoices, see [Azure Enterprise enrollment invoices](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+
+## Now that you're familiar with the basics of onboarding, here are some additional links to help you get started
+
+[Azure EA pricing](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) provides details on how usage is calculated and goes over charges for various Azure services in the Enterprise Agreement where the calculations are more complex.
+
+If you'd like to know about how Azure reservations for VM reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations).
+
+For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+
+[Azure EA agreements and amendments](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
+
+[Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) explains how EA customers and partners can view marketplace charges and enable Azure Marketplace purchases.
+
+For explanations regarding the common tasks that a partner EA administrator accomplishes in the Azure EA portal, see [Azure EA portal administration for partners](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration).
 
 ## Get started on Azure EA - FAQ
 
