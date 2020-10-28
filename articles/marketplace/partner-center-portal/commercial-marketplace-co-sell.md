@@ -1,17 +1,17 @@
 ---
 title: Co-sell option in Partner Center | Azure Marketplace
-description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.
+description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 10/19/2020
+ms.date: 10/28/2020
 ---
 
 # Co-sell option in Partner Center
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Incentivized status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 The Co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
 
@@ -31,7 +31,7 @@ The Co-sell option in Partner Center is currently available for some offer types
 
 ## Listing
 
-Co-sell listings will help Microsoft sales teams market your solution to a wider audience. *(All fields required.)*
+Co-sell listings will help Microsoft sales teams market your offer to a wider audience. *(All fields required.)*
 
 - Choose the Microsoft platforms that your offer is built with, extends, or integrates with.
 - Select  market segments that your offer is targeting.
@@ -62,13 +62,13 @@ You have the option to provide collateral documents that Microsoft will use to l
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
 | *Customer one-pager (Required)* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Microsoft 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
-| *Customer presentation (Required)* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
-| *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. <br> <br> Use the template available in Partner Center. |
-| *Verifiable customer wins* | Specific examples of customer successes after your solution has been deployed. |
-| *Channel pitch deck* | A slide deck with information that will help channel resellers learn more about your solution and ready their sales teams to sell your offer. It typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
-| *Reference architecture diagrams* | A document showing the model that represents the IP created by the partner, along with its relationship with Microsoft cloud services, and how it meets the technical requirements of the IP Co-sell program. |
-| *Other documents* | Optionally, you may upload up to five additional documents or videos to help Microsoft sales teams and channel resellers to learn more about your solution, organization, and/or differentiators. |
-| *External reference URL* | The link to your product's site, where Microsoft sales teams and channel resellers can learn more about your solution. |
+| *Customer presentation (Required)* | Slide deck to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
+| *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. <br> <br> Use the template available in Partner Center. |
+| *Verifiable customer wins* | Specific examples of customer successes after your offer has been deployed. |
+| *Channel pitch deck* | A slide deck with information that will help channel resellers learn more about your offer and get their sales teams ready to sell it. The deck typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
+| *Reference architecture diagram* | A diagram showing the model that represents your offer and its relationship with Microsoft cloud services, demonstrating how it meets the technical requirements of the IP Co-sell program. [Learn more about the reference architecture diagram.](#reference-architecture-diagram) |
+| *Other documents* | Optionally, you may upload up to five additional documents or videos to help Microsoft sales teams and channel resellers to learn more about your offer, organization, and/or differentiators. |
+| *External reference URL* | The link to your product's site, where Microsoft sales teams and channel resellers can learn more about your offer. |
 
 ## Contacts
 
@@ -95,6 +95,28 @@ You can also export your existing list of contacts of an offer, and then make ch
     The countries/regions should reflect each contact's territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region.
 
 * *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](./commercial-marketplace-co-sell-states.md).
+
+## Reference architecture diagram
+
+### What is a reference architecture  diagram
+The reference architecture diagram is a model that represents the infrastructure your offer relies upon, and how your offer leverages our cloud services per the technical requirements of the IP Co-Sell program. It is not designed to assess the quality of the architecture but how it is leveraging the different services.
+
+The document can be created via multiple tools. We recommend Microsoft Visio, as it has multiple stencils that depict Azure architecture models.
+
+A helpful starting point for building reference architecture diagrams is to leverage the different [Azure Solution Architectures models](https://docs.microsoft.com/en-us/azure/architecture/browse/).
+
+### Typical components of a reference architecture diagram
+1. Cloud services that host and interact with your offer, including those generating Azure consumption
+1. Data connections, data layers, data services being consumed by your offer
+1. Cloud services used to control security, authentication, users of the offer
+1. User interfaces and other services that expose the offer to end users
+1. Hybrid and/or on-premises connectivity and integrations 
+
+### Example reference architecture diagram
+
+:::image type="content" source="media/co-sell-arch-diagram.png" alt-text="This is an example Co-sell architecture diagram.":::
+
+(The example reference architecture diagram above is for a vertical industry chatbot that can be integrated with intranet sites to help with forecast demand scenarios via a Machine Learning algorithm using supply chain and manufacturing schedule data from different ERP systems. The bot is designed to address questions about when a sales person can commit on possible delivery dates for an order.)
 
 ## Next steps
 
