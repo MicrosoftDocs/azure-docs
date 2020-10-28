@@ -24,12 +24,13 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Feature availability in Azure clouds
 
-<!-- >> [!div class="op_single_selector"]
-> - [Africa](#tab/africa/)
-> - [Asia Pacific](#tab/apac/)
+>> [!div class="op_single_selector"]
+> - [United States](./includes/reference-feature-availability-us.md)
+> - [Azure Government](./includes/reference-feature-availability-usgov.md)
+> - [Africa](./includes/reference-feature-availability-africa.md)
+> - [Asia Pacific](./includes/reference-feature-availability-apac.md)
 > - [Australia](#tab/australia/)
 > - [Austria](#tab/austria/)
-> - [Azure Government](#tab/gov/)
 > - [Brazil](#tab/brazil/)
 > - [Canada](#tab/canada/)
 > - [China](#tab/china/)
@@ -52,12 +53,10 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 > - [Taiwan](#tab/taiwan/)
 > - [United Arab Emirates](#tab/uae/)
 > - [United Kingdom](#tab/uk/)
-> - [United States](#tab/us/)
--->
 
 ## Regional and non-regional availability
 
-TABLE KEY<br/>
+<!-- TABLE KEY<br/>
 ![ga](./media/azure-clouds-regions/ga.svg) Generally available ![in preview](./media/azure-clouds-regions/preview.svg) In preview ![in preview expected date](./media/azure-clouds-regions/preview-active.svg) In preview and expected date ![future availability](./media/azure-clouds-regions/planned-active.svg) Future availability
 
 | Region | [Azure EventGrid](reacting-to-media-services-events.md) | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) | [StandardEncoderPreset](encoding-concept.md) | [LiveEvents](live-streaming-overview.md) | [StreamingEndpoints](streaming-endpoint-concept.md) |  [LiveTranscription](live-transcription.md) |
@@ -135,8 +134,8 @@ TABLE KEY<br/>
 
 | Feature| Availability |
 | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Available |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available |
+| [Azure EventGrid](reacting-to-media-services-events.md) | ![ga](./media/azure-clouds-regions/ga.svg) |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  ![ga](./media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available |
 | [StandardEncoderPreset](encoding-concept.md) | Available |
 | [LiveEvents](live-streaming-overview.md) | Available |
