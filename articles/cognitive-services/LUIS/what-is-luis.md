@@ -1,7 +1,9 @@
 ---
 title: What is Language Understanding (LUIS)?
 description: Language Understanding (LUIS) - a cloud-based API service using machine-learning to conversational, natural language to predict meaning and extract information.
-keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, ai conversation, conversational ai, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis, understanding natural language
+keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, LUIS, conversational AI, ai chatbot, nlp ai, azure luis
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
@@ -11,9 +13,9 @@ ms.custom: cog-serv-seo-aug-2020
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
+Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
-A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications.
+A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, AI chatbots, and speech-enabled desktop applications.
 
 ![Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)")
 
@@ -21,7 +23,7 @@ A client application for LUIS is any conversational application that communicate
 
 <a name="Accessing-LUIS"></a>
 
-Once the LUIS app is published, a client application sends utterances (text) to the LUIS natural language processing endpoint [API][endpoint-apis] and receives the results as JSON responses. A common client application for LUIS is a chat bot.
+Once the Azure LUIS app is published, a client application sends utterances (text) to the LUIS natural language processing endpoint [API][endpoint-apis] and receives the results as JSON responses. A common client application for LUIS is a chat bot.
 
 
 ![Conceptual imagery of LUIS working with Chat bot to predict user text with natural language understanding (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Conceptual imagery of LUIS working with Chat bot to predict user text with natural language understanding (NLP")
@@ -39,7 +41,7 @@ The LUIS app provides intelligence so the client application can make smart choi
 
 ## Natural language understanding (NLU)
 
-[LUIS provides artificial intelligence (AI)](artificial-intelligence.md "LUIS provides artificial intelligence (AI)") in the form of NLU, a subset of natural language processing (NLP).
+[LUIS provides artificial intelligence (AI)](artificial-intelligence.md "LUIS provides artificial intelligence (AI)") in the form of NLU, a subset of natural language processing AI.
 
 Your LUIS app contains a domain-specific natural language model. You can start the LUIS app with a prebuilt domain model, build your own model, or blend pieces of a prebuilt domain with your own custom information.
 
@@ -47,7 +49,7 @@ Your LUIS app contains a domain-specific natural language model. You can start t
 
 * **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learning entities, specific or literal entities, and a combination of machine-learning and literal.
 
-Learn more about [NLP](artificial-intelligence.md "NLP"), and the LUIS-specific area of NLU.
+Learn more about [NLP AI](artificial-intelligence.md "NLP"), and the LUIS-specific area of NLU.
 
 ## Step 1: Design and build your model
 

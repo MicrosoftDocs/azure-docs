@@ -54,7 +54,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
 _**Server-group-name** is the name of the server group you will create during the next step._
@@ -67,7 +67,7 @@ You may now implement the next step.
 To create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc, use the following command:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -75,25 +75,14 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
-> - In Preview, you must indicate a storage class for backups (_--storage-class-backups -scb_) at the time you create a server group in order to be able to backup and restore.
+> - The storage class used for backups (_--storage-class-backups -scb_) defaults to the data controller's data storage class if it is not provided.
 > - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
-> - Names must be 10 characters or fewer in length and conform to DNS naming conventions.
+> - Names must be 12 characters or fewer in length and conform to DNS naming conventions.
 > - You will be prompted to enter the password for the _postgres_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
-> - If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. The name of the default administrator user for the PostgreSQL Hyperscale database engine is _postgresql_ and cannot be changed at this point.
+> - If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD session environment variables in the same terminal session, then the values for AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for AZDATA_PASSWORD or (2) delete the AZDATA_PASSWORD environment variable or delete its value be prompted to enter a password interactively when you create a server group.
+> - The name of the default administrator user for the PostgreSQL Hyperscale database engine is _postgres_ and cannot be changed at this point.
 > - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
-> - The --port parameter cannot be changed at this point.
-> - If you do not have a default storage class in your Kubernetes cluster, you'll need to use the parameter--metadataStorageClass to specify one. Not doing this will result in the failure of the create command. To verify if you have a default storage class declared on your Kubernetes cluster, rung the following command: 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
+
 
 
 ## List your Azure Database for PostgreSQL server groups created in your Arc setup
@@ -136,7 +125,7 @@ For example:
 ]
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
 If you are using an Azure VM to test, follow the instructions below:
 
@@ -144,7 +133,7 @@ If you are using an Azure VM to test, follow the instructions below:
 
 When you are using an Azure virtual machine, then the endpoint IP address will not show the _public_ IP address. To locate the public IP address, use the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -154,7 +143,7 @@ You may also need to expose the port of the PostgreSQL Hyperscale server group t
 
 To set a rule you will need to know the name of your NSG. You determine the NSG using the command below:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -162,7 +151,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 
 Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'azdata arc postgres server list' command above.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -175,7 +164,7 @@ Open Azure Data Studio and connect to your instance with the external endpoint I
 
 Remember, if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

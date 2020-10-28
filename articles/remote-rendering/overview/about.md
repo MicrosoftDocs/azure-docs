@@ -16,7 +16,7 @@ ms.topic: overview
 
 *Azure Remote Rendering* (ARR) is a service that enables you to render high-quality, interactive 3D content in the cloud and stream it in real time to devices, such as the HoloLens 2.
 
-![Sample model](../media/arr-engine.png)
+![Diagram that shows an example of rendered high-quality, interactive 3D automobile engine.](../media/arr-engine.png)
 
 Untethered devices have limited computational power for rendering complex models. For many applications it would be unacceptable, though, to reduce the visual fidelity in any way. The following screenshot compares the model at full detail with a model that has been decimated using a common content creation tool:
 

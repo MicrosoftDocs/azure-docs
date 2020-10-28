@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen, devx-track-javascript
+ms.custom: codepen, devx-track-js
 ---
 
 # Create a map
@@ -17,7 +17,7 @@ This article shows you ways to create a map and animate a map.
 
 ## Loading a map
 
-To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). When initializing the map, pass a DIV element ID to render the map and pass a set of options to use when loading the map. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map to the event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
+To load a map, create a new instance of the [Map class](/javascript/api/azure-maps-control/atlas.map). When initializing the map, pass a DIV element ID to render the map and pass a set of options to use when loading the map. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map to the event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
 
 <br/>
 
@@ -45,10 +45,10 @@ When the map is zoomed out on a wide screen, multiple copies of the world will a
 
 When creating a map there, are several different types of options that can be passed in to customize how the map functions as listed below.
 
-- [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions) and [CameraBoundOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions) are used to specify the area the map should display.
-- [ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) are used to specify how the map should interact with services that power the map.
-- [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) are used to specify the map should be styled and rendered.
-- [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) are used to specify how the map should reach when the user is interacting with the map. 
+- [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) and [CameraBoundOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions) are used to specify the area the map should display.
+- [ServiceOptions](/javascript/api/azure-maps-control/atlas.serviceoptions) are used to specify how the map should interact with services that power the map.
+- [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions) are used to specify the map should be styled and rendered.
+- [UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) are used to specify how the map should reach when the user is interacting with the map. 
 
 These options can also be updated after the map has been loaded using the `setCamera`, `setServiceOptions`, `setStyle`, and `setUserInteraction` functions. 
 
@@ -78,7 +78,7 @@ map.setCamera({
 });
 ```
 
-In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) is created and the center and zoom options are set. Map properties, such as center and zoom level, are part of the [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions).
+In the following code, a [Map object](/javascript/api/azure-maps-control/atlas.map) is created and the center and zoom options are set. Map properties, such as center and zoom level, are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -98,7 +98,7 @@ map.setCamera({
 });
 ```
 
-In the following code,  a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) is constructed via `new atlas.Map()`. Map properties such as `CameraBoundsOptions` can be defined via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) function of the Map class. Bounds and padding properties are set using `setCamera`.
+In the following code,  a [Map object](/javascript/api/azure-maps-control/atlas.map) is constructed via `new atlas.Map()`. Map properties such as `CameraBoundsOptions` can be defined via [setCamera](/javascript/api/azure-maps-control/atlas.map) function of the Map class. Bounds and padding properties are set using `setCamera`.
 
 <br/>
 
@@ -107,7 +107,7 @@ In the following code,  a [Map object](https://docs.microsoft.com/javascript/api
 
 ### Animate map view
 
-When setting the camera options of the map, [animation options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.animationoptions) can also be set. These options specify the type of animation and duration it should take to move the camera.
+When setting the camera options of the map, [animation options](/javascript/api/azure-maps-control/atlas.animationoptions) can also be set. These options specify the type of animation and duration it should take to move the camera.
 
 ```javascript
 map.setCamera({
@@ -132,7 +132,7 @@ Sometimes it is useful to be able to modify HTTP requests made by the map contro
 - Add additional headers to tile requests. This is often done for password protected services.
 - Modify URLs to run requests through a proxy service.
 
-The [service options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) of the map has a `transformRequest` that can be used to modify all requests made by the map before they are made. The `transformRequest` option is a function that takes in two parameters; a string URL, and a resource type string that indicates what the request is used for. This function must return a [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters) result.
+The [service options](/javascript/api/azure-maps-control/atlas.serviceoptions) of the map has a `transformRequest` that can be used to modify all requests made by the map before they are made. The `transformRequest` option is a function that takes in two parameters; a string URL, and a resource type string that indicates what the request is used for. This function must return a [RequestParameters](/javascript/api/azure-maps-control/atlas.requestparameters) result.
 
 ```JavaScript
 transformRequest: (url: string, resourceType: string) => RequestParameters
@@ -177,7 +177,7 @@ Look at the code samples. You can edit the JavaScript code inside the **JS tab**
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)
@@ -194,4 +194,4 @@ See code examples to add functionality to your app:
 > [Add controls to the map](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)

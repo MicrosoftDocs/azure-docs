@@ -67,6 +67,8 @@ Azure Cosmos DB Cassandra API supports the following CQL data types:
 | udts  | Yes |
 | map | Yes |
 
+Static is supported for data type declaration.
+
 ## CQL functions
 
 Azure Cosmos DB Cassandra API supports the following CQL functions:
@@ -144,6 +146,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | CREATE USER (Deprecated in native Apache Cassandra) | No |
 | DELETE | Yes |
 | DELETE (lightweight transactions with IF CONDITION)| Yes |
+| DISTINCT | No |
 | DROP AGGREGATE | No |
 | DROP FUNCTION | No |
 | DROP INDEX | Yes |
@@ -200,7 +203,7 @@ You can also connect to the Cassandra API in Azure Cosmos DB by using the CQLSH 
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
 **Unix/Linux/Mac:**
 
@@ -247,7 +250,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](consistency-levels-across-apis.md#cassandra-mapping).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## Permission and role management
 
@@ -268,7 +271,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## Secondary Index
+Cassandra API supports secondary indexes on all data types except frozen collection types, decimal and variant types. 
 
 ## Usage of Cassandra retry connection policy
 

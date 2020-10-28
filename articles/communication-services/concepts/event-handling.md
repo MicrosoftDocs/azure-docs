@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -32,7 +32,7 @@ Azure Communication Services emits the following event types:
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.SMSReceived                         | Published when an SMS is received by a phone number associated with the Communication Service. |
 | Microsoft.Communication.SMSDeliveryReportReceived           | Published when a delivery report is received for an SMS sent by the Communication Service.     |
-| Microsoft.Communication.ChatMessageReceived                 | Published when a message is received for a user in a chat thread that she is member of.        |
+| Microsoft.Communication.ChatMessageReceived                | Published when a message is received for a user in a chat thread that she is member of.        |
 | Microsoft.Communication.ChatMessageEdited                   | Published when a message is edited in a chat thread that the user is member of.                |
 | Microsoft.Communication.ChatMessageDeleted                  | Published when a message is deleted in a chat thread that the user is member of.               |
 | Microsoft.Communication.ChatThreadCreatedWithUser           | Published when the user is added as member at the time of creation of a chat thread.           |
@@ -42,6 +42,7 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | Published when the user is removed from a chat thread.                                         |
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../quickstarts/telephony-sms/handle-sms-events.md)
+
 
 ## Event subjects
 

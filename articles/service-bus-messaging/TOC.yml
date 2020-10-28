@@ -90,6 +90,8 @@
     href: service-bus-throttling.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -105,8 +107,6 @@
           href: service-bus-managed-service-identity.md
         - name: Authenticate from an application
           href: authenticate-application.md
-    - name: Built-in security controls
-      href: service-bus-messaging-security-controls.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

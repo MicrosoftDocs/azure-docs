@@ -20,7 +20,7 @@ Provisioned throughput with single write region costs $0.008/hour per 100 RU/s a
 
 ## Costs for multiple write regions
 
-In a multi-master system, the net available RUs for write operations increases `N` times where `N` is the number of write regions. Unlike single region writes, every region is now writable and should support conflict resolution. The amount of workload for writers has increased. From the cost planning point of view, to perform `M` RU/s worth of writes worldwide, you will need to provision M `RUs` at a container or database level. You can then add as many regions as you would like and use them for writes to perform `M` RU worth of worldwide writes. 
+In a multi-region writes system, the net available RUs for write operations increases `N` times where `N` is the number of write regions. Unlike single region writes, every region is now writable and should support conflict resolution. The amount of workload for writers has increased. From the cost planning point of view, to perform `M` RU/s worth of writes worldwide, you will need to provision M `RUs` at a container or database level. You can then add as many regions as you would like and use them for writes to perform `M` RU worth of worldwide writes. 
 
 ### Example
 
@@ -53,5 +53,4 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
-
+* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)

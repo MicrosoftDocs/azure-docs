@@ -53,10 +53,10 @@ If your applications, tools, or products are using the [Translator Speech API](h
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: Text-to-speech](rest-text-to-speech.md)
-* [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+* [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## Next steps
 
 * Complete the speech translation [quickstart](get-started-speech-translation.md)
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)

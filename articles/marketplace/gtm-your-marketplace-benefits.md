@@ -4,16 +4,16 @@ description: Go-To-Market Services - Microsoft resources that publishers can use
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 author: keferna
 ms.author: keferna
 ---
 
 # Your commercial marketplace benefits
 
-You've published to Microsoft commercial marketplace, now you want to see your offer be successful. We provide you the benefits - sales, technical, and marketing - you need to accelerate your offer's growth.
+You've published to Microsoft commercial marketplace, now you want to see your offer be successful. We provide you the sales, technical, and marketing benefits you need to accelerate your offer's growth.
 
-Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) to access and activate your eligible marketing, sales, and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
+Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) to access and activate your eligible marketing, sales, and technical benefits. View the Marketplace Rewards [demo video](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) for an overview on how to enroll in Marketplace Rewards and activate benefits in Partner Center. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
 ## Marketplace Rewards
 
@@ -39,13 +39,12 @@ Getting started is easy:
 2. Go to [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
 3. To activate sales and marketing benefits, assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
-
     1. Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
     1. Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
     1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
-**Technical benefits**
+### Technical benefits
 
 1. You can use your technical benefits to request technical assistance during the presales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
 2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
@@ -74,7 +73,7 @@ When you go live with your transactable offer in either Microsoft AppSource or A
 
 These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
-All partners who have a live offer get to work with a dedicated engagement manager to choose the highest-value activities for your portfolio of commercial marketplace offers. This engagement is evergreen per offer, meaning you can choose your activities and the timing of these activities to align to the timing of your company's broader marketing and sales strategies. 
+All partners who have a live offer get to work with a dedicated engagement manager to choose the highest-value activities for your portfolio of commercial marketplace offers. This engagement is evergreen per offer, meaning you can choose your activities and the timing of these activities to align to the timing of your company's broader marketing and sales strategies.
 
 ![Marketing benefits](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -92,23 +91,23 @@ In addition to the rewards benefits, business applications partners with Dynamic
 
 ### Publisher Agreement
 
-All the activities described on this page are covered by the [marketplace publisher agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and are pursuant to the Commercial Benefits Program Addendum.
+All the activities described on this page are covered by the Microsoft [publisher agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and are pursuant to the Commercial Benefits Program Addendum.
 
 ### Cancellation policy
 
-[List and Trial](determine-your-listing-type.md) publishers can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time. 
+[List and Trial](determine-your-listing-type.md) publishers can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time.
 
-Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
+Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who:
 
 * Engage in illegal activity using their marketplace listing.
 * Receive a purchase that is known or believed to be fraudulent.
-* Are de-listed from the commercial marketplace. 
+* Are de-listed from the commercial marketplace.
 * Use their offer to show marketing or other content that violates copyright or trademark laws.
 * Violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
 
 Microsoft reserves the right to revoke and terminate Marketplace Rewards when:
 
-* The customer making the purchase did so accidentally and wishes to cancel the purchase. 
+* The customer making the purchase did so accidentally and wishes to cancel the purchase.
 * The customer cancels before using the partner’s product.
 
 ### Offer availability
@@ -119,10 +118,7 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 
 ## Next steps
 
-Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create or configure your offer.
-
-Activate your Marketplace Rewards benefits in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-
-Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
-
-Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://aka.ms/MarketplaceCommunity) and learn about relevant topics or join the discussion.
+- Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create or configure your offer.
+- Activate your Marketplace Rewards benefits in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+- Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+- Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://aka.ms/MarketplaceCommunity) and learn about relevant topics or join the discussion.

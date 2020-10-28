@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # User-defined functions (UDFs) in Azure Cosmos DB

@@ -6,7 +6,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
 # Quickstart: Use Service Bus queues in Azure with Node.js and the azure-sb package

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 # Kubernetes Role-based Access Control on your Azure Stack Edge Pro GPU device
@@ -86,25 +86,7 @@ Here is a diagram that depicts the implementation of RBAC on Azure Stack Edge Pr
 
 In this diagram, Alice, Bob, and Chuck have access to assigned user namespaces only, which in this case are `ns1`, `ns2`, and `ns3` respectively. Within these namespaces, they have admin access. The cluster admin on the other hand has admin access to system namespaces and cluster-wide resources.
 
-You can use `kubectl` commands to create namespaces and users, assign users to namespaces, or download `kubeconfig` files. Here is a high level workflow:
-
-1. Create a namespace and a user.  
-
-    `New-HcsKubernetesNamespace -Namespace`  
-
-2. Create a user.  
-
-    `New-HcsKubernetesUser -UserName`  
-
-3. Associate the namespace with the user you created.  
-
-    `Grant-HcsKubernetesNamespaceAccess -Namespace -UserName`  
-
-4. Save the user configuration to `C:\Users\<username>\.kube`.  
-
-5. Install `kubectl` and start deploying applications into `kubectl`. 
-
-For detailed step-by-step instructions, go to [Access Kubernetes cluster via kuebctl on your Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+As a user, you can create namespaces and users, assign users to namespaces, or download `kubeconfig` files. For detailed step-by-step instructions, go to [Access Kubernetes cluster via kuebctl on your Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
 When working with namespaces and users on your Azure Stack Edge Pro devices, the following caveats apply:

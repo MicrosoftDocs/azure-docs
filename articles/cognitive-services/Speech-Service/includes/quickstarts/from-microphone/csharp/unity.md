@@ -21,7 +21,7 @@ ms.author: erhopf
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 

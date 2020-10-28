@@ -1,6 +1,8 @@
 ---
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ---
@@ -66,7 +68,7 @@ Rich-text editing of your answer text gives you markdown styling from a simple t
 
 
     > [!div class="mx-imgBorder"]
-    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Screenshot shows the in-place editor with the publicly accessible image URL and alternate text for the image entered.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Add a link to a URL by either selecting the text in the answer, then selecting the Link icon in the toolbar or by selecting the Link icon in the toolbar then entering new text and the URL.
 

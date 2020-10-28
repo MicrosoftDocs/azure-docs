@@ -131,7 +131,7 @@ You can also view rerun history for a particular pipeline run.
 
 You can see the resources consumed by a pipeline run by clicking the consumption icon next to the run. 
 
-![Monitor consumption](media/monitor-visually/monitor-consumption-1.png)
+![Screenshot that shows where you can see the resources consumed by a pipeline.](media/monitor-visually/monitor-consumption-1.png)
 
 Clicking the icon opens a consumption report of resources used by that pipeline run. 
 
@@ -185,7 +185,7 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
     ![Box for target criteria](media/monitor-visually/add-criteria-1.png)
 
-    ![List of criteria](media/monitor-visually/add-criteria-2.png)
+    ![Screenshot that shows where you select one metric to set up the alert condition.](media/monitor-visually/add-criteria-2.png)
 
     ![List of criteria](media/monitor-visually/add-criteria-3.png)
 
@@ -207,4 +207,4 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 ## Next steps
 
-To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) article.
+To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](./monitor-programmatically.md) article.

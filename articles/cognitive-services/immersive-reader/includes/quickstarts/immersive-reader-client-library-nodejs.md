@@ -6,20 +6,20 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
-The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
+[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
 
-In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader client library. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
 ## Prerequisites
 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
@@ -241,13 +241,13 @@ npm start
 
 Open your browser and navigate to _http://localhost:3000_. You should see the following:
 
-![Sample app](../../media/quickstart-nodejs/1-buildapp.png)
+![Sample app - Node.js](../../media/quickstart-nodejs/1-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-![Immersive Reader](../../media/quickstart-nodejs/2-viewimmersivereader.png)
+![Immersive Reader - Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
 ---
 
@@ -14,65 +14,21 @@ ms.author: v-erkel
 
 You can define up to ten different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
 
+The namespace paths are configured separately after you add the storage targets. In general, an NFS storage target can have up to ten namespace paths, or more for some large configurations. Read [NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) for details.
+
 Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prerequisites.md#dns-access).
 
-Add storage targets after creating your cache. The procedure is slightly different depending on whether you're adding Azure Blob storage or an NFS export. Details for each are below.
+Add storage targets after creating your cache. Follow this process:
+
+1. [Create the cache](hpc-cache-create.md)
+1. Define a storage target (information in this article)
+1. [Create the client-facing paths](add-namespace-paths.md) (for the [aggregated namespace](hpc-cache-namespace.md))
+
+The procedure to add a storage target is slightly different depending on whether you're adding Azure Blob storage or an NFS export. Details for each are below.
 
 Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
-
-## View storage targets
-
-### [Portal](#tab/azure-portal)
-
-From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar. The storage targets page lists all existing targets and gives a link to add a new one.
-
-![screenshot of the storage targets link on the sidebar, under the heading Configure, which is between the category headings Settings and Monitoring](media/hpc-cache-storage-targets-sidebar.png)
-
-### [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
-Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
-
-```azurecli
-az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
-```
-
-Use [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
-
-Example:
-
-```azurecli
-$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
-
-{
-  "clfs": null,
-  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
-  "junctions": [
-    {
-      "namespacePath": "/nfs1/data1",
-      "nfsExport": "/datadisk1",
-      "targetPath": ""
-    }
-  ],
-  "location": "eastus",
-  "name": "nfsd1",
-  "nfs3": {
-    "target": "10.0.0.4",
-    "usageModel": "WRITE_WORKLOAD_15"
-  },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "scgroup",
-  "targetType": "nfs3",
-  "type": "Microsoft.StorageCache/caches/storageTargets",
-  "unknown": null
-}
-$
-```
-
----
 
 ## Add a new Azure Blob storage target
 
@@ -81,6 +37,14 @@ A new Blob storage target needs an empty Blob container or a container that is p
 The Azure portal **Add storage target** page includes the option to create a new Blob container just before you add it.
 
 ### [Portal](#tab/azure-portal)
+
+From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar.
+
+![screenshot of the settings > storage target page, with two existing storage targets in a table and a highlight around the + add storage target button above the table](media/add-storage-target-button.png)
+
+The **Storage targets** page lists all existing targets and gives a link to add a new one.
+
+Click the **Add storage target** button.
 
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
 
@@ -98,8 +62,6 @@ To define an Azure Blob container, enter this information.
 
   ![screenshot of dialog to specify name and access level (private) for new container](media/add-blob-new-container.png)
 
-* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
-
 When finished, click **OK** to add the storage target.
 
 > [!NOTE]
@@ -107,9 +69,9 @@ When finished, click **OK** to add the storage target.
 
 ### Add the access control roles to your account
 
-Azure HPC Cache uses [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache service to access your storage account for Azure Blob storage targets.
+Azure HPC Cache uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to authorize the cache service to access your storage account for Azure Blob storage targets.
 
-The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "HPC Cache Resource Provider".
+The storage account owner must explicitly add the roles [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) and [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the user "HPC Cache Resource Provider".
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
 
@@ -158,6 +120,9 @@ Also check your storage account's firewall settings. If the firewall is set to r
 
 Use the [az hpc-cache blob-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) interface to define an Azure Blob storage target.
 
+> [!NOTE]
+> The Azure CLI commands currently require you to create a namespace path when you add a storage target. This is different from the process used with the Azure portal interface.
+
 In addition to the standard resource group and cache name parameters, you must provide these options for the storage target:
 
 * ``--name`` - Set a name that identifies this storage target in the Azure HPC Cache.
@@ -184,7 +149,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## Add a new NFS storage target
 
-An NFS storage target has more fields than the Blob storage target. These fields specify how to reach the storage export and how to efficiently cache its data. Also, an NFS storage target lets you create multiple namespace paths if the NFS host has more than one export available.
+An NFS storage target has different settings from a Blob storage target. The usage model setting helps the cache to efficiently cache data from this storage system.
 
 ![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
 
@@ -224,6 +189,14 @@ This table summarizes the usage model differences:
 
 ### [Portal](#tab/azure-portal)
 
+From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar.
+
+![screenshot of the settings > storage target page, with two existing storage targets in a table and a highlight around the + add storage target button above the table](media/add-storage-target-button.png)
+
+The **Storage targets** page lists all existing targets and gives a link to add a new one.
+
+Click the **Add storage target** button.
+
 ![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
 
 Provide this information for an NFS-backed storage target:
@@ -236,29 +209,18 @@ Provide this information for an NFS-backed storage target:
 
 * **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model](#choose-a-usage-model) above.
 
-### NFS namespace paths
-
-An NFS storage target can have multiple virtual paths, as long as each path represents a different export or subdirectory on the same storage system.
-
-Create all of the paths from one storage target.
-
-You can [add and edit namespace paths](hpc-cache-edit-storage.md) on a storage target at any time.
-
-Fill in these values for each namespace path:
-
-* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
-
-* **NFS export path** - Enter the path to the NFS export.
-
-* **Subdirectory path** - If you want to mount a specific subdirectory of the export, enter it here. If not, leave this field blank.
-
 When finished, click **OK** to add the storage target.
 
 ### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) to create the storage target. Supply these values in addition to the cache name and cache resource group:
+Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) to create the storage target.
+
+> [!NOTE]
+> The Azure CLI commands currently require you to create a namespace path when you add a storage target. This is different from the process used with the Azure portal interface.
+
+Supply these values in addition to the cache name and cache resource group:
 
 * ``--name`` - Set a name that identifies this storage target in the Azure HPC Cache.
 * ``--nfs3-target`` - The IP address of your NFS storage system. (You can use a fully qualified domain name here if your cache has access to a DNS server that can resolve the name.)
@@ -270,7 +232,7 @@ Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/h
 
   An NFS storage target can have multiple virtual paths, as long as each path represents a different export or subdirectory on the same storage system. Create all of the paths for one storage system on one storage target.
 
-  You can [add and edit namespace paths](hpc-cache-edit-storage.md) on a storage target at any time.
+  You can [add and edit namespace paths](add-namespace-paths.md) on a storage target at any time.
 
   The ``--junction`` parameter uses these values:
 
@@ -321,10 +283,67 @@ Output:
 
 ---
 
+## View storage targets
+
+You can use the Azure portal or the Azure CLI to show the storage targets already defined for your cache.
+
+### [Portal](#tab/azure-portal)
+
+From the Azure portal, open your cache instance and click **Storage targets**, which is under the Settings heading on the left sidebar. The storage targets page lists all existing targets and controls for adding or deleting them.
+
+Click on a storage target's name to open its details page.
+
+Read [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
+
+```azurecli
+az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
+```
+
+Use [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
+
+Example:
+
+```azurecli
+$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
+
+{
+  "clfs": null,
+  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
+  "junctions": [
+    {
+      "namespacePath": "/nfs1/data1",
+      "nfsExport": "/datadisk1",
+      "targetPath": ""
+    }
+  ],
+  "location": "eastus",
+  "name": "nfsd1",
+  "nfs3": {
+    "target": "10.0.0.4",
+    "usageModel": "WRITE_WORKLOAD_15"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "scgroup",
+  "targetType": "nfs3",
+  "type": "Microsoft.StorageCache/caches/storageTargets",
+  "unknown": null
+}
+$
+```
+
+---
+
 ## Next steps
 
-After creating storage targets, consider one of these tasks:
+After creating storage targets, continue with these tasks to get your cache ready to use:
 
+* [Set up the aggregated namespace](add-namespace-paths.md)
 * [Mount the Azure HPC Cache](hpc-cache-mount.md)
 * [Move data to Azure Blob storage](hpc-cache-ingest.md)
 

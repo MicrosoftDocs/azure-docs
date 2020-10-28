@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -107,7 +107,7 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Office 365 (preview)**.
+1. Under **Cloud apps or actions** > **Include**, select **Office 365**.
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.
@@ -124,4 +124,4 @@ On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD id
 
 ## Next steps
 
-Before configuring a device-based Conditional Access policy in your environment, you should take a look at the [best practices for Conditional Access in Azure Active Directory](best-practices.md).
+[Evaluate the impact of Conditional Access policies before enabling widely with report-only mode](concept-conditional-access-report-only.md).

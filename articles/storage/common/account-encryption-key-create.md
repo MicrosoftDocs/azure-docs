@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Create an account that supports customer-managed keys for tables and queues
 
-Azure Storage encrypts all data in a storage account at rest. By default, Queue storage and Table storage use a key that is scoped to the service and managed by Microsoft. You can also opt to use customer-managed keys to encrypt queue or table data. To use customer-managed keys with queues and tables, you must first create a storage account that uses an encryption key that is scoped to the account, rather than to the service. After you have created an account that uses the account encryption key for queue and table data, you can configure customer-managed keys with Azure Key Vault for that storage account.
+Azure Storage encrypts all data in a storage account at rest. By default, Queue storage and Table storage use a key that is scoped to the service and managed by Microsoft. You can also opt to use customer-managed keys to encrypt queue or table data. To use customer-managed keys with queues and tables, you must first create a storage account that uses an encryption key that is scoped to the account, rather than to the service. After you have created an account that uses the account encryption key for queue and table data, you can configure customer-managed keys for that storage account.
 
 This article describes how to create a storage account that relies on a key that is scoped to the account. When the account is first created, Microsoft uses the account key to encrypt the data in the account, and Microsoft manages the key. You can subsequently configure customer-managed keys for the account to take advantage of those benefits, including the ability to provide your own keys, update the key version, rotate the keys, and revoke access controls.
 
@@ -211,11 +211,7 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 ---
 
-After you have created an account that relies on the account encryption key, see one of the following articles to configure customer-managed keys with Azure Key Vault:
-
-- [Configure customer-managed keys with Azure Key Vault by using the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys with Azure Key Vault by using PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys with Azure Key Vault by using Azure CLI](storage-encryption-keys-cli.md)
+After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM) (preview). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## Verify the account encryption key
 
@@ -250,5 +246,6 @@ N/A
 
 ## Next steps
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md) 
-- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
+- [What is Azure Key Vault](../../key-vault/general/overview.md)?

@@ -31,7 +31,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### Module updates
 
-* A new graph extension node, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) is available to integrate with the [Spatial Analysis module](spatial-analysis-tutorial.md)(preview) from Cognitive Services.
+* A new graph extension node, [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md) is available to integrate with the [Spatial Analysis](/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview)(preview) module from Cognitive Services.
 * Added support for Linux ARM64 devices - use [manual steps](deploy-iot-edge-device.md) for deploying to such devices.
 
 ### Documentation updates

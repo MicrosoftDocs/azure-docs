@@ -12,6 +12,9 @@ manager: philmea
 
 # Use the OPC Vault certificate management service
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to register applications, and how to issue signed application certificates for your OPC UA devices.
 
 ## Prerequisites

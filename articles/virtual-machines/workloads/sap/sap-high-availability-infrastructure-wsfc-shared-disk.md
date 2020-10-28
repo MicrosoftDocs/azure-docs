@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -163,10 +163,10 @@ ms.custom: H1Hack27Feb2017
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance.
 Two alternatives for *cluster shared disk* are presented in the documentation:
 
-- [Azure shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Azure shared disks](../../windows/disks-shared.md)
 - Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) to create mirrored storage, that will simulate clustered shared disk 
 
-The presented configuration is relying on [Azure proximity placement groups (PPG)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to achieve optimal network latency for SAP workloads. 
+The presented configuration is relying on [Azure proximity placement groups (PPG)](./sap-proximity-placement-scenarios.md) to achieve optimal network latency for SAP workloads. 
 The documentation doesn't cover the database layer.  
 
 > [!NOTE]
@@ -198,8 +198,11 @@ The host names and the IP addresses for the presented scenario are:
 
 ## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 
-SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is required to use a virtual IP address. 
-We strongly recommend using [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
+SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
+We strongly recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.    
 
 
 The following list shows the configuration of the (A)SCS/ERS load balancer. The configuration for both SAP ASCS and ERS2 in performed in the same Azure load balancer.  
@@ -265,8 +268,8 @@ The following registry entries must be changed on both cluster nodes:
 
 | Path| Variable name | Variable type  | Value | Documentation |
 | --- | --- | --- |---| ---|
-| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (Decimal) |120000 |[KeepAliveTime](https://technet.microsoft.com/library/cc957549.aspx) |
-| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (Decimal) |120000 |[KeepAliveInterval](https://technet.microsoft.com/library/cc957548.aspx) |
+| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (Decimal) |120000 |[KeepAliveTime](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
+| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (Decimal) |120000 |[KeepAliveInterval](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 
 To apply the changes, restart both cluster nodes.
@@ -328,7 +331,7 @@ Run this command on one of the cluster nodes:
    ```
 
 ### Configure cluster cloud quorum
-As you use Windows Server 2016 or 2019, we recommended configuring [Azure Cloud Witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), as cluster quorum.
+As you use Windows Server 2016 or 2019, we recommended configuring [Azure Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness), as cluster quorum.
 
 Run this command on one of the cluster nodes:
 

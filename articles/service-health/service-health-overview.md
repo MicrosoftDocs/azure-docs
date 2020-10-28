@@ -1,6 +1,6 @@
 ---
 title: Service Health overview | Microsoft Docs
-description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
+description: Learn how Service Health provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. 
 ms.topic: conceptual
 ms.date: 05/10/2019
 

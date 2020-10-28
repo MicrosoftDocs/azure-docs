@@ -38,13 +38,26 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
+## Preliminary and temporary step for OpenShift users only
+
+Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
+
+```console
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+```
+
+_**Server-group-name** is the name of the server group you will deploy during the next step._
+   
+For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
+You may now implement the next step.
+
 ## Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
 1. Launch Azure Data Studio
 1. On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
 1. From the deployment options, select **PostgreSQL Hyperscale server group - Azure Arc**
     >[!NOTE]
-    > You may be prompted to install the `azdata` CLI here if it is not currently installed.
+    > You may be prompted to install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] here if it is not currently installed.
 1. Accept the Privacy and license terms and click **Select** at the bottom
 1. In the Deploy PostgreSQL Hyperscale server group - Azure Arc blade, enter the following information:
    - Enter a name for the server group
@@ -75,6 +88,5 @@ In a few minutes, your creation should successfully complete.
 
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
-- [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 

@@ -11,7 +11,7 @@ individual resource from evaluation of initiatives or definitions. Resources tha
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
 see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
 [Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
-**Resource Provider modes**.
+[Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > This feature is free during **preview**. For pricing details, see
@@ -118,6 +118,26 @@ has an exemption to. As the resource may be exempted from one or more included p
 this property is an _array_. The values must match the values in the initiative definition in the
 `policyDefinitions.policyDefinitionReferenceId` fields.
 
+## Exemption category
+
+Two exemption categories exist and are used to group exemptions:
+
+- **Mitigated**: The exemption is granted because the policy intent is met through another method.
+- **Waiver**: The exemption is granted because the non-compliance state of the resource is
+  temporarily accepted. Another reason to use this category is for a resource or resource hierarchy
+  that should be excluded from one or more definitions in an initiative, but shouldn't be excluded
+  from the entire initiative.
+
+## Expiration
+
+To set when a resource hierarchy or an individual resource is no longer _exempt_ to an assignment,
+set the `expiresOn` property. This optional property must be in the Universal ISO 8601 DateTime
+format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+
+> [!NOTE]
+> The policy exemptions isn't deleted when the `expiresOn` date is reached. The object is preserved
+> for record-keeping, but the exemption is no longer honored.
+
 ## Required permissions
 
 The Azure RBAC permissions needed to manage Policy exemption objects are in the
@@ -132,16 +152,6 @@ Exemptions have additional security measures because of the impact of granting a
 requiring the `Microsoft.Authorization/policyExemptions/write` operation on the resource hierarchy
 or individual resource, the creator of an exemption must have the `exempt/Action` verb on the target
 assignment.
-
-## Expiration
-
-To set when a resource hierarchy or an individual resource is no longer _exempt_ to an assignment,
-set the `expiresOn` property. This optional property must be in the Universal ISO 8601 DateTime
-format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
-
-> [!NOTE]
-> The policy exemptions isn't deleted when the `expiresOn` date is reached. The object is preserved
-> for record-keeping, but the exemption is no longer honored.
 
 ## Next steps
 

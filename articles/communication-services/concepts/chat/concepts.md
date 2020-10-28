@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -23,7 +23,7 @@ See the [Communication Services Chat client library Overview](./sdk-features.md)
 
 Chat conversations happen within chat threads. A chat thread can contain many messages and many users. Every message belongs to a single thread, and a user can be a part of one or many threads. 
 
-Each user in the chat thread is called a member. You can have up to 250 members in a chat thread. Only thread members can send and receive messages or add/remove members in a chat thread. The maximum message size allowed is approximately 28KB. Communication Services stores chat history until you execute a delete operation on the chat thread. You can retrieve all messages in a chat thread using the `List/Get Messages` operation.
+Each user in the chat thread is called a member. You can have up to 250 members in a chat thread. Only thread members can send and receive messages or add/remove members in a chat thread. The maximum message size allowed is approximately 28KB. You can retrieve all messages in a chat thread using the `List/Get Messages` operation. Communication Services stores chat history until you execute a delete operation on the chat thread or message, or until no members are remaining in the chat thread at which point it is orphaned and processed for deletion.   
 
 For chat threads with more than 20 members, read receipts and typing indicator features are disabled. 
 
@@ -123,7 +123,7 @@ You can use [Azure Cognitive APIs](https://docs.microsoft.com/azure/cognitive-se
 
 One way to achieve this is by having your trusted service act as a member of a chat thread. Let's say you want to enable language translation. This service will be responsible for listening to the messages being exchanged by other members [1], calling cognitive APIs to translate the content to desired language[2,3] and sending the translated result as a message in the chat thread[4]. 
 
-This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) to understand how to use Cognitive APIs to translate text to different languages. 
+This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) to understand how to use Cognitive APIs to translate text to different languages. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Cognitive Services interacting with Communication Services.":::
 

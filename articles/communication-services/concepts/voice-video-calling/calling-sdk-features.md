@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -29,7 +29,8 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️ 
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️ 
+|                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
+|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
@@ -50,8 +51,7 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️            | ✔️
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
-| General           | Participate in a group call containing up to 350 participants                                                       |  ✔️  | ✔️            | ✔️    
-|                   | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
 ## Calling client library browser support
 

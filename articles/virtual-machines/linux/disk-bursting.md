@@ -1,6 +1,6 @@
 ---
 title: Managed disk bursting
-description: Learn about disk bursting for Azure disks and disk bursting for Azure virtual machines
+description: Learn about disk bursting for Azure disks and disk bursting for Azure virtual machines on Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 09/22/2020
@@ -23,6 +23,6 @@ VM level bursting is also available in West Central US for the following support
 Bursting is enabled by default for virtual machines that support it.
 
 ## Disk level bursting
-Bursting is also available on our [premium SSDs](disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions in Azure Public, Government, and China Clouds. Disk bursting is enabled by default on all new and existing deployments of the disk sizes that support it. 
+Bursting is also available on our [premium SSDs](../disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions in Azure Public, Government, and China Clouds. Disk bursting is enabled by default on all new and existing deployments of the disk sizes that support it. 
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting-2.md)]

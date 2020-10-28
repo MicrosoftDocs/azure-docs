@@ -5,10 +5,10 @@ services: synapse-analytics
 author: jocaplan 
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
-ms.date: 04/29/2020
+ms.subservice: business-intelligence
+ms.date: 10/27/2020
 ms.author: jocaplan
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Quickstart: Linking a Power BI workspace to a Synapse workspace

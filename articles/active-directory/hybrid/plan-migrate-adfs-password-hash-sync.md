@@ -298,7 +298,7 @@ First, change the sign-in method:
 
 5. On the **Enable single sign-on** page, enter the credentials of Domain Administrator account, and then select **Next**.
 
-   ![Screenshot of the Enable single sign-on page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Screenshot of the Enable single sign-on page where you can enter the Domain Administrator account credentials.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to turn on the feature. The credentials are discarded when the process successfully finishes.
@@ -320,7 +320,7 @@ First, change the sign-in method:
    * **Seamless single sign-on** is set to **Enabled**.
    * **Password Sync** is set to **Enabled**.<br /> 
 
-   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section of the Azure AD portal.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Skip to [Testing and next steps](#testing-and-next-steps).
 

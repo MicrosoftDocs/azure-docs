@@ -1,8 +1,9 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
+ms.custom: contperfq1
 ---
 # What are Azure management groups?
 
@@ -27,7 +28,7 @@ into a hierarchy for unified policy and access management. The following diagram
 creating a hierarchy for governance using management groups.
 
 :::image type="complex" source="./media/tree.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
-   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is 4 levels of management groups with the child level being all subscriptions.
+   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.
 :::image-end:::
 
 You can create a hierarchy that applies a policy, for example, which limits VM locations to the US
@@ -40,7 +41,7 @@ Another scenario where you would use management groups is to provide user access
 subscriptions. By moving multiple subscriptions under that management group, you can create one
 [Azure role assignment](../../role-based-access-control/overview.md) on the
 management group, which will inherit that access to all the subscriptions. One assignment on the
-management group can enable users to have access to everything they need instead of scripting RBAC
+management group can enable users to have access to everything they need instead of scripting Azure RBAC
 over different subscriptions.
 
 ### Important facts about management groups
@@ -116,8 +117,8 @@ the root management group in the directory.
 There are two options you can do to resolve this issue.
 
 - Remove all Role and Policy assignments from the root management group
-  - By removing any policy and role assignments from the root management group, the service will
-    backfill all subscriptions into the hierarchy the next overnight cycle. This process is so
+  - By removing any policy and role assignments from the root management group, the service
+    backfills all subscriptions into the hierarchy the next overnight cycle. This process is so
     there's no accidental access given or policy assignment to all of the tenants subscriptions.
   - The best way to do this process without impacting your services is to apply the role or policy
     assignments one level below the Root management group. Then you can remove all assignments from
@@ -168,7 +169,7 @@ will inherit down the hierarchy like any built-in role.
 
 ### Example definition
 
-[Defining and creating a custom role](../../role-based-access-control/custom-roles.md) does not
+[Defining and creating a custom role](../../role-based-access-control/custom-roles.md) doesn't
 change with the inclusion of management groups. Use the full path to define the management group
 **/providers/Microsoft.Management/managementgroups/{groupId}**.
 
@@ -244,9 +245,9 @@ There are limitations that exist when using custom roles on management groups.
  - You can only define one management group in the assignable scopes of a new role. This limitation
    is in place to reduce the number of situations where role definitions and role assignments are
    disconnected. This situation happens when a subscription or management group with a role
-   assignment is moved to a different parent that doesn't have the role definition.  
- - RBAC Data Plane actions can't be defined in management group custom roles. This restriction is in
-   place as there's a latency issue with RBAC actions updating the data plane resource providers.
+   assignment moves to a different parent that doesn't have the role definition.  
+ - Resource provider data plane actions can't be defined in management group custom roles. This restriction is in
+   place as there's a latency issue with updating the data plane resource providers.
    This latency issue is being worked on and these actions will be disabled from the role definition
    to reduce any risks.
  - The Azure Resource Manager doesn't validate the management group's existence in the role
@@ -297,6 +298,6 @@ management groups looks like **"/providers/Microsoft.Management/managementGroups
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](./create.md)
+- [Create management groups to organize Azure resources](./create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](./manage.md)
 - See options for [How to protect your resource hierarchy](./how-to/protect-resource-hierarchy.md)

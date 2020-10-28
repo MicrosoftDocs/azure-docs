@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -41,11 +41,10 @@ Azure Stack Edge Pro has the following capabilities:
 |---------|---------|
 |Accelerated AI inferencing| Enabled by the built-in GPU (one or two depending on the model).|
 |Edge computing      |Supports VM and containerized workloads to allow analysis, processing, and filtering of data. |
-|High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.  |
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
-|Supported storage protocols     | Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro system requirements](azure-stack-edge-system-requirements.md).|
+|Supported file transfer protocols      | Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro system requirements](azure-stack-edge-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
@@ -70,6 +69,8 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 Azure Stack Edge Pro physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
 - **Resource availability** - For this preview release, the resource is available in East US, West EU, and South East Asia regions.
+
+- **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 

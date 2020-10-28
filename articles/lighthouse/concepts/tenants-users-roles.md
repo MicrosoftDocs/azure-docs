@@ -17,7 +17,7 @@ Whichever onboarding method you choose, you will need to define *authorizations*
 
 ## Role support for Azure Lighthouse
 
-When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
+When defining an authorization, each user account must be assigned one of the [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 
 All [built-in roles](../../role-based-access-control/built-in-roles.md) are currently supported with Azure Lighthouse, with the following exceptions:
 
@@ -38,7 +38,7 @@ When creating your authorizations, we recommend the following best practices:
 - Be sure that any user who needs to [view the My customers page in the Azure portal](../how-to/view-manage-customers.md) has the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access).
 
 > [!IMPORTANT]
-> In order to add permissions for an Azure AD group, the **Group type** must be **Security** and not **Office 365**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Next steps
 

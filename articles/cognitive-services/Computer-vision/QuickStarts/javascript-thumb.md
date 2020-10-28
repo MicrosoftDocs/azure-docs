@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and JavaScript
 
@@ -52,7 +52,7 @@ To create and run the sample, do the following steps:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v3.0/generateThumbnail";
+        var uriBase = endpoint + "vision/v3.1/generateThumbnail";
 
         // Request parameters.
         var params = "?width=100&height=150&smartCropping=true";

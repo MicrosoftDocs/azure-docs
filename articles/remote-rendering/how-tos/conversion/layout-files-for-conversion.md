@@ -24,6 +24,10 @@ If the paths are stored as relative paths and the relative location between the 
 > [!Note]
 > We recommend that you place files in the input container so the relative locations of the files are the same as they were when the asset was created.
 
+> [!Note]
+> Prefer to create assets which carry relative paths.
+> The tutorial on [setting up materials for 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) gives a 3ds Max example of how to ensure an asset uses relative paths.
+
 ## Finding textures
 
 Due to the many ways assets can be generated, the conversion service has to be flexible.

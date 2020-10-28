@@ -37,7 +37,7 @@ Included in this limit is a default *global rule*. The global rule doesn't have 
 
 Each Azure CDN endpoint can have up to 25 rules. Each rule can have up to ten match conditions and five actions. Pricing for Rules Engine follows the below dimensions: 
 - Rules: $1 per rule per month 
-- Requests Processed: $0.60 per million requets
+- Requests Processed: $0.60 per million requests
 - The first 5 rules will remain free
 
 ## Syntax

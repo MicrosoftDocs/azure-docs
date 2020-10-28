@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, seodec18"
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 ## Overview
-This tutorial shows how to use Visual Studio tools to help debug an app in [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](/visualstudio/debugger/) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools to help debug an app in [App Service](./overview.md), by running in [debug mode](/visualstudio/debugger/) remotely or by viewing application logs and web server logs.
 
 You'll learn:
 
@@ -44,7 +44,7 @@ Visual Studio provides access to a subset of the app management functions and co
    >
    >
 
-    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](../role-based-access-control/role-assignments-portal.md).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
 3. Expand the resource group that includes the app that you created in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md), and then right-click the app node and click **View Settings**.
 
@@ -65,15 +65,15 @@ You typically deploy a web project with the `customErrors` flag in the Web.confi
 
 **Server Error in '/' Application:**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png" alt-text="Screenshot showing a Server Error in '/' Application error in a web browser.":::
 
 **An error occurred:**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Screenshot showing an example of a generic error occurring in a web browser.":::
 
 **The website cannot display the page**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot showing a The website cannot display the page error in a web browser.":::
 
 Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) and deploy a debug build, but there's a quicker way: in **Solution Explorer**, you can directly view and edit files in the remote app by using the *remote view* feature.
 
@@ -120,7 +120,7 @@ This section shows how to debug remotely using the project you create in [Create
     }
     ```
 
-1. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the `ViewBag.Message` line.
+1. [Set a breakpoint](/visualstudio/debugger/) on the `ViewBag.Message` line.
 
 1. In **Solution Explorer**, right-click the project, and click **Publish**.
 
@@ -134,7 +134,7 @@ This section shows how to debug remotely using the project you create in [Create
 
 1. In **Server Explorer**, right-click your app, and then click **Attach Debugger**.
 
-    ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Screenshot of the Server Explorer window showing an app selected and then clicking Attach Debugger.":::
 
     The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
@@ -171,7 +171,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-3. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the first statement in the `GnerateThumbnail` method.
+3. [Set a breakpoint](/visualstudio/debugger/) on the first statement in the `GnerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -187,7 +187,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 8. Click **Attach Debugger**.
 
-    ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Screenshot of Server Explorer showing ContosoAdsWebJob selected in the drop-down menu and Attach Debugger selected.":::
 
     The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
@@ -236,7 +236,7 @@ If your function [wrote logs](https://github.com/Azure/azure-webjobs-sdk/wiki), 
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* If you find that the debugger doesn't step into the code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
+* If you find that the debugger doesn't step into the code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Specify whether to debug only user code using Just My Code in Visual Studio](/visualstudio/debugger/just-my-code).
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48-hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
 * You can manually attach the debugger to any process, not only the app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
@@ -325,7 +325,7 @@ For information about how to create application logs in WebJobs, see [How to wor
     ```
 
 The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
-1. Add a <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
+1. Add a <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -335,11 +335,11 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
 1. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to `http://localhost:53370/trace.axd`).
 1. On the **Application Trace** page, click **View Details** on the first line (not the BrowserLink line).
 
-    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Screenshot of the Application Trace page in a web browser showing View Details selected on the first line.":::
 
     The **Request Details** page appears, and in the **Trace Information** section you see the output from the trace statements that you added to the `Index` method.
 
-    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Screenshot of the Request Details page in a web browser showing a message highlighted in the Trace Information section.":::
 
     By default, `trace.axd` is only available locally. If you wanted to make it available from a remote app, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
 
@@ -356,11 +356,12 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
     After Visual Studio publishes your update, it opens a browser window to your home page (assuming you didn't clear **Destination URL** on the **Connection** tab).
 3. In **Server Explorer**, right-click your app and select **View Streaming Logs**.
 
-    ![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Screenshot of Server Explorer after right-clicking your app, with View Streaming Logs selected in a new window.":::
 
     The **Output** window shows that you are connected to the log-streaming service, and adds a notification line each minute that goes by without a log to display.
 
-    ![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Screenshot of the Output window showing an example of a connection to a log-streaming service with notification lines.":::
+
 4. In the browser window that shows your application home page, click **Contact**.
 
     Within a few seconds, the output from the error-level trace you added to the `Contact` method appears in the **Output** window.
@@ -388,7 +389,7 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
 ### Output window features
 The **Microsoft Azure Logs** tab of the **Output** Window has several buttons and a text box:
 
-![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Screenshot showing the buttons and text box of the Microsoft Azure Logs tab in the Output window.":::
 
 These perform the following functions:
 
@@ -452,14 +453,15 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 1. In the **Output** window, click **Download Streaming Logs**.
 
-    ![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Screenshot of the Output window showing the Download Streaming Logs button highlighted.":::
 
     File Explorer opens to your *Downloads* folder with the downloaded file selected.
 
-    ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Screenshot of the Downloads folder in File Explorer with a downloaded file selected.":::
+
 2. Extract the *.zip* file, and you see the following folder structure:
 
-    ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Screenshot of the .zip file folder structure after the file has been extracted.":::
 
    * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
    * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
@@ -498,7 +500,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -617,7 +619,7 @@ For more information about troubleshooting apps in Azure App Service, see the fo
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
 * [The Azure forum on the ASP.NET site](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [The Azure forum on Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [The Azure forum on Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### Debugging in Visual Studio

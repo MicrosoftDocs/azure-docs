@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Create Apache Spark job definition in Synapse Studio'
-description: Tutorial - Use the Azure Synapse Analytics to create Spark job definitions, and submit them to a Apache Spark for Azure Synapse Analytics pool.
+description: Tutorial - Use the Azure Synapse Analytics to create Spark job definitions, and submit them to an Apache Spark for Azure Synapse Analytics pool.
 author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ---
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio
@@ -42,11 +42,11 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
      ![sample files](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.py** and **shakespeare.txt** into your ADLS Gen2 filesystem. 
+3. Select **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.py** and **shakespeare.txt** into your ADLS Gen2 filesystem. 
 
      ![upload python file](./media/apache-spark-job-definitions/upload-python-file.png)
 
-4. Click **Develop** hub, click on '+' icon and select **Spark job definition** to create a new Spark job definition. 
+4. Select **Develop** hub, select the '+' icon and select **Spark job definition** to create a new Spark job definition. 
 
      ![create new definition for python](./media/apache-spark-job-definitions/create-new-definition.png)
 
@@ -70,7 +70,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
      ![Set the value of the Spark job definition for Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-7. Click **Publish** to save the Apache Spark job definition.
+7. Select **Publish** to save the Apache Spark job definition.
 
      ![publish py definition](./media/apache-spark-job-definitions/publish-py-definition.png)
 
@@ -84,11 +84,11 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
  
      ![sample files scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.jar** and **shakespeare.txt** into your ADLS Gen2 filesystem.
+ 3. Select **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.jar** and **shakespeare.txt** into your ADLS Gen2 filesystem.
  
      ![prepare scala structure](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Click **Develop** hub, click on '+' icon and select **Spark job definition** to create a new Spark job definition. (The sample image is the same as step 4 of **Create an Apache Spark job definition (Python) for PySpark**.)
+ 4. Select **Develop** hub, select the '+' icon and select **Spark job definition** to create a new Spark job definition. (The sample image is the same as step 4 of **Create an Apache Spark job definition (Python) for PySpark**.)
 
  5. Select **Spark(Scala)** from the Language drop down list in the Apache Spark job definition main window.
 
@@ -111,7 +111,7 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
 
      ![Set the value of the Spark job definition for scala](./media/apache-spark-job-definitions/create-scala-definition.png)
 
- 7. Click **Publish** to save the Apache Spark job definition.
+ 7. Select **Publish** to save the Apache Spark job definition.
 
       ![publish scala definition](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
@@ -124,11 +124,11 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
 
      ![sample dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.zip** and **shakespeare.txt** into your ADLS Gen2 filesystem.
+ 3. Select **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.zip** and **shakespeare.txt** into your ADLS Gen2 filesystem.
  
      ![prepare dotnet structure](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Click **Develop** hub, click on '+' icon and select **Spark job definition** to create a new Spark job definition. (The sample image is the same as step 4 of **Create an Apache Spark job definition (Python) for PySpark**.)
+ 4. Select **Develop** hub, select the '+' icon and select **Spark job definition** to create a new Spark job definition. (The sample image is the same as step 4 of **Create an Apache Spark job definition (Python) for PySpark**.)
 
  5. Select **.NET Spark(C#/F#)** from the Language drop down list in the Apache Spark Job Definition main window.
 
@@ -151,7 +151,7 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
 
      ![Set the value of the Spark job definition for dotnet](./media/apache-spark-job-definitions/create-dotnet-definition.png)
 
- 7. Click **Publish** to save the Apache Spark job definition.
+ 7. Select **Publish** to save the Apache Spark job definition.
 
       ![publish dotnet definition](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
@@ -160,29 +160,29 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
 After creating an Apache Spark job definition, you can submit it to an Apache Spark pool. Make sure you are the **Storage Blob Data Owner** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
 
 ### Scenario 1: Submit Apache Spark job definition
- 1. Open an Apache spark job definition window by clicking it.
+ 1. Open an Apache spark job definition window by selecting it.
 
       ![Open spark job definition to submit ](./media/apache-spark-job-definitions/open-spark-definition.png)
 
- 2. Click **Submit** button to submit your project to the selected Apache Spark Pool. You can click **Spark monitoring URL** tab to see the LogQuery of the Apache Spark application.
+ 2. Select **Submit** button to submit your project to the selected Apache Spark Pool. You can select **Spark monitoring URL** tab to see the LogQuery of the Apache Spark application.
 
-    ![Click submit button to submit spark job definition](./media/apache-spark-job-definitions/submit-spark-definition.png)
+    ![Select submit button to submit spark job definition](./media/apache-spark-job-definitions/submit-spark-definition.png)
 
     ![The Spark Submission dialog box](./media/apache-spark-job-definitions/submit-definition-result.png)
 
 ### Scenario 2: View Apache Spark job running progress
 
- 1. Click **Monitor**, then select the **Apache Spark applications** option. You can find the submitted Apache Spark application.
+ 1. Select **Monitor**, then select the **Apache Spark applications** option. You can find the submitted Apache Spark application.
 
      ![View Spark application](./media/apache-spark-job-definitions/view-spark-application.png)
 
- 2. Then click an Apache Spark application, the **SparkJobDefinition** job window displays. You can view the job execution progress from here.
+ 2. Then select an Apache Spark application, the **SparkJobDefinition** job window displays. You can view the job execution progress from here.
      
      ![View spark application LogQuery](./media/apache-spark-job-definitions/view-job-log-query.png)
 
 ### Scenario 3: Check output file
 
- 1. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (hozhaobdbj), open the **result** folder created earlier, you can go to the result folder and check if the output is generated.
+ 1. Select **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (hozhaobdbj), open the **result** folder created earlier, you can go to the result folder and check if the output is generated.
 
      ![View output file](./media/apache-spark-job-definitions/view-output-file.png)
 
@@ -192,7 +192,7 @@ In this section, you add an Apache Spark job definition into pipeline.
 
  1. Open an existing Apache Spark job definition.
 
- 2. Click the icon on the top right of Apache Spark job definition, choose **Existing Pipeline**, or **New pipeline**. You can refer to Pipeline page for more information.
+ 2. Select the icon on the top right of Apache Spark job definition, choose **Existing Pipeline**, or **New pipeline**. You can refer to Pipeline page for more information.
 
      ![add to pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
@@ -200,5 +200,5 @@ In this section, you add an Apache Spark job definition into pipeline.
 
 ## Next steps
 
-This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to an Apache Spark pool. Next you can use the Azure Synapse Studio to create Power BI datasets and manage Power BI data.
+Next you can use Azure Synapse Studio to create Power BI datasets and manage Power BI data. Advance to the [Linking a Power BI workspace to a Synapse workspace](../quickstart-power-bi.md) article to learn more. 
 

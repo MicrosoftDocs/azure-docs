@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 09/22/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -21,11 +21,14 @@ ms.subservice: B2C
 To use a LinkedIn account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Sign in to the [LinkedIn Developers website](https://www.developer.linkedin.com/) with your LinkedIn account credentials.
-1. Select **My Apps**, and then click **Create Application**.
-1. Enter **Company Name**, **Application Name**, **Application Description**, **Application Logo**, **Application Use**, **Website URL**, **Business Email**, and **Business Phone**.
-1. Agree to the **LinkedIn API Terms of Use** and click **Submit**.
-1. Copy the values of **Client ID** and **Client Secret**. You can find them under **Authentication Keys**. You will need both of them to configure LinkedIn as an identity provider in your tenant. **Client Secret** is an important security credential.
-1. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorized Redirect URLs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C. Select **Add**, and then click **Update**.
+1. Select **My Apps**, and then click **Create app**.
+1. Enter **App name**, **LinkedIn Page**, **Privacy policy URL**, and **App logo**.
+1. Agree to the LinkedIn **API Terms of Use** and click **Create app**.
+1. Select the **Auth** tab. Under **Authentication Keys**, copy the values for **Client ID** and **Client Secret**. You'll need both of them to configure LinkedIn as an identity provider in your tenant. **Client Secret** is an important security credential.
+1. Select the edit pencil next to **Authorized redirect URLs for your app**, and then select **Add redirect URL**. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`, replacing `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C. Select **Update**.
+2. By default, your LinkedIn app isn't approved for scopes related to sign in. To request a review, select the **Products** tab, and then select **Sign In with LinkedIn**. When the review is complete, the required scopes will be added to your application.
+   > [!NOTE]
+   > You can view the scopes that are currently allowed for your app on the **Auth** tab in the **OAuth 2.0 scopes** section.
 
 ## Configure a LinkedIn account as an identity provider
 

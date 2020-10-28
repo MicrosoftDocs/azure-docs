@@ -9,20 +9,23 @@ ms.date: 05/01/2020
 
 ---
 
-# Perform cross-resource log queries in Azure Monitor  
+# Perform log query in Azure Monitor that span across workspaces and apps
+
+Azure Monitor Logs support query across multiple Log Analytics workspaces and Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.
+
+There are two methods to query data that is stored in multiple workspace and apps:
+1. Explicitly by specifying the workspace and app details. This technique is detailed in this article.
+2. Implicitly using [resource-context queries](../platform/design-logs-deployment.md#access-mode). When you query in the context of a specific resource, resource group or a subscription, the relevant data will be fetched from all workspaces that contains data for these resources. Application Insights data that is stored in apps, will not be fetched.
 
 > [!IMPORTANT]
 > If you are using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) telemetry is stored in a Log Analytics workspace with all other log data. Use the log() expression to write a query that includes application in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
 
-Previously with Azure Monitor, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio. This also made it a challenge to natively analyze operational and application data together.
-
-Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data. You can only perform these types of queries in [Log Analytics](./log-query-overview.md).
 
 ## Cross-resource query limits 
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
 * Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../learn/tutorial-logs-dashboards.md). 
-* Cross-resource query in log alerts is supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). By default, Azure Monitor uses the [legacy Log Analytics Alert API](../platform/api-alerts.md) for creating new log alert rules from Azure portal, unless you switch from [legacy Log Alerts API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). After the switch, the new API becomes the default for new alert rules in Azure portal and it lets you create cross-resource query log alerts rules. You can create cross-resource query log alert rules without making the switch by using the [Azure Resource Manager template for scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – but this alert rule is manageable though [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) and not from Azure portal.
+* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../platform/alerts-log-api-switch.md).
 
 
 ## Querying across Log Analytics workspaces and from Application Insights
@@ -128,7 +131,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->This method can’t be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
+> This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)
@@ -136,5 +139,4 @@ applicationsScoping
 ## Next steps
 
 - Review [Analyze log data in Azure Monitor](log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
-- Review [Azure Monitor log queries](query-language.md) to view all of the resources for Azure Monitor log queries.
 

@@ -25,6 +25,14 @@ Azure Arc enabled data services is released for public preview. Arc enabled data
 
 For instructions see [What are Azure Arc enabled data services?](overview.md)
 
+### Known issues
+
+The following issues apply to this release:
+
+* **Deleting PostgreSQL Hyperscale server group**: If you have changed the configuration of your server group or instance, wait for the edit operation to complete before you delete a PostgreSQL Hyperscale server group.
+
+* **`azdata notebook run` may fail**: To work round this problem, run `azdata notebook run` in a Python virtual environment. This problem also manifests in a failed attempt to create a SQL managed instance or PostgreSQL Hyperscale server group using the Azure Data Studio deployment wizard. In this case, you can open the notebook and click the **Run all** button at the top of the notebook.
+
 ## Next steps
 
 > **Just want to try things out?**  
@@ -50,3 +58,8 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 - Scaling the number of Postgres Hyperscale worker nodes _down_ is not supported.
 - If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster.
 - Preview does not support backup/restore for Postgres version 11 engine. It only supports backup/restore for Postgres version 12.
+- Azure Kubernetes Service (AKS), clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services. To avoid this issue, when you create the AKS cluster in Azure portal, if you select a region where zones are available, clear all the zones from the selection control. See the following image:
+
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
+
+  

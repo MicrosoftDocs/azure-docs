@@ -304,7 +304,7 @@ Microsoft has provided a tool that you can use to test your SAML 2.0 based ident
 3.	Select “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory”.
 4.	Once the tool is downloaded and running, you will see the Connectivity Diagnostics window. The tool will step you through testing your federation connection.
 5.	The Connectivity Analyzer will open your SAML 2.0 IDP for you to sign-in, enter the credentials for the user principal you are testing:
-![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+![Screenshot that shows the sign-in window for your SAML 2.0 IDP.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  At the Federation test sign-in window, you should enter an account name and password for the Azure AD tenant that is configured to be federated with your SAML 2.0 identity provider. The tool will attempt to sign-in using those credentials and detailed results of tests performed during the sign-in attempt will be provided as output.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. This window shows a failed result of testing. Clicking on Review detailed results will show information about the results for each test that was performed. You can also save the results to disk in order to share them.

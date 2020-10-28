@@ -1,6 +1,6 @@
 ---
 title: Workday attribute reference
-description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
+description: Learn which which attributes that you can fetch from Workday using XPATH queries. 
 services: active-directory
 author: kenwith
 manager: celestedg

@@ -76,10 +76,10 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 11. Under **Application type**, choose **Web application** and give the application a suitable name, for example "Azure AD B2B", and then under **Authorized redirect URIs**, enter the following URIs:
     - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
+    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(where `<tenant id>` is your tenant ID)
    
     > [!NOTE]
-    > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
+    > To find your tenant ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Tenant ID**.
 
     ![Screenshot showing the Authorized redirect URIs section](media/google-federation/google-create-oauth-client-id.png)
 
@@ -108,7 +108,7 @@ Now you'll set the Google client ID and client secret, either by entering it in 
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Use the client id and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see the [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) article. 
+   > Use the client id and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see the [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) article. 
  
 ## How do I remove Google federation?
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation will not be able to sign in, but you can give them access to your resources again by deleting them from the directory and re-inviting them. 
@@ -132,4 +132,4 @@ You can delete your Google federation setup. If you do so, Google guest users wh
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > For more information, see [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > For more information, see [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview).

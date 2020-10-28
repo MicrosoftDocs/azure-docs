@@ -7,7 +7,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
 ---
 
@@ -31,7 +31,7 @@ For a full list of sections and properties available for defining datasets, see 
 | nullValue | Specifies the string representation of null value.<br/>The default value is **empty string**. | No |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
 | type<br>(*under `compression`*) | The compression codec used to read/write XML files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate**/**TarGzip** file(s) and write to file-based sink data store, by default files are extracted to the folder:`<path specified in dataset>/<folder named as source compressed file>/`, use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` on [copy activity source](#xml-as-source) to control whether to preserve the name of the compressed file(s) as folder structure. | No.  |
-| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
+| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
 
 Below is an example of XML dataset on Azure Blob Storage:
 
@@ -80,7 +80,9 @@ Supported **XML read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **XmlReadSettings**. | Yes      |
 | validationMode | Specifies whether to validate the XML schema.<br>Allowed values are **none** (default, no validation), **xsd** (validate using XSD), **dtd** (validate using DTD). | No |
+| namespaces | Whether to enable namespace when parsing the XML files. Allowed values are: **true** (default), **false**. | No |
 | namespacePrefixes | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No |
+| detectDataType | Whether to detect integer, double, and Boolean data types. Allowed values are: **true** (default), **false**.| No |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
 | preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
 | preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings`*) | Applies when input dataset is configured with **TarGzip** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
@@ -104,6 +106,7 @@ The below table lists the properties supported by an XML source. You can edit th
 | Validation mode | Specifies whether to validate the XML schema. | No | `None` (default, no validation)<br>`xsd` (validate using XSD)<br>`dtd` (validate using DTD). | validationMode |
 | Namespaces | Whether to enable namespace when parsing the XML files. | No | `true` (default) or `false` | namespaces |
 | Namespace prefix pairs | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### XML source script example
 

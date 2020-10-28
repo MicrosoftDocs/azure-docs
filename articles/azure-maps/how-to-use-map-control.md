@@ -4,11 +4,11 @@ description: Find out how to add maps to web and mobile applications by using th
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Use the Azure Maps map control
@@ -21,7 +21,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 
 * [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-* Obtain your Azure Active Directory (AAD) credentials with [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+* Obtain your Azure Active Directory (AAD) credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
 ## Create a new map in a web page
 
@@ -78,7 +78,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </body>
    ```
 
-5. Now, we'll initialize the map control. In order to authenticate the control, you'll either need to own an Azure Maps subscription key or use Azure Active Directory (AAD) credentials with [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. Now, we'll initialize the map control. In order to authenticate the control, you'll either need to own an Azure Maps subscription key or use Azure Active Directory (AAD) credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps primary subscription key.
 
@@ -274,7 +274,7 @@ To add more data to your map:
 > [Create a map](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)
 
 For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 

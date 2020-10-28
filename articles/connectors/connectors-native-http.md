@@ -242,7 +242,7 @@ Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that
 
 If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
 
-* `Accept-*`
+* `Accept-*` headers except for `Accept-version`
 * `Allow`
 * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
 * `Cookie`

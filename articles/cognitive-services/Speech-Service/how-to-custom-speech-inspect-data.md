@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
 ---
 
@@ -75,11 +75,13 @@ After data has been successfully imported, you can click into the datasets and s
 
 ### Edit transcription by listening to audio
 
-After the data upload has succeeded, click on each item name to see details of the data. The detail page lists all the files in your dataset, and you can click into the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
+After the data upload has succeeded, click on each item name to see details of the data. You can also use **Previous** and **Next** to move between each file.
+
+The detail page lists all the segments in each audio file, and you can click into the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
 
 ![Editor page](media/custom-speech/custom-speech-editor.png)
 
-If the audio file is long, it is automatically segmented into smaller pieces. You can edit them one-by-one using **Previous** and **Next** to move between pages. After you've made edits, click the **Save** button.
+After you've made edits, click the **Save** button.
 
 ### Export datasets from the Editor
 

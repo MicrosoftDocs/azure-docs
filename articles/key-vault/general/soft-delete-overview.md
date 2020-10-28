@@ -6,8 +6,7 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 03/19/2019
+ms.date: 09/30/2020
 ---
 
 # Azure Key Vault soft-delete overview
@@ -23,7 +22,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ## Supporting interfaces
 
-The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces, as well as [ARM templates](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](soft-delete-cli.md), [Azure PowerShell](soft-delete-powershell.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -43,13 +42,13 @@ The default retention period is 90 days but, during key vault creation, it is po
 
 You cannot reuse the name of a key vault that has been soft-deleted until the retention period has passed.
 
-### Purge protection 
+### Purge protection
 
 Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](soft-delete-cli.md#enabling-purge-protection) or [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
-When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed. 
+When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.
 
-The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Once the retention policy interval is set and saved it cannot be changed for that vault. 
+The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Once the retention policy interval is set and saved it cannot be changed for that vault.
 
 ### Permitted purge
 
@@ -58,6 +57,8 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 Exceptions are:
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
 - When the `--enable-purge-protection flag` is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
+
+For steps, see [How to use Key Vault soft-delete with CLI: Purging a key vault](soft-delete-cli.md#purging-a-key-vault) or [How to use Key Vault soft-delete with PowerShell: Purging a key vault](soft-delete-powershell.md#purging-a-key-vault).
 
 ### Key vault recovery
 
@@ -74,10 +75,10 @@ At the same time, Key Vault will schedule the deletion of the underlying data co
 Soft-deleted resources are retained for a set period of time, 90 days. During the soft-delete retention interval, the following apply:
 
 - You may list all of the key vaults and key vault objects in the soft-delete state for your subscription as well as access deletion and recovery information about them.
-    - Only users with special permissions can list deleted vaults. We recommend that our users create a custom role with these special permissions for handling deleted vaults.
-- A key vault with the same name cannot be created in the same location; correspondingly, a key vault object cannot be created in a given vault if that key vault contains an object with the same name and which is in a deleted state 
+  - Only users with special permissions can list deleted vaults. We recommend that our users create a custom role with these special permissions for handling deleted vaults.
+- A key vault with the same name cannot be created in the same location; correspondingly, a key vault object cannot be created in a given vault if that key vault contains an object with the same name and which is in a deleted state.
 - Only a specifically privileged user may restore a key vault or key vault object by issuing a recover command on the corresponding proxy resource.
-    - The user, member of the custom role, who has the privilege to create a key vault under the resource group can restore the vault.
+  - The user, member of the custom role, who has the privilege to create a key vault under the resource group can restore the vault.
 - Only a specifically privileged user may forcibly delete a key vault or key vault object by issuing a delete command on the corresponding proxy resource.
 
 Unless a key vault or key vault object is recovered, at the end of the retention interval the service performs a purge of the soft-deleted key vault or key vault object and its content. Resource deletion may not be rescheduled.
@@ -95,4 +96,3 @@ The following two guides offer the primary usage scenarios for using soft-delete
 
 - [How to use Key Vault soft-delete with PowerShell](soft-delete-powershell.md) 
 - [How to use Key Vault soft-delete with CLI](soft-delete-cli.md)
-

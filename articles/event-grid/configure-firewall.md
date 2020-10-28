@@ -18,7 +18,7 @@ This section shows you how to use the Azure portal to create inbound IP firewall
 
     You can restrict the traffic using IP-based firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
 
-    ![Public networks page](./media/configure-firewall/public-networks-page.png)
+    ![Screenshot that shows the "Public network access" page with "Public networks" selected.](./media/configure-firewall/public-networks-page.png)
 3. Select **Private endpoints only** to allow only private endpoint connections to access this resource. Use the **Private endpoint connections** tab on this page to manage connections. 
 
     ![Public networks page](./media/configure-firewall/private-endpoints-page.png)

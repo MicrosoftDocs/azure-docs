@@ -30,8 +30,8 @@ comes with several roles pre-defined:
 * `postgres`
 * `citus`
 
-Since Hyperscale is a managed PaaS service, only Microsoft can sign in with the
-`postgres` super user role. For limited administrative access, Hyperscale
+Since Hyperscale (Citus) is a managed PaaS service, only Microsoft can sign in with the
+`postgres` super user role. For limited administrative access, Hyperscale (Citus)
 provides the `citus` role.
 
 Permissions for the `citus` role:
@@ -55,7 +55,7 @@ Notably, the `citus` role has some restrictions:
 As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
 
-1. Go to the **Roles** page for your Hyperscale server group, and click **+ Add**:
+1. Go to the **Roles** page for your Hyperscale (Citus) server group, and click **+ Add**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="The roles page":::
 
@@ -93,7 +93,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## How to delete a user role or change their password
 
-To update a user, visit the **Roles** page for your Hyperscale server group,
+To update a user, visit the **Roles** page for your Hyperscale (Citus) server group,
 and click the ellipses **...** next to the user. The ellipses will open a menu
 to delete the user or reset their password.
 

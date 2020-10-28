@@ -68,10 +68,10 @@ ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RemoteManager> manager, ApiHand
 
 ## API documentation
 
-* [C# Mesh class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
-* [C# MeshComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
-* [C++ Mesh class](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
-* [C++ MeshComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
+* [C# Mesh class](/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [C# MeshComponent class](/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [C++ Mesh class](/cpp/api/remote-rendering/mesh)
+* [C++ MeshComponent class](/cpp/api/remote-rendering/meshcomponent)
 
 
 ## Next steps

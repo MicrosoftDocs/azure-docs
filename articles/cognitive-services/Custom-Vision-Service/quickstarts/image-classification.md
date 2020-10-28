@@ -7,8 +7,8 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/14/2020
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.date: 10/25/2020
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: custom vision, image recognition, image recognition app, image analysis, image recognition software
 zone_pivot_groups: programming-languages-set-one
 ---

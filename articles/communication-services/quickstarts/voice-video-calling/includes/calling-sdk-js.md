@@ -66,20 +66,20 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### Place a 1:n call with users and PSTN
-> [!WARNING]
-> PSTN calling is currently in private preview. For access, [apply to early adopter program](https://aka.ms/ACS-EarlyAdopter).
+
 To place a 1:n call to a user and a PSTN number you have to specify a CommunicationUser
 and a Phone Number for both callees.
+
 Your Communication Services resource must be configured to allow PSTN calling.
 ```js
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### Place a 1:1 call with with video camera
+### Place a 1:1 call with video camera
 > [!WARNING]
 > There can currently be no more than one outgoing local video stream.
 To place a video call, you have to enumerate local cameras using the deviceManager `getCameraList` API.
@@ -91,7 +91,7 @@ const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -101,7 +101,7 @@ and pass an object with a `groupId` property. The value has to be a GUID.
 ```js
 
 const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const call = callAgent.join(context);
 
 ```
 
@@ -110,19 +110,19 @@ const call = callClient.join(context);
 You can access call properties and perform various operations during a call to manage settings related to video and audio.
 
 ### Call properties
-* Get the unique Id for this Call.
+* Get the unique ID (string) for this Call.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* To learn about other participants in the call, inspect the `remoteParticipant` collection on the `call` instance.
+* To learn about other participants in the call, inspect the `remoteParticipant` collection on the `call` instance. Array contains list `RemoteParticipant` objects
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* The identity of caller if the call is incoming.
+* The identity of caller if the call is incoming. Identity is one of the `Identifier` types
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -132,7 +132,7 @@ const callerIdentity = call.callerIdentity;
 * Get the state of the Call.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 This returns a string representing the current state of a call:
@@ -150,35 +150,34 @@ This returns a string representing the current state of a call:
 * To see why a given call ended, inspect the `callEndReason` property.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* To learn if the current call is an incoming call, inspect the `isIncoming` property, it returns `Boolean`.
+```js
+const isIncoming = call.isIncoming;
+```
+
+*  To check if the current microphone is muted, inspect the `muted` property, it returns `Boolean`.
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* To learn if the current call is an incoming call, inspect the `isIncoming` property
+* To see if the screen sharing stream is being sent from a given endpoint, check the `isScreenSharingOn` property, it returns `Boolean`.
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  To check if the current microphone is muted, inspect the `muted` property:
+* To inspect active video streams, check the `localVideoStreams` collection, it contains `LocalVideoStream` objects
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* To see if the screen sharing stream is being sent from a given endpoint, check the `isScreenSharingOn` property:
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* To inspect active video streams, check the `localVideoStreams` collection:
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -191,7 +190,7 @@ To mute or unmute the local endpoint you can use the `mute` and `unmute` asynchr
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -203,7 +202,7 @@ To start a video, you have to enumerate cameras using the `getCameraList` method
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -251,49 +250,49 @@ Remote participant has a set of properties and collections associated with it
 * Get the identifier for this remote participant.
 Identity is one of the 'Identifier' types:
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * Get state of this remote participant.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 State can be one of
 * 'Idle' - initial state
 * 'Connecting' - transition state while participant is connecting to the call
 * 'Connected' - participant is connected to the call
 * 'Hold' - participant is on hold
-* 'EarlyMedia' - annoucement is played before participant is connected to the call
+* 'EarlyMedia' - announcement is played before participant is connected to the call
 * 'Disconnected' - final state - participant is disconnected from the call
 
 To learn why participant left the call, inspect `callEndReason` property:
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* To check whether this remote participant is muted or not, inspect `isMuted` property, it returns `Boolean`
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* To check whether this remote participant is speaking or not, inspect `isSpeaking` property it returns `Boolean`
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* To check whether this remote participant is muted or not, inspect `isMuted` property:
+* To inspect all video streams that a given participant is sending in this call, check `videoStreams` collection, it contains `RemoteVideoStream` objects
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* To check whether this remote participant is speaking or not, inspect `isSpeaking` property:
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* To inspect all video streams that a given participant is sending in this call, check `videoStreams` collection:
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -309,13 +308,12 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### Remove participant from a call
 
 To remove a participant from a call (either a user or a phone number) you can invoke `removeParticipant`.
-You have to pass one of the 'identifier' types
+You have to pass one of the 'Identifier' types
 This will resolve asynchronously once the participant is removed from the call.
 The participant will also be removed from the `remoteParticipants` collection.
 
@@ -331,7 +329,6 @@ await call.removeParticipant(pstnIdentifier);
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```
@@ -365,12 +362,12 @@ if (remoteParticipantStream.isAvailable) {
 ### Remote video stream properties
 Remote video streams have the following properties:
 
-* `Id` - Id of a remote video stream
+* `Id` - ID of a remote video stream
 ```js
 const id: number = remoteVideoStream.id;
 ```
 
-* `StreamSize` - size ( width/height ) of a remote video stream
+* `StreamSize` - size (width/height) of a remote video stream
 ```js
 const size: {width: number; height: number} = remoteVideoStream.size;
 ```

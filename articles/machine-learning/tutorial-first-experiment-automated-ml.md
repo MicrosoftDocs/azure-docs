@@ -41,7 +41,7 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-Create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -239,7 +239,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
++ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

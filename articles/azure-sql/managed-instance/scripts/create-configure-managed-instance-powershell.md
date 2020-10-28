@@ -10,7 +10,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 03/25/2019
 ---
 # Use PowerShell to create a managed instance

@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu 
 ms.reviewer: 
 ms.custom: devx-track-python
@@ -29,7 +29,7 @@ This article describes how to use notebooks in Azure Synapse Studio.
 
 There are two ways to create a notebook. You can create a new notebook or import an existing notebook to an Azure Synapse workspace from the **Object Explorer**. Azure Synapse Studio notebooks can recognize standard Jupyter Notebook IPYNB files.
 
-![synapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![create import notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## Develop notebooks
 
@@ -75,7 +75,7 @@ You can use multiple languages in one notebook by specifying the correct languag
 
 The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to pySpark.
 
-   ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Synapse spark magic commands](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### Use temp tables to reference data across languages
 
@@ -85,8 +85,8 @@ You cannot reference data or variables directly across different languages in a 
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-   scalaDataFrame.registerTempTable( "mydataframetable" )
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
 2. In Cell 2, query the data using Spark SQL.
@@ -120,12 +120,12 @@ The IntelliSense features are at different levels of maturity for different lang
 
 You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text, inserting code snippets, inserting unordered list, inserting ordered list and inserting image from URL.
 
-  ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### Undo cell operations
-Click the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
+Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
 
-   ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### Move a cell
 
@@ -144,13 +144,13 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
    ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 ### Collapse a cell input
-Click the arrow button at the bottom of the current cell to collapse it. To expand it, click the arrow button while the cell is collapsed.
+Select the arrow button at the bottom of the current cell to collapse it. To expand it, select the arrow button while the cell is collapsed.
 
    ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 ### Collapse a cell output
 
-Click the **collapse output** button at the upper left of the current cell output to collapse it. To expand it, click the **Show cell output** while the cell output is collapsed.
+Select the **collapse output** button at the upper left of the current cell output to collapse it. To expand it, select the **Show cell output** while the cell output is collapsed.
 
    ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
@@ -175,7 +175,7 @@ There are several ways to run the code in a cell.
 
 
 ### Run all cells
-Click the **Run All** button to run all the cells in current notebook in sequence.
+Select the **Run All** button to run all the cells in current notebook in sequence.
 
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
@@ -187,7 +187,7 @@ To Access the additional cell actions menu at the far right, select the ellipses
 
 
 ### Cancel all running cells
-Click the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
+Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 ### Cell status indicator
@@ -199,7 +199,7 @@ A step-by-step cell execution status is displayed beneath the cell to help you s
 ### Spark progress indicator
 
 Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
-The number of tasks per each job or stage help you to identify the parallel level of your spark job. You can also drill deeper to the Spark UI of a specific job (or stage) via clicking the link on the job (or stage) name.
+The number of tasks per each job or stage help you to identify the parallel level of your spark job. You can also drill deeper to the Spark UI of a specific job (or stage) via selecting the link on the job (or stage) name.
 
 
 ![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -210,7 +210,7 @@ You can specify the timeout duration, the number, and the size of executors to g
 
 [![session-management](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
-A spark session recommender now available on spark session config panel. You can select a spark pool directly from the session configuration  panel and see how many nodes are using and how many remaining executors are available. These info can help you to set session size appropriately rather than modifying it back and forth.
+A Spark session recommender is now available on the Spark session config panel. You can select a Spark pool directly from the session configuration panel and see how many nodes are using and how many remaining executors are available. This information can help you to set the appropriate session size rather than modifying it back and forth.
 
 ![session-recommend](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
@@ -272,23 +272,24 @@ You can access data in the primary storage account directly. There's no need to 
 
 A tabular results view is provided with the option to create a bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the **Chart Options**. 
 
-The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
+The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames, Pandas DataFrames, List or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
 ### Visualize built-in charts from large-scale dataset 
 
-By default the <code>display(df)</code> function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and click **Apply** button, you will apply the chart generation from the whole dataset. A spark job will be triggered when the chart setting changes, it takes a while to complete the calculation and render the chart. 
+By default the <code>display(df)</code> function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and select **Apply** button, you will apply the chart generation from the whole dataset. A spark job will be triggered when the chart setting changes, it takes a while to complete the calculation and render the chart. 
     [![builtin-charts-aggregation-all](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
+
 ### Visualize data statistic information
-You can use <code>display(df, summary = true)</code> to check the statistics summary of a given spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its Minimal value, Maximal value, Mean value and Standard Deviation.
+You can use <code>display(df, summary = True)</code> to check the statistics summary of a given spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its Minimal value, Maximal value, Mean value and Standard Deviation.
     [ ![builtin-charts-summary](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png) ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
 ### Render HTML or interactive libraries
 
-You can render HTML or interactive libraries, like **bokeh**, using the **displayHTML()**.
+You can render HTML code , including Javascript, CSS, D3 or interactive libraries, like **bokeh**, using the **displayHTML()**.
 
 The following image is an example of plotting glyphs over a map using **bokeh**.
 
@@ -344,7 +345,7 @@ In the notebook properties, you can configure whether to include the cell output
    ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## Magic commands
-You can use your familiar Jupyter magic commands in Azure Synapse Studio notebooks. Check the list below as the current available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to build out more magic commands to meet your needs.
+You can use familiar Jupyter magic commands in Azure Synapse Studio notebooks. Review the following list as the current available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to build out more magic commands to meet your needs.
 
 Available line magics:
 [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -353,27 +354,27 @@ Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## Orchestrate notebook
+## Integrate a notebook
 
 ### Add a notebook to a pipeline
 
-Click the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
+Select the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
 
-![add-to-pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+![Add notebook to pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### Designate a parameters cell
 
-To parameterize your notebook select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
+To parameterize your notebook, select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
-Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. Execution engine will add a new cell beneath the parameters cell with input parameters in order to overwrite the default values. When there is no parameters cell is designated the injected cell will be inserted at the top of the notebook.
+Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters in order to overwrite the default values. When a parameters cell isn't designated, the injected cell will be inserted at the top of the notebook.
 
 ### Assign parameters values from a pipeline
 
 Once you've created a notebook with parameters, you can execute it from a pipeline with the Azure Synapse Notebook activity. After you add the activity to your pipeline canvas, you will be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
 
-![assign-parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+![Assign a parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
 When assigning parameter values, you can use the [pipeline expression language](../../data-factory/control-flow-expression-language-functions.md) or [system variables](../../data-factory/control-flow-system-variables.md).
 
@@ -383,11 +384,11 @@ When assigning parameter values, you can use the [pipeline expression language](
 
 Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Synapse Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
 
-1. A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to click outside of a cell's editor area.
+1. A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
+2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to select on a cell's editor area.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
