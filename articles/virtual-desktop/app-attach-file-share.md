@@ -57,23 +57,27 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 
 The setup process for MSIX app attach file share is largely the same as [the setup process for FSLogix profile file shares](create-host-pools-user-profile.md). However, you will need to assign your users a different permission type, as MSIX app attach requires read-only permissions to access the file share.
 
-If you're using Azure File as the session host, you'll need to assign the VM the correct identity in order to access the share.
+If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign its VMs the correct identity to access the share.
 
 To assign the identity that will let the users access the file share:
 
-1. Open Azure Files and go to **VM** > **Identity**.
+1. Open the **Virtual machines** tab in the Azure portal, select the session host VM you want to assign an identity to, then go to **VM** > **Identity**.
 
 2. Add a system-assigned identity to the VM.
 
 3. Select **Access Control (IAM)**.
 
-4. Go to **Role assignments** and add the **Storage File Data SMB Share Reader** role.
+4. Select **Azure role assignments**.
 
-5. Assign access to the virtual machine for the subscription that needs access to MSIX app attach.
+5. Go to **Scope** > **Storage**.
 
-<!--- Can I get more detailed instructions for this?--->
+6. Select the name of the storage account you want to assign.
 
-Once you've assigned the identity to the profiles, follow the instructions in the articles in [Next steps](#next-steps) to grant other required permissions to the identity you've assigned to the VMs.
+7. Go to **Role select**, then select the **Storage File Data SMB Share Reader** role. This will grant the storage account for the VM access to the MSIX application.
+
+8.  When you're done, select **Save**.
+
+Once you've assigned the identity to your storage, follow the instructions in the articles in [Next steps](#next-steps) to grant other required permissions to the identity you've assigned to the VMs.
 
 ## Next steps
 
