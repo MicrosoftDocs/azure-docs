@@ -71,7 +71,7 @@ The Connection Monitors tab will show you the round-trip latency on a global map
 ### Metric Definitions
 The Metric Definitions tab contains all the information shown in the [Multi-dimensional Metrics article](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
 
-## Next Steps
+## Next steps
 * Review the dashboard and provide feedback using the below link if there is anything that can be improved
 * [Review the metrics documentation to ensure you understand how each metric is calculated](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
