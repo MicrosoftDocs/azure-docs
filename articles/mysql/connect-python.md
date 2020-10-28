@@ -18,14 +18,14 @@ In this quickstart, you connect to an Azure Database for MySQL by using Python. 
 For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
+- Create an Azure Database for MySQL single server using [Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-|Action| Connectivity method|How-to guide|
-|:--------- |:--------- |:--------- |
-| **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
-| **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
-| **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
+   |Action| Connectivity method|How-to guide|
+   |:--------- |:--------- |:--------- |
+   | **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+   | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+   | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
 - [Create a database and non-admin user](./howto-create-users.md)
 
@@ -65,8 +65,6 @@ Get the connection information you need to connect to Azure Database for MySQL f
 1. From the server's **Overview** page, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this page.
    
    :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL server name 2":::
-
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## step 1: Create a table and insert data
 
@@ -151,9 +149,6 @@ The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/co
 
 ```
 
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
-
-
 ## Step 3: Update data
 
 Use the following code to connect and update the data by using an **UPDATE** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
@@ -163,9 +158,6 @@ Use the following code to connect and update the data by using an **UPDATE** SQL
   cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
   print("Updated",cursor.rowcount,"row(s) of data.")
 ```
-
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
-
 
 ## Step 4: Delete data
 
@@ -177,9 +169,6 @@ Use the following code to connect and remove data by using a **DELETE** SQL stat
   cursor.execute("DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"})
   print("Deleted",cursor.rowcount,"row(s) of data.")
 ```
-
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
-
 
 ## Next steps
 > [!div class="nextstepaction"]
