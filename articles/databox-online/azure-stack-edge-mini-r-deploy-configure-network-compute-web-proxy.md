@@ -100,16 +100,6 @@ Follow these steps to configure the network for your device.
 
     ![Local web UI "Port WiFi Network settings" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
 
-    As you configure the network settings, keep in mind:
-
-   - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
-   - If DHCP isn't enabled, you can assign static IPs if needed.
-   - You can configure your network interface as IPv4.
-   - Serial number for any port corresponds to the node serial number. For a K-series device, only one serial number is displayed.
-
-     >[!NOTE] 
-     > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
-
 
 5. After the wireless network profile is successfully loaded, connect to this profile. Select **Connect to Wi-Fi profile**. 
 
@@ -128,7 +118,17 @@ Follow these steps to configure the network for your device.
 
 6. Disconnect PORT 1 on the device from the laptop. 
 
-7. After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
+7. As you configure the network settings, keep in mind:
+
+   - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
+   - If DHCP isn't enabled, you can assign static IPs if needed.
+   - You can configure your network interface as IPv4.
+   - Serial number for any port corresponds to the node serial number. For a K-series device, only one serial number is displayed.
+
+     >[!NOTE] 
+     > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
+
+After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
 
 ## Enable compute network
 
