@@ -24,7 +24,7 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Feature availability in Azure clouds
 
->> [!div class="op_single_selector"]
+> [!div class="op_single_selector"]
 > - [United States](./includes/reference-feature-availability-us.md)
 > - [Azure Government](./includes/reference-feature-availability-usgov.md)
 > - [Africa](./includes/reference-feature-availability-africa.md)
