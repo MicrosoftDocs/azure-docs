@@ -99,7 +99,7 @@ You can also export your existing list of contacts of an offer, and then make ch
 ## Reference architecture diagram
 
 ### What is a reference architecture  diagram
-The reference architecture diagram is a model that represents the infrastructure your offer relies upon, and how your offer leverages our cloud services per the technical requirements of the IP Co-Sell program. It is not designed to assess the quality of the architecture but how it is leveraging the different services.
+The reference architecture diagram is a model that represents the infrastructure your offer relies upon, and how your offer leverages our cloud services per the technical requirements of the IP Co-sell program. It is not designed to assess the quality of the architecture but how it is leveraging the different services.
 
 The document can be created via multiple tools. We recommend Microsoft Visio, as it has multiple stencils that depict Azure architecture models.
 
@@ -114,7 +114,7 @@ A helpful starting point for building reference architecture diagrams is to leve
 
 ### Example reference architecture diagram
 
-:::image type="content" source="media/co-sell-arch-diagram.png" alt-text="This is an example Co-sell architecture diagram.":::
+:::image type="content" source="media/co-sell-arch-diagram.png" alt-text="This image is an example Co-sell architecture diagram.":::
 
 (The example reference architecture diagram above is for a vertical industry chatbot that can be integrated with intranet sites to help with forecast demand scenarios via a Machine Learning algorithm using supply chain and manufacturing schedule data from different ERP systems. The bot is designed to address questions about when a sales person can commit on possible delivery dates for an order.)
 
