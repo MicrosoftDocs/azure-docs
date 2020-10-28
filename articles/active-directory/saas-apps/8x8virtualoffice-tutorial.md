@@ -134,7 +134,7 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup 8x8 manually, sign in to 8x8 [Configuration Manager](https://admin.8x8.com/) as an administrator.
+1. If you want to setup 8x8 manually, sign in to 8x8 [Admin Console](https://admin.8x8.com/) as an administrator.
 
 1. From the home page click **Identity Management**.
 
