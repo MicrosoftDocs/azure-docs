@@ -60,9 +60,40 @@ Each activity is scored with “Investigation Priority Score” – which determ
 
 See how behavior analytics is used in [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) for an example of how this works.
 
+## Entities in Azure Sentinel
 
+### Entity identifiers
 
-## Entity pages
+When alerts are sent to Azure Sentinel, they include entities, such as user accounts, hosts, IP addresses and others. In some cases, identifying those as unique entities might be challenging, if the information coming from the alert does not have enough information about the entity. For example, user accounts can be identified in more than one way: AAD (Azure Active Directory) account’s numeric identifier or the account’s User Principal Name (UPN) value alternatively, this can be a combination of user name + NT domain name.
+ 
+Different log sources can identify the same user in different ways. Therefore, Azure Sentinel is merging those entities into one, when this is possible, and the entities are properly identified.
+ 
+Yet, it is possible that a resource provider you are using is creating an alert, in which, an entity is not sufficiently identified, for example - user name without the domain name context. In that case, the user entity cannot be merged with other instances of the same user account, and those two entities might remain separated (not merged into one).
+ 
+In order to fix that, the alert provider must properly identify the entities in alerts. Additionally, synchronizing user account entities from Azure Active Directory may create a unifying directory, which will be able to merge user account entities.
+ 
+The following types of entities are currently identified in Azure Sentinel: 
+- User account (Account)
+- Host
+- IP address (IP)
+- Malware
+- File
+- Process
+- Cloud application (CloudApplication)
+- Domain name (DNS)
+- Azure resource
+- File (FileHash)
+- Registry key
+- Registry value
+- Security group
+- URL
+- IoT device
+- Mailbox
+- Mail cluster
+- Mail message
+- Submission mail 
+
+### Entity pages
 
 When you encounter any entity (currently limited to users and hosts) in a search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
  
