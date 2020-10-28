@@ -23,11 +23,11 @@ Front Door's public IP addresses are protected by Azure DDoS Protection. You don
 
 ## Protocol blocking
 
-Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid HTTP requests with a known `Host` header. This behavior helps to mitigate attacks that are spread across a range of protocols and ports.
+Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid requests with a known `Host` header. This behavior helps to mitigate volumetric attacks that are spread across a range of protocols and ports, as well as DNS amplification attacks and TCP poisoning attacks.
 
 ## Capacity absorption
 
-Globally distributed at Azure's network edges, Azure Front Door can absorb and geographically isolate large volume attacks. This can prevent malicious traffic from going any further than the edge of the Azure network.
+Front Door is a massively scaled, globally distributed service. We have many customers, including Microsoft's own large-scale cloud products, that receive hundreds of thousands of requests each second. Front Door is located at the edge of Azure's network, which means we can absorb and geographically isolate large volume attacks. This can prevent malicious traffic from going any further than the edge of the Azure network.
 
 ## Web Application Firewall (WAF)
 
