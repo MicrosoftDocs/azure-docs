@@ -1,21 +1,22 @@
 ---
-title: IT Service Management Connector in Azure Log Analytics
-description: This article provides an overview of IT Service Management Connector (ITSMC) and information about how to use this solution to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.
+title: IT Service Management Connector in Log Analytics
+description: This article provides an overview of IT Service Management Connector (ITSMC) and information about using it to monitor and manage ITSM work items in Log Analytics and resolve problems quickly.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
+ms.custom: references_regions
 
 ---
 
-# Connect Azure to ITSM tools using IT Service Management Connector
+# Connect Azure to ITSM tools by using IT Service Management Connector
 
-![IT Service Management Connector symbol](media/itsmc-overview/itsmc-symbol.png)
+:::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
 
-The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.
+IT Service Management Connector (ITSMC) allows you to connect Azure to a supported IT Service Management (ITSM) product or service.
 
-Azure services like Log Analytics and Azure Monitor provide tools to detect, analyze and troubleshoot issues with your Azure and non-Azure resources. However, the work items related to an issue  typically reside in an ITSM product/service. The ITSM connector provides a bi-directional connection between Azure and ITSM tools to help you resolve issues faster.
+Azure services like Azure Log Analytics and Azure Monitor provide tools to detect, analyze, and troubleshoot problems with your Azure and non-Azure resources. But the work items related to an issue typically reside in an ITSM product or service. ITSM connector provides a bi-directional connection between Azure and ITSM tools to help you resolve issues faster.
 
 ITSMC supports connections with the following ITSM tools:
 
@@ -26,121 +27,123 @@ ITSMC supports connections with the following ITSM tools:
 
 With ITSMC, you can:
 
--  Create work items in ITSM tool, based on your Azure alerts (metric alerts, Activity Log alerts and Log Analytics alerts).
+-  Create work items in your ITSM tool, based on your Azure alerts (metric alerts, activity log alerts, and Log Analytics alerts).
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
-Read more about the [legal terms and privacy policy](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
+For information about legal terms and the privacy policy, see [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
-You can start using the ITSM Connector using the following steps:
+You can start using ITSMC by completing the following steps:
 
-1.	[Add the ITSM Connector Solution](#adding-the-it-service-management-connector-solution)
-2.	Create an ITSM connection
-3.	[Use the connection](#using-the-solution)
+1.	[Add ITSMC.](#add-the-it-service-management-connector-solution)
+2.	[Create an ITSM connection.](#create-an-itsm-connection)
+3.	[Use the connection.](#using-the-solution)
 
 
-##  Adding the IT Service Management Connector Solution
+##  Add IT Service Management Connector
 
-Before you can create a connection, you need to add the ITSM Connector Solution.
+Before you can create a connection, you need to add ITSMC.
 
-1. In Azure portal, click **+ New** icon.
+1. In the Azure portal, select **Create a resource**:
 
-   ![Azure new resource](media/itsmc-overview/azure-add-new-resource.png)
+   ![Screenshot that shows the Create a resource menu item.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Search for **IT Service Management Connector** in the Marketplace and click **Create**.
+2. Search for **IT Service Management Connector** in Azure Marketplace. Select **Create**:
 
-   ![Add ITSMC solution](media/itsmc-overview/add-itsmc-solution.png)
+   ![Screenshot that shows the Create button in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
 3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
    >[!NOTE]
-   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
-   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West US2, South Central US, West Central US, Fairfax, Central Canada, West Europe, South UK, Southeast Asia, East Japan, Central India, Southeast Australia.
+   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS workspaces are now referred to as *Log Analytics workspaces*.
+   > * ITSMC can be installed only in Log Analytics workspaces in the following regions: East US, West US 2, South Central US, West Central US, Fairfax, Canada Central, West Europe, UK South, Southeast Asia, Japan East, Central India, and Australia Southeast.
 
-4. In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
+4. In the **Log Analytics workspace** section, select the resource group where you want to create the solution resource:
 
-   ![ITSMC workspace](media/itsmc-overview/itsmc-solution-workspace.png)
+   ![Screenshot that shows the Log Analytics workspace section.](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
-   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
+   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS workspaces are now referred to as *Log Analytics workspaces*.
 
-5. Click **OK**.
+5. Select **OK**.
 
-When the solution resource is deployed, a notification appears at the top right- of the window.
+When the solution resource is deployed, a notification appears at the upper right corner of the window.
 
 
-## Creating an ITSM  connection
+## Create an ITSM  connection
 
-Once you have installed the solution, you can create a connection.
+After you've installed the solution, you can create a connection.
 
-For creating a connection, you will need to prep your ITSM tool to allow the connection from the ITSM Connector solution.  
+To create a connection, you'll need to prep your ITSM tool to allow the connection from ITSMC.  
 
-Depending on the ITSM product you are connecting to, use the following steps:
+Based on the ITSM product you're connecting to, select one of the following links for instructions:
 
-- [System Center Service Manager (SCSM)](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [System Center Service Manager](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
 - [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
 - [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
-Once you have prepped your ITSM tools, follow the steps below to create a connection:
+After you've prepped your ITSM tools, complete these steps to create a connection:
 
-1. Go to **All Resources**, look for **ServiceDesk(YourWorkspaceName)**.
-2. Under **WORKSPACE DATA SOURCES** in the left pane, click **ITSM Connections**.
-   ![ITSM connections](media/itsmc-overview/itsm-connections.png)
+1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
+   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-overview/itsm-connections.png)
+1. Under **Workspace Data Sources** in the left pane, select **ITSM Connections**:
+   ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
    This page displays the list of connections.
-3. Click **Add Connection**.
+3. Select **Add Connection**.
 
-   ![Add ITSM connection](media/itsmc-overview/add-new-itsm-connection.png)
-
-4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](./itsmc-connections.md).
+4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services](./itsmc-connections.md).
 
    > [!NOTE]
    >
-   > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
+   > By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's blade:
+   >
+   > ![Screenshot that shows the Sync button on the connection blade.](media/itsmc-overview/itsmc-connections-refresh.png)
 
-   ![Connection refresh](media/itsmc-overview/itsmc-connections-refresh.png)
 
-
-## Using the solution
-   By using the ITSM Connector solution, you can create work items from Azure alerts, Log Analytics alerts  and  Log Analytics log records.
+## Use ITSMC
+   By using ITSMC, you can create work items from Azure alerts, Log Analytics alerts, and Log Analytics log records.
 
 ## Template definitions
-   There are types of Work Items that can use templates that are defined by the ITSM tool.
-   Using templates enable the customer to define fields that will be auto populated according to fixed values that are defined as a part of the action group. The definition of the templates is done in the ITSM tool.
+   There are work item types that can use templates that are defined by the ITSM tool.
+   By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool.
       
 ## Create ITSM work items from Azure alerts
 
-Once you have your ITSM connection created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the **ITSM Action** in **Action Groups**.
+After you create your ITSM connection, you can create work items in your ITSM tool based on Azure alerts. To create the work items, you'll use the ITSM action in action groups.
 
-Action Groups provide a modular and reusable way of triggering actions for your Azure Alerts. You can use Action Groups with metric alerts, Activity Log alerts and Azure Log Analytics alerts in Azure portal.
+Action groups provide a modular and reusable way to trigger actions for your Azure alerts. You can use action groups with metric alerts, activity log alerts, and Azure Log Analytics alerts in the Azure portal.
 
 > [!NOTE]
-> Once ITSM connection created there is a need to wait for 30 min after connector created to the sync process will finish
+> After you create the ITSM connection, you need to wait for 30 minutes for the sync process to finish.
 > 
 
-Use the following procedure:
+Use the following procedure to create work items:
 
-1. In Azure portal, click  **Alerts**.
-2. In the top pane, click  **Manage Actions**. The **Add action group** window appears.
+1. In the Azure portal, select  **Alerts**.
+2. In the menu at the top of the screen, select **Manage actions**:
 
-    [![Action Groups](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
+    ![Screenshot that shows the Manage actions menu item.](media/itsmc-overview/action-groups-selection-big.png)
 
-3. Select the **Subscription** and **Resource Group** where you want to create your action group. Provide **Action Group Name** and **Display Name** for your action group. Click on **Next: Notifications**.
+   The **Create action group** window appears.
 
-    ![Action Groups detail](media/itsmc-overview/action-groups-details.png)
+3. Select the **Subscription** and **Resource group** where you want to create your action group. Provide an **Action group name** and **Display name** for your action group. Select **Next: Notifications**.
 
-4. In the notification list click on **Nest: Actions**.
-5. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click on the pen that represents **Edit details**.
-6. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
+    ![Screenshot that shows the Create action group window.](media/itsmc-overview/action-groups-details.png)
 
-    ![ITSM Action details](media/itsmc-overview/itsm-action-configuration.png)
+4. In the notification list, select **Next: Actions**.
+5. In the actions list, select **ITSM** in the **Action Type** list. Provide a **Name** for the action. Select the pen button that represents **Edit details**.
+6. In the **Subscription** list, select the subscription in which your Log Analytics workspace is located. In the **Connection** list, select your ITSM connector name. It will be followed by your workspace name. For example, MyITSMMConnector(MyWorkspace).
 
-7. Select **Work Item** type from the drop-down menu.
+7. Select a **Work Item** type.
 
-8. If you want to fill out of the box fields with fixed values you should select the checkbox of "Use Custom Template" otherwise choose to use an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) from the dropdown and fill the template fields with fixed values.
+8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) in the **Template** list and enter the fixed values in the template fields.
 
-9. By selecting the checkbox **Create individual work items for each Configuration Item** every configuration item will have its own work item. Meaning there will be one work item per configuration item and it will be updated according to the alerts that will be created.
-If you de-select the checkbox **Create individual work items for each Configuration Item** every alert will create a new work item, meaning there can be more than 1 alert per configuration item.
+9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. There will be one work item per configuration item. It will be updated according to the alerts that will be created.
 
-10. Click **OK**.
+   If you clear  the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one alert per configuration item.
+
+   ![Screenshot that shows the ITSM Ticket window.](media/itsmc-overview/itsm-action-configuration.png)
+
+10. Select **OK**.
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 
