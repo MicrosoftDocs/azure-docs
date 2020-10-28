@@ -19,9 +19,8 @@ ms.custom: include file
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|GA (Java 8)| GA (Java 11 & 8)|
 |[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|GA (PowerShell Core 6)| GA (PowerShell 7 & Core 6)|
 |[Python](../articles/azure-functions/functions-reference-python.md#python-version)|N/A|GA (Python 3.7 & 3.6)| GA (Python 3.8, 3.7, & 3.6)|
-|[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |N/A|GA<sup>2</sup>| GA<sup>2</sup> |
+|[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |N/A|GA<sup>*</sup>| GA<sup>*</sup> |
 
-<sup>1</sup> Language version support is currently in preview.  
-<sup>2</sup> Supported through transpiling to JavaScript.
+<sup>*</sup> Supported through transpiling to JavaScript.
 
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).
