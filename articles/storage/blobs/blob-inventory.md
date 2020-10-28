@@ -27,6 +27,8 @@ Enable blob inventory reports by adding a policy to your storage account. Add, e
 - [Azure portal](https://portal.azure.com/) 
 - [REST APIs](/rest/api/storagerp/managementpolicies)
 
+:::image type="content" source="./media/blob-inventory/portal-blob-inventory.png" alt-text="Screenshot showing Azure portal blob inventory page":::
+
 Inventory policies are read or written in full. Partial updates are not supported.
 
 > [!NOTE]
@@ -52,12 +54,12 @@ An inventory policy is a collection of rules in a JSON document.
     {
         "enabled": true,
         "name": "inventoryrule1",
-        "definition": {...}
+        "definition": {. . .}
     },
     {
         "enabled": true,
         "name": "inventoryrule2",
-        "definition": {...}
+        "definition": {. . .}
     }]
 }
 ```
