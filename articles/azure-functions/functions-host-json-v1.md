@@ -282,6 +282,7 @@ Configuration setting for the [SendGrind output binding](functions-bindings-send
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Property  |Default | Description |
