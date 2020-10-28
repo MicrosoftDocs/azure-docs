@@ -96,7 +96,8 @@ The following code detects a face in a remote image. It prints the detected face
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
-See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) for more detection scenarios.
+> [!TIP]
+> You can also detect faces in a local image. See the [FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) methods such as **detect_with_stream**.
 
 ### Display and frame faces
 
@@ -149,6 +150,9 @@ Then add the following code to the bottom of your script. This code creates a **
 The following code sorts your images by their prefix, detects faces, and assigns the faces to each **Person** object.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
+
+> [!TIP]
+> You can also create a **PersonGroup** from remote images referenced by URL. See the [PersonGroupPersonOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) methods such as **add_face_from_url**.
 
 ### Train PersonGroup
 
