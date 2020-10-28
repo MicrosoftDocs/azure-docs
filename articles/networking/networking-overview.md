@@ -130,6 +130,8 @@ Azure Content Delivery Network (CDN) offers developers a global solution for rap
 ### <a name="frontdoor"></a>Azure Front Door Service
 Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../frontdoor/front-door-overview.md).
 
+:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Front Door Service overview":::
+
 ### <a name="trafficmanager"></a>Traffic Manager
 
 Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Traffic Manager provides a range of traffic-routing methods to distribute traffic such as priority, weighted, performance, geographic, multi-value, or subnet. For more information about traffic routing methods, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
