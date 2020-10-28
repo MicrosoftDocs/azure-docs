@@ -16,7 +16,6 @@ Deploy Azure IoT Edge nodes across networks organized in hierarchical layers.
 
 >[!NOTE]
 >This feature requires IoT Edge version 1.2, which is in public preview.
-
 You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network configuration is typical of manufacturing environments, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
 
 The goal of this tutorial is to create a hierarchy of IoT Edge devices that simulates a realistic production environment. At the end, you will deploy a Simulated Temperature sensor to a lower layer device without internet access using proxy modules to securely direct an image pull request through the top layer of your hierarchy, which will have access to the cloud.
@@ -30,7 +29,6 @@ To accomplish this goal, this tutorial walks you through creating a hierarchy of
 > * Add workloads to the devices in your hierarchy.
 > * Install consistent certificates across your device hierarchy.
 > * Use API proxy modules to securely route traffic from your lower layer devices.
-
 In this tutorial, the following network layers are defined:
 
 * **Top layer**: IoT Edge devices at this layer can connect directory to the cloud.
@@ -134,7 +132,7 @@ To create demo certificates on a Linux device, you need clone the generation scr
    ```
 
 1. Navigate to the directory in which you want to work. All certificate and key files will be created in this directory.
-  
+
 1. Copy the config and script files from the cloned IoT Edge repo into your working directory.
 
    ```bash
@@ -219,7 +217,6 @@ Install IoT Edge on both devices. If you don't have devices available, Azure vir
 
    >[!TIP]
    >To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
-
 1. Find the **certificates** section. Update the three certificate fields to point to the certificates that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>`.
 
    * **device_ca_cert**: File URI path to the device CA certificate unique to this device.
