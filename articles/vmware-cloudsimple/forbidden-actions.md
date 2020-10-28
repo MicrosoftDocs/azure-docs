@@ -4,8 +4,6 @@ description: VMware Engine reverts the changes to ensure that service remains un
 ms.date: 10/28/2020 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
-ms.reviewer: cynthn 
-manager: dikamath 
 ---
 
 # Forbidden actions during elevated access
