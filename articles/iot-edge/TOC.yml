@@ -191,14 +191,22 @@
         href: how-to-access-built-in-metrics.md
   - name: Use IoT Edge devices as gateways
     items:
-    - name: Configure a transparent gateway
-      href: how-to-create-transparent-gateway.md
-    - name: Authenticate a downstream device
-      href: how-to-authenticate-downstream-device.md
-    - name: Connect a downstream device
-      href: how-to-connect-downstream-device.md
-    - name: Modbus protocol gateway
-      href: deploy-modbus-gateway.md
+    - name: Gateways for IoT devices
+      items:
+      - name: Configure a transparent gateway
+        href: how-to-create-transparent-gateway.md
+      - name: Authenticate a downstream device
+        href: how-to-authenticate-downstream-device.md
+      - name: Connect a downstream device
+        href: how-to-connect-downstream-device.md
+      - name: Modbus protocol gateway
+        href: deploy-modbus-gateway.md
+    - name: Gateways for IoT Edge devices
+      items:
+      - name: Configure gateways for IoT Edge devices
+        href: how-to-connect-downstream-iot-edge-device.md
+      - name: Configure the API proxy module
+        href: how-to-configure-api-proxy-module.md
   - name: Configure proxy support
     href: how-to-configure-proxy-support.md
   - name: Azure Blob Storage on IoT Edge
