@@ -110,13 +110,6 @@ For some resource types, you need to contact support to have the 800 instance li
 * integrationAccounts
 * workflows
 
-## Microsoft.MachineLearningExperimentation
-
-* accounts/workspaces
-* accounts/workspaces/projects
-* teamAccounts/workspaces
-* teamAccounts/workspaces/projects
-
 ## Microsoft.Media
 
 * mediaservices/liveEvents
