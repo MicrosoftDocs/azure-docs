@@ -26,36 +26,36 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 > [!div class="op_single_selector"]
 > - [Africa](#tab/africa/)
-> - [Asia Pacific]
-> - [Australia]
-> - [Austria]
-> - [Azure Government]
-> - [Brazil]
-> - [Canada]
-> - [China]
-> - [Europe]
-> - [France]
-> - [Germany]
-> - [Greece]
-> - [India]
-> - [Israel]
-> - [Italy]
-> - [Japan]
-> - [Korea]
-> - [Mexico]
-> - [New Zealand]
-> - [Norway]
-> - [Poland]
-> - [Qatar]
-> - [Spain]
-> - [Switzerland]
-> - [Taiwan]
-> - [United Arab Emirates]
-> - [United Kingdom]
-> - [United States]
+> - [Asia Pacific](#tab/apac/)
+> - [Australia](#tab/australia/)
+> - [Austria](#tab/austria/)
+> - [Azure Government](#tab/gov/)
+> - [Brazil](#tab/brazil/)
+> - [Canada](#tab/canada/)
+> - [China](#tab/china/)
+> - [Europe](#tab/europe/)
+> - [France](#tab/france/)
+> - [Germany](#tab/germany/)
+> - [Greece](#tab/greece/)
+> - [India](#tab/india/)
+> - [Israel](#tab/isreal/)
+> - [Italy](#tab/italy/)
+> - [Japan](#tab/japan/)
+> - [Korea](#tab/korea/)
+> - [Mexico](#tab/mexico/)
+> - [New Zealand](#tab/newz/)
+> - [Norway](#tab/norway/)
+> - [Poland](#tab/poland/)
+> - [Qatar](#tab/qatar/)
+> - [Spain](#tab/spain/)
+> - [Switzerland](#tab/switzerland/)
+> - [Taiwan](#tab/taiwan/)
+> - [United Arab Emirates](#tab/uae/)
+> - [United Kingdom](#tab/uk/)
+> - [United States](#tab/us/)
 
 
-## [Africa](#tab/africa/)
+## [Global](#tab/global/)
 
 | Feature| Availability |
 | --- | --- |
@@ -67,7 +67,28 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Available |
 | [LiveTranscription](live-transcription.md) | Available |
 
-## [Azure Government](#tab/governmanet/)
+## [Africa](#tab/africa/)
+
+| Feature| Availability |
+| --- | --- |
+| [Azure EventGrid](reacting-to-media-services-events.md) | x |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  x |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  x |
+| [StandardEncoderPreset](encoding-concept.md) | x |
+| [LiveEvents](live-streaming-overview.md) | x |
+| [StreamingEndpoints](streaming-endpoint-concept.md) | x |
+| [LiveTranscription](live-transcription.md) | x |
+
+## [Asia Pacific](#tab/apac/)
+APAC goes here
+
+## [Australia](#tab/australia/)
+australia goes here
+
+## [Austria](#tab/austria/)
+austria goes here
+
+## [Azure Government](#tab/government/)
 
 | Feature | DoD | USNat | USSec |
 | --- | --- | --- | --- | --- |
