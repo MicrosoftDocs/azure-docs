@@ -17,7 +17,7 @@ In this article, you'll learn how to view and configure Azure IoT Connector for 
 > [!TIP]
 > Follow the guidance in [Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export) to learn how to set up the export of Metrics data.
 
-## View Metrics for the Azure IoT Connector for FHIR (preview)
+## View Metrics for Azure IoT Connector for FHIR (preview)
 1. To view Metrics for IoT Connectors, select your Azure API for FHIR service in the Azure portal. 
 
 2. Navigate to **Metrics** 
@@ -37,20 +37,17 @@ In this article, you'll learn how to view and configure Azure IoT Connector for 
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT Connector3" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
-## Azure IoT Connector for FHIR (preview) Metrics types
+## Metrics types for Azure IoT Connector for FHIR (preview) 
 The displayed IoT Connector Metrics are as follows:
 
-**Number of Incoming Messages:** Developers - Please add verbiage.
-
-**Number of Normalized Messages:** Developers - Please add verbiage.
-
-**Number of Message Groups:** Developers - Please add verbiage.
-
-**Average Normalized Stage Latency:** Developers - Please add verbiage.
-
-**Average Group Stage Latency:** Developers - Please add verbiage. 
-
-**Total Error Count** Developers - Please add verbiage. 
+|Metrics Type|Metrics Purpose| 
+|-----------|--------------|
+|Number of Incoming Messages|Developers - Please add verbiage|
+|Number of Normalized Messages|Developers - Please add verbiage|
+|Number of Message Groups|Developers - Please add verbiage|
+|Average Normalized Stage Latency|Developers - Please add verbiage|
+|Average Group Stage Latency|Developers - Please add verbiage| 
+|Total Error Count|Developers - Please add verbiage| 
 
 ## Focusing and configuring Azure IoT Connector for FHIR (preview) Metrics
 In this example, we will be focusing on the **Number of Incoming Messages** Metrics.
