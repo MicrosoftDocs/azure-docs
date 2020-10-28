@@ -13,7 +13,7 @@ ms.date: 10/23/2020
 
 Today's applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
-Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) 99.999% availability and enterprise-grade security. App development is faster and more productive thanks to turnkey multi-master data distribution anywhere in the world, open source APIs and SDKs for popular languages. As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
+Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security. App development is faster and more productive thanks to turnkey multi-master data distribution anywhere in the world, open source APIs and SDKs for popular languages. As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
 You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](optimize-dev-test.md#azure-cosmos-db-free-tier) to get an account with the first 400 RU/s and 5 GB of storage free.
 
@@ -28,8 +28,7 @@ You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/
 
 Gain unparalleled [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) speed and throughput, fast global access, and instant elasticity.
 
-- Real-time access with <10 ms read and write latencies globally, backed by [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)
-- The only service with [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) for read and write latency high availability, throughput and consistency.
+- Real-time access with fast read and write latencies globally, and throughput and consistency all backed by [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db)
 - Multi-region writes and data distribution to any Azure region with the click of a button.
 - Independently and elastically scale storage and throughput across any Azure region – even during unpredictable traffic bursts – for unlimited scale worldwide.
 
@@ -48,7 +47,7 @@ Build fast with open source APIs, multiple SDKs, schemaless data and no-ETL anal
 
 Guarantee business continuity, 99.999% availability, and enterprise-level security for every application.
 
-- Azure Cosmos DB offers a comprehensive suite of [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) including industry-leading 99.999% availability worldwide.
+- Azure Cosmos DB offers a comprehensive suite of [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) including industry-leading availability worldwide.
 - Easily distribute data to any Azure region with automatic data replication. Enjoy zero downtime with multi-region writes or RPO 0 when using Strong consistency.
 - Enjoy enterprise-grade encryption-at-rest with self-managed keys.
 - Role-based access control keeps your data safe and offers fine-tuned control.
