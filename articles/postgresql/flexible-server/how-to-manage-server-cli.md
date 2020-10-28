@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](https://azure.microsoft.com/services/postgresql/)
+You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](https://docs.microsoft.com/cli/azure/postgres/flexible-server)
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
@@ -118,7 +118,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## Delete a server
 
-If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
+If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver
