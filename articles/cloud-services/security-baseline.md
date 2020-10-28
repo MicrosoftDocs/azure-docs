@@ -48,8 +48,6 @@ Cloud service (Classic) cannot be placed in Azure Resource Manager virtual netwo
 
 - [Virtual Network peering](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
-- [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](../active-directory-domain-services/migrate-from-classic-vnet.md)
-
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
@@ -208,8 +206,6 @@ Note that Azure Policy is not supported for Cloud service (Classic) for configur
 
 - [Cloud Services Config file](/azure/cloudservices/schema-cscfg-file)
 
-- [List of services supported by Azure Policy](https://docs.microsoft.com/cli/azure/azure-services-the-azure-cli-can-manage?view=azure-cli-latest)
-
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
@@ -219,7 +215,9 @@ Note that Azure Policy is not supported for Cloud service (Classic) for configur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32182.).
 
-**Guidance**: Within Cloud services (Classic), for individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
+**Guidance**: Azure network security groups can be used to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+
+Within Cloud services (Classic), for individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
 
 - [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
 
