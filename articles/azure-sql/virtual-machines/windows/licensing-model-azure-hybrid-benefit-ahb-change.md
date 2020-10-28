@@ -72,7 +72,7 @@ You can use the Azure CLI to change your license model.
 
 Specify the following values for **license-type**:
 - `AHUB` for the Azure Hybrid Benefit
-- `payg` for pay as you go
+- `PAYG` for pay as you go
 - `DR` to activate the free HA/DR replica
 
 
@@ -88,7 +88,7 @@ You can use PowerShell to change your license model.
 
 Specify the following values for **license-type**:
 - `AHUB` for the Azure Hybrid Benefit
-- `payg` for pay as you go
+- `PAYG` for pay as you go
 - `DR` to activate the free HA/DR replica
 
 
