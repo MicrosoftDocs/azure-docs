@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,9 +18,9 @@ This article provides instructions for establishing a trusted connection between
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. Only the top IoT Edge device in a hierarchy can connect to IoT Hub. All IoT Edge devices in lower layers of a hierarchy can only communicate with their gateway (or parent) device and any downstream (or child) devices.
 
-There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, only the device in the top layer has a connection to the cloud. This device is responsible for handling requests from all the devices below it, whether it's requests to pull container images from a registry or to push blobs to cloud storage. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to know to route any communications through their own parent devices.
+There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, only the device in the top layer has a connection to the cloud. This device is responsible for handling requests from all the devices below it, whether it's requests to pull container images from a registry or to push blobs to cloud storage. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
 
-All the steps in this article build on those in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which sets up an IoT Edge device to be a gateway for downstream IoT devices. The same principals apply to all gateway devices: they need certificates so that they can securely connect to downstream devices, and they need to be configured to route messages from downstream devices. Gateway devices that have downstream IoT Edge devices require additional processing, which is handled by special modules.
+All the steps in this article build on those in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which sets up an IoT Edge device to be a gateway for downstream IoT devices. The same principles apply to all gateway devices: they need certificates so that they can securely connect to downstream devices, and they need to be configured to route messages from downstream devices. Gateway devices that have downstream IoT Edge devices require additional processing, which is handled by special modules.
 
 * The **API proxy module** is required on any IoT Edge gateway that has another IoT Edge device below it. That means it must be on *every layer* of a gateway hierarchy except the bottom layer. This module uses an [nginx](https://nginx.org) reverse proxy to route data through network layers. It is highly configurable through its module twin and environment variables, so can be adjusted to fit your gateway scenario requirements.
 
@@ -106,7 +106,7 @@ An IoT Edge device is considered the top layer of a gateway hierarchy if it is t
 
 For each gateway device in the top layer, network operators need to:
 
-* Provide a static IP address.
+* Provide a static IP address or fully qualified domain name (FQDN).
 * Authorize outbound communications from this IP address to your Azure IoT Hub hostname over ports 443 (HTTPS) and 5671 (AMQP).
 * Authorize outbound communications from this IP address to your Azure Container Registry hostname and Microsoft Container Registry (mcr.microsoft.com) over port 443 (HTTPS).
 
@@ -116,9 +116,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
 The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
-Use the following steps to configure IoT Edge on your device, based on the device operating system:
-
-# [Linux](#tab/linux)
+Use the following steps to configure IoT Edge on your device.
 
 On Linux, make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
 
@@ -175,49 +173,6 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
    sudo iotedge check --verbose
    ```
 
-# [Windows](#tab/windows)
-
-1. Run notepad as an administrator.
-
-1. Open the IoT Edge security daemon config file.
-
-   `C:\ProgramData\iotedge\config.yaml`
-
-1. Find the **certificates** section in the config.yaml file. Update the three certificate fields to point to your certificates. Provide the file URI paths, which take the format `file:///C:/<path>/<filename>`.
-
-   * **device_ca_cert**: File URI path to the device CA certificate unique to this device.
-   * **device_ca_pk**: File URI path to the device CA private key unique to this device.
-   * **trusted_ca_certs**: File URI path to the root CA certificate shared by all devices in the gateway hierarchy.
-
-1. Find the **hostname** parameter in the config.yaml file. Update the hostname to be the fully qualified domain name (FQDN) of the IoT Edge device.
-
-   The value of this parameter is what downstream devices will use to connect to this gateway. The hostname takes the machine name by default, but the FQDN makes it easier to connect downstream devices.
-
-   Use a hostname shorter than 64 characters, which is the character limit for a server certificate common name.
-
-   Do not use IP addresses as hostnames. If you can't use FQDNs, keep the default machine name as the hostname and instead update the child devices to map the parent device's IP address to its hostname. Detailed instructions for this process are in the [IoT Edge configuration for lower layer devices](#iot-edge-configuration-for-lower-layer-devices), later in this article.
-
-1. Save and close the config.yaml file.
-
-1. If you've used any other certificates for IoT Edge before, delete the files in the following two directories to make sure that your new certificates get applied:
-
-   * `C:\ProgramData\iotedge\hsm\certs`
-   * `C:\ProgramData\iotedge\hsm\cert_keys`
-
-1. Open a PowerShell session as an administrator to restart the IoT Edge service to apply your changes.
-
-   ```powershell
-   Restart-Service iotedge
-   ```
-
-1. Check for any errors in the configuration.
-
-   ```powershell
-   iotedge check --verbose
-   ```
-
----
-
 ### Deploy modules to top layer devices
 
 The IoT Edge device at the top layer of a gateway hierarchy has a set of required modules that must be deployed to it, in addition to any workload modules you may run on the device.
@@ -248,7 +203,7 @@ The API proxy module was designed to be customized to handle most common gateway
       | ---- | ----- | ------- |
       | `PROXY_CONFIG_ENV_VAR_LIST` | `NGINX_DEFAULT_PORT,DOCKER_REQUEST_ROUTE_ADDRESS` | A list of all the environment variables that you want to update. |
       | `NGINX_DEFAULT_PORT` | `8000` | The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile. |
-      | `DOCKER_REQUEST_ROUTE_ADDRESS` | `registry:8000` | On the top layer IoT Edge device, route all Docker requests to the **registry** module running on the device. |
+      | `DOCKER_REQUEST_ROUTE_ADDRESS` | `registry:5000` | On the top layer IoT Edge device, route all Docker requests to the **registry** module running on the device. |
 
 1. Select **Add** to add the module to the deployment.
 1. Select **Add** again, then choose **IoT Edge module**.
@@ -269,9 +224,9 @@ The API proxy module was designed to be customized to handle most common gateway
        {
            "HostConfig": {
                "PortBindings": {
-                   "8000/tcp": [
+                   "5000/tcp": [
                        {
-                           "HostPort": "8000"
+                           "HostPort": "5000"
                        }
                    ]
                }
@@ -306,11 +261,9 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
 The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
-The steps in this section are nearly identical to the steps to configure top layer devices, with one important extra step. For IoT Edge devices in lower layers, you need to include the fully qualified domain name (FQDN) or hostname of the parent device.
+The steps in this section are nearly identical to the steps to configure top layer devices, with one important extra step. For IoT Edge devices in lower layers, you need to include the fully qualified domain name (FQDN) or IP address of the parent device.
 
-Use the following steps to configure IoT Edge on your device, based on the operating system:
-
-# [Linux](#tab/linux)
+Use the following steps to configure IoT Edge on your device.
 
 On Linux, make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
 
@@ -340,52 +293,13 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
    * **device_ca_pk**: File URI path to the device CA private key unique to this device.
    * **trusted_ca_certs**: File URI path to the root CA certificate shared by all devices in the gateway hierarchy.
 
-1. Find the **hostname** parameter in the config.yaml file. Update the hostname to be the fully qualified domain name (FQDN) of the IoT Edge device.
+1. Find the **hostname** parameter in the config.yaml file. Update the hostname to be the fully qualified domain name (FQDN) or IP address of the IoT Edge device.
 
    The value of this parameter is what downstream devices will use to connect to this gateway. The hostname takes the machine name by default, but the FQDN makes it easier to connect downstream devices.
 
    Use a hostname shorter than 64 characters, which is the character limit for a server certificate common name.
 
-   Do not use IP addresses as hostnames. If you can't use FQDNs, keep the default machine name as the hostname and instead update the child devices to map the parent device's IP address to its hostname. Detailed instructions for this process are in the next step.
-
-1. Find the **parent_hostname** parameter.
-
-   * **If the parent hostname is a fully qualified domain name**, simply provide the FQDN in the config.yaml file.
-
-      1. Update the **parent_hostname** field to be the FQDN of the parent device.
-
-   * **If the parent hostname is the default machine name, or other hostname**, use the container create options to map the parent's hostname to the parent's IP address in all modules deployed to the device
-
-      1. Update the **parent_hostname** field to be the hostname provided in the parent device's config.yaml file.
-
-      1. Find the **agent** section of the config.yaml file. Add an `ExtraHosts` mapping in the module create options so that the edgeAgent module can start and pull the first deployment.
-
-         ```yml
-         agent:
-           name: "edgeAgent"
-           type: "docker"
-           env: {}
-           config:
-             image: "mcr.microsoft.com/azureiotedge-agent:1.2"
-             auth: {}
-             createOptions:
-               HostConfig:
-                 ExtraHosts: ["<parent_hostname>:<parent_IP_address>"]
-         ```
-
-      1. In any future deployments to this device, include the `ExtraHosts` create options. For example, add this parameter to the existing edgeHub create options:
-
-         ```json
-         "edgeHub": {
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
-             "createOptions": "{\"HostConfig\": {\"ExtraHosts\": [\"<parent_hostname>:<parent_IP_address>\"],\"PortBindings\": {\"5671\/tcp\": [{\"HostPort\": \"5671\"}],\"8883\/tcp\": [{\"HostPort\": \"8883\"}],\"443\/tcp\": [{\"HostPort\": \"443\"}]}}}"
-           }
-         }
-         ```
+1. Find the **parent_hostname** parameter. Update the **parent_hostname** field to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent's config.yaml file.
 
 1. Save (`Ctrl+O`) and close (`Ctrl+X`) the config.yaml file.
 
@@ -406,88 +320,6 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
    sudo iotedge check --verbose
    ```
 
-# [Windows](#tab/windows)
-
-1. Run notepad as an administrator.
-
-1. Open the IoT Edge security daemon config file.
-
-   `C:\ProgramData\iotedge\config.yaml`
-
-1. Find the **certificates** section in the config.yaml file. Update the three certificate fields to point to your certificates. Provide the file URI paths, which take the format `file:///C:/<path>/<filename>`.
-
-   * **device_ca_cert**: File URI path to the device CA certificate unique to this device.
-   * **device_ca_pk**: File URI path to the device CA private key unique to this device.
-   * **trusted_ca_certs**: File URI path to the root CA certificate shared by all devices in the gateway hierarchy.
-
-1. Find the **hostname** parameter in the config.yaml file. Update the hostname to be the fully qualified domain name (FQDN) of the IoT Edge device.
-
-   The value of this parameter is what downstream devices will use to connect to this gateway. The hostname takes the machine name by default, but the FQDN makes it easier to connect downstream devices.
-
-   Use a hostname shorter than 64 characters, which is the character limit for a server certificate common name.
-
-   Do not use IP addresses as hostnames. If you can't use FQDNs, keep the default machine name as the hostname and instead update the child devices to map the parent device's IP address to its hostname. Detailed instructions for this process are in the next section.
-
-1. Find the **parent_hostname** parameter.
-
-   * **If the parent hostname is a fully qualified domain name**, simply provide the FQDN in the config.yaml file.
-
-      1. Update the **parent_hostname** field to be the FQDN of the parent device.
-
-   * **If the parent hostname is the default machine name, or other hostname**, use the container create options to map the parent's hostname to the parent's IP address in all modules deployed to the device
-
-      1. Update the **parent_hostname** field to be the hostname provided in the parent device's config.yaml file.
-
-      1. Find the **agent** section of the config.yaml file. Add an `ExtraHosts` mapping in the module create options so that the edgeAgent module can start and pull the first deployment.
-
-         ```yml
-         agent:
-           name: "edgeAgent"
-           type: "docker"
-           env: {}
-           config:
-             image: "mcr.microsoft.com/azureiotedge-agent:1.2"
-             auth: {}
-             createOptions:
-               HostConfig:
-                 ExtraHosts: ["<parent_hostname>:<parent_IP_address>"]
-         ```
-
-      1. In any future deployments to this device, include the `ExtraHosts` create options. For example, add this parameter to the existing edgeHub create options:
-
-         ```json
-         "edgeHub": {
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
-             "createOptions": "{\"HostConfig\": {\"ExtraHosts\": [\"<parent_hostname>:<parent_IP_address>\"],\"PortBindings\": {\"5671\/tcp\": [{\"HostPort\": \"5671\"}],\"8883\/tcp\": [{\"HostPort\": \"8883\"}],\"443\/tcp\": [{\"HostPort\": \"443\"}]}}}"
-           }
-         }
-         ```
-
-1. Save and close the config.yaml file.
-
-1. If you've used any other certificates for IoT Edge before, delete the files in the following two directories to make sure that your new certificates get applied:
-
-   * `C:\ProgramData\iotedge\hsm\certs`
-   * `C:\ProgramData\iotedge\hsm\cert_keys`
-
-1. Open a PowerShell session as an administrator to restart the IoT Edge service to apply your changes.
-
-   ```powershell
-   Restart-Service iotedge
-   ```
-
-1. Check for any errors in the configuration.
-
-   ```powershell
-   iotedge check --verbose
-   ```
-
----
-
 ### Deploy modules to lower layer devices
 
 IoT Edge devices in lower layers of a gateway hierarchy have one required module that must be deployed to them, in addition to any workload modules you may run on the device.
@@ -502,7 +334,7 @@ If your lower layer devices need to pull from more than one container registry, 
 
 For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:latest`, lower layer devices should call `$upstream:8000/azureiotedge-api-proxy:latest`.
 
-The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:8000` port in this example should be replaced with whichever port the registry module in your top layer is listening on.
+The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:8000` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 
 If you don't want lower layer devices making module pull requests through a gateway hierarchy, another option is to manage a local registry solution. Or, push the module images onto the devices before creating deployments and then set the **imagePullPolicy** to **never**.
 
