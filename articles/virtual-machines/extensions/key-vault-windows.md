@@ -226,24 +226,21 @@ Please be aware of the following restrictions/requirements:
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell.
 
-Check Key Vault VM Extension status:
-
-## Azure PowerShell
+**Azure PowerShell**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## Azure CLI
+**Azure CLI**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-Extension execution output is logged to the following file:
+#### Logs and configuration
 
 ```
 %windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
 ```
-
 
 ### Support
 
