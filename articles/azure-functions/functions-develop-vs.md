@@ -81,6 +81,26 @@ Visual Studio doesn't automatically upload the settings in local.settings.json w
 
 Your code can also read the function app settings values as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
+## Configure your build output settings
+
+When building an Azure Functions project, the build tools will clean all assemblies that are shared with the functions runtime from the build output in an effort to save as much space as possible. If you move to a more recent version of any of these assemblies for your project, the build tools might clean them from your build output leaving your project unable to run. If this happens, there are a few settings you can customize in your function's .csproj file:
+
+```xml
+  <PropertyGroup>
+      <FunctionsSkipCleanOutput>true</FunctionsSkipCleanOutput>
+  </PropertyGroup>
+  <ItemGroup>
+    <FunctionsSkipCleanOutputAssembly Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsSkipCleanOutputAssembly Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsSkipCleanOutputAssembly Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
+| Option | Description |
+| ------ | ----------- |
+| FunctionsSkipCleanOutput | This will tell the build tools to skip cleaning the build output entirely. This might increase the size of your function dramatically, but would preserve all output assemblies. |
+| FunctionsSkipCleanOutputAssembly | You can specify one of these for each assembly you would like the build tools to preserve when cleaning the ouput. |
+
 ## Configure the project for local development
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azure Storage Emulator](../storage/common/storage-use-emulator.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
