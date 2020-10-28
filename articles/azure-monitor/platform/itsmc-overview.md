@@ -64,7 +64,7 @@ Before you can create a connection, you need to add ITSMC.
 
 5. Select **OK**.
 
-When the ITSMC resource is deployed, a notification appears at the upper right corner of the window.
+When the ITSMC resource is deployed, a notification appears at the upper-right corner of the window.
 
 
 ## Create an ITSM connection
@@ -85,10 +85,12 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
    ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-overview/itsm-connections.png)
+
 1. Under **Workspace Data Sources** in the left pane, select **ITSM Connections**:
+
    ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
    This page displays the list of connections.
-3. Select **Add Connection**.
+1. Select **Add Connection**.
 
 4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services](./itsmc-connections.md).
 
@@ -100,7 +102,7 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 
 
 ## Use ITSMC
-   By using ITSMC, you can create work items from Azure alerts, Log Analytics alerts, and Log Analytics log records.
+   You can use ITSMC to create work items from Azure alerts, Log Analytics alerts, and Log Analytics log records.
 
 ## Template definitions
    There are work item types that can use templates that are defined by the ITSM tool.
@@ -294,15 +296,15 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## Troubleshoot ITSM connections
 - If a connection fails from the connected source's UI and you get an **Error in saving connection** message, take the following steps:
    - For ServiceNow, Cherwell, and Provance connections:  
-   1. Ensure you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
-   1. Ensure you have sufficient privileges in the corresponding ITSM product to make the connection.  
+     - Ensure that you correctly entered  the user name, password, client ID, and client secret  for each of the connections.  
+     - Ensure that you have sufficient privileges in the corresponding ITSM product to make the connection.  
    - For Service Manager connections:  
      - Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections.md#configure-the-hybrid-connection).  
 
-- If data from ServiceNow isn't getting synced to Log Analytics, ensure that the ServiceNow instance isn't sleeping. ServiceNow dev instances sometimes go to sleep when they're idle for a long time. If that isn't the case, report the problem.
+- If data from ServiceNow isn't getting synced to Log Analytics, ensure that the ServiceNow instance isn't sleeping. ServiceNow dev instances sometimes go to sleep when they're idle for a long time. If that isn't what's happening, report the problem.
 - If Log Analytics alerts fire but work items aren't created in the ITSM product, if configuration items aren't created/linked to work items, or for other information, see these resources:
    -  ITSMC: The solution shows a summary of connections, work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
-   - **Log Search** page: view the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
+   - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
 
 ## Troubleshoot Service Manager web app deployment
 -	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
