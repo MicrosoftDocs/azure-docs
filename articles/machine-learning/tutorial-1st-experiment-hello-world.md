@@ -138,6 +138,9 @@ Run your control script, which in turn runs `hello.py` on the compute cluster th
 python 03-run-hello.py
 ```
 
+> [!TIP]
+> If running this code gives you an error that you do not have access to the subscription, see [Connect to a workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) for information on authentication options.
+
 ## Monitor your code in the cloud by using the studio
 
 The output will contain a link to the studio that looks something like this:

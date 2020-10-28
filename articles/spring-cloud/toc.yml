@@ -65,7 +65,7 @@
       href: disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Prepare a Java Spring app for deployment
+    - name: Prepare an app for deployment
       href: spring-cloud-tutorial-prepare-app-deployment.md 
     - name: Launch Java app from source code
       href: spring-cloud-howto-launch-from-source.md

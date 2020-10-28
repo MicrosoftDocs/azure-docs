@@ -4347,6 +4347,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-get-started-nodejs.md",
+      "redirect_url": "/azure/search/search-get-started-javascript",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-scc-lifecycle-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/scclifecycle-tutorial",
       "redirect_document_id": false
@@ -58974,6 +58979,21 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/consulting-services.md",
+      "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/consulting-service-prerequisites.md",
+      "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-consulting-service-offer.md",
+      "redirect_url": "/azure/marketplace/create-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
       "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
       "redirect_document_id": false
@@ -58982,9 +59002,11 @@
       "source_path": "articles/data-factory/copy-data-tool-troubleshoot-guide.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-azure-copy-wizard#troubleshooting",
       "redirect_document_id": false
-    }  
-    
-
-
+    },
+    {
+      "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/overview",
+      "redirect_document_id": false
+    }    
   ]
 }

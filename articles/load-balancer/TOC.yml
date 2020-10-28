@@ -53,6 +53,8 @@
     items:
     - name: Health probes
       href: load-balancer-custom-probe-overview.md
+    - name: Azure Monitor Insights for Load Balancer
+      href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
     - name: Azure Monitor logs for Basic Load Balancer
