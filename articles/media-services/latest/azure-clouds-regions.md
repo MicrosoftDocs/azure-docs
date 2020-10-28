@@ -24,7 +24,7 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Feature availability in Azure clouds
 
-> [!div class="op_single_selector"]
+<!-- >> [!div class="op_single_selector"]
 > - [Africa](#tab/africa/)
 > - [Asia Pacific](#tab/apac/)
 > - [Australia](#tab/australia/)
@@ -53,8 +53,84 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 > - [United Arab Emirates](#tab/uae/)
 > - [United Kingdom](#tab/uk/)
 > - [United States](#tab/us/)
+-->
 
+## Regional and non-regional availability
 
+TABLE KEY<br/>
+![ga](./media/azure-clouds-regions/ga.svg) Generally available ![in preview](./media/azure-clouds-regions/preview.svg) In preview ![in preview expected date](./media/azure-clouds-regions/preview-active.svg) In preview and expected date ![future availability](./media/azure-clouds-regions/planned-active.svg) Future availability
+
+| Region | [Azure EventGrid](reacting-to-media-services-events.md) | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) | [StandardEncoderPreset](encoding-concept.md) | [LiveEvents](live-streaming-overview.md) | [StreamingEndpoints](streaming-endpoint-concept.md) |  [LiveTranscription](live-transcription.md) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **United States** ||||||||
+| Central US |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| East US |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| East US 2 |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| North Central US |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| South Central US |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| West US 2 |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| **Azure US Government** ||||||||
+| US DoD Central ||||||||
+| US DoD East ||||||||
+| US Gov Arizona ||||||||
+| US Gov Texas ||||||||
+| US Gov Virginia ||||||||
+| USNat ||||||||
+| USSec ||||||||
+| **Africa** ||||||||
+| South Africa North |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| South Africa West |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| **Asia Pacific** ||||||||
+| East Asia ||||||||
+| Southeast Asia ||||||||
+| **Australia** ||||||||
+| Australia Central ||||||||
+| Australia Central 2 ||||||||
+| Australia East |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| Australia Southeast |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|
+| **Brazil** ||||||||
+| Brazil South |![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![ga](./media/azure-clouds-regions/ga.svg)|![future](./media/azure-clouds-regions/preview-active.svg)|
+| Brazil Southeast |![future](./media/azure-clouds-regions/planned-active.svg)|![future](./media/azure-clouds-regions/planned-active.svg)|![future](./media/azure-clouds-regions/planned-active.svg)|![future](./media/azure-clouds-regions/planned-active.svg)|![future](./media/azure-clouds-regions/planned-active.svg)|![future](./media/azure-clouds-regions/planned-active.svg)|![future](./media/azure-clouds-regions/planned-active.svg)|
+| **Canada** ||||||||
+| Canada Central ||||||||
+| Canada East ||||||||
+| **China** ||||||||
+| China East ||||||||
+| China East 2 ||||||||
+| China North ||||||||
+| China North 2 ||||||||
+| **Europe** ||||||||
+| North Europe ||||||||
+| West Europe ||||||||
+| **Germany** ||||||||
+| Germany Central (Sovereign) ||||||||
+| Germany North (Public) ||||||||
+| Germany Northeast (Sovereign) ||||||||
+| Germany West Central (Public) ||||||||
+| **India** ||||||||
+| Central India ||||||||
+| South India ||||||||
+| West India ||||||||
+| **Japan** ||||||||
+| Japan East ||||||||
+| Japan West ||||||||
+| **Korea** ||||||||
+| Korea Central ||||||||
+| Korea South ||||||||
+| **Norway** ||||||||
+| Norway East ||||||||
+| Norway West ||||||||
+| **Switzerland** ||||||||
+| Switzerland North ||||||||
+| Switzerland West ||||||||
+| **United Arab Emirates** ||||||||
+| UAE Central ||||||||
+| UAE North ||||||||
+| **United Kingdom** ||||||||
+| UK South ||||||||
+| UK West ||||||||
+
+<!--
 ## [Global](#tab/global/)
 
 | Feature| Availability |
@@ -123,7 +199,7 @@ austria goes here
 | [LiveEvents](live-streaming-overview.md) | Available |
 | [StreamingEndpoints](streaming-endpoint-concept.md) |
 | [LiveTranscription](live-transcription.md) | Available |
-
+-->
 ## Regions/geographies/locations
 
 [Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
