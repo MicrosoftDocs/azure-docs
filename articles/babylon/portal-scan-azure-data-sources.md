@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use Azure Babylon to scan Azure data sources (preview)'
-description: This tutorial describes how to use Azure Babylon to scan Azure data sources.
+title: 'Tutorial: Use the portal to scan Azure data sources (preview)'
+description: This tutorial describes how to use the Azure Babylon portal to scan Azure data sources.
 author: prmujumd
 ms.author: prmujumd
 ms.service: data-catalog
@@ -10,11 +10,11 @@ ms.date: 10/12/2020
 # Customer intent As a data steward, I want to perform scans so that I can classify my data.
 ---
 
-# Use Azure Babylon (preview) to scan Azure data sources
+# Use the portal to scan Azure data sources (preview)
 
-You can use the Babylon catalog UI to set up scans of data sources. Advanced users can use the PowerShell/Catalog API to create scans.
+You can use the Babylon portal to set up scans of data sources. Advanced users can use the PowerShell cmdlets to create scans.
 
-In this tutorial, you use the Babylon catalog UI. You learn how to:
+In this tutorial, you use the Babylon portal. You learn how to:
 
 - Add a data source and work with data sources.
 - Create a scan and authenticate.
@@ -24,29 +24,27 @@ In this tutorial, you use the Babylon catalog UI. You learn how to:
 
 For the tutorial you need:
 
-[!div class="checklist"]
-
-- A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-- Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+> [!div class="checklist"]
+>
+> - A [Microsoft Azure](https://azure.microsoft.com/) subscription.
+> - Your own [Azure Active Directory tenant](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 To set up a Babylon account, you must be the owner or co-owner of the Azure subscription.
 
 To scan content into the catalog, you must have these permissions:
 
-[!div class="checklist"]
-
-- In the Azure portal, you must be in either the contributor or owner role on the catalog.
-- In the Babylon portal, you must be in the Catalog Admin or Data Source Admin role.
+> [!div class="checklist"]
+>
+> - In the Azure portal, you must be in either the contributor or owner role on the catalog.
+> - In the Babylon portal, you must be in the Catalog Admin or Data Source Admin role.
 
 ## Add a data source and work with data sources
 
 Data sources, such as the following, provide the data for scans:
 
-[!div class=""]
-
-- An ADLS Gen1.
-- An ADLS Gen2.
-- An Azure File Storage.
+- An ADLS Gen1 account.
+- An ADLS Gen2 account.
+- An Azure File Storage account.
 - An Azure Blob Storage account.
 - An Azure Data Explorer cluster.
 - An Azure SQL Server.
@@ -110,7 +108,7 @@ To set up a scan, start at **Data sources** as in the example above, and select 
 
 The **scans** page appears for the data source. It shows the scans for the data source and, for each, the status of the last run.
 
-### Create a scan 
+### Create a scan
 
 Select **+ New scan** on the **scans** page.
 
@@ -165,7 +163,7 @@ You can add the catalog MSI at the appropriate level—subscription, resource gr
 
 If you want to add the catalog MSI on an Azure SQL DB, first sign in to the Azure SQL Server using Active AD - Universal with MFA authentication:
 
-1. Open SSMS ([SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)).
+1. Open SSMS ([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)).
 1. Enter `<YOURSERVERNAME>.database.windows.net` in **Server Name**.
 1. For **Authentication**, select **Azure Active Directory - Universal with MFA**.
 1. For **User name** enter `<YOURUSERNAME>@<YOURDOMAIN>`, such as `tester@contoso.com`.
@@ -179,9 +177,9 @@ ALTER ROLE db_datareader ADD MEMBER [yourcatalogname];
 
 For more information about adding MSI to SQL servers, see these articles:
 
-<https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities>
+[Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 
-<https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#managed-identity>
+[Managed identities for Azure resources authentication](/azure/data-factory/connector-azure-sql-database#managed-identity)
 
 You can now set up a scan, choosing authentication type **Managed Identity** (MSI) for the data stores that support it (currently Azure Blob Storage, ADLS Gen2, and Azure SQL DB).
 
@@ -193,7 +191,7 @@ If you choose to use the account key for authorization, find it in the Azure por
 
 ### Authentication: use an SAS URL to set up a scan
 
-To authenticate with a SAS URL, you must generate one. To learn how, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+To authenticate with a SAS URL, you must generate one. To learn how, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview).
 
 ### Authentication: use a service principal to set up a scan
 
@@ -208,7 +206,7 @@ To use a service principal, you must first create one:
 1. For **Redirect URI**, select **Web** and enter any URL you want; it doesn't have to refer to an actual resource.
 1. Select **Register**.
 1. Copy down both the display name and the application ID.
-1. In the Azure portal, add your service principal to a role on the data stores that you want to scan. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
+1. In the Azure portal, add your service principal to a role on the data stores that you want to scan. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](/azure/storage/common/storage-auth-aad-app).
 
 ### Authentication: QL/SQL DW authentication
 
@@ -298,6 +296,10 @@ Then select **Cancel Scan** to stop all the selected scans from running.
 
 :::image type="content" source="./media/scan-azure-data-sources-portal/image116.png" alt-text="img text" border="true":::
 
-## Summary
+## Next steps
 
-In this tutorial, you scanned Azure data sources using the Azure data catalog portal.
+In this tutorial, you scanned Azure data sources using the Babylon portal.
+
+Advance to the next article to learn how to use the Babylon REST APIs to access the contents of your catalog.
+> [!div class="nextstepaction"]
+> [Tutorial: Use the REST APIs](tutorial-using-rest-apis.md)

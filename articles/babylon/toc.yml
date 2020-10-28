@@ -31,6 +31,8 @@
       href: starter-kit-tutorial-5.md
     - name: 6 - Catalog Insights
       href: starter-kit-tutorial-6.md    
+  - name: Use the portal to scan Azure data sources
+    href: portal-scan-azure-data-sources.md
   - name: Use the REST APIs
     href: tutorial-using-rest-apis.md
 #- name: Samples
