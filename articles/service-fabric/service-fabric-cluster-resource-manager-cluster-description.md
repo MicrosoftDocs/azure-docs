@@ -44,7 +44,7 @@ In the Azure environment, Service Fabric uses the fault domain information provi
 In the following graphic, we color all the entities that contribute to fault domains and list all the different fault domains that result. In this example, we have datacenters ("DC"), racks ("R"), and blades ("B"). If each blade holds more than one virtual machine, there might be another layer in the fault domain hierarchy.
 
 <center>
-![Nodes organized via fault domains][Image1]
+:::image type="content" source="/media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png" alt-text="Nodes organized via fault domains.":::
 </center>
 
 During runtime, Service Fabric Cluster Resource Manager considers the fault domains in the cluster and plans layouts. The stateful replicas or stateless instances for a service are distributed so they're in separate fault domains. Distributing the service across fault domains ensures that the availability of the service isn't compromised when a fault domain fails at any level of the hierarchy.
