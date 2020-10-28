@@ -1,14 +1,14 @@
 ---
-title: Azure Functions Premium plan 
+title: Azure Functions Premium plan
 description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom:
-- references_regions 
+- references_regions
 - fasttrack-edit
-
+- devx-track-azurecli
 ---
 
 # Azure Functions Premium plan
@@ -50,7 +50,7 @@ You can configure the number of always ready instances in the Azure portal by se
 You can also configure always ready instances for an app with the Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### Pre-warmed instances
@@ -64,7 +64,7 @@ As soon as the first trigger comes in, the five always ready instances become ac
 You can modify the number of pre-warmed instances for an app using the Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### Maximum instances for an app
@@ -100,7 +100,7 @@ You can configure the plan size and maximums in the Azure portal by selecting th
 You can also increase the maximum burst limit from the Azure CLI:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 The minimum for every plan will be at least one instance.  The actual minimum number of instances will be autoconfigured for you based on the always ready instances requested by apps in the plan.  For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size will be calculated as five.  App A will be running on all 5, and app B will only be running on 2.
@@ -113,12 +113,12 @@ In most circumstances this autocalculated minimum should be sufficient.  However
 Increasing the calculated minimum for a plan can be done using the Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### Available instance SKUs
 
-When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you.  Your app can automatically scale out to multiple instances as needed.  
+When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you.  Your app can automatically scale out to multiple instances as needed.
 
 |SKU|Cores|Memory|Storage|
 |--|--|--|--|

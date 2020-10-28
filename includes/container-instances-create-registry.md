@@ -8,7 +8,7 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 
 ## Create Azure container registry

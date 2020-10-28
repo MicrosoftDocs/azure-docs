@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) for Linux VMs

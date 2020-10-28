@@ -10,7 +10,7 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 ---
 
 # Deploy models with Azure Machine Learning
