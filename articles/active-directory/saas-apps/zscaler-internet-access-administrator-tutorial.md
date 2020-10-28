@@ -132,11 +132,11 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](./common/new-save-attribute.png)
+	![Screenshot shows User claims with the option to Add new claim.](./common/new-save-attribute.png)
 	
-	![image](./common/new-attribute-details.png)
+	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](./common/new-attribute-details.png)
 
-	b. From the **Source attribute** list, selelct the attribute value.
+	b. From the **Source attribute** list, select the attribute value.
 
 	c. Click **Ok**.
 
@@ -165,7 +165,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
 2. Go to **Administration > Administrator Management** and perform the following steps and click Save:
 
-	![Administration](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
+	![Screenshot shows Administrator Management with options to Enable SAML Authentication, upload S S L Certificate and specify an Issuer.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
 
 	a. Check **Enable SAML Authentication**.
 
@@ -175,7 +175,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
 3. On the Admin UI, perform the following steps:
 
-    ![Administration](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![Screenshot shows the Admin U I where you can perform the steps.](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
 	a. Hover over the **Activation** menu near the bottom left.
 
