@@ -340,7 +340,7 @@ Example:
   "equals": 1
 }
 ```
-In order to evaluate the `count` expression, policy engine will evaluate the `where` condition 3 times, once for each member of `stringArray`, counting how many times it was evaluated to `true`. When the `where` condition refers the the `Microsoft.Test/resourceType/stringArray[*]` array members, instead of selecting all the members of `stringArray`, it will be only select a single array member every time:
+In order to evaluate the `count` expression, Azure Policy evaluates the `where` condition 3 times, once for each member of `stringArray`, counting how many times it was evaluated to `true`. When the `where` condition refers the the `Microsoft.Test/resourceType/stringArray[*]` array members, instead of selecting all the members of `stringArray`, it will be only select a single array member every time:
 
 | Iteration | Selected `Microsoft.Test/resourceType/stringArray[*]` values | `where` Evaluation result |
 |:---|:---|:---|
