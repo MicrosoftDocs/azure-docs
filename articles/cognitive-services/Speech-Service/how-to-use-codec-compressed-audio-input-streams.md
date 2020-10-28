@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-set-twenty-two
 
 The Speech service SDK **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using either a `PullStream` or `PushStream`.
 
-Platform | Languages | Supported Gstreamer version
+Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
 Windows (excluding UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
 Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md)
