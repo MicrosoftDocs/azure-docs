@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 

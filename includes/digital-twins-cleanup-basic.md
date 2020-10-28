@@ -16,6 +16,6 @@ Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure
 
 Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
