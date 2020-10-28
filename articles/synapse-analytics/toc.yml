@@ -46,50 +46,12 @@
     - name: 9 Explore the Knowledge Center
       href: get-started-knowledge-center.md
       displayName: get, started
-# - name: Tutorials
-#   items:
-  # - name: Data Scientist
-  #   items:
-  # - name: Data Analyst
-  #   items:
 - name: Samples
   href: https://github.com/Azure-Samples/Synapse
-# - name: Concepts
-#   items:
-  # - name: Workspace
-  #   items:
-  # - name: Integration and orchestration
-  #   items:
-  # - name: Apache Spark
-  #   items:
-  # - name: Synapse SQL
-  #   items: 
-  # - name: Synapse Link
-  #   items:
-# - name: How-to guides
-#   items:
-  # - name: Manage and monitor
-  #   items:
-  # - name: Ingest and prepare data
-  #   items:
-  #   - name: Into the data warehouse
-  #     items:
-  #     - name: Synapse SQL
-  #       items:
-  #     - name: Apache Spark
-  #       items:
-  # - name: Transform & analyze data
-  #   items:
-    # - name: Synapse Link
-    #   items:
-    # - name: Synapse SQL
-    #   items:
-  # - name: Integrate and Orchestrate
-  #   items:
 - name: Workspace
   items:
-  - name: Overview
-    items:
+  # - name: Overview
+  #   items:
   - name: Quickstarts
     items:
     - name: Create a Synapse workspace using the Azure portal
@@ -107,8 +69,8 @@
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
       displayName: quickstart
-  - name: Tutorials
-    items:
+  # - name: Tutorials
+  #   items:
   - name: Concepts
     items:
     - name: Shared metadata management
@@ -473,8 +435,6 @@
       href: ./spark/vscode-tool-synapse.md
     - name: Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
-    - name: Run a regression experiment using Azure AutoML
-      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: Create a classification model using Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md    
   - name: Concepts
@@ -992,6 +952,22 @@
         href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Self-hosted Integration Runtimes troubleshooting
         href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+- name: Machine Learning
+  items:
+  - name: Overview
+    items:
+    - name: What is machine learning in Synapse Analytics?
+      href: machine-learning/what-is-machine-learning.md
+  - name: Quickstarts
+    items:
+    - name: Create a new Azure Machine Learning linked service
+      href: machine-learning/quickstart-integrate-azure-machine-learning.md
+  - name: Tutorials
+    items:
+    - name: Model scoring wizard for SQL pools
+      href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+    - name: Run a regression experiment using Azure AutoML
+      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
 - name: Reference
   items:
   - name: Azure CLI
