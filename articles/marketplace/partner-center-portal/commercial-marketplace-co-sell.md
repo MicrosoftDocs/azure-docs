@@ -11,7 +11,7 @@ ms.date: 10/28/2020
 
 # Co-sell option in Partner Center
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Incentivized status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Incentivized status. The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 The Co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
 
@@ -62,7 +62,7 @@ You have the option to provide collateral documents that Microsoft will use to l
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
 | *Customer one-pager (Required)* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Microsoft 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
-| *Customer presentation (Required)* | Slide deck to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
+| *Customer presentation (Required)* | Slide deck to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the offer is relevant for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
 | *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. <br> <br> Use the template available in Partner Center. |
 | *Verifiable customer wins* | Specific examples of customer successes after your offer has been deployed. |
 | *Channel pitch deck* | A slide deck with information that will help channel resellers learn more about your offer and get their sales teams ready to sell it. The deck typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
@@ -85,10 +85,10 @@ You can also export your existing list of contacts of an offer, and then make ch
 
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|
-    | *:::no-loc text="Partner marketing":::* | This role focuses on marketing your solution and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
-    | *:::no-loc text="Partner sales":::* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For Co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
+    | *:::no-loc text="Partner marketing":::* | This role focuses on marketing your offer and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
+    | *:::no-loc text="Partner sales":::* | This role focuses on selling your offer and collaborating on sales with Microsoft sales teams and channel resellers. Indicate at least one partner sales contact per region in which you wish your offer to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
     | *:::no-loc text="Partner technical sales":::* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
-    | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer's organization. |
+    | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your offer and grow its footprint within the customer's organization. |
 
 * *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code "OOO". If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
 
@@ -103,7 +103,7 @@ The reference architecture diagram is a model that represents the infrastructure
 
 The document can be created via multiple tools. We recommend Microsoft Visio, as it has multiple stencils that depict Azure architecture models.
 
-A helpful starting point for building reference architecture diagrams is to leverage the different [Azure Solution Architectures models](https://docs.microsoft.com/azure/architecture/browse/).
+A helpful starting point for building reference architecture diagrams is to leverage the [Azure Architecture models](https://docs.microsoft.com/azure/architecture/browse/).
 
 ### Typical components of a reference architecture diagram
 1. Cloud services that host and interact with your offer, including those generating Azure consumption
