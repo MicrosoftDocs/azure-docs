@@ -14,15 +14,15 @@ ms.date: 11/06/2020
 ## Configure hosted test drive for Customer Engagement
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/).
-2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/en-us/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
+2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
 3. Find an existing **Dynamics 365 for Customer Engagement** offer or create a new **Dynamics 365 for Customer Engagement** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
 
-    :::image type="content" source="./media/test-drive/enable-test-drive-check-box-customer.png" alt-text="Selecting the 'Enable a test drive' check box.":::
+    :::image type="content" source="./media/test-drive/enable-test-drive-check-box.png" alt-text="Selecting the 'Enable a test drive' check box.":::
 
     - **Type of test drive** – Choose **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
-5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step you will generate the **Azure AD App Id** and **Azure AD App Key** values mentioned below.
+5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive technical configuration** page.
 
     :::image type="content" source="./media/test-drive/technical-config-details.png" alt-text="The test drive technical configuration page.":::
@@ -34,7 +34,7 @@ ms.date: 11/06/2020
 
         :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="An example of Instance Web API.":::
 
-	- **Role name** – The <font color="red">[ AOT? ]</font> name of the custom Dynamics 365 security role you created for test drive or you can use an existing role. A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to Log in Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. Example value: `testdriverole`. <font color="red">[ should this have the screen shot that Operations has below? ]</font>
+	- **Role name** – The <font color="red">[ AOT? ]</font> name of the custom Dynamics 365 security role you created for test drive or you can use an existing role. A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to sign into Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. Example value: `testdriverole`. <font color="red">[ should this have the screenshot that Operations has below? ]</font>
 	
         > [!IMPORTANT]
         > <font color="red">[ FIX WORDING ]</font> Ensure that security group check is not added for user to get synced to Customer Engagement instance.
@@ -49,12 +49,12 @@ ms.date: 11/06/2020
     :::image type="content" source="./media/test-drive/marketplace-listing-details.png" alt-text="The Marketplace listing details page.":::
 
     - **Description** – An overview of your test drive. This text will be shown to the user while the test drive is being provisioned. This field supports HTML if you want to provide formatted content.
-    - **User manual** – A PDF user manual which helps test drive users understand how to use your app.
+    - **User manual** – A PDF user manual that helps test drive users understand how to use your app.
     - **Test drive demo video** – A video that showcases your app (optional).
 
 ## Configure hosted test drive for Dynamics 365 Operations
 
-2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/en-us/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
+2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
 3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
 
@@ -62,7 +62,7 @@ ms.date: 11/06/2020
 
     - **Type of test drive** – Choose **Dynamics 365 for Operations** option. This means Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
-5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step you will generate the **Azure AD App Id** and **Azure AD App Key** values mentioned below.
+5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive technical configuration** page.
 
     :::image type="content" source="./media/test-drive/technical-config-details.png" alt-text="The Marketplace technical configuration page.":::
@@ -74,7 +74,7 @@ ms.date: 11/06/2020
 	- **Azure Active Directory tenant name** – The name of the Azure Tenant for your Dynamics 365 Instance. Use the format `<tenantname>.onmicrosoft.com`. Example Value: `testdrive.onmicrosoft.com`.
 	- **Azure Active Directory application ID** – The ID of the Azure Active Directory (AD) app you created in Step 5. Example value: `53852862-a2ae-4e43-9461-faa49650a096`.
 	- **Azure Active Directory application client secret** – Secret for the Azure AD app created in Step 5. Example value: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
-    - **Trial Legal Entity** – Provide a Legal Entity to assign a trial user. You can create a new one at [Create or modify a legal entity](https://technet.microsoft.com/en-us/library/hh242184.aspx).
+    - **Trial Legal Entity** – Provide a Legal Entity to assign a trial user. You can create a new one at [Create or modify a legal entity](https://technet.microsoft.com/library/hh242184.aspx).
     - **Role name** – The **AOT name** <font color="red">[ AOT stands for... ]</font> of the custom Dynamics 365 security role you created for test drive. <font color="red">[ want this next sentence from above? ]</font> A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to Log in Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. <font color="red">[ want this example text from above? ]</font> Example value: `testdriverole`.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="The security configuration page.":::
@@ -84,7 +84,7 @@ ms.date: 11/06/2020
     :::image type="content" source="./media/test-drive/marketplace-listing-details.png" alt-text="The Marketplace listing details page.":::
 
     - **Description** – An overview of your test drive. This text will be shown to the user while the test drive is being provisioned. This field supports HTML if you want to provide formatted content.
-    - **User manual** – A PDF user manual which helps test drive users understand how to use your app.
+    - **User manual** – A PDF user manual that helps test drive users understand how to use your app.
     - **Test drive demo video** – A video that showcases your app (optional).
 
 ## Next steps
