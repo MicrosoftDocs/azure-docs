@@ -77,4 +77,4 @@ The following statements apply across all of the Azure Maps created and maintain
 Find more open-source Azure Maps projects.
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)

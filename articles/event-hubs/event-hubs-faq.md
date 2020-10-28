@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 10/27/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -179,8 +179,19 @@ If the total **egress** throughput or the total event egress rate across all eve
 
 Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
 
-### Is there a limit on the number of throughput units (TUs) that can be reserved/selected?
-On a multi-tenant offering, throughput units can grow up to 40 TUs (you can select up to 20 TUs in the portal, and raise a support ticket to raise it to 40 TUs on the same namespace). Beyond 40 TUs, Event Hubs offers the resource/capacity-based model called the **Event Hubs Dedicated clusters**. Dedicated clusters are sold in Capacity Units (CUs).
+### Is there a limit on the number of throughput units that can be reserved/selected?
+
+When creating a basic or a standard tier namespace in the Azure portal, you can select up to 20 TUs for the namespace. To raise it to **exactly** 40 TUs, submit a  [support request](../azure-portal/supportability/how-to-create-azure-support-request.md).  
+
+1. On the **Event Bus Namespace** page, select **New support request** on the left menu. 
+1. On the **New support request** page, follow these steps:
+    1. For **Summary**, describe the issue in a few words. 
+    1. For **Problem type**, select **Quota**. 
+    1. For **Problem subtype**, select **Request for throughput unit increase or decrease**. 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Support request page":::
+
+Beyond 40 TUs, Event Hubs offers the resource/capacity-based model called the Event Hubs Dedicated clusters. Dedicated clusters are sold in Capacity Units (CUs). For more information, see [Event Hubs Dedicated - overview](event-hubs-dedicated-overview.md).
 
 ## Dedicated clusters
 
@@ -194,7 +205,7 @@ For step-by-step instructions and more information on setting up an Event Hubs d
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## Best practices
+## Partitions
 
 ### How many partitions do I need?
 The number of partitions is specified at creation and must be between 1 and 32. The partition count isn't changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
@@ -204,6 +215,21 @@ You may want to set it to be the highest possible value, which is 32, at the tim
 Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you're looking to scale your event processing, you may want to consider adding additional partitions. There's no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 
 However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. For more information, see [availability and consistency](event-hubs-availability-and-consistency.md).
+
+### Increase partitions
+You can request for the partition count to be increased to 40 (exact) by submitting a support request. 
+
+1. On the **Event Bus Namespace** page, select **New support request** on the left menu. 
+1. On the **New support request** page, follow these steps:
+    1. For **Summary**, describe the issue in a few words. 
+    1. For **Problem type**, select **Quota**. 
+    1. For **Problem subtype**, select **Request for partition change**. 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Increase partition count":::
+
+The partition count can be increased to exactly 40. In this case, number of TUs also have to be increased to 40. If you decide later to lower the TU limit back to <= 20, the maximum partition limit is also decreased to 32. 
+
+The decrease in partitions doesn't affect existing event hubs because partitions are applied at the event hub level and they are immutable after creation of the hub. 
 
 ## Pricing
 

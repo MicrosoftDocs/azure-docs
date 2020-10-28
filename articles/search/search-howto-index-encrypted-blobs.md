@@ -104,7 +104,7 @@ As with the Azure Function, take a moment to collect the admin key. Further on, 
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   ![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
