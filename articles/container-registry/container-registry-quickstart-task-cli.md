@@ -16,7 +16,7 @@ After this quickstart, explore more advanced features of ACR Tasks using the [tu
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
     
-- This quickstart requires version 2.0.58 or later of the Azure CLI.
+- This quickstart requires version 2.0.58 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
