@@ -1,6 +1,6 @@
 ---
-title: Add an existing Azure subscription to your tenant - Azure AD
-description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
+title: How to find your tenant ID - Azure AD
+description: Instructions about how to find and Azure Active Directory tenant ID to an existing Azure subscription.
 services: active-directory
 author: ajburnle
 manager: daveba
