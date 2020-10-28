@@ -23,7 +23,7 @@ In addition to email and username, you can enable phone number as a sign-up opti
 
 Setting up phone sign-up and sign-in in a user flow involves the following steps:
 
-- [Configure phone sign-up and sign-in tenant-wide](#configure-phone-authentication-tenant-wide) in your local account identity provider to accept a phone number as a user's identity. 
+- [Configure phone sign-up and sign-in tenant-wide](#configure-phone-sign-up-and-sign-in-tenant-wide) in your local account identity provider to accept a phone number as a user's identity. 
 
 - [Add phone sign-up to your user flow](#add-phone-sign-up-to-a-user-flow) to enable users to sign up for your application using their phone number.
 
@@ -75,7 +75,7 @@ Here's an example showing how to add phone sign-up to a new user flow.
 
 6. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
-    ![Create user flow page in Azure portal with properties highlighted](./media/phone-authentication-user-flows/select-version.png)
+    ![Create user flow button](./media/phone-authentication-user-flows/select-version.png)
 
 7. Enter a **Name** for the user flow. For example, *signupsignin1*.
 8. In the **Identity providers** section, under **Local accounts**, select **Phone signup**.
@@ -117,7 +117,7 @@ You can enable the recovery email prompt in the user flow properties.
    - **On** to show the recovery email prompt during both sign up and sign in.
    - **Off** to hide the recovery email prompt.
 
-    ![User flows page in portal with New user flow button highlighted](./media/phone-authentication-user-flows/recovery-email-settings.png)
+    ![User flows properties with Enable recovery email enabled](./media/phone-authentication-user-flows/recovery-email-settings.png)
 
 8. Select **Save**.
 
