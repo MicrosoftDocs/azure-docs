@@ -114,3 +114,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 **Q: How do I get Object Understanding diagnostics data from the HoloLens?**
 
 **A:** The application can specify the location of diagnostics archives. The OU sample app writes diagnostics to the **TempState** folder.
+
+**Q: Why does the source model not align with the physical object when using the pose returned by the Object Anchors Unity SDK?**
+
+**A:** Unity may change the coordinate system when importing an object model. For example, the Object Anchors Unity SDK inverts the Z axis when converting from a right-handed to left-handed coordinate system, but Unity may apply an additional rotation about either the X or Y axis. A developer can determine this additional rotation by visualizing and comparing the coordinate systems.
