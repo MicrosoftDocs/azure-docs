@@ -30,17 +30,17 @@ Services running on Azure are inherently protected by Azure DDoS Protection Basi
 By onboarding to the Azure DDoS Protection Standard Service, the application gets dedicated monitoring to detect attacks and application specific thresholds. A service will be protected with a profile that is tuned to its expected traffic volume, providing a much tighter defense against DDoS attacks.
 
 ## What are the supported protected resource types?
-Public IPs in ARM based VNETs are currently the only type of protected resource. PaaS services (multitenant) are not supported at presented. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-arhitectures.md).
+Public IPs in ARM based VNETs are currently the only type of protected resource. PaaS services (multitenant) are not supported at presented. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md).
 
 ## Are Classic/RDFE protected resources supported?
-Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-arhitectures.md).
+Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md).
 
 ## Can I protect my on-premise resources using DDoS Protection?
 You need to have the public endpoints of your service associated to a VNet in Azure to be enabled for DDoS protection. Example designs include:
 - Web sites (IaaS) in Azure and backend databases in on-prem datacenter. 
 - Application Gateway in Azure (DDoS protection enabled on App Gateway/WAF) and websites in on-prem datacenters.
 
-See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-arhitectures.md).
+See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md).
 
 ## Can I register a domain outside of Azure and associate that to a protected resource like VM or ELB?
 For the Public IP scenarios, DDoS Protection service will support any application regardless of where the associated domain is registered or hosted as long as the associated Public IP is hosted on Azure. 
