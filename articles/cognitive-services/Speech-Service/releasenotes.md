@@ -48,7 +48,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 - **JavaScript**: Fixed mapping of session IDs to improve logging and aid in internal debug/service correlations.
 - **JavaScript**: Added fix for `DialogServiceConnector` disabling `ListenOnce` calls after the first call is made.
 - **JavaScript**: Fixed issue where result output would only ever be "simple".
-- **JavaScript**: Fixed continuous recognition issue in Safari on MacOS.
+- **JavaScript**: Fixed continuous recognition issue in Safari on macOS.
 - **JavaScript**: CPU load mitigation for high request throughput scenario.
 - **JavaScript**: Allow access to details of Voice Profile Enrollment result.
 - **JavaScript**: Added fix for continuous recognition in `IntentRecognizer`.
@@ -64,7 +64,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 - **Xamarin**: Updated quickstart to latest Visual Studio template [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Known Issue**
-- DigiCert Global Root G2 certificate is not supported by default in Hololens 2 and Android 4.4 (KitKat) and needs to be added to the system to make the Speech SDK functional. The certificate will be added to Hololens 2 OS images in the near future. Android 4.4 customers need to add the updated the certificate to the system.
+- DigiCert Global Root G2 certificate is not supported by default in HoloLens 2 and Android 4.4 (KitKat) and needs to be added to the system to make the Speech SDK functional. The certificate will be added to HoloLens 2 OS images in the near future. Android 4.4 customers need to add the updated the certificate to the system.
 
 **COVID-19 abridged testing:**
 Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
@@ -83,7 +83,7 @@ Stay healthy!
 
     * Pronunciation:  the pronunciation tuning feature is updated to the latest phoneme set. You can pick the right phoneme element from the library and refine the pronunciation of the words you have selected. 
 
-    * Download: The audio "Download"/"Export" feature is enhanced to support generating audio by paragraph. You can edit content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audios in one folder. 
+    * Download: The audio "Download"/"Export" feature is enhanced to support generating audio by paragraph. You can edit content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audio files in one folder. 
 
     * Task status : The multi-file export experience is improved. When you export multiple files in the past, if one of the files has failed, the entire task will fail. But now, all other files will be successfully exported. The task report is enriched with more detailed and structured information. You can check the logs for all failed files and sentences now with the report. 
 
