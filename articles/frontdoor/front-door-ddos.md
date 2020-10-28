@@ -23,7 +23,7 @@ Front Door's public IP addresses are protected by Azure DDoS Protection. You don
 
 ## Protocol blocking
 
-Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid requests with a known `Host` header. This behavior helps to mitigate volumetric attacks that are spread across a range of protocols and ports, as well as DNS amplification attacks and TCP poisoning attacks.
+Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid requests with a known `Host` header. This behavior helps to mitigate some common DDoS attack types including volumetric attacks that are spread across a range of protocols and ports, DNS amplification attacks, and TCP poisoning attacks.
 
 ## Capacity absorption
 
