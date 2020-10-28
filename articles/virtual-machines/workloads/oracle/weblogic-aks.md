@@ -31,7 +31,7 @@ _If you're interested in working closely on your migration scenarios with the en
 
 The solutions will enable a wide range of production-ready deployment architectures with relative ease.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Complex WebLogic Server deployments are enabled on AKS":::
 
 Beyond what the solutions provide customers have complete flexibility to customize their deployments further. It's likely on top of deploying applications customers will integrate further Azure resources with their deployments. Customers are encouraged to provide feedback on further improving the solutions.
 
@@ -40,7 +40,7 @@ Beyond what the solutions provide customers have complete flexibility to customi
 Explore running WLS on AKS.
 
 > [!div class="nextstepaction"]
-> [Guidance, scripts and samples for running Oracle WebLogic Server on the Azure Kubernetes Service](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)
+> [Guidance, scripts and samples for running Oracle WebLogic Server on the Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/)
 
 > [!div class="nextstepaction"]
 > [WebLogic Kubernetes Operator](https://oracle.github.io/weblogic-kubernetes-operator/)
