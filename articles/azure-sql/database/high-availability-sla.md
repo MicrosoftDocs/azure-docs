@@ -58,7 +58,7 @@ The zone redundant version of the high availability architecture for the general
 > For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md). Zone redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance.
 
 > [!NOTE]
-> General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for single databases larger than 1 TB. 
+> General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for any single databases larger than 1 TB. 
 
 ## Premium and Business Critical service tier locally redundant availability
 
@@ -77,7 +77,7 @@ By default, the cluster of nodes for the premium availability model is created i
 Because the zone redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers in select regions. When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md).
+> When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md).
 
 > [!NOTE]
 > This feature is not available in SQL Managed Instance.

@@ -18,7 +18,7 @@ This article explains how to create and manage search objects using C# and the [
 
 ## About version 11
 
-Azure SDK for .NET adds a new client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
+Azure SDK for .NET adds a new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
 As with previous versions, you can use this library to:
 
