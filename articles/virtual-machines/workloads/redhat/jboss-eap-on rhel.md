@@ -1,5 +1,5 @@
 ---
-title: Quickstart - JBoss Enterprise Application (EAP) on Azure Red Hat Enterprise Linux (RHEL) VM and Virtual Machine Scale Set
+title: Quickstart - JBoss Enterprise Application (EAP) on Red Hat Enterprise Linux (RHEL) to Azure VM and Virtual Machine Scale Set
 description: How to deploy enterprise Java applications using Red Hat JBoss EAP on an Azure RHEL VM and Virtual Machine Scale Set.
 author: theresa-nguyen
 ms.author: bicnguy
@@ -24,12 +24,12 @@ These Quickstart templates will show you how to deploy [JBoss EAP](https://www.r
 
 * RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before you deploy the Quickstart template.
 
-## JBoss EAP use case
+## JBoss EAP Migration
 
 ### Migrate to JBoss EAP
 JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Edition (Java EE) 8 and Jakarta EE 8 specifications. JBoss EAP provides preconfigured options for features such as high-availability (HA) clustering, messaging, and distributed caching. It also enables users to write, deploy, and run applications using the various APIs and services that JBoss EAP provides.  For additional information on JBoss EAP, visit [Introduction to JBoss EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index) or [Introduction to JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
 
- You can develop the following applications with JBoss EAP
+ #### Applications on JBoss EAP:
 
 * Web Services Applications - Web services provide a standard means of interoperating among different software applications. Each application can run on different platforms and frameworks. These web services facilitate internal, heterogeneous subsystem communication. To learn more, visit [Developing Web Services Applications on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_web_services_applications/index) or [Developing Web Services Applications on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_web_services_applications/index).
 
@@ -37,7 +37,15 @@ JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Editi
 
 * Hibernate Applications - Developers and administrators can develop and deploy Java Persistence API (JPA)/Hibernate applications with JBoss EAP. Hibernate Core is an object-relational mapping framework for the Java language. It provides a framework for mapping an object-oriented domain model to a relational database, allowing applications to avoid direct interaction with the database. Hibernate Entity Manager implements the programming interfaces and lifecycle rules as defined by the [JPA 2.1 specification](https://www.jcp.org/en/jsr/overview). Together with Hibernate Annotations, this wrapper implements a complete (and standalone) JPA solution on top of the mature Hibernate Core. To learn more about Hibernate, visit [JPA on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/java_persistence_api) or  [Jakarta Persistence on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/development_guide/java_persistence_api).
 
-### Migrate from on-premises to Azure
+#### Red Hat Migration Toolkit for Applications (MTA)
+MTA is a migration tool for Java application servers. Use this tool to migrate from another app server to JBoss EAP. It works with IDE plugins for [Eclipse IDE](https://www.eclipse.org/ide/), [Red Hat CodeReady Workspaces](https://developers.redhat.com/products/codeready-workspaces/overview), and Visual Studio Code ([VS Code])(https://code.visualstudio.com/docs/languages/java) for Java.  MTA is a free and open-source tool that will:
+* Automate application analysis
+* Support effort estimation
+* Accelerate code migration
+* Support containerization
+* Integrates with Azure Workload Builder
+
+### Migrate JBoss EAP from on-premises to Azure
 The Azure Marketplace offer of JBoss EAP on RHEL will install and provision on Azure VMs in less than 20 minutes. You can access these offers from [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 
 These Marketplace offer includes various combinations of EAP and RHEL versions to support your requirements. JBoss EAP is always Bring-Your-Own-Subscription (BYOS) but for RHEL OS you can choose between BYOS or Pay-As-You-Go (PAYG). The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone or clustered VMs:
@@ -63,6 +71,13 @@ Solution architecture for these templates includes:
 * JBoss EAP on stand-alone RHEL VM
 * JBoss EAP clustered across multiple RHEL VMs
 * JBoss EAP clustered using Azure Virtual Machine Scale Set
+
+#### Linux Workload Migration for JBoss EAP 
+Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation and migration process for Java apps running JBoss EAP on premises to Azure. It integrates with Azure migrate discovery to identify JBoss EAP servers. Then it will dynamically generate Ansible playbook for JBoss EAP server deployment. It leverages the RH MTA tool to migrate servers from other app servers to JBoss EAP. Steps for simplifying migration includes:
+* Assessment - scans applications and infrastructure
+* Infrastructure configuration - creates workload profile
+* Deployment and testing - deploy, migrate and test workload
+* Post-deployment configuration - integrates with data, monitoring, security, backup, and more 
 
 ## Server configuration choice
 
