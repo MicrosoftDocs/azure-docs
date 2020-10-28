@@ -195,28 +195,36 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Set modules**.
 1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge module**.
 1. Provide the following values to add the API proxy module to your deployment:
-    1. **IoT Edge module name**: `apiproxy`
-    1. In the **Module settings** tab, **Image URI**: `mcr.microsoft.com/azureiotedge-api-proxy:latest`
-    1. In the **Environment variables** tab, add the following environment variables:
+   1. **IoT Edge module name**: `apiproxy`
+   1. In the **Module settings** tab, **Image URI**: `mcr.microsoft.com/azureiotedge-api-proxy:latest`
+   1. In the **Environment variables** tab, add the following environment variables:
 
-      | Name | Value | Comment |
-      | ---- | ----- | ------- |
-      | `PROXY_CONFIG_ENV_VAR_LIST` | `NGINX_DEFAULT_PORT,DOCKER_REQUEST_ROUTE_ADDRESS` | A list of all the environment variables that you want to update. |
-      | `NGINX_DEFAULT_PORT` | `8000` | The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile. |
-      | `DOCKER_REQUEST_ROUTE_ADDRESS` | `registry:5000` | On the top layer IoT Edge device, route all Docker requests to the **registry** module running on the device. |
+      * **Name**: `PROXY_CONFIG_ENV_VAR_LIST` **Value**: `NGINX_DEFAULT_PORT,DOCKER_REQUEST_ROUTE_ADDRESS`
+
+        A list of all the environment variables that you want to update.
+
+      * **Name**: `NGINX_DEFAULT_PORT` **Value**: `8000`
+
+        The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile.
+
+      * **Name**: `DOCKER_REQUEST_ROUTE_ADDRESS` **Value**: `registry:5000`
+
+        On the top layer IoT Edge device, route all Docker requests to the **registry** module running on the device. |
 
 1. Select **Add** to add the module to the deployment.
 1. Select **Add** again, then choose **IoT Edge module**.
 1. Provide the following values to add the Docker registry module to your deployment:
-    1. **IoT Edge module name**: `registry`
-    1. On the **Module settings** tab, **Image URI**: `registry:latest`
-    1. On the **Environment variables** tab, add the following environment variables:
+   1. **IoT Edge module name**: `registry`
+   1. On the **Module settings** tab, **Image URI**: `registry:latest`
+   1. On the **Environment variables** tab, add the following environment variables:
 
-       | Name | Value |
-       | ---- | ----- |
-       | `REGISTRY_PROXY_REMOTEURL` | The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr.io:443`<br><br>For production scenarios, we recommend having all container images in a single private repository. If your downstream IoT Edge devices need to pull from multiple container registries, you need a registry module to map to each one. |
-       | `REGISTRY_PROXY_USERNAME` | Username to authenticate to the container registry. |
-       | `REGISTRY_PROXY_PASSWORD` | Password to authenticate to the container registry. |
+      * **Name**: `REGISTRY_PROXY_REMOTEURL` **Value**: The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr`.
+
+        For production scenarios, we recommend having all container images in a single private repository. If your downstream IoT Edge devices need to pull from multiple container registries, you need a registry module to map to each one.
+
+      * **Name**: `REGISTRY_PROXY_USERNAME` **Value**: Username to authenticate to the container registry.
+
+      * **Name**: `REGISTRY_PROXY_PASSWORD` **Value**: Password to authenticate to the container registry.
 
     1. On the **Container create options** tab, paste:
 
@@ -352,14 +360,17 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Set modules**.
 1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge module**.
 1. Provide the following values to add the API proxy module to your deployment:
-    1. **IoT Edge module name**: `apiproxy`
-    1. In the **Module settings** tab, **Image URI**: `$upstream:<listening port>/azureiotedge-api-proxy:latest`
-    1. In the **Environment variables** tab, add the following environment variables:
+   1. **IoT Edge module name**: `apiproxy`
+   1. In the **Module settings** tab, **Image URI**: `$upstream:<listening port>/azureiotedge-api-proxy:latest`
+   1. In the **Environment variables** tab, add the following environment variables:
 
-      | Name | Value | Comment |
-      | ---- | ----- | ------- |
-      | `PROXY_CONFIG_ENV_VAR_LIST` | `NGINX_DEFAULT_PORT` | A list of all the environment variables that you want to update. |
-      | `NGINX_DEFAULT_PORT` | `8000` | The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile. |
+      * **Name**: `PROXY_CONFIG_ENV_VAR_LIST` **Value**: `NGINX_DEFAULT_PORT`
+
+        A list of all the environment variables that you want to update.
+
+      * **Name**: `NGINX_DEFAULT_PORT` **Value**: `8000`
+
+        The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile.
 
 1. Select **Add** to add the module to the deployment.
 1. Select **Next: Routes** to go to the next step.
