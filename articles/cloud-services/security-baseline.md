@@ -48,7 +48,7 @@ Cloud service (Classic) cannot be placed in Azure Resource Manager virtual netwo
 
 - [Virtual Network peering](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -77,7 +77,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 - [List of services supported by Azure Policy](https://docs.microsoft.com/cli/azure/azure-services-the-azure-cli-can-manage?view=azure-cli-latest)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -94,7 +94,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol v1.2 to protect data 
 
 - [Configure TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -120,7 +120,7 @@ Configure a DENY Apply to classic subscription administrator assignments. By def
 
 - [Block a specific IP address](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -139,7 +139,7 @@ For more information about configuring flow logs visit
 
 https://docs.microsoft.com/cli/azure/network/watcher/flow-log?view=azure-cli-latest
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -156,7 +156,7 @@ Microsoft Antimalware for Azure protects Cloud service (Classic) and virtual mac
 
 - [Protect your data and assets and comply with global security standards](https://www.microsoft.com/trust-center/product-overview)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -178,7 +178,7 @@ Generally, to protect web applications and to secure them against attacks such a
 
 - [How to deploy Application Gateway](../application-gateway/quick-create-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -189,7 +189,7 @@ Generally, to protect web applications and to secure them against attacks such a
 
 **Guidance**: Not applicable to Cloud service (Classic). It is based on a Classic deployment model. Only resources created through Azure Resource Manager support tags. You cannot apply tags to Classic resources such as Cloud service (Classic).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -206,7 +206,7 @@ Note that Azure Policy is not supported for Cloud service (Classic) for configur
 
 - [Cloud Services Config file](/azure/cloudservices/schema-cscfg-file)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -221,7 +221,7 @@ Within Cloud services (Classic), for individual network security group rules, us
 
 - [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -242,7 +242,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor Logs, to A
 
 - [Traffic Manager Monitoring](../traffic-manager/traffic-manager-monitoring.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -259,7 +259,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor Logs, to A
 
 - [NTP server access](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Microsoft
 
@@ -289,7 +289,7 @@ export#to-integrate-with-a-siem
 
 - [Configuring SIEM integration via Azure Event Hubs](/azure/security-center/continuous-export#configuring-siem-integration-via-azure-event-hubs)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -313,7 +313,7 @@ The Cloud service (Classic) can be monitored by Application Insights for availab
 
 - [Set up diagnostics for Azure Cloud service (Classic) and virtual machines](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=%2Fazure%2Fcloud-services%2Ftoc.json&amp;view=vs-2019)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -324,7 +324,7 @@ The Cloud service (Classic) can be monitored by Application Insights for availab
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -339,7 +339,7 @@ Note that Advanced monitoring involves using the Azure Diagnostics extension (Ap
 
 - [Introduction to Cloud service (Classic) Monitoring](cloud-services-how-to-monitor.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -362,7 +362,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md?view=vs-2019)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -375,7 +375,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [Integrate with a SIEM](/azure/security-center/continuous-export#to-integrate-with-a-siem)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -388,7 +388,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -399,7 +399,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Guidance**: Not applicable to Cloud service (Classic). It does not produce DNS related logs.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -410,7 +410,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -447,7 +447,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 - [Classic Administrators](../role-based-access-control/classic-administrators.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -458,7 +458,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic) as it does not have the concept of common or default passwords.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -471,7 +471,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 - [Use this table as reference which describes the differences between the classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -484,7 +484,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 - [What is single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -495,7 +495,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). Multi-Factor Authentication (MFA) is not supported in Cloud service (Classic) due to lack of Azure Active Directory (Azure AD) integration.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -510,7 +510,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -521,7 +521,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -532,7 +532,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -543,7 +543,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -554,7 +554,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -565,7 +565,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -576,7 +576,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -587,7 +587,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: Not applicable to Cloud service (Classic). It does not interact with customer data
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -617,7 +617,7 @@ Review the Cloud Services REST APIs documentation and create a process for data 
 
 - [Get Package](/rest/api/compute/cloudservices/rest-get-package)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -636,7 +636,7 @@ You can also edit the "permissionLevel" in the Cloud service (Classic)'s Certifi
 
 - [WebRole Schema](schema-csdef-webrole.md#Certificate)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -649,7 +649,7 @@ You can also edit the "permissionLevel" in the Cloud service (Classic)'s Certifi
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -671,7 +671,7 @@ For additional reference, the Azure Service Management API provides programmatic
 
 - [Use Service Management from Python](cloud-services-python-how-to-use-service-management.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -686,7 +686,7 @@ For additional reference, the Azure Service Management API provides programmatic
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -697,7 +697,7 @@ For additional reference, the Azure Service Management API provides programmatic
 
 **Guidance**: Not applicable to Cloud service (Classic). It is not natively integrated with Azure Active Directory (Azure AD).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -714,7 +714,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -727,7 +727,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 The application data stored in temporary disks is not encrypted. The customer is responsible to manage and encrypt this data, as required.  
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -746,7 +746,7 @@ Additionally, Application Insights can monitor Cloud service (Classic) apps for 
 
 - [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -761,7 +761,7 @@ Additionally, Application Insights can monitor Cloud service (Classic) apps for 
 
 **Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. The underlying infrastructure is managed by Microsoft which includes vulnerability scanning. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -784,7 +784,7 @@ When a customer chooses a specific OS version for their Cloud service (Classic) 
 
 - [Manage Guest OS version](cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -799,7 +799,7 @@ Customers already using Configuration Manager in their environment can also use 
 
 This allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -810,7 +810,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. The underlying infrastructure is managed by Microsoft which includes vulnerability scanning. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -834,7 +834,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 - [Risk evaluation of your Azure resources](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -849,7 +849,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -860,7 +860,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Guidance**: Not applicable to Cloud service (Classic), which is based on a Classic deployment model. Only resources created through Azure Resource Manager support tags.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -871,7 +871,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Guidance**: It is recommended to reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -882,7 +882,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Guidance**: The customer should define approved Azure resources and approved software for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -911,7 +911,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -939,7 +939,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -967,7 +967,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -995,7 +995,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1006,7 +1006,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 **Guidance**: Not applicable to Cloud service (Classic). It is deployed using the classic deployment model.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1034,7 +1034,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1047,7 +1047,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/management/deployment-models.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1075,7 +1075,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1090,7 +1090,7 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 - [Tutorial - Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1107,7 +1107,7 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 - [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1118,7 +1118,7 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1131,7 +1131,7 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 It is recommended to use a third party solution to maintain secure Azure resource configurations
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1142,7 +1142,7 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1153,7 +1153,7 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 **Guidance**: Cloud service (Classic) classic configuration file stores the operating attributes for a resource. You can store a copy of the configuration files to a secure storage account.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1164,7 +1164,7 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1175,7 +1175,7 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 **Guidance**: Not applicable to Cloud service (Classic). It is based on the classic deployment model and cannot be managed by Azure Resource Manager deployment-based configuration tools.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1186,7 +1186,7 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 **Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1201,7 +1201,7 @@ Use Security Center to perform baseline scans for your Azure Resources.
 
 - [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1215,7 +1215,7 @@ Use Security Center compute &amp; apps and follow the recommendations for VMs an
 
 - [Understand Azure Security Center container recommendations](/azure/security-center/security-center-container-recommendations)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1233,7 +1233,7 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 - [Configure Remote Desktop from PowerShell](/th-th/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1244,7 +1244,7 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 **Guidance**: Not applicable to Cloud service (Classic). It does not integrate with Managed Identities for Azure resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1260,7 +1260,7 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 - [Configure Remote Desktop from PowerShell](/th-th/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1286,7 +1286,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1297,7 +1297,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Not applicable to Cloud service (Classic). Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Cloud service (Classic)), however it does not run on customer content.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1310,7 +1310,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 - [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Not applicable
 
@@ -1325,7 +1325,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1336,7 +1336,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1347,7 +1347,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1358,7 +1358,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1381,7 +1381,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 - [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1394,7 +1394,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1407,7 +1407,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 - [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1420,7 +1420,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 - [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1435,7 +1435,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1448,7 +1448,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1466,7 +1466,7 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
 - [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
