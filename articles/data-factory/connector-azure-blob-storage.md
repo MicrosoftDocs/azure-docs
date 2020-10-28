@@ -282,7 +282,7 @@ For general information about Azure Storage authentication, see [Authenticate ac
 
 >[!IMPORTANT]
 >- If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. 
->- If you configure Blob storage with an Azure Virtual Network endpoint, to use PolyBase or COPY statement to load data from it, you must use managed identity authentication, and have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu required by Synapse.
+>- If you configure Blob storage with an Azure Virtual Network endpoint, to use PolyBase or COPY statement to load data from it, you must use managed identity authentication, and have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Synapse.
 
 These properties are supported for an Azure Blob storage linked service:
 
