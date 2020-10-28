@@ -14,7 +14,7 @@ ms.date: 10/15/2020
 
 
 ## Monitors
-The health state of a virtual machine is determined by the [rollup of health](vminsights-health-configure.md#health-rollup-policy) from each of its monitors. There are two types of monitors in Azure Monitor for VMs guest health as shown in the following table.
+The health state of a virtual machine is determined by the [rollup of health](vminsights-health-overview.md#health-rollup-policy) from each of its monitors. There are two types of monitors in Azure Monitor for VMs guest health as shown in the following table.
 
 | Monitor |	Description |
 |:---|:---|
