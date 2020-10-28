@@ -98,9 +98,9 @@ To install the extension, register the SQL Server VM with the resource provider:
 - [For a single VM](sql-vm-resource-provider-register.md)
 - [For multiple VMs in bulk](sql-vm-resource-provider-bulk-register.md)
 
-### Install on a VM with a single named SQL Server instance
+### Named instance support
 
-The SQL Server IaaS extension will work with a named instance on SQL Server if that is the only SQL Server instance available on the SQL Server VM. The extension will fail to install on VMs that have multiple SQL Server instances. 
+The SQL Server IaaS extension will work with a named instance of SQL Server if that is the only SQL Server instance available on the virtual machine. The extension will fail to install on VMs that have multiple SQL Server instances. 
 
 To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL VM resource provider](sql-vm-resource-provider-register.md) to install the extension.
 
@@ -204,7 +204,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or no-agent mode, and it can't be downgraded from lightweight mode to no-agent mode. 
 
-To change the manageability mode from full manageability, [unregister](#unregister-from-rp) the SQL Server VM from the SQL VM resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
+To change the manageability mode from full manageability, [unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 
