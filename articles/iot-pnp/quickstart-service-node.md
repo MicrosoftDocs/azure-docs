@@ -7,7 +7,7 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 # As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
@@ -211,7 +211,7 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
     node twin.js
     ```
 
-1. In the **service** terminal output, in the ¬reported` properties section, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
+1. In the **service** terminal output, in the `reported` properties section, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
 
     ```json
     "reported": {

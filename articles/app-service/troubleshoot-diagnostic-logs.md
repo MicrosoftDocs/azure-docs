@@ -4,7 +4,7 @@ description: Learn how to enable diagnostic logging and add instrumentation to y
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: "devx-track-csharp, seodec18"
+ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 
 ---
 # Enable diagnostics logging for apps in Azure App Service

@@ -104,7 +104,7 @@
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
     - name: Azure Policy built-ins
-      href: policy-samples.md
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -399,6 +399,7 @@
       - name: Azure CLI
         href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
+        displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
@@ -542,7 +543,7 @@
       displayName: samples, azure cli
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
-      href: ./policy-samples.md
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Distributed data
@@ -640,7 +641,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-postgresql.html
+    href: /answers/topics/azure-database-postgresql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos

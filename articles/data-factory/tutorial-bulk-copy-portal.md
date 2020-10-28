@@ -105,7 +105,7 @@ In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (for
 ### Create the source Azure SQL Database linked service
 In this step, you create a linked service to link your database in Azure SQL Database to the data factory. 
 
-1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
+1. Open [Manage tab](./author-management-hub.md) from the left pane.
 
 1. On the Linked services page, select **+New** to create a new linked service.
 
