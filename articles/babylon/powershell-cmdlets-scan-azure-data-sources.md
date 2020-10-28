@@ -5,7 +5,7 @@ author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: reference
 ms.date: 10/12/2020
 # Customer intent As a data steward, I want to perform scans so that I can classify my data.
 ---
@@ -14,21 +14,21 @@ ms.date: 10/12/2020
 
 This article describes how to use PowerShell cmdlets to set up and run data source scans.
 
-## 1. Introduction
+## Introduction
 
 Babylon can scan and classify on-premises data at regular intervals, using either the catalog UI or PowerShell cmdlets. This article shows how to use PowerShell cmdlets to connect to a catalog session. It also shows how to use the connection to manage:
 
-- data sources.
-- scans.
-- triggers.
-- classification rules.
+- Data sources.
+- Scans.
+- Triggers.
+- Classification rules.
 
-To set up a scan, first create a data source and then create a scan under the data source. The set of supported authentication methods for a scan depends on the data source type. For more information, see the authentication section of [Tutorial: Use Azure Babylon (preview) to scan Azure data sources](scan-azure-data-sources-portal.md#create-a-scan-and-authenticate). When the scan is created, you can associate a trigger with it.
+To set up a scan, first create a data source and then create a scan under the data source. The set of supported authentication methods for a scan depends on the data source type. For more information, see the authentication section of [Tutorial: Use the portal to scan Azure data sources](portal-scan-azure-data-sources.md#create-a-scan-and-authenticate). When the scan is created, you can associate a trigger with it.
 
 > [!Note]
 > The user that runs the PowerShell cmdlets should be the catalog or data source admin in the Babylon data plane.
 
-## 2. The cmdlets
+## The cmdlets
 
 The cmdlets enable you connect to sessions, and to create, read, update, and delete data sources, scans, triggers, and classification rules. The cmdlets are described below. To get the cmdlets, download the ManagedScanningPowerShell zip file. When you have them, run the following command before any other:
 
@@ -36,9 +36,9 @@ The cmdlets enable you connect to sessions, and to create, read, update, and del
 Import-Module "pathtounzippedfolder\\Microsoft.DataCatalog.Management.Commands.dll"
 ```
 
-## 2.1. Step 1: Connect to data catalog sessions
+## Connect to data catalog sessions
 
-### 2.1.1. Set-AzDataCatalogSessionSettings
+### Set-AzDataCatalogSessionSettings
 
 > [!Important]
 > Run this cmdlet to connect to a data catalog session before you run other cmdlets described in the following sections.
@@ -108,9 +108,9 @@ Set-AzDataCatalogSessionSettings -DataCatalogSession
 -DataCatalogAccountName catalog03 -Environment Production
 ```
 
-## 2.2. Step 2: Create, view, and delete data sources
+## Create, view, and delete data sources
 
-### 2.2.1. New-AzDataCatalogDataSource
+### New-AzDataCatalogDataSource
 
 **Syntax 1:**
 
@@ -244,7 +244,7 @@ AzureSqlManagedInstance | PowerBI}
 New-AzDataCatalogDataSource -Name datasource01 -AccountType AzureStorageBlob
 ```
 
-### 2.2.2. Get-AzDataCatalogDataSource
+### Get-AzDataCatalogDataSource
 
 **Syntax:**
 
@@ -264,7 +264,7 @@ Get-AzDataCatalogDataSource [-Name <string>]
 Get-AzDataCatalogDataSource -Name datasource01
 ```
 
-### 2.2.3. Remove-AzDataCatalogDataSource
+### Remove-AzDataCatalogDataSource
 
 **Syntax1:**
 
@@ -305,9 +305,9 @@ $datasource = Get-AzDataCatalogDataSource -ResourceId /subscriptions/
 Remove-AzDataCatalogDataSource -InputObject $datasource
 ```
 
-## 2.3. Step 3: Create and view scan rule sets
+## Create and view scan rule sets
 
-### 2.3.1. Set-AzDataCatalogScanRuleset
+### Set-AzDataCatalogScanRuleset
 
 **Syntax:**
 
@@ -339,7 +339,7 @@ Set-AzDataCatalogScanRuleset -AzureBlob -Name 'AzureStorageRuleSetCmdlet'
 -AllowedFileExtensions @('csv','json','psv','ssv','tsv','txt','xml','parquet')
 ```
 
-### 2.3.2. Get-AzDataCatalogScanRuleset
+### Get-AzDataCatalogScanRuleset
 
 ```PowerShell
 Get-AzDataCatalogScanRuleset [-Name <String>]
@@ -357,9 +357,9 @@ Get-AzDataCatalogScanRuleset [-Name <String>]
 Get-AzDataCatalogScanRuleset -Name AzureStorageRuleSetCmdlet
 ```
 
-## 2.4. Step 4: Create, view, and delete scans
+## Create, view, and delete scans
 
-### 2.4.1. New-AzDataCatalogScan
+### New-AzDataCatalogScan
 
 **Syntax 1: (Authentication type: msi):**
 
@@ -604,7 +604,7 @@ New-AzDataCatalogScan -- PowerBIDelegated
 -Name scan01 -DataSourceName datasource01 -ScanRulesetName AzureStorageRuleSetCmdlet
 ```
 
-### 2.4.2. Get-AzDataCatalogScan
+### Get-AzDataCatalogScan
 
 **Syntax:**
 
@@ -625,7 +625,7 @@ Parameters:
 Get-AzDataCatalogScan -DataSourceName datasource01 -Name scan01
 ```
 
-### 2.4.3. Remove-AzDataCatalogSca
+### Remove-AzDataCatalogSca
 
 **Syntax:**
 
@@ -646,9 +646,9 @@ Remove-AzDataCatalogScan -DataSourceName <string> -Name <string>
 Remove-AzDataCatalogScan -DataSourceName datasource01 -Name scan01
 ```
 
-## 2.5. Step 5: Start scans, stop scans, and view scan history
+## Start scans, stop scans, and view scan history
 
-### 2.5.1. Start-AzDataCatalogScan
+### Start-AzDataCatalogScan
 
 **Syntax:**
 
@@ -669,7 +669,7 @@ Example:
 Start-AzDataCatalogScan -DataSourceName datasource01 -Name scan01
 ```
 
-### 2.5.2. Stop-AzDataCatalogScan
+### Stop-AzDataCatalogScan
 
 **Syntax:**
 
@@ -692,7 +692,7 @@ Cancel-AzDataCatalogScan -DataSourceName datasource01 -Name scan01
 -RunId 2038c056-0290-4c08-99d9-05ed6a0c3538
 ```
 
-### 2.5.3. Get-AzDataCatalogScanHistory
+### Get-AzDataCatalogScanHistory
 
 **Syntax:**
 
@@ -713,9 +713,9 @@ Get-AzDataCatalogScanHistory -DataSourceName <string> -Name <string>
 Get-AzDataCatalogScanHistory -DataSourceName datasource01 -Name scan01
 ```
 
-## 2.6. Step 6: Create, view, and delete triggers
+## Create, view, and delete triggers
 
-### 2.6.1. New-AzDataCatalogTrigger
+### New-AzDataCatalogTrigger
 
 **Syntax**:
 
@@ -743,7 +743,7 @@ New-AzDataCatalogTrigger -ResourceGroupName test-rg -DataCatalogName catalog03
 -RecurrenceInterval 1.00:00:00 -TimeoutInterval 0.07:00:00 -ScanLevel Full
 ```
 
-### 2.6.2. Get-AzDataCatalogTrigger
+### Get-AzDataCatalogTrigger
 
 **Syntax:**
 
@@ -766,7 +766,7 @@ Get-AzDataCatalogTrigger -ResourceGroupName test-rg -DataCatalogName catalog03
 -DataSourceName datasource01 -ScanName scan01 -Name trigger01
 ```
 
-### 2.6.3. Remove-AzDataCatalogTrigger
+### Remove-AzDataCatalogTrigger
 
 **Syntax**:
 
@@ -789,9 +789,9 @@ Remove-AzDataCatalogTRigger -DataSourceName datasource01 -ScanName scan01
 -Name trigger01
 ```
 
-## 2.7. Step 7: Create, update, and delete classification rules
+## Create, update, and delete classification rules
 
-### 2.7.1. New-AzDataCatalogClassificationRule
+### New-AzDataCatalogClassificationRule
 
 **Syntax**:
 
@@ -825,7 +825,7 @@ Set-AzDataCatalogClassificationRule -Name TestRule
 -MinimumPercentageMatch 60
 ```
 
-### 2.7.2. Set-AzDataCatalogClassificationRule
+### Set-AzDataCatalogClassificationRule
 
 **Syntax**:
 
@@ -859,7 +859,7 @@ Set-AzDataCatalogClassificationRule -Name TestRule
 -MinimumPercentageMatch 60
 ```
 
-### 2.7.3. Remove-AzDataCatalogClassificationRule
+### Remove-AzDataCatalogClassificationRule
 
 **Syntax**:
 
@@ -878,3 +878,12 @@ Remove-AzDataCatalogClassificationRule -Name <string>
 ```PowerShell
 Remove-AzDataCatalogClassificationRule -Name TestRule
 ```
+
+## Next steps
+
+In this article, you learned how to use PowerShell cmdlets to register and scan an Azure data source.
+
+Advance to the next article to learn how to create a scan rule set to quickly scan data sources.
+
+> [!div class="nextstepaction"]
+> [Create a scan rule set](create-a-scan-rule-set.md)
