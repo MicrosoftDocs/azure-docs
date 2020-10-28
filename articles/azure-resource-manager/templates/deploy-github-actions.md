@@ -147,7 +147,6 @@ Because the workflow is configured to be triggered by either the workflow file o
 1. Select **Run ARM deploy** from the menu to verify the deployment.
 
 ## Clean up resources
-
 When your resource group and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository. 
 
 ## Next steps
