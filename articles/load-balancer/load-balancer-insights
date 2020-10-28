@@ -26,7 +26,7 @@ The functional dependency view will enable you to picture even the most complex 
 
 You can access this view by visiting the Insights sub-blade of your Load Balancer.
 
-PUT PICTURE HERE
+:::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="Depecition of the functional dependency view. The frontend of the load balancer can be seen connecting to the backend pool members via the rules configured. For Standard the lines from load-balancing rules to the backend pool instances are color-coded based on health probe status." border="true":::
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status empowering you to visualize the current availability of your network to serve traffic. Alongside the above topology you are presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
 
