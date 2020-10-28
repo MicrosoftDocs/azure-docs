@@ -18,18 +18,18 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Create a Azure Database for PostgreSQL single server using [Azure Portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md) if you do not have one.
+- Create an Azure Database for PostgreSQL single server using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-|Action| Connectivity method|How-to guide|
-|:--------- |:--------- |:--------- |
-| **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
-| **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
-| **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
+  |Action| Connectivity method|How-to guide|
+  |:--------- |:--------- |:--------- |
+  | **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+  | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+  | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
 - Install the [.NET Framework](https://www.microsoft.com/net/download) for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) to build your project.
-- Install [Npgsql](https://www.nuget.org/packages/Npgsql/) Nuget package in Visual Studio.
+- Install [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet package in Visual Studio.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
