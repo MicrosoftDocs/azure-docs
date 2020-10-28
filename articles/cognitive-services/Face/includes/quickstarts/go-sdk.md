@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.author: pafarley
 ---
 Get started with facial recognition using the Face client library for Go. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
@@ -119,6 +119,9 @@ Add the following code in your **main** method. This code defines a remote sampl
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
+> [!TIP]
+> You can also detect faces in a local image. See the [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) methods such as **DetectWithStream**.
+
 ### Display detected face data
 
 The next block of code takes the first element in the array of **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** objects and prints its attributes to the console. If you used an image with multiple faces, you should iterate through the array instead.
@@ -175,6 +178,9 @@ The next block of code authenticates a **[PersonGroupPersonClient](https://godoc
 The following code sorts the images by their prefix, detects faces, and assigns the faces to each respective **PersonGroup Person** object, based on the image file name.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
+
+> [!TIP]
+> You can also create a **PersonGroup** from remote images referenced by URL. See the [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) methods such as **AddFaceFromURL**.
 
 ### Train PersonGroup
 
