@@ -29,7 +29,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 > [!IMPORTANT]
 > Resizing an OS or Data Disk of an Azure Virtual Machine requires the virtual machine to be deallocated.
 >
-> Shrinking an existing disk is not supported.
+> Shrinking an existing disk isn’t supported, and can potentially result in data loss.
 > 
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 
