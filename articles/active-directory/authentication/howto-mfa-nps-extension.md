@@ -154,7 +154,7 @@ There are two factors that affect which authentication methods are available wit
       > [!NOTE]
       > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
       >
-      > In addition, if your VPN client UX supports input fields and you have configured Network Access Policy, the authentication might succeed. However, none of the RADIUS attributes configured in the Network Policy will be applied to neither the Network Access Device, like the RRAS server, nor the VPN client. As a result, the VPN client might have more access than desired, or less to no access.
+      > In addition, independent of the authentication protocol used (PAP, CHAP, EAP), if your MFA method is text based (SMS, mobile APP verification code or OATH hardware tokens) and requires the user to enter a code or text in the VPN client User Interface input field, the authentication might succeed. **But** any RADIUS Attributes configured in the Network Access Policy are **not** forwarded to the RADIUS Client (Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than desired, or less to no access.
 
 2. The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
