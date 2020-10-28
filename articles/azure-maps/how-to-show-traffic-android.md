@@ -16,7 +16,7 @@ Flow data and incidents data are the two types of traffic data that can be displ
 
 ## Prerequisites
 
-Before you can show traffic on the map, you need to [make an Azure Account](quick-demo-map-app.md#create-an-azure-maps-account)and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to install the [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
+Before you can show traffic on the map, you need to [make an Azure Account](quick-demo-map-app.md#create-an-azure-maps-account)and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to install the [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) and load a map.
 
 ## Incidents traffic data
 

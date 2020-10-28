@@ -1,7 +1,7 @@
 ---
 title: "Migrating to Bridge to Kubernetes"
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: "conceptual"
 description: "Describes the migration process from Azure Dev Spaces to Bridge to Kubernetes"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Bridge to Kubernetes"
@@ -10,11 +10,11 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 # Migrating to Bridge to Kubernetes
 
 > [!IMPORTANT]
-> Azure Dev Spaces will be retired on October 31, 2023. Developers should move to using Bridge to Kubernetes, a client developer tool.
+> Azure Dev Spaces will be retired on October 31, 2023. Customers should move to using Bridge to Kubernetes, a client developer tool.
 >
-> The purpose of Azure Dev Spaces was about easing developers into developing on Kubernetes. A significant tradeoff in the approach of Azure Dev Spaces was putting extra burden on developers to understand Docker and Kubernetes configurations as well as Kubernetes deployment concepts. Over time, it also became clear that the approach of Azure Dev Spaces did not effectively decrease the speed of inner loop development on Kubernetes. Bridge to Kubernetes effectively decreases the speed of inner loop development and avoids unnecessary burden on developers.
+> The purpose of Azure Dev Spaces was about easing users into developing on Kubernetes. A significant tradeoff in the approach of Azure Dev Spaces was putting extra burden on users to understand Docker and Kubernetes configurations as well as Kubernetes deployment concepts. Over time, it also became clear that the approach of Azure Dev Spaces did not effectively decrease the speed of inner loop development on Kubernetes. Bridge to Kubernetes effectively decreases the speed of inner loop development and avoids unnecessary burden on users.
 >
-> The core mission remains unchanged: Build the best developer experiences to develop, test, and debug microservice code in the context of the larger application.
+> The core mission remains unchanged: Build the best experiences to develop, test, and debug microservice code in the context of the larger application.
 
 Bridge to Kubernetes provides a lighter weight alternative to many of the development scenarios that work with Azure Dev Spaces. Bridge to Kubernetes is a client-side only experience using extensions in [Visual Studio][vs] and [Visual Studio Code][vsc].  
 
@@ -45,10 +45,10 @@ Azure Dev Spaces and Bridge to Kubernetes have similar features, they also diffe
 | **Usability** |
 | Independent from Kubernetes and Docker artifacts  | No  | Yes   |
 | Automatic rollback of changes, post-debug  | No  | Yes   |
-| **Environments** |
+| **Supported Client Tooling** |
 | Works with Visual Studio 2019  | Yes  | Yes   |
 | Works with Visual Studio Code  | Yes  | Yes   |
-| Works with the CLI  | Yes  | No   |
+| Works with a CLI  | Yes  | No   |
 | **Operating System Compatibility** |
 | Works on Windows 10  | Yes  | Yes  |
 | Works on Linux  | Yes  | Yes  |
@@ -80,7 +80,7 @@ Bridge to Kubernetes has the flexibility to work with applications running in Ku
 1. If you're using Visual Studio, update your Visual Studio IDE to version 16.7 or greater and install the Bridge to Kubernetes extension from the [Visual Studio Marketplace][vs-marketplace]. If you're using Visual Studio Code, install the [Bridge to Kubernetes extension][vsc-marketplace].
 1. Disable the Azure Dev Spaces controller using the Azure portal or the [Azure Dev Spaces CLI][azds-delete].
 1. Use [Azure Cloud Shell](https://shell.azure.com). Or on Mac, Linux or Windows with bash installed, open a bash shell prompt. Make sure that the following tools are available in your command-line environment: Azure CLI, docker, kubectl, curl, tar, and gunzip.
-1. Create a container registry, or use an existing one. You can create a container registry in Azure using [Azure Container Registry](../container-registry/index.yml) or by using [Docker Hub](https://hub.docker.com/).
+1. Create a container registry, or use an existing one. You can create a container registry in Azure using [Azure Container Registry](../container-registry/index.yml) or by using [Docker Hub](https://hub.docker.com/). When using Azure Cloud Shell, only Azure Container Registry is available for hosting docker images.
 1. Run the migration script to convert Azure Dev Spaces assets to Bridge to Kubernetes assets. The script builds a new image compatible with Bridge to Kubernetes, uploads it to the designated registry, and then uses [Helm](https://helm.sh) to update the cluster with the image. You must provide the resource group, the name of the AKS cluster, and a container registry. There are other command-line options as shown here:
 
    ```azure-cli
@@ -97,6 +97,7 @@ Bridge to Kubernetes has the flexibility to work with applications running in Ku
     -r Path to root of the project that needs to be migrated (default = current working directory)
     -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
     -i Enable a public endpoint to access your service over internet. (default is false)
+    -c Docker build context path. (default = project root path passed to '-r' option)
     -y Doesn't prompt for non-tty terminals
     -d Helm Debug switch
    ```
@@ -141,9 +142,9 @@ Learn more about how Bridge to Kubernetes works.
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
-[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#install-the-sample-application
+[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
-[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#connect-to-your-cluster-and-debug-a-service
+[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes#connect-to-your-cluster-and-debug-a-service
 [use-btk-vsc]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
 [vs]: https://visualstudio.microsoft.com/
 [vsc-marketplace]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro

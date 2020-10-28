@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Google Cloud (G Suite) Connector
 * Enable your users to be automatically signed-in to Google Cloud (G Suite) Connector with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 5. **Q: If a user is signed in through Windows, are they automatically authenticate to Google Cloud (G Suite) Connector without getting prompted for a password?**
 
-    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and Google Cloud (G Suite) Connector.
+    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../devices/overview.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and Google Cloud (G Suite) Connector.
 
 6. **Q: What should I do when I get an "invalid email" error message?**
 
@@ -77,8 +77,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Google Cloud (G Suite) Connector supports **SP** initiated SSO
 
-* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](./google-apps-provisioning-tutorial.md)
+* Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Google Cloud (G Suite) Connector from the gallery
 
@@ -237,7 +237,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 The objective of this section is to [create a user in Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in Google Cloud (G Suite) Connector, the user will now be able to sign in using their Microsoft 365 login credentials.
 
-Google Cloud (G Suite) Connector also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure Google Cloud (G Suite) Connector for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+Google Cloud (G Suite) Connector also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure Google Cloud (G Suite) Connector for automatic user provisioning](./google-apps-provisioning-tutorial.md).
 
 > [!NOTE]
 > Make sure that your user already exists in Google Cloud (G Suite) Connector if provisioning in Azure AD has not been turned on before testing Single Sign-on.
@@ -249,23 +249,23 @@ Google Cloud (G Suite) Connector also supports automatic user provisioning. To c
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Google Cloud (G Suite) Connector tile in the Access Panel, you should be automatically signed in to the Google Cloud (G Suite) Connector for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Google Cloud (G Suite) Connector tile in the Access Panel, you should be automatically signed in to the Google Cloud (G Suite) Connector for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+- [Configure User Provisioning](./google-apps-provisioning-tutorial.md)
 
 - [Try Google Cloud (G Suite) Connector with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Google Cloud (G Suite) Connector with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+- [How to protect Google Cloud (G Suite) Connector with advanced visibility and controls](/cloud-app-security/protect-gsuite)
 
 <!--Image references-->
 

@@ -37,10 +37,22 @@
       href: onboard-service-principal.md
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: onboard-dsc.md
+    - name: Connect machines to Azure Arc with PowerShell
+      href: onboard-powershell.md
   - name: Manage
     items:
-    - name: Manage and use Azure VM extensions
-      href: manage-vm-extensions.md
+    - name: Azure VM extensions
+      items:
+        - name: Overview
+          href: manage-vm-extensions.md
+        - name: Manage extensions from portal
+          href: manage-vm-extensions-portal.md
+        - name: Manage extensions with CLI
+          href: manage-vm-extensions-cli.md
+        - name: Manage extensions with PowerShell
+          href: manage-vm-extensions-powershell.md
+        - name: Deploy extensions using ARM template
+          href: manage-vm-extensions-template.md
     - name: Manage agent
       href: manage-agent.md
   - name: Troubleshooting
@@ -53,8 +65,26 @@
   items:
     - name: Data residency
       href: data-residency.md
+    - name: Azure CLI
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute
+    - name: Java
+      href: /java/api/overview/azure/hybridcompute/management
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html
     - name: Azure Policy built-ins 
       displayName: samples, policies, definitions
       href: policy-reference.md
+- name: Resources
+  items:
+    - name: Azure Arc jumpstart
+      href: https://github.com/microsoft/azure_arc

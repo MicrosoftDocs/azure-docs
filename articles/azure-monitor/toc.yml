@@ -556,8 +556,6 @@
         href: platform/alerts-managing-smart-groups.md   
       - name: Manage alert and smart group states
         href: platform/alerts-managing-alert-states.md  
-      - name: Manage alerts from other monitoring services
-        href: platform/alerts-managing-nagios-zabbix-scom.md   
     - name: Alert API
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
@@ -576,8 +574,6 @@
         href: platform/itsmc-service-manager-script.md
       - name: Fix ServiceNow ITSM sync problems
         href: platform/itsmc-resync-servicenow.md
-    - name: Alert Management solution
-      href: platform/alert-management-solution.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -1022,8 +1018,12 @@
       href: insights/container-insights-analyze.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
+    - name: Monitor network configuration
+      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
       href: insights/container-insights-deployment-hpa-metrics.md
+    - name: Monitor Persistent Volumes (PVs)
+      href: insights/container-insights-persistent-volumes.md
     - name: View live data
       items:
       - name: Live Data (preview) overview
@@ -1134,6 +1134,8 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
+      - name: Alert Management solution
+        href: platform/alert-management-solution.md
   - name: Workbooks
     items:
     - name: Overview
