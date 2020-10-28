@@ -1,23 +1,25 @@
 ---
 title: Create a sensitivity label and related reports (Preview)
-description: This article describes how to create custom sensitivity labels for your content and extract related sensitivity label reports.
+description: Learn how to create custom sensitivity labels for your content and scan your content for sensitive data.
 author: batamig
 ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/28/2020
 ---
 
-# Create a sensitivity label and related reporting
+# Create a sensitivity label scan your data
 
-This article describes how to create custom sensitivity labels using Microsoft 365 to apply to on your data in Babylon. This article also describes how to generate the related sensitivity label reports about your data based on the sensitivity labels applied. 
+This article describes how to create custom sensitivity labels to apply to your data in Babylon, and then how to scan your content for sensitive data.
+
+Babylon sensitivity labels are created in Microsoft 365. Sensitivity labels enable you to classify and protect your organization's data, while ensuring that user productivity and collaboration can continue to flow.
 
 ## What are sensitivity labels? 
 
-To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. When your cloud data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies.
+To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. 
 
-Babylon sensitivity labels let you classify and protect your organization's data, while making sure not to block user productivity and collaboration. 
+When your cloud data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies.
 
 Sensitivity labels in Babylon enable you to:
 
@@ -78,15 +80,13 @@ Use of this feature requires an active M365 license.
 
 ## Search for files based on labels
 
-After modifying or creating new sensitivity labels, you'll be able to view the labels automatically applied to files in your Azure Blob Storage in Babylon. 
+Once you've modified or created new sensitivity labels, view the labels automatically applied to your content.
 
-To search the sensitivity labels applied to files within in your Azure Blob Storage, use the Label filtering options:
+Use the **Label** filtering options to show files with specific labels only. For example: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results.png" alt-text="Search for assets by label":::
 
-Files with this type of sensitivity labeling are marked as **Microsoft extended** within Babylon.
-
-For example:
+In Babylon, files with sensitivity labeling are marked as **Microsoft extended**. For example:
 
 - [Labeled files in Azure Blob Storage](#labeled-files-in-azure-blob-storage)
 - [Labeled files in Azure files](#labeled-files-in-azure-files)
@@ -102,9 +102,10 @@ For example:
 
 ### Labeled files in SQL tables
 
-In Babylon public preview, sensitivity labels applied to SQL columns are displayed at the SQL table level even though the sensitivity labels are applied at the SQL column level. 
-
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-sql.png" alt-text="View a sensitivity label on an SQL table":::
+
+> [!NOTE]
+> Sensitivity labels that are applied to specific SQL columns are displayed at the SQL table level.
 
 ## Next steps:
 
