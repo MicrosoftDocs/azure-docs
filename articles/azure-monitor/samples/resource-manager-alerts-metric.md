@@ -3248,7 +3248,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
             "value": "Replace with the location of your Application Insights resource"
         },
         "pingText": {
-            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string in a target URL",
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
             "type": "String"
         },
     }
@@ -3281,7 +3281,7 @@ Additional configuration of the content-match `pingText` parameter is controlled
 | `us-va-ash-azr`    | East US          |
 | `apac-hk-hkn-azr`  | East Asia        |
 | `us-fl-mia-edge`   | Central US       |
-| `latam-br-gru-edge`|Brazil South      |
+| `latam-br-gru-edge`| Brazil South      |
 | `emea-au-syd-edge` | Australia East   |
 
 ### US Government test locations
