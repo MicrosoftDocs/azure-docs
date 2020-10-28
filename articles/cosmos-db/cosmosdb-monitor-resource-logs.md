@@ -223,7 +223,7 @@ For detailed information about how to create a diagnostic setting by using the A
    by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
  
-1. How to get Controlplane logs?
+1. How to get ControlPlane logs?
  
    Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
  
