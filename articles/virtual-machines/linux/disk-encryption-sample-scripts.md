@@ -13,19 +13,24 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 # Azure Disk Encryption sample scripts for Linux VMs
 
-This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.  
 
- 
+> [!NOTE]
+> All scripts refer to the latest, non-AAD version of ADE, except where noted.
 
 ## Sample PowerShell scripts for Azure Disk Encryption 
 
 - **List all encrypted VMs in your subscription**
+  
+  You can find all ADE-encrypted VMs, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
 
-     ```azurepowershell-interactive
-     $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-     $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-     Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
-     ```
+  Alternatively, you can use these cmdlets:
+
+   ```azurepowershell-interactive
+   $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+   $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+   Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+   ```
 
 - **List all disk encryption secrets used for encrypting VMs in a key vault** 
 
@@ -49,14 +54,13 @@ The following table shows which parameters can be used in the PowerShell script:
 |$aadClientSecret|Client secret of the Azure AD application that was created earlier.|False|
 |$keyEncryptionKeyName|Name of optional key encryption key in KeyVault. A new key with this name will be created if one doesn't exist.|False|
 
-
 ### Encrypt or decrypt VMs without an Azure AD app
 
 - [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Disabling encryption is only allowed on Data volumes for Linux VMs.  
 
-### Encrypt or decrypt VMs with an Azure AD app (previous release) 
+### Encrypt or decrypt VMs with an Azure AD app (previous release)
  
 - [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
@@ -67,10 +71,6 @@ The following table shows which parameters can be used in the PowerShell script:
 
 - [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
-
-
-
-
 
 ## Encrypting an OS drive on a running Linux VM
 
