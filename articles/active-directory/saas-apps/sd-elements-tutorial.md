@@ -140,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the menu on the top, click **System**, and then **Single Sign-on**.
 
-    ![Configure Single Sign-On](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Screenshot that shows "System" selected and "Single Sign-on" selected from the drop-down.](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. On the **Single Sign-On Settings** dialog, perform the following steps:
 
@@ -164,11 +164,11 @@ The objective of this section is to create a user called B.Simon in SD Elements.
 
 1. In the menu on the top, click **User Management**, and then **Users**.
 
-    ![Creating a SD Elements test user](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Screenshot that shows "Users" selected from the "User Management" drop-down.](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Click **Add New User**.
 
-    ![Creating a SD Elements test user](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Screenshot that shows the "Add New User" button selected.](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
 1. On the **Add New User** dialog, perform the following steps:
 
