@@ -8,23 +8,6 @@ ms.date: 10/27/2020
 
 # Manage public content with Azure Container Registry
 
-
-=======
-
-A general overview article that all Azure services can link to in their docs that covers:
-	
-
-		
-General guidance for consuming public content - gated workflow
-		When connecting to Docker Hub, provide authentication to avoid throttling
-		A doc for how to authenticate with Docker Hub, creating a Docker Hub token
-	
-	
-	Reference to the OCI Blog Post that's in queue: https://deploy-preview-65--opencontainers.netlify.app/posts/blog/2020-10-30-consuming-public-content/
-
-
-====
-
 An [Azure container registry](container-registry-overview.md) hosts your container images and other artifacts in a private, authenticated Azure environment. Although managed by you, your registry content may have dependencies on content from public container registries. For example, you might build and store application images based on public OS images originating in Docker Hub, Microsoft Container Registry, or another public registry.  
 
 Without proper controls, having dependencies on public registry content can introduce risks to your image development and deployment workfows. A security update to a base image could inadvertently break a production workload, or an internet outage could prevent a build system from pulling a public base image. For more background, see the [Open Container Initiative blog](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
@@ -90,32 +73,12 @@ Using a [multi-step task](container-registry-tasks-multi-step.md) defined in a Y
 
 > [!NOTE]
 > To trigger a task based on a base image update, the base image must have a stable tag, such as `node:9-alpine`. A stable tag is recommended for a base image that can be updated with OS and framework patches to a latest stable release. For details, see [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md).
+
+## Automate application image rebuilds
+
+[To be written]
  
-## Protect images using Image/tag locking
- 
-Support your build and deployment workflows from unintentional image updates.
- 
-https://docs.microsoft.com/en-us/azure/container-registry/container-registry-image-lock
- 
-* Lock repo from new content
-* Block pulls or deletes
- 
-## Automate base image updates
- 
-Expanding on basic image import, they should create a process by which they import the base images they depend upon into their corporate registry.
- 
-1. Automate base image updates by buffering to a staging registry, tests are run as part of the build process. If the tests succeed, the mirrored image is imported to a base-images repository. Use ACR tasks to automate base artifact validation:
- 
-* Pull to staging registry - build both "mirrored" image and "test" image, including test/validation scripts
-* Scan [build image to run a vulnerability scanner such as Aqua]
-* Test [build image to run a test script]
-* If validated, move to base images reg repo
- 
-NEED --> Example multistep task to accomplish this? something like
-https://github.com/Azure-Samples/acr-tasks/blob/master/build-test-update-hello-world.yaml or https://github.com/SteveLasker/Presentations/tree/master/demo-scripts/buffering-building-patching
- 
-## Trigger downstream app image builds based on base image update
- 
+
 Using ACR Tasks, tracking base image updates in the base reg repo:
  
 Concepts: container-registry-tasks-base-images.md
@@ -126,13 +89,30 @@ https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tut
 
 ## Next steps
  
-See Sample E2E scenario
+See Steve's E2E scenario
+
+https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md
  
 https://github.com/SteveLasker/Presentations/tree/master/demo-scripts/buffering-building-patching
 
 
+
+
 ========
 
+Scratch
+
+
+ 
+Support your build and deployment workflows from unintentional image updates.
+ 
+https://docs.microsoft.com/en-us/azure/container-registry/container-registry-image-lock
+ 
+* Lock repo from new content
+* Block pulls or deletes
+ 
+
+ 
 
 
  and your might host copies of certain public images for your organization's deployments.
