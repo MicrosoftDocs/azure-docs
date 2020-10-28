@@ -386,9 +386,7 @@
       - name: Azure portal
         href: howto-move-regions-portal.md
     - name: Major version upgrades
-      items:
-      - name: Upgrade using migration
-        href: how-to-upgrade-using-dump-and-restore.md
+      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
