@@ -1,5 +1,5 @@
 ---
-title: Quickstart -  Use Key Vault secrets in Github Actions workflows
+title: Quickstart -  Use Key Vault secrets in GitHub Actions workflows
 description: Use Key Vault secrets in GitHub Actions to automate your software development workflows
 author: juliakm
 ms.custom: github-actions-azure
@@ -10,9 +10,9 @@ ms.subservice: secrets
 ms.topic: quickstart
 ---
 
-# Use Key Vault secrets in Github Actions workflows
+# Use Key Vault secrets in GitHub Actions workflows
 
-Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in Azure Portal. Learn more about [Key Vault](../general/overview.md). 
+Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in Azure portal. Learn more about [Key Vault](../general/overview.md). 
 
 With Key Vault and GitHub Actions, you have the benefits of a centralized secrets management tool and all the advantages of GitHub Actions. GitHub Actions is a suite of features in GitHub to automate your software development workflows. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues. 
 
@@ -31,19 +31,17 @@ The file has for authenticating with GitHub Actions two sections:
 |Section  |Tasks  |
 |---------|---------|
 |**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. <br /> 3. Add a role assignment. |
-|**Key Vault** | 1. Add the key vault action. <br /> 2. Reference key vault secrets. |
+|**Key Vault** | 1. Add the key vault action. <br /> 2. Reference key vault secret. |
 
 ## Authentication
 
 You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
-Replace the placeholder `myApp` with the name of your application. 
-
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You will only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values. 
+In the example above, replace the placeholders with your subscription ID and resource group name. Replace the placeholder `myApp` with the name of your application. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You will only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values. 
 
 ```output 
   {
@@ -57,7 +55,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 ### Configure the GitHub secret
 
-You need to create secrets for your Azure credentials, resource group, and subscriptions. 
+Create secrets for your Azure credentials, resource group, and subscriptions. 
 
 1. In [GitHub](https://github.com/), browse your repository.
 
@@ -69,7 +67,9 @@ You need to create secrets for your Azure credentials, resource group, and subsc
 
 ### Add a role assignment 
  
-You need to grant access to the Azure service principal so that you can access your key vault for `get` and `list` operations. If you don't do this, then you will not be able to use the service principal. Replace `keyVaultName` with the name of your key vault `clientIdGUID` with the value of your `clientId`. 
+You need to grant access to the Azure service principal so that you can access your key vault for `get` and `list` operations. If you don't do this, then you will not be able to use the service principal. 
+
+Replace `keyVaultName` with the name of your key vault and `clientIdGUID` with the value of your `clientId`. 
 
 ```azurecli-interactive
     az keyvault set-policy -n {keyVaultName} --secret-permissions get list --spn {clientIdGUID}
@@ -79,7 +79,7 @@ You need to grant access to the Azure service principal so that you can access y
 
 With the [Azure key vault action](https://github.com/marketplace/actions/azure-key-vault-get-secrets), you can fetch one or more secrets from an Azure key vault instance and consume it in your GitHub Action workflows.
 
-Secrets fetched are set as outputs and also as environment variables. All the variables are automatically masked if printed to the console or logs.
+Secrets fetched are set as outputs and also as environment variables. Variables are automatically masked when they are printed to the console or to logs.
 
 ```yaml
     - uses: Azure/get-keyvault-secrets@v1
@@ -89,7 +89,11 @@ Secrets fetched are set as outputs and also as environment variables. All the va
       id: myGetSecretAction # ID for secrets that you will reference
 ```
 
-In this example, the key vault is named `containervault`. Two key vault secrets are added to the environment with the key vault action - `containerPassword` and `containerUsername`. The key vault values are referenced in the docker login task with the prefix `steps.myGetSecretAction.outputs`. 
+To use a key vault in your workflow, you need both the key vault action and to reference that action. 
+
+In this example, the key vault is named `containervault`. Two key vault secrets are added to the environment with the key vault action - `containerPassword` and `containerUsername`. 
+
+The key vault values are later referenced in the docker login task with the prefix `steps.myGetSecretAction.outputs`. 
 
 ```yaml
 name: Example key vault flow
@@ -126,6 +130,7 @@ jobs:
 ```
 
 ## Clean up resources
+
 When your Azure app and GitHub repository are no longer needed, clean up the resources you deployed by deleting the resource group for the app and your GitHub repository. 
 
 ## Next steps
