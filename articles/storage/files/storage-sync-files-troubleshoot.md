@@ -98,7 +98,7 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 
 ## Sync group management
 
-## Cloud endpoint creation errors
+### Cloud endpoint creation errors
 
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
 This error occurs if the Azure file share is already in use by another cloud endpoint. 
@@ -134,7 +134,7 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-## Server endpoint creation errors
+### Server endpoint creation errors
 
 <a id="-2134375898"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898 or 0x80c80226)**  
 This error occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
