@@ -1,6 +1,6 @@
 ---
-title: Azure VMWare Solution networking and connectivity
-description: Azure VMWare Solution networking and connectivity description.
+title: Azure VMware Solution networking and connectivity
+description: Azure VMware Solution networking and connectivity description.
 ms.topic: include
 ms.date: 09/28/2020
 ---

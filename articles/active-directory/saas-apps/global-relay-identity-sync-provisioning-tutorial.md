@@ -20,10 +20,10 @@ ms.author: Zhchia
 
 # Tutorial: Configure Global Relay Identity Sync for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Global Relay Identity Sync and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Global Relay Identity Sync](https://portalalpha1.globalrelay.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Global Relay Identity Sync and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to Global Relay Identity Sync using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Global Relay Identity Sync
 > * Remove users in Global Relay Identity Sync when they do not require access anymore
@@ -99,7 +99,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |active|Boolean|
    |displayName|String|
    |title|String|
-   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |name.givenName|String|
    |name.familyName|String|
