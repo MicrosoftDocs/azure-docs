@@ -30,7 +30,7 @@ To transition to metrics in Azure Monitor, we recommend the following approach.
    > [!NOTE]
    > Metrics in Azure Monitor are enabled by default, so there is nothing you need to do to begin capturing metrics. You must however, create charts or dashboards to view those metrics. 
  
-5. If you've created alert rules that are based on classic storage metrics, then [create alert rules](/azure/azure-monitor/platform/alerts-overview) that are based on metrics in Azure Monitor. 
+5. If you've created alert rules that are based on classic storage metrics, then [create alert rules](../../azure-monitor/platform/alerts-overview.md) that are based on metrics in Azure Monitor. 
 
 6. After you're able to see all of your metrics in Azure Monitor, you can turn off classic logging. 
 
@@ -48,7 +48,7 @@ As far as metrics support, classic metrics provide **capacity** metrics only for
 
 If the activity in your account does not trigger a metric, classic metrics will show a value of zero (0) for that metric. Metrics in Azure Monitor will omit the data entirely, which leads to cleaner reports. For example, with classic metrics, if no server timeout errors are reported, then the `ServerTimeoutError` value in the metrics table is set to 0. Azure Monitor doesn't return any data when you query the value of metric `Transactions` with dimension `ResponseType` equal to `ServerTimeoutError`. 
 
-To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -65,7 +65,7 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](/az
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> There are also several new capacity metrics that weren't available as classic metrics. To view the complete list, see [Metrics](../common/monitor-storage-reference.md#metrics).
+> There are also several new capacity metrics that weren't available as classic metrics. To view the complete list, see [Metrics](../blobs/monitor-blob-storage-reference.md#metrics).
 
 **Transaction metrics**
 
@@ -112,5 +112,4 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](/az
 
 ## Next steps
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-
+* [Azure Monitor](../../azure-monitor/overview.md)

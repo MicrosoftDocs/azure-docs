@@ -158,6 +158,10 @@
         href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Content Delivery Network
         href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: DNS
+        href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: ExpressRoute
+        href: ../../expressroute/quickstart-create-expressroute-vnet-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - Availability Zones
         href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - IP Groups
@@ -168,6 +172,8 @@
         href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Load Balancer - public
         href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: NAT gateway
+        href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Private Endpoint
         href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Private Link service
@@ -192,6 +198,8 @@
         href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Web
       items:
+      - name: API Management
+        href: ../../api-management/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: App Service
         href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Notification Hubs
