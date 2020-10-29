@@ -57,11 +57,11 @@ After the admin consent workflow is enabled, users can request admin approval fo
 
 2. The **Approval required** message appears. The user types a justification for needing access to the app, and then selects **Request approval**.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Screenshot shows an Approval required dialog box where you can Request approval.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. A **Request sent** message confirms that the request was submitted to the admin. If the user sends several requests, only the first request is submitted to the admin.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Screenshot shows the Request sent confirmation.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. The user receives an email notification when their request is approved, denied, or blocked. 
 
