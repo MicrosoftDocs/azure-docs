@@ -71,7 +71,8 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure SQL Database
 
 ### Grant workspace managed identity __Reader__ access to storage private link
-This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
+
+This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
 
 ### Configure datastores to use workspace managed identity
 

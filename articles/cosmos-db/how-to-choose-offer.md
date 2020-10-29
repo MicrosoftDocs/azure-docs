@@ -78,7 +78,7 @@ Now, let's analyze the history. Suppose we have the utilization described in the
 
 Note that in hour 1, when there is 6% usage, autoscale will bill RU/s for 10% of the max RU/s, which is the minimum per hour. Though the cost of autoscale may be higher than manual throughput in certain hours, as long as the average utilization is less than 66% across all hours, autoscale will be cheaper overall.
 
-|  | Utilization |Billed autoscale RU/s  |Option 1: Manual 30,000 RU/s  | Option 2: Autoscale between 3000 - 30,000 RU/s |
+|Time period  | Utilization |Billed autoscale RU/s  |Option 1: Manual 30,000 RU/s  | Option 2: Autoscale between 3000 - 30,000 RU/s |
 |---------|---------|---------|---------|---------|
 |Hour 1  | 6%  |     3000  |  30,000 * 0.008 / 100 = $2.40        |   3000 * 0.012 / 100 = $0.36      |
 |Hour 2  | 100%  |     30,000    |  30,000 * 0.008 / 100 = $2.40       |  30,000 * 0.012 / 100 = $3.60      |
@@ -97,7 +97,7 @@ Suppose we have the utilization history as described in the table. Our average u
 
 In general, if the average utilization across all 730 hours in one month is greater than 66%, then we'll save by using manual throughput. 
 
-|  | Utilization |Billed autoscale RU/s  |Option 1: Manual 30,000 RU/s  | Option 2: Autoscale between 3000 - 30,000 RU/s |
+| Time period | Utilization |Billed autoscale RU/s  |Option 1: Manual 30,000 RU/s  | Option 2: Autoscale between 3000 - 30,000 RU/s |
 |---------|---------|---------|---------|---------|
 |Hour 1  | 72%  |     21,600   |  30,000 * 0.008 / 100 = $2.40        |   21600 * 0.012 / 100 = $2.59      |
 |Hour 2  | 93%  |     28,000    |  30,000 * 0.008 / 100 = $2.40       |  28,000 * 0.012 / 100 = $3.36       |

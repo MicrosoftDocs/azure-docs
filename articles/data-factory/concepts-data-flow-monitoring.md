@@ -18,15 +18,15 @@ After you have completed building and debugging your data flow, you want to sche
 
 When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Click on the monitor icon in the left-hand Azure Data Factory UI panel. You can see a screen similar to the one below. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
 
-![Data Flow Monitoring](media/data-flow/mon001.png "Data Flow Monitoring")
+![Screenshot shows icons to select for pipelines for more information.](media/data-flow/mon001.png "Data Flow Monitoring")
 
 You see statistics at this level as well including the run times and status. The Run ID at the activity level is different than the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Selecting the eyeglasses gives you deep details on your data flow execution.
 
-![Data Flow Monitoring](media/data-flow/monitoring-details.png "Data Flow Monitoring")
+![Screenshot shows the eyeglasses icon to see details of data flow execution.](media/data-flow/monitoring-details.png "Data Flow Monitoring")
 
 When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph.
 
-![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitoring")
+![Screenshot shows the view-only version of the graph.](media/data-flow/mon003.png "Data Flow Monitoring")
 
 Here is a video overview of monitoring performance of your data flows from the ADF monitoring screen:
 
@@ -36,7 +36,7 @@ Here is a video overview of monitoring performance of your data flows from the A
 
 When your Data Flow is executed in Spark, Azure Data Factory determines optimal code paths based on the entirety of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you select individual nodes, you can see "groupings" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups as opposed to the individual steps in your design.
 
-![Data Flow Monitoring](media/data-flow/mon004.png "Data Flow Monitoring")
+![Screenshot shows the page for a data flow.](media/data-flow/mon004.png "Data Flow Monitoring")
 
 * When you select the open space in the monitoring window, the stats in the bottom pane display timing and row counts for each Sink and the transformations that led to the sink data for transformation lineage.
 
@@ -51,7 +51,7 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
   * Cluster startup time: Amount of time to acquire the JIT Spark compute environment for your data flow execution
   * Number of transforms: How many transformation steps are being executed in your flow
   
-![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")
+![Screenshot shows the Refresh option.](media/data-flow/monitornew.png "Data Flow Monitoring New")
 
 ## Total Sink Processing Time vs. Transformation Processing Time
 
@@ -80,6 +80,6 @@ When you select a sink transformation icon in your map, the slide-in panel on th
 
 This icon means that the transformation data was already cached on the cluster, so the timings and execution path have taken that into account:
 
-![Data Flow Monitoring](media/data-flow/mon005.png "Data Flow Monitoring")
+![Screenshot shows the disk icon.](media/data-flow/mon005.png "Data Flow Monitoring")
 
 You also see green circle icons in the transformation. They represent a count of the number of sinks that data is flowing into.
