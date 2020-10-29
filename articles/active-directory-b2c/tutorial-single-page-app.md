@@ -16,7 +16,8 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
-This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using either 
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using either:
+
     - [OAuth 2.0 authorization code flow](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (using [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
     - [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (using [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
@@ -91,24 +92,24 @@ In this tutorial, you configure a code sample that you download from GitHub to w
 
 * MSAL.js 2.x authorization code flow sample:
 
-[Download a zip file](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) or clone the sample from GitHub:
+    [Download a zip file](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) or clone the sample from GitHub:
 
-```
-git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
-```
+    ```
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
+    ```
 * MSAL.js 1.x implicit flow sample:
 
-[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample from GitHub:
+    [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample from GitHub:
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
 ## Update the sample
 
 Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
 
-#### [auth code flow sample](#tab/config-auth/)
+#### [Auth code flow sample](#tab/config-auth/)
 
 1. Open the *authConfig.js* file inside the *App* folder.
 1. In the `msalConfig` object, find the assignment for `clientId` and replace it with the **Application (client) ID** you recorded in an earlier step.
@@ -120,7 +121,7 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 1. Find the assignment for `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
 1. Find the assignment for `webApi` and replace the current URL with the URL where you deployed your Web API in Step 4, for example `webApi: http://localhost:5000/hello`.
 
-#### [implicit flow sample](#tab/config-implicit/)
+#### [Implicit flow sample](#tab/config-implicit/)
 
 1. Open the *authConfig.js* file inside the *JavaScriptSPA* folder.
 1. In the `msalConfig` object, find the assignment for `clientId` and replace it with the **Application (client) ID** you recorded in an earlier step.
@@ -135,7 +136,7 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 
 Your resulting code should look similar to following:
 
-#### [auth code flow sample](#tab/review-auth/)
+#### [Auth code flow sample](#tab/review-auth/)
 
 *authConfig.js*:
 
@@ -194,7 +195,7 @@ const apiConfig = {
 };
 ```
 
-#### [implicit flow sample](#tab/review-implicit/)
+#### [Implicit flow sample](#tab/review-implicit/)
 
 *authConfig.js*:
 
@@ -259,16 +260,16 @@ const apiConfig = {
 
 1. Open a console window and navigate to the directory containing the sample. 
 
-- For MSAL.js 2.x authorization code flow sample:
+    - For MSAL.js 2.x authorization code flow sample:
 
-    ```console
-    cd ms-identity-b2c-javascript-spa
-    ```
-- For MSAL.js 1.x implicit flow sample: 
+        ```console
+        cd ms-identity-b2c-javascript-spa
+        ```
+    - For MSAL.js 1.x implicit flow sample: 
 
-    ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
-    ```
+        ```console
+        cd active-directory-b2c-javascript-msal-singlepageapp
+        ```
 
 1. Run the following commands:
 
