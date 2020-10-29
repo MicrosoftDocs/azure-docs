@@ -72,15 +72,15 @@ When unit testing Joins, Exists, or Lookup transformations, make sure that you u
 
 Once you see the data preview, you can generate a quick transformation to typecast, remove, or do a modification on a column. Click on the column header and then select one of the options from the data preview toolbar.
 
-![Quick actions](media/data-flow/quick-actions1.png "Quick actions")
+![Screenshot shows the data preview toolbar with options: Typecast, Modify, Statistics, and Remove.](media/data-flow/quick-actions1.png "Quick actions")
 
 Once you select a modification, the data preview will immediately refresh. Click **Confirm** in the top-right corner to generate a new transformation.
 
-![Quick actions](media/data-flow/quick-actions2.png "Quick actions")
+![Screenshot shows the Confirm button.](media/data-flow/quick-actions2.png "Quick actions")
 
 **Typecast** and **Modify** will generate a Derived Column transformation and **Remove** will generate a Select transformation.
 
-![Quick actions](media/data-flow/quick-actions3.png "Quick actions")
+![Screenshot shows Derived Column’s Settings.](media/data-flow/quick-actions3.png "Quick actions")
 
 > [!NOTE]
 > If you edit your Data Flow, you need to re-fetch the data preview before adding a quick transformation.

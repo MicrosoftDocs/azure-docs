@@ -212,8 +212,6 @@
       href: log-query/get-started-portal.md
     - name: Query scope
       href: log-query/scope.md
-    - name: Simple logs experience
-      href: log-query/simple-logs.md
     - name: Query with Azure Data Explorer
       href: platform/azure-data-explorer-monitor-proxy.md
     - name: Log queries
