@@ -240,7 +240,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 ### Using Symlink
 
-Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring the folder and to get the latest certificate automatically, you can use this symlink ([VaultName].[CertificateName]) to get the latest version of certificate on Linux.
+Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring the folder and to get the latest certificate automatically, you can use this symlink `([VaultName].[CertificateName])` to get the latest version of certificate on Linux.
 
 ### Frequently Asked Questions
 
