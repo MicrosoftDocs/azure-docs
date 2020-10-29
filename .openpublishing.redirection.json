@@ -58553,11 +58553,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnAMaker/How-to/use-active-learning.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/QnAMaker/How-to/language-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
