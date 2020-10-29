@@ -38,7 +38,7 @@ Dedicated SQL pool and serverless SQL pool are multi-tenant capabilities and the
 
 If you have not already done so, register the Network resource provider. Registering a resource provider configures your subscription to work with the resource provider. Choose *Microsoft.Network* from the list of resource providers when you [register](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-To create an Azure Synapse workspace that has a Managed workspace Virtual Network associated with it, select the **Security + networking** tab in Azure portal and check the **Enable managed virtual network** checkbox.
+To create an Azure Synapse workspace that has a Managed workspace Virtual Network associated with it, select the **Networking** tab in Azure portal and check the **Enable managed virtual network** checkbox.
 
 If you leave the checkbox unchecked, then your workspace won't have a Virtual Network associated with it.
 
