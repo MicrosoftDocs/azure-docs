@@ -35,7 +35,7 @@ The following sections describe how to use the summary dashboard and how to read
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-:::image type="content" source="./media/summary-dashboard/analyze-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/summary-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
@@ -75,7 +75,7 @@ You can also go to the Usage report by selecting the **Usage dashboard** link in
 
 This **Page visit count** widget of the **Summary** dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. The Page visits widget displays a count and trend of total page visits during the selected computation period.
 
-:::image type="content" source="./media/summary-dashboard/page-visit-count-widget.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/page-visit-count.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
 
 You can also go to the Marketplace Insights report by selecting the **Marketplace insights dashboard** link in the lower-left corner of the widget.
 
