@@ -70,10 +70,10 @@ For more information, see [this guide on how to create your first Power BI model
 
 ## Excel integration
 
-You can use the same M integration used in Power BI to integrate with an Excel spreadsheet. For more information, see this [guide on how to integrate with excel](article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a) and then paste the M query exported from Log Analytics.
+You can use the same M integration used in Power BI to integrate with an Excel spreadsheet. For more information, see this [guide on how to integrate with excel](https://support.microsoft.com/office/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a) and then paste the M query exported from Log Analytics.
 
 Additional information can be found in [Integrate Log Analytics and Excel](log-excel.md)
 
 ## Next steps
 
-Get started with [Log Analytics queries](log-query.md).
+Get started with [Log Analytics queries](log-query-overview.md).

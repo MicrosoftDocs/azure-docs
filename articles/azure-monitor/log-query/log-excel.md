@@ -87,12 +87,12 @@ To import the query.
  
 1. Replace the text in the advanced editor with the query exported from Log Analytics:
 
-   ![import query in Excel](media/log-excel/advanced-editor-2.png)
-   :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="Paste Log Analytics query into Advanced editor" border="true":::
+   :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="Creating a blank query" border="true":::
  
 1. Select **Done**, and then **Load and close**. Excel executes the query using the Log analytics API and the result set then shown.
  
-   ![import query in Excel](media/log-excel/excel-query-result.png)
+
+   :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Query results in Excel" border="true":::
 
 ##	Refreshing  data
 
