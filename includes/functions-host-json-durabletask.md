@@ -12,7 +12,7 @@ ms.custom: include file
 Configuration settings for [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
 > [!NOTE]
-> The below examples are for use with Azure Functions V2 or V3. If using Azure Functions V1, the "durableTask" section of the host.json should go in the root, rather than as a field under "extensions".
+> All major versions of Durable Functions are supported on all versions of the Azure Functions runtime. However, the schema of the host.json configuration is slightly different depending on the version of the Azure Functions runtime as well as the Durable Functions extension version being used. The below examples are for use with Azure Functions 2.0 and 3.0. in both examples, if using Azure Functions 1.0, the available settings are the same but the "durableTask" section of the host.json should go in the root of the host.json configuration, rather than as a field under "extensions".
 
 
 ### Durable Functions 1.x
