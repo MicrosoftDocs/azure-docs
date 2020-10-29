@@ -34,10 +34,6 @@ This procedure requires several tools that must be installed and run locally:
   * **Form Recognizer** resource with F0 or Standard pricing tier only.
   * **Cognitive Services** resource with the S0 pricing tier.
 
-## Request access to the container registry
-
-Complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/csgate/). 
-
 ## Docker Compose file
 
 The YAML file defines all the services to be deployed. These services rely on either a `DockerFile` or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as *docker-compose.yaml*. Provide the appropriate **apikey**, **billing**, and **EndpointUri** values in the file.
