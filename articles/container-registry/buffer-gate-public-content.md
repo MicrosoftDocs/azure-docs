@@ -96,4 +96,4 @@ For a detailed example, see [How to consume and maintain public content with Azu
 ## Next steps
  
 * Learn more about [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
-* See the [ACR Tasks tutorials](container-registry-tutorial-quick-task) for more examples to automate image builds and updates.
+* See the [ACR Tasks tutorials](container-registry-tutorial-quick-task.md) for more examples to automate image builds and updates.
