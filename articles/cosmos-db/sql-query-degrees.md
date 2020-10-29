@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # DEGREES (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the corresponding angle in degrees for an angle specified in radians.  
   
 ## Syntax

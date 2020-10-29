@@ -10,6 +10,7 @@ ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb-troubleshoot-query.md)
 
@@ -185,7 +186,7 @@ Updated indexing policy:
 
 **RU charge:** 2.98 RUs
 
-You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### Understand which system functions use the index
 
@@ -486,5 +487,5 @@ Queries are designed to pre-fetch results while the current batch of results is 
 See the following articles for information on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
-* [Tuning query performance with Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Tuning query performance with Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)

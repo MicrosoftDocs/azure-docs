@@ -10,6 +10,7 @@ ms.custom: devx-track-python, devx-track-java, contperfq1
 ---
 
 # Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos emulator supports only secure communication through TLS connections.
 
@@ -61,7 +62,7 @@ You need to export the emulator certificate to successfully use the emulator end
 
 When running Java applications or MongoDB applications that uses a Java based client, it is easier to install the certificate into the Java default certificate store than passing the `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flags. For example, the included Java Demo application (`https://localhost:8081/_explorer/index.html`) depends on the default certificate store.
 
-Follow the instructions in the [Adding a Certificate to the Java Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
+Follow the instructions in the [Adding a Certificate to the Java Certificates Store](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
 
 Alternatively you can run the following bash script to import the certificate:
 
@@ -101,4 +102,3 @@ If you have installed the certificate into the Java certificate store or used th
 
 * [Use command line parameters and PowerShell commands to control the emulator](emulator-command-line-parameters.md)
 * [Debug issues with the emulator](troubleshoot-local-emulator.md)
-

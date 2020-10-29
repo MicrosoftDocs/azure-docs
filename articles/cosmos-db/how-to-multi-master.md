@@ -10,6 +10,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 
 # Configure multi-region writes in your applications that use Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Once an account has been created with multiple write regions enabled, you must make two changes in your application to the ConnectionPolicy for the DocumentClient to enable the multi-region writes and multi-homing capabilities in Azure Cosmos DB. Within the ConnectionPolicy, set UseMultipleWriteLocations to true and pass the name of the region where the application is deployed to SetCurrentLocation. This will populate the PreferredLocations property based on the geo-proximity from location passed in. If a new region is later added to the account, the application does not have to be updated or redeployed, it will automatically detect the closer region and will auto-home on to it should a regional event occur.
 
@@ -124,8 +125,8 @@ Read the following articles:
 * [Conflict types and resolution policies in Azure Cosmos DB](conflict-resolution-policies.md)
 * [High availability in Azure Cosmos DB](high-availability.md)
 * [Consistency levels in Azure Cosmos DB](consistency-levels.md)
-* [Choose the right consistency level in Azure Cosmos DB](consistency-levels-choosing.md)
-* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
-* [Globally scaling provisioned throughput](scaling-throughput.md)
+* [Choose the right consistency level in Azure Cosmos DB](./consistency-levels.md)
+* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](./consistency-levels.md)
+* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md)
+* [Globally scaling provisioned throughput](./request-units.md)
 * [Global distribution: Under the hood](global-dist-under-the-hood.md)

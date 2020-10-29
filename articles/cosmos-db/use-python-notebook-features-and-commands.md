@@ -10,6 +10,7 @@ ms.author: dech
 ---
 
 # Use built-in notebook commands and features in Azure Cosmos DB Python notebooks (preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations in Python notebooks.
 
@@ -165,7 +166,7 @@ See [Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/mast
 ## Create a custom instance of ``cosmos_client``
 For more flexibility, you can create a custom instance of ``cosmos_client`` in order to:
 
-- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
+- Customize the [connection policy](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview)
 - Run operations against a different Azure Cosmos account than the one you are in
 
 You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-env-variables). 

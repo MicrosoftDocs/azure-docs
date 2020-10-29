@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # INDEX_OF (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.  
   
 ## Syntax

@@ -11,6 +11,7 @@ ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -254,7 +255,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+    For more information, see [Azure Cosmos DB indexing policies](/azure/cosmos-db/index-policy).
 
 ## <a id="measure-rus"></a>Throughput
 

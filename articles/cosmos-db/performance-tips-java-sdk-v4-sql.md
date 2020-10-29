@@ -11,6 +11,7 @@ ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -82,13 +83,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Enable Accelerated Networking on your Azure VM for lower latency.**
 
-It is recommended that you follow the instructions to enable Accelerated Networking in your [Windows (click for instructions)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux (click for instructions)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) Azure VM, in order to maximize performance.
+It is recommended that you follow the instructions to enable Accelerated Networking in your [Windows (click for instructions)](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (click for instructions)](../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM, in order to maximize performance.
 
 Without accelerated networking, IO that transits between your Azure VM and other Azure resources may be unnecessarily routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries; any network policy details which were being handled by the host and virtual switch are now handled in hardware at the NIC; the host and virtual switch are bypassed. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
 
 Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager.
 
-Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) instructions for more details.
+Please see the [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) instructions for more details.
 
 ## SDK usage
 * **Install the most recent SDK**
@@ -159,13 +160,13 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
         As a first step, use the following recommended configuration settings below. These *DirectConnectionConfig* options are advanced configuration settings which can affect SDK performance in unexpected ways; we recommend users avoid modifying them unless they feel very comfortable in understanding the tradeoffs and it is absolutely necessary. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
-        | Configuration option       | Default    |
-        | :------------------:       | :-----:    |
-        | idleConnectionTimeout      | "PT1M"     |
-        | maxConnectionsPerEndpoint  | "PT0S"     |
-        | connectTimeout             | "PT1M10S"  |
-        | idleEndpointTimeout        | 8388608    |
-        | maxRequestsPerConnection   | 10         |
+        | Configuration option       | Default   |
+        | :------------------:       | :-----:   |
+        | idleConnectionTimeout      | "PT0"     |
+        | maxConnectionsPerEndpoint  | "130"     |
+        | connectTimeout             | "PT5S"    |
+        | idleEndpointTimeout        | "PT1H"    |
+        | maxRequestsPerConnection   | "30"      |
 
 * **Tuning parallel queries for partitioned collections**
 
@@ -309,7 +310,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+    For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>

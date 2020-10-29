@@ -10,6 +10,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Use the change feed estimator
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how you can monitor the progress of your [change feed processor](./change-feed-processor.md) instances as they read the change feed.
 
@@ -59,4 +60,4 @@ You can send this estimation to your monitoring solution and use it to understan
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed processor](change-feed-processor.md)
-* [Change feed processor start time](how-to-configure-change-feed-start-time.md)
+* [Change feed processor start time](./change-feed-processor.md#starting-time)

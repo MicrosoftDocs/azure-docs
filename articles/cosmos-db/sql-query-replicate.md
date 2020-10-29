@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # REPLICATE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Repeats a string value a specified number of times.
   
 ## Syntax

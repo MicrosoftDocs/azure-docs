@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Stored procedures, triggers, and user-defined functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript. When using the SQL API in Azure Cosmos DB, you can write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** in the JavaScript language. You can write your logic in JavaScript that executed inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) or the [Cosmos DB SQL API client SDKs](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -59,7 +60,7 @@ Transactions are natively integrated into the Azure Cosmos DB JavaScript program
 
 ### Data consistency
 
-Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](consistency-levels-tradeoffs.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
+Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](./consistency-levels.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
 
 > [!TIP]
 > The queries executed within a stored procedure or trigger may not see changes to items made by the same script transaction. This statement applies both to SQL queries, such as `getContent().getCollection.queryDocuments()`, as well as integrated language queries, such as `getContext().getCollection().filter()`.

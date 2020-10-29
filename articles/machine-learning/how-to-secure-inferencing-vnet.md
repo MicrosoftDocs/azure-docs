@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
-ms.custom: contperfq4, tracking-python, contperfq1
+ms.date: 10/23/2020
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
 
 ---
 
@@ -38,12 +38,12 @@ In this article you learn how to secure the following inferencing resources in a
 
 + An existing virtual network and subnet to use with your compute resources.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
 
 <a id="aksvnet"></a>
 
@@ -115,11 +115,11 @@ When the creation process is completed, you can run inference, or model scoring,
 
 There are two approaches to isolate traffic to and from the AKS cluster to the virtual network:
 
-* __Private AKS cluster__: This approach uses Azure Private Link to create a private endpoint for the AKS cluster within the VNet.
-* __Internal AKS load balancer__: This approach configures the load balancer for the cluster to use an internal IP address in the VNet.
+* __Private AKS cluster__: This approach uses Azure Private Link to secure communications with the cluster for deployment/management operations.
+* __Internal AKS load balancer__: This approach configures the endpoint for your deployments to AKS to use a private IP within the virtual network.
 
 > [!WARNING]
-> Both configurations are different ways to achieve the same goal (securing traffic to the AKS cluster within the VNet). **Use one or the other, but not both**.
+> Internal load balancer does not work with an AKS cluster that uses kubenet. If you want to use an internal load balancer and a private AKS cluster at the same time, configure your private AKS cluster with Azure Container Networking Interface (CNI). For more information, see [Configure Azure CNI networking in Azure Kubernetes Service](../aks/configure-azure-cni.md).
 
 ### Private AKS cluster
 
@@ -130,7 +130,7 @@ After you create the private AKS cluster, [attach the cluster to the virtual net
 > [!IMPORTANT]
 > Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## Internal AKS load balancer
+### Internal AKS load balancer
 
 By default, AKS deployments use a [public load balancer](../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
 

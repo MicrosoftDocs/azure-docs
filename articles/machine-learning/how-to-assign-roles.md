@@ -1,7 +1,7 @@
 ---
 title: Manage roles in your workspace
 titleSuffix: Azure Machine Learning
-description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
+description: Learn how to access to an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
+ms.custom: how-to, seodec18, devx-track-azurecli
 
 ---
 
@@ -31,9 +31,9 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 | **Custom Role** | Allows you to customize access to specific control or data plane operations within a workspace. For example, submitting a run, creating a compute, deploying a model or registering a dataset. |
 
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
+> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-For more information on specific built-in roles, see [Built-in roles for Azure](/azure/role-based-access-control/built-in-roles).
+For more information on specific built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## Manage workspace access
 
@@ -429,13 +429,13 @@ Here are a few things to be aware of while you use Azure role-based access contr
     - "Microsoft.Network/virtualNetworks/join/action" on the VNet resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
     
-    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
 
 - It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
 ### Q. What permissions do I need to use a user-assigned managed identity with my Amlcompute clusters?
 
-To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on Azure RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### Q. Do we support role-based access control on the Studio portal?

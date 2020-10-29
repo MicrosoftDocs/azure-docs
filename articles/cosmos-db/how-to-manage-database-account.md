@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Manage an Azure Cosmos account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 
@@ -28,7 +29,7 @@ Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](manage-sql-with-resource-manager.md)
+Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](./manage-with-templates.md)
 
 ## Add/remove regions from your database account
 

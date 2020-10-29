@@ -39,12 +39,13 @@ The following table lists the versions of Service Fabric and their support end d
 | 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
 | 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
 | 7.0.478.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
-| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
-| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
-| 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
-| 7.1.456.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
-| 7.1.458.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
-| 7.1.459.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
+| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.456.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.458.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.459.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.2.413.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -120,4 +121,5 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
+| 7.2 RTO | 7.2.413.9590 | NA |
 

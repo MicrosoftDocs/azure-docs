@@ -56,7 +56,9 @@ As you use resources with Azure Machine Learning, you incur costs. Azure resourc
 
 You can view costs in graphs and tables for different time intervals. You can also view costs against budgets and forecasted costs. Switching to longer views over time helps identify spending trends and see where overspending might have occurred. If you've created budgets, see where they exceeded.  
 
-You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces.
+You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces. 
+
+Note that while the Machine Learning workspace itself does not have direct cost, you are billed on managed compute resources. Therefore, if you added tags to the workspaces, since there is no direct cost on it, the cost analysis pane will reflect this for the workspace. For accurate cost management via tags, you will need to tag the associated compute resources.  
 
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 

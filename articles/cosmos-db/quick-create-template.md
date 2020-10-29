@@ -14,6 +14,7 @@ ms.custom: subject-armqs
 ---
 
 # Quickstart: Create an Azure Cosmos DB and a container by using an ARM template
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create an Azure Cosmos database and a container within that database. You can later store data in this container.
 
@@ -134,4 +135,4 @@ In this quickstart, you created an Azure Cosmos account, a database and a contai
 
 - Read an [Overview of Azure Cosmos DB](introduction.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-- Get other [Azure Cosmos DB Resource Manager templates](resource-manager-samples.md)
+- Get other [Azure Cosmos DB Resource Manager templates](./templates-samples-sql.md)

@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Create a synthetic partition key
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 It's the best practice to have a partition key with many distinct values, such as hundreds or thousands. The goal is to distribute your data and workload evenly across the items associated with these partition key values. If such a property doesn’t exist in your data, you can construct a *synthetic partition key*. This document describes several basic techniques for generating a synthetic partition key for your Cosmos container.
 
