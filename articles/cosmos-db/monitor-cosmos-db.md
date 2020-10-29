@@ -61,7 +61,7 @@ The **Overview** page in the Azure portal for each Azure Cosmos database include
 
 ## <a id="analyze-metric-data"></a> Analyzing metric data
 
-Azure Cosmos DB provides a custom experience for working with metrics. See [Monitor and debug Azure Cosmos DB metrics from Azure Monitor]() for details on using this experience and for analyzing different Azure Cosmos DB scenarios.
+Azure Cosmos DB provides a custom experience for working with metrics.
 
 You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metrics**. You can use the following dimensions with these metrics when adding a filter to a chart:
 

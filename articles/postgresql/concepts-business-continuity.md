@@ -24,9 +24,9 @@ The following table compares RTO and RPO in a typical scenario:
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Point in Time Restore from backup | Any restore point within the retention period | Any restore point within the retention period | Any restore point within the retention period |
 | Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
-| Read replicas | RTO - Minutes <br/>RPO < 5 min* | RTO - Minutes <br/>RPO < 5 min*| RTO - Minutes <br/>RPO < 5 min*|
+| Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 
-\* RPO can be higher in some cases depending on various factors including primary database workload and latency between regions. 
+\* RTO and RPO can be much higher in some cases depending on various factors including primary database workload and latency between regions. 
 
 ## Recover a server after a user or application error
 

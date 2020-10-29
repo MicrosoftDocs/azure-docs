@@ -4,7 +4,7 @@ description: Learn how to use Java and JDBC with an Azure Database for PostgreSQ
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020

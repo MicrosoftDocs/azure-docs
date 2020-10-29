@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
 ---
 
@@ -34,7 +34,7 @@ From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/ma
 The SDK first needs to be authenticated with your Azure subscription.  Follow the example below to create a service principal and use it to authenticate. After this is done, you'll have an instance of a `ClustersClient`, which contains many functions (outlined in below sections) that can be used to perform management operations.
 
 > [!NOTE]  
-> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
+> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](/azure/go/azure-sdk-go-authorization)
 
 ### Authentication example using a service principal
 
@@ -360,7 +360,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### Enable OMS monitoring
 
 > [!NOTE]  
-> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
 To enable OMS Monitoring on your cluster:
 
@@ -389,7 +389,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 HDInsight provides a configuration function called script actions that invokes custom scripts to customize the cluster.
 
 > [!NOTE]  
-> More information on how to use script actions can be found here: [Customize Linux-based HDInsight clusters using script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> More information on how to use script actions can be found here: [Customize Linux-based HDInsight clusters using script actions](./hdinsight-hadoop-customize-cluster-linux.md)
 
 ### Execute script actions
 
