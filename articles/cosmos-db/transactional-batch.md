@@ -1,6 +1,6 @@
 ---
-title: Introducing TransactionalBatch in the Azure Cosmos DB .NET SDK
-description: Learn about what and how to use TransactionalBatch in the Azure Cosmos DB .NET SDK
+title: Transactional batch operations in Azure Cosmos DB using the .NET SDK 
+description: Learn how to use TransactionalBatch in the Azure Cosmos DB .NET SDK to perform a group of point operations that either succeed or fail. 
 author: stefArroyo 
 ms.author: esarroyo
 ms.service: cosmos-db
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ---
 
-# What is TransactionalBatch?
+# Transactional batch operations in Azure Cosmos DB using the .NET SDK 
 
-TransactionalBatch describes a group of point operations that need to either succeed or fail together. If all operations, in the order that are described in the TransactionalBatch, succeed, the transaction is committed. If any operation fails, the entire transaction is rolled back.
+Transactional batch describes a group of point operations that need to either succeed or fail together. In the .NET SDK, the `TranscationalBatch` class is used to define the batch of operations. If all operations succeed in the order they are described in the TransactionalBatch, the transaction is committed. If any operation fails, the entire transaction is rolled back.
 
-## What's a transaction in Cosmos DB
+## What's a transaction in Azure Cosmos DB
 
 A transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides ACID (Atomicity, Consistency, Isolation, Durability) property guarantees.
 
@@ -22,16 +22,16 @@ A transaction in a typical database can be defined as a sequence of operations p
 * **Durability** ensures that any change that is committed in a database will always be present.
 Azure Cosmos DB supports [full ACID compliant transactions with snapshot isolation](database-transactions-optimistic-concurrency.md) for operations within the same [logical partition key](partitioning-overview.md).
 
-## TransactionalBatch v. stored procedures
+## Transactional batch operations Vs stored procedures
 
-Azure Cosmos DB currently supports stored procedures, which also provide transactional scope on operations. However, TransactionalBatch offers the following benefits:
+Azure Cosmos DB currently supports stored procedures, which also provide the transactional scope on operations. However, transactional batch operations offer the following benefits:
 
 * **Language option** – TransactionalBatch is supported on the SDK and language you work with already, while stored procedures need to be written in JavaScript.
-* **Code versioning** – Versioning application code and onboarding it on your CI/CD pipeline is much more natural than orchestrating the update of a stored procedure and making sure the rollover happens at the right time. It also makes rolling back changes easier.
-* **Performance** – Reduction in latency for equivalent operations of up to 30% when comparing them with a Stored Procedure execution.
+* **Code versioning** – Versioning application code and onboarding it onto your CI/CD pipeline is much more natural than orchestrating the update of a stored procedure and making sure the rollover happens at the right time. It also makes rolling back changes easier.
+* **Performance** – Reduced the latency on equivalent operations up to 30% when compared to the stored procedure execution.
 * **Content serialization** – Each operation within a TransactionalBatch can leverage custom serialization options for its payload.
 
-## How to create a TransactionalBatch
+## How to create a transactional batch operation
 
 When creating a TransactionalBatch operation, you begin from a Container instance and call `CreateTransactionalBatch`:
 
@@ -65,7 +65,7 @@ using (batchResponse)
 }
 ```
 
-If there is a failure, the failing operation will have the StatusCode of its corresponding error, while all of the other operations will have a 424 StatusCode (Failed Dependency). Status codes make it easier to identify the cause of the transaction failure.
+If there is a failure, the failed operation will have a status code of its corresponding error. Whereas all the other operations will have a 424 status code (failed dependency). Status codes make it easier to identify the cause of transaction failure.
 
 ```csharp
 // Parent's birthday!
@@ -89,9 +89,9 @@ using (failedBatchResponse)
 }
 ```
 
-## How is TransactionalBatch executed
+## How are transactional batch operations executed
 
-When ExecuteAsync is called, all operations in the TransactionalBatch are grouped, serialized into a single payload, and sent as a single request to the Azure Cosmos DB service.
+When the `ExecuteAsync` method is called, all operations in the `TransactionalBatch` object are grouped, serialized into a single payload, and sent as a single request to the Azure Cosmos DB service.
 
 The service receives the request and executes all operations within a transactional scope, and returns a response using the same serialization protocol. This response is either a success, or a failure, and contains all the individual operation responses internally.
 
@@ -101,8 +101,8 @@ The SDK exposes the response for you to verify the result and, optionally, extra
 
 Currently, there are two known limits:
 
-* As per the Azure Cosmos DB request size limit, the size of the TransactionalBatch payload cannot exceed 2 MB, and the maximum execution time is 5 seconds.
-* There is a current limit of 100 operations per TransactionalBatch to make sure the performance is as expected and within SLAs.
+* As per the Azure Cosmos DB request size limit, the size of the `TransactionalBatch` payload cannot exceed 2 MB, and the maximum execution time is 5 seconds.
+* There is a current limit of 100 operations per `TransactionalBatch` to make sure the performance is as expected and within SLAs.
 
 ## Next steps
 
