@@ -45,12 +45,12 @@
       href: how-to-use-cli.md
     - name: Set up an instance and authentication
       items:
-      - name: Scripted version
-        href: how-to-set-up-instance-scripted.md
-      - name: CLI version
-        href: how-to-set-up-instance-cli.md
       - name: Portal version
         href: how-to-set-up-instance-portal.md
+      - name: CLI version
+        href: how-to-set-up-instance-cli.md
+      - name: Scripted version
+        href: how-to-set-up-instance-scripted.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
