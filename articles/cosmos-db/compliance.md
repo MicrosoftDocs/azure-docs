@@ -64,8 +64,14 @@ The following table lists the certifications supported by Azure Cosmos DB in Azu
 
 To learn more about Azure compliance certifications, see the following articles:
 
-* To find out the latest compliance certifications for Azure Cosmos DB, see the [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).  
+* To find out the latest compliance certifications for Azure Cosmos DB, see the [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/en-us/resources/microsoft-azure-compliance-offerings/) document Appendix A & B.  
 
 * For an overview of Azure Cosmos DB security and the latest improvements, see [Azure Cosmos database security](database-security.md) article.
 
+* For recommendations to improve the security posture of your Azure Cosmos DB deployment, see the [Azure Cosmos DB Security Baseline](https://docs.microsoft.com/en-us/azure/cosmos-db/security-baseline). 
+
 * For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
+
+* For FedRAMP compliance information, see [Azure services by FedRAMP and DoD CC SRG audit scope](https://docs.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+
+* For DoD compliance information, see [DoD Compliance Offerings](https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide).
