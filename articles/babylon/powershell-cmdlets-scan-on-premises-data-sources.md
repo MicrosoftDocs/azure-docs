@@ -30,7 +30,7 @@ To run scans on on-premise data sources, do the following:
 
 The steps are described in the following sections of this article.
 
-Finally, associate a trigger with a scan. For more information see [Tutorial: Use Azure Babylon to scan Azure data sources](scan-azure-data-sources-portal.md#set-a-scan-trigger-and-work-with-scans)
+You can associate a trigger with a scan. For more information see [Tutorial: Use the portal to scan Azure data sources](portal-scan-azure-data-sources.md#set-a-scan-trigger-and-work-with-scans)
 
 Depending on the data source type, there are  different sets of supported authentication mechanisms for the scan. See the authentication section of [Catalog client overview](catalog-client-overview.md) to get a list of authentication types supported by managed scanning using PowerShell.
 
@@ -102,11 +102,10 @@ Start-AzDataCatalogScan -DataSourceName <datasource_name> -Name <scan_name>
 
 ## Next steps
 
-For information on registering data sources of various types, and on creating scans, see: 
+To learn how to create sets of scan rules that can easily be added to any scan, see:  
 
-- [Register and scan Azure Files](register-scan-azure-files-storage-source.md)
-- [Register and scan Teradata](register-scan-teradata-source.md)
-- [Register and scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)
-- [Register and scan Azure Data Lake Storage Gen 1](register-scan-adls-gen1.md)
-- [Register and scan Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
 - [Create a scan rule set](create-a-scan-rule-set.md)
+ 
+For information on scanning Azure Synapse Analytics, see:
+
+- [Register and scan Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)
