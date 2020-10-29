@@ -336,7 +336,7 @@ spec:
     spec:
       containers:
         - name: deployment-azuredisk
-          image: nginx
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
           volumeDevices:
             - name: azuredisk
               devicePath: /dev/sdx
@@ -357,11 +357,10 @@ deployment/deployment-azuredisk created
 Finally, let's check the block device inside the pod:
 
 ```console
-# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp bash
-root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=1024k count=100
+# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
+/ # dd if=/dev/zero of=/dev/sdx bs=1024k count=100
 100+0 records in
-100+0 records out
-104857600 bytes (105 MB, 100 MiB) copied, 0.0502999 s, 2.1 GB/s
+100+0 records out/s
 ```
 
 ## Windows containers

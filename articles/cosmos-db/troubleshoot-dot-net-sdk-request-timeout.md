@@ -23,7 +23,7 @@ The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` f
 
 ### CancellationToken
 
-All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests. In between network requests, the cancellation token might be checked and an operation canceled if the related token is expired. The cancellation token should be used to define an approximate expected timeout on the operation scope.
+All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests. In between network requests, the cancellation token might be checked and an operation canceled if the related token is expired. The cancellation token should be used to define an approximate expected timeout on the operation scope.
 
 > [!NOTE]
 > The `CancellationToken` parameter is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up. Instead, after the time is up, it cancels when it's safe to do so.

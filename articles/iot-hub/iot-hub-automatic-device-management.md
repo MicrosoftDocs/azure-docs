@@ -229,8 +229,7 @@ When you delete a configuration, any device twins take on their next highest pri
 In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
 * [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 

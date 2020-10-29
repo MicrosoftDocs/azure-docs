@@ -192,10 +192,11 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Test SSO
 
-When you select the Oracle Cloud Infrastructure Console tile in the Access Panel, you will be redirected to the Oracle Cloud Infrastructure Console sign in page. Select the **IDENTITY PROVIDER** from the drop-down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Oracle Cloud Infrastructure Console tile in the Access Panel, you will be redirected to the Oracle Cloud Infrastructure Console sign in page. Select the **IDENTITY PROVIDER** from the drop-down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ![Configuration](./media/oracle-cloud-tutorial/config10.png)
 
 ## Next steps
 
 Once you configure the Oracle Cloud Infrastructure Console you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+

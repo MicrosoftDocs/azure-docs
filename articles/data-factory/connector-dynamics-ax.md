@@ -32,7 +32,7 @@ You can copy data from Dynamics AX to any supported sink data store. For a list 
 Specifically, this Dynamics AX connector supports copying data from Dynamics AX using **OData protocol** with **Service Principal authentication**.
 
 >[!TIP]
->You can also use this connector to copy data from **Dynamics 365 Finance and Operations**. Refer to Dynamics 365's [OData support](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) and [Authentication method](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
+>You can also use this connector to copy data from **Dynamics 365 Finance and Operations**. Refer to Dynamics 365's [OData support](/dynamics365/unified-operations/dev-itpro/data-entities/odata) and [Authentication method](/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
 
 ## Get started
 

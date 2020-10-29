@@ -20,7 +20,7 @@ Welcome to what's new in Azure Active Directory application provisioning documen
 
 ### New articles
 
-- [What's new?](whats-new-docs.md)
+- [What's new in docs?](whats-new-docs.md)
 
 ### Updated articles
 - [Application provisioning in quarantine status](application-provisioning-quarantine-status.md)

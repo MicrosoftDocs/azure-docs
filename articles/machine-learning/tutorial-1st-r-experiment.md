@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 

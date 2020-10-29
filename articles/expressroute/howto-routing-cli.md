@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 # Tutorial: Create and modify peering for an ExpressRoute circuit using CLI
 

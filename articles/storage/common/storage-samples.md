@@ -56,15 +56,15 @@ To explore the C++ samples, get the [Azure Storage Client Library for C++](https
 To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli)
-* [Azure Storage samples using the Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure Storage samples using the Azure CLI](../blobs/storage-samples-blobs-cli.md)
 * [Popular articles on using the Azure CLI with Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## API reference and source code
 
 | Language | API reference | Source code |
 |----------|---------------|-------------|
-| .NET | [.NET Client Library Reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
-| Java | [Java Client Library Reference](https://docs.microsoft.com/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
+| .NET | [.NET Client Library Reference](/dotnet/api/overview/azure/storage) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
+| Java | [Java Client Library Reference](/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
 | Python | [Python Client Library Reference](https://azure-storage.readthedocs.io/) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Node.js Client Library Reference](https://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ Client Library Reference](https://azure.github.io/azure-sdk-for-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
@@ -79,4 +79,4 @@ The following articles index each of the samples by service (blob, file, queue, 
 * [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * [Azure Storage samples using Python](storage-samples-python.md)
 * [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
-* [Azure Storage samples using the Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure Storage samples using the Azure CLI](../blobs/storage-samples-blobs-cli.md)
