@@ -44007,6 +44007,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
+      "redirect_url": "/azure/azure-monitor/log-query/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/advisor/advisor-alerts.md",
       "redirect_url": "/azure/advisor/advisor-alerts-portal",
       "redirect_document_id": false
@@ -58549,11 +58554,6 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-to/collaborate-knowledge-base.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnAMaker/How-to/use-active-learning.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
     },
