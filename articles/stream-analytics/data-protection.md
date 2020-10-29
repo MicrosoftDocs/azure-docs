@@ -88,7 +88,7 @@ To help you meet your compliance obligations in any regulated industry or enviro
 You may use this feature to enforce any data residency requirements you may have by providing a storage account accordingly.
 
 ## Known issues
-There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. A fix for this issue is being worked on and will become available in the near future. 
+There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. 
 
 ## Next steps
 
