@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10-28-2020
+ms.date: 10/28/2020
 ms.author: jeedes
 
 ---
@@ -70,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode, perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -82,14 +82,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	![image](common/idp-intiated.png)
+	![image1](common/idp-intiated.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![image](common/metadata-upload-additional-signon.png)
+	![image2](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type the URL:
     `https://login.roadmunk.com`
