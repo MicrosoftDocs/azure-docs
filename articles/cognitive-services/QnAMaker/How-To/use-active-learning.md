@@ -1,5 +1,5 @@
 ---
-title: Use Active Learning with knowledge base - QnA Maker
+title: Use active learning with knowledge base - QnA Maker
 description: Learn to improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.service: cognitive-services
 ms.subservice: qna-maker
