@@ -10,7 +10,7 @@ ms.date: 10/27/2020
 
 # Transactional batch operations in Azure Cosmos DB using the .NET SDK 
 
-Transactional batch describes a group of point operations that need to either succeed or fail together. In the .NET SDK, the `TranscationalBatch` class is used to define the batch of operations. If all operations succeed in the order they are described in the TransactionalBatch, the transaction is committed. If any operation fails, the entire transaction is rolled back.
+Transactional batch describes a group of point operations that need to either succeed or fail together with the same partition key in a container. In the .NET SDK, the `TranscationalBatch` class is used to define this batch of operations. If all operations succeed in the order they are described within the transactional batch operation, the transaction will be committed. However, if any operation fails, the entire transaction is rolled back.
 
 ## What's a transaction in Azure Cosmos DB
 
@@ -26,19 +26,19 @@ Azure Cosmos DB supports [full ACID compliant transactions with snapshot isolati
 
 Azure Cosmos DB currently supports stored procedures, which also provide the transactional scope on operations. However, transactional batch operations offer the following benefits:
 
-* **Language option** – TransactionalBatch is supported on the SDK and language you work with already, while stored procedures need to be written in JavaScript.
+* **Language option** – Transactional batch is supported on the SDK and language you work with already, while stored procedures need to be written in JavaScript.
 * **Code versioning** – Versioning application code and onboarding it onto your CI/CD pipeline is much more natural than orchestrating the update of a stored procedure and making sure the rollover happens at the right time. It also makes rolling back changes easier.
 * **Performance** – Reduced the latency on equivalent operations up to 30% when compared to the stored procedure execution.
-* **Content serialization** – Each operation within a TransactionalBatch can leverage custom serialization options for its payload.
+* **Content serialization** – Each operation within a transactional batch can leverage custom serialization options for its payload.
 
 ## How to create a transactional batch operation
 
-When creating a TransactionalBatch operation, you begin from a Container instance and call `CreateTransactionalBatch`:
+When creating a transactional batch operation, you begin from a container instance and call `CreateTransactionalBatch`:
 
 ```csharp
 string partitionKey = "The Family";
-ParentClass parent = new ParentClass(){ Id = "The Parent", PartitionKey = partitionKey, Name = "John", Age = 30 }; 
-ChildClass child = new ChildClass(){ Id = "The Child", ParentId = parent.Id, PartitionKey = partitionKey }; 
+ParentClass parent = new ParentClass(){ Id = "The Parent", PartitionKey = partitionKey, Name = "John", Age = 30 };
+ChildClass child = new ChildClass(){ Id = "The Child", ParentId = parent.Id, PartitionKey = partitionKey };
 TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(parent.PartitionKey)) 
   .CreateItem<ParentClass>(parent)
   .CreateItem<ChildClass>(child);
@@ -65,7 +65,7 @@ using (batchResponse)
 }
 ```
 
-If there is a failure, the failed operation will have a status code of its corresponding error. Whereas all the other operations will have a 424 status code (failed dependency). Status codes make it easier to identify the cause of transaction failure.
+If there is a failure, the failed operation will have a status code of its corresponding error. Whereas all the other operations will have a 424 status code (failed dependency). In the example below, the operation fails because it tries to create an item that already exists (409 HttpStatusCode.Conflict). Status codes make it easier to identify the cause of transaction failure.
 
 ```csharp
 // Parent's birthday!
@@ -101,7 +101,7 @@ The SDK exposes the response for you to verify the result and, optionally, extra
 
 Currently, there are two known limits:
 
-* As per the Azure Cosmos DB request size limit, the size of the `TransactionalBatch` payload cannot exceed 2 MB, and the maximum execution time is 5 seconds.
+* Azure Cosmos DB request size limit specifies the size of the `TransactionalBatch` payload cannot exceed 2 MB, and the maximum execution time is 5 seconds.
 * There is a current limit of 100 operations per `TransactionalBatch` to make sure the performance is as expected and within SLAs.
 
 ## Next steps
