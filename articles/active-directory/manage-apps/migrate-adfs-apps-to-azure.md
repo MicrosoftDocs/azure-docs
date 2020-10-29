@@ -81,7 +81,7 @@ Update the configuration to point your test instance of the app to your producti
 
 Update the configuration of your production application to point to your production Azure tenant.
 
-![Migration stage 1 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
+![Migration stage 4 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
 
  Apps that authenticate with AD FS may use Active Directory groups for permissions. Use [Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) to synchronize identity data between your on-premises environment and Azure AD before you begin migration. Verify those groups and membership before migration so that you can grant access to the same users when the application is migrated.
 
@@ -253,7 +253,7 @@ The following are examples of types of authorization rules in AD FS, and how you
 
 Permit Access to All Users looks like in AD FS:
 
-![Migration stage 1 ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
+![Screenshot shows the Set up Single Sign-On with SAML dialog box.](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
 
 This maps to Azure AD in one of the following ways:
@@ -275,7 +275,7 @@ You must [enable Dynamic Groups](https://docs.microsoft.com/azure/active-directo
 Explicit group authorization in AD FS:
 
 
-![issuance Authorization Rules ](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
+![Screenshot shows the Edit Rule dialog box for the Allow domain admins Claim rule.](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
 
 
 This is how the rule maps to Azure AD:
@@ -289,7 +289,7 @@ In the [Azure portal](https://portal.azure.com/), you will first [create a user 
 
 Explicit user authorization in AD FS:
 
-![issuance Authorization Rules ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Screenshot shows the Edit Rule dialog box for the Allow domain admins Claim rule with an Incoming claim type of Primary S I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 This is how the rule maps to Azure AD:
 
@@ -306,7 +306,7 @@ The following are examples of types of MFA rules in AD FS, and how you can map t
 
 MFA rule settings in AD FS:
 
-![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![Screenshot shows Conditions for Azure A D in the Azure portal.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 
 #### Example 1: Enforce MFA based on users/groups
@@ -323,7 +323,7 @@ Specify MFA rules for a user or a group in Azure AD:
 3. Configure the **Access controls** options as shown below:
 ‎
 
-![AAD MFA settings](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
+![Screenshot shows the Grant pane where you can grant access.](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
 
  #### Example 2: Enforce MFA for unregistered devices
@@ -337,7 +337,7 @@ Specify MFA rules for unregistered devices in Azure AD:
 3. Configure the **Access controls** options as shown below:
 ‎
 
-![AAD MFA settings](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
+![Screenshot shows the Grant pane where you can grant access and specify other restrictions.](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
 
 When you set the For multiple controls option to Require one of the selected controls, it means that if any one of the conditions specified by the checkbox are fulfilled by the user, they will be granted access to your app.
@@ -354,7 +354,7 @@ Specify MFA rules based on a user's location in Azure AD:
 
 1. Configure the **Conditions rules** to specify the locations for which you would like to enforce MFA.
 
-![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![Screenshot shows the Locations pane for Conditions rules.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 5. Configure the **Access controls** options as shown below:
 
@@ -366,14 +366,14 @@ Specify MFA rules based on a user's location in Azure AD:
 
 Here is an example of how attributes are mapped in AD FS:
 
-![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
+![Screenshot shows the Edit Rule dialog box for Emit attributes as Claims.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
 
 
 This is how the rule maps to Azure AD:
 
 In the [Azure portal](https://portal.azure.com/), select **Enterprise Applications**, **Single sign-on**, and add **SAML Token Attributes** as shown below:
 
-![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
+![Screenshot shows the Single sign-on page for your Enterprise Application.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
 
 
 

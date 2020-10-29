@@ -298,7 +298,7 @@ For more information, see [Set up your payout account and tax forms](/partner-ce
 
 ### Are returns and refunds supported with the commercial marketplace?
 
-To receive refunds, customers can cancel subscriptions within a specified time frame. For monthly subscriptions, it is 24 hours, and for annual subscriptions, it is 14 days. Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
+Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase or renewal. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase or renewal. This type of refunds doesn't apply to charges resulting from usage (either from virtual machine offers or metered billing).
 
 ## Resources
 
