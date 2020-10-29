@@ -19,7 +19,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 
 ```json
 {
-  "extensions" {
+  "extensions": {
     "durableTask": {
       "hubName": "MyTaskHub",
       "controlQueueBatchSize": 32,
