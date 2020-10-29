@@ -165,7 +165,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-For more information about sending resource logs to event hubs, see [Azure Resource Logs](../../azure-monitor/platform/resource-logs#send-to-azure-event-hubs).
+For more information about sending resource logs to event hubs, see [Azure Resource Logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
@@ -512,7 +512,7 @@ You can access and read log data that's sent to your event hub by using security
 
 You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries.
 
-For more information, see [Stream Azure monitoring data to event hub and external partners](../../azure-monitor/platform/stream-monitoring-data-event-hubs).
+For more information, see [Stream Azure monitoring data to event hub and external partners](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 Data is stored in the **StorageTableLogs** table. 
 
