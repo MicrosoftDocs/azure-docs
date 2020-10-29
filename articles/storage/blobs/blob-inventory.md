@@ -20,6 +20,18 @@ Azure Storage inventory provides an overview of your blob data within a storage 
 
 Blob inventory is supported for general purpose version 2 (GPv2), premium block blob storage, and Azure DataLake Storage Gen2 (ADLS Gen2) accounts.
 
+### Preview regions
+
+The blob inventory preview is available on storage accounts in the following regions:
+
+- France Central
+- Canada Central
+- Canada East
+
+### Pricing and billing
+
+The fee for inventory reports is not charged during the preview period. The inventory reporting fee will be determined when this feature is generally available.
+
 ## Enable inventory reports
 
 Enable blob inventory reports by adding a policy to your storage account. Add, edit, or remove a policy by using any of the following methods:
