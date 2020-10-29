@@ -57,7 +57,7 @@ Watching this video helps you understand the Data Factory UI:
 
    The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. The associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
 
-1. Click on "Next : Git configuration >" and mark "Configure Git later"
+1. Select **Next: Git configuration**, and then select **Configure Git later**.
 
 1. Select **Create**. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
