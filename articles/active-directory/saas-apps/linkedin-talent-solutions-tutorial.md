@@ -121,11 +121,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure LinkedIn Talent Solutions SSO
 
-1. Sign into LinkedIn Talent Solutions website as an        administrator.
-1. Navigate to Account Center 
+1. Sign into LinkedIn Talent Solutions website as an administrator.
+1. Navigate to **Account Center**. 
 1. Select **Settings** tab from the navigation bar.
 
-    ![settings](./media/linkedin-talent-solutions-tutorial/settings.png)
+    ![settings page](./media/linkedin-talent-solutions-tutorial/settings.png)
 
 1. Expand the **Single Sign-On (SSO)** section. 
 
@@ -135,7 +135,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![ configuration data](./media/linkedin-talent-solutions-tutorial/configuration.png)
+    ![ configuration with input data](./media/linkedin-talent-solutions-tutorial/configuration.png)
 
     a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
