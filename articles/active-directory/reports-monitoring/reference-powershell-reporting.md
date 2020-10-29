@@ -55,7 +55,7 @@ You get access to the audit logs using the `Get-AzureADAuditDirectoryLogs cmdlet
 
 The following image shows an example for this command. 
 
-![The "Data Summary" button](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Screenshot shows the result of the Get-Azure A D Audit Directory Logs command.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -77,7 +77,7 @@ You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs cmdlet.
 
 The following image shows an example for this command. 
 
-![The "Data Summary" button](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Screenshot shows the result of the Get-Azure A D Audit Sign In Logs command.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

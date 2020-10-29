@@ -175,7 +175,7 @@ This workbook shows the trends for disabled sign-ins. You can filter each trend 
 
 For disabled sign-ins, you get a breakdown by the Conditional Access status.
 
-![Conditional Access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Screenshot shows Conditional access status and Recent sign-ins.](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## Conditional Access Insights
@@ -196,12 +196,12 @@ This workbook shows the expected impact of each Conditional Access policy in you
 
 - **Data View**
 
-![Conditional Access status](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Screenshot shows the Conditional Access pane where you can select a Conditional Access Policy.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 The Impact Summary shows the number of users or sign-ins for which the selected policies had a particular result. Total is the number of users or sign-ins for which the selected policies  were evaluated in the selected Time Range. Click on a tile to filter the data in the workbook by that result type. 
 
-![Conditional Access status](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Screenshot shows tiles to use to filter results such as Total, Success, and Failure.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 This workbook also shows the impact of the selected policies broken down by each of six conditions: 
 - **Device state**
@@ -211,15 +211,11 @@ This workbook also shows the impact of the selected policies broken down by each
 - **Location**
 - **Applications**
 
-![Conditional Access status](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Screenshot shows the details from the Total sign-ins filter.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 You can also investigate individual sign-ins, filtered by the parameters selected in the workbook. Search for individual users, sorted by sign-in frequency, and view their corresponding sign-in events. 
 
-![Conditional Access status](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![Screenshot shows individual sign-ins you can review.](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## Sign-ins by grant controls
 
