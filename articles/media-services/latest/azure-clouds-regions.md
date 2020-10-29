@@ -14,35 +14,15 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services v3 is available via Azure Resource Manager manifest in global Azure, Azure Government, Azure Germany, Azure China 21Vianet. However, not all Media Services features are available in all the Azure clouds. This document outlines availabilities of main Media Services v3 components.
+Azure Media Services v3 is available via Azure Resource Manager. However, not all Media Services features are available in all the Azure clouds. This document outlines availabilities of main Media Services v3 components.
 
-## Feature availability in Azure clouds
-<!-- you can use either the dropdow or the tabs but not both -->
-<!--
-> [!div class="op_single_selector"]
-> - [United States](reference-feature-availability-us.md)
-> - [Azure US Government](reference-feature-availability-usgov.md)
-> - [Africa](reference-feature-availability-africa.md)
-> - [Asia Pacific](reference-feature-availability-apac.md)
-> - [Australia](reference-feature-availability-australia.md)
-> - [Brazil](reference-feature-availability-brazil.md)
-> - [Canada](reference-feature-availability-canada.md)
-> - [China](reference-feature-availability-china.md)
-> - [Europe](reference-feature-availability-europe.md)
-> - [Germany](reference-feature-availability-germany.md)
-> - [India](reference-feature-availability-india.md)
-> - [Japan](reference-feature-availability-japan.md)
-> - [Korea](reference-feature-availability-korea.md)
-> - [Norway](reference-feature-availability-norway.md)
-> - [Switzerland](reference-feature-availability-switzerland.md)
-> - [Taiwan](reference-feature-availability-taiwan.md)
-> - [United Arab Emirates](reference-feature-availability-uae.md)
-> - [United Kingdom](reference-feature-availability-uk.md)
--->
-## Regional and non-regional availability
+## US regions and US government cloud
 
- TABLE KEY <br/>
-![ga](./media/azure-clouds-regions/ga.svg) Generally available ![in preview](./media/azure-clouds-regions/preview.svg) In preview ![in preview expected date](./media/azure-clouds-regions/preview-active.svg) In preview and expected date ![future availability](./media/azure-clouds-regions/planned-active.svg) Future availability
+<br/>
+
+| TABLE KEY | | |
+| --- | --- | --- |
+| ![general availability](./media/azure-clouds-regions/ga.svg) generally available | ![in preview](./media/azure-clouds-regions/preview.svg) in preview | ![future availability](./media/azure-clouds-regions/planned-active.svg) future availability |
 
 ## [US](#tab/us)
 
@@ -51,6 +31,8 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 ## [USGov](#tab/usgov)
 
 [!INCLUDE [reference-feature-availability-usgov](./includes/reference-feature-availability-usgov.md)]
+
+## World regions and sovereign clouds
 
 ## [Africa](#tab/africa)
 
@@ -76,7 +58,7 @@ stuff goes here
 
 stuff goes here
 
-## [Europe](#tab/europe)
+## [EU](#tab/europe)
 
 stuff goes here
 
