@@ -1,6 +1,6 @@
 ---
 title: Connectivity settings
-description: This article explains the Transport Layer Security (TLS) version choice and the Proxy vs. Redirect settings for Azure SQL Database and Azure Synapse Analytics.
+description: This article explains the Transport Layer Security (TLS) version choice and the Proxy versus Redirect settings for Azure SQL Database and Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
@@ -17,7 +17,7 @@ ms.date: 07/06/2020
 This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to all SQL Database and Azure Synapse Analytics databases associated with the server.
 
 > [!IMPORTANT]
-> This article doesn't apply to **Azure SQL Managed Instance**.
+> This article doesn't apply to Azure SQL Managed Instance.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
@@ -68,7 +68,7 @@ To manage server or database level firewall rules, please enable the public netw
 The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the server level:
 
 ```powershell
-#Get the Public Network Access property
+# Get the Public Network Access property
 (Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
 
 # Update Public Network Access to Disabled
@@ -93,17 +93,16 @@ az sql server show -n sql-server-name -g sql-server-group --query "publicNetwork
 
 # Update setting for Public Network Access
 az sql server update -n sql-server-name -g sql-server-group --set publicNetworkAccess="Disabled"
-
 ```
 
 ## Minimal TLS Version 
 
 The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) Version setting allows customers to choose which version of TLS their Azure SQL Database uses.
 
-Currently, we support TLS 1.0, 1.1, and 1.2. Setting a Minimal TLS Version ensures that newer TLS versions are supported. For example, choosing  a TLS version greater than 1.1 means only connections with TLS 1.1 and 1.2 are accepted, and TLS 1.0 is rejected. After testing to confirm your applications support it, we recommend setting Minimal TLS Version to 1.2 because it includes fixes for vulnerabilities in previous versions and is the highest version of TLS supported in Azure SQL Database.
+Currently, we support TLS 1.0, 1.1, and 1.2. Setting a Minimal TLS Version ensures that newer TLS versions are supported. For example, choosing a TLS version greater than 1.1 means only connections with TLS 1.1 and 1.2 are accepted, and connections with TLS 1.0 are rejected. After testing to confirm that your applications support it, we recommend setting the Minimal TLS Version to 1.2 because it includes fixes for vulnerabilities in previous versions and is the highest version of TLS that's supported in Azure SQL Database.
 
 > [!IMPORTANT]
-> The default for Minimal TLS Version is to allow all versions. However, once you enforce a version of TLS, it's not possible to revert to the default.
+> The default for the Minimal TLS Version is to allow all versions. However, once you enforce a version of TLS, it's not possible to revert to the default.
 
 For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version according to the requirements of your applications. For customers that rely on applications to connect by using an unencrypted connection, we recommend not setting any Minimal TLS Version.
 
@@ -200,7 +199,7 @@ az resource update --ids $ids --set properties.connectionType=Proxy
 
 ### Azure CLI from a Windows command prompt
 
-The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
+The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed):
 
 ```azurecli
 # Get SQL Server ID and set URI
@@ -215,7 +214,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 ## Next steps
 
-- For an overview of how connectivity works in Azure SQL Database, refer to [Connectivity Architecture](connectivity-architecture.md)
+- For an overview of how connectivity works in Azure SQL Database, refer to [connectivity architecture](connectivity-architecture.md).
 - For information on how to change the connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
