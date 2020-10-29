@@ -665,6 +665,11 @@
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-monitoring",
       "redirect_document_id": false
     },
+    {	
+      "source_path": "articles/digital-twins/how-to-configure-postman.md",	
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-postman",	
+      "redirect_document_id": false	
+    },
     {
       "source_path": "articles/digital-twins/how-to-diagnose-user-defined-functions.md",
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-diagnose-user-defined-functions",
