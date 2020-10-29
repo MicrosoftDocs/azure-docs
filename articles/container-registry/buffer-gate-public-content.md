@@ -65,7 +65,9 @@ For details, see [Docker Hub authenticated pulls on App Service](https://azure.g
  
 To begin managing copies of public images, you can create an Azure container registry if you don't already have one. Create a registry using the [Azure CLI](container-registry-get-started-azure-cli.md), [Azure portal](container-registry-get-started-portal.md), [Azure PowerShell](container-registry-get-started-powershell.md), or other tools. 
 
-As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az_acr_import) command supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. Image import doesn't need a local Docker installation, so you can import images of any OS type and also import multi-architecture images. 
+As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az_acr_import) command in the Azure CLI supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
+
+`az acr import` doesn't require a local Docker installation. You can run it with a local installation of the Azure CLI or directly in Azure Cloud Shell supporting any OS type of images, multi-architecture images, or OCI artifacts such as Helm charts.
 
 Example:
 
@@ -78,27 +80,20 @@ az acr import \
   --password <Docker Hub password>
 ```
 
-## Automate base image updates
-
-Expanding on image import, use an [Azure Container Registry task](container-registry-tasks-overview.md) to detect and control base image updates in your Azure container registry. For example:
-
-* Create a task to build a local image that mirrors a base image in a public registry such as Docker Hub. When an image update occurs in the public source, the update [triggers](container-registry-tasks-base-images.md) an automatic image rebuild and push to the private registry.
-* Configure a [multi-step task](container-registry-tasks-multi-step.md) to introduce a testing gate that must be passed before importing updated base images to your private registry. 
-
-For an end-to-end example, see [How to consume and maintain public content with Azure Container Registry Tasks](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
+Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
 
 ## Automate application image updates
 
 Developers of application images should ensure that their code references local content under their control. For example, a `Docker FROM` statement in a Dockerfile should reference an image in a private base image registry instead of a public registry. 
 
-Similar to automating a base image update, set up an ACR task to automate builds of application images. An automated build task can track image updates in your private base registry in addition to [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
+Expanding on image import, set up an [Azure Container Registry task](container-registry-tasks-overview.md) to automate application image builds when base images are updated. An automated build task can track both [base image updates](container-registry-tasks-base-images.md) and [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
-For a detailed example, see: [Tutorial: Automate container image builds when a base image is updated in an Azure container registry](container-registry-tutorial-base-image-update.md).
+For a detailed example, see [How to consume and maintain public content with Azure Container Registry Tasks](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
 
 > [!NOTE]
 > A single preconfigured task can automatically rebuild every application image that references a dependent base image. 
  
 ## Next steps
  
-* Learn more about using [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
-* For a detailed example of using ACR tasks to maintain and use public artifacts, see [How to consume and maintain public content with Azure Container Registry Tasks](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md)
+* Learn more about [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
+* See the [ACR Tasks tutorials](container-registry-tutorial-quick-task) for more examples to automate image builds and updates.
