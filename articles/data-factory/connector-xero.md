@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/29/2020
 ms.author: jingwang
 ---
 

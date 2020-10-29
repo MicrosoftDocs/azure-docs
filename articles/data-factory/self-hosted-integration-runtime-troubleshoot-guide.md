@@ -5,7 +5,7 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/26/2020
+ms.date: 10/29/2020
 ms.author: lle
 ---
 
