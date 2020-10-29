@@ -1,5 +1,5 @@
 ---
-title: Optimize Azure Storage costs by using access tiers
+title: Optimize costs by using Azure Blob Storage access tiers
 description: Create automated rules for moving data between hot, cool, and archive tiers.
 author: mhopkins-msft
 
@@ -12,7 +12,7 @@ ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
-# Optimize storage costs with access tiers
+# Optimize costs by using Azure Blob Storage access tiers
 
 Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rich, rule-based policy for GPv2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
 
