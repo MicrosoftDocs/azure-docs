@@ -96,6 +96,8 @@
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
+      - name: Beyond Security beSECURE
+        href: connect-besecure.md
       - name: Citrix Analytics (Security)
         href: connect-citrix-analytics.md
       - name: F5 BIG-IP
@@ -148,6 +150,10 @@
             href: connect-checkpoint.md
           - name: Cisco ASA
             href: connect-cisco.md
+          - name: Citrix WAF
+            href: connect-citrix-waf.md
+          - name: CyberArk Enterprise Password Vault
+            href: connect-cyberark.md
           - name: ExtraHop Reveal(x)
             href: connect-extrahop.md
           - name: F5 ASM

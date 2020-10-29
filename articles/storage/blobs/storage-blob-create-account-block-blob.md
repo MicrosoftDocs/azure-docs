@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2020
+ms.date: 10/28/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -15,9 +15,6 @@ ms.custom: devx-track-azurepowershell
 # Create a BlockBlobStorage account
 
 The BlockBlobStorage account kind lets you create block blobs with premium performance characteristics. This type of storage account is optimized for workloads with high transactions rates or that require very fast access times. This article shows how to create a BlockBlobStorage account by using the Azure portal, the Azure CLI, or Azure PowerShell.
-
-> [!NOTE]
-> The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
 
 For more information about BlockBlobStorage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -115,12 +112,10 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
 8. Choose the **Advanced** tab.
 
-9. If you want to optimize your storage account for data analytics, then set **Hierarchical namespace** to **Enabled**. Otherwise, leave this option set to it's default value.
-
-   To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+9. If you want to optimize your storage account for data analytics, then set **Hierarchical namespace** to **Enabled**. Otherwise, leave this option set to it's default value. Enabling this setting with your BlockBlobStorage account gives you the [premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md).  To learn more about Data Lake Storage, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
    > [!NOTE]
-   > The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
+   > The hierarchical namespace feature in a block blob storage account is in public preview. For information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
 
 8. Select **Review + create** to review the storage account settings.
 
@@ -161,10 +156,10 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
-   If you want to optimize your storage account for data analytics, then add `-EnableHierarchicalNamespace $True` to the command. To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   If you want to optimize your storage account for data analytics, then add `-EnableHierarchicalNamespace $True` to the command. Enabling this setting with your BlockBlobStorage account gives you the [premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md).  To learn more about Data Lake Storage, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
    > [!NOTE]
-   > The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
+   > The hierarchical namespace feature in a block blob storage account is in public preview. For information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -195,10 +190,10 @@ To create a block blob account by using the Azure CLI, you must first install Az
     --sku "Premium_LRS"
    ```
 
-   If you want to optimize your storage account for data analytics, then add `--hierarchical-namespace true` to the command. To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-
+   If you want to optimize your storage account for data analytics, then add `--hierarchical-namespace true` to the command. Enabling this setting with your BlockBlobStorage account gives you the [premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md).  To learn more about Data Lake Storage, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+   
    > [!NOTE]
-   > The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
+   > The hierarchical namespace feature in a block blob storage account is in public preview. For information about regional availability, see [Regional availability](premium-tier-for-data-lake-storage.md#regional-availability).
    
 ---
 

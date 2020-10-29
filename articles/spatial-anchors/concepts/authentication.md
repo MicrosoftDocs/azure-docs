@@ -113,7 +113,7 @@ For applications that target Azure Active Directory users, we recommend that you
         1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
         2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
         3.    If your application supports **All Microsoft account users**, replace this value with **Common**.
-3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
+3.    On your token request, set the **scope** to **"https://sts.mixedreality.azure.com//.default"**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
 After you complete these steps, your application should be able to obtain from MSAL an Azure AD token. You can set that Azure AD token as the `authenticationToken` on your cloud session configuration object:
 
@@ -192,7 +192,7 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
 
 1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
-3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**.
+3.    On your token request, set the **scope** to **"https://sts.mixedreality.azure.com//.default"**.
 
 After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here's a sample call:
 

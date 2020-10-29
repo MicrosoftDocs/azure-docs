@@ -53,8 +53,9 @@ Before you can create a connection, you need to add ITSMC.
 
 3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install ITSMC.
    >[!NOTE]
-   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS workspaces are now referred to as *Log Analytics workspaces*.
-   > * ITSMC can be installed only in Log Analytics workspaces in the following regions: East US, West US 2, South Central US, West Central US, Fairfax, Canada Central, West Europe, UK South, Southeast Asia, Japan East, Central India, and Australia Southeast.
+   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as *Log Analytics workspaces*.
+   > * ITSMC can be installed only in Log Analytics workspaces in the following regions: East US, West US 2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Canada Central, West Europe, South UK, Southeast Asia, Japan East, Central India, and Australia Southeast.
+
 
 4. In the **Log Analytics workspace** section, select the resource group where you want to create the ITSMC resource:
 
