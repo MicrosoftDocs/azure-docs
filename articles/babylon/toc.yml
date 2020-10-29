@@ -89,6 +89,8 @@
       href: create-custom-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
+    - name: Automatically label your content
+      href: create-sensitivity-label.md
   - name: Search & browse
     items:
     - name: Browse Babylon
@@ -103,8 +105,6 @@
     items:
     - name: Map and discover insights
       href: map-discover.md
-    - name: Create senstivity labels
-      href: create-sensitivity-label.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
