@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Marketo SSO
 
-1. To get Munchkin Id of your application, log in to Marketo using admin credentials and perform following actions:
+1. To get Munchkin ID of your application, log in to Marketo using admin credentials and perform following actions:
    
     a. Log in to Marketo app using admin credentials.
    
@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
     ![Configure Single Sign-On2](./media/marketo-tutorial/tutorial_marketo_11.png)
    
-    d. Copy the Munchkin Id shown on the screen and complete your Reply URL in the Azure AD configuration wizard.
+    d. Copy the Munchkin ID shown on the screen and complete your Reply URL in the Azure AD configuration wizard.
    
     ![Configure Single Sign-On3](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
