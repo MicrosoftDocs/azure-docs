@@ -32,21 +32,21 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
     - **Max concurrent test drives** – The number of concurrent users that can have an active test drive running at the same time. Each user will consume a Dynamics license while their test drive is active, so ensure you have at least this many Dynamics licenses available for test drive users. We recommended 3 to 5.
 	- **Test drive duration** – The number of hours the user's test drive will be active. After the time has expired, the user will be deprovisioned from your tenant. We recommended 2-24 hours depending on the complexity of your app. The user can always request another test drive if they run out of time and want to access the test drive again.
 	- **Instance URL** – The URL the test drive user will be sent to when they start the test drive. This is typically the URL of your Dynamics 365 instance on which your app and sample data is installed. Example value: `https://testdrive.crm.dynamics.com`.
-	- **Instance web API URL** – The Web API URL for your Dynamics 365 Instance. Retrieve this value by signing into your Microsoft Dynamics 365 instance and navigating to **Setting** > **Customization** > **Developer Resources** > **Instance Web API** and copy the address (URL). Example value: <font color="red">[ Looks like the sample is blanked out; is this image needed? If you leave the data in, I can mix up the digits. ]</font>
+	- **Instance web API URL** – The Web API URL for your Dynamics 365 Instance. Retrieve this value by signing into your Microsoft Dynamics 365 instance and navigating to **Setting** > **Customization** > **Developer Resources** > **Instance Web API** and copy the address (URL). Example value:
 
         :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="An example of Instance Web API.":::
 
-	- **Role name** – The <font color="red">[ AOT? ]</font> name of the custom Dynamics 365 security role you created for test drive or you can use an existing role. A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to sign into Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. Example value: `testdriverole`. <font color="red">[ should this have the screenshot that Operations has below? ]</font>
+	- **Role name** – The name of the custom Dynamics 365 security role you created for test drive or you can use an existing role. A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to sign into Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. Example value: `testdriverole`.
 	
         > [!IMPORTANT]
-        > <font color="red">[ FIX WORDING ]</font> Ensure that security group check is not added for user to get synced to Customer Engagement instance.
+        > Ensure the security group check is not added. This allows the user to be synced to the Customer Engagement instance.
 
 	- **Azure Active Directory tenant ID** – The ID of the Azure tenant for your Dynamics 365 instance. To retrieve this value, sign in to Azure portal and navigate to **Azure Active Directory** > **Properties** and copy the directory ID. Example value: 172f988bf-86f1-41af-91ab-2d7cd01112341.
 	- **Azure Active Directory tenant name** – The name of the Azure Tenant for your Dynamics 365 Instance. Use the format `<tenantname>.onmicrosoft.com`. Example Value: `testdrive.onmicrosoft.com`.
 	- **Azure Active Directory application ID** – The ID of the Azure Active Directory (AD) app you created in Step 5. Example value: `53852862-a2ae-4e43-9461-faa49650a096`.
 	- **Azure Active Directory application client secret** – Secret for the Azure AD app created in Step 5. Example value: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
 
-7. Provide the marketplace listing details. Select **Language** to see further required fields <font color="red">[ is this supposed to be shown in this image? ]</font>.
+7. Provide the marketplace listing details. Select **Language** to see further required fields.
 
     :::image type="content" source="./media/test-drive/marketplace-listing-details.png" alt-text="The Marketplace listing details page.":::
 
@@ -77,11 +77,11 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 	- **Azure Active Directory application ID** – The ID of the Azure Active Directory (AD) app you created in Step 5. Example value: `53852862-a2ae-4e43-9461-faa49650a096`.
 	- **Azure Active Directory application client secret** – Secret for the Azure AD app created in Step 5. Example value: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
     - **Trial Legal Entity** – Provide a Legal Entity to assign a trial user. You can create a new one at [Create or modify a legal entity](https://technet.microsoft.com/library/hh242184.aspx).
-    - **Role name** – The **AOT name** <font color="red">[ AOT stands for... ]</font> of the custom Dynamics 365 security role you created for test drive. <font color="red">[ want this next sentence from above? ]</font> A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to Log in Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. <font color="red">[ want this example text from above? ]</font> Example value: `testdriverole`.
+    - **Role name** – The AOT name (Application Object Tree) of the custom Dynamics 365 security role you created for test drive. This is the role that will be assigned to users during their test drive.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="The security configuration page.":::
 
-7. Provide the marketplace listing details. Select **Language** to see further required fields <font color="red">[ is this supposed to be shown in this image? ]</font>.
+7. Provide the marketplace listing details. Select **Language** to see further required fields.
 
     :::image type="content" source="./media/test-drive/marketplace-listing-details.png" alt-text="The Marketplace listing details page.":::
 
