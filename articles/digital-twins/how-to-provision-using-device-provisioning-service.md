@@ -244,13 +244,6 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### Create Device Provisioning enrollment
 
 Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) and [*Derive unique device keys*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) sections of the Device Provisioning Services article about custom allocation policies.

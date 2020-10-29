@@ -44,7 +44,7 @@ If you prefer command line development from the Terminal, the simplest way to sc
 
 The following command generates a new Java function project using this archetype:
 
-```
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 

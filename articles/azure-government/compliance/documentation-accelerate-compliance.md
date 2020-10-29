@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/19/2020
+ms.date: 10/27/2020
 ms.author: todorb
 
 ---
@@ -26,32 +26,36 @@ As a partner who provides a service in this field, you can publish your offering
 
 ## Customers
 
-The Government, as many other organizations, relays on commercial software companies to achieve its mission. As part of the procurement and consumption processes, the ATO (Authority to Operate) was implemented to ensure that the development, use, and operation of such commercial software and platforms, is done in accordance with security and data protection necessary to safeguard government information.  While the process is best intentioned, the complexity across all swim lanes creates a long and expensive project that discourages many Independent Software Vendors (ISVs) to go down this path.
+The US Government, as well as many other organizations, relies on commercial software companies to achieve its mission. As part of the procurement and consumption processes, the Authority to Operate (ATO) was implemented to ensure that the development, use, and operation of such commercial software and platforms, is done in accordance with security and data protection necessary to safeguard government information.  While the process has the best intentions, the inherent complexity creates a long and expensive project that discourages many Independent Software Vendors (ISVs) to go down this path.
 
-With the adoption of cloud technologies by the Federal Government as well as other industries, we have seen the development of certification/accreditation standards such as HIPA, GDPR, SOX, ISO, FISMA, and others and in the case of the Federal Government, FedRAMP or Federal Risk Authorization Management Program. This is a government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This approach uses a “do once, use many times” framework that saves cost, time, and staff required to conduct redundant Agency security assessments. This program is based, as well as FISMA, on the NIST SP 800-53 security controls.  
+The adoption of cloud technologies by the Federal Government is predicated on the Federal Risk Authorization Management Program (FedRAMP). This is a government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This approach uses a “do once, use many times” framework that saves cost, time, and staff required to conduct redundant Agency security assessments. The program is based on the NIST SP 800-53 security controls.
+
 There are two types of FedRAMP authorizations for cloud services: 
+
  * A Provisional Authority to Operate (P-ATO) through the Joint Authorization Board (JAB) 
  * An Agency Authority to Operate (ATO) 
 
-###### P-ATO Process 
+### P-ATO process 
 
 A FedRAMP P-ATO is an initial approval of the CSP authorization package by the JAB that an Agency can leverage to grant an ATO for the acquisition and use of the cloud service within their Agency. The JAB consists of the Chief Information Officers (CIOs) from DOD, DHS, and GSA, supported by designated technical representatives (TRs) from their respective member organizations. A P-ATO means that the JAB has reviewed the cloud service’s authorization package and provided a provisional approval for Federal Agencies to leverage when granting an ATO for a cloud system. For a cloud service to enter the JAB process, it must first be prioritized through FedRAMP Connect.  
 
-###### Agency ATO Process 
+### Agency ATO process 
 
-As part of the Agency authorization process, a CSP works directly with the Agency sponsor who reviews the cloud service’s security package. After completing a security assessment, the head of an Agency (or their designee) can grant an ATO.   
+As part of the Agency authorization process, a CSP works directly with the Agency sponsor who reviews the cloud service’s security package. After completing a security assessment, the head of an Agency (or their designee) can grant an ATO.
+
 Taking the above into consideration, an ISV can choose to go for JAB authorization, which grants a generalized authorization to its solution and can be used with multiple agencies, this process tends to be longer. They can also choose to go for an Agency ATO which is specific to the Government customer they are serving. This customer acts as the sponsor and may even have “reciprocity” with other agencies which allows for a faster, smoother adoption of the company’s solution with a different customer.  
 
 ## Partners
 
 Microsoft is able to scale through its partners. Scale is what will allow us to create a more predictable, cost-effective, and speedy delivery. These so happen to be the concerns with perusing an ATO.  We are focusing on enabling two main kinds of partnerships: 
+
  * **Advisory:** enables partners to create offerings based on Azure that shepherd a customer through steps or the entire ATO process. These partners offer consulting services bundled with some automated solutions that are valu-add to what Azure Compliance Launchpad provides. They can usually be contracted directly, by reference or via the Marketplace.  
  * **Automation:** there are two types of automation partners we focus one, foundational partners which enable integrated 3rd party solutions with Azure and help you achieve / meet controls from your FedRAMP Package. These partners are part of our recommended reference architectures. The second kind is true automation partners that help automating certain aspects of the ATO journey such as the SSP generation, self-healing, alerts and monitoring. 
  
  > [!NOTE]
-> Partners are asked to publish their solutions to the Azure Marketplace. Steps on how to achieve that are presented below.
+> Partners are asked to publish their solutions to Microsoft Azure Marketplace. Steps on how to achieve that are presented below.
 
-## Publishing to the Azure Marketplace for Partners in the Compliance space
+## Publishing to Azure Marketplace for compliance partners
 
 1. Join the Partner Network - It’s a requirement for publishing but easy to sign up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page)
 2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
