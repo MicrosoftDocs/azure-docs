@@ -153,7 +153,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     5. Select **+ New**.
     6. Enter the **Client ID of the Azure AD app** that is going to perform the on-behalf-of actions.
 
-<font color="red">[ Enter? ]</font> The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).
+The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).
 
 :::image type="content" source="./media/test-drive/system-admin-user-id.png" alt-text="The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).":::
 
