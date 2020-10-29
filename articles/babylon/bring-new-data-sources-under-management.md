@@ -12,15 +12,15 @@ ms.date: 10/12/2020
 
 In this article, you learn how to add, view, edit, and delete data sources from the Babylon Management Center. A data source is the top-level data store you want to scan, such as:
 
-- An ADLS Gen1.
-- An ADLS Gen2.
+- An ADLS Gen1 account.
+- An ADLS Gen2 account.
 - An Azure Blob Storage account.
 - An Azure Data Explorer cluster.
-- An Azure File Storage.
+- An Azure File Storage account.
 - An Azure SQL Server.
 - A CosmosDB instance.
 
-Data sources must be registered before they can be managed in Management Center.
+Data sources must be registered before they can be managed in **Management Center**.
 
 ## View data sources
 
@@ -71,9 +71,6 @@ Then select **Delete**.
 
 For information on registering data sources of various types, and on creating scans, see: 
 
-- [Register and scan Azure Files](register-scan-azure-files-storage-source.md)
-- [Register and scan Teradata](register-scan-teradata-source.md)
-- [Register and scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)
-- [Register and scan Azure Data Lake Storage Gen 1](register-scan-adls-gen1.md)
-- [Register and scan Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
-- [Create a scan rule set](create-a-scan-rule-set.md)
+- [Azure Files](register-scan-azure-files-storage-source.md)
+- [Teradata](register-scan-teradata-source.md)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md)

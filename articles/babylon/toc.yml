@@ -53,7 +53,6 @@
     - name: Bring new data sources under management
       href: bring-new-data-sources-under-management.md
     - name: Azure Files
-    - name: Register and scan Azure Files
       href: register-scan-azure-files-storage-source.md
       displayName: Register and scan Azure files
     - name: Teradata
