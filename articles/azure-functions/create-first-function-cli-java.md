@@ -41,7 +41,7 @@ Before you begin, you must have the following:
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to run your functions in Azure on Java 11 instead of Java 8. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
 
     # [bash](#tab/bash)
     
@@ -62,6 +62,10 @@ In Azure Functions, a function project is a container for one or more individual
     ```
     
     ---
+
+    > [!IMPORTANT]
+    > + Use `-DjavaVersion=11` if you want to your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+    > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
 
 1. Maven asks you for values needed to finish generating the project on deployment.   
     Provide the following values when prompted:
@@ -103,8 +107,6 @@ Settings for the Azure resources created to host your app are defined in the **c
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 You can change these settings to control how resources are created in Azure, such as by changing `runtime.os` from `windows` to `linux` before initial deployment. For a complete list of settings supported by the Maven plug-in, see the [configuration details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
-
-If you want to run your function app on Java 11 instead of Java 8, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](functions-reference-java.md#java-versions). When running on Java 11, make sure that  
 
 #### FunctionTest.java
 
