@@ -1,5 +1,5 @@
 ---
-title: Connect to Power BI Professional
+title: Connect to Synapse SQL with Power BI Professional
 description: In this tutorial, we will go through steps how to connect Power BI desktop to serverless SQL pool (preview).
 services: synapse-analytics
 author: azaricstefan
@@ -42,7 +42,7 @@ Parameters:
 | Serverless SQL pool service endpoint address    | Will be used as server name                                   |
 | Serverless SQL pool service endpoint region     | Will be used to determine what storage will we use in samples |
 | Username and password for endpoint access | Will be used to access endpoint                               |
-| Database you'll use to create views     | This database will be used as starting point in samples       |
+| Database you'll use to create views       | This database will be used as starting point in samples       |
 
 ## First-time setup
 
@@ -105,4 +105,3 @@ Write the URL for the database and the name of the database where the view resid
 ## Next steps
 
 Advance to [Query storage files](get-started-azure-data-studio.md) to learn how to connect to serverless SQL pool using Azure Data Studio.
- 

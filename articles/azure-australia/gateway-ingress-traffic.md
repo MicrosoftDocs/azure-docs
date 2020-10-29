@@ -141,7 +141,7 @@ Standard provides additional mitigation capabilities over the Basic service tier
 |Resource|Link|
 |---|---|
 |Azure DDoS Protection Overview|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Azure DDoS Best Practices|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
+|Azure DDoS Best Practices|[https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices](https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices)|
 |Managing DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

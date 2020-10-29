@@ -158,6 +158,14 @@ Another way to improve your score and ensure your users don't create resources t
 
 The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
 
+The set of security recommendations provided with Security Center is tailored to the available resources in each organization’s environment. The recommendations can be further customized by [disabling policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempting specific resources from a recommendation](exempt-resource.md). 
+ 
+We recommend every organization carefully review their assigned Azure Policy initiatives. 
+
+> [!TIP]
+> For details of reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
+
+Even though Security Center’s default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it’ll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it’s aligned with your organization’s own policies. industry standards, regulatory standards, and benchmarks you’re obligated to meet.<br><br>
 <div class="foo">
 
 <style type="text/css">
