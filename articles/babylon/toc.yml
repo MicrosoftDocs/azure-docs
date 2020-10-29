@@ -89,6 +89,8 @@
       href: create-custom-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
+    - name: Automatically label your content
+      href: create-sensitivity-label.md
   - name: Search & browse
     items:
     - name: Browse Babylon

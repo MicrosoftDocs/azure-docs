@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 10/28/2020
+ms.date: 10/29/2020
 ---
 
 # Tutorial: Use Catalog insights
@@ -67,13 +67,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## View Classification insights
 
 1. On the left, select **Classification** to view insights about the classifications found in your content.
+
     
     |Option  |Description  |
     |---------|---------|
-    |**Time selector**     | Adjust the time selectors as needed to show updated results found over different time periods.        |
-    |**Overall statistics**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
+    |**Overall statistics**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
     |**Total sources with classified data**  |Use the **Total sources with classified data** graph to view the numbers of classified data found in various sources, over the last 30 days. |
-    | **Top classification categories by sources** |Use the **Top classification categories by sources** graph to view the number of sources that contain top classification categories |
+    | **Top classification categories by sources** |Use the **Top classification categories by sources** graph to view the number of sources that contain top classification categories. |
     |**Top classifications**     |  Use the **Top classifications** graphs for files and tables to view the most commonly used classifications in your content, such as credit card numbers or national identification numbers.       |
     |**Classification activity** | Use the **Classified data (daily activity)** graphs to view the number of classified files found for files and tables over time. |
 
@@ -85,7 +85,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     |---------|---------|
     |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
     |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
-    |**Find more information** |In the table below your graphs, select a specific classification to view additional information about the data sources, such as: </br>- Asset types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected classification. | 
+    |**Find more information** |In the table below your graphs, select a specific classification to view additional information about the data sources, such as: </br>- Source types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected classification. | 
     | | | 
 
 ## View Labeling insights
