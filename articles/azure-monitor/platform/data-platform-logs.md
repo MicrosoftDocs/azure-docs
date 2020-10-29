@@ -16,8 +16,7 @@ Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log
 
 
 ## What can you do with Azure Monitor Logs?
-The following table lists some of the different ways that you can use Logs in Azure Monitor.
-
+The following table describes some of the different ways that you can use Logs in Azure Monitor:
 
 |  |  |
 |:---|:---|

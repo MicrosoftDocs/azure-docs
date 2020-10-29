@@ -180,17 +180,6 @@ See [Overview of Azure Monitor agents](platform/agents-overview.md) for details 
 | [Dependency agent](insights/vminsights-enable-overview.md) | No | Yes |
 
 
-## Virtual machine agents
-Agents collect 
-
-Azure Monitor agent
-Log Analytics agent
-Diagnostic extension
-Telegraf agent
-Dependency agent
-
-
-
 ## Product integrations
 The services and solutions in the following table store their data in a Log Analytics workspace so that it can be analyzed with other log data collected by Azure Monitor.
 
