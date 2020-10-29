@@ -223,10 +223,8 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
   > [!NOTE]
   > The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). 
-  > Some stored procedures might take longer than this limit to run and finish, generating a `504 Timeout` error. Some long-running 
-  > processes are coded as stored procedures explicitly for this purpose. Due to the timeout limit, calling these procedures from 
-  > Azure Logic Apps might create problems. Although the SQL connector doesn't natively support an asynchronous mode, you can simulate 
-  > this mode by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs.
+  > Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. You can work around this problem 
+  > by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs.
   > 
   > For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
   > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For 
