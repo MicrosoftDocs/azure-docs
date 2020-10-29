@@ -47,6 +47,9 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
+> [!NOTE]
+> As of October 2020, Linux web apps  will the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true`. This requirement will be removed in the future.
+
 # [Service principal](#tab/service-principal)
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
