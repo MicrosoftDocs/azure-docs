@@ -22,7 +22,7 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 
 ## Configuration
 
-![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
+![Screenshot shows the Lookup settings tab with the labels described in the following text.](media/data-flow/lookup1.png "Lookup")
 
 **Primary stream:** The incoming stream of data. This stream is equivalent to the left side of a join.
 
@@ -80,7 +80,7 @@ It's not recommended to disable broadcasting via the **Off** option unless your 
 ```
 ### Example
 
-![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
+![Screenshot shows the Lookup settings tab for the following code.](media/data-flow/lookup-dsl-example.png "Lookup")
 
 The data flow script for the above lookup configuration is in the code snippet below.
 

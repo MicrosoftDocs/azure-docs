@@ -37808,6 +37808,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/external-identities/licensing-guidance.md",
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-b2b-mfa-instructions.md",
       "redirect_url": "/azure/active-directory/b2b/conditional-access",
       "redirect_document_id": true
