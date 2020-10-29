@@ -318,7 +318,7 @@ Returns the below output in a format and content very similar to the one returne
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {
