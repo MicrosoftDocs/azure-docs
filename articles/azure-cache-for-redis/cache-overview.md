@@ -11,9 +11,9 @@ ms.date: 05/12/2020
 ---
 
 # Azure Cache for Redis
-Azure Cache for Redis provides an in-memory data store based on the open-source software [Redis](https://redis.io/). Redis improves the performance and scalability of an application that uses on backend data stores heavily. It is able to process large volumes of application request by keeping frequently accessed data in the server memory that can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
+Azure Cache for Redis provides an in-memory data store based on the [Redis](https://redis.io/) software. Redis improves the performance and scalability of an application that uses on backend data stores heavily. It is able to process large volumes of application request by keeping frequently accessed data in the server memory that can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
 
-Azure Cache for Redis offers Redis as a managed service. It provides secure and dedicated Redis server instances and full Redis API compatibility. The service is operated by Microsoft, hosted on Azure, and accessible to any application within or outside of Azure.
+Azure Cache for Redis offers both the Redis open-source and a commercial product from Redis Labs as a managed service. It provides secure and dedicated Redis server instances and full Redis API compatibility. The service is operated by Microsoft, hosted on Azure, and accessible to any application within or outside of Azure.
 
 Azure Cache for Redis can be used as a distributed data or content cache, a session store, a message broker, and more. It can be deployed as a standalone or along side with other Azure database service, such as Azure SQL or Cosmos DB.
 
@@ -30,7 +30,7 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 ## Redis versions
 
-Azure Cache for Redis supports Redis version 4.x and, as a preview, 6.0. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis only maintained a single Redis version. It will provide a newer major release upgrade and at least one older stable version going forward. You can [choose which version](cache-how-to-version.md) works the best for your application.
+Azure Cache for Redis supports OSS Redis version 4.x and, as a preview, 6.0. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis only maintained a single Redis version. It will provide a newer major release upgrade and at least one older stable version going forward. You can [choose which version](cache-how-to-version.md) works the best for your application.
 
 > [!NOTE]
 > Redis 6.0 is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested. This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,8 +44,8 @@ Azure Cache for Redis is available in the following tiers:
 | Basic | An OSS Redis cache running on a single VM. This tier has no service-level agreement (SLA) and is ideal for development/test and non-critical workloads. |
 | Standard | An OSS Redis cache running on two VMs in a replicated configuration. |
 | Premium | High-performance OSS Redis caches. This tier offers higher throughput, lower latency, better availability, and more features. Premium caches are deployed on more powerful VMs compared to those for Basic or Standard caches. |
-| Enterprise | High-performance caches powered by the Redis Enterprise software from Redis Labs. This tier supports Redis modules including RediSearch, RedisBloom, and RedisTimeSeries. In addition, it offers even higher availability than the Premium tier. |
-| Enterprise | Cost-effective large caches powered by the Redis Enterprise software from Redis Labs. This tier extends Redis data storage to non-volatile memory, which is cheaper than DRAM, on a VM. It reduces the overall per-GB memory cost. |
+| Enterprise | High-performance caches powered by Redis Labs' Redis Enterprise software. This tier supports Redis modules including RediSearch, RedisBloom, and RedisTimeSeries. In addition, it offers even higher availability than the Premium tier. |
+| Enterprise | Cost-effective large caches powered by Redis Labs' Redis Enterprise software. This tier extends Redis data storage to non-volatile memory, which is cheaper than DRAM, on a VM. It reduces the overall per-GB memory cost. |
 
 ### Feature comparison
 The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) provides a detailed comparison of each tier. The following table helps describe some of the features supported by tier:
