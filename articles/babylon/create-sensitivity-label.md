@@ -31,9 +31,13 @@ Sensitivity labels in Babylon enable you to:
 
 With sensitivity labels, you can classify data across your data estate and then enforce protection settings based on that classification. 
 
-For more information, see the [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels) in the Microsoft 365 documentation.
+For more information, see:
 
-### What are autolabeling rules?
+- [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels) in the Microsoft 365 documentation
+- [What are autolabeling rules?](#what-are-autolabeling-rules)
+- [Supported data types for sensitivity labels in Babylon](#supported-data-types-for-sensitivity-labels-in-babylon)
+
+#### What are autolabeling rules?
 
 Your content is constantly growing and changing. 
 
@@ -41,7 +45,7 @@ When you create your labels, make sure to define autolabeling rules for both fil
 
 After scanning your content, you can dive into your data to view the labels automatically applied, as well as view Insight reports on the classifications and labels in your content over time. 
 
-### Supported data types for sensitivity labels in Babylon
+#### Supported data types for sensitivity labels in Babylon
 
 Sensitivity labels are supported in Babylon for the following data types:
 
@@ -57,6 +61,7 @@ If you don't already have sensitivity labels, you'll need to create them.
 Existing sensitivity labels will also need to be modified to include the new data asset types within Babylon.
 
 **Prerequisites**
+
 During public preview, sensitivity labels for Babylon are created and managed using Microsoft 365, and you must have an active Microsoft 365 E5 license.
 
 For more information, see the [Microsoft 365 E5 sales page](https://www.microsoft.com/microsoft-365/enterprise/e5).
@@ -102,6 +107,11 @@ For more information, see the [Microsoft 365 E5 sales page](https://www.microsof
 > Do not delete a label unless you understand the impact for your users. 
 >
 > For more information, see [Removing and deleting labels](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) in the Microsoft 365 documentation.
+
+Continue by [scanning your content to apply labels automatically](#scan-your-content-to-apply-labels-automatically), and then:
+
+- [Search for files based on labels](#search-for-files-based-on-labels)
+- [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
 #### Define autolabeling rules for files
 
@@ -174,11 +184,11 @@ In Babylon, files with sensitivity labeling are marked as **Microsoft extended**
 > [!NOTE]
 > Sensitivity labels that are applied to specific SQL columns are displayed at the SQL table level.
 
-## Next steps:
+## View Insight reports for the classifications and sensitivity labels
+
 Find insights on your classified and labeled data in Babylon using the **Sensitivity labeling** and **Classification** reports.
 
-> [!div class="nextstepaction"]
-> [Sensitivity reporting](sensitivity-insights.md)
+For more information see:
 
-> [!div class="nextstepaction"]
-> [Classification reporting](classification-insights.md)
+- [Classification insights about your data from Project Babylon](classification-insights.md)
+- [Sensitivity label insights about your data from Project Babylon](sensitivity-insights.md)
