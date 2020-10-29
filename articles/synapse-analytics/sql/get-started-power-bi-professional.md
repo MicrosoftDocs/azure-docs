@@ -105,4 +105,3 @@ Write the URL for the database and the name of the database where the view resid
 ## Next steps
 
 Advance to [Query storage files](get-started-azure-data-studio.md) to learn how to connect to serverless SQL pool using Azure Data Studio.
- 
