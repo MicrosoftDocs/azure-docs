@@ -595,7 +595,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Automation Update Management to ensure that the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.
 
-- [How to configure Update Management for virtual machines in Azure](/azure/automation/automation-update-management)
+- [How to configure Update Management for virtual machines in Azure](/azure/automation/update-management/overview)
 
 - [Understand Azure security policies monitored by Security Center](../security-center/security-center-policy-definitions.md)
 
