@@ -4,7 +4,7 @@ description: Learn how to create a Microsoft commercial marketplace account in P
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 10/29/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
@@ -15,19 +15,15 @@ ms.custom: contperfq2
 To publish your offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/), you must create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
 
 >[!NOTE]
->If you had an account in the Cloud Partner Portal (CPP), we moved it to Partner Center; you don't need to create a new account. For more information, see [Publishers who moved from the Cloud Partner Portal](#publishers-who-moved-from-the-cloud-partner-portal).
+>If you had an account in the Cloud Partner Portal (CPP), we moved it to Partner Center. You don't need to create a new account. For more information, see [Publishers who moved from the Cloud Partner Portal](#publishers-who-moved-from-the-cloud-partner-portal).
 
 ## Before you begin
 
->[!IMPORTANT]
->To publish offers in the commercial marketplace, you must use a work account associated with a company or organization. Personal accounts aren't supported. For more information, see [Your company work account and Partner Center](company-work-accounts.md).
+To create an account in Partner Center, make sure you meet the following prerequisites. We'll verify this information during the account creation process.
 
-To create an account in Partner Center, make sure you have:
-
-- Authority to sign legal agreements on your company's behalf.
-- Your company's legal business name, address, and primary contact. This person can be you.
-
-We'll verify this information during the account creation process.
+- You must use a work account associated with your company or organization. Personal accounts aren't supported. For more information, see [Company work accounts and Partner Center](company-work-accounts.md).
+- Know your company's legal business name, address, and primary contact. This person can be you.
+- You must have authority to sign legal agreements on your company's behalf.
 
 There are two ways to create an account:
 
@@ -74,10 +70,11 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 
 Use this section to create a commercial marketplace account if you already have an enrollment in Microsoft Partner Center. There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the scenario that applies to you:
 
-- *What if I'm already enrolled in the Microsoft Partner Network?*
-     [Use an existing Microsoft Partner Network enrollment](#use-a-microsoft-partner-network-enrollment) to create your account.
-- *What if I'm already enrolled in a developer program?*
-     [Use an existing developer program enrollment](#use-a-developer-program-enrollment) to create your account.
+*What if I'm already enrolled in the Microsoft Partner Network?*
+- [Use an existing Microsoft Partner Network enrollment](#use-a-microsoft-partner-network-enrollment) to create your account.
+
+*What if I'm already enrolled in a developer program?*
+- [Use an existing developer program enrollment](#use-a-developer-program-enrollment) to create your account.
 
 For both enrollment types, you sign in to Partner Center with your existing credentials. Be sure to have your account and publisher profile information available.
 
