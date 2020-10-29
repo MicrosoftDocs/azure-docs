@@ -82,7 +82,7 @@ Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure
 Next, set up and configure permissions for ADT Explorer. To do this, follow the instructions in the [*Set up Azure Digital Twins and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
 1. Set up an Azure Digital Twins instance (you can skip this part since you have an instance already)
 2. Set up local Azure credentials to provide access to your instance
-4. Run ADT Explorer and configure it to connect to your instance. You will use the **hostname** of your original Azure Digital Twins instance that you are moving.
+3. Run ADT Explorer and configure it to connect to your instance. You will use the **hostname** of your original Azure Digital Twins instance that you are moving.
 
 Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
