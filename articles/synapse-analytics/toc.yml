@@ -6,6 +6,7 @@
   items:
   - name: What is Azure Synapse?
     href: overview-what-is.md
+    displayName: overview
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -16,7 +17,7 @@
   items:
   - name: Introduction
     href: get-started.md
-    displayName: get, started
+    displayName: get, started, quickstart
   - name: 1 Create a Synapse workspace
     href: get-started-create-workspace.md
     displayName: get, started
@@ -64,8 +65,10 @@
       displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
+      displayName: quickstart      
     - name: Connect to Azure Data Explorer
       href: quickstart-connect-azure-data-explorer.md
+      displayName: quickstart
     -name: 
   # - name: Tutorials
   #   items:
@@ -79,18 +82,22 @@
         items:
         - name: Shared databases
           href: metadata/database.md
+          displayname: shared
         - name: Shared tables
           href: metadata/table.md
+          displayname: shared
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
         - name: SQL script
           href: ./sql/author-sql-script.md
+          displayname: author
         - name: Mapping Data Flow
           href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
       href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      displayname: schedule
     - name: Security
       items:
       - name: Security baseline
@@ -149,6 +156,7 @@
     items:
     - name: Synapse SQL architecture
       href: sql/overview-architecture.md
+      displayName: overview
     - name: SQL on-demand
       href: sql/on-demand-workspace-overview.md
     - name: SQL pool 
