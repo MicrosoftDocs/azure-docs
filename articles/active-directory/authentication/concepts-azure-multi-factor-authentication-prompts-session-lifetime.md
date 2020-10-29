@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/31/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
@@ -117,7 +117,7 @@ To configure Conditional Access policies for sign-in frequency and persistent br
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
-To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
+To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/configure-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
 
 If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Microsoft 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
 

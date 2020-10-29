@@ -20,8 +20,8 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| CPU    | 2 X 10 core CPU                     |
-| Memory              | 128 GB RAM                  |
+| CPU    | 2 X 10 core CPU Intel Xeon Silver 4114 2.2G                    |
+| Memory              | 128 GB RAM (8x 16GB RDIMM)                 |
 
 ## FPGA specifications
 
@@ -58,6 +58,15 @@ Your Azure Stack Edge Pro device has 6 network interfaces, PORT1- PORT6.
 | Specification           | Description                 |
 |-------------------------|----------------------------|
 |  Network interfaces    | 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.                  |
+
+The Network Adapters used are: 
+
+| Specification           | Description                 |
+|-------------------------|----------------------------|
+|Network Daughter Card (rNDC) |QLogic FastLinQ 41264 Dual Port 25GbE SFP+, Dual Port 1GbE, rNDC|
+|PCI Network Adapter |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 Adapter|
+
+Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) are not included in the delivery of Azure Stack Edge. 
 
 ## Storage specifications
 

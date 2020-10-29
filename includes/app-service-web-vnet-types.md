@@ -2,7 +2,7 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
 ---
 
@@ -18,7 +18,7 @@ VNet Integration gives your app access to resources in your VNet, but it doesn't
 
 The VNet Integration features:
 
-* Require a Standard, Premium, PremiumV2, or Elastic Premium pricing plan.
+* Require a Standard, Premium, PremiumV2, PremiumV3, or Elastic Premium pricing plan.
 * Support TCP and UDP.
 * Work with Azure App Service apps and function apps.
 

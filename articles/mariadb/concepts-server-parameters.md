@@ -23,6 +23,12 @@ The list of supported server parameters is constantly growing. Use the server pa
 
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
 
+### log_bin_trust_function_creators
+
+In Azure Database for MariaDB, binary logs are always enabled (i.e. `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
+
+The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely set [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) to **TRUE**.
+
 ### innodb_buffer_pool_size
 
 Review the [MariaDB documentation](https://mariadb.com/kb/en/innodb-system-variables/#innodb_buffer_pool_size) to learn more about this parameter.

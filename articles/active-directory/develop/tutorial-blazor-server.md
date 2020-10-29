@@ -37,7 +37,7 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 
 In **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
 
-Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API. 
+Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API.
 
 1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
 2. Create a **New client secret** that never expires.
@@ -45,7 +45,7 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 
 ## Create the app using the .NET CLI
 
-Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial. 
+Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial.
 
 ```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
@@ -71,19 +71,19 @@ Now, navigate to your new Blazor app in your editor and add the client secret to
 
 ## Test the app
 
-You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK. 
+You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK.
 
 ```dotnetcli
 dotnet run --framework netcoreapp3.1
 ```
 
-In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running. 
+In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running.
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
+[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code to display the signed in user's emails on the application's "fetch data" page.
 
-Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below. 
+Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
 
 Now you will update your app's registration and code to pull a user's email and display the messages within the app. To achieve this, first extend the app registration permissions in Azure AD to enable access to the email data. Then, add code to the Blazor app to retrieve and display this data in one of the pages.
 
@@ -198,5 +198,7 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 ## Next steps
 
-- [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
-- [Microsoft Identity Web basics](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
+Learn about calling building web apps that sign in users in our multi-part scenario series:
+
+> [!div class="nextstepaction"]
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)

@@ -5,7 +5,7 @@ services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
 
-ms.custom: mvc,subject-armqs
+ms.custom: mvc,subject-armqs, devx-track-azurecli
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -308,7 +308,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

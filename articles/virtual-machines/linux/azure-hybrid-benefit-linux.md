@@ -122,7 +122,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### Azure Instance Metadata Service
 
-From within the VM itself, you may query the IMDS Attested Metadata to determine the VM's licenseType. A licenseType value of 'RHEL_BYOS' or 'SLES_BYOS' will indicate that your VM has the benefit enabled. Learn more about attested metadata [here](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data)
+From within the VM itself, you may query the IMDS Attested Metadata to determine the VM's licenseType. A licenseType value of 'RHEL_BYOS' or 'SLES_BYOS' will indicate that your VM has the benefit enabled. Learn more about attested metadata [here](./instance-metadata-service.md#attested-data)
 
 ## Compliance
 

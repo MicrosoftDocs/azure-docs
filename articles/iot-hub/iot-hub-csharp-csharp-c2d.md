@@ -218,6 +218,6 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 
 In this how-to, you learned how to send and receive cloud-to-device messages.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator](https://docs.microsoft.com/azure/iot-suite/).
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator](/azure/iot-suite/).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

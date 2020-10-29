@@ -23,7 +23,7 @@ VM level bursting is also available in West Central US for the following support
 Bursting is enabled by default for virtual machines that support it.
 
 ## Disk level bursting
-Bursting is also available on our [premium SSDs](disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions. Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods: 
+Bursting is also available on our [premium SSDs](../disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions. Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods: 
 - **Restart the VM** 
 - **Detach and reattach the disk**
 

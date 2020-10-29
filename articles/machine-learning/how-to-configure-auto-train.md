@@ -39,7 +39,7 @@ For this article you need,
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [What is an Azure Machine Learning compute instance?](concept-compute-instance.md#managing-a-compute-instance) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the SDK yourself](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Just be sure to include the `automl` extra. 
 
@@ -342,7 +342,7 @@ A&nbsp;score&nbsp;has&nbsp;been&nbsp;reached| Use `experiment_exit_score` comple
 
 You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) for more details.
 
-See [Understand automated machine learning results](how-to-understand-automated-ml.md) for definitions and examples of the performance charts and metrics provided for each run. 
+See [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md) for definitions and examples of the performance charts and metrics provided for each run. 
 
 To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 

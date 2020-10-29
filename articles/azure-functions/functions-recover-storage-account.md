@@ -32,7 +32,7 @@ In the preceding step, if you can't find a storage account connection string, it
 
 * Required:
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Required for consumption plan functions:
+* Required for Consumption and Premium plan functions:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 

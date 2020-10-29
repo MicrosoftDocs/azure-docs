@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperfq1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr

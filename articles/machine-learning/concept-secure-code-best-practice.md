@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: larryfr
+ms.author: cgronlun
+author: cjgronlund
 ms.date: 11/12/2019
 ---
 

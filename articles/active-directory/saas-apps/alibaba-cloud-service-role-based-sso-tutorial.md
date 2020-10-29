@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
-1. Alibaba Cloud Service (Role-based SSO) require roles to be configured in Azure AD. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+1. Alibaba Cloud Service (Role-based SSO) require roles to be configured in Azure AD. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](../develop/active-directory-enterprise-app-role-management.md).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -242,3 +242,4 @@ After the preceding configurations are completed, test Alibaba Cloud Service (Ro
 ## Next steps
 
 Once you configure Alibaba Cloud Service (Role-based SSO) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+

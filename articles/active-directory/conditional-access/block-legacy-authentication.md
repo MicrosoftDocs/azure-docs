@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,10 +34,7 @@ If your environment is ready to block legacy authentication to improve your tena
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Azure AD Conditional Access.
 
 ## Scenario description
 

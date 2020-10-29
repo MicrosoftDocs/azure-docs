@@ -10,8 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
+ms.reviewer: marsma
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
@@ -22,7 +23,7 @@ In this quickstart, you'll learn how to write a .NET Core application that can g
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
@@ -45,12 +46,12 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page by searching for **App registrations** in the Azure Portal search bar.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information.
 > 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Daemon-console`, then select **Register** to create the application.
 > 1. Once registered, select the **Certificates & secrets** menu.
-> 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code.
+> 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code, and it will not be displayed again in the portal.
 > 1. Now, select the **API Permissions** menu, select **+ Add a permission** button, select **Microsoft Graph**.
 > 1. Select **Application permissions**.
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**
@@ -70,10 +71,13 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+>
+> You can run the provided project in either Visual Studio or Visual Studio for Mac.
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -112,7 +116,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 ##### Global tenant administrator
 
 > [!div renderon="docs"]
-> If you are a global tenant administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+> If you are a global tenant administrator, in the Azure Portal navigate to **Enterprise applications** > Click on your app registration > Choose **"Permissions"** from the Security section of the left navigation pane. Click on the large button labeled **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
@@ -141,10 +145,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### Step 5: Run the application
 
-If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
+If you're using Visual Studio or Visual Studio for Mac, press **F5** to run the application, otherwise, run the application via command prompt, console, or terminal:
 
-```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+```dotnetcli
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 
@@ -167,8 +171,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
-```powershell twhitney
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 

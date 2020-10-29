@@ -74,7 +74,7 @@ After you modify and save the manifest, Unity will automatically refresh. Confir
 :::image type="content" source="./media/confirm-packages.png" alt-text="confirm package imports":::
 
 If your packages aren't loading, check your Unity console for errors. If you don't have any errors and still don't see any packages under the **Packages** folder, check the package visibility toggle button.\
-![Unity camera properties](./media/unity-package-visibility.png)
+![Screenshot with an arrow pointing at the package visibility toggle button.](./media/unity-package-visibility.png)
 
 ## Ensure you have the latest version of the package
 
@@ -115,7 +115,7 @@ The following steps ensure that your project is using the latest version of the 
 
 1. Select **Graphics** from the left list menu
 1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-    ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)\
+    ![Screenshot that points out where you change the Scriptable Rendering Pipeline setting to HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
 
@@ -592,7 +592,7 @@ In order to progress from **NotAuthorized** to **NoSession**, we'd typically pre
 1. Drag the component on to its own event, to reference itself.\
 ![Bypass Authentication](./media/bypass-authorization-add-event.png)\
 1. In the drop down select **RemoteRenderingCoordinator -> BypassAuthorization**.\
-![Bypass Authentication](./media/bypass-authorization-event.png)
+![Screenshot that shows the selected RemoteRenderingCoordinator.BypassAuthorization option.](./media/bypass-authorization-event.png)
 
 ## Create or join a remote session
 
@@ -719,7 +719,7 @@ private void LateUpdate()
 
 With the required foundation in place, you are ready to load a model into the remote session and start receiving frames.
 
-![ARR stack 4](./media/remote-render-stack-4.png)
+![Diagram that shows the process flow for preparing to load and view a model.](./media/remote-render-stack-4.png)
 
 The **LoadModel** method is designed to accept a model path, progress handler, and parent transform. These arguments will be used to load a model into the remote session, update the user on the loading progress, and orient the remotely rendered model based on the parent transform.
 

@@ -13,18 +13,19 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurecli"
 
 ---
-# Configure an availability group for SQL Server on Azure VM (Azure portal - Preview)
+# Use Azure portal to configure an availability group (Preview) for SQL Server on Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
 
 Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
 
-   > [!NOTE]
-   > This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. 
+This feature is currently in preview. 
+
+While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
 
 
 ## Prerequisites
@@ -33,7 +34,7 @@ To configure an Always On availability group using the Azure portal, you must ha
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider in full manageability mode](sql-vm-resource-provider-register.md) and are using the same domain account for the SQL Server service on each VM.
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider in full manageability mode](sql-vm-resource-provider-register.md) and are using the same domain account for the SQL Server service on each VM.
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions
@@ -65,7 +66,7 @@ If you do not already have an existing cluster, create it by using the Azure por
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Provide name, storage account, and credentials for the cluster":::
 
-1. Expand **Windows Server Failover Cluster credentials** to provide [credentials](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) for the SQL Server service account, as well as the cluster operator and bootstrap accounts if they're different than the account used for the SQL Server service. 
+1. Expand **Windows Server Failover Cluster credentials** to provide [credentials](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) for the SQL Server service account, as well as the cluster operator and bootstrap accounts if they're different than the account used for the SQL Server service. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Provide credentials for the SQL Service account, cluster operator account and cluster bootstrap account":::
 
@@ -180,7 +181,7 @@ You can **Add more replicas** to the availability group, **Configure the Listene
 
 ## Remove cluster
 
-Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or PowerShell. 
+Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](/cli/azure/install-azure-cli) or PowerShell. 
 
 # [Azure CLI](#tab/azure-cli)
 

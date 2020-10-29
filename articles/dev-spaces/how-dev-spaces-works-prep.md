@@ -9,6 +9,8 @@ keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, A
 
 # How preparing a project for Azure Dev Spaces works
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. Dev Spaces can generate Dockerfiles and Helm charts for your project. Dev Spaces also creates and uses a configuration file for deploying, running, and debugging your Kubernetes applications in AKS. All of these files reside with your application's code and can be added to your version control system.
 
 This article describes what happens you prepare your project for running in AKS with Dev Spaces.

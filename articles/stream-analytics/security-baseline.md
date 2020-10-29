@@ -246,7 +246,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Stream Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access control (RBAC) to manage the service. Depending on the injection stream services and output services, you need to rotate credentials configured in the jobs.
+**Guidance**: Stream Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by Azure role-based access control (Azure RBAC) to manage the service. Depending on the injection stream services and output services, you need to rotate credentials configured in the jobs.
 
 * [Rotate login credentials for inputs and outputs of a Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -322,7 +322,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to Stream Analytics resources.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to Stream Analytics resources.
 
 * [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

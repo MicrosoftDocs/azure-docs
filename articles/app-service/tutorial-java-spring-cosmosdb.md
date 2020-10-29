@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 * [Azure CLI](/cli/azure/overview), installed on your own computer. 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## Clone the sample TODO app and prepare the repo
@@ -236,7 +236,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
 
 ## Deploy to App Service on Linux
 
-Use the `azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
+Use the `mvn azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
 
 ```bash
 
@@ -273,7 +273,7 @@ bash-3.2$ mvn azure-webapp:deploy
 The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net` ). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 You should see the app running with the remote URL in the address bar:
