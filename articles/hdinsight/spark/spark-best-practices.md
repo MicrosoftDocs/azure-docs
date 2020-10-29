@@ -51,7 +51,7 @@ This article provides various guidelines for using Apache Spark on Azure HDInsig
 | Apache Hive on HDInsight | [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase on HDInsight | [Use Apache Spark to read and write Apache HBase data](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka on HDInsight | [Tutorial: Use Apache Spark Structured Streaming with Apache Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Cosmos DB: Implement a lambda architecture on the Azure platform](../../cosmos-db/lambda-architecture.md) |
+| Azure Cosmos DB | [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## What are my storage options?
 

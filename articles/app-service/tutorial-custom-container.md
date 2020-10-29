@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python"
+ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
