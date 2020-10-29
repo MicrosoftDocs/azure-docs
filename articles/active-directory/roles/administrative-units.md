@@ -25,14 +25,14 @@ For example, you might delegate to regional support specialists the [Helpdesk Ad
 
 ## Deployment scenario
 
-It can be useful to restrict administrative scope by using administrative units in organizations that are made up of independent divisions of any kind. Consider the example of a large university that's made up of many autonomous schools (School of Business, School of Engineering, and so on), each with a team of IT admins who control access, manage users, and set policies for their school. 
+It can be useful to restrict administrative scope by using administrative units in organizations that are made up of independent divisions of any kind. Consider the example of a large university that's made up of many autonomous schools (School of Business, School of Engineering, and so on). Each school has a team of IT admins who control access, manage users, and set policies for their school. 
 
 A central administrator could:
 
 - Create a role with administrative permissions over only Azure AD users in the business school administrative unit.
 - Create an administrative unit for the School of Business.
 - Populate the administrative unit with only the business school students and staff.
-- Add the Business school IT team to the role, along with its scope.
+- Add the business school IT team to the role, along with its scope.
 
 ## License requirements
 
@@ -48,7 +48,7 @@ You can manage administrative units by using the Azure portal, PowerShell cmdlet
 
 ### Plan your administrative units
 
-You can use administrative units to logically group Azure AD resources. For example, for an organization whose IT department is scattered globally, it might make sense to create administrative units that define those geographical boundaries. In another scenario, where a multinational organization has various *sub-organizations* that are semi-autonomous in their operations, each sub-organization might be represented by an administrative unit.
+You can use administrative units to logically group Azure AD resources. For example, for an organization whose IT department is scattered globally, it might make sense to create administrative units that define those geographical boundaries. In another scenario, where a multinational organization has various *sub-organizations* that are semi-autonomous in their operations, an administrative unit might represent each sub-organization.
 
 The criteria on which administrative units are created are guided by the unique requirements of an organization. Administrative units are a common way to define structure across Microsoft 365 services. We recommend that you prepare your administrative units with their use across Microsoft 365 services in mind. You can get maximum value out of administrative units when you can associate common resources across Microsoft 365 under an administrative unit.
 
@@ -60,11 +60,11 @@ You can expect the creation of administrative units in the organization to go th
 
 ## Currently supported scenarios
 
-As a global administrator or a Privileged role administrator, you can use the Azure AD portal to create administrative units, add users as members of administrative units, and then assign IT staff to administrative unit-scoped administrator roles. Administrative unit-scoped admins can then use the Microsoft 365 admin center for basic management of users in their administrative units.
+As a Global Administrator or a Privileged Role Administrator, you can use the Azure AD portal to create administrative units, add users as members of administrative units, and then assign IT staff to administrative unit-scoped administrator roles. Administrative unit-scoped admins can then use the Microsoft 365 admin center for basic management of users in their administrative units.
 
-Additionally, you can add groups as members of an administrative unit, and an administrative unit-scoped group administrator can manage them by using PowerShell, Microsoft Graph, and the Azure AD portal.
+Additionally, you can add groups as members of an administrative unit. An administrative unit-scoped group administrator can manage them by using PowerShell, Microsoft Graph, and the Azure AD portal.
 
-Current support for administrative unit scenarios is described in the following tables:
+The following tables describe current support for administrative unit scenarios:
 
 ### Administrative unit management
 
@@ -92,7 +92,7 @@ Current support for administrative unit scenarios is described in the following 
 | Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
 
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 
 ## Next steps
 
