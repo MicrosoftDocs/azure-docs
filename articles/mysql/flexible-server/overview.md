@@ -79,7 +79,7 @@ The flexible server service is available in three SKU tiers: Burstable, General 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
-## Scale-out your read workload with up 10 read replicas
+## Scale-out your read workload with up to 10 read replicas
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
