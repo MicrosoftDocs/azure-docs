@@ -115,7 +115,7 @@ Here are the steps to add:
 
 1. Query the parameters from the state table and pass them to the stored procedure. This step also runs the procedure in the background. 
 
-   If your stored procedure doesn't need parameters, just directly call the stored procedure. Otherwise, to pass the `timespan` parameter, use the `@callparams`, which you can also extend to pass additional parameters.
+   If your stored procedure doesn't need parameters, just directly call the stored procedure. Otherwise, to pass the `@timespan` parameter, use the `@callparams`, which you can also extend to pass additional parameters.
 
    ```sql
    EXEC jobs.sp_add_jobstep
@@ -156,7 +156,7 @@ To start the job, use a passthrough native query with the **Execute a SQL query*
 
 ![Screenshot that shows actions to use for starting the job and passing parameters to the stored procedure.](media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png)
 
-When the job completes, the job updates the `LongRunningState` table so that you can easily trigger on the result by using the **When an item is modified** trigger. If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
+When the job completes, the job updates the `LongRunningState` table so that you can easily trigger on the result by using the [**When an item is modified** trigger](/connectors/sql/#when-an-item-is-modified-(v2)). If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
 
 ![Screenshot that shows the SQL trigger for when an item is modified.](media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png)
 
