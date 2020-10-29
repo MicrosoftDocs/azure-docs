@@ -26,10 +26,10 @@ This article focuses on managing digital twins; to work with relationships and t
 
 ## Create a digital twin
 
-To create a twin, you use the `CreateDigitalTwin()` method on the service client like this:
+To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
 ```
 
 To create a digital twin, you need to provide:
@@ -50,7 +50,7 @@ The twin creation API accepts an object that is serialized into a valid JSON des
 First, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter, like this:
 
 ```csharp
-await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
 ```
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
@@ -74,12 +74,12 @@ props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myRoomId", twin);
 Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin()` call. For example:
+> `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateOrReplaceDigitalTwinAsync()` call. For example:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -448,7 +448,7 @@ namespace minimal
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
             twin.CustomProperties = props;
-            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin_Id, twin);
             Console.WriteLine("Twin created successfully");
             Console.WriteLine();
 

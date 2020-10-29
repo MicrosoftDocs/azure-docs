@@ -285,7 +285,7 @@ namespace minimal
             floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
             //Floor twins have no properties, so nothing to initialize
             //Create the twin
-            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, floorTwin);
             Console.WriteLine("Twin created successfully");
 
             //Create second (Room) digital twin
@@ -299,7 +299,7 @@ namespace minimal
             props.Add("Humidity", 55.0);
             roomTwin.CustomProperties = props;
             //Create the twin
-            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(targetId, roomTwin);
             
             //Create relationship between them
             await CreateRelationship(client, srcId, targetId, "contains");
@@ -494,7 +494,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     
     try
     {
-        await client.CreateDigitalTwinAsync(sourceId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(sourceId, twin);
     }
     catch (RequestFailedException e)
     {
