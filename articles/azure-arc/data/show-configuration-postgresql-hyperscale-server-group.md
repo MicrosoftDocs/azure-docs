@@ -206,7 +206,7 @@ Spec:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -232,21 +232,33 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>Prior to October 2020 release, `Workers` was `Shards` in the previous example. See [Release notes - Azure Arc enabled data services (Preview)](release-notes.md) for more information.
+
 Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
 
 - It is of version 12 of Postgres: 
+   > ```json
    > Kind:         `postgresql-12`
+   > ```
 - It was created during the month of August 2020:
+   > ```json
    > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - Two Postgres extensions were created in this server group: `citus` and `pg_stat_statements`
+   > ```json
    > Engine:
    >    Extensions:
    >      Name:  `citus`
    >      Name:  `pg_stat_statements`
+   > ```
 - It uses two worker nodes
+   > ```json
    > Scale:
-   >    Shards:  `2`
+   >    Workers:  `2`
+   > ```
 - It is guaranteed to use 1 cpu/vCore and 512MB of Ram per node. It will use more than 4 cpu/vCores and 1024MB of memory:
+   > ```json
    > Scheduling:
    >    Default: 
    >      Resources:
@@ -256,11 +268,14 @@ Let's call out some specific points of interest in the description of the `serve
    >        Requests:
    >          Cpu:     1
    >          Memory:  512Mi
+   > ```
  - It is available for queries and does not have any problem. All nodes are up and running:
+   > ```json
    > Status:
    >  ...
    >  Ready Pods:         3/3
    >  State:              Ready
+   > ```
 
 **With azdata:**
 
