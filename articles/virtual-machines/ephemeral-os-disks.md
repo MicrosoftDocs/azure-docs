@@ -36,7 +36,8 @@ Key differences between persistent and ephemeral OS disks:
 | **Stop-deallocated state**      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
 | **Specialized OS disk support** | Yes                                                                                          | No                                                                                 |
 | **OS disk resize**              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
-| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
+| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned       
+| **Page file placement**   | For Windows, page file is stored on the resource disk                                              | For Windows, page file is stored on the OS disk   |
 
 ## Size requirements
 

@@ -1,12 +1,12 @@
 ---
 title: Partnering with Azure DDoS Protection Standard 
 description: "Understand partnering opportunities enabled by Azure DDoS Protection Standard."
-ms.service: virtual-network
+ms.service: ddos-protection
 documentationcenter: na
-author: anupamvi
+author: yitoh
 mms.devlang: na
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 08/28/2020
 ms.author: kumud
 ---
 # Partnering with Azure DDoS Protection Standard
@@ -34,13 +34,13 @@ For every protected application, Azure DDoS Protection Standard automatically tu
 Azure DDoS Protection identifies and mitigates DDoS attacks without any user intervention.
 
 - If the protected resource is in the subscription covered under Azure Security Center, DDoS Protection Standard automatically sends an alert to Security Center whenever a DDoS attack is detected and mitigated against the protected application.
-- Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
-- You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details.
+- Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
+- You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](telemetry-monitoring-alerting.md) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details.
 
 ![DDoS metrics](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
 ### DDoS rapid response (DRR)
-DDoS Protection Standard customers have access to [Rapid Response team](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) during an active attack. DRR can help with attack investigation, custom mitigations during an attack, and post-attack analysis.
+DDoS Protection Standard customers have access to [Rapid Response team](ddos-rapid-response.md) during an active attack. DRR can help with attack investigation during an attack as well as post-attack analysis.
 
 ### SLA guarantee and cost protection
 DDoS Protection Standard service is covered by a 99.99% SLA, and cost protection provides resource credits for scale out during a documented attack. For more information, see [SLA for Azure DDoS Protection](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
@@ -62,10 +62,10 @@ The following steps are required for partners to configure integration with Azur
    > [!NOTE]
    > Only 1 DDoS Protection Plan needs to be created for a given tenant. 
 2. Deploy a service with public endpoint in your (partner) subscriptions, such as load balancer, firewalls, and web application firewall. 
-3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
+3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network)
    > [!IMPORTANT] 
    > After Azure DDoS Protection Standard is enabled on a virtual network, all public IPs within that virtual network are automatically protected. The origin of these public IPs can be either within Azure (client subscription) or outside of Azure. 
-4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application-specific customer-facing dashboard. For more information about using telemetry, see [Use DDoS Protection telemetry](manage-ddos-protection.md#use-ddos-protection-telemetry). For more information about configuring attack analytics, see [Configure DDoS attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics)
+4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application-specific customer-facing dashboard. For more information about using telemetry, see [View and configure DDoS protection telemetry](telemetry-monitoring-alerting.md). 
 
 ### Onboarding guides and technical documentation
 

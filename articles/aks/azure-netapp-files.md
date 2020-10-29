@@ -3,7 +3,7 @@ title: Integrate Azure NetApp Files with Azure Kubernetes Service
 description: Learn how to integrate Azure NetApp Files with Azure Kubernetes Service
 services: container-service
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/23/2020
 
 #Customer intent: As a cluster operator or developer, I want to learn how to integrate ANF with AKS
 ---
@@ -214,7 +214,7 @@ metadata:
   name: nginx-nfs
 spec:
   containers:
-  - image: nginx
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: nginx-nfs
     command:
     - "/bin/sh"
@@ -244,11 +244,11 @@ kubectl describe pod nginx-nfs
 Verify your volume has been mounted in the pod by using [kubectl exec][kubectl-exec] to connect to the pod then `df -h` to check if the volume is mounted.
 
 ```console
-$ kubectl exec -it nginx-nfs -- bash
+$ kubectl exec -it nginx-nfs -- sh
 ```
 
 ```output
-root@nginx-nfs:/# df -h
+/ # df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...
 10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure
