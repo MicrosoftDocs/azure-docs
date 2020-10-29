@@ -76,16 +76,24 @@ You should consider the following when choosing an Azure Cache for Redis tier:
 * **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. Clustering does not increase the number of connections available for a clustered cache. For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Dedicated core for Redis server**: All caches except C0 run dedicated VM cores.
 * **Single-threaded processing**: Redis, by design, uses only one thread for command processing. Azure Cache for Redis also utilizes additional cores for I/O processing. Having more cores improves throughput performance even though it may not produce linear scaling. Furthermore, larger VM sizes typically come with higher bandwidth limits than smaller ones. That helps you avoid network saturation, which will cause timeouts in your application.
-* **Performance improvements**: Caches in the Premium and Enterprise tiers are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies. For more information, see [Azure Cache for Redis performance](cache-planning-faq.md#azure-cache-for-redis-performance)
+* **Performance improvements**: Caches in the Premium and Enterprise tiers are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies. For more information, see [Azure Cache for Redis performance](cache-planning-faq.md#azure-cache-for-redis-performance).
 
 You can scale your cache from the Basic tier up to Premium after it has been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+
+### Enterprise tier requirements
+
+The Enterprise tiers rely on Redis Enterprise, a commercial version of Redis from Redis Labs. Customers will obtain and pay for a license to this software through an Azure Marketplace offer. Azure Cache for Redis will facilitate the license acquisition so that you won't have to do it separately. To purchase in the Azure Marketplace, you must have the following prerequisites:
+* Your Azure subscription has a valid payment instrument. Azure credits or free MSDN subscriptions are not supported.
+* You're an Owner or Contributor of the subscription.
+* Your organization allows [Azure Marketplace purchases](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+* If you use a private Marketplace, it must contain the Redis Labs Enterprise offer.
 
 ## Next steps
 * [Create an Azure Cache for Redis instance](quickstart-create-redis.md)
 * [Create an Enterprise tier cache](quickstart-create-redis-enterprise.md)
-* [ASP.NET Web App Quickstart](cache-web-app-howto.md)
-* [.NET Quickstart](cache-dotnet-how-to-use-azure-redis-cache.md)
-* [.NET Core Quickstart](cache-dotnet-core-quickstart.md)
-* [Node.js Quickstart](cache-nodejs-get-started.md)
-* [Java Quickstart](cache-java-get-started.md)
-* [Python Quickstart](cache-python-get-started.md)
+* [Use Azure Cache for Redis in an ASP.NET web app](cache-web-app-howto.md)
+* [Use Azure Cache for Redis in .NET Core](cache-dotnet-core-quickstart.md)
+* [Use Azure Cache for Redis in .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)
+* [Use Azure Cache for Redis in Node.js](cache-nodejs-get-started.md)
+* [Use Azure Cache for Redis in Java](cache-java-get-started.md)
+* [Use Azure Cache for Redis in Python](cache-python-get-started.md)
