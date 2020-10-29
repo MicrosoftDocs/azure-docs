@@ -243,6 +243,10 @@ landingContent:
         links:
           - text: Analyze weather data using Azure Notebooks (Python)
             url: weather-service-tutorial.md
+      - linkListType: how-to-guide
+        links:
+          - text: Request real-time and forecasted weather data
+            url: how-to-request-weather-data.md
       - linkListType: reference
         links:
           - text: Weather Service
