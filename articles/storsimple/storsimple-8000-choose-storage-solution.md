@@ -35,5 +35,5 @@ This document provides an overview of options for on-premises data transfer to A
 
 ## Next steps
 
-- Learn about [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) and [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
+- Learn about [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) and [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview)
 - Learn about [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)
