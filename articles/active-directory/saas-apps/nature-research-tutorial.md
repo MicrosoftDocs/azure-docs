@@ -70,15 +70,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, the Identifier and Reply URL values are already pre-populated with Azure but you need to enter the Relay State value.
+
+	In the **Relay State** text box, type the URL:
+    `https://idp.nature.com/debug`  
+    click **save**.
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+	In the **Sign-on URL** text box, type a URL using the following pattern:
     `http://sp.nature.com/saml/login?targetUrl=https%3A%2F%2Fidp.nature.com%2Fdebug&idp=<IDP_ENTITY_ID>`
-
-	b. In the **Relay State** text box, type the URL:
-    `https://idp.nature.com/debug`
 
 	> [!NOTE]
 	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [Nature Research Client support team](mailto:identity@springernature.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
