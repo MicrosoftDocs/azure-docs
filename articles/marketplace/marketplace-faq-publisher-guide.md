@@ -298,7 +298,7 @@ For more information, go to [payout account and tax forms](partner-center-portal
 
 ### Are returns and refunds supported with the commercial marketplace?
 
-Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase or renewal. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase or renewal. This type of refunds don't apply for charges resulting from usage (either from virtual machine offers or metered billing).
+Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase or renewal. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase or renewal. This type of refunds doesn't apply to charges resulting from usage (either from virtual machine offers or metered billing).
 
 ## Resources
 
