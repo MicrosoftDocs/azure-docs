@@ -17,77 +17,119 @@ ms.author: dylankil
 
 ## Version 1.1.0
 
-This release contains package upgrades, security vulnerability fixes, bug fixes, updates to code samples and configuration options.
+This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.
 
-* Fix dependabot by removing yarn.lock from gitignore
-* Enable saving and loading preferences
+### New Features
+
+* Enable saving and loading user preferences across different browsers and devices
 * Enable configuring default display options
-* Update the Android code sample HTML to work with the latest SDK
-* Fix security vulnerability by upgrading pug to v3.0.0 in quickstart-nodejs code sample
-* Do not allow launchAsync to be called when already loading
-* Fix multiple security vulnerabilities by upgrading Jest and TypeScript packages
 * Add option to set the translation language, enable word translation, and enable document translation when launching Immersive Reader
 * Add support for configuring Read Aloud via options
-* Add support to persist user preferences across different browsers and devices
-* Check for invalid content by ignoring messages where the data is not a string
-* Wrap call to window in an if clause to check browser support of Promise
-* Update launch response to return the number of characters processed
 * Add ability to disable first run experience
 * Add ImmersiveReaderView for UWP
-* Fix a security vulnerability by upgrading Microsoft.IdentityModel.Clients.ActiveDirectory to v5.2.0
+
+### Improvements
+
+* Update the Android code sample HTML to work with the latest SDK
+* Update launch response to return the number of characters processed
 * Update code samples to use v1.1.0
+* Do not allow launchAsync to be called when already loading
+* Check for invalid content by ignoring messages where the data is not a string
+* Wrap call to window in an if clause to check browser support of Promise
+
+### Fixes
+
+* Fix dependabot by removing yarn.lock from gitignore
+* Fix security vulnerability by upgrading pug to v3.0.0 in quickstart-nodejs code sample
+* Fix multiple security vulnerabilities by upgrading Jest and TypeScript packages
+* Fix a security vulnerability by upgrading Microsoft.IdentityModel.Clients.ActiveDirectory to v5.2.0
+
+<br>
 
 ## Version 1.0.0
 
-This release contains fixes for various samples and configuration options updates.
+This release contains breaking changes, new features, code sample improvements, and bug fixes.
 
-* Change Python code sample from advanced to quick start
+### Breaking Changes
+
+* Require AAD token and subdomain, and deprecates tokens used in previous versions
+* Set CookiePolicy to disable, affecting user preferences stored in cookies by the Immersive Reader
+
+### New Features
+
+* Add support to enable or disable cookies
 * Add Android Kotlin quick start code sample
 * Add Android Java quick start code sample
 * Add Node.js quick start code sample
-* Move iOS Swift code sample into js/samples
-* Add support to enable or disable cookies
-* Add missing files for advanced-csharp-multiple-resources
+
+### Improvements
+
 * Update Node.js advanced README.md
-* Remove en-us from hyperlinks
-* Fix for Node.js advanced code sample
-* Add custom subdomain validation
+* Change Python code sample from advanced to quick start
+* Move iOS Swift code sample into js/samples
 * Update code samples to use v1.0.0
+
+### Fixes
+
+* Fix for Node.js advanced code sample
+* Add missing files for advanced-csharp-multiple-resources
+* Remove en-us from hyperlinks
+
+<br>
 
 ## Version 0.0.3
 
-This release contains package upgrades, security vulnerability fixes, bug fixes, updates to code samples and configuration options.
+This release contains new features, improvements to code samples, security vulnerability fixes, and bug fixes.
+
+### New Features
 
 * Add iOS Swift code sample
-* Add C# advanced code sample demonstrating use of multiple resources
-* Add support for custom domains
+* Add C# advanced code sample demonstrating use of multiple resources 
 * Add support to disable the full screen toggle feature
 * Add support to hide the Immersive Reader application exit button
 * Add a callback function that may be used by the host application upon exiting the Immersive Reader
-* Upgrade lodash to version 4.17.14
 * Update code samples to use Azure Active Directory Authentication
+
+### Improvements
+
 * Update C# advanced code sample to include Word document
-* Update C# MSAL library to fix security vulnerability
-* Upgrade mixin-deep to version 1.3.2
-* Upgrade jest, webpack and webpack-cli which were using vulnerable versions of set-value and mixin-deep
 * Update code samples to use v0.0.3
+
+### Fixes
+
+* Upgrade lodash to version 4.17.14 to fix security vulnerability
+* Update C# MSAL library to fix security vulnerability
+* Upgrade mixin-deep to version 1.3.2 to fix security vulnerability
+* Upgrade jest, webpack and webpack-cli which were using vulnerable versions of set-value and mixin-deep to fix security vulnerability
+
+<br>
 
 ## Version 0.0.2
 
-This release contains package upgrades, security vulnerability fixes, bug fixes, updates to code samples.
+This release contains new features, improvements to code samples, security vulnerability fixes, and bug fixes.
 
-* Rename resourceName to cogSvcsSubdomain
-* Move secrets out of code and use environment variables
-* Fix Immersive Reader button accessibility bugs
-* Fix broken scrolling
-* Upgrade handlebars package to version 4.1.2
+### New Features
+
 * Add Python advanced code sample
 * Add Java quick start code sample
 * Add simple code sample
+
+### Improvements
+
+* Rename resourceName to cogSvcsSubdomain
+* Move secrets out of code and use environment variables
+* Update code samples to use v0.0.2
+
+### Fixes
+
+* Fix Immersive Reader button accessibility bugs
+* Fix broken scrolling
+* Upgrade handlebars package to version 4.1.2 to fix security vulnerability
 * Fixes bugs in SDK unit tests
 * Fixes JavaScript Internet Explorer 11 compatibility bugs
 * Updates SDK urls
-* Update code samples to use v0.0.2
+
+<br>
 
 ## Version 0.0.1
 
