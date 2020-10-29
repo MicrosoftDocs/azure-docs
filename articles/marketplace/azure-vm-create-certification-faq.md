@@ -1,6 +1,6 @@
 ---
-title: VM certification troubleshooting for Azure Marketplace
-description: This article covers troubleshooting topics common to testing and certifying VM images for Azure Marketplace.
+title: Virtual machine certification troubleshooting for Azure Marketplace
+description: This article covers troubleshooting topics common to testing and certifying virtual machine (VM) images for Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
@@ -9,14 +9,14 @@ ms.author: iqshah
 ms.date: 10/19/2020
 ---
 
-# VM certification troubleshooting
+# Troubleshoot virtual machine certification
 
-When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
+When you publish your virtual machine (VM) image to Microsoft Azure Marketplace, the Azure team validates it to ensure that it's bootable, secure, and compatible with Azure. If your VM image fails any of the high-quality tests, it won't be published. You'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions or feedback for improvement, please contact Partner Center [support](https://aka.ms/marketplacepublishersupport).
+> Questions about this article, or suggestions for improvement? Contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
 
 ## Approved base image
 
@@ -30,34 +30,32 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 - [Windows images](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Azure Marketplace.  
-
-> [!Note]
-> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
+> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and lets Azure proceed with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
 Check to see whether your image supports VM extensions.
 
-To enable VM extensions, do the following:
+**To enable VM extensions:**
 
 1. Select your Linux VM.
 1. Go to **Diagnostics settings**.
-1. Enable Base matrices by updating the **Storage account**.
+1. Enable base matrices by updating the **Storage account**.
 1. Select **Save**.
 
    ![Enable guest-level monitoring](./media/create-vm/vm-certification-issues-solutions-1.png)
 
-To verify that the VM extensions are properly activated, do the following:
+**To verify that the VM extensions are properly activated:**
 
 1. In the VM, select the **VM extensions** tab, and then verify the status of the **Linux Diagnostics Extension**.
-1. 
-    * If the status is *Provisioning Succeeded*, the extensions test case has passed.  
-    * If the status is *Provisioning Failed*, the extensions test case has failed and you need to set the Hardened flag.
+1. Check the provisioning status.
 
-      ![Screenshot showing that provisioning has succeeded](./media/create-vm/vm-certification-issues-solutions-2.png)
+   * If the status is *Provisioning Succeeded*, the extensions test case has passed.  
+   * If the status is *Provisioning Failed*, the extensions test case has failed, and you need to set the Hardened flag.
 
-      If the VM extension fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
+   ![Screenshot showing that provisioning has succeeded](./media/create-vm/vm-certification-issues-solutions-2.png)
+
+   If the VM extension fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
 
 ## VM provisioning issue
 
@@ -70,12 +68,14 @@ Provisioning issues can include the following failure scenarios:
 |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
 |2|Invalid blob type|VM provisioning failed because the used block is a blob type instead of a page type.|Re-create the image and submit the request.|
 |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
-|
+
 
 > [!NOTE]
 > For more information about VM generalization, see:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+\***
 
 ## Software compliance for Windows
 
