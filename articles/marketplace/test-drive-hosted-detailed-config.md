@@ -11,6 +11,8 @@ ms.date: 11/06/2020
 
 # Detailed configuration for a hosted test drive
 
+This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement or Dynamics 365 for Operations.
+
 ## Configure hosted test drive for Customer Engagement
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/).
