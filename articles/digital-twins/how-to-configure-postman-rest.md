@@ -11,19 +11,19 @@ ms.date: 09/09/2020
 
 # How to configure Postman for Azure Digital Twins
 
-This article describes how to configure the Postman REST client to interact with and test the Azure Digital Twins Management APIs. Specifically, it describes:
+[Postman](https://www.getpostman.com/) is a REST testing tool that provides key HTTP request functionalities in a desktop and plugin-based GUI. You can use it to craft HTTP requests and submit them to the [Azure Digital Twins REST APIs](how-to-use-apis-sdks.md).
+
+This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs. Specifically, it describes:
 
 * How to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow.
-* How to use the Postman REST client to make token-bearing HTTP requests to your Management APIs.
-* How to use Postman to make multipart POST requests to your Management APIs.
+* How to use the Postman REST client to make token-bearing HTTP requests to your APIs.
+* How to use Postman to make multipart POST requests to your APIs.
 
-## Postman summary
+## Prerequisites
 
-Get started on Azure Digital Twins by using a REST client tool such as [Postman](https://www.getpostman.com/) to prepare your local testing environment. The Postman client helps to quickly create complex HTTP requests. Download the desktop version of the Postman client by going to [www.getpostman.com/apps](https://www.getpostman.com/apps).
-
-[Postman](https://www.getpostman.com/) is a REST testing tool that locates key HTTP request functionalities into a useful desktop and plugin-based GUI.
-
-Through the Postman client, solutions developers can specify the kind of HTTP request (*POST*, *GET*, *UPDATE*, *PATCH*, and *DELETE*), API endpoint to call, and use of TLS. Postman also supports adding HTTP request headers, parameters, form-data, and bodies.
+To proceed with using Postman to access the Azure Digital Twins APIs, you need to...
+* Create an Azure Digital Twins instance 
+* Download the desktop version of the Postman client. Navigate to [*www.getpostman.com/apps*](https://www.getpostman.com/apps) and follow the prompts to download the app.
 
 ## Configure Azure Active Directory to use the OAuth 2.0 implicit grant flow
 
