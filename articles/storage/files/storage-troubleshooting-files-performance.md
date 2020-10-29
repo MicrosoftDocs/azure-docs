@@ -23,7 +23,7 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** and then search for **Metrics**.
+1. Select **Storage account** name and then search for **Monitoring** section.
 
 1. Select **Metrics**.
 
