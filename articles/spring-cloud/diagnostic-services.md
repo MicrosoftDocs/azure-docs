@@ -22,7 +22,7 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> Just want to stream your logs? Check out this [Azure CLI command](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## Logs
 
@@ -33,7 +33,7 @@ Choose the log category and metric category you want to monitor.
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+For a complete list of metrics, see [Spring Cloud Metrics](./spring-cloud-concept-metrics.md#user-metrics-options).
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
@@ -105,7 +105,7 @@ There are various methods to view logs and metrics as described under the follow
 > [!NOTE]
 > `==` is case sensitive, but `=~` is not.
 
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](../azure-monitor/log-query/query-language.md).
+To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
 
 ### Use your storage account
 
@@ -126,7 +126,7 @@ To learn more about sending diagnostics information to a storage account, see [S
 1. To review application logs, search for an event hub called **insights-logs-applicationconsole**.
 1. To review application metrics, search for an event hub called **insights-metrics-pt1m**.
 
-To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 ## Analyze the logs
 

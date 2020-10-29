@@ -22,7 +22,7 @@ Use Node.js to build a chat bot integrated with language understanding (LUIS). T
 
 ## Prerequisites
 
-* [Bot emulator](https://aka.ms/abs/build/emulatordownload)
+* [Bot Framework emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 ## Create a web app bot resource
@@ -366,20 +366,20 @@ A browser window opens with the web app bot's web site at `http://localhost:3978
 
 ![A home page displays with information about your bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## Use the bot emulator to test the bot
+## Use the Bot Framework emulator to test the bot
 
 Ask bot a question for the Book Flight intent.
 
-1. Begin the Bot Emulator and select **Open Bot**.
+1. Begin the Bot Framework emulator and select **Open Bot**.
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
 1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **.env** file in the root of the bot code you downloaded.
 
-1. In the bot emulator, enter `Book a flight from Seattle to Berlin tomorrow` and get the same response for the basic bot as you received in the **Test in Web Chat**.
+1. In the Bot Framework emulator, enter `Book a flight from Seattle to Berlin tomorrow` and get the same response for the basic bot as you received in the **Test in Web Chat**.
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Select **Yes**. The bot responds with a summary of its actions.
-1. From the log of the bot emulator, select the line that includes `<- trace LuisV3 Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
+1. From the log of the Bot Framework emulator, select the line that includes `<- trace LuisV3 Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

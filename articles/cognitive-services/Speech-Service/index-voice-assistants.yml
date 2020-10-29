@@ -76,3 +76,9 @@ landingContent:
       links:
         - text: Custom Keyword naming guidelines
           url: speech-devices-sdk-kws-guidelines.md
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

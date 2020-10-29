@@ -32,8 +32,8 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
-  - name : Node.js
-    href: search-get-started-nodejs.md
+  - name : JavaScript
+    href: search-get-started-javascript.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
@@ -116,7 +116,7 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Securing indexer resources
+    - name: Accessing protected content
       href: search-indexer-securing-resources.md
     - name: Security baseline
       href: security-baseline.md
@@ -320,9 +320,11 @@
       href: search-api-preview.md
     - name: Develop in .NET
       items:
-      - name: Use Microsoft.Azure.Search (v10)
+      - name: Use Azure.Search.Documents
         href: search-howto-dotnet-sdk.md
-      - name: Get started (v10)
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
         href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:

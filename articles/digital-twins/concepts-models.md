@@ -21,9 +21,9 @@ A key characteristic of Azure Digital Twins is the ability to define your own vo
 
 A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
-Models are written using the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
+Azure Digital Twins models are represented in the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
 
-## Digital Twin Definition Language (DTDL) for writing models
+## Digital Twin Definition Language (DTDL) for models
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
@@ -58,7 +58,7 @@ Here is some additional guidance on distinguishing between DTDL **property** and
 
 The difference between properties and telemetry for Azure Digital Twins models is as follows:
 * **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writeable, you can also store a value in the property.  
-* **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back ot it and read it later. 
+* **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 
   - In IoT terms, telemetry is typically a single measurement sent by a device.
 
@@ -229,9 +229,15 @@ The extending interface cannot change any of the definitions of the parent inter
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
+## Converting industry-standard models
+
+If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you'll need to **convert them to DTDL** to use them with Azure Digital Twins. The DTDL version will then become the source of truth for the model within Azure Digital Twins.
+
+For more on this process, see [*How-to: Convert industry-standard models*](how-to-convert-models.md).
+
 ## Next steps
 
-See how to manage models with the DigitalTwinsModels APIs:
+See how to manage models with the DigitalTwinModels APIs:
 * [*How-to: Manage custom models*](how-to-manage-model.md)
 
 Or, learn about how digital twins are created based on models:

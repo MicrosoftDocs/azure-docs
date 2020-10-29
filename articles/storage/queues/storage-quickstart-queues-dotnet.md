@@ -30,12 +30,12 @@ Additional resources:
 * [API reference documentation](/dotnet/api/azure.storage.queues)
 * [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
@@ -73,7 +73,7 @@ From the project directory:
 1. Open the *Program.cs* file in your editor
 1. Remove the `Console.WriteLine("Hello World!");` statement
 1. Add `using` directives
-1. Update the `Main` method declaration to [support async code](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
+1. Update the `Main` method declaration to [support async code](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -330,7 +330,7 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for .NET and .NET Core developers](https://docs.microsoft.com/dotnet/azure/)
+> [Azure for .NET and .NET Core developers](/dotnet/azure/)
 
 * To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).

@@ -60,7 +60,7 @@ Many experienced template developers use this method to generate templates when 
 1. Open the downloaded zip file, and then save **template.json** to your computer. In the next section, you use a template deployment tool to edit the template.
 1. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next section when you deploy the template.
 
-    ![Generate a template from the portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    ![Screenshot that highlights the Parameter tab that shows the values you provided.](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
     Using both the template file and the parameters file, you can create a resource, in this tutorial, an Azure storage account.
 

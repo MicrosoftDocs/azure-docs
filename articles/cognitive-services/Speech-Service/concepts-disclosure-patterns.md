@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
+ms.author: shlo
 ---
 
 # Disclosure design patterns
@@ -179,7 +179,7 @@ Consider the different modes of interactions of your experience when incorporati
 
 Disclosure can be achieved implicitly by setting accurate expectations for what the digital assistant is capable of. Provide sample commands so that users can learn how to interact with the digital assistant and offer contextual help to learn more about the synthetic voice during the early stages of the experience.
 
-![Visual cues and feedback](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Example of default responses to a conversation that you can craft.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### Conversational Transparency
 

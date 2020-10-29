@@ -149,4 +149,4 @@ Set the `timeframe` definition to `Custom` to set a timeframe outside of the  we
 ```
 
 ## Next steps
-- [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)   
+- [Get started with Azure REST API](/rest/api/azure/)
