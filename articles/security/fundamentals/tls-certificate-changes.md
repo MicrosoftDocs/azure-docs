@@ -26,7 +26,7 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 - Existing Azure endpoints will transition in a phased manner beginning August 13, 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](/azure/iot-dps/) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](/azure/storage) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
+- [Azure Cache for Redis](/azure/azure-cache-for-redis) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services.
 
@@ -82,6 +82,7 @@ Here are some ways to detect if your application is impacted:
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
+    - http://www&#46;microsoft&#46;com/pkiops
 
 ## Next steps
 
