@@ -91,7 +91,7 @@ For an end-to-end example, see [How to consume and maintain public content with 
 
 Developers of application images should ensure that their code references local content under their control. For example, a `Docker FROM` statement in a Dockerfile should reference an image in a private base image registry instead of a public registry. 
 
-Similar to automating a base image update, set up an ACR task(container-registry-tasks-overview.md) to automate builds of application images. An automated build task can track image updates in your private base registry in addition to [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
+Similar to automating a base image update, set up an ACR task to automate builds of application images. An automated build task can track image updates in your private base registry in addition to [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
 For a detailed example, see: [Tutorial: Automate container image builds when a base image is updated in an Azure container registry](container-registry-tutorial-base-image-update.md).
 
