@@ -57,11 +57,11 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    
 1. Select **Next: Tags** and skip.
 
-1. Select **Next: Summary**.
+1. Select **Next: Review + create**.
 
    ![Enterprise tier summary](media/cache-create/enterprise-tier-summary.png) 
 
-1. Review the settings, and click **Create**.
+1. Review the settings and click **Create**.
    
    It takes some time for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
