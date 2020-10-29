@@ -15,6 +15,11 @@ ms.author: scottwhi
 
 # Default insights tag
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The default insights tag is the one with the `displayName` field set to an empty string. The following example shows the possible list of default insights (actions). The list of actions the response includes depends on the image. And for each action, the list of properties may vary by image, so check if the property exists before trying to use it.
 
 ```json
