@@ -87,24 +87,26 @@ To step through this how-to-guide, you need:
 In this method, the entire database backup output is streamed directly to the target database server. This method does not store and backups local to the client. Hence, this can even be run from the Azure Cloud Shell. This will 
 
 1. Make sure the database exists in the target server using `\l` command. If the database does not exist, then create the database.
-   ```bash
-    psql "host<target server name> port=5432 dbname=postgres user=<user@dbname> password=###### sslmode=require"
+   ```azurecli-interactive
+    psql "host=myTargetServer port=5432 dbname=postgres user=myUser password=###### sslmode=mySSLmode"
+    ```
+    ```bash
     postgres> \l   
-    postgresl> create database <database name>;
+    postgresl> create database myDB;
    ```
 
 2. Run the dump and restore as a single command line using a pipe. 
-    ```bash
-    $ pg_dump -Fc -v --<your source server FQDN> --port=5432 --username=<user@source server> --dbname=<source database> | pg_restore -v --no-owner --host=<your target server FQDN> --port=5432 --username=<user@target server> --dbname=,target database>
+    ```azurecli-interactive
+    pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mysourceDB | pg_restore -v --no-owner --host=mytargetServer --port=5432 --username=myUser --dbname=mytargetDB
     ```
 
     For example,
 
-    ```bash 
-    $ pg_dump -Fc -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
+    ```azurecli-interactive
+    pg_dump -Fc -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
     ```  
-1. Once the upgrade (migration) process completes, you can test your application with the target server. 
-2. Repeat this process for all the databases within the server.
+3. Once the upgrade (migration) process completes, you can test your application with the target server. 
+4. Repeat this process for all the databases within the server.
    
 ## Method 2: Upgrade with parallel dump and restore 
 
@@ -113,8 +115,8 @@ This method is useful if you have few larger tables in the database and want to 
 1. For each database in your source server, create a corresponding database at the target server.
 
    ```bash
-    psql "host<target server name> port=5432 dbname=postgres user=<user@dbname> password=###### sslmode=<ssl mode>"
-    postgresl> create database <database name>;
+    psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
+    postgresl> create database myDB;
    ```
    For example,
     ```bash
@@ -127,18 +129,18 @@ This method is useful if you have few larger tables in the database and want to 
 2. Run the pg_dump command in a directory format with number of jobs = 4 (number of tables in the database). With larger compute tier and with more tables, you can increase it to a higher number. That pg_dump will create a directory to store compressed files for each job.
 
     ```bash
-    $ pg_dump -Fd -v --host=<source server> --port=5432 --username=<user@dbName> --dbname=<source DB name> -j 4 -f <dump directory name>
+    pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
     Password:
     ```
     For example,
     ```bash
-    $ pg_dump -Fd -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb -j 4 -f dump.dir
+    pg_dump -Fd -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb -j 4 -f dump.dir
     Password:
     ```
 
 3. Then restore the backup at the target server.
     ```bash
-    $ pg_restore -v --no-owner --host=<target server> --port=5432 --username=<user@dbName> --dbname=<target DB name> -j 4 <dump directory name>
+    $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
     Password:
     ```
     For example,
@@ -148,7 +150,7 @@ This method is useful if you have few larger tables in the database and want to 
     ```
 
 > [!TIP]
-> The process mentioned in this document can also be used to migrate to the Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@ <DBNAME>`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
+> The process mentioned in this document can also be used to migrate to the Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@dbName`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
 
 ## Next Steps
 
