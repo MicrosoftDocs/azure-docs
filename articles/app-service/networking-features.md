@@ -31,6 +31,7 @@ Instead of connecting the networks, you need features to handle the various aspe
 | App-assigned address | Hybrid Connections |
 | Access restrictions | Gateway-required VNet Integration |
 | Service endpoints | VNet Integration |
+| Private endpoints ||
 
 Other than noted exceptions, you can use all of these features together. You can mix the features to solve your problems.
 
@@ -45,7 +46,7 @@ For any given use case, there might be a few ways to solve the problem. Choosing
 | Restrict access to your app from a set of well-defined addresses | Access restrictions |
 | Restrict access to your app from resources in a virtual network | Service endpoints </br> ILB ASE </br> Private endpoints |
 | Expose your app on a private IP in your virtual network | ILB ASE </br> Private endpoints </br> Private IP for inbound traffic on an Application Gateway instance with service endpoints |
-| Protect your app with a web application firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
+| Protect your app with a Web Application Firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
 | Load balance traffic to your apps in different regions | Azure Front Door with access restrictions | 
 | Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
 
@@ -93,26 +94,25 @@ To learn how to set an address on your app, see [Add a TLS/SSL certificate in Az
 
 ### Access restrictions 
 
-Access restrictions let you filter *inbound* requests based on the originating IP address. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Because the front-end roles are upstream from the workers, you can think of access restrictions as network-level protection for your apps. 
+Access restrictions let you filter *inbound* requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Because the front-end roles are upstream from the workers, you can think of access restrictions as network-level protection for your apps. 
 
-This feature allows you to build a list of allow and deny address blocks that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can use this feature in an ASE or in the multitenant service. When you use it with an ILB ASE, you can restrict access from private address blocks.
+This feature allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can use this feature in an ASE or in the multitenant service. When you use it with an ILB ASE or private endpoint, you can restrict access from private address blocks.
+> [!NOTE]
+> Up to 512 access restriction rules can be configured per app. 
 
 ![Diagram that illustrates access restrictions.](media/networking-features/access-restrictions.png)
 
-The access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Some use cases for this feature:
+#### IP-based access restriction rules
 
+The IP-based access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Some use cases for this feature:
 * Restrict access to your app from a set of well-defined addresses. 
 * Restrict access to traffic coming through a load-balancing service, like Azure Front Door. If you want to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
 
-![Diagram that illustrates access restrictions with Front Door.](media/networking-features/access-restrictions-afd.png)
+To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
 
-If you want to lock down access to your app so that it can be reached only from resources in your Azure virtual network, you need a static public address on your source in your virtual network. If the resource doesn't have a public address, use the service endpoints feature instead. To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
-
-### Service endpoints
+#### Service endpoint based Access Restriction rules
 
 Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks. 
-
-![Diagram that illustrates service endpoints.](media/networking-features/service-endpoints.png)
 
 Some use cases for this feature:
 
@@ -125,7 +125,8 @@ To learn more about configuring service endpoints with your app, see [Azure App 
 
 ### Private Endpoint
 
-Private Endpoint is a network interface that connects you to your web app through Azure Private Link. It does so in a way that helps improve security and privacy. Private Endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app. For more information, see
+Private Endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private Endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.
+For more information, see
 [Using private endpoints for Azure Web App][privateendpoints].
 
 Some use cases for this feature:
@@ -265,7 +266,6 @@ Either method will work with multiple front ends. On a small scale, service endp
 ### Line-of-business applications
 
 Line-of-business (LOB) applications are internal applications that aren't normally exposed for access from the internet. These applications are called from inside corporate networks where access can be strictly controlled. If you use an ILB ASE, it's easy to host your line-of-business applications. If you use the multitenant service, you can either use private endpoints or use service endpoints combined with an application gateway. There are two reasons to use an application gateway with service endpoints instead of using private endpoints:
-
 * You need WAF protection on your LOB apps.
 * You want to load balance to multiple instances of your LOB apps.
 

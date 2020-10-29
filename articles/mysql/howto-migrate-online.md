@@ -20,4 +20,4 @@ Azure DMS performs an initial load of your on-premises to Azure Database for MyS
 
 ## Next steps
 - View the video [Easily migrate MySQL/PostgreSQL apps to Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), which contains a demo showing how to migrate MySQL apps to Azure Database for MySQL.
-- See the tutorial [Migrate MySQL to Azure Database for MySQL online using DMS](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).
+- See the tutorial [Migrate MySQL to Azure Database for MySQL online using DMS](../dms/tutorial-mysql-azure-mysql-online.md).

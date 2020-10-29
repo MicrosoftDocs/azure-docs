@@ -29,7 +29,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+Skip to [Clone a notebook folder](#clone) if you already have an Azure Machine Learning workspace.  
+
+There are many [ways to create a workspace](how-to-manage-workspace.md).  In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -44,7 +46,7 @@ Azure Machine Learning includes a cloud notebook server in your workspace for an
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### Clone a notebook folder
+### <a name="clone"></a> Clone a notebook folder
 
 You complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
