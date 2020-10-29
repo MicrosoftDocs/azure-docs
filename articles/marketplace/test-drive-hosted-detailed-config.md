@@ -13,7 +13,7 @@ ms.date: 11/06/2020
 
 This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement or Dynamics 365 for Operations.
 
-## Configure hosted test drive for Customer Engagement
+## Configure for Dynamics 365 Customer Engagement
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
@@ -54,7 +54,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app.
     - **Test drive demo video** – A video that showcases your app (optional).
 
-## Configure hosted test drive for Dynamics 365 Operations
+## Configure for Dynamics 365 Operations
 
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
 3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
