@@ -47,7 +47,7 @@ Email sign-up is enabled by default in your local account identity provider sett
 
    ![Identity providers select Local account](media/phone-authentication-user-flows/identity-provider-local-account.png)
 
-1. In the **Configure local IDP** page, make sure **Phone** is selected as one of the the allowable identity types consumers can use to create their local accounts in your Azure AD B2C tenant.
+1. In the **Configure local IDP** page, make sure **Phone** is selected as one of the allowable identity types consumers can use to create their local accounts in your Azure AD B2C tenant.
 
    ![Select the allowed identity types](media/phone-authentication-user-flows/configure-local-idp.png)
 
@@ -71,7 +71,7 @@ Here's an example showing how to add phone sign-up to a new user flow.
 
 5. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
-    ![Select a user flow page with Sign up and sign in flow highlighted](./media/phone-authentication-user-flows/select-user-flow-type.png)
+    ![Select a user flow page with sign-up and sign-in flow highlighted](./media/phone-authentication-user-flows/select-user-flow-type.png)
 
 6. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
@@ -87,9 +87,9 @@ Here's an example showing how to add phone sign-up to a new user flow.
    > [!NOTE]
    > Multi-factor authentication (MFA) is disabled by default. You can enable MFA for a phone sign-up user flow, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
-1. In the **User attributes and token claims** section, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
+1. In the **User attributes and token claims** section, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
+1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 
 ## Enable the recovery email prompt (preview)
 
@@ -97,7 +97,7 @@ When you enable phone sign-up and sign-in for your user flows, it's also a good 
 
 - When the recovery email prompt is **On**, a user signing up for the first time is asked to verify a backup email. A user who hasn't provided a recovery email before is asked to verify a backup email during next sign in.
 
-- When recovery email is **Off**, a user signing up or signing in is not shown the recovery email prompt.
+- When recovery email is **Off**, a user signing up or signing in isn't shown the recovery email prompt.
  
 You can enable the recovery email prompt in the user flow properties.
 
@@ -114,7 +114,7 @@ You can enable the recovery email prompt in the user flow properties.
 6. Under **Settings**, select **Properties**.
 7. Next to **Enable recovery email prompt for phone number signup and sign in (preview)**, select:
 
-   - **On** to show the recovery email prompt during both sign up and sign in.
+   - **On** to show the recovery email prompt during both sign-up and sign-in.
    - **Off** to hide the recovery email prompt.
 
     ![User flows properties with Enable recovery email enabled](./media/phone-authentication-user-flows/recovery-email-settings.png)
@@ -129,7 +129,7 @@ After you've enabled phone sign-up and sign-in and the recovery email prompt in 
 
 2. For **Application**, select the web application you registered in step 1. The **Reply URL** should show `https://jwt.ms`.
 
-3. Click **Run user flow** and verify the following behavior:
+3. Select **Run user flow** and verify the following behavior:
 
    - A user who signs up for the first time is asked to provide a recovery email. 
    - A user who has already signed up but hasn't provided a recovery email is asked to provide one upon signing in.
