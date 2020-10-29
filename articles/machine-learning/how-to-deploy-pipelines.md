@@ -93,7 +93,7 @@ The `json` argument to the POST request must contain, for the `ParameterAssignme
 
 ### Run a published pipeline using C# 
 
-The following code shows how to call a pipeline asynchronously from C#. The partial code snippet just shows the call structure and is not part of a Microsoft sample. It does not show complete classes or error handling. 
+The following code shows how to call a pipeline asynchronously from C#. The partial code snippet just shows the call structure and isn't part of a Microsoft sample. It doesn't show complete classes or error handling. 
 
 ```csharp
 [DataContract]
@@ -148,7 +148,7 @@ using (HttpClient client = new HttpClient())
 
 ### Run a published pipeline using Java
 
-The following code shows a call to a pipeline that requires authentication (see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md)). If your pipeline is deployed publicly, you don't need the calls that produce `authKey`. The partial code snippet does not show Java class and exception-handling boilerplate. The code uses `Optional.flatMap` for chaining together functions that may return an empty `Optional` (e.g., `None`). The use of `flatMap` shortens and clarifies the code, but note that `getRequestBody()` swallows exceptions.
+The following code shows a call to a pipeline that requires authentication (see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md)). If your pipeline is deployed publicly, you don't need the calls that produce `authKey`. The partial code snippet doesn't show Java class and exception-handling boilerplate. The code uses `Optional.flatMap` for chaining together functions that may return an empty `Optional`. The use of `flatMap` shortens and clarifies the code, but note that `getRequestBody()` swallows exceptions.
 
 ```java
 import java.net.URI;
@@ -232,7 +232,7 @@ class AuthenticationBody {
 
 ### Changing datasets and datapaths without retraining
 
-You may want to train and inference on different datasets and datapaths. For instance, you may wish to train on a smaller, sparser dataset but inference on the complete dataset. You switch datasets with the `DataSetDefinitionValueAssignments` key in the request's `json` argument. You switch datapaths with `DataPathAssignments`. The technique for both is similar:
+You may want to train and inference on different datasets and datapaths. For instance, you may wish to train on a smaller dataset but inference on the complete dataset. You switch datasets with the `DataSetDefinitionValueAssignments` key in the request's `json` argument. You switch datapaths with `DataPathAssignments`. The technique for both is similar:
 
 1. In your pipeline definition script, create a `PipelineParameter` for the dataset. Create a `DatasetConsumptionConfig` or `DataPath` from the `PipelineParameter`:
 
@@ -290,7 +290,7 @@ The notebooks [Showcasing Dataset and PipelineParameter](https://github.com/Azur
 
 ## Create a versioned pipeline endpoint
 
-You can create a Pipeline Endpoint with multiple published pipelines behind it. This gives you a fixed REST endpoint as you iterate on and update your ML pipelines.
+You can create a Pipeline Endpoint with multiple published pipelines behind it. This technique gives you a fixed REST endpoint as you iterate on and update your ML pipelines.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
