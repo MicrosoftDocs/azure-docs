@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 06/20/2019
+ms.date: 10/29/2020
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -88,7 +88,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-Use the [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet to submit an import database request to Azure. Depending on database size, the import may take some time to complete.
+Use the [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -120,7 +120,7 @@ $importStatus
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete.
+Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key
