@@ -38,29 +38,29 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     5. Under Supported account types, select **Account in any organization directory and personal Microsoft accounts**.
     6. Select **Create** and wait for your app to be created.
     7. Once the app is created, note the **Application ID** displayed on the overview screen. You will need this value later when configuring your test drive.
-    8. To add a nativeclient redirect URI, select the **Authentication** blade. Under **Platform configuration** , select **Add Platform** > **Mobile** > **Desktop** application tile. Choose the **nativeclient** redirect URI and select **Configure**.
+    8. To add a nativeclient redirect URI, select the **Authentication** blade. Under **Platform configuration**, select **Add Platform** > **Mobile** > **Desktop** application tile. Choose the **nativeclient** redirect URI and select **Configure**.
 
         :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Adding a nativeclient redirect URI.":::
 
-    9. Under **Manage Application** , select **API permissions**.
+    9. Under **Manage Application**, select **API permissions**.
     10. Select **Add a permission** and then **Microsoft Graph API**.
     11. Select the **Application** permission category and then the **Directory.Read.All** and **Directory.ReadWrite.All** permissions.
 
-        :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Setting application permissions.":::
+        :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Setting the application permissions.":::
 
-    12. To add **Dynamics CRM - User impersonation** access for whitelist Azure AD app, select **Add permission** again.
+    12. To add **Dynamics CRM - User impersonation** access for allow list Azure AD app, select **Add permission** again.
 
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Setting application permissions.":::
+        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Requesting the application permissions.":::
 
     13. Once the permission is added, select **Grant admin consent for Microsoft**.
     14. From the message alert, select **Yes**.
 
-        :::image type="content" source="./media/test-drive/api-permissions-confirmation-customer.png" alt-text="Shows application permissions successfully granted.":::
+        :::image type="content" source="./media/test-drive/api-permissions-confirmation-customer.png" alt-text="Shows the application permissions successfully granted.":::
 
     15. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
-        3. Enter a description, such as *Test Drive*, and select an appropriate duration. Be aware that your Test Drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
+        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you lave this blade. You will need this value later when configuring your test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
@@ -90,7 +90,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     8. Select **Manage roles**.
     9. Assign a custom or OOB security role that contains read, write, and assign role privileges, such as *System Administrator*.
 
-        :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selecting role privileges.":::
+        :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selecting the role privileges.":::
 
     10. Assign the application user the custom security role you created for your test drive.
 
@@ -115,7 +115,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     5. Under Supported account types, select **Account in any organization directory and personal Microsoft accounts**.
     6. Select **Create** and wait for your app to be created.
     7. Once the app is created, note the **Application ID** displayed on the overview screen. You will need this value later when configuring your test drive.
-    8. Under **Manage Application** , select **API permissions**.
+    8. Under **Manage Application**, select **API permissions**.
     9. Select **Add a permission** and then **Microsoft Graph API**.
     10. Select the **Application** permission category and then the **Directory.Read.All** and **Directory.ReadWrite.All** permissions.
 
@@ -130,7 +130,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     14. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
-        3. Enter a description, such as *Test Drive*, and select an appropriate duration. Be aware that your Test Drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
+        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you lave this blade. You will need this value later when configuring your test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
@@ -147,14 +147,14 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
 5. Now add the above app to **Dynamics 365 for Operations** to enable the app to manage users.
     1. Find your **Dynamics 365 for Operations** instance.
-    2. From the top left corner, click the three-line menu.
+    2. From the top-left corner, click the three-line menu (hamburger).
     3. Select **System Administration**.
     4. Select **Azure Active Directory applications**.
     5. Select **+ New**.
-    6. Enter the **Client Id of the Azure AD app** that is going to perform the on-behalf-of actions.
-    7. <font color="red">[ Enter? ]</font> The user Id on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).
+    6. Enter the **Client ID of the Azure AD app** that is going to perform the on-behalf-of actions.
+    7. <font color="red">[ Enter? ]</font> The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).
 
-        :::image type="content" source="./media/test-drive/system-admin-user-id.png" alt-text="Selecting role privileges.":::
+        :::image type="content" source="./media/test-drive/system-admin-user-id.png" alt-text="The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).":::
 
 ## Next steps
 
