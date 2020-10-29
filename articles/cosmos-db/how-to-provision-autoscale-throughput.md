@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB - SQL API
@@ -243,7 +243,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## Azure Resource Manager
 
-Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-samples.md) for samples.
+Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](./templates-samples-sql.md) for samples.
 
 ## Azure CLI
 

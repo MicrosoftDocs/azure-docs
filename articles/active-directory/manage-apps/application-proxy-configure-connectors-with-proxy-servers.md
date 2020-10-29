@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperfq2
 ---
 
 # Work with existing on-premises proxy servers
@@ -105,18 +106,19 @@ There are four aspects to consider at the outbound proxy:
 
 Allow access to the following URLs:
 
-| URL | How it's used |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | The connector uses these URLs to verify certificates. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>*.microsoftonline-p.com<br>*.msauth.net<br>*.msauthimages.net<br>*.msecnd.net<br>*.msftauth.net<br>*.msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | The connector uses these URLs during the registration process. |
+| URL | Port |  How it's used |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | The connector uses these URLs to verify certificates. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | The connector uses these URLs during the registration process. |
+| ctldl.windowsupdate.com | 80/HTTP | The connector uses this URL during the registration process. |
 
 If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net.
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to all of the Azure datacenter IP ranges. The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break. To download the latest Azure Data Center IP ranges, navigate to [https://download.microsoft.com](https://download.microsoft.com) and search for "Azure IP Ranges and Service Tags". Be sure to select the relevant cloud. For example, the public cloud IP ranges can be found with "Azure IP Ranges and Service Tags – Public Cloud". The US Goverment cloud can be found by searching for "Azure IP Ranges and Service Tags – US Goverment Cloud".
+* Allow the connector outbound access to all of the Azure datacenter IP ranges. The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break. To download the latest Azure Data Center IP ranges, navigate to [https://download.microsoft.com](https://download.microsoft.com) and search for "Azure IP Ranges and Service Tags". Be sure to select the relevant cloud. For example, the public cloud IP ranges can be found with "Azure IP Ranges and Service Tags – Public Cloud". The US Government cloud can be found by searching for "Azure IP Ranges and Service Tags – US Government Cloud".
 
 #### Proxy authentication
 

@@ -39,7 +39,7 @@ You can replicate and recover VMs between any two regions within the same geogra
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, Norway West, France Central
+Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, Norway West, France Central, Switzerland North
 Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
@@ -183,7 +183,7 @@ Azure gallery images - Microsoft published | Supported | Supported if the VM run
 Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 VMs migrated using Site Recovery | Supported | If a VMware VM or physical machine was migrated to Azure using Site Recovery, you need to uninstall the older version of Mobility service running on the machine, and restart the machine before replicating it to another Azure region.
-RBAC policies | Not supported | Role-based access control (RBAC) policies on VMs are not replicated to the failover VM in target region.
+Azure RBAC policies | Not supported | Azure role-based access control (Azure RBAC) policies on VMs are not replicated to the failover VM in target region.
 Extensions | Not supported | Extensions are not replicated to the failover VM in target region. It needs to be installed manually after failover.
 Proximity Placement Groups | Supported | Virtual machines located inside a Proximity Placement Group can be protected using Site Recovery.
 

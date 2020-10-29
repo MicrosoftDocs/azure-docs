@@ -207,4 +207,4 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 ## Next steps
 
-To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) article.
+To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](./monitor-programmatically.md) article.
