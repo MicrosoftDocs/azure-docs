@@ -41,7 +41,7 @@ You can add an administrative unit by using either the Azure portal or PowerShel
 
 ### Use the Azure portal
 
-1. In the Azure portal, go to Azure AD, and then, on the left pane, select **Administrative units**.
+1. In the Azure portal, go to Azure AD. Then, on the left pane, select **Administrative units**.
 
     ![Screenshot of the "Administrative units" link in Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
