@@ -25,7 +25,7 @@ This article describes how to obtain credentials using the `Azure.Identity` clie
 
 ## Prerequisites
 
-First, complete the setup steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). This will ensure you have an Azure Digital Twins instance, your user has access permissions, and you've set up permissions for client applications. After all this setup, you are ready to write client app code.
+First, complete the setup steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). This will ensure that you have an Azure Digital Twins instance and that your user has access permissions. After that setup, you are ready to write client app code.
 
 To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 

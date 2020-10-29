@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/28/2020
 
 ---
 
@@ -20,7 +20,7 @@ Before you start, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented in [Supported regions](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020** for AKS and **microsoft/oms:ciprod09252020** for Azure Arc enabled Kubernetes cluster.
+* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** for AKS and **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** for Azure Arc enabled Kubernetes cluster.
 
     To verify your cluster is running the newer version of the agent, you can either:
 
