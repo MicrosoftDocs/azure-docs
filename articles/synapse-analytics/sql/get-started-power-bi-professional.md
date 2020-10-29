@@ -42,7 +42,7 @@ Parameters:
 | Serverless SQL pool service endpoint address    | Will be used as server name                                   |
 | Serverless SQL pool service endpoint region     | Will be used to determine what storage will we use in samples |
 | Username and password for endpoint access | Will be used to access endpoint                               |
-| Database you'll use to create views     | This database will be used as starting point in samples       |
+| Database you'll use to create views       | This database will be used as starting point in samples       |
 
 ## First-time setup
 
