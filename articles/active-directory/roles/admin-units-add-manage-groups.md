@@ -168,7 +168,7 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 You can remove a group from an administrative unit in the Azure portal in either of two ways:
 
-- Remove it from a group overview
+- Remove it from a group overview:
 
   1. In the Azure portal, go to **Azure AD**.
   1. On the left pane, select **Groups**, and then open the profile for the group you want to remove from an administrative unit.
@@ -177,7 +177,7 @@ You can remove a group from an administrative unit in the Azure portal in either
 
      ![Screenshot of the "Administrative units" pane, displaying a list of groups assigned to the selected administrative unit.](./media/admin-units-add-manage-groups/group-au-remove.png)
 
-- Remove it from an administrative unit
+- Remove it from an administrative unit:
 
   1. In the Azure portal, go to **Azure AD**.
   1. On the left pane, select **Administrative units**, and then select the administrative unit that the group is assigned to.
