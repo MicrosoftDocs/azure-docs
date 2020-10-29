@@ -17,6 +17,8 @@ The tutorial is driven by a sample project written in C#. The sample is located 
 
 This will download a *.ZIP* folder to your machine as **Azure_Digital_Twins_end_to_end_samples.zip**. Unzip the folder and extract the files.
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
+### Prepare an Azure Digital Twins instance
+
+[!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]
