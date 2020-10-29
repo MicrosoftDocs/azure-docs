@@ -39,7 +39,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "eventGridPublishRetryCount": 3,
       "eventGridPublishRetryInterval": "00:00:30",
       "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
+    }
   }
 }
 ```
