@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. In **Edit SSO** page, perform the following steps.
 
-    ![Terraform Cloud settings](./media/terraform-cloud-tutorial/edit-sso.png)
+    ![Terraform Cloud edit sso](./media/terraform-cloud-tutorial/edit-sso.png)
 
     a. In the **Sign-On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
