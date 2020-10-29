@@ -110,7 +110,7 @@
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
     - name: Handle long-running stored procedures for SQL connector
-      href: handle-long-running-stored-procedures-sql-connector
+      href: handle-long-running-stored-procedures-sql-connector.md
     - name: Handle throttling problems or 429 errors
       href: handle-throttling-problems-429-errors.md
     - name: Develop custom connectors
