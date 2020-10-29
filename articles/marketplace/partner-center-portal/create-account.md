@@ -46,6 +46,9 @@ Review the information on the [**Welcome to Microsoft Partner Center**](https://
 
 Sign in with a work account so that you can link your company's work email account domain to your new Partner Center account. After you've associated these two accounts, your company's employees can sign in to Partner Center with their work account user names and passwords.
 
+>[!NOTE]
+>To see whether your company already has a work account, learn how to create a new work account, or learn how to set up multiple work accounts to use with Partner Center, see [Company work accounts and Partner Center](company-work-accounts.md).
+
 ### Agree to the terms and conditions
 
 As part of the registration process, you need to agree to the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
@@ -69,10 +72,12 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 
 ## Create an account using existing Partner Center enrollments
 
-Use this section to create a commercial marketplace account if you already have an enrollment in Microsoft Partner Center. There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the one that applies to you:
+Use this section to create a commercial marketplace account if you already have an enrollment in Microsoft Partner Center. There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the scenario that applies to you:
 
--  [Use an existing Microsoft Partner Network enrollment](#use-a-microsoft-partner-network-enrollment) to create your account.
-- [Use an existing developer program enrollment](#use-a-developer-program-enrollment) to create your account.
+- *What if I'm already enrolled in the Microsoft Partner Network?*
+     [Use an existing Microsoft Partner Network enrollment](#use-a-microsoft-partner-network-enrollment) to create your account.
+- *What if I'm already enrolled in a developer program?*
+     [Use an existing developer program enrollment](#use-a-developer-program-enrollment) to create your account.
 
 For both enrollment types, you sign in to Partner Center with your existing credentials. Be sure to have your account and publisher profile information available.
 
