@@ -24,13 +24,13 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
  ![Screenshot of the connectivity settings window.][1]
 
 > [!NOTE]
-> Once these settings are applied, they take effect immediately, which may result in connection loss for your customers if they do not meet the requirements for each setting.
+> Once these settings are applied, they take effect immediately, which may result in connection loss for your customers if they don't meet the requirements for each setting.
 
 ## Deny public network access
 
-When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No** (default), customers can connect by using either public endpoints (with IP-based firewall rules or VNET-based firewall rules) or private endpoints (by using Private Link) as outlined in the [network access overview](network-access-controls-overview.md). 
+When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No** (default), customers can connect by using either public endpoints (with IP-based firewall rules or with VNET-based firewall rules) or private endpoints (by using Private Link), as outlined in the [network access overview](network-access-controls-overview.md). 
 
- ![Screenshot of connectivity with deny public network access][2]
+ ![Diagram showing connectivity with Deny public network access.][2]
 
 Any attempts to set **Deny public network access** to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
 
@@ -60,10 +60,10 @@ Unable to create or modify firewall rules when public network interface for the 
 To manage server or database level firewall rules, please enable the public network interface.
 ```
 
-## Change Public Network Access via PowerShell
+## Change public network access via PowerShell
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az.Sql module and in the AzureRM modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> Azure SQL Database still supports the PowerShell Azure Resource Manager module, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the server level:
 
@@ -77,7 +77,7 @@ $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
-## Change Public Network Access via CLI
+## Change public network access via CLI
 
 > [!IMPORTANT]
 > All scripts in this section require [Azure CLI](/cli/azure/install-azure-cli).
@@ -100,43 +100,43 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) Version setting allows customers to choose which version of TLS their Azure SQL Database uses.
 
-At present, we support TLS 1.0, 1.1, and 1.2. Setting a Minimal TLS Version ensures that subsequent, newer TLS versions are supported. For example, choosing  a TLS version greater than 1.1 means only connections with TLS 1.1 and 1.2 are accepted and TLS 1.0 is rejected. After testing to confirm your applications support it, we recommend setting Minimal TLS Version to 1.2 because it includes fixes for vulnerabilities found in previous versions and is the highest version of TLS supported in Azure SQL Database.
+Currently, we support TLS 1.0, 1.1, and 1.2. Setting a Minimal TLS Version ensures that newer TLS versions are supported. For example, choosing  a TLS version greater than 1.1 means only connections with TLS 1.1 and 1.2 are accepted, and TLS 1.0 is rejected. After testing to confirm your applications support it, we recommend setting Minimal TLS Version to 1.2 because it includes fixes for vulnerabilities in previous versions and is the highest version of TLS supported in Azure SQL Database.
 
 > [!IMPORTANT]
 > The default for Minimal TLS Version is to allow all versions. However, once you enforce a version of TLS, it's not possible to revert to the default.
 
-For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version according to the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version.
+For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version according to the requirements of your applications. For customers that rely on applications to connect by using an unencrypted connection, we recommend not setting any Minimal TLS Version.
 
 For more information, see [TLS considerations for SQL Database connectivity](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
-After setting the Minimal TLS Version, login attempts from customers who are using a TLS version lower than the Minimal TLS Version of the server will fail with following error:
+After setting the Minimal TLS Version, login attempts from customers who are using a TLS version lower than the Minimal TLS Version of the server will fail with the following error:
 
 ```output
 Error 47072
 Login failed with invalid TLS version
 ```
 
-## Set minimal TLS version via PowerShell
+## Set the Minimal TLS Version via PowerShell
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> Azure SQL Database still supports the PowerShell Azure Resource Manager module, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to `Get` and `Set` the **Minimal TLS Version** property at the logical server level:
 
 ```powershell
-#Get the Minimal TLS Version property
+# Get the Minimal TLS Version property
 (Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).MinimalTlsVersion
 
-# # Update Minimal TLS Version to 1.2
+# Update Minimal TLS Version to 1.2
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
 Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
 ```
 
-## Set Minimal TLS Version via Azure CLI
+## Set the Minimal TLS Version via Azure CLI
 
 > [!IMPORTANT]
-> All scripts in this section requires [Azure CLI](/cli/azure/install-azure-cli).
+> All scripts in this section require [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
 
@@ -150,18 +150,16 @@ az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVer
 az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
 ```
 
-
-## Change connection policy
+## Change the connection policy
 
 [Connection policy](connectivity-architecture.md#connection-policy) determines how customers connect to Azure SQL Database.
 
-
-## Change Connection policy via PowerShell
+## Change the connection policy via PowerShell
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> Azure SQL Database still supports the PowerShell Azure Resource Manager module, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
-The following PowerShell script shows how to change the connection policy using PowerShell:
+The following PowerShell script shows how to change the connection policy by using PowerShell:
 
 ```powershell
 # Get SQL Server ID
@@ -177,10 +175,10 @@ $id="$sqlserverid/connectionPolicies/Default"
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
-## Change Connection policy via Azure CLI
+## Change the connection policy via Azure CLI
 
 > [!IMPORTANT]
-> All scripts in this section requires [Azure CLI](/cli/azure/install-azure-cli).
+> All scripts in this section require [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
 
