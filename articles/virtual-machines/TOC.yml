@@ -83,25 +83,342 @@
   - name: OpenShift
     items:
     - name: OpenShift overview
-      href: openshift-get-started.md
+      href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: openshift-container-platform-4x.md
     - name: OpenShift Container Platform 3.11 prerequisites
-      href: openshift-container-platform-3x-prerequisites.md
+      href: ./linux/openshift-container-platform-3x-prerequisites.md
     - name: OpenShift Container Platform 3.11
       href: openshift-container-platform-3x.md
     - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
-      href: openshift-container-platform-3x-marketplace-self-managed.md
+      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
-      href: openshift-azure-stack.md
+      href: ./linux/openshift-azure-stack.md
     - name: OpenShift Container Platform 3.11 post-deployment tasks
-      href: openshift-container-platform-3x-post-deployment.md
+      href: ./linux/openshift-container-platform-3x-post-deployment.md
     - name: Troubleshooting OpenShift Container Platform 3.11 deployments
-      href: openshift-container-platform-3x-troubleshooting.md
+      href: ./linux/openshift-container-platform-3x-troubleshooting.md
+    - name: Deploy OKD 
+      href: ./linux/openshift-okd.md
   - name: SAP on Azure
-    href: ../workloads/sap/get-started.md
+    items:
+    - name: Get started
+      href: ./workloads/sap/get-started.md
+    - name: Certifications
+      href: ./workloads/sap/sap-certifications.md
+    - name: SAP HANA on Azure (Large Instances)
+      items:
+      - name: Overview
+        items:
+        - name: What is SAP HANA on Azure (Large Instances)?
+          href: ./workloads/sap/ hana-overview-architecture.md
+        - name: Know the terms
+          href: ./workloads/sap/hana-know-terms.md
+        - name: Certification
+          href: ./workloads/sap/hana-certification.md
+        - name: Available SKUs for HLI
+          href: ./workloads/sap/hana-available-skus.md
+        - name: Sizing
+          href: ./workloads/sap/hana-sizing.md
+        - name: Onboarding requirements
+          href: ./workloads/sap/hana-onboarding-requirements.md
+        - name: SAP HANA data tiering and extension nodes
+          href: ./workloads/sap/hana-data-tiering-extension-nodes.md
+        - name: Operations model and responsibilities
+          href: ./workloads/sap/hana-operations-model.md
+        - name: Compatible Operating Systems
+          href: ./workloads/sap/os-compatibility-matrix-hana-large-instance.md
+    - name: Architecture
+      items:
+      - name: General architecture
+        href: ./workloads/sap/hana-architecture.md
+      - name: Network architecture
+        href: ./workloads/sap/hana-network-architecture.md
+      - name: Storage architecture
+        href: ./workloads/sap/hana-storage-architecture.md
+      - name: HLI supported scenarios
+        href: ./workloads/sap/hana-supported-scenario.md
+    - name: Infrastructure and connectivity
+      items:
+      - name: HLI deployment
+        href: ./workloads/sap/hana-overview-infrastructure-connectivity.md
+      - name: Connecting Azure VMs to HANA Large Instances
+        href: ./workloads/sap/hana-connect-azure-vm-large-instances.md
+      - name: Connecting a VNet to HANA Large Instance ExpressRoute
+        href: ./workloads/sap/hana-connect-vnet-express-route.md
+      - name: Additional network requirements
+        href: ./workloads/sap/hana-additional-network-requirements.md
+    - name: Install SAP HANA
+      items:
+      - name: Validate the configuration
+        href: ./workloads/sap/hana-installation.md
+      - name: Sample HANA Installation
+        href: ./workloads/sap/hana-example-installation.md
+    - name: High availability and disaster recovery
+      items:
+      - name: Options and considerations
+        href: ./workloads/sap/hana-overview-high-availability-disaster-recovery.md
+      - name: Backup and restore
+        href: ./workloads/sap/hana-backup-restore.md
+      - name: Principles and preparation
+        href: ./workloads/sap/hana-concept-preparation.md
+      - name: Disaster recovery failover procedure
+        href: ./workloads/sap/hana-failover-procedure.md
+    - name: Troubleshoot and monitor
+      items:
+      - name: Monitoring HLI
+        href: ./workloads/sap/troubleshooting-monitoring.md
+      - name: Monitoring and troubleshooting from HANA side
+        href: ./workloads/sap/hana-monitor-troubleshoot.md
+    - name: How to
+      items:
+      - name: Azure HANA Large Instances control through Azure portal
+        href: ./workloads/sap/hana-li-portal.md
+      - name: HA Setup with STONITH
+        href: ./workloads/sap/ha-setup-with-stonith.md
+      - name: OS Backup for Type II SKUs
+        href: ./workloads/sap/os-backup-type-ii-skus.md
+      - name: Enable Kdump for HANA Large Instances
+        href: ./workloads/sap/hana-large-instance-enable-kdump.md
+      - name: OS Upgrade for HANA Large Instances
+        href: ./workloads/sap/os-upgrade-hana-large-instance.md
+      - name: Setting up SMT server for SUSE Linux
+        href: ./workloads/sap/hana-setup-smt.md
+      - name: HLI to Azure VM migration
+        href: ./workloads/sap/hana-large-instance-virtual-machine-migration.md
+      - name: Buy an SAP HANA Large Instances reservation
+        href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: SAP HANA on Azure Virtual Machines
+    items:
+    - name: Installation of SAP HANA on Azure  VMs
+      href: ./workloads/sap/hana-get-started.md
+    - name: S/4 HANA or BW/4 HANA SAP CAL deployment guide
+      href: ./workloads/sap/cal-s4h.md
+    - name: SAP HANA infrastructure configurations and operations on Azure
+      href: ./workloads/sap/hana-vm-operations.md
+    - name: SAP HANA Azure virtual machine storage configurations
+      href: ./workloads/sap/hana-vm-operations-storage.md
+    - name: NFS v4.1 volumes on Azure NetApp Files for SAP HANA
+      href: ./workloads/sap/hana-vm-operations-netapp.md
+    - name: SAP HANA Availability in Azure Virtual Machines
+      items:
+      - name: SAP HANA on Azure Availability overview
+        href: ./workloads/sap/sap-hana-availability-overview.md
+      - name: SAP HANA on Azure Availability within one Azure region
+        href: ./workloads/sap/sap-hana-availability-one-region.md
+      - name: SAP HANA on Azure Availability across Azure regions
+        href: ./workloads/sap/sap-hana-availability-across-regions.md
+      - name: Set up SAP HANA System Replication on SLES
+        href: ./workloads/sap/sap-hana-high-availability.md
+      - name: Set up SAP HANA System Replication on RHEL
+        href: ./workloads/sap/sap-hana-high-availability-rhel.md
+      - name: Set up SAP HANA System Replication with ANF on RHEL
+        href: ./workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md
+      - name: Troubleshoot SAP HANA scale-out and Pacemaker on SLES
+        href: ./workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md
+      - name: SAP HANA scale-out HSR with Pacemaker on RHEL
+        href: ./workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md
+      - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
+        href: ./workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md
+      - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
+        href: ./workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md
+    - name: SAP HANA backup overview
+      href: ./workloads/sap/sap-hana-backup-guide.md
+    - name: SAP HANA file level backup
+      href: ./workloads/sap/sap-hana-backup-file-level.md
+  - name: SAP NetWeaver and Business One on Azure Virtual Machines
+    items:
+    - name: SAP workload planning and deployment checklist
+      href: ./workloads/sap/sap-deployment-checklist.md
+    - name: Plan and implement SAP NetWeaver on Azure
+      href: ./workloads/sap/planning-guide.md
+      items:
+      - name: Azure Storage types for SAP workload
+        href: ./workloads/sap/planning-guide-storage.md
+      - name: SAP workload on Azure virtual machine supported scenarios
+        href: ./workloads/sap/sap-planning-supported-configurations.md
+      - name: What SAP software is supported for Azure deployments
+        href: ./workloads/sap/sap-supported-product-on-azure.md
+    - name: SAP NetWeaver Deployment guide
+      href: ./workloads/sap/deployment-guide.md
+    - name: DBMS deployment guides for SAP workload
+      items:
+      - name: General Azure Virtual Machines DBMS deployment for SAP workload
+        href: ./workloads/sap/dbms_guide_general.md
+      - name: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
+        href: ./workloads/sap/dbms_guide_sqlserver.md
+      - name: Oracle Azure Virtual Machines DBMS deployment for SAP workload
+        href: ./workloads/sap/dbms_guide_oracle.md
+      - name: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
+        href: ./workloads/sap/dbms_guide_ibm.md
+      - name: High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server
+        href: ./workloads/sap/dbms-guide-ha-ibm.md
+      - name: High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
+        href: ./workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md
+      - name: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
+        href: ./workloads/sap/dbms_guide_sapase.md
+      - name: SAP MaxDB, liveCache and Content Server deployment on Azure
+        href: ./workloads/sap/dbms_guide_maxdb.md
+      - name: SAP HANA Availability in Azure Virtual Machines
+        items:
+        - name: SAP HANA on Azure Availability overview
+          href: ./workloads/sap/sap-hana-availability-overview.md
+        - name: SAP HANA on Azure Availability within one Azure region
+          href: ./workloads/sap/sap-hana-availability-one-region.md
+        - name: SAP HANA on Azure Availability across Azure regions
+          href: ./workloads/sap/sap-hana-availability-across-regions.md
+    - name: SAP Business One on Azure Virtual Machines
+      href: ./workloads/sap/business-one-azure.md
+    - name: SAP IDES on Windows/SQL Server SAP CAL deployment guide
+      href: ./workloads/sap/cal-ides-erp6-erp7-sp3-sql.md
+    - name: SAP LaMa connector for Azure
+      href: ./workloads/sap/-installation.md
+    - name: High Availability (HA) on Windows and Linux
+      items:
+      - name: Overview
+        href: ./workloads/sap/sap-high-availability-guide-start.md
+      - name: High Availability Architecture
+        items:
+        - name: HA Architecture and Scenarios
+          href: ./workloads/sap/sap-high-availability-architecture-scenarios.md
+        - name: Higher Availability Architecture and Scenarios
+          href: ./workloads/sap/sap-higher-availability-architecture-scenarios.md
+        - name: SAP workload configurations with Azure Availability Zones
+          href: ./workloads/sap/sap-ha-availability-zones.md
+        - name: HA on Windows with Shared Disk for (A)SCS Instance
+          href: ./workloads/sap/sap-high-availability-guide-wsfc-shared-disk.md
+        - name: HA on Windows with SOFS File Share for (A)SCS Instance
+          href: ./workloads/sap/sap-high-availability-guide-wsfc-file-share.md
+        - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+          href: ./workloads/sap/high-availability-guide-windows-netapp-files-smb.md
+        - name: HA on SUSE Linux for (A)SCS Instance
+          href: ./workloads/sap/high-availability-guide-suse.md
+        - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files
+          href: ./workloads/sap/high-availability-guide-suse-netapp-files.md
+        - name: HA on Red Hat Enterprise Linux for (A)SCS Instance
+          href: ./workloads/sap/high-availability-guide-rhel.md
+        - name: HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
+          href: ./workloads/sap/high-availability-guide-rhel-netapp-files.md
+      - name: Azure Infrastructure Preparation
+        items:
+        - name: Windows with Shared Disk for (A)SCS Instance
+          href: ./workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk.md
+        - name: Windows with SOFS File Share for (A)SCS Instance
+          href: ./workloads/sap/sap-high-availability-infrastructure-wsfc-file-share.md
+        - name: High availability for NFS on Azure VMs on SLES
+          href: ./workloads/sap/high-availability-guide-suse-nfs.md
+        - name: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
+          href: ./workloads/sap/high-availability-guide-rhel-glusterfs.md
+        - name: Pacemaker on SLES
+          href: ./workloads/sap/high-availability-guide-suse-pacemaker.md
+        - name: Pacemaker on RHEL
+          href: ./workloads/sap/high-availability-guide-rhel-pacemaker.md
+        - name: Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios
+          href: ./workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections.md
+      - name: SAP Installation
+        items:
+        - name: Windows with Shared Disk for (A)SCS Instance
+          href: ./workloads/sap/sap-high-availability-installation-wsfc-shared-disk.md
+        - name: Windows with SOFS File Share for (A)SCS Instance
+          href: ./workloads/sap/sap-high-availability-installation-wsfc-file-share.md
+        - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+          href: ./workloads/sap/high-availability-guide-windows-netapp-files-smb.md
+        - name: SUSE Linux with NFS for (A)SCS Instance
+          href: ./workloads/sap/high-availability-guide-suse.md
+        - name: SUSE Linux with NFS for (A)SCS Instance with Azure NetApp Files
+          href: ./workloads/sap/high-availability-guide-suse-netapp-files.md
+        - name: High availability for SAP NetWeaver on Red Hat Enterprise Linux
+          href: ./workloads/sap/high-availability-guide-rhel.md
+        - name: Red Hat Enterprise Linux with NFS for (A)SCS Instance with Azure NetApp Files
+          href: ./workloads/sap/high-availability-guide-rhel-netapp-files.md
+      - name: SAP Multi-SID
+        items:
+        - name: Windows with Azure Shared Disk for (A)SCS Instance
+          href: ./workloads/sap/sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
+        - name: Windows with Shared Disk for (A)SCS Instance
+          href: ./workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+        - name: Windows with SOFS File Share for (A)SCS Instance
+          href: ./workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share.md
+        - name: SLES with Pacemaker multi-SID for A(SCS) Instance
+          href: ./workloads/sap/high-availability-guide-suse-multi-sid.md
+        - name: RHEL with Pacemaker multi-SID for A(SCS) Instance
+          href: ./workloads/sap/high-availability-guide-rhel-multi-sid.md
+    - name: Azure Site Recovery for SAP Disaster Recovery
+      href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+    - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
+      href: ./workloads/sap/sap-proximity-placement-scenarios.md
+    - name: SAP BusinessObjects Business Intelligence platform on Azure
+      items:
+      - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
+        href: ./workloads/sap/businessobjects-deployment-guide.md
+      - name: SAP BusinessObjects BI platform deployment guide for linux on Azure
+        href: ./workloads/sap/businessobjects-deployment-guide-linux.md
+    - name: Integrate Azure AD with SAP applications
+      items:
+      - name: Provision users from SAP SuccessFactors to Active Directory
+        href: ../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Provision users from SAP SuccessFactors to Azure AD
+        href: ../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Write-back users from Azure AD to SAP SuccessFactors
+        href: ../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Provision users to SAP Cloud Platform Identity Authentication Service
+        href: ../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
+        href: ../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP SuccessFactors
+        href: ../active-directory/saas-apps/successfactors-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Analytics Cloud
+        href: ../active-directory/saas-apps/sapboc-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Fiori
+        href: ../active-directory/saas-apps/sap-fiori-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Qualtrics
+        href: ../active-directory/saas-apps/qualtrics-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Ariba
+        href: ../active-directory/saas-apps/ariba-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Concur Travel and Expense
+        href: ../active-directory/saas-apps/concur-travel-and-expense-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Cloud Platform
+        href: ../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP NetWeaver
+        href: ../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Business ByDesign
+        href: ../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP HANA
+        href: ../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Cloud for Customer
+        href: ../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      - name: Configure SSO with SAP Fiori Launchpad
+        href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+    - name: Azure Services Integration into SAP
+      items:
+      - name: Use SAP HANA in Power BI Desktop
+        href: /power-bi/desktop-sap-hana
+      - name: DirectQuery and SAP HANA
+        href: /power-bi/desktop-directquery-sap-hana
+      - name: Use the SAP BW Connector in Power BI Desktop
+        href: /power-bi/desktop-sap-bw-connector
+      - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
+        href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+    - name: Azure Monitor for SAP Solutions
+      items:
+      - name: Azure Monitor for SAP Solutions Overview
+        href: ./workloads/sap/azure-monitor-overview.md
+      - name: Azure Monitor for SAP Solutions Providers
+        href: ./workloads/sap/azure-monitor-providers.md
+      - name: Configure Azure Monitor for SAP Solutions - Portal
+        href: ./workloads/sap/azure-monitor-sap-quickstart.md
+      - name: Configure Azure Monitor for SAP Solutions - Azure PowerShell
+        href: ./workloads/sap/azure-monitor-sap-quickstart-powershell.md
+      - name: Azure Monitor for SAP Solutions FAQ
+        href: ./workloads/sap/azure-monitor-faq.md
+    - name: Reference
+      items:
+      - name: Azure CLI
+        href: /cli/azure/ext/sap-hana/hanainstance
+      - name: Azure PowerShell
+        href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
   - name: Oracle
-    href: ../workloads/oracle/oracle-database-quick-create.md
+    href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Elasticsearch
     href: tutorial-elasticsearch.md
   - name: FreeBSD Packet Filter
@@ -109,11 +426,15 @@
   - name: Databases
     items:
     - name: MySQL on SUSE
-      href: mysql-on-opensuse.md
+      href: ./linux/mysql-on-opensuse.md
     - name: MongoDB
-      href: install-mongodb.md
+      items:
+      - name: Linux
+        href: ./linux/install-mongodb.md
+      - name: Windows
+        href: ./windows/install-mongodb.md
     - name: PostgreSQL
-      href: postgresql-install.md
+      href: ./linux/postgresql-install.md
     - name: MS SQL on Linux
       href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: High Performance Computing (HPC)
@@ -145,6 +466,32 @@
       href: ./linux/create-vm-rest-api.md
     - name: Copy a VM using CLI
       href: ./linux/copy-vm.md
+    - name: Build with Jenkins
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
+    - name: Integrate Jenkins with Azure DevOps
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
+    - name: Configure Rolling deployment strategy
+      href: ./linux/tutorial-devops-azure-pipelines-classic.md
+    - name: Configure Canary deployment strategy
+      href: ./linux/tutorial-azure-devops-canary-strategy.md
+    - name: Configure Blue-Green deployment strategy
+      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+    - name: CI/CD with Azure Pipelines(YAML)
+      href: ./linux/tutorial-build-deploy-azure-pipelines.md
+    - name: Create LAMP stack
+      href: ./linux/tutorial-lamp-stack.md
+    - name: Secure web server with SSL
+      href: ./linux/tutorial-secure-web-server.md
+  - name: SSH for Linux VMs
+    items:
+      - name: On Linux or macOS
+        href: ./linux/mac-create-ssh-keys.md
+      - name: On Windows
+        href: ./linux/ssh-from-windows.md
+      - name: In the portal
+        href: ssh-keys-portal.md
+      - name: Detailed steps
+        href: ./linux/create-ssh-keys-detailed.md  
   - name: Create Windows VMs
     items:
     - name: Use C#
@@ -169,7 +516,7 @@
     - name: Retirement starting March 1, 2023
       href: classic-vm-deprecation.md
     - name: Migration Overview
-      href: migration-classic-resource-manager-overview.md
+      href: ./linux/migration-classic-resource-manager-overview.md
     - name: Deep dive on migration
       href: migration-classic-resource-manager-deep-dive.md
     - name: Plan for migration
@@ -179,9 +526,9 @@
       - name: Windows
         href: ./windows/migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
-      href: migration-classic-resource-manager-cli.md
+      href: ./linux/migration-classic-resource-manager-cli.md
     - name: Common migration errors
-      href: migration-classic-resource-manager-errors.md
+      href: ./linux/migration-classic-resource-manager-errors.md
     - name: Community tools for migration
       href: ../windows/migration-classic-resource-manager-community-tools.md
     - name: FAQ
@@ -193,40 +540,32 @@
     - name: Windows
       href: ./windows/time-sync.md
   - name: Run scripts on a VM
-    href: run-scripts-in-vm.md
     items:
     - name: Custom Script Extension
-      href: ./extensions/custom-script-linux.md
+      items:
+      - name: Linux
+        href: ./extensions/custom-script-linux.md
+      - name: Windows
+        href: ./extensions/custom-script-windows.md
     - name: Run Command
-      href: ./windows/run-command.md
+      items: 
+      - name: Linux
+        href: ./linux/run-command.md
+      - name: Windows
+        href: ./windows/run-command.md
+    - name: Hybrid Runbook Worker
+      href: ../automation/automation-hybrid-runbook-worker.md
+    - name: Serial 
+      items:
+      - name: Linux
+        href: ./troubleshooting/serial-console-linux.md)
+      - name: Windows
+        href: ./troubleshooting/serial-console-windows.md)
   - name: Use Remote Desktop
     href: use-remote-desktop.md
-  - name: Join VM to Azure Active Directory
-    displayName: Azure AD
-    items:
-    - name: Red Hat Enterprise Linux
-      href: ../active-directory-domain-services/join-rhel-linux-vm.md
-    - name: CentOS
-      href: ../active-directory-domain-services/join-centos-linux-vm.md
-    - name: Ubuntu
-      href: ../active-directory-domain-services/join-ubuntu-linux-vm.md
-  - name: Configure managed identities
-    items:
-    - name: Portal
-      href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: CLI
-      href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: PowerShell
-      href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Azure Resource Manager Template
-      displayName: ARM
-      href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: REST
-      href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Azure SDKs
-      href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-  - name: Linux Active Directory sign-in
-    href: ./linux/login-using-aad.md
+  - name: Use File storage with Linux
+    href: mount-azure-file-storage-on-linux-using-smb.md
+
   - name: Updates and patches
     items:
     - name: Red Hat Update Infrastructure
@@ -376,12 +715,12 @@
     - name: Overview
       href: spot-vms.md
     - name: CLI
-      href: spot-cli.md
+      href: ./linux/spot-cli.md
     - name: Portal
       href: spot-portal.md
     - name: ARM template
       displayName: template ARM
-      href: spot-template.md
+      href: ./linux/spot-template.md
     - name: Error codes
       href: error-codes-spot.md
   - name: Azure Hybrid Benefit
@@ -397,7 +736,7 @@
   - name: Reserved instances
     items:
     - name: Prepay for VMs
-      href: prepay-reserved-vm-instances.md
+      href: ./linux/prepay-reserved-vm-instances.md
     - name: Prepay for Dedicated Hosts
       href: prepay-dedicated-hosts-reserved-instances.md
     - name: What are Azure reservations?
@@ -469,7 +808,7 @@
   - name: Shared Image Galleries
     items:
     - name: Overview
-      href: shared-image-galleries.md
+      href: ./linux/shared-image-galleries.md
     - name: CLI
       items:
       - name: Create a gallery
@@ -616,9 +955,11 @@
     displayName: PPG aligned colocation co-location
     items:
     - name: CLI
-      href: proximity-placement-groups.md
+      href: ./linux/proximity-placement-groups.md
     - name: Portal
-      href: ../windows/proximity-placement-groups-portal.md
+      href: ./windows/proximity-placement-groups-portal.md
+    - name: PowerShell
+      href: ./windows/proximity-placement-groups.md
   - name: Create VM in availability zone
     href: create-cli-availability-zone.md
 - name: Maintenance and updates
@@ -648,7 +989,7 @@
       - name: Portal
         href: maintenance-control-portal.md
     - name: Scheduled events
-      href: scheduled-events.md
+      href: ./linux/scheduled-events.md
     - name: Virtual machine scale set OS image upgrades
       items:
       - name: Automatic OS upgrades
@@ -713,6 +1054,8 @@
       href: ./linux/how-to-configure-lvm-raid-on-crypt.md
     - name: How to resize encrypted LVM volumes
       href: ./linux/how-to-resize-encrypted-lvm.md
+    - name: Resize Linux GPT OS partitions
+      href: linux/resize-os-disk-gpt-partition.md
     - name: Disk encryption troubleshooting
       href: disk-encryption-troubleshooting.md
     - name: Disk encryption FAQ
@@ -750,11 +1093,15 @@
   - name: Backup and disaster recovery for disks
     href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Shared disks
-    href: disks-shared.md
+    href: ./linux/disks-shared.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Swap the OS disk
-    href: os-disk-swap.md
+    items:
+    - name: CLI
+      href: ./linux/os-disk-swap.md
+    - name: PowerShell
+      href: ./windows/os-disk-swap.md
   - name: Manage storage
     items:
     - name: Add a data disk
@@ -814,6 +1161,8 @@
       href: disks-reserved-capacity.md
     - name: Create an incremental snapshot 
       items: 
+      - name: Overview
+        href: ./linux/incremental-snapshots.md
       - name: CLI
         href: ./linux/disks-incremental-snapshots.md
       - name: PowerShell
@@ -855,7 +1204,11 @@
         - name: PowerShell
           href: ./windows/convert-disk-storage.md
       - name: Migrate to Premium storage with Azure Site Recovery
-        href: migrate-to-premium-storage-using-azure-site-recovery.md
+        items:
+        - name: Linux
+          href: ./linux/migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Windows
+          href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
       - name: Migrate to Managed Disks
         href: migrate-to-managed-disks.md
       - name: Unmanaged VM to Managed Disks
@@ -879,9 +1232,9 @@
     - name: Find unattached disks
       itesm: 
       - name: CLI
-        href: find-unattached-disks.md
+        href: ./linux/find-unattached-disks.md
       - name: PowerShell
-        href: find-unattached-disks.md
+        href: ./windows/find-unattached-disks.md
       - name: Portal
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
@@ -908,21 +1261,23 @@
   - name: Use accelerated networking
     href: ../virtual-network/create-vm-accelerated-networking-cli.md
   - name: Assign public DNS name
-    href: portal-create-fqdn.md
+    href: ./linux/portal-create-fqdn.md
   - name: Find and delete unattached NICs
     href: ./linux/find-unattached-nics.md
   - name: DNS resolution
     href: ./linux/azure-dns.md
   - name: Use internal DNS
-    href: static-dns-name-resolution-for-linux-on-azure.md
+    href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Security
   items:
   - name: Security baseline for Azure Security Benchmark
     href: security-baseline.md
   - name: Built-in security controls
     href: virtual-machines-windows-security-controls.md
+  - name: Azure security overview
+    href: ./linux/tutorial-azure-security.md
   - name: Recommendations
-    href: security-recommendations.md
+    href: ./linux/security-recommendations.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
@@ -956,26 +1311,41 @@
     - name: Use access controls
       href: ../role-based-access-control/overview.md
     - name: Use policies
-      href: policy.md
+      href: ./linux/policy.md
     - name: Create a Key Vault
       items: 
       - name: CLI
         href: ./linux/key-vault-setup.md
       - name: PowerShell 
         href: ./windows/key-vault-setup.md
-    - name: Create and use SSH keys
-      displayName: ssh keys ssh openssh
-      items:
-      - name: On Linux or macOS
-        href: ./linux/mac-create-ssh-keys.md
-      - name: On Windows
-        href: ./linux/ssh-from-windows.md
-      - name: In the portal
-        href: ssh-keys-portal.md
-      - name: Detailed steps
-        href: ./linux/create-ssh-keys-detailed.md   
   - name: Mitigating speculative execution
-    href: mitigate-se.md
+    href: ./linux/mitigate-se.md
+  - name: Join a Linux VM to Azure Active Directory
+    displayName: Azure AD
+    items:
+    - name: Red Hat Enterprise Linux
+      href: ../active-directory-domain-services/join-rhel-linux-vm.md
+    - name: CentOS
+      href: ../active-directory-domain-services/join-centos-linux-vm.md
+    - name: Ubuntu
+      href: ../active-directory-domain-services/join-ubuntu-linux-vm.md
+  - name: Configure managed identities
+    items:
+    - name: Portal
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: CLI
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: PowerShell
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure Resource Manager Template
+      displayName: ARM
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: REST
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure SDKs
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+  - name: Linux Active Directory sign-in
+    href: ./linux/login-using-aad.md
 - name: Monitoring
   items:
   - name: Overview
@@ -1076,9 +1446,13 @@
   - name: Tag a VM
     href: tag.md
   - name: Monitor metadata
-    href: instance-metadata-service.md
+    items: 
+    - name: CLI
+      href: ./linux/instance-metadata-service.md
+    - name: PowerShell
+      href: ./windows/instance-metadata-service.md
   - name: Get usage metrics with REST
-    href: metrics-vm-usage-rest.md
+    href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
 - name: Backup and recovery
@@ -1111,7 +1485,11 @@
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
-      href: move-vm.md
+      items: 
+      - name: CLI
+        href: ./linux/move-vm.md
+      - name: PowerShell
+        href: ./windows/move-vm.md
     - name: Move VMs to another region
       href: ../site-recovery/azure-to-azure-tutorial-migrate.md
     - name: Move to an availability zone
@@ -1160,6 +1538,8 @@
       href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
     - name: Secure Jenkins
       href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+  - name: Azure DevOps
+    href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Extensions
   items:
   - name: Overview
