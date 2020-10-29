@@ -245,7 +245,7 @@ Add this code to the end of the `try` block:
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) method.
+The following code cleans up the resources the app created by deleting the queue using the [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) method.
 
 Add this code to the end of the `try` block and save the file:
 

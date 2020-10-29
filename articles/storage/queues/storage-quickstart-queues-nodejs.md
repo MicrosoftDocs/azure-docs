@@ -285,7 +285,7 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​delete](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) method.
+The following code cleans up the resources the app created by deleting the queue using the [delete](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) method.
 
 Add this code to the end of the `main` function and save the file:
 

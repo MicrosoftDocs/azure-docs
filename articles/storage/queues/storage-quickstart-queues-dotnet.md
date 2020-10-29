@@ -257,7 +257,7 @@ foreach (QueueMessage message in messages)
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​DeleteAsync](/dotnet/api/azure.storage.queues.queueclient.deleteasync) method.
+The following code cleans up the resources the app created by deleting the queue using the [DeleteAsync](/dotnet/api/azure.storage.queues.queueclient.deleteasync) method.
 
 Add this code to the end of the `Main` method:
 
