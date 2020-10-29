@@ -118,7 +118,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 
 ### Use Microsoft Graph
 
-Replace the placeholder with test information and run the following command::
+Replace the placeholder with test information and run the following command:
 
 ```http
 https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
