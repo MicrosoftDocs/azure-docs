@@ -161,7 +161,7 @@ Here's some example output:
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
 2ce533f88e80        mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout          latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
+4be104c126c5        mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview         latest
 ```
 
 ### Test containers
