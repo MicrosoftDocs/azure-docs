@@ -36,15 +36,13 @@ You also need to complete the following items as part of prerequisite setup. The
 - Get app registration client secret
 - Add a digital twin
 
-### Set up Azure Digital Twins instance
+### Set up Azure Digital Twins instance and app registration
 
 To connect an Azure Digital Twins instance to Logic Apps in this article, you'll need to have the **Azure Digital Twins instance** already set up. 
 
-First, **set up an Azure Digital Twins instance** and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md).
-* After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-To authenticate the connector, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
-* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find in the Azure portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
 ### Get app registration client secret
 
