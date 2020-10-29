@@ -46,7 +46,7 @@ For any given use case, there might be a few ways to solve the problem. Choosing
 | Restrict access to your app from a set of well-defined addresses | Access restrictions |
 | Restrict access to your app from resources in a virtual network | Service endpoints </br> ILB ASE </br> Private endpoints |
 | Expose your app on a private IP in your virtual network | ILB ASE </br> Private endpoints </br> Private IP for inbound traffic on an Application Gateway instance with service endpoints |
-| Protect your app with a Web Application Firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
+| Protect your app with a web application firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
 | Load balance traffic to your apps in different regions | Azure Front Door with access restrictions | 
 | Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
 
