@@ -13,6 +13,7 @@
   - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create public load balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
   - name: Create internal load balancer - Azure CLI
     href: quickstart-load-balancer-standard-internal-cli.md
   - name: Create internal load balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutorials
@@ -53,6 +55,8 @@
     items:
     - name: Health probes
       href: load-balancer-custom-probe-overview.md
+    - name: Azure Monitor Insights for Load Balancer
+      href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
     - name: Azure Monitor logs for Basic Load Balancer
@@ -74,7 +78,7 @@
   - name: Floating IP configuration
     href: load-balancer-floating-ip.md
   - name: Security
-    items: 
+    items:
     - name: Security baseline
       href: security-baseline.md
   - name: Backend Pool management
@@ -110,7 +114,7 @@
     - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
       displayName: ARM
-  - name: Configure TCP idle timeout for Load Balancer
+  - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md

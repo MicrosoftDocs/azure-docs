@@ -36,6 +36,8 @@ What you need to begin:
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
 ## Set up project
 
 Once you are ready to go with your Azure Digital Twins instance, start setting up the client app project. 
@@ -44,7 +46,7 @@ Open a command prompt or other console window on your machine, and create an emp
 
 Navigate into the new directory.
 
-Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
+Once in the project directory, **create an empty .NET console app project**. In the command window, you can run the following command to create a minimal C# project for the console:
 
 ```cmd/sh
 dotnet new console
@@ -52,17 +54,11 @@ dotnet new console
 
 This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
-Next, add two necessary dependencies for working with Azure Digital Twins:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-The first dependency is the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
-The second dependency provides tools to help with authentication against Azure.
-
 Keep the command window open, as you'll continue to use it throughout the tutorial.
+
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
 
 ## Get started with project code
 
@@ -119,9 +115,6 @@ Console.WriteLine($"Service client created – ready to go");
 ```
 
 Save the file. 
-
->[!NOTE]
-> This example uses a `DefaultAzureCredential` for authentication. For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md), or the Azure Digital Twins article about [authenticating client applications](how-to-authenticate-client.md).
 
 In your command window, run the code with this command: 
 
