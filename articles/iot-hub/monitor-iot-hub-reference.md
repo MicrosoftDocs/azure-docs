@@ -145,7 +145,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|Event Grid deliveries(preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+|Event Grid deliveries (preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Event Grid latency (preview)|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
