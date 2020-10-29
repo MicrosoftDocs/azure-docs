@@ -46,23 +46,23 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## [US](#tab/us)
 
-stuff goes here
+[!INCLUDE [reference-feature-availability-us](./includes/reference-feature-availability-us.md)]
 
-## [US Gov](#tab/usgov)
+## [USGov](#tab/usgov)
 
-stuff goes here
+[!INCLUDE [reference-feature-availability-usgov](./includes/reference-feature-availability-usgov.md)]
 
 ## [Africa](#tab/africa)
 
-stuff goes here
+[!INCLUDE [reference-feature-availability-africa](./includes/reference-feature-availability-africa.md)]
 
-## [Asia Pacific](#tab/apac)
+## [APAC](#tab/apac)
 
-stuff goes here
+[!INCLUDE [reference-feature-availability-apac](./includes/reference-feature-availability-apac.md)]
 
 ## [Australia](#tab/australia)
 
-stuff goes here
+[!INCLUDE [reference-feature-availability-australia](./includes/reference-feature-availability-australia.md)]
 
 ## [Brazil](#tab/brazil)
 
@@ -104,15 +104,11 @@ stuff goes here
 
 stuff goes here
 
-## [Taiwan](#tab/taiwan)
+## [UAE](#tab/uae)
 
 stuff goes here
 
-## [United Arab Emirates](#tab/uae)
-
-stuff goes here
-
-## [United Kingdom](#tab/uk)
+## [UK](#tab/uk)
 
 stuff goes here
 
