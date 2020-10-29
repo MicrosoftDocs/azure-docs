@@ -158,7 +158,7 @@ Add the connection string into the app so it can access the storage account.
 
 1. Switch back to Visual Studio Code.
 
-1. In the **Main**  method, replace the `Console.WriteLine("Hello World!");` code with the following line that gets the connection string from the environment variable.
+1. In the **Main** method, replace the `Console.WriteLine("Hello World!");` code with the following line that gets the connection string from the environment variable.
 
    # [\.NET v12](#tab/dotnet)
 

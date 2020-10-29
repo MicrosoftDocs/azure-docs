@@ -36,8 +36,8 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
-* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quickstart](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+- **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+- **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quickstart](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
@@ -272,8 +272,8 @@ queue.delete_queue_if_exists();
 
 Now that you've learned the basics of Queue storage, follow these links to learn more about Azure Storage.
 
-* [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+- [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+- [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+- [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
+- [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

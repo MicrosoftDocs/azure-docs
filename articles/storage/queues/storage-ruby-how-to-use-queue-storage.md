@@ -19,11 +19,7 @@ ms.reviewer: dineshm
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Microsoft
-Azure Queue Storage service. The samples are written using the Ruby Azure API.
-The scenarios covered include **inserting**, **peeking**, **getting**,
-and **deleting** queue messages, as well as **creating and deleting
-queues**.
+This guide shows you how to perform common scenarios using the Microsoft Azure Queue Storage service. The samples are written using the Ruby Azure API. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -52,8 +48,7 @@ require "azure"
 
 ## Setup an Azure Storage Connection
 
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY** for information required to connect to your Azure storage account. If these environment variables are not set,
-you must specify the account information before using **Azure::QueueService** with the following code:
+The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY** for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::QueueService** with the following code:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -167,7 +162,7 @@ azure_queue_service.delete_queue("test-queue")
 
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
-* Visit the [Azure Storage Team Blog](/archive/blogs/windowsazurestorage/)
-* Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+- Visit the [Azure Storage Team Blog](/archive/blogs/windowsazurestorage/)
+- Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
 For a comparison between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Service Bus Queues - Compared and Contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

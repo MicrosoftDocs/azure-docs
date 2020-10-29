@@ -17,26 +17,26 @@ Get started with the Azure Queue storage client library version 12 for .NET. Azu
 
 Use the Azure Queue storage client library v12 for .NET to:
 
-* Create a queue
-* Add messages to a queue
-* Peek at messages in a queue
-* Update a message in a queue
-* Receive messages from a queue
-* Delete messages from a queue
-* Delete a queue
+- Create a queue
+- Add messages to a queue
+- Peek at messages in a queue
+- Update a message in a queue
+- Receive messages from a queue
+- Delete messages from a queue
+- Delete a queue
 
 Additional resources:
 
-* [API reference documentation](/dotnet/api/azure.storage.queues)
-* [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
-* [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Samples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [API reference documentation](/dotnet/api/azure.storage.queues)
+- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+- [Samples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](../common/storage-account-create.md)
-* Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure storage account - [create a storage account](../common/storage-account-create.md)
+- Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
@@ -101,9 +101,9 @@ namespace QueuesQuickstartV12
 
 Azure Queue storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue storage offers three types of resources:
 
-* The storage account
-* A queue in the storage account
-* Messages within the queue
+- The storage account
+- A queue in the storage account
+- Messages within the queue
 
 The following diagram shows the relationship between these resources.
 
@@ -111,22 +111,22 @@ The following diagram shows the relationship between these resources.
 
 Use the following .NET classes to interact with these resources:
 
-* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
-* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) on a queue.
+- [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) on a queue.
 
 ## Code examples
 
 These example code snippets show you how to do the following actions with the Azure Queue storage client library for .NET:
 
-* [Get the connection string](#get-the-connection-string)
-* [Create a queue](#create-a-queue)
-* [Add messages to a queue](#add-messages-to-a-queue)
-* [Peek at messages in a queue](#peek-at-messages-in-a-queue)
-* [Update a message in a queue](#update-a-message-in-a-queue)
-* [Receive messages from a queue](#receive-messages-from-a-queue)
-* [Delete messages from a queue](#delete-messages-from-a-queue)
-* [Delete a queue](#delete-a-queue)
+- [Get the connection string](#get-the-connection-string)
+- [Create a queue](#create-a-queue)
+- [Add messages to a queue](#add-messages-to-a-queue)
+- [Peek at messages in a queue](#peek-at-messages-in-a-queue)
+- [Update a message in a queue](#update-a-message-in-a-queue)
+- [Receive messages from a queue](#receive-messages-from-a-queue)
+- [Delete messages from a queue](#delete-messages-from-a-queue)
+- [Delete a queue](#delete-a-queue)
 
 ### Get the connection string
 
@@ -329,6 +329,6 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for .NET and .NET Core developers](/dotnet/azure/)
 
-* To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
-* To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+- To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
+- To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

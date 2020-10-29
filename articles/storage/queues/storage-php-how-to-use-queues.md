@@ -86,8 +86,9 @@ UseDevelopmentStorage=true
 
 To create an Azure Queue service client, you need to use the **QueueRestProxy** class. You can use either of the following techniques:
 
-* Pass the connection string directly to it.
-* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/configure-common.md) document for configuring connection strings.
+- Pass the connection string directly to it.
+- Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/configure-common.md) document for configuring connection strings.
+
 For the examples outlined here, the connection string is passed directly.
 
 ```php
@@ -420,8 +421,8 @@ catch(ServiceException $e){
 
 Now that you've learned the basics of Azure Queue storage, follow these links to learn about more complex storage tasks:
 
-* Visit the [API Reference for Azure Storage PHP Client Library](https://azure.github.io/azure-storage-php/)
-* See the [Advanced Queue example](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+- Visit the [API Reference for Azure Storage PHP Client Library](https://azure.github.io/azure-storage-php/)
+- See the [Advanced Queue example](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 For more information, see also the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 

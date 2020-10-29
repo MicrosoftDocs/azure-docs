@@ -28,7 +28,7 @@ Next, download and install .NET Core 2.0 for your operating system. If you are r
 ### Windows
 
 - Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.
 
 For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](/dotnet/standard/choosing-core-framework-server).
 

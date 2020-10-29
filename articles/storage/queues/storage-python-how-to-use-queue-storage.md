@@ -293,9 +293,9 @@ queue_service.delete_queue(queue_name)
 
 Now that you've learned the basics of queue storage, follow these links to learn more.
 
-* [Azure Queues Python API reference](/python/api/azure-storage-queue)
-* [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [Azure Storage Services REST API](/rest/api/storageservices/)
+- [Azure Queues Python API reference](/python/api/azure-storage-queue)
+- [Python Developer Center](https://azure.microsoft.com/develop/python/)
+- [Azure Storage Services REST API](/rest/api/storageservices/)
 
 [Azure Queue storage client library for Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Azure SDK for Python]: https://github.com/azure/azure-sdk-for-python
