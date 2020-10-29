@@ -125,9 +125,9 @@ To verify, navigate to ***System and Event Viewer Application logs*** and check 
 
 Solution:
 
-* Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
 * Change the backup policy to perform backups during off peak hours, when the load on the VM is at its lowest.
-* Upgrade the Azure disks to support higher IOPs. [Learn more here](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+* Upgrade the Azure disks to support higher IOPs. [Learn more here](../virtual-machines/disks-types.md)
 
 ### ExtensionFailedVssServiceInBadState - Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state
 
@@ -154,16 +154,16 @@ Error message: VM creation failed as VM size selected is not available.
 
 This error occurs because the VM size selected during the restore operation is an unsupported size. <br>
 
-To resolve this issue, use the [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during the restore operation. Use those disks to create a VM from the list of [available supported VM sizes](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) using [Powershell cmdlets](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation. Use those disks to create a VM from the list of [available supported VM sizes](./backup-support-matrix-iaas.md#vm-compute-support) using [Powershell cmdlets](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ### UserErrorMarketPlaceVMNotSupported - VM creation failed due to Market Place purchase request being not present
 
 Error code: UserErrorMarketPlaceVMNotSupported
 Error message: VM creation failed due to Market Place purchase request being not present.
 
-Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](/legal/marketplace/participation-policy#offering-suspension-and-removal).
 
-* To resolve this issue, use the [restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) option during the restore operation and then use [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) or [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
+* To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation and then use [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) or [Azure CLI](./tutorial-restore-disk.md) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
 * If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
@@ -320,8 +320,8 @@ If you have an Azure Policy that [governs tags within your environment](../gover
 
 If after restore, you notice the disks are offline then:
 
-* Verify if the machine where the script is executed meets the OS requirements. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
-* Ensure you are not restoring to the same source, [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#system-requirements).  
+* Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 

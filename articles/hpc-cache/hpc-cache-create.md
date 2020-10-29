@@ -76,7 +76,7 @@ After you create the cache, you must authorize it to use the key vault service. 
 
 ## Add resource tags (optional)
 
-The **Tags** page lets you add [resource tags](https://go.microsoft.com/fwlink/?linkid=873112) to your Azure HPC Cache instance.
+The **Tags** page lets you add [resource tags](../azure-resource-manager/management/tag-resources.md) to your Azure HPC Cache instance.
 
 ## Finish creating the cache
 
@@ -199,7 +199,7 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+[Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
 more information.
 
 > [!IMPORTANT]
