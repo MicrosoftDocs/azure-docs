@@ -61,7 +61,7 @@ From a development standpoint, this means a few things:
 * The IPv6 loopback address (`[::1]`) is not currently supported.
 * To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`.
 
-    To use the `http` scheme with the IP literal loopback address `127.0.0.1` (instead of `localhost`), you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
+    To use the `http` scheme with the IP literal loopback address `127.0.0.1`, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
 
 ## Restrictions on wildcards in redirect URIs
 
