@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ---
@@ -25,34 +25,96 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 ## Feature availability in Azure clouds
 
 > [!div class="op_single_selector"]
-> - [United States](./includes/reference-feature-availability-us.md)
-> - [Azure Government](./includes/reference-feature-availability-usgov.md)
-> - [Africa](./includes/reference-feature-availability-africa.md)
-> - [Asia Pacific](./includes/reference-feature-availability-apac.md)
-> - [Australia](#tab/australia/)
-> - [Austria](#tab/austria/)
-> - [Brazil](#tab/brazil/)
-> - [Canada](#tab/canada/)
-> - [China](#tab/china/)
-> - [Europe](#tab/europe/)
-> - [France](#tab/france/)
-> - [Germany](#tab/germany/)
-> - [Greece](#tab/greece/)
-> - [India](#tab/india/)
-> - [Israel](#tab/isreal/)
-> - [Italy](#tab/italy/)
-> - [Japan](#tab/japan/)
-> - [Korea](#tab/korea/)
-> - [Mexico](#tab/mexico/)
-> - [New Zealand](#tab/newz/)
-> - [Norway](#tab/norway/)
-> - [Poland](#tab/poland/)
-> - [Qatar](#tab/qatar/)
-> - [Spain](#tab/spain/)
-> - [Switzerland](#tab/switzerland/)
-> - [Taiwan](#tab/taiwan/)
-> - [United Arab Emirates](#tab/uae/)
-> - [United Kingdom](#tab/uk/)
+> - [United States](reference-feature-availability-us.md)
+> - [Azure US Government](reference-feature-availability-usgov.md)
+> - [Africa](reference-feature-availability-africa.md)
+> - [Asia Pacific](reference-feature-availability-apac.md)
+> - [Australia](reference-feature-availability-australia.md)
+> - [Brazil](reference-feature-availability-brazil.md)
+> - [Canada](reference-feature-availability-canada.md)
+> - [China](reference-feature-availability-china.md)
+> - [Europe](reference-feature-availability-europe.md)
+> - [Germany](reference-feature-availability-germany.md)
+> - [India](reference-feature-availability-india.md)
+> - [Japan](reference-feature-availability-japan.md)
+> - [Korea](reference-feature-availability-korea.md)
+> - [Norway](reference-feature-availability-norway.md)
+> - [Switzerland](reference-feature-availability-switzerland.md)
+> - [Taiwan](reference-feature-availability-taiwan.md)
+> - [United Arab Emirates](reference-feature-availability-uae.md)
+> - [United Kingdom](reference-feature-availability-uk.md)
+
+# [US](#tab/us)
+
+stuff goes here
+
+# [US Gov](#tab/usgov)
+
+stuff goes here
+
+# [Africa](reference-feature-availability-africa.md)
+
+stuff goes here
+
+# [Asia Pacific](reference-feature-availability-apac.md)
+
+stuff goes here
+
+# [Australia](reference-feature-availability-australia.md)
+
+stuff goes here
+
+# [Brazil](reference-feature-availability-brazil.md)
+
+stuff goes here
+
+# [Canada](reference-feature-availability-canada.md)
+
+stuff goes here
+
+# [China](reference-feature-availability-china.md)
+
+stuff goes here
+
+# [Europe](reference-feature-availability-europe.md)
+
+stuff goes here
+
+# [Germany](reference-feature-availability-germany.md)
+
+stuff goes here
+
+# [India](#tab/india.md)
+
+stuff goes here
+
+# [Japan](#tab/japan.md)
+
+stuff goes here
+
+# [Korea](#tab/korea.md)
+
+stuff goes here
+
+# [Norway](#tab/norway.md)
+
+stuff goes here
+
+# [Switzerland](#tab/switzerland.md)
+
+stuff goes here
+
+# [Taiwan](#tab/taiwan.md)
+
+stuff goes here
+
+# [United Arab Emirates](uae.md)
+
+stuff goes here
+
+# [United Kingdom](uk.md)
+
+stuff goes here
 
 ## Regional and non-regional availability
 
