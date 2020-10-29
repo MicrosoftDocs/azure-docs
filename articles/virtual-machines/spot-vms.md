@@ -107,6 +107,10 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
 
+**Q:** How can i chnage the max price valude that i have used while creating a spot VM?
+
+**A:** You can chnage the max price value by navigateing to the configuation tab of the VM from Azure portal.
+
 ## Next steps
 Use the [CLI](./linux/spot-cli.md), [portal](spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
 
