@@ -30,6 +30,10 @@ This tutorial describes the steps you need to perform in both Global Relay Ident
 > * Keep user attributes synchronized between Azure AD and Global Relay Identity Sync
 > * Provision groups and group memberships in Global Relay Identity Sync
 
+
+> [!NOTE]
+> Global Relay Identity Sync provisioning connector utilizes a SCIM authorization method that is no longer supported due to security concerns. Efforts are underway with Global Relay to switch to a more secure authorization method.
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:

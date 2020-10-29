@@ -1975,6 +1975,8 @@
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
         href: blink-provisioning-tutorial.md
+      - name: BlogIn
+        href: blogin-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
