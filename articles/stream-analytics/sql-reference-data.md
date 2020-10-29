@@ -175,27 +175,27 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
 
 1. Configure your SQL reference data input.
    
-   ![Configure SQL reference data input](./media/sql-reference-data/Configure-SQL-reference-data-input.png)
+   ![Configure SQL reference data input](./media/sql-reference-data/configure-sql-reference-data-input.png)
 
 2. Select the SQL Server icon and click **Add Connection**.
    
-   ![Click SQL Server icon and click add connection](./media/sql-reference-data/Add-SQL-Connection.png)
+   ![Click SQL Server icon and click add connection](./media/sql-reference-data/add-sql-connection.png)
 
 3. Fill in the connection information.
    
-   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Fill-Connection-Information.png)
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/fill-connection-information.png)
 
 4. Right-click in reference SQL and select **Execute Query**.
    
-   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Execute-Query.png)
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/execute-query.png)
 
 5. Choose your connection.
    
-   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Choose-Connection.png)
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/choose-connection.png)
 
 6. Review and verify your query result.
    
-   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Verify-Result.png)
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/verify-result.png)
 
 
 ## FAQs
