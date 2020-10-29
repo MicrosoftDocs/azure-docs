@@ -1,17 +1,19 @@
 ---
-title: How to use the public IP functionality in Virtual WAN
+title: How to use the public IP functionality in Azure VMware Solution
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 10/28/2020
 ---
-# How to use the public IP functionality in Azure Virtual WAN
+# How to use the public IP functionality in Azure VMware Solution
 
-Public IP is a new feature in Azure VMware Solution connectivity, and customers can enable public internet access in two ways. 
+Public IP is a new feature in Azure VMware Solution connectivity. It makes resources, such as web servers, virtual machines (VMs), and hosts accessible through a public network. 
+
+You enable public internet access in two ways. 
 
 - Applications can be hosted and published under the Application Gateway load balancer for HTTP/HTTPS traffic.
 - Published through public IP features in Azure Virtual WAN.
 
-As a part of Azure VMware Solution private cloud deployment, upon enabling public IP functionality, the required components with automation get created and enabled automatically:
+As a part of Azure VMware Solution private cloud deployment, upon enabling public IP functionality, the required components with automation get created and enabled:
 
 -  Virtual WAN
 
@@ -19,7 +21,7 @@ As a part of Azure VMware Solution private cloud deployment, upon enabling publi
 
 -  Azure Firewall services with public IP
 
-This article details how you can use the public IP functionality in Virtual WAN to make resources, such as web servers, virtual machines (VMs), and hosts, accessible via a public network.
+This article details how you can use the public IP functionality in Virtual WAN.
 
 ## Prerequisites
 
