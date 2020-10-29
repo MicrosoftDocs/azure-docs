@@ -47,7 +47,7 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 #### PlayReady with Token
 
-[https://docs.adobe.com/content/help/en/primetime/drm/multi-drm-workflows/license-token-req-resp-ref/playready-license-token-request.html](https://docs.adobe.com/content/help/en/primetime/drm/multi-drm-workflows/license-token-req-resp-ref/playready-license-token-request.html)
+[http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html)
 
 ### DASH Players
 
