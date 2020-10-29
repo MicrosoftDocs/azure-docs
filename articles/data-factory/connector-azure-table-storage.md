@@ -105,7 +105,7 @@ You can create an Azure Storage linked service by using the account key. It prov
 
 You also can create a Storage linked service by using a shared access signature. It provides the data factory with restricted/time-bound access to all/specific resources in the storage.
 
-A shared access signature provides delegated access to resources in your storage account. You can use it to grant a client limited permissions to objects in your storage account for a specified time and with a specified set of permissions. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+A shared access signature provides delegated access to resources in your storage account. You can use it to grant a client limited permissions to objects in your storage account for a specified time and with a specified set of permissions. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md). 
@@ -231,13 +231,13 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **AzureTableSource**. |Yes |
-| azureTableSourceQuery |Use the custom Table storage query to read data.<br/>The source query is a direct map from the `$filter` query option supported by Azure Table Storage, learn more about the syntax from [this doc](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options), and see the examples in the following [azureTableSourceQuery examples section](#azuretablesourcequery-examples). |No |
+| azureTableSourceQuery |Use the custom Table storage query to read data.<br/>The source query is a direct map from the `$filter` query option supported by Azure Table Storage, learn more about the syntax from [this doc](/rest/api/storageservices/querying-tables-and-entities#supported-query-options), and see the examples in the following [azureTableSourceQuery examples section](#azuretablesourcequery-examples). |No |
 | azureTableSourceIgnoreTableNotFound |Indicates whether to allow the exception of the table to not exist.<br/>Allowed values are **True** and **False** (default). |No |
 
 ### azureTableSourceQuery examples
 
 >[!NOTE]
->Azure Table query operation times out in 30 seconds as [enforced by Azure Table service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Learn how to optimize the query from [Design for querying](../storage/tables/table-storage-design-for-query.md) article.
+>Azure Table query operation times out in 30 seconds as [enforced by Azure Table service](/rest/api/storageservices/setting-timeouts-for-table-service-operations). Learn how to optimize the query from [Design for querying](../storage/tables/table-storage-design-for-query.md) article.
 
 In Azure Data Factory, if you want to filter the data against a datetime type column, refer to this example:
 
@@ -263,7 +263,7 @@ To copy data to Azure Table, set the sink type in the copy activity to **AzureTa
 | azureTableDefaultPartitionKeyValue |The default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify the name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify the name of the column whose column values are used as the row key. If not specified, use a GUID for each row. |No |
-| azureTableInsertType |The mode to insert data into Azure Table. This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>Allowed values are **merge** (default) and **replace**. <br/><br> This setting applies at the row level not the table level. Neither option deletes rows in the output table that do not exist in the input. To learn about how the merge and replace settings work, see [Insert or merge entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or replace entity](https://msdn.microsoft.com/library/azure/hh452242.aspx). |No |
+| azureTableInsertType |The mode to insert data into Azure Table. This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>Allowed values are **merge** (default) and **replace**. <br/><br> This setting applies at the row level not the table level. Neither option deletes rows in the output table that do not exist in the input. To learn about how the merge and replace settings work, see [Insert or merge entity](/rest/api/storageservices/Insert-Or-Merge-Entity) and [Insert or replace entity](/rest/api/storageservices/Insert-Or-Replace-Entity). |No |
 | writeBatchSize |Inserts data into Azure Table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are integer (number of rows). |No (default is 10,000) |
 | writeBatchTimeout |Inserts data into Azure Table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are timespan. An example is "00:20:00" (20 minutes). |No (default is 90 seconds, storage client's default timeout) |
 
@@ -326,7 +326,7 @@ In the following example, source column DivisionID is mapped to the destination 
 
 When you copy data from and to Azure Table, the following mappings are used from Azure Table data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-When you move data to and from Azure Table, the following [mappings defined by Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
+When you move data to and from Azure Table, the following [mappings defined by Azure Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) are used from Azure Table OData types to .NET type and vice versa.
 
 | Azure Table data type | Data Factory interim data type | Details |
 |:--- |:--- |:--- |

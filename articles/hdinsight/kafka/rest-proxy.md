@@ -12,7 +12,7 @@ ms.date: 04/03/2020
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
 
-Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTP. This action means that your Kafka clients can be outside of your virtual network. Clients can make simple HTTP calls to the Kafka cluster, instead of relying on Kafka libraries. This article will show you how to create a REST proxy enabled Kafka cluster. Also provides a sample code that shows how to make calls to REST proxy.
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. This action means that your Kafka clients can be outside of your virtual network. Clients can make simple, secure HTTPS calls to the Kafka cluster, instead of relying on Kafka libraries. This article will show you how to create a REST proxy enabled Kafka cluster. Also provides a sample code that shows how to make calls to REST proxy.
 
 ## REST API reference
 
@@ -32,7 +32,7 @@ Creating an HDInsight Kafka cluster with REST proxy creates a new public endpoin
 
 Access to the Kafka REST proxy is managed with Azure Active Directory security groups. When creating the Kafka cluster, provide the Azure AD security group with REST endpoint access. Kafka clients that need access to the REST proxy should be registered to this group by the group owner. The group owner can register via the Portal or via PowerShell.
 
-For REST proxy endpoint requests, client applications should get an OAuth token. The token is used to verify security group membership. Find a [Client application sample](#client-application-sample) below that shows how to get an OAuth token. The client application passes the OAuth token in the HTTP request to the REST proxy.
+For REST proxy endpoint requests, client applications should get an OAuth token. The token is used to verify security group membership. Find a [Client application sample](#client-application-sample) below that shows how to get an OAuth token. The client application passes the OAuth token in the HTTPS request to the REST proxy.
 
 > [!NOTE]
 > See [Manage app and resource access using Azure Active Directory groups](../../active-directory/fundamentals/active-directory-manage-groups.md), to learn more about AAD security groups. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).
