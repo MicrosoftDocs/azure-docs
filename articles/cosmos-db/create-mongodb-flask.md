@@ -12,6 +12,7 @@ ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Python app using Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

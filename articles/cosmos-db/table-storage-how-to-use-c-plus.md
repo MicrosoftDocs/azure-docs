@@ -10,6 +10,7 @@ author: sakash279
 ms.author: akshanka
 ---
 # How to use Azure Table storage and Azure Cosmos DB Table API with C++
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]

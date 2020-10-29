@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # REVERSE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the reverse order of a string value.  
   
 ## Syntax

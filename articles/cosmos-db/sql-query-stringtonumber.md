@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # StringToNumber (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns expression translated to a Number. If expression cannot be translated, returns undefined.  
   
 ## Syntax

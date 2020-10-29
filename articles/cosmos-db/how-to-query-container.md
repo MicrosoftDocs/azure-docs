@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Query an Azure Cosmos container
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to query a container (collection, graph, or table) in Azure Cosmos DB. In particular, it covers how in-partition and cross-partition queries work in Azure Cosmos DB.
 

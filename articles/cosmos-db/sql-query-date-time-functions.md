@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Date and time functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The date and time functions let you perform DateTime and timestamp operations in Azure Cosmos DB.
 
