@@ -515,7 +515,7 @@
       href: ./synapse-link/how-to-copy-to-sql-pool.md  
     - name: Query Azure Cosmos DB analytical store with SQL on-demand
       href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-- name: Integrate
+- name: Pipeline and data flow
   items:
   # - name: Overview
   #   items:
