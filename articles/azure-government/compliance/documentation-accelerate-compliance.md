@@ -18,7 +18,7 @@ ms.date: 10/27/2020
 ms.author: todorb
 
 ---
-# Compliance Program Overview
+# Compliance program overview
 
 Accelerating your path to compliance in Azure is a focused program that targets the provisioning of learning resources and implementation tools by educating, providing architectural references, and support during the scoping and implementation of your project. In addition, we work with key assessment and automation partners to share reference architectures, solutions, alternatives both first party and third party that can help you meet your compliance needs.
 
