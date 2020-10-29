@@ -32,7 +32,7 @@ ulimit -a
 ```
 
 #### Solution:
-The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see the Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md).
+The number of max allowed open files, which are identified as "nofile," needs to be at least 10,000 or more. For more information, see the Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md).
 
 ### Socket or port availability might be low
 When running in Azure, clients using the Java SDK can hit Azure SNAT (PAT) port exhaustion.
