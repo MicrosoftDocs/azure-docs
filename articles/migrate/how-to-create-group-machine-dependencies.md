@@ -78,7 +78,7 @@ To install the agent on a Windows machine:
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
-- The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- The MMA agent can also be installed using this [script](https://github.com/DanielOrneling/AzureMonitor/tree/master/Install%20Microsoft%20Monitoring%20Agent%20with%20Service%20Map).
 - [Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the Windows operating systems supported by MMA.
 
 ### Install MMA on a Linux machine
