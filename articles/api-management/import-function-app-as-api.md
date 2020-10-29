@@ -47,7 +47,7 @@ Follow the steps below to create a new API from an Azure Function App.
 
 2. In the **Add a new API** list, select **Function App**.
 
-    ![Screenshot that highlights the Function App tile.](./media/import-function-app-as-api/add-01.png)
+    ![Screenshot that shows the Function App tile.](./media/import-function-app-as-api/add-01.png)
 
 3. Click **Browse** to select Functions for import.
 
