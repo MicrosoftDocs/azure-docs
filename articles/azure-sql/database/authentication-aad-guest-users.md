@@ -23,7 +23,7 @@ Guest users in Azure Active Directory (Azure AD) are users that have been import
 
 ## Feature description
 
-This feature lifts the current limitation that only allows guest users to connect to Azure SQL Database, SQL Managed Instance, or Azure Synapse Analytics when they're members of a group created in Azure AD. The group needed to be mapped to a user manually using the [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) statement in a given database. Once a database user has been created for the Azure AD group containing the guest user, the guest user can sign into the database using Azure Active Directory with MFA authentication. As part of this **public preview**, guest users can be created and connect directly to SQL Database, SQL Managed Instance, or Azure Synapse without the requirement of adding them to an Azure AD group first, and then creating a database user for that Azure AD group.
+This feature lifts the current limitation that only allows guest users to connect to Azure SQL Database, SQL Managed Instance, or Azure Synapse Analytics when they're members of a group created in Azure AD. The group needed to be mapped to a user manually using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement in a given database. Once a database user has been created for the Azure AD group containing the guest user, the guest user can sign into the database using Azure Active Directory with MFA authentication. As part of this **public preview**, guest users can be created and connect directly to SQL Database, SQL Managed Instance, or Azure Synapse without the requirement of adding them to an Azure AD group first, and then creating a database user for that Azure AD group.
 
 As part of this feature, you also have the ability to set the Azure AD guest user directly as an AD admin for the Azure SQL logical server. The existing functionality where the guest user can be part of an Azure AD group, and that group can then be set as the Azure AD admin for the Azure SQL logical server is not impacted. Guest users in the database that are a part of an Azure AD group are also not impacted by this change.
 
@@ -55,12 +55,12 @@ Follow these steps to create a database user using an Azure AD guest user.
     SELECT * FROM sys.database_principals
     ```
 
-1. Disconnect and sign into the database as the guest user `user1@gmail.com` using [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) using the authentication method **Azure Active Directory - Universal with MFA**. For more information, see [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md).
+1. Disconnect and sign into the database as the guest user `user1@gmail.com` using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) using the authentication method **Azure Active Directory - Universal with MFA**. For more information, see [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md).
 
 ### Create guest user in SQL Managed Instance
 
 > [!NOTE]
-> SQL Managed Instance supports logins for Azure AD users, as well as Azure AD contained database users. The below steps show how to create a login and user for an Azure AD guest user in SQL Managed Instance. You can also choose to create a [contained database user](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) in SQL Managed Instance by using the method in the [Create guest user in SQL Database and Azure Synapse](#create-guest-user-in-sql-database-and-azure-synapse) section.
+> SQL Managed Instance supports logins for Azure AD users, as well as Azure AD contained database users. The below steps show how to create a login and user for an Azure AD guest user in SQL Managed Instance. You can also choose to create a [contained database user](/sql/relational-databases/security/contained-database-users-making-your-database-portable) in SQL Managed Instance by using the method in the [Create guest user in SQL Database and Azure Synapse](#create-guest-user-in-sql-database-and-azure-synapse) section.
 
 1. Ensure that the guest user (for example, `user1@gmail.com`) is already added into your Azure AD and an Azure AD admin has been set for the SQL Managed Instance server. Having an Azure AD admin is required for Azure Active Directory authentication.
 
@@ -86,7 +86,7 @@ Follow these steps to create a database user using an Azure AD guest user.
 
 1. There should now be a database user created for the guest user `user1@gmail.com`.
 
-1. Disconnect and sign into the database as the guest user `user1@gmail.com` using [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) using the authentication method **Azure Active Directory - Universal with MFA**. For more information, see [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md).
+1. Disconnect and sign into the database as the guest user `user1@gmail.com` using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) using the authentication method **Azure Active Directory - Universal with MFA**. For more information, see [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md).
 
 ## Setting a guest user as an Azure AD admin
 
@@ -106,7 +106,7 @@ Follow these steps to set an Azure AD guest user as the Azure AD admin for the S
     Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -DisplayName <DisplayNameOfGuestUser>
     ```
 
-    You can also use the Azure CLI command [az sql server ad-admin](https://docs.microsoft.com/cli/azure/sql/server/ad-admin) to set the guest user as an Azure AD admin for your Azure SQL logical server.
+    You can also use the Azure CLI command [az sql server ad-admin](/cli/azure/sql/server/ad-admin) to set the guest user as an Azure AD admin for your Azure SQL logical server.
 
 ### Set Azure AD admin for SQL Managed Instance
 
@@ -125,7 +125,7 @@ Follow these steps to set an Azure AD guest user as the Azure AD admin for the S
     Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -InstanceName "<ManagedInstanceName>" -DisplayName <DisplayNameOfGuestUser> -ObjectId <AADObjectIDOfGuestUser>
     ```
 
-    You can also use the Azure CLI command [az sql mi ad-admin](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin) to set the guest user as an Azure AD admin for your SQL Managed Instance.
+    You can also use the Azure CLI command [az sql mi ad-admin](/cli/azure/sql/mi/ad-admin) to set the guest user as an Azure AD admin for your SQL Managed Instance.
 
 ## Limitations
 
@@ -137,4 +137,4 @@ This functionality will be enabled for SQL Managed Instance prior to General Ava
 
 - [Configure and manage Azure AD authentication with Azure SQL](authentication-aad-configure.md)
 - [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md)
-- [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+- [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql)
