@@ -41,27 +41,28 @@ Azure Cache for Redis is available in the following tiers:
 
 | Tier | Description |
 |---|---|
-| Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB)and is ideal for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA). |
-| Standard | A replicated cache in a two-node, primary/replica, configuration managed by Azure with a high-availability [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). |
-| Premium | The Premium tier is the Enterprise-ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. |
+| Basic | An OSS Redis cache running on a single VM. This tier has no service-level agreement (SLA) and is ideal for development/test and non-critical workloads. |
+| Standard | An OSS Redis cache running on two VMs in a replicated configuration. |
+| Premium | High-performance OSS Redis caches. This tier offers higher throughput, lower latency, better availability, and more features. Premium caches are deployed on more powerful VMs compared to those for Basic or Standard caches. |
+| Enterprise | High-performance caches powered by the Redis Enterprise software from Redis Labs. This tier supports Redis modules including RediSearch, RedisBloom, and RedisTimeSeries. In addition, it offers even higher availability than the Premium tier. |
+| Enterprise | Cost-effective large caches powered by the Redis Enterprise software from Redis Labs. This tier extends Redis data storage to non-volatile memory, which is cheaper than DRAM, on a VM. It reduces the overall per-GB memory cost. |
 
 ### Feature comparison
 The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) provides a detailed comparison of each tier. The following table helps describe some of the features supported by tier:
 
-| Feature Description | Basic | Standard | Premium | Enterprise |
-| ------------------- | :-----: | :------: | :---: | :---: |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|
-| Data encryption |✔|✔|✔|✔|
-| [Network isolation](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|
-| [Scaling](cache-how-to-scale.md) |✔|✔|✔|✔|
-| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|
-| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|-|
-| [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|-|
-| [OSS cluster](cache-how-to-premium-clustering.md) |-|-|✔|✔|
-| [Modules](https://redis.io/modules) |-|-|-|✔|
-| [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|
-| [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|
-| [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|
+| Feature Description | Basic | Standard | Premium | Enterprise | Enterprise Flash |
+| ------------------- | :-----: | :------: | :---: | :---: | :---: |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
+| Data encryption |✔|✔|✔|✔|✔|
+| [Network isolation](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
+| [Scaling](cache-how-to-scale.md) |✔|✔|✔|✔|✔|
+| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
+| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|-|-|
+| [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|-|-|
+| [OSS cluster](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
+| [Modules](https://redis.io/modules) |-|-|-|✔|-|
+| [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
+| [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
 
 ### Choosing the right tier
 You should consider the following when choosing an Azure Cache for Redis tier.
