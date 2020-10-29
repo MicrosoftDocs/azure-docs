@@ -61,7 +61,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Modules](https://redis.io/modules) |-|-|-|✔|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|
 | [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|
-| [Reboot](cache-administration.md#reboot) |✔|✔|✔|
+| [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|
 
 ### Choosing the right tier
 You should consider the following when choosing an Azure Cache for Redis tier.
