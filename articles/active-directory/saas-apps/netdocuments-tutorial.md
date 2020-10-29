@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate NetDocuments with Azure Active D
 * Enable your users to be automatically signed-in to NetDocuments with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **Security Center**.
    
-    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Screenshot shows Security Center selected from Legal Documents.](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Select **Advanced Authentication**.
     
@@ -164,7 +164,7 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 3. Select **Users and groups**.
    
-    ![Repository](./media/netdocuments-tutorial/users-groups.png "Repository")
+    ![Screenshot shows Users & Groups selected from Legal Documents.](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
    
@@ -178,14 +178,14 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the NetDocuments tile in the Access Panel, you should be automatically signed in to the NetDocuments for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the NetDocuments tile in the Access Panel, you should be automatically signed in to the NetDocuments for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try NetDocuments with Azure AD](https://aad.portal.azure.com/)

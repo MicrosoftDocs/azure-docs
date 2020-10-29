@@ -125,7 +125,7 @@ Workaround for managed identities in a subscription that has been moved to anoth
  - For system assigned managed identities: disable and re-enable. 
  - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
-For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 ### Moving a user-assigned managed identity to a different resource group/subscription
 

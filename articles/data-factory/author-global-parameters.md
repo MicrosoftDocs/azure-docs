@@ -20,11 +20,11 @@ Global parameters are constants across a data factory that can be consumed by a 
 
 To create a global parameter, go to the *Global parameters* tab in the *Manage* section. Select **New** to open the creation side-nav.
 
-![Create global parameters](media/author-global-parameters/create-global-parameter-1.png)
+![Screenshot that highlights the New button you select to create global parameters.](media/author-global-parameters/create-global-parameter-1.png)
 
 In the side-nav, enter a name, select a data type, and specify the value of your parameter.
 
-![Create global parameters](media/author-global-parameters/create-global-parameter-2.png)
+![Screenshot that shows where you add the name, data type, and value for the new global parameter.](media/author-global-parameters/create-global-parameter-2.png)
 
 After a global parameter is created, you can edit it by clicking the parameter's name. To alter multiple parameters at once, select **Edit all**.
 
@@ -47,7 +47,7 @@ For most use cases, it is recommended to include global parameters in the ARM te
 
 ![Include in ARM template](media/author-global-parameters/include-arm-template.png)
 
-Adding global parameters to the ARM template adds a factory-level setting that can override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below.
+Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below.
 
 ### Deploying using PowerShell
 

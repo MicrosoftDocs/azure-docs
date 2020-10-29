@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Go query"
 description: In this quickstart, you follow the steps to enable the Resource Graph package for Go and run your first query.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Go
@@ -121,8 +121,8 @@ Type** of each resource.
    ```
 
    > [!NOTE]
-   > As this query example does not provide a sort modifier such as `order by`, running this query multiple
-   > times is likely to yield a different set of resources per request.
+   > As this query example does not provide a sort modifier such as `order by`, running this query
+   > multiple times is likely to yield a different set of resources per request.
 
 1. Change the first parameter to `argQuery` and change the query to `order by` the **Name**
    property. Replace `<SubID>` with your subscription ID:

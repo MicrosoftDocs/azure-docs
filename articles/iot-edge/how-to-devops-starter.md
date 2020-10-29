@@ -76,7 +76,7 @@ DevOps Starter created a Git repository for your project in Azure Repos. In this
 
    ![Open module.json file in Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
+3. Notice that this file uses [Azure DevOps build variables](/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
 
 ## Examine the CI/CD pipeline
 

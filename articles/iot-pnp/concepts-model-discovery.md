@@ -21,7 +21,7 @@ There are two broad categories of an IoT solution:
 
 To use an IoT Plug and Play model, an IoT solution:
 
-1. Identifies the model ID of the model implemented by the IoT Plug and Play device connected to the solution.
+1. Identifies the model ID of the model implemented by the IoT Plug and Play device, module, or IoT Edge module connected to the solution.
 
 1. Uses the model ID to retrieve the model definition of the connected device from a model repository or custom store.
 
@@ -35,7 +35,10 @@ A solution can get the model ID of the IoT Plug and Play device by using one of 
 
 ### Get Device Twin API
 
-The solution can use the [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API to retrieve model ID of the IoT Plug and Play device.
+The solution can use the [Get Device Twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) API to retrieve model ID of the IoT Plug and Play device.
+
+> [!TIP]
+> For modules and IoT Edge modules, use [ModuleClient.getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
 
 In the following device twin response snippet, `modelId` contains the model ID of an IoT Plug and Play device:
 
@@ -63,7 +66,7 @@ In the following device twin response snippet, `modelId` contains the model ID o
 
 ### Get Digital Twin API
 
-The solution can use the [Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API to retrieve the model ID of the model implemented by the IoT Plug and Play device.
+The solution can use the [Get Digital Twin](/rest/api/iothub/service/digitaltwin/getdigitaltwin) API to retrieve the model ID of the model implemented by the IoT Plug and Play device.
 
 In the following digital twin response snippet, `$metadata.$model` contains the model ID of an IoT Plug and Play device:
 
@@ -113,7 +116,7 @@ Solutions can use the [model repository](concepts-model-repository.md) to retrie
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository. For more information, see [Get Models](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Get Models](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
@@ -136,5 +139,5 @@ After you identify the model ID for a new device connection, follow these steps:
 Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
 
 - [Interact with a device from your solution](quickstart-service-node.md)
-- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

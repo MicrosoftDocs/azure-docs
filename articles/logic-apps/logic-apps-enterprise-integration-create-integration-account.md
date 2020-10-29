@@ -84,7 +84,7 @@ To give your logic apps access to an integration account that contains your B2B 
 
 1. To finish linking, select **Save**.
 
-   ![Select your integration account](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
+   ![Screenshot that shows where to select Save to choose your integration account.](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
    After your integration account is successfully linked, Azure shows a confirmation message.
 

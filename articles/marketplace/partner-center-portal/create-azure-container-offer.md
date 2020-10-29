@@ -76,10 +76,10 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 Here are some additional lead management resources:
 
-- [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
+- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
+- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
 
@@ -118,7 +118,7 @@ To use the Standard Contract, select the **Use the Standard Contract for Microso
 
 ##### Your own terms and conditions
 
-To provide your own custom terms and conditions, enter them in the **Terms and conditions** box. You can enter an unlimited amount of characters of text in this box. Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter them in the **Terms and conditions** box. You can enter an unlimited number of characters of text in this box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 
@@ -176,7 +176,7 @@ You must provide the name, email, and phone number for a **Support contact** and
 
 In the **Support contact** section, provide the **Support website** where partners can find support for your offer based on whether the offer is available in global Azure, Azure Government, or both.
 
-In the **CSP Program contact** section, provide the link ( **CSP Program Marketing Materials** ) where CSP partners can find marketing materials for your offer.
+In the **CSP Program contact** section, provide the link (**CSP Program Marketing Materials**) where CSP partners can find marketing materials for your offer.
 
 #### Additional marketplace listing resources
 
@@ -186,7 +186,7 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.

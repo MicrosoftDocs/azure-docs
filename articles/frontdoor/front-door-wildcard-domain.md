@@ -8,13 +8,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
 ---
 
 # Wildcard domains
 
-Other than apex domains and subdomains, you can map a wildcard domain name to your list of front-end hosts or custom domains in your Azure Front Door profile. Having wildcard domains in your Azure Front Door configuration simplifies traffic routing behavior for multiple subdomains for an API, application, or website from the same routing rule. You don't need to modify the configuration to add or specify each subdomain separately. As an example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` by using the same routing rule and adding the wildcard domain `*.contoso.com`.
+Besides apex domains and subdomains, you can also map a wildcard domain to your front-end hosts or custom domains for your Azure Front Door profile. Having wildcard domains in your Azure Front Door configuration simplifies traffic routing behavior for multiple subdomains for an API, application, or website from the same routing rule. You don't need to modify the configuration to add or specify each subdomain separately. As an example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` by using the same routing rule and adding the wildcard domain `*.contoso.com`.
 
 Key scenarios that are improved with support for wildcard domains include:
 
@@ -26,7 +26,7 @@ Key scenarios that are improved with support for wildcard domains include:
 
 ## Adding wildcard domains
 
-You can add a wildcard domain under the section for front-end hosts or domains. Similar to subdomains, Azure Front Door validates that there is CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `contoso.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.contoso.azurefd.net` validates the CNAME record map for the wildcard.
+You can add a wildcard domain under the section for front-end hosts or domains. Similar to subdomains, Azure Front Door validates that there's CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `contoso.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.contoso.azurefd.net` validates the CNAME record map for the wildcard.
 
 > [!NOTE]
 > Azure DNS supports wildcard records.
@@ -42,7 +42,7 @@ You can add wildcard domains and their subdomains with certain limitations:
 - If a wildcard domain is added to an Azure Front Door profile:
   - The wildcard domain can't be added to any other Azure Front Door profile.
   - First-level subdomains of the wildcard domain can't be added to another Azure Front Door profile or an Azure Content Delivery Network profile.
-- If a subdomain of a wildcard domain is added to an Azure Front Door profile or Azure Content Delivery Network profile, then the wildcard domain can't be added to other Azure Front Door profiles.
+- If a subdomain of a wildcard domain is already added to an Azure Front Door profile or an Azure Content Delivery Network profile, the wildcard domain can't be used for other Azure Front Door profile.
 - If two profiles (Azure Front Door or Azure Content Delivery Network) have various subdomains of a root domain, then wildcard domains can't be added to either of the profiles.
 
 ## Certificate binding
@@ -54,7 +54,7 @@ For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on th
 
 You can choose to use the same wildcard certificate from Azure Key Vault or from Azure Front Door managed certificates for subdomains.
 
-If a subdomain is added for a wildcard domain that already has a certificate associated with it, then HTTPS for the subdomain can't be disabled. The subdomain uses the certificate binding for the wildcard domain, unless a different Key Vault or Azure Front Door managed certificate overrides it.
+If a subdomain is added for a wildcard domain that already has a certificate associated with it, then you can't disable HTTPS for the subdomain. The subdomain uses the certificate binding for the wildcard domain, unless a different Key Vault or Azure Front Door managed certificate overrides it.
 
 ## WAF policies
 

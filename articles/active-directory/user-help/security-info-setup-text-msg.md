@@ -48,7 +48,7 @@ Depending on your organization’s settings, you might be able to use text messa
 
 4. On the **Phone** page, type the phone number for your mobile device, choose **Text me a code**, and then select **Next**.
 
-    ![Add phone number and choose text messages](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Screenshot that shows the "Phone" page, with "Text me a code" selected.](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Type the code sent to you through text message to your mobile device, and then select **Next**.
 
