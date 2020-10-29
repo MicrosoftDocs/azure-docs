@@ -171,7 +171,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
 The [configuration](#configuration) section explains these properties.
 
 > [!NOTE]
-> If you want to read binary data from the blob, make sure to specify `dataType` as `binary`. The default value for `dataType` is `string`, which means that data will be interpreted as unicode.
+> If you want to read binary data from the blob, make sure to specify `dataType` as `binary`. The default value for `dataType` is `string`, which means that data is interpreted as unicode.
 
 Here's the Python code:
 
