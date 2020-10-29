@@ -81,15 +81,11 @@ You should consider the following when choosing an Azure Cache for Redis tier:
 You can scale your cache from the Basic tier up to Premium after it has been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 ## Next steps
+* [Create an Azure Cache for Redis instance](quickstart-create-redis.md)
+* [Create an Enterprise tier cache](quickstart-create-redis-enterprise.md)
 * [ASP.NET Web App Quickstart](cache-web-app-howto.md)
-  Create a simple ASP.NET web app that uses an Azure Cache for Redis.
 * [.NET Quickstart](cache-dotnet-how-to-use-azure-redis-cache.md)
-  Create a .NET app that uses an Azure Cache for Redis.
 * [.NET Core Quickstart](cache-dotnet-core-quickstart.md)
-  Create a .NET Core app that uses an Azure Cache for Redis.
 * [Node.js Quickstart](cache-nodejs-get-started.md)
-  Create a simple Node.js app that uses an Azure Cache for Redis.
 * [Java Quickstart](cache-java-get-started.md)
-  Create a simple Java app that uses an Azure Cache for Redis.
 * [Python Quickstart](cache-python-get-started.md)
-  Create a Python app that uses an Azure Cache for Redis.
