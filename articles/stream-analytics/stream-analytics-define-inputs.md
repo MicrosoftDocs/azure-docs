@@ -15,7 +15,7 @@ Stream Analytics has first-class integration with Azure data streams as inputs f
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 These input resources can live in the same Azure subscription as your Stream Analytics job or a different subscription.
 
@@ -125,13 +125,13 @@ For scenarios with large quantities of unstructured data to store in the cloud, 
 
 Log processing is a commonly used scenario for using such inputs with Stream Analytics. In this scenario, telemetry data files have been captured from a system and need to be parsed and processed to extract meaningful data.
 
-The default timestamp of Blob storage/ADLS Gen2 events in Stream Analytics is the timestamp that it was last modified, which is `BlobLastModifiedUtcTime`. If a blob is uploaded to a storage account at 13:00, and the Azure Stream Analytics job is started using the option *Now* at 13:01, it will not be picked up as its modified time falls outside the job run period.
+The default timestamp of a Blob storage or ADLS Gen2 event in Stream Analytics is the timestamp that it was last modified, which is `BlobLastModifiedUtcTime`. If a blob is uploaded to a storage account at 13:00, and the Azure Stream Analytics job is started using the option *Now* at 13:01, it will not be picked up as its modified time falls outside the job run period.
 
 If a blob is uploaded to a storage account container at 13:00, and the Azure Stream Analytics job is started using *Custom Time* at 13:00 or earlier, the blob will be picked up as its modified time falls inside the job run period.
 
 If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics will pick up the blob. The timestamp assigned to each blob is based only on `BlobLastModifiedTime`. The folder the blob is in has no relation to the the timestamp assigned. For example, if there is a blob *2019/10-01/00/b1.txt* with a `BlobLastModifiedTime` of 2019-11-11, then the timestamp assigned to this blob is 2019-11-11.
 
-To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage/ADLS Gen2 input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
+To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage or ADLS Gen2 input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
 
 CSV-formatted inputs require a header row to define fields for the data set, and all header row fields must be unique.
 
