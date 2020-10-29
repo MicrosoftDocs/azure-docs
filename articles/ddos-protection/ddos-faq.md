@@ -57,7 +57,7 @@ No, manual configuration is not available at this moment.
 See [testing through simulations](test-through-simulations.md).
 
 ## How long does it take for the metrics to load on portal?
-The metrics should be visible on portal within 5 minutes. If under attack, other metrics will start showing up on portal within 5-7 minutes 
+The metrics should be visible on portal within 5 minutes. If your resource is under attack, other metrics will start showing up on portal within 5-7 minutes. 
 	
 
 
