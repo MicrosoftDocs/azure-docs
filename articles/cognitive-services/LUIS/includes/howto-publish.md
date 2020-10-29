@@ -24,4 +24,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
     > [!div class="mx-imgBorder"]
     > ![Screenshot of LUIS publish to endpoint](../media/howto-publish/publish-app-popup.png)
 
-1. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.
+1. Select **Access your endpoint URLs** in the notification to go to the **Azure Resources** page. You will only be able to see the URLs if you have a prediction resource associated with the app. You can also find the **Azure Resources** page by clicking **Manage**.
+
+     > [!div class="mx-imgBorder"]
+    > ![A message that the app has been published](../media/howto-publish/publish-completed.png)
