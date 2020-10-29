@@ -42,12 +42,12 @@ The displayed IoT Connector Metrics are as follows:
 
 |Metrics Type|Metrics Purpose| 
 |-----------|--------------|
-|Number of Incoming Messages|Developers - Please add verbiage|
-|Number of Normalized Messages|Developers - Please add verbiage|
-|Number of Message Groups|Developers - Please add verbiage|
-|Average Normalized Stage Latency|Developers - Please add verbiage|
-|Average Group Stage Latency|Developers - Please add verbiage| 
-|Total Error Count|Developers - Please add verbiage| 
+|Number of Incoming Messages|The number of received raw incoming messages, for example, the device events.|
+|Number of Normalized Messages|The number of the normalized messages.|
+|Number of Message Groups|The number of groups that have messages aggregated in designated time window.|
+|Average Normalized Stage Latency|Average latency of the normalize stage. Normalize stage is to perform normalization on raw incoming messages.|
+|Average Group Stage Latency|Average latency of the group stage. Group stage is to perform buffering, aggregating and grouping on normalized messages.| 
+|Total Error Count|Total number of errors.| 
 
 ## Focusing and configuring Azure IoT Connector for FHIR (preview) Metrics
 In this example, we will be focusing on the **Number of Incoming Messages** Metrics.
