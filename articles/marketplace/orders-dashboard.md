@@ -11,7 +11,7 @@ ms.author: mingshen
 
 # Orders dashboard in commercial marketplace analytics
 
-This article provides information on the **Orders** dashboard in Partner Center. This dashboard displays information about your orders, including growth trends, presented in a graphical and downloadable format.
+This article provides information on the _Orders_ dashboard in Partner Center. This dashboard displays information about your orders, including growth trends, presented in a graphical and downloadable format.
 
 To access the **Orders** dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
 
@@ -52,13 +52,13 @@ There are two Orders counters: _Active_ and _Cancelled_.
 - **Active** equals the number of orders that are currently in use by customers during the selected date range.
 - **Canceled** equals the number of orders that were previously purchased and then canceled during the selected date range.
 
-:::image type="content" source="./media/data-and-analytics/orders-trend.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.":::
+:::image type="content" source="./media/orders-dashboard/orders-trend.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.":::
 
 ### Orders per seat and site trend
 
 The **Orders per seat and site-based** line chart represents the metric and trend of per-site SaaS and per-seat SaaS orders purchased by customers (this chart includes canceled orders).
 
-:::image type="content" source="./media/data-and-analytics/seats-sites.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.":::
+:::image type="content" source="./media/orders-dashboard/seats-sites.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the orders per seat and site trend.":::
 
 SaaS offers can use one of two pricing models with each plan: either flat rate (site-based) or per user (seat-based).
 
@@ -77,7 +77,7 @@ The Orders by Offers and SKU chart shows the measures and trends of all Offers:
 - Hovering over a slice in the graph displays the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - The **orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
 
-:::image type="content" source="./media/data-and-analytics/orders-by-offers.png" alt-text="Illustrates the Orders by Offers chart on the Orders dashboard.":::
+:::image type="content" source="./media/orders-dashboard/orders-by-offers.png" alt-text="Illustrates the Orders by Offers chart on the Orders dashboard.":::
 
 You can also select any offer and a maximum of three SKUs of that offer to view the month-over-month trend for the offer, SKUs, and seats.
 
@@ -85,7 +85,7 @@ You can also select any offer and a maximum of three SKUs of that offer to view 
 
 For the selected computation period, the heatmap displays the total number of orders, and the percentage of newly added orders against a geography dimension.  The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a specific country or region.
 
-:::image type="content" source="./media/data-and-analytics/geographical-spread.png" alt-text="Illustrates the Geographical spread chart on the Orders dashboard.":::
+:::image type="content" source="./media/orders-dashboard/geographical-spread.png" alt-text="Illustrates the Geographical spread chart on the Orders dashboard.":::
 
 Note the following:
 
@@ -109,12 +109,12 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 
 | Column name | Attribute name | Definition |
 | ------------ | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription Id | The unique identifier associated with the Azure Subscription the customer used to purchase your Marketplace offer. ID was formerly the Azure Subscription GUID. |
+| Marketplace Subscription Id | Marketplace Subscription Id | The unique identifier associated with the Azure Subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. |
 | MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. |
 | Offer Type | Offer Type | The type of Microsoft Marketplace offering. |
 | Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
 | Marketplace License Type | Marketplace License Type | The billing method of the Marketplace offer. The different values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> |
-| SKU | SKU | The plan associated with the Offer |
+| SKU | SKU | The plan associated with the offer |
 | Customer Country | Customer Country | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure Subscription. |
 | Is Preview SKU | Is Preview SKU | The value will let you know if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". |
 | Order Id | Order Id | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers are not associated with an order. |

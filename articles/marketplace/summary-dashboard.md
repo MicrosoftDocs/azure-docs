@@ -11,7 +11,7 @@ ms.author: mingshen
 
 # Summary dashboard in commercial marketplace analytics
 
-This article provides information on the **Summary** dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
+This article provides information on the _Summary_ dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
 To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
 
@@ -35,7 +35,7 @@ The following sections describe how to use the summary dashboard and how to read
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-:::image type="content" source="./media/data-and-analytics/analyze-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/analyze-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
@@ -44,7 +44,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 The **Orders** widget on the **Summary** dashboard displays the current orders for all your SaaS offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value below the Total Orders represents the amount of growth during the selected computation period.
 
-:::image type="content" source="./media/data-and-analytics/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
 
 You can also go to the Orders report by selecting the **Orders** dashboard link in the lower-left corner of the widget.
 
@@ -52,7 +52,7 @@ You can also go to the Orders report by selecting the **Orders** dashboard link 
 
 The **Customer** widget of the **Summary** dashboard displays the total number of customers who have acquired your offers for the selected computation period. The Customers widget displays a count and trend of total number of active (including new and existing) customers (excluding churned customers) for the selected computation period. The percentage value below the Total Customers represents the amount of growth during the selected computation period.
 
-:::image type="content" source="./media/data-and-analytics/customers-widget.png" alt-text="Illustrates the customers widget on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/customers-widget.png" alt-text="Illustrates the customers widget on the summary dashboard.":::
 
 You can also go to the detailed Customers report by selecting the **Customers dashboard** link in the lower-left corner of the widget.
 
@@ -67,7 +67,7 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 The percentage value below the total usage hours represents the amount of growth in usage hours during the selected computation period.
 
-:::image type="content" source="./media/data-and-analytics/usage-widget.png" alt-text="Illustrates the usage widget on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/usage-widget.png" alt-text="Illustrates the usage widget on the summary dashboard.":::
 
 You can also go to the Usage report by selecting the **Usage dashboard** link in the lower-left corner of the widget.
 
@@ -75,7 +75,7 @@ You can also go to the Usage report by selecting the **Usage dashboard** link in
 
 This **Page visit count** widget of the **Summary** dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. The Page visits widget displays a count and trend of total page visits during the selected computation period.
 
-:::image type="content" source="./media/data-and-analytics/page-visit-count-widget.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/page-visit-count-widget.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
 
 You can also go to the Marketplace Insights report by selecting the **Marketplace insights dashboard** link in the lower-left corner of the widget.
 
@@ -83,7 +83,7 @@ You can also go to the Marketplace Insights report by selecting the **Marketplac
 
 For the selected computation period, the heatmap displays the total number of customers, orders, and normalized usage hours against geography dimension.
 
-:::image type="content" source="./media/data-and-analytics/geo-spread.png" alt-text="Illustrates the Countries Spread widget on the summary dashboard.":::
+:::image type="content" source="./media/summary-dashboard/geo-spread.png" alt-text="Illustrates the Countries Spread widget on the summary dashboard.":::
 
 Note the following:
 
