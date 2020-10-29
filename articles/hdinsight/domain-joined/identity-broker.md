@@ -96,6 +96,9 @@ If you add a new role called `idbrokernode` with the following attributes to the
 .
 ```
 
+To see a complete sample of an ARM template, please see the template published [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+
 ## Tool integration
 
 HDInsight tools are updated to natively support OAuth. Use these tools for modern OAuth-based access to the clusters. The HDInsight [IntelliJ plug-in](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) can be used for Java-based applications, such as Scala. [Spark and Hive Tools for Visual Studio Code](../hdinsight-for-vscode.md) can be used for PySpark and Hive jobs. The tools support both batch and interactive jobs.
