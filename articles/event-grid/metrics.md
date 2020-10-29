@@ -75,6 +75,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |PublishSuccessCount|Yes|Published Events|Count|Total|Total events published to this topic|No Dimensions|
 |PublishSuccessLatencyInMs|Yes|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|No Dimensions|
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
+| AdvancedFilterEvaluationCount | Yes | Advanced Filter Evaluations | Count | Total | Total advanced filters evaluated across event subscriptions | Topic,EventSubscriptionName, DomainEventSubscriptionName |
 
 ## Next steps
 See the following article: [Diagnostic logs](diagnostic-logs.md)
