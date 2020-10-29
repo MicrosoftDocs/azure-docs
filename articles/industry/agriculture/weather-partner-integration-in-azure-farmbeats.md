@@ -9,22 +9,22 @@ ms.author: sunasing
 
 # Weather partner integration with FarmBeats
 
-This article provides information about the Azure FarmBeats Connector docker component. Weather data providers can use the Connector docker to integrate with FarmBeats. They use its APIs to send weather data to 
+This article provides information about the Azure FarmBeats Connector docker component. As a weather data provider, you can use the Connector docker to integrate with FarmBeats. Use its APIs to send weather data to 
 FarmBeats. In FarmBeats, the data can be used for data fusion and for building machine learning models or artificial intelligence models.
 
  > [!NOTE]
  > In this article, we use a [reference implementation](https://github.com/azurefarmbeats/noaa_docker) that was built by using Azure Open Datasets and weather data from National Oceanic and Atmospheric Administration (NOAA). We also use the corresponding [docker image](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa).
 
-A weather partner must provide a [suitable docker image or program](#docker-specifications)
-and host the docker image in a container registry that customers can access. The weather partner needs to provide the following information to its customers:
+You must provide a [suitable docker image or program](#docker-specifications)
+and host the docker image in a container registry that customers can access. Provide the following information to your customers:
 
 - Docker image URL
 - Docker image tag
 - Keys or credentials to access the docker image
-- Customer-specific API keys or credentials to access the data from the weather partner's system
-- VM SKU details (Partners can provide these details if their docker has specific VM requirements. Otherwise, customers can choose from supported VM SKUs in Azure.)
+- Customer-specific API keys or credentials to access the data from your system
+- VM SKU details (Provide these details if your docker has specific VM requirements. Otherwise, customers can choose from supported VM SKUs in Azure.)
 
-Customers use this docker information to register a weather partner in their FarmBeats instance. For more information about how customers can use the docker to ingest weather data in FarmBeats, see [Get weather data from weather partners](./get-weather-data-from-weather-partner.md).
+Customers use this docker information to register a weather partner in their FarmBeats instance. For more information about how customers can use the docker to ingest weather data in FarmBeats, see [Get data from weather partners](./get-weather-data-from-weather-partner.md).
 
 ## Connector docker development
 
@@ -33,31 +33,33 @@ Customers use this docker information to register a weather partner in their Far
 The FarmBeats APIs contain Swagger technical documentation. For more information about the APIs and their
 corresponding requests or responses, see the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-If you've installed FarmBeats, access your FarmBeats Swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+If you've already installed FarmBeats, access your FarmBeats Swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
-Note that *-api* is appended to your FarmBeats website name. The API endpoint is `https://yourfarmbeatswebsitename-api.azurewebsites.net`
+Notice that *-api* is appended to your FarmBeats website name. The API endpoint is `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### Datahub lib
 
-FarmBeats provides a lib that the weather partner can use. The lib is currently available as [part of the reference implementation](https://github.com/azurefarmbeats/noaa_docker/tree/master/datahub_lib). Later, it will be available as an SDK for multiple languages.
+FarmBeats provides a lib that you can use. The lib is currently available as [part of the reference implementation](https://github.com/azurefarmbeats/noaa_docker/tree/master/datahub_lib). Later, it will be available as an SDK for multiple languages.
 
 ### Authentication
 
 **Authentication with FarmBeats APIs**
 
-FarmBeats uses bearer authentication. Access the APIs by providing an access token in the header section of the request. Here's an example:
+FarmBeats uses bearer authentication. You can access the APIs by providing an access token in the header section of the request. Here's an example:
 
 ```
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-You can request the access token from an Azure function app that's running on the customer's FarmBeats instance. The Azure Functions URL is provided to the docker program as an argument. You can get the access token by making a `GET` request on the URL. The response from the URL contains the access token. The Datahub lib provides helper functions to enable partners to get the access token. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
+You can request the access token from an Azure Functions app that's running on the customer's FarmBeats instance. The Azure Functions URL is provided to the docker program as an argument. You can get the access token by making a `GET` request on the URL. The response from the URL contains the access token. 
+
+Use the helper functions in the Datahub lib to get the access token. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
 
 The access token is valid only for few hours. When it expires, you must request it again.
 
 **Authentication with partner-side APIs**
 
-To enable authenticate with the partner-side APIs while the docker is running, customers need to provide the credentials during partner registration. Here's an example:
+To authenticate with the partner-side APIs while the docker is running, customers need to provide the credentials during partner registration. Here's an example:
 
 ```json
 {
@@ -69,9 +71,11 @@ To enable authenticate with the partner-side APIs while the docker is running, c
 ```
 The API service serializes this dict and stores it in a [key vault](../../key-vault/general/basic-concepts.md).
 
-[Azure Data Factory](../../data-factory/introduction.md) is used to orchestrate weather jobs. It spins up resources to run the docker code. Data Factory also provides a mechanism to push data securely to the VM where the docker job runs. The API credentials are now securely stored in the key vault. These credentials are read as secure strings from the key vault. They're provided as extended properties in the working directory of the docker container. Their file path is */mnt/working_dir/activity.json*. 
+[Azure Data Factory](../../data-factory/introduction.md) is used to orchestrate weather jobs. It spins up resources to run the docker code. Data Factory also provides a mechanism to push data securely to the VM where the docker job runs. The API credentials are then securely stored in the key vault. 
 
-The docker code can read the credentials from *activity.json* during run time to access partner-side APIs on behalf of the customer. In the file, the credentials look like this code example:
+Credentials are read as secure strings from the key vault. They're provided as extended properties in the working directory of the docker container. Their file path is */mnt/working_dir/activity.json*. 
+
+The docker code can read the credentials from *activity.json* during run time to access partner-side APIs for the customer. In the JSON file, the credentials look like this code example:
 
 ```json
 { 
@@ -83,9 +87,9 @@ The docker code can read the credentials from *activity.json* during run time to
 ```
 The `partnerCredentials` credential is available in the way that the customer provided it during partner registration.
 
-The FarmBeats lib provides helper functions. Partners use these functions to read the credentials from the activity properties. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
+The FarmBeats lib provides helper functions. Use these functions to read the credentials from the activity properties. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
 
-The lifetime of the file is only during the running of the docker code. The file is deleted after the docker finishes running.
+The file is used only while the docker code is running. After the code finishes, the file is deleted.
 
 For more information about how Data Factory pipelines and activities work, see [Schema and data type mapping](../../data-factory/copy-activity-schema-and-type-mapping.md).
 
@@ -112,11 +116,11 @@ The docker program needs two components: the bootstrap and the job. The program 
 The bootstrap component should run when the customer starts the docker registration on FarmBeats. The following arguments (`arg1` and `arg2`) are passed to the program:
 
 - **FarmBeats API endpoint**: The FarmBeats API endpoint for API requests. This endpoint makes API calls to the FarmBeats deployment.
-- **Azure Functions URL**: This URL is your own endpoint. It provides your access token for FarmBeats APIs. You can call `GET` on this URL to fetch the access token.
+- **Azure Functions URL**: Your own endpoint. This URL provides your access token for FarmBeats APIs. You can call `GET` on this URL to fetch the access token.
 
 The bootstrap creates the metadata that users need to run your jobs to get weather data. For more information, see the [reference implementation](https://github.com/azurefarmbeats/noaa_docker). 
 
-You can customize the *bootstrap_manifest.json* file, and the reference bootstrap program will create the required metadata for you. The bootstrap program creates the following metadata: 
+If you customize the *bootstrap_manifest.json* file, then the reference bootstrap program will create the required metadata for you. The bootstrap program creates the following metadata: 
 
  > [!NOTE]
  > If you update the *bootstrap_manifest.json* file as the [reference implementation](https://github.com/azurefarmbeats/noaa_docker) describes, you don't need to create the following metadata. The bootstrap program will use your manifest file to create the necessary metadata.
@@ -135,57 +139,57 @@ As part of the job, the program must create a /WeatherDataLocation based on the 
 
 ### Object details
 
-  WeatherDataModel | Description |
-  --- | ---
-  Name  | Name of the weather data model. |
-  Description  | A meaningful description of the model. |
-  Properties  | Additional properties defined by the data provider. |
-  weatherMeasures > Name  | Name of the weather measure. For example, `humidity_max`. |
-  weatherMeasures > DataType  | Either `Double` or `Enum`. If `Enum`, `measureEnumDefinition` is required. |
-  weatherMeasures > measureEnumDefinition  | Required only if `DataType` is `Enum`. For example, `{ "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 }` |
-  weatherMeasures > Type  | Type of weather telemetry data. For example, `RelativeHumidity`. The system-defined types are AmbientTemperature, NoUnit, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, and PAR. To add more types, see the [Add ExtendedType](#add-extendedtype) section in this article.
-  weatherMeasures > Unit | Unit of weather telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more units, see the [Add ExtendedType](#add-extendedtype) section in this article.
-  weatherMeasures > AggregationType  | The type of aggregation. Possible values are None, Average, Maximum, Minimum, StandardDeviation, Sum, and Total.
-  weatherMeasures > Depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
-  weatherMeasures > Description  | A meaningful description of the measurement. 
+WeatherDataModel | Description |
+--- | ---
+Name  | Name of the weather data model. |
+Description  | A meaningful description of the model. |
+Properties  | Additional properties defined by the data provider. |
+weatherMeasures > Name  | Name of the weather measure. For example, humidity_max. |
+weatherMeasures > DataType  | Either Double or Enum. If Enum, measureEnumDefinition is required. |
+weatherMeasures > measureEnumDefinition  | Required only if DataType is Enum. For example, `{ "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 }` |
+weatherMeasures > Type  | Type of weather telemetry data. For example, RelativeHumidity. The system-defined types are AmbientTemperature, NoUnit, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, and PAR. To add more types, see the [Add ExtendedType](#add-extendedtype) section in this article.
+weatherMeasures > Unit | Unit of weather telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more units, see the [Add ExtendedType](#add-extendedtype) section in this article.
+weatherMeasures > AggregationType  | The type of aggregation. Possible values are None, Average, Maximum, Minimum, StandardDeviation, Sum, and Total.
+weatherMeasures > Depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
+weatherMeasures > Description  | A meaningful description of the measurement. 
 
-  JobType | Description |
-  --- | ---
-  Name  | Name of the job. For example, Get_Daily_Forecast. The customer will run this job to get weather data.|
-  pipelineDetails > parameters > name  | Name of the parameter. |
-  pipelineDetails > parameters > type | The parameter type. Possible values include String, Int, Float, Bool, and Array. |
-  pipelineDetails > parameters > isRequired | The parameter's Boolean value. The value is true if the parameter is required. Otherwise, the value is false. The default is true. |
-  pipelineDetails > parameters > defaultValue | Default value of the parameter. |
-  pipelineDetails > parameters > description | Description of the parameter. |
-  Properties  | Additional properties from the manufacturer.
-  Properties > programRunCommand | Docker run command. This command runs when the customer runs the weather job. |
+JobType | Description |
+--- | ---
+Name  | Name of the job. For example, Get_Daily_Forecast. The customer will run this job to get weather data.|
+pipelineDetails > parameters > name  | Name of the parameter. |
+pipelineDetails > parameters > type | The parameter type. Possible values include String, Int, Float, Bool, and Array. |
+pipelineDetails > parameters > isRequired | The parameter's Boolean value. The value is true if the parameter is required. Otherwise, the value is false. The default is true. |
+pipelineDetails > parameters > defaultValue | Default value of the parameter. |
+pipelineDetails > parameters > description | Description of the parameter. |
+Properties  | Additional properties from the manufacturer.
+Properties > programRunCommand | Docker run command. This command runs when the customer runs the weather job. |
 
-  WeatherDataLocation | Description |
-  --- | ---
-  weatherDataModelId  | ID of the corresponding WeatherDataModel that was created during the bootstrap process.|
-  location  | Latitude, longitude, and elevation. |
-  Name | Name of the object. |
-  Description | Description of the weather data location. |
-  farmId | (Optional) ID of the farm. The customer provides this ID as part of the job parameter. |
-  Properties  | Additional properties from the manufacturer.
+WeatherDataLocation | Description |
+--- | ---
+weatherDataModelId  | ID of the corresponding WeatherDataModel that was created during the bootstrap process.|
+location  | Latitude, longitude, and elevation. |
+Name | Name of the object. |
+Description | Description of the weather data location. |
+farmId | (Optional) ID of the farm. The customer provides this ID as part of the job parameter. |
+Properties  | Additional properties from the manufacturer.
 
- For information about each of the objects and their properties, see the [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
+For more information about the objects and their properties, see the [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
 
- > [!NOTE]
- > The APIs return unique IDs for each instance that's created. the translator for device management and metadata sync needs to retain this ID.
+> [!NOTE]
+> The APIs return unique IDs for each instance that's created. The translator for device management and metadata sync needs to retain this ID.
 
 **Metadata sync**
 
-The Connector docker should be able to send updates on the metadata. For example, it should send updates when new  weather parameters are added in the weather provider's dataset or when functionality, such as a new 30-day forecast, is added.
+The Connector docker should be able to send updates on the metadata. For example, it should send updates when the weather provider adds new parameters to a dataset or when new functionality, such as a new 30-day forecast, is added.
 
 > [!NOTE]
 > Delete isn't supported for metadata in the weather data model.
 >
-> To update metadata, you have to call `/Get/{ID}` on the weather data model, update the changed properties, and then do a `/Put/{ID}` so that any properties that the user sets aren't lost.
+> To update metadata, you have to call `/Get/{ID}` on the weather data model. Update the changed properties, and then do a `/Put/{ID}` to retain any properties that the user sets.
 
 ## Weather data (telemetry) specifications
 
-The weather data is mapped to a canonical message that's pushed to an Azure event hub for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. 
+Weather data is mapped to a canonical message that's pushed to an Azure event hub for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. 
 
 To send weather data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information, see [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
@@ -228,7 +232,7 @@ Here's the canonical message format:
 }
 ```
 
-For example, here's a telemetry message:
+Here's an example of a telemetry message:
 
 ```json
 {
@@ -260,11 +264,11 @@ The Datahub lib provides helper functions to enable logging as part of overall D
 
 ### Troubleshooting and support
 
-If the customer can't receive weather data in the FarmBeats instance, the weather partner should provide support and a mechanism to troubleshoot the problem.
+If the customer can't receive weather data in the FarmBeats instance, provide support and a mechanism to troubleshoot the problem.
 
 ## Add ExtendedType
 
-FarmBeats supports adding new sensor measure types and units. A weather partner can add new units or types by updating the *bootstrap_manifest.json* file in the [reference implementation](https://github.com/azurefarmbeats/noaa_docker).
+FarmBeats supports adding new sensor measure types and units. You can add new units or types by updating the *bootstrap_manifest.json* file in the [reference implementation](https://github.com/azurefarmbeats/noaa_docker).
 
 Follow these steps to add a new WeatherMeasure type, for example, PrecipitationDepth.
 
