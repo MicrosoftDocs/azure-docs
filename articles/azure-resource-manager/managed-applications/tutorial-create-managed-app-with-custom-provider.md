@@ -334,11 +334,11 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 * Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Screenshot shows the Add button selected from Users.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Go to "Users" page, select a "users" resource and click "Custom Context Action":
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Screenshot shows Custom Context Action selected.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 

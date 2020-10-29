@@ -212,12 +212,11 @@ Please be aware of the following restrictions/requirements:
   - It must exist at the time of the deployment 
   - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
 
-## Troubleshoot and support
-
 ### Frequently Asked Questions
 
 * Is there is a limit on the number of observedCertificates you can setup?
   No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+
 
 ### Troubleshoot
 
@@ -239,6 +238,14 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### Using Symlink
+
+Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring the folder and to get the latest certificate automatically, you can use this symlink `([VaultName].[CertificateName])` to get the latest version of certificate on Linux.
+
+### Frequently Asked Questions
+
+* Is there is a limit on the number of observedCertificates you can setup?
+  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
 
 ### Support
 
