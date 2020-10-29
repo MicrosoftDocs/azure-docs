@@ -13,15 +13,15 @@ ms.author: alkohli
 ---
 # IoT Edge role management changes for your Azure Stack Edge device
 
-For Azure IoT Edge role management for your Azure Stack Edge device, use the updated version of the API, SDK, and Azure PowerShell, which is due to be released in January 2021. 
+For Azure IoT Edge role management for your Azure Stack Edge device, use the updated version of the API, SDK, and Azure PowerShell, which is scheduled for January 2021 release. 
 
 This article describes in detail the changes that you need to make when you use this newest version.
 
-The January 2021 update will available only for Azure Stack Edge Pro, and it includes a graphics processing unit (GPU), Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. The information in this article applies only to these devices. 
+The January 2021 update will be available only for Azure Stack Edge Pro, and it includes a graphics processing unit (GPU), Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. The information in this article applies only to these devices. 
 
 ## IoT Edge role management changes
 
-After you install the optional January 2021 device software version on your Azure Stack Edge device, you'll need to use the latest version of the API, SDK, and PowerShell cmdlets for IoT Edge role management.
+After you install the optional January 2021 update on your Azure Stack Edge device, you'll need to use the latest version of the API, SDK, and PowerShell cmdlets for IoT Edge role management.
 
 > [!NOTE]
 > You're not required to upgrade to the January 2021 version. If you choose to continue using your current version, there is no impact on IoT Edge role management. However, to take advantage of the new features and to help reduce any security risks, we recommend that you install the newer version. 
@@ -34,8 +34,7 @@ The following changes are required only if you apply the January 2021 update:
 
 ## API usage
 
-If you were performing IoT Edge role management via API, you should use the new API version (2020-12-01), which will be published later. If you're using the current Role API and you’ve installed the upcoming device software version, you must move to the PUT, GET, DELETE Kubernetes role followed by the PUT IoT Addon API.
-
+If you're currently performing IoT Edge role management via API, you should use the new API version 2020-12-01, which will be published later. If you're using the current Role API and you’ve installed the upcoming device software version, you must move to the PUT, GET, DELETE Kubernetes role followed by the PUT IoT Addon API.
 
 ### For the PUT method
 
@@ -237,7 +236,7 @@ The API calls will be made at the following URI: [https://management.azure.com/s
 
 ## SDK usage
 
-If you're using the SDK, after you've installed the January 2021 device update, you'll need to change the way you set up IoT Edge role, as shown in the following sample. You should then download and install the upcoming NuGet package to move to the new SDK, as shown here.
+If you're using the SDK, after you've installed the January 2021 update, you'll need to change the way you set up the IoT Edge role, as shown in the following sample. You'll then download and install the upcoming NuGet package to move to the new SDK, as shown here.
 
 ### The current SDK sample
 
@@ -308,17 +307,17 @@ If you're using the `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEd
 
 ## Frequently asked questions
 
-**I'm using Azure Stack Edge Pro with FPGA. Does the January 2021 update affect the FPGA model?**
+**I'm using Azure Stack Edge Pro with Field Programmable Gate Array (FPGA). Does the January 2021 update affect the FPGA model?**
 
-No. The January 2021 update applies only to Azure Stack Edge Pro with Field Programmable Gate Array (FPGA), Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Azure Stack Edge Pro with FPGA isn't affected by this update and doesn't require any changes to IoT Edge role management.
+No. The January 2021 update applies only to Azure Stack Edge Pro with FPGA, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Azure Stack Edge Pro with FPGA isn't affected by this update and doesn't require any changes to IoT Edge role management.
 
 **After I update my Azure Stack Edge Pro with GPU to the new device software in January 2021, are any of the existing services affected?**
 
 No. Your configured services won't be affected after you install the January 2021 device update. <!--check w/ Anoob, what existing services you are talking about in this question-->
 
-**What are the high-level changes to IoT Edge management API, SDK or cmdlet?**
+**What are the high-level changes to the IoT Edge management API, SDK, or cmdlet?**
 
-IoT Edge is an add-on under the Kubernetes role. This implies that you'll need to make sure that Kubernetes is configured first and that you then perform the IoT Edge configuration.
+IoT Edge is an add-on under the Kubernetes role. This implies that you'll need to first ensure that Kubernetes is configured and then perform the IoT Edge configuration.
 
 
 ## Next steps
