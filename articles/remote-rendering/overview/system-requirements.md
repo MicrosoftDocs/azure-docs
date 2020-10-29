@@ -60,12 +60,23 @@ See dedicated chapter for [network requirements](../reference/network-requiremen
 
 For troubleshooting network issues, refer to the [Troubleshooting Guide](../resources/troubleshoot.md#unstable-holograms).
 
+### Network ports
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
+
+| Port              | Protocol | Allow    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Outgoing | Initial connection (HTTP handshake) |
+| 8266              | UDP      | Outgoing | Data transfer |
+| 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
+
+
 ## Software
 
 The following software must be installed:
 
 * The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+* [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)

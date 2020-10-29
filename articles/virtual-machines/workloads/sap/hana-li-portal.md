@@ -52,7 +52,7 @@ As your first HANA Large Instances are getting deployed, a new [Azure resource g
 
 In order to find the new Azure resource group, you list the resource group in your subscription by navigating through the left navigation pane of the Azure portal
 
-![Navigation pane in Azure portal](./media/hana-li-portal/portal-resource-group.png)
+![Screenshot that highlights the Resource groups option.](./media/hana-li-portal/portal-resource-group.png)
 
 In the list of resource groups, you are getting listed, you might need to filter on the subscription you used to have HANA Large Instances deployed
 

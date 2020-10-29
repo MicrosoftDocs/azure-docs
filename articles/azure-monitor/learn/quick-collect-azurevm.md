@@ -83,7 +83,7 @@ Azure Monitor can collect events from the Windows event logs or Linux Syslog and
 
 7. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Screenshot of the Windows Performance Counters pane with a list of selected counters and the Add the selected performance counters button selected.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.
   
@@ -103,7 +103,7 @@ Azure Monitor can collect events from the Windows event logs or Linux Syslog and
 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Screenshot of the Linux Performance Counters pane with a list of selected counters and the Add the selected performance counters button selected.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 

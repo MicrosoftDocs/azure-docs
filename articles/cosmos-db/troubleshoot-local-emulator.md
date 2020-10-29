@@ -6,6 +6,7 @@ ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
+ms.custom: contperfq1
 ---
 
 # Troubleshoot issues when using the Azure Cosmos emulator

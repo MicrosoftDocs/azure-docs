@@ -223,7 +223,7 @@ To register and view a model from a run, use the following steps:
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 
-    ![registered-mlflow-model](./media/how-to-use-mlflow/registered-mlflow-model.png)
+    ![register-mlflow-model](./media/how-to-use-mlflow/registered-mlflow-model.png)
 
 1. Select the **Artifacts** tab to see all the model files that align with the MLflow model schema (conda.yaml, MLmodel, model.pkl).
 
@@ -355,6 +355,9 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 ## Example notebooks
 
 The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
+
+> [!NOTE]
+> A community-driven repository of examples using mlflow can be found at https://github.com/Azure/azureml-examples.
 
 ## Next steps
 

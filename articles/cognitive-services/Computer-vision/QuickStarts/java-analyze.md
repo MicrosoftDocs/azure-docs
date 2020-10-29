@@ -65,7 +65,7 @@ public class AnalyzeImage {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static final String uriBase = endpoint + "vision/v3.0/analyze";
+    private static final String uriBase = endpoint + "vision/v3.1/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
             "1/12/Broadway_and_Times_Square_by_night.jpg";

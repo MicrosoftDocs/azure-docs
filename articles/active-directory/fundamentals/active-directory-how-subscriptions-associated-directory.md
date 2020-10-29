@@ -31,8 +31,6 @@ All of your users have a single *home* directory for authentication. Your users 
 > [!Important]
 > When you associate a subscription with a different directory, users that have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
-> Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
->
 > Moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principal's rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](../../aks/index.yml).
 
 ## Before you begin
@@ -46,7 +44,7 @@ Before you can associate or add your subscription, do the following tasks:
   - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association
   - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association
   - If you have a registered Azure Stack, you'll have to re-register it after association
-  - For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+  - For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 - Sign in using an account that:
 
@@ -89,7 +87,7 @@ After you associate a subscription to a different directory, you might need to d
 
 - If you've registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
 
-- For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+- For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Next steps
 

@@ -1,6 +1,8 @@
 ---
 title: Create Personalizer resource
 description: In this article, learn how to create a personalizer resource in the Azure portal for each feedback loop. 
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 03/26/2020 
 ms.custom: devx-track-azurecli

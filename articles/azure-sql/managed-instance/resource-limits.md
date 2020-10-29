@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom:
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
+ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ---
 # Overview of Azure SQL Managed Instance resource limits
@@ -114,7 +114,7 @@ SQL Managed Instance currently supports deployment only on the following types o
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Cloud Service Provider (CSP)](/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Subscriptions with monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)

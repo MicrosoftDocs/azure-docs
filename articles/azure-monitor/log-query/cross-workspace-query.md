@@ -139,5 +139,4 @@ applicationsScoping
 ## Next steps
 
 - Review [Analyze log data in Azure Monitor](log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
-- Review [Azure Monitor log queries](query-language.md) to view all of the resources for Azure Monitor log queries.
 

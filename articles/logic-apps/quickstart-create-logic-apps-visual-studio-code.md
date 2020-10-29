@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/25/2019
+ms.date: 09/25/2020
 
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
@@ -313,4 +313,4 @@ In Visual Studio Code, you can open and review the earlier versions for your log
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Create stateful or stateless logic apps in Visual Studio Code (Preview)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

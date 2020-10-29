@@ -104,8 +104,8 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x
+- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 12 SP1+
 - SUSE Linux Enterprise Server 15 SP1
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS

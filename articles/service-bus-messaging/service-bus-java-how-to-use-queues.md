@@ -60,7 +60,7 @@ public void run() throws Exception {
 	// Create a QueueClient instance and then asynchronously send messages.
 	// Close the sender once the send operation is complete.
 	QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-	this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+	this.sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
 
 	sendClient.close();
 }

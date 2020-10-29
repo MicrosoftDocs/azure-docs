@@ -4,12 +4,12 @@ description: This article describes the new serverless compute tier and compares
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 9/17/2020
 ---
 # Azure SQL Database serverless

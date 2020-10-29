@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
-ms.reviewer: sstein, carlrab, MashaMSFT
+ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
 ---
 

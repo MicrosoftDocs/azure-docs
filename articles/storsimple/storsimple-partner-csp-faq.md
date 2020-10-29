@@ -36,10 +36,10 @@ Questions and answers are arranged into the following categories:
 
 For more information, go to [StorSimple in CSP program](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### Is StorSimple a usage-based or based on seat licenses like Office 365 and Enterprise Mobility Suite (EMS)?
+### Is StorSimple a usage-based or based on seat licenses like Microsoft 365 and Enterprise Mobility Suite (EMS)?
 StorSimple is a usage-based service. Customers who procure StorSimple Virtual Array via the CSP route pay for the usage of virtual array and Azure, billed as separate line-items in the CSP bill. 
 
-### Is the StorSimple business model similar to that of other services such as the Office 365 and the Enterprise Mobility Suite? 
+### Is the StorSimple business model similar to that of other services such as the Microsoft 365 and the Enterprise Mobility Suite? 
 Yes. The model is a wholesale discount model just like other usage-based services in Azure. The wholesale discount for StorSimple is similar to that of other Azure services. This model provides our CSP partners an opportunity to sell more and drive Azure consumption via StorSimple Virtual Array.  
 
 ### Which StorSimple SKUs are available at launch?

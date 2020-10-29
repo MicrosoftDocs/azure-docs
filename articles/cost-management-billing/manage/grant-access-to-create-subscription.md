@@ -18,11 +18,11 @@ As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 ## Grant access
 
-To [create subscriptions under an enrollment account](programmatically-create-subscription.md), users must have the [RBAC Owner role](../../role-based-access-control/built-in-roles.md#owner) on that account. You can grant a user or a group of users the RBAC Owner role on an enrollment account by following these steps:
+To [create subscriptions under an enrollment account](programmatically-create-subscription.md), users must have the Azure RBAC [Owner role](../../role-based-access-control/built-in-roles.md#owner) on that account. You can grant a user or a group of users the Azure RBAC Owner role on an enrollment account by following these steps:
 
 1. Get the object ID of the enrollment account you want to grant access to
 
-    To grant others the RBAC Owner role on an enrollment account, you must either be the Account Owner or an RBAC Owner of the account.
+    To grant others the Azure RBAC Owner role on an enrollment account, you must either be the Account Owner or an Azure RBAC Owner of the account.
 
     # [REST](#tab/rest)
 
@@ -57,7 +57,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     }
     ```
 
-    Use the `principalName` property to identify the account that you want to grant RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account that you want to grant Azure RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
     # [PowerShell](#tab/azure-powershell)
 
@@ -75,11 +75,11 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Use the `principalName` property to identify the account you want to grant RBAC Owner access to. Copy the `ObjectId` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Paste this object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account you want to grant Azure RBAC Owner access to. Copy the `ObjectId` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Paste this object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
 
     # [Azure CLI](#tab/azure-cli)
 
-    Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
 
     ```azurecli-interactive
     az billing enrollment-account list
@@ -106,18 +106,18 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     ---
 
-    Use the `principalName` property to identify the account that you want to grant RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account that you want to grant Azure RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
-1. <a id="userObjectId"></a>Get object ID of the user or group you want to give the RBAC Owner role to
+1. <a id="userObjectId"></a>Get object ID of the user or group you want to give the Azure RBAC Owner role to
 
     1. In the Azure portal, search on **Azure Active Directory**.
     1. If you want to grant a user access, select **Users** in the menu on the left. To give access to a group, select **Groups**.
-    1. Select the User or Group you want to give the RBAC Owner role to.
+    1. Select the User or Group you want to give the Azure RBAC Owner role to.
     1. If you selected a User, you'll find the object ID in the Profile page. If you selected a Group, the object ID will be in the Overview page. Copy the **ObjectID** by selecting the icon to the right of the text box. Paste it somewhere so that you can use it in the next step as `userObjectId`.
 
-1. Grant the user or group the RBAC Owner role on the enrollment account
+1. Grant the user or group the Azure RBAC Owner role on the enrollment account
 
-    Using the values you collected in the first two steps, grant the user or group the RBAC Owner role on the enrollment account.
+    Using the values you collected in the first two steps, grant the user or group the Azure RBAC Owner role on the enrollment account.
 
     # [REST](#tab/rest-2)
 
@@ -169,7 +169,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Once a user becomes an RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an RBAC Owner by default.
+    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Azure RBAC Owner by default.
 
     ---
 

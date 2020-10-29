@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 10/13/2020
 ms.author: alkohli
 ---
 
@@ -17,13 +17,11 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Azure Stack Edge Pro device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge Pro 2009** software release. 
-
-<!--- This software release corresponds to software version number **2.1.1328.1904**-->
+This article applies to the **Azure Stack Edge Pro 2010** release which maps to software version number **2.1.1377.2170**.
 
 ## What's new
 
-The following new features are available in the Azure Stack Edge 2009 release. 
+The following new features are available in the Azure Stack Edge 2010 release. 
 
 - **Storage classes** - In this release, Storage classes are available that let you dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Kubernetes dashboard with metrics server** - In this release, a Kubernetes Dashboard is added with a metrics server add-on. You can use the dashboard to get an overview of the applications running on your Azure Stack Edge Pro device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device. The Metrics server aggregates the CPU and memory usage across Kubernetes resources on the device. For more information, see [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).

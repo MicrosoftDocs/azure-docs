@@ -6,6 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
 ---
 # Troubleshoot Azure Stream Analytics by using resource logs
@@ -65,11 +66,11 @@ Turning on resource logs and sending them to Azure Monitor logs is highly recomm
 
 3. When your Stream Analytics job starts, resource logs are routed to your Log Analytics workspace. To view resource logs for your job, select **Logs** under the **Monitoring** section.
 
-   ![Resource Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Screenshot shows the General menu with Logs selected.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. You can select any pre-defined queries on the left pane and then select **Run**. You will see the results of the query in the bottom pane. 
 
-   ![Resource Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![Screenshot shows Logs for a Stream Analytics job.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## Resource log categories
 

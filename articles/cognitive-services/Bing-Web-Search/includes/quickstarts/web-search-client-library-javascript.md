@@ -41,11 +41,11 @@ Let's start by setting up the development environment for our Node.js project.
     npm init
     ```
 
-1. Now, let's install some azure modules and add them to the `package.json`:
+1. Now, let's install some Azure modules and add them to the `package.json`:
 
     ```console
-    npm install --save azure-cognitiveservices-websearch
-    npm install --save ms-rest-azure
+    npm install --save @azure/cognitiveservices-websearch
+    npm install --save @azure/ms-rest-azure-js
     ```
 
 ## Create a project and declare required modules
@@ -55,13 +55,13 @@ In the same directory as your `package.json`, create a new Node.js project using
 Next, copy this code into your project. It loads the modules installed in the previous section.
 
 ```javascript
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+const WebSearchAPIClient = require('@azure/cognitiveservices-websearch');
 ```
 
 ## Instantiate the client
 
-This code instantiates a client and using the `azure-cognitiveservices-websearch` module. Make sure that you enter a valid subscription key for your Azure account before continuing.
+This code instantiates a client and using the `@azure/cognitiveservices-websearch` module. Make sure that you enter a valid subscription key for your Azure account before continuing.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');

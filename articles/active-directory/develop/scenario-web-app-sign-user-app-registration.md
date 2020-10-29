@@ -48,13 +48,13 @@ You can use these links to bootstrap the creation of your web application:
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **AspNetCore-WebApp**.
    1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. For example, enter **https://localhost:44321**. Then, select **Register**.
-   ![registration](media/scenario-webapp/scenario-webapp-app-registration-1.png)
+   ![Screenshot shows the Register an application page where you can select Register.](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Select the **Authentication** menu, and then add the following information:
    1. For **Reply URL**, add **https://localhost:44321/signin-oidc** of type **Web**.
    1. In the **Advanced settings** section, set **Logout URL** to **https://localhost:44321/signout-oidc**.
    1. Under **Implicit grant**, select **ID tokens**.
    1. Select **Save**.
-  ![registration](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+  ![Screenshot shows the Authentication options, where you can make the changes described.](media/scenario-webapp/scenario-webapp-app-registration-2.png)
  
 # [ASP.NET](#tab/aspnet)
 

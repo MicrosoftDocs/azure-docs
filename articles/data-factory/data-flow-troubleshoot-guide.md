@@ -110,7 +110,7 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 
 - **Message**: There are a high number of null values or missing values which may be caused by having too few rows sampled. Try updating the debug row limit and refreshing the data.
 - **Causes**: Join condition did not match any rows or resulted in high number of NULLs during data preview.
-- **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select and Azure IR with a large enough data flow cluster to handle more data.
+- **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select an Azure IR with a large enough data flow cluster to handle more data.
 
 
 ## General troubleshooting guidance
@@ -125,7 +125,7 @@ For more troubleshooting help, try these resources:
 *  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)

@@ -6,6 +6,7 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
@@ -47,7 +48,7 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 }
 ```
 
-### Install Active Directory
+### Install Active Directory NuGet package
 
 The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you'll need to add a reference to that package in your project.
 

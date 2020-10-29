@@ -2,12 +2,13 @@
 title: Data schema requirements
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 Metrics Monitor is a service for time series anomaly detection, diagnostics and analysis. As an AI powered service, it uses your data to train the model used. The service accepts tables of aggregated data with the following columns:

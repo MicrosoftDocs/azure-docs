@@ -34,7 +34,7 @@ All above the operations are also available in the `.debug` version, which have 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-Spatial analysis can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module. 
+Spatial analysis can also be run with [Live Video Analytics](https://aka.ms/lva-spatial-analysis) as their Video AI module. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -639,7 +639,7 @@ You may want to integrate spatial analysis detection or events into your applica
 
 ## Deploying spatial analysis operations at scale (multiple cameras)
 
-In order to get best performance and utilization of the GPUs, you can deploy any spatial analysis operations on multiple cameras using graph instances. Below is a sample for running the cognitiveservices.vision.spatialanalysis-personcount operation on five(5) cameras.
+In order to get the best performance and utilization of the GPUs, you can deploy any spatial analysis operations on multiple cameras using graph instances. Below is a sample for running the `cognitiveservices.vision.spatialanalysis-personcount` operation on five cameras.
 
 ```json
  "properties.desired": {
@@ -722,7 +722,7 @@ In order to get best performance and utilization of the GPUs, you can deploy any
   ```
 | Name | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | Indicates the number of cameras will be used in that operation  .|
+| `batch_size` | int | Indicates the number of cameras that will be used in the operation. |
 
 ## Next steps
 

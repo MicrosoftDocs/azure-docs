@@ -75,7 +75,7 @@ AzureDiagnostics
 
 Once you create a query, you can add it to your dashboard.  Select the **Pin to dashboard** in the top right of the log analytics workspace. With the previous four queries pinned to an example dashboard, this is the data you can see at a glance:
 
-![Dashboard](media/log-analytics/dashboard.png)
+![Screenshot shows an Azure dashboard where you can add your query.](media/log-analytics/dashboard.png)
 
 ## Next steps
 

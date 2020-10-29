@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -38,7 +38,7 @@ The following steps show you how to connect to your virtual machine using a remo
 
 1. After deployment completes, go to the virtual machine resource.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![Screenshot shows a virtual machine Overview page with a Connect button.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Select **Connect**.
 
@@ -61,9 +61,9 @@ The following steps show you how to connect to your virtual machine using a remo
 
 ## Install SqlPackage
 
-[Download and install the latest version of SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+[Download and install the latest version of SqlPackage](/sql/tools/sqlpackage-download).
 
-For additional information, see [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+For additional information, see [SqlPackage.exe](/sql/tools/sqlpackage).
 
 ## Create a firewall rule to allow the VM access to the database
 
@@ -89,9 +89,9 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 ## Export a database using SqlPackage
 
-To export an Azure SQL Database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). The SqlPackage utility ships with the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+To export an Azure SQL Database using the [SqlPackage](/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](/sql/tools/sqlpackage#export-parameters-and-properties). The SqlPackage utility ships with the latest versions of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](/sql/tools/sqlpackage-download).
 
-We recommend the use of the SqlPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+We recommend the use of the SqlPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
 This example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication. Replace with values that are specific to your environment.
 
@@ -101,9 +101,9 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.da
 
 ## Import a database using SqlPackage
 
-To import a SQL Server database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [import parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage has the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). You can also download the latest version of [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+To import a SQL Server database using the [SqlPackage](/sql/tools/sqlpackage) command-line utility, see [import parameters and properties](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage has the latest [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt). You can also download the latest version of [SqlPackage](/sql/tools/sqlpackage-download).
 
-For scale and performance, we recommend using SqlPackage in most production environments rather than using the Azure portal. For a SQL Server Customer Advisory Team blog about migrating using `BACPAC` files, see [migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+For scale and performance, we recommend using SqlPackage in most production environments rather than using the Azure portal. For a SQL Server Customer Advisory Team blog about migrating using `BACPAC` files, see [migrating from SQL Server to Azure SQL Database using BACPAC Files](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
 The following SqlPackage command imports the **AdventureWorks2017** database from local storage to an Azure SQL Database. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
 
@@ -135,11 +135,11 @@ To get the best performance you can try the following strategies:
 
 ## Store the imported or exported .BACPAC file
 
-The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+The .BACPAC file can be stored in [Azure Blobs](../../storage/blobs/storage-blobs-overview.md), or [Azure Files](../../storage/files/storage-files-introduction.md).
 
 To achieve the best performance, use Azure Files. SqlPackage operates with the filesystem so it can access Azure Files directly.
 
-To reduce cost, use Azure Blobs, which cost less than a premium Azure file share. However, it will require you to copy the [.BACPAC file](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) between the the blob and the local file system before the import or export operation. As a result the process will take longer.
+To reduce cost, use Azure Blobs, which cost less than a premium Azure file share. However, it will require you to copy the [.BACPAC file](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) between the the blob and the local file system before the import or export operation. As a result the process will take longer.
 
 To upload or download .BACPAC files, see [Transfer data with AzCopy and Blob storage](../../storage/common/storage-use-azcopy-blobs.md), and [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md).
 
@@ -150,4 +150,4 @@ Depending on your environment, you might need to [Configure Azure Storage firewa
 - To learn how to connect to and query an imported SQL Database, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](connect-query-ssms.md).
 - For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).
 - For a discussion of the entire SQL Server database migration process, including performance recommendations, see [SQL Server database migration to Azure SQL Database](migrate-to-database-from-sql-server.md).
-- To learn how to manage and share storage keys and shared access signatures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+- To learn how to manage and share storage keys and shared access signatures securely, see [Azure Storage Security Guide](../../storage/blobs/security-recommendations.md).

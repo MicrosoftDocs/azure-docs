@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
 ---
 # Deploy Azure SQL Managed Instance to an instance pool
@@ -35,7 +35,7 @@ The following table shows the available operations related to instance pools and
 |Create a database in instance within the pool|Yes|Yes|
 |Delete a database from SQL Managed Instance|Yes|Yes|
 
-Available [PowerShell commands](https://docs.microsoft.com/powershell/module/az.sql/):
+Available [PowerShell commands](/powershell/module/az.sql/):
 
 |Cmdlet |Description |
 |:---|:---|
@@ -46,7 +46,7 @@ Available [PowerShell commands](https://docs.microsoft.com/powershell/module/az.
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Returns information about SQL Managed Instance pool usage. |
 
 
-To use PowerShell, [install the latest version of PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell), and follow instructions to [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+To use PowerShell, [install the latest version of PowerShell Core](/powershell/scripting/install/installing-powershell#powershell), and follow instructions to [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 For operations related to instances both inside pools and single instances, use the standard [managed instance commands](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances), but the *instance pool name* property must be populated when using these commands for an instance in a pool.
 

@@ -87,11 +87,11 @@ If some metrics or logs are not streamed into Azure Monitor, the tiles in Azure 
 
 Once the Azure SQL Analytics tile for the database is selected, the monitoring dashboard is shown.
 
-![Azure SQL Analytics Overview](./media/azure-sql/azure-sql-sol-overview.png)
+![Screenshot that shows the monitoring dashboard.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-![Azure SQL Analytics Timeouts](./media/azure-sql/azure-sql-sol-metrics.png)
+![Screenshot that shows the drill-down report into the specific perspective.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Each perspective in this view provides summaries at the subscription, server, elastic pool, and database levels. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 

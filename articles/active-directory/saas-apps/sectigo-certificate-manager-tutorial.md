@@ -14,7 +14,7 @@ ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Sectigo Certificate Manager
 
-In this tutorial, you learn how to integrate Sectigo Certificate Manager with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Sectigo Certificate Manager (also called SCM) with Azure Active Directory (Azure AD).
 
 Integrating Sectigo Certificate Manager with Azure AD gives you the following benefits:
 
@@ -22,14 +22,17 @@ Integrating Sectigo Certificate Manager with Azure AD gives you the following be
 * Users can be automatically signed in to Sectigo Certificate Manager with their Azure AD accounts (single sign-on).
 * You can manage your accounts in one central location, the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To configure Azure AD integration with Sectigo Certificate Manager, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Sectigo Certificate Manager subscription with single sign-on enabled.
+* Sectigo Certificate Manager account.
+
+> [!NOTE]
+> Sectigo runs multiple instances of Sectigo Certificate Manager. The main instance of Sectigo Certificate Manager is  **https:\//cert-manager.com**, and this URL is used in this tutorial.  If your account is on a different instance, you must adjust the URLs accordingly.
 
 ## Scenario description
 
@@ -93,47 +96,45 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** pane, to configure *IDP-initiated mode*, complete the following steps:
+1. In the **Basic SAML Configuration** section complete the following steps:
 
-    1. In the **Identifier** box, enter one of these URLs:
-	   * https:\//cert-manager.com/shibboleth
-	   * https:\//hard.cert-manager.com/shibboleth
+    1. In the **Identifier (Entity ID)** box, for the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/shibboleth**.
 
-    1. In the **Reply URL** box, enter one of these URLs:
-        * https:\//cert-manager.com/Shibboleth.sso/SAML2/POST
-		* https:\//hard.cert-manager.com/Shibboleth.sso/SAML2/POST
+    1. In the **Reply URL** box, for the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/Shibboleth.sso/SAML2/POST**.
+        
+    > [!NOTE]
+    > Although in general, the **Sign-on URL** is mandatory for *SP-initiated mode*, it isn't needed to log in from Sectigo Certificate Manager.        
+
+1. Optionally, in the **Basic SAML Configuration** section, to configure *IDP-initiated mode* and to allow **Test** to work, complete the following steps:
 
 	1. Select **Set additional URLs**.
 
-	1. In the **Relay State** box, enter one of these URLs:
-	   * https:\//cert-manager.com/customer/SSLSupport/idp
-	   * https:\//hard.cert-manager.com/customer/SSLSupport/idp
+	1. In the **Relay State** box, enter your Sectigo Certificate Manager customer-specific URL. For the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/customer/\<customerURI\>/idp**.
 
     ![Sectigo Certificate Manager domain and URLs single sign-on information](common/idp-relay.png)
 
-1.  To configure the application in *SP-initiated mode*, complete the following steps:
+1. In the **User Attributes & Claims** section, complete the following steps:
 
-	* In the **Sign on URL** box, enter one of these URLs:
-	  * https:\//cert-manager.com/Shibboleth.sso/Login
-	  * https:\//hard.cert-manager.com/Shibboleth.sso/Login
+	1. Delete all **Additional claims**.
+	
+	1. Select **Add new claim** and add the following four claims:
+	
+        | Name | Namespace | Source | Source attribute | Description |
+        | --- | --- | --- | --- | --- |
+        | eduPersonPrincipalName | empty | Attribute | user.userprincipalname | Must match the **IdP Person ID** field in Sectigo Certificate Manager for Admins. |
+        | mail | empty | Attribute | user.mail | Required |
+        | givenName | empty | Attribute | user.givenname | Optional |
+        | sn | empty | Attribute | user.surname | Optional |
 
-	  ![Sectigo Certificate Manager domain and URLs single sign-on information](common/both-signonurl.png)
+       ![Sectigo Certificate Manager - Add four new claims](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Certificate (Base64)**. Select a download option based on your requirements. Save the certificate on your computer.
+1. In the **SAML Signing Certificate** section, select **Download** next to **Federation Metadata XML**. Save the XML file on your computer.
 
-	![The Certificate (Base64) download option](common/certificatebase64.png)
-
-1. In the **Set up Sectigo Certificate Manager** section, copy the following URLs based on your requirements:
-
-	* Login URL
-	* Azure AD Identifier
-	* Logout URL
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![The Federation Metadata XML download option](common/metadataxml.png)
 
 ### Configure Sectigo Certificate Manager single sign-on
 
-To configure single sign-on on the Sectigo Certificate Manager side, send the downloaded Certificate (Base64) file and the relevant URLs that you copied from the Azure portal to the [Sectigo Certificate Manager support team](https://sectigo.com/support). The Sectigo Certificate Manager support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
+To configure single sign-on on the Sectigo Certificate Manager side, send the downloaded Federation Metadata XML file to the [Sectigo Certificate Manager support team](https://sectigo.com/support). The Sectigo Certificate Manager support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -153,7 +154,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
   
     1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension\>**. For example, **brittasimon\@contoso.com**.
 
-    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
+    1. Select the **Show password** check box. Record the value that's displayed in the **Password** box.
 
     1. Select **Create**.
 
@@ -161,7 +162,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you grant Britta Simon access to Sectigo Certificate Manager so she can use Azure single sign-on.
+In this section, you grant Britta Simon access to Sectigo Certificate Manager so that the user can use Azure single sign-on.
 
 1. In the Azure portal, select **Enterprise applications** > **All applications** > **Sectigo Certificate Manager**.
 
@@ -191,16 +192,24 @@ In this section, you create a user named Britta Simon in Sectigo Certificate Man
 
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration.
 
-After you set up single sign-on, when you select **Sectigo Certificate Manager** in the My Apps portal, you are automatically signed in to Sectigo Certificate Manager. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+#### Test from Sectigo Certificate Manager (SP-initiated single sign-on)
+
+Browse to your customer-specific URL (for the main Sectigo Certificate Manager instance, https:\//cert-manager.com/customer/\<customerURI\>/, and select the button below **Or Sign In With**.  If configured correctly, you will be automatically signed in to Sectigo Certificate Manager.
+
+#### Test from Azure single sign-on configuration (IDP-initiated single sign-on)
+
+In the **Sectigo Certificate Manager** application integration pane, select **Single sign-on** and select the **Test** button.  If configured correctly, you will be automatically signed in to Sectigo Certificate Manager.
+
+#### Test by using the My Apps portal (IDP-initiated single sign-on)
+
+Select **Sectigo Certificate Manager** in the My Apps portal.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
 To learn more, review these articles:
 
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-
+- [List of tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

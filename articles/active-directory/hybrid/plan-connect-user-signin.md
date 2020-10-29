@@ -175,7 +175,7 @@ You can change the user sign-in method from federation, password hash synchroniz
 
 On the next page, you're asked to provide the credentials for Azure AD.
 
-![Connect to Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![Screenshot that shows where you should type the credentials for Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 On the **User sign-in** page, select the desired user sign-in.
 

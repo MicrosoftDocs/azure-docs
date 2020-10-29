@@ -1,5 +1,5 @@
 ﻿---
-title: Provision simulated X.509 device to Azure IoT Hub using Node.js
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using Node.js
 description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service (DPS).This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc

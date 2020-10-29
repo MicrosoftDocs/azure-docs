@@ -525,7 +525,7 @@ After you restore the disks, use the following steps to create and configure the
 > [!NOTE]
 >
 > 1. AzureAz module 3.0.0 or higher is required. <br>
-> 2. To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role doesn't have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md). <br>
+> 2. To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role doesn't have this permission, create a custom role with this action. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md). <br>
 > 3. After restoring disks, you can now get a deployment template which you can directly use to create a new VM. YOu don't need different PowerShell cmdlets to create managed/unmanaged VMs which are encrypted/unencrypted.<br>
 > <br>
 

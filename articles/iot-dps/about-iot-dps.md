@@ -116,7 +116,9 @@ DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub]
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.
-> [!div class="nextstepaction"]
-> [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
-> [Create and provision a simulated device](quick-create-simulated-device.md)
-> [Set up device for provisioning](tutorial-set-up-device.md)
+
+[Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
+
+[Create and provision a simulated device](quick-create-simulated-device.md)
+
+[Set up device for provisioning](tutorial-set-up-device.md)

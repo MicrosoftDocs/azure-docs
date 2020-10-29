@@ -29,7 +29,7 @@ Applications and Functions hosted on Azure App service may exhibit one or more o
 A major cause of these symptoms is that the application instance is not able to open a new connection to the external endpoint because it has reached one of the following limits:
 
 * TCP Connections: There is a limit on the number of outbound connections that can be made. This is associated with the size of the worker used.
-* SNAT ports: As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers)  to communicate with end points outside Azure in the public IP address space. Each instance on Azure App service is initially given a pre-allocated number of **128** SNAT ports. That limit affects opening connections to the same host and port combination. If your app creates connections to a mix of address and port combinations, you will not use up your SNAT ports. The SNAT ports are used up when you have repeated calls to the same address and port combination. Once a port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT port from closed connections only after waiting for 4 minutes.
+* SNAT ports: As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that are not taking advantage of service/private end points. Each instance on Azure App service is initially given a pre-allocated number of **128** SNAT ports. That limit affects opening connections to the same host and port combination. If your app creates connections to a mix of address and port combinations, you will not use up your SNAT ports. The SNAT ports are used up when you have repeated calls to the same address and port combination. Once a port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT port from closed connections only after waiting for 4 minutes.
 
 When applications or functions rapidly open a new connection, they can quickly exhaust their pre-allocated quota of the 128 ports. They are then blocked until a new SNAT port becomes available, either through dynamically allocating additional SNAT ports, or through reuse of a reclaimed SNAT port. Applications or functions that are blocked because of this inability to create new connections will begin experiencing one or more of the issues described in the **Symptoms** section of this article.
 
@@ -90,16 +90,6 @@ Although PHP does not support connection pooling, you can try using persistent d
 * Other data Sources
 
    * [PHP Connection Management](https://www.php.net/manual/en/pdo.connections.php)
-
-#### Python
-
-* [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
-* [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
-* [PostgreSQL](https://node-postgres.com/features/pooling)
-* [SQL Server](https://github.com/tediousjs/node-mssql#connection-pools) (NOTE: SQLAlchemy can be used with other databases besides MicrosoftSQL Server)
-* [HTTP Keep-alive](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)(Keep-Alive is automatic when using sessions [session-objects](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)).
-
-For other environments, review provider or driver-specific documents for implementing connection pooling in your applications.
 
 ### Modify the application to reuse connections
 

@@ -96,6 +96,8 @@
     href: hana-vm-operations.md
   - name: SAP HANA Azure virtual machine storage configurations
     href: hana-vm-operations-storage.md
+  - name: NFS v4.1 volumes on Azure NetApp Files for SAP HANA
+    href: hana-vm-operations-netapp.md
   - name: SAP HANA Availability in Azure Virtual Machines
     items:
     - name: SAP HANA on Azure Availability overview
@@ -112,6 +114,8 @@
       href: sap-hana-high-availability-netapp-files-red-hat.md
     - name: Troubleshoot SAP HANA scale-out and Pacemaker on SLES
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+    - name: SAP HANA scale-out HSR with Pacemaker on RHEL
+      href: sap-hana-high-availability-scale-out-hsr-rhel.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
       href: sap-hana-scale-out-standby-netapp-files-suse.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
@@ -241,6 +245,12 @@
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
     href: sap-proximity-placement-scenarios.md
+- name: SAP BusinessObjects Business Intelligence platform on Azure
+  items:
+  - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
+    href: businessobjects-deployment-guide.md
+  - name: SAP BusinessObjects BI platform deployment guide for linux on Azure
+    href: businessobjects-deployment-guide-linux.md
 - name: Integrate Azure AD with SAP applications
   items:
   - name: Provision users from SAP SuccessFactors to Active Directory

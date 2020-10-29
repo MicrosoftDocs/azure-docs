@@ -61,7 +61,7 @@ Where does your data need to be for processing or modeling?
 For procedures and resources to ingest or load data into a variety of different storage and processing environments, see:
 
 * [Load data into storage environments for analytics](ingest-data.md)
-* [Import your training data into Azure Machine Learning Studio (classic) from various data sources](../studio/import-data.md)
+* [Import your training data into Azure Machine Learning Studio (classic) from various data sources](../classic/import-data.md)
 
 ### Does the data need to be moved on a regular schedule or modified during migration?
 
@@ -104,7 +104,7 @@ These questions are key to planning your storage and processing environments. Th
 Take the Azure Machine Learning Studio (classic) environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
-  [Data formats and data types supported](../studio/import-data.md#supported-data-formats-and-data-types) section.
+  [Data formats and data types supported](../classic/import-data.md#supported-data-formats-and-data-types) section.
 * For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing
@@ -142,7 +142,7 @@ There are many options for languages, development environments, and tools. Be aw
 ### What tools should you use for data analysis?
 
 * [Microsoft Azure PowerShell](/powershell/azure/) - a script language used to administer your Azure resources in a script language
-* [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
+* [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)

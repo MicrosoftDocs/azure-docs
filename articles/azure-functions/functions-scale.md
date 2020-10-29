@@ -22,7 +22,7 @@ Both Consumption and Premium plans automatically add compute power when your cod
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
-App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
+App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means it never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
 
 For a detailed comparison between the various hosting plans (including Kubernetes-based hosting), see the [Hosting plans comparison section](#hosting-plans-comparison).
 
@@ -30,7 +30,7 @@ For a detailed comparison between the various hosting plans (including Kubernete
 
 When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
-Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+Billing is based on number of executions, execution time, and memory used. Usage is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 The Consumption plan is the default hosting plan and offers the following benefits:
 
@@ -54,7 +54,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 To learn how you can create a function app in a Premium plan, see [Azure Functions Premium plan](functions-premium-plan.md).
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there's a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory allocated across instances.  There is no execution charge with the Premium plan. At least one instance must be allocated at all times per plan. This results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances.
 
 Consider the Azure Functions Premium plan in the following situations:
 
@@ -75,12 +75,12 @@ Consider an App Service plan in the following situations:
 
 You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
-With an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/manage-scale-up.md). 
+Using an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale, though autoscale will be slower than the elastic scale of the Premium plan. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/manage-scale-up.md). 
 
 When running JavaScript functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of high scale.
+Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of higher number of instances than an App Service Plan.
 
 ### <a name="always-on"></a> Always On
 
@@ -117,6 +117,12 @@ It's possible for multiple function apps to share the same storage account witho
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#core-storage-services).
+
+### In Region Data Residency
+
+When necessary for all customer data to remain within a single region, the storage account associated with the function app must be one with [in region redundancy](../storage/common/storage-redundancy.md).  An in-region redundant storage account would also need to be used with [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) for Durable Functions.
+
+Other platform-managed customer data will only be stored within the region when hosting in an Internal Load Balancer App Service Environment (or ILB ASE).  Details can be found in [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
 ## How the Consumption and Premium plans work
 
@@ -158,7 +164,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 
 There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource efficiency.  For more information, see the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
 
-For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
+For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-performance) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 
 ### Billing model
 
@@ -181,7 +187,7 @@ The following comparison table shows all important aspects to help the decision 
 |**[Consumption plan](#consumption-plan)**| Scale automatically and only pay for compute resources when your functions are running. On the Consumption plan, instances of the Functions host are dynamically added and removed based on the number of incoming events.<br/> ✔ Default hosting plan.<br/>✔ Pay only when your functions are running.<br/>✔ scale-out automatically, even during periods of high load.|  
 |**[Premium plan](#premium-plan)**|While automatically scaling based on demand, use pre-warmed workers to run applications with no delay after being idle, run on more powerful instances, and connect to VNETs. Consider the Azure Functions Premium plan in the following situations,  in addition to all features of the App Service plan: <br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You have a high number of small executions and have a high execution bill but low GB second bill in the Consumption plan.<br/>✔ You need more CPU or memory options than what is provided by the Consumption plan.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require features that are only available on a Premium plan, such as virtual network connectivity.|  
 |**[Dedicated plan](#app-service-plan)**<sup>1</sup>|Run your functions within an App Service plan at regular App Service plan rates. Good fit for long running operations, as well as when more predictive scaling and costs are required. Consider an App Service plan in the following situations:<br/>✔ You have existing, underutilized VMs that are already running other App Service instances.<br/>✔ You want to provide a custom image on which to run your functions.|  
-|**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. ASEs are appropriate for application workloads that require: <br/>✔ Very high scale.<br/>✔ Isolation and secure network access.<br/>✔ High memory utilization.|  
+|**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. ASEs are appropriate for application workloads that require: <br/>✔ Very high scale.<br/>✔ Full compute isolation and secure network access.<br/>✔ High memory utilization.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes provides a fully isolated and dedicated environment running on top of the Kubernetes platform.  Kubernetes is appropriate for application workloads that require: <br/>✔ Custom hardware requirements.<br/>✔ Isolation and secure network access.<br/>✔ Ability to run in hybrid or multi-cloud environment.<br/>✔ Run alongside existing Kubernetes applications and services.|  
 
 <sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).

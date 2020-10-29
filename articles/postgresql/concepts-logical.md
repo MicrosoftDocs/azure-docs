@@ -1,8 +1,8 @@
 ---
 title: Logical decoding - Azure Database for PostgreSQL - Single Server
 description: Describes logical decoding and wal2json for change data capture in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020

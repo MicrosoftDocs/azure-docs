@@ -18,7 +18,7 @@ This article explains how to publish a Power BI app to Microsoft [AppSource](htt
 Benefits of publishing to the commercial marketplace:
 
 - Promote your company by using the Microsoft brand.
-- Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
+- Potentially reach more than 100 million Microsoft 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams.
 

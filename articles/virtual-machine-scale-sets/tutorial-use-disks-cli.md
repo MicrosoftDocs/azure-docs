@@ -71,6 +71,8 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 ## Create and attach disks
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
+As of API version `2019-07-01`, you can set the size of the OS disk in a virtual machine scale set with the [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) property. After provisioning, you may have to expand or repartition the disk to make use of the whole space. Learn more about [expanding the disk here](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
+
 ### Attach disks at scale set creation
 First, create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
 

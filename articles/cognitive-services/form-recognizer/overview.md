@@ -102,19 +102,8 @@ You'll use the following APIs to train models and extract structured data from f
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ## Input requirements
-### Custom model
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-### Prebuilt models
-
-The input requirements for the prebuilt models are slightly different.
-
-* Format must be JPEG, PNG, PDF (text or scanned) or TIFF.
-* File size must be less than 20 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
-* PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
-* For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
 
 ## Data privacy and security
 
