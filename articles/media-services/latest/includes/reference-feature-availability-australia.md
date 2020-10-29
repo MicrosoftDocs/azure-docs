@@ -7,14 +7,14 @@ ms.author: inhenkel
 ---
 
 <!--Feature availability in region-->
-### Australia
+## Australia
 
 | Feature| Australia Central | Australia Central 2 | Australia East | Australia Southeast |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| [Azure EventGrid](reacting-to-media-services-events.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
-| [StandardEncoderPreset](encoding-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
-| [LiveEvents](live-streaming-overview.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
-| [StreamingEndpoints](streaming-endpoint-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
-| [LiveTranscription](live-transcription.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../reacting-to-media-services-events.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [StandardEncoderPreset](../encoding-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [LiveEvents](../live-streaming-overview.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [StreamingEndpoints](../streaming-endpoint-concept.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-transcription.md) | | |![general availability](../media/azure-clouds-regions/ga.svg) |![general availability](../media/azure-clouds-regions/ga.svg) |
