@@ -130,7 +130,7 @@ az aks get-versions --location eastus --output table
 ## AKS Kubernetes Release Calendar
 
 For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernetes#History).
-
+```
 |  K8s version | Upstream Release  | AKS preview  | AKS GA  | End of Life |
 |--------------|-------------------|--------------|---------|-------------|
 | 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | Jan 2021* | 
@@ -139,7 +139,7 @@ For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernete
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA | 
 \* Due to the holiday season AKS is extending the life of 1.16 from November 2020 until January 2021. Read more [here](https://github.com/Azure/AKS/releases/tag/2020-10-12)
-
+```
 ## FAQ
 
 **How often should I expect to upgrade Kubernetes versions to stay in support?**
