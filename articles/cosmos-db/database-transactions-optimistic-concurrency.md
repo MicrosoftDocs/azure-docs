@@ -57,7 +57,7 @@ The item’s `_etag` value changes every time the item is updated. For replace i
 Learn more about database transactions and optimistic concurrency control in the following articles:
 
 - [Working with Azure Cosmos databases, containers and items](databases-containers-items.md)
-- [Using TransactionalBatch](transactional-batch.md)
 - [Consistency levels](consistency-levels.md)
 - [Conflict types and resolution policies](conflict-resolution-policies.md)
+- [Using TransactionalBatch](transactional-batch.md)
 - [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md)
