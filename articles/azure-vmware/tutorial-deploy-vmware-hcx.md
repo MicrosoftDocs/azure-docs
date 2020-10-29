@@ -13,7 +13,7 @@ Azure VMware Solution and other connected sites through various migration types.
 VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on. The add-on is currently in preview. 
 
 >[!NOTE]
->VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX EE service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service.
+>VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX EE service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service. Pease note there is currently no simple downgrade path from HCX Enterprise to HCX Advanced and customers who choose to downgrade will have to redeploy incurring downtime.
 
 First, thoroughly review the [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) sections of this article. 
 

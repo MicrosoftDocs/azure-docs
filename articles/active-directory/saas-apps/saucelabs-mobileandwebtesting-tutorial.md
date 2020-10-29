@@ -116,15 +116,15 @@ To configure Azure AD single sign-on with Sauce Labs - Mobile and Web Testing, p
 
 2. Click on the **User icon** and select **Team Management** tab.
 
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
+	![Screenshot that shows the "User" icon and "Team Management" drop-down selected.](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
 
 3. Enter your **Domain name** in the textbox.
 
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
+	![Screenshot that shows an example domain name in the textbox.](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
 
 4. Click **Configure** tab.
 
-	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
+	![Screenshot that shows the "Configure" tab selected under "Single Sign On is Enabled".](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
 
 5. In the **Configure Single Sign On** section, perform the following steps.
 

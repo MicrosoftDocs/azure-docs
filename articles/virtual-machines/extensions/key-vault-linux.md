@@ -58,7 +58,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "linkOnRenewal": <Not available on Linux e.g.: false>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         },
         "authenticationSettings": {
                 "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
@@ -92,7 +92,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | string array
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -148,7 +148,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName =  "KeyVaultForLinux"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
@@ -168,7 +168,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName = "KeyVaultForLinux"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
@@ -194,7 +194,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 * To deploy the extension on a virtual machine scale set :
@@ -205,29 +205,33 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vm-name "<vmName>" `
-        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Please be aware of the following restrictions/requirements:
 - Key Vault restrictions:
   - It must exist at the time of the deployment 
   - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
 
-## Troubleshoot and support
+### Frequently Asked Questions
+
+* Is there is a limit on the number of observedCertificates you can setup?
+  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+
 
 ### Troubleshoot
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell.
-  
-## Azure PowerShell
+
+**Azure PowerShell**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## Azure CLI
+**Azure CLI**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
-### Logs and configuration
+#### Logs and configuration
 
 ```
 /var/log/waagent.log
@@ -236,25 +240,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 ### Using Symlink
 
-Symbolic links or Symlinks are basically advanced shortcuts. A symbolic link will appear to be the same as the original file or folder it’s pointing at, even though it’s just a link. You can use symlinks to avoid monitoring the folder and get latest certificate automatically.
-
-You can implement the symlink `([VaultName].[ GetCertificateName])` for Linux to point it to the latest version of certificate PEM file in the Linux.
-
-```
-string_t CertificateLinkName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName();
-```
-
-The actual certificate file name will have version on it like below:
-
-```
-string_t CertificateFileName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName() + "." + certificate.GetVersionGuidString() + "." +  boost::lexical_cast<std::string>(certificate.GetNotBeforeAsUnixTime()) + "." +  boost::lexical_cast<std::string>(certificate.GetNotAfterAsUnixTime()) + ".PEM";
-```
-
-For creating a symlink, use following syntax in terminal window:
-
-```
-ln -s <path to the file to be linked> <the path of the link to be created>
-```
+Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring the folder and to get the latest certificate automatically, you can use this symlink ([VaultName].[CertificateName]) to get the latest version of certificate on Linux.
 
 ### Frequently Asked Questions
 
