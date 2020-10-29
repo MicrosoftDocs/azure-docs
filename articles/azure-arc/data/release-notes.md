@@ -23,21 +23,33 @@ ms.topic: conceptual
 This release introduces the following breaking changes: 
 
 * PostgreSQL custom resource definition (CRD) files replaces the term `shards` are renamed to `workers`. This term (`workers`) matches the command line parameter name.
+
 * `azdata arc postgres server delete` prompts for confirmation before deleting a postgres instance.  Use `--force` to skip prompt.
 
 ### Additional changes
 
 * A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The volume type for now only allows `backup`.  In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`.  This enables sharing backups between Postgres instances so that the backup of one Postgres instance can be restored in another.
+
 * A new short names for PostgresSQL custom resource definitions: 
+
   * `pg11` 
+
   * `pg12`
+
 * Telemetry upload by provides user with either:
+
    * Number of points uploaded to Azure
+
      or 
+
    * If no data has been loaded to Azure, a prompt to try it again.
+
 * `azdata arc dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects postgres logs.
+
 *	Display a working indicator during postgres creating and restoring backup.
+
 * `azdata arc postrgres backup list` now includes backup size information.
+
 * SQL Managed Instance admin name property was added to right column of overview blade in the Azure portal.
 
 
