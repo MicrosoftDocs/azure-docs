@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.prolorus.app/Login`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
