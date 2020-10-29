@@ -24,6 +24,13 @@ This article focuses on managing digital twins; to work with relationships and t
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
 
+## Prerequisites
+
+* You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md). Have the following values from setup handy to use later in this article:
+    - Instance name
+    - Resource group
+    
 ## Create a digital twin
 
 To create a twin, you use the `CreateDigitalTwin()` method on the service client like this:

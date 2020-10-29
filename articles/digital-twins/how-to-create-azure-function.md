@@ -31,6 +31,10 @@ Here is an overview of the steps it contains:
 4. Publish the function app to Azure
 5. Set up [security](concepts-security.md) access for the Azure function app
 
+## Prerequisite: Set up Azure Digital Twins instance
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## Create an Azure Functions app in Visual Studio
 
 In Visual Studio 2019, select _File > New > Project_ and search for the _Azure Functions_ template, select _Next_.
