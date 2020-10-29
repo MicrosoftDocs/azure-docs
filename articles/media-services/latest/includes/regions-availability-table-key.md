@@ -8,6 +8,7 @@ ms.author: inhenkel
 
 <!--Feature availability symbol key-->
 
-| TABLE KEY | | |
-| --- | --- | --- |
-| ![general availability](./media/azure-clouds-regions/ga.svg) generally available | ![in preview](./media/azure-clouds-regions/preview.svg) in preview | ![future availability](./media/azure-clouds-regions/planned-active.svg) future availability |
+## Table key
+| . | . | . |
+| :---: | :---: | :---: |
+| ![general availability](../media/azure-clouds-regions/ga.svg) generally available | ![in preview](../media/azure-clouds-regions/preview.svg) in preview | ![future availability](../media/azure-clouds-regions/planned-active.svg) future availability |
