@@ -21,6 +21,9 @@ ms.author: yelevin
 
 # Connect your Beyond Security beSECURE to Azure Sentinel
 
+> [!IMPORTANT]
+> The Beyond Security beSECURE data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Beyond Security beSECURE connector allows you to easily connect all your beSECURE security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between beSECURE and Azure Sentinel makes use of REST API.
 
 > [!NOTE]
@@ -30,7 +33,7 @@ Beyond Security beSECURE connector allows you to easily connect all your beSECUR
 
 beSECURE can integrate with and export logs directly to Azure Sentinel.
 
-1. In the Azure Sentinel portal, click **Data connectors** and select **Beyond Security beSECURE** and then **Open connector page**.
+1. In the Azure Sentinel portal, click **Data connectors** and select **Beyond Security beSECURE (Preview)** and then **Open connector page**.
 
 1. Follow the steps below to configure your beSECURE solution to send out scan results, scan status and audit trail logs to Azure Sentinel.
 
