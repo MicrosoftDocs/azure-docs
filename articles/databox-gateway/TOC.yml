@@ -66,6 +66,5 @@
 - name: Resources
   items:
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-
+    href: https://azure.microsoft.com/en-us/pricing/details/databox/gateway/
 

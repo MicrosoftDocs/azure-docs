@@ -8,12 +8,12 @@ metadata:
   description: Data Box Gateway Documentation for high-performance over-the-network data transfer to Azure. # v-dalc: Should "high-performance" go? Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: edge #v-dalc: Verify subservice for Gateway.
-  ms.topic: landing-page # Required
+  ms.subservice: gateway
+  ms.topic: landing-page 
   ms.collection: collection
-  author: v-dalc #Required; your GitHub user alias, with correct capitalization.
-  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/27/2020 #Required; mm/dd/yyyy format.
+  author: v-dalc 
+  ms.author: alkohli
+  ms.date: 10/29/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -30,10 +30,10 @@ landingContent:
 
       - linkListType: architecture
         links:
-          - text: Choose Azure data transfer options
-            url: /azure/storage/common/storage-choose-data-transfer-solution.md
+          - text: Choose data transfer options
+            url: /azure/storage/common/storage-choose-data-transfer-solution
           - text: Use network or offline transfer
-            url: /azure/storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
+            url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
 
       - linkListType: whats-new
         links:
@@ -46,9 +46,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Data Box Gateway requirements
+          - text: Requirements
             url: data-box-gateway-system-requirements.md
-          - text: Data Box Gateway limits
+          - text: Limits
             url: data-box-gateway-limits.md
 
 
@@ -57,7 +57,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Prepare to deploy Data Box Gateway
+          - text: Prepare to deploy
             url: data-box-gateway-deploy-prep.md
           - text: Provision in Hyper-V
             url: data-box-gateway-deploy-provision-hyperv.md
@@ -72,7 +72,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Data Box Gateway shares
+          - text: Manage shares
             url: data-box-gateway-manage-shares.md
           - text: Manage via PowerShell
             url: data-box-gateway-connect-powershell-interface.md
@@ -82,7 +82,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot Data Box Gateway
+          - text: Troubleshoot
             url: data-box-gateway-troubleshoot.md
           - text: Monitor
             url: data-box-gateway-monitor.md
