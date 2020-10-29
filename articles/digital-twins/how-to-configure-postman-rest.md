@@ -27,7 +27,7 @@ Through the Postman client, solutions developers can specify the kind of HTTP re
 
 ## Configure Azure Active Directory to use the OAuth 2.0 implicit grant flow
 
-1. Follow the steps in the [*Set up access permissions for client applications*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) section of *How-to: Set up an instance and authentication* to create and configure an app registration in Azure Active Directory. Alternatively, you can reuse an existing app registration.
+1. Follow the steps in [*How-to: Create an app registration*](how-to-create-app-registration.md) to create and configure an app registration in Azure Active Directory. Alternatively, you can reuse an existing app registration.
 
     :::image type="content" source="media/how-to-configure-postman/authentication-redirect-uri.png" alt-text="Configure a new Postman Redirect URI" lightbox="media/how-to-configure-postman/authentication-redirect-uri.png" :::
 
