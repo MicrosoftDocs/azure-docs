@@ -1,6 +1,6 @@
 ---
 title: Clouds and regions in which Azure Media Services v3 is available
-description: This article talks about Azure clouds and regions in which Azure Media Services v3 is available.  
+description: This article talks about the URLs used for endpoints and code for regions.  
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -14,7 +14,7 @@ ms.author: inhenkel
 
 ### Region code name
 
-When the **location** parameter is used in a command or request, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](/cli/azure/?view=azure-cli-latest)
+When the **location** parameter is used in a command or request, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in Azure CLI.
 
 ```azurecli-interactive
 az account list-locations
