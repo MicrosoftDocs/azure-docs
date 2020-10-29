@@ -1,19 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Clouds and regions in which Azure Media Services v3 is available
 description: This article talks about Azure clouds and regions in which Azure Media Services v3 is available.  
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
 ms.service: media-services
-ms.workload: 
-ms.topic: article
+ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.custom: references_regions
 ---
 
 # Clouds and regions in which Azure Media Services v3 exists
@@ -24,6 +18,7 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Feature availability in Azure clouds
 <!-- you can use either the dropdow or the tabs but not both -->
+<!--
 > [!div class="op_single_selector"]
 > - [United States](reference-feature-availability-us.md)
 > - [Azure US Government](reference-feature-availability-usgov.md)
@@ -43,81 +38,81 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 > - [Taiwan](reference-feature-availability-taiwan.md)
 > - [United Arab Emirates](reference-feature-availability-uae.md)
 > - [United Kingdom](reference-feature-availability-uk.md)
-
+-->
 ## Regional and non-regional availability
 
  TABLE KEY <br/>
 ![ga](./media/azure-clouds-regions/ga.svg) Generally available ![in preview](./media/azure-clouds-regions/preview.svg) In preview ![in preview expected date](./media/azure-clouds-regions/preview-active.svg) In preview and expected date ![future availability](./media/azure-clouds-regions/planned-active.svg) Future availability
 
-# [US](#tab/us)
+## [US](#tab/us)
 
 stuff goes here
 
-# [US Gov](#tab/usgov)
+## [US Gov](#tab/usgov)
 
 stuff goes here
 
-# [Africa](#tab/africa.md)
+## [Africa](#tab/africa)
 
 stuff goes here
 
-# [Asia Pacific](#tab/apac.md)
+## [Asia Pacific](#tab/apac)
 
 stuff goes here
 
-# [Australia](#tab/australia.md)
+## [Australia](#tab/australia)
 
 stuff goes here
 
-# [Brazil](#tab/-brazil.md)
+## [Brazil](#tab/brazil)
 
 stuff goes here
 
-# [Canada](#tab/canada.md)
+## [Canada](#tab/canada.md)
 
 stuff goes here
 
-# [China](#tab/.md)
+## [China](#tab/china)
 
 stuff goes here
 
-# [Europe](#tab/europe.md)
+## [Europe](#tab/europe)
 
 stuff goes here
 
-# [Germany](#tab/germany.md)
+## [Germany](#tab/germany)
 
 stuff goes here
 
-# [India](#tab/india.md)
+## [India](#tab/india)
 
 stuff goes here
 
-# [Japan](#tab/japan.md)
+## [Japan](#tab/japan)
 
 stuff goes here
 
-# [Korea](#tab/korea.md)
+## [Korea](#tab/korea)
 
 stuff goes here
 
-# [Norway](#tab/norway.md)
+## [Norway](#tab/norway)
 
 stuff goes here
 
-# [Switzerland](#tab/switzerland.md)
+## [Switzerland](#tab/switzerland)
 
 stuff goes here
 
-# [Taiwan](#tab/taiwan.md)
+## [Taiwan](#tab/taiwan)
 
 stuff goes here
 
-# [United Arab Emirates](#tab/uae.md)
+## [United Arab Emirates](#tab/uae)
 
 stuff goes here
 
-# [United Kingdom](#tab/uk.md)
+## [United Kingdom](#tab/uk)
 
 stuff goes here
 
