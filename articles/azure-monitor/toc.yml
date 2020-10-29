@@ -236,8 +236,6 @@
         href: log-query/scope.md
       - name: Example queries
         href: log-query/example-queries.md
-      - name: Simple logs experience
-        href: log-query/simple-logs.md
     - name: Log queries
       items:
       - name: Overview
@@ -526,8 +524,6 @@
         href: platform/alerts-managing-smart-groups.md   
       - name: Manage alert and smart group states
         href: platform/alerts-managing-alert-states.md  
-      - name: Manage alerts from other monitoring services
-        href: platform/alerts-managing-nagios-zabbix-scom.md   
     - name: Alert API
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
@@ -546,8 +542,6 @@
         href: platform/itsmc-service-manager-script.md
       - name: Fix ServiceNow ITSM sync problems
         href: platform/itsmc-resync-servicenow.md
-    - name: Alert Management solution
-      href: platform/alert-management-solution.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -1108,6 +1102,8 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
+      - name: Alert Management solution
+        href: platform/alert-management-solution.md
   - name: Workbooks
     items:
     - name: Overview
