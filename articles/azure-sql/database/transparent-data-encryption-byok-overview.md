@@ -26,7 +26,8 @@ For Azure SQL Database and Azure Synapse Analytics, the TDE protector is set at 
 > For those using service-managed TDE who would like to start using customer-managed TDE, data remains encrypted during the process of switching over, and there is no downtime nor re-encryption of the database files. Switching from a service-managed key to a customer-managed key only requires re-encryption of the DEK, which is a fast and online operation.
 
 > [!NOTE]
-> To provide Azure SQL customers with two layers of encryption of data at rest, infrastructure encryption (using AES-256 encryption algorithm) with platform managed keys is being rolled out. This provides an addition layer of encryption at rest along with TDE with customer-managed keys, which is already available. At this time, customers must request access to this capability. If you are interested in this capability, contact AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> <a id="doubleencryption"></a> To provide Azure SQL customers with two layers of encryption of data at rest, infrastructure encryption (using AES-256 encryption algorithm) with platform managed keys is being rolled out. This provides an addition layer of encryption at rest along with TDE with customer-managed keys, which is already available. For Azure SQL Database and Managed Instance, all databases, including the master database and other system databases, will be encrypted when infrastructure encryption is turned on. 
+At this time, customers must request access to this capability. If you are interested in this capability, contact AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## Benefits of the customer-managed TDE
 
@@ -88,6 +89,11 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - If you are importing existing key into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, or .backup).
 
+> [!NOTE]
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. 
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
+
+
 ## Recommendations when configuring customer-managed TDE
 
 ### Recommendations when configuring AKV
@@ -96,7 +102,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Set a resource lock on the key vault to control who can delete this critical resource and prevent accidental or unauthorized deletion. Learn more about [resource locks](../../azure-resource-manager/management/lock-resources.md).
 
-- Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) is one example of a service that is already integrated.
+- Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) is one example of a service that is already integrated.
 
 - Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there is an outage affecting the key vault in the same region.
 
@@ -127,6 +133,11 @@ After access to the key is restored, taking database back online requires additi
 
 - If key access is restored after more than 8 hours, auto-heal is not possible and bringing the database back requires additional steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
 
+Below is a view of the additional steps required on the portal to bring an inaccessible database back online.
+
+![TDE BYOK Inaccessible Database](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
+
 ### Accidental TDE protector access revocation
 
 It may happen that someone with sufficient access rights to the key vault accidentally disables server access to the key by:
@@ -148,7 +159,7 @@ Learn more about [the common causes for database to become inaccessible](/sql/re
 To monitor database state and to enable alerting for loss of TDE protector access, configure the following Azure features:
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). An inaccessible database that has lost access to the TDE protector will show as "Unavailable" after the first connection to the database has been denied.
-- [Activity Log](../../service-health/alerts-activity-log-service-notifications.md) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
+- [Activity Log](../../service-health/alerts-activity-log-service-notifications-portal.md) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
 - [Action Groups](../../azure-monitor/platform/action-groups.md) can be defined to send you notifications and alerts based on your preferences, e.g. Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
 ## Database backup and restore with customer-managed TDE

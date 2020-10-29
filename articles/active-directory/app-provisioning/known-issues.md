@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
 ---
 
@@ -61,8 +61,13 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 - Provisioning nested groups isn't supported. 
 - Provisioning to B2C tenants isn't supported because of the size of the tenants. 
 
+**Automatic provisioning is not available on my OIDC based application**
+
+If you create an app registration, the corresponding service principal in enterprise apps will not be enabled for automatic user provisioning. You will need to either request the app be added to the gallery, if intended for use by multiple organizations, or create a second non-gallery app for provisioning. 
+
 **The provisioning interval is fixed**
-The [time](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
+
+The [time](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
 
 **Changes not moving from target app to Azure AD**
 

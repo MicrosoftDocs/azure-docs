@@ -5,11 +5,12 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.subservice: spark
 ---
+
 # Manage libraries for Apache Spark in Azure Synapse Analytics
 
 Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your Spark Pools (preview). Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
@@ -52,7 +53,7 @@ To install libraries onto a Spark pool (preview) during pool creation:
    
 3. Upload the environment configuration file using the file selector in the **Packages** section of the page. 
    
-![Add Python libraries during pool creation](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Add Python libraries")
+    ![Add Python libraries during pool creation](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Add Python libraries")
  
 
 #### Install packages from the Synapse Workspace
@@ -66,7 +67,7 @@ To update or add additional libraries to a Spark pool (preview) from the Azure S
    
 4. Select a single Spark pool and upload the environment configuration file using the file selector in the  **Packages** section of the page.
 
-![Add Python libraries in synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Add Python libraries")
+    ![Add Python libraries in synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### Install packages from the Azure portal
 To install a library onto a Spark pool (preview) directly from the Azure portal:
@@ -79,7 +80,7 @@ To install a library onto a Spark pool (preview) directly from the Azure portal:
 
  4. Upload the environment configuration file using the file selector.
 
-![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
+    ![Screenshot that highlights the Upload environment config file button.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
 
 ### Verify installed libraries
 
@@ -102,7 +103,7 @@ To update or uninstall a library:
    
 4. Once you save your changes, you will need to end active sessions and let the pool restart. Optionally, you can force active sessions to end by selecting the checkbox to **Force new settings**.
 
-![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Add Python libraries")
+    ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Add Python libraries")
    
 
 > [!IMPORTANT]
@@ -119,7 +120,7 @@ Custom built wheel packages can be installed on the Apache Spark pool by uploadi
 The files should be uploaded to the following path in the storage account's default container: 
 
 ```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
+abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
 >[!IMPORTANT]

@@ -1,8 +1,8 @@
 ---
 title: Synchronize Azure Active Directory users to HDInsight cluster 
 description: Synchronize authenticated users from Azure Active Directory to an HDInsight cluster.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.topic: how-to
@@ -12,11 +12,11 @@ ms.date: 11/21/2019
 
 # Synchronize Azure Active Directory users to an HDInsight cluster
 
-[HDInsight clusters with Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) can use strong authentication with Azure Active Directory (Azure AD) users, as well as use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
+[HDInsight clusters with Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) can use strong authentication with Azure Active Directory (Azure AD) users, as well as use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
 
 ## Prerequisites
 
-If you have not already done so, [create a HDInsight cluster with Enterprise Security Package](hdinsight-domain-joined-configure.md).
+If you have not already done so, [create a HDInsight cluster with Enterprise Security Package](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## Add new Azure AD users
 
@@ -28,7 +28,7 @@ To view your hosts, open the Ambari Web UI. Each node will be updated with  new 
 
     ![Azure portal users and groups all](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. Complete the new user form. Select groups you created for assigning cluster-based permissions. In this example, create a group named "HiveUsers", to which you can assign new users. The [example instructions](hdinsight-domain-joined-configure.md) for creating an ESP cluster include adding two groups, `HiveUsers` and `AAD DC Administrators`.
+3. Complete the new user form. Select groups you created for assigning cluster-based permissions. In this example, create a group named "HiveUsers", to which you can assign new users. The [example instructions](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) for creating an ESP cluster include adding two groups, `HiveUsers` and `AAD DC Administrators`.
 
     ![Azure portal user pane select groups](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
@@ -118,7 +118,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 1. This result shows that the status is **COMPLETE**, one new user was created, and the user was assigned a membership. In this example,  the user is assigned to the "HiveUsers" synchronized LDAP group, since the user was added to that same group in Azure AD.
 
     > [!NOTE]  
-    > The previous method only synchronizes the Azure AD groups specified in the **Access user group** property of the domain settings during cluster creation. For more information, see  [create an HDInsight cluster](domain-joined/apache-domain-joined-configure.md).
+    > The previous method only synchronizes the Azure AD groups specified in the **Access user group** property of the domain settings during cluster creation. For more information, see  [create an HDInsight cluster](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## Verify the newly added Azure AD user
 
@@ -143,6 +143,6 @@ The new example user has the user name `hiveuser3@contoso.com`. In Ambari, this 
 
 ## See also
 
-* [Configure Apache Hive policies in HDInsight with ESP](hdinsight-domain-joined-run-hive.md)
-* [Manage HDInsight clusters with ESP](hdinsight-domain-joined-manage.md)
+* [Configure Apache Hive policies in HDInsight with ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Manage HDInsight clusters with ESP](./domain-joined/apache-domain-joined-manage.md)
 * [Authorize users to Apache Ambari](hdinsight-authorize-users-to-ambari.md)

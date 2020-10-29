@@ -9,8 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
@@ -19,11 +21,13 @@ ms.author: pafarley
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When this material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. See the [Moderation APIs](#moderation-apis) section to learn more about what the different content flags indicate.
+Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.
+
+You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
 ## Where it's used
 
-The following are a few scenarios in which a software developer or team would use Content Moderator:
+The following are a few scenarios in which a software developer or team would require a content moderation service:
 
 - Online marketplaces that moderate product catalogs and other user-generated content.
 - Gaming companies that moderate user-generated game artifacts and chat rooms.
@@ -31,7 +35,7 @@ The following are a few scenarios in which a software developer or team would us
 - Enterprise media companies that implement centralized moderation for their content.
 - K-12 education solution providers filtering out content that is inappropriate for students and educators.
 
-> [!NOTE]
+> [!IMPORTANT]
 > You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
 ## What it includes
@@ -75,4 +79,4 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Next steps
 
-Get started using the Content Moderator service by following the instructions in [Try Content Moderator on the web](quick-start.md).
+To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library quickstart](client-libraries.md) to implement the basic scenarios in code.

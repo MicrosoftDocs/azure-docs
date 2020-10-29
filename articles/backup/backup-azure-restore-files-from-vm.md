@@ -296,17 +296,17 @@ The script also requires Python and bash components to execute and connect secur
 If you run the script on a computer with restricted access, ensure there's access to:
 
 - `download.microsoft.com`
-- Recovery Service URLs (geo-name refers to the region where the Recovery Services vault resides)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
+- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany)
 - Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
-> - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> The script file you downloaded in step 5 [above](#mount-the-volume-and-copy-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components don't exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
@@ -370,7 +370,7 @@ This feature was built to access the VM data without the need to restore the ent
 
 #### Select Recovery point (who can generate script)
 
-The script provides access to VM data, so it's important to regulate who can generate it in the first place. You need to sign in into the Azure portal and be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to generate the script.
+The script provides access to VM data, so it's important to regulate who can generate it in the first place. You need to sign in into the Azure portal and be [Azure RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to generate the script.
 
 File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial to connect to, configure, activate Azure Stack Edge device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge GPU instructs you to connect, set up, and activate your physical device.
+title: Tutorial to connect to, configure, activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
+description: Learn how you can connect to your Azure Stack Edge device with an onboard GPU by using the local web UI.
 services: databox
 author: alkohli
 
@@ -9,11 +9,11 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure. 
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Connect to Azure Stack Edge with GPU
+# Tutorial: Connect to Azure Stack Edge Pro with GPU
 
-This tutorial describes how you can connect to your Azure Stack Edge device with an onboard GPU by using the local web UI.
+This tutorial describes how you can connect to your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
 
 The connection process can take around 5 minutes to complete.
 
@@ -27,20 +27,20 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure and set up your Azure Stack Edge device with GPU, make sure that:
+Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
 
 ## Connect to the local web UI setup
 
-1. Configure the Ethernet adapter on your computer to connect to the Azure Stack Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
+1. Configure the Ethernet adapter on your computer to connect to the Azure Stack Edge Pro device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
-2. Connect the computer to PORT 1 on your device. Use the following illustration to identify PORT 1 on your device.
+2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use a crossover cable or a USB Ethernet adapter. Use the following illustration to identify PORT 1 on your device.
 
     ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    The backplane of the device may look slightly different depending on the exact model you have received.
+    The backplane of the device may look slightly different depending on the exact model you have received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
@@ -55,7 +55,7 @@ Before you configure and set up your Azure Stack Edge device with GPU, make sure
 
 5. Sign in to the web UI of your device. The default password is *Password1*. 
    
-    ![Azure Stack Edge device sign-in page](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Azure Stack Edge Pro device sign-in page](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. At the prompt, change the device administrator password.  
     The new password must contain between 8 and 16 characters. It must contain three of the following characters: uppercase, lowercase, numeric, and special characters.
@@ -72,7 +72,7 @@ In this tutorial, you learned about:
 > * Connect to a physical device
 
 
-To learn how to configure network settings on your Azure Stack Edge device, see:
+To learn how to configure network settings on your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
 > [Configure network](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)

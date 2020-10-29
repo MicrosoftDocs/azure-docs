@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
 description: Learn about Azure ExpressRoute monitoring, metrics, and alerts using Azure Monitor, the one stop shop for all metrics, alerting, diagnostic logs across Azure.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
-ms.author: cherylmc
+ms.author: duau
 
 
 ---
@@ -67,7 +67,7 @@ You can view near to real-time availability of BGP across peerings and peers (Pr
 
 ### ARP Availability - Split by Peering  
 
-You can view near to real-time availability of [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
+You can view near to real-time availability of [ARP](./expressroute-troubleshooting-arp-resource-manager.md) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="ARP availability per peer":::
 
@@ -151,6 +151,19 @@ You can view packets per second traversing the gateway.
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="activity logs":::
+
+## Additional metrics in Log Analytics
+
+You can also view ExpressRoute metrics by navigating to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
+
+|**Column**|**Type**|**Description**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (metric values are pushed every minute)|
+|Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
+|Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
+|Maximum|real|The maxiumum of the two metric values pushed by the two MSEEs|
+|Average|real|Equal to (Minimum + Maximum)/2|
+|Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
   
 ## Next steps
 

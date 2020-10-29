@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 01/30/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 
@@ -29,8 +29,8 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN requires Windows 10 version 1809 or higher | X | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1903 or higher | X |   |
+| WebAuthN requires Windows 10 version 1903 or higher | X | X |
+| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
@@ -53,7 +53,7 @@ The following scenarios aren't supported:
 
 ## Prepare devices for preview
 
-Azure AD joined devices that you are piloting during the feature preview with must run Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+Azure AD joined devices that you are piloting during the feature preview with must run Windows 10 version 1909 or higher.
 
 Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
@@ -122,7 +122,7 @@ For devices not managed by Intune, a provisioning package can be installed to en
 1. To apply the provisioning package you created, see [Apply a provisioning package](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> Devices running Windows 10 Version 1809 must also enable shared PC mode (*EnableSharedPCMode*). For more information about enabling this functionality, see [Set up a shared or guest PC with Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
+> Devices running Windows 10 Version 1903 must also enable shared PC mode (*EnableSharedPCMode*). For more information about enabling this functionality, see [Set up a shared or guest PC with Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### Enable with Group Policy
 

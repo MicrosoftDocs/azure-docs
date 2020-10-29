@@ -1,12 +1,12 @@
 ---
 title: 'Create & install P2S VPN client configuration files: certificate authentication'
 titleSuffix: Azure VPN Gateway
-description: Create and install Windows, Linux, Linux (strongSwan), and Mac OS X VPN client configuration files for P2S certificate authentication.
+description: Create and install Windows, Linux, Linux (strongSwan), and macOS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/28/2020
 ms.author: cherylmc
 ---
 
@@ -55,19 +55,7 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ## <a name="installwin"></a>Windows
 
-You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the Point-to-Site section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
-
->[!NOTE]
->You must have Administrator rights on the Windows client computer from which you want to connect.
->
->
-
-Use the following steps to configure the native Windows VPN client for certificate authentication:
-
-1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. 
-2. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
-3. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to. 
-4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
+[!INCLUDE [Windows instructions](../../includes/vpn-gateway-p2s-client-configuration-windows.md)]
 
 ## <a name="installmac"></a>Mac (OS X)
 
@@ -91,7 +79,7 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
    The **Interface** value is 'VPN' and **VPN Type** value is 'IKEv2'. Specify a name for the profile in the **Service Name** field, then click **Create** to create the VPN client connection profile.
 
-   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Screenshot shows the Network window with the option to select an interface, select VPN type, and enter a service name.](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. In the **Generic** folder, from the **VpnSettings.xml** file, copy the **VpnServer** tag value. Paste this value in the **Server Address** and **Remote ID** fields of the profile.
 
    ![server info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -101,14 +89,14 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
    * For Catalina, select **None** and then **Certificate**. **Select** the correct certificate:
    
-   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+   ![Screenshot shows the Network window with None selected for Authentication Settings and Certificate selected.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. Click **Select…** to choose the client certificate that you want to use for authentication. This is the certificate that you installed in Step 2.
 
-   ![certificate](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![Screenshot shows the Network window with Authentication Settings, where you can select a certificate.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, then click **Continue**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![Screenshot shows the Choose An Identity dialog box where you can select the proper certificate.](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. In the **Local ID** field, specify the name of the certificate (from Step 6). In this example, it is "ikev2Client.com". Then, click **Apply** button to save the changes.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -208,4 +196,4 @@ Return to the article to [complete your P2S configuration](vpn-gateway-howto-poi
 To troubleshoot P2S connections, see the following articles:
 
   * [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-  * [Troubleshoot VPN connections from Mac OS X VPN clients](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+  * [Troubleshoot VPN connections from macOS X VPN clients](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

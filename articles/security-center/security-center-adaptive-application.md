@@ -9,7 +9,7 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
@@ -46,9 +46,9 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability|
-|Pricing:|Standard tier|
-|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
+|Release state:|Generally available (GA)|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
@@ -61,7 +61,9 @@ If Security Center has identified groups of machines in your subscriptions that 
 
 Select the recommendation, or open the adaptive application controls page to view the list of suggested known-safe applications and groups of machines.
 
-1. From Security Center's menu, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
@@ -79,10 +81,10 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
-      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
+      - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
       > [!TIP]
-      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the **No recommendation** tab.
+      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with Azure Defender, will appear under the **No recommendation** tab.
 
 
 1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
@@ -117,7 +119,7 @@ You might decide to edit the allow list for a group of machines because of known
 
 To edit the rules for a group of machines:
 
-1. From Security Center's menu, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. From the **Configured** tab, select the group with the rule you want to edit.
 
@@ -144,6 +146,23 @@ To edit the rules for a group of machines:
 1. To apply the changes, select **Save**.
 
 
+## Review and edit a group's settings
+
+1. To view the details and settings of your group, select **Group settings**
+
+    This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > The **Enforce** option, in the file type protection mode settings, is greyed out in **all** scenarios. No enforcement options are available at this time. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
+
+1. Optionally, modify the group's name or file type protection modes.
+
+1. Select **Apply** and **Save**.
+
 
 
 ## Respond to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
@@ -165,7 +184,7 @@ To remediate the issues:
 
 ## Audit alerts and violations
 
-1. From Security Center's menu, select **Adaptive application controls**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. To see groups with machines that have recent alerts, review the groups listed in the **Configured** tab.
 
@@ -180,6 +199,8 @@ To remediate the issues:
 ## Move a machine from one group to another
 
 When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, doing so removes any application control rules that were applied to the machine.
+
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. From the **Adaptive application controls** page, from the **Configured** tab, select the group containing the  machine to be moved.
 
@@ -199,7 +220,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 
@@ -221,4 +242,4 @@ Some of the functions that are available from the REST API:
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:
 
 * [Understanding just-in-time (JIT) VM access](just-in-time-explained.md)
-* [Securing your Azure Kubernetes clusters](azure-kubernetes-service-integration.md)
+* [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)

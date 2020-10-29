@@ -18,10 +18,10 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
 * If you have a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
 * MABS can't protect databases that are stored on remote SMB shares.
-* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
-* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) feature enabled.
-* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) feature enabled.
+* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) feature enabled.
+* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream) feature enabled.
 * Protection for SQL Server AlwaysOn:
   * MABS detects Availability Groups when running inquiry at protection group creation.
   * MABS detects a failover and continues protection of the database.
@@ -39,7 +39,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
     * If the backup fails on the selected node, then the backup operation fails.
     * Recovery to the original location isn't supported.
 * SQL Server 2014 or above backup issues:
-  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS can't be used to protect this configuration.
+  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS can't be used to protect this configuration.
   * There are some known issues with "Prefer secondary" backup preference for the SQL AlwaysOn option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
 
 ## Before you start
@@ -48,29 +48,29 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
 ## Create a backup policy to protect SQL Server databases to Azure
 
-1. On the Azure Backup Server UI, click the **Protection** workspace.
+1. On the Azure Backup Server UI, select the **Protection** workspace.
 
-2. On the tool ribbon, click **New** to create a new protection group.
+2. On the tool ribbon, select **New** to create a new protection group.
 
     ![Create Protection Group](./media/backup-azure-backup-sql/protection-group.png)
 
-    Azure Backup Server starts the Protection Group wizard, which leads you through creating a **Protection Group**. Click **Next**.
+    Azure Backup Server starts the Protection Group wizard, which leads you through creating a **Protection Group**. Select **Next**.
 
 3. In the **Select Protection Group Type** screen, select **Servers**.
 
     ![Select Protection Group Type - 'Servers'](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. In the **Select Group Members** screen, the Available members list displays the various data sources. Click **+** to expand a folder and reveal the subfolders. Click the checkbox to select an item.
+4. In the **Select Group Members** screen, the Available members list displays the various data sources. Select **+** to expand a folder and reveal the subfolders. Select the checkbox to select an item.
 
     ![Select SQL DB](./media/backup-azure-backup-sql/pg-databases.png)
 
-    All selected items appear in the Selected members list. After selecting the servers or databases you want to protect, click **Next**.
+    All selected items appear in the Selected members list. After selecting the servers or databases you want to protect, select **Next**.
 
 5. In the **Select Data Protection Method** screen, provide a name for the protection group and select the **I want online Protection** checkbox.
 
     ![Data Protection Method - short-term disk & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
 
-6. In the **Specify Short-Term Goals** screen, include the necessary inputs to create backup points to disk, and click **Next**.
+6. In the **Specify Short-Term Goals** screen, include the necessary inputs to create backup points to disk, and select **Next**.
 
     In the example, **Retention range** is **5 days**, **Synchronization frequency** is once every **15 minutes**, which is the backup frequency. **Express Full Backup** is set to **8:00 P.M**.
 
@@ -81,9 +81,9 @@ The management of SQL Server database backup to Azure and recovery from Azure in
    >
    >
 
-7. On the **Review disk allocation** screen, verify the overall storage space available, and the potential disk space. Click **Next**.
+7. On the **Review disk allocation** screen, verify the overall storage space available, and the potential disk space. Select **Next**.
 
-8. In the **Choose Replica Creation Method**, choose how to create your first recovery point. You can transfer the initial backup manually (off network) to avoid bandwidth congestion or over the network. If you choose to wait to transfer the first backup, you can specify the time for the initial transfer. Click **Next**.
+8. In the **Choose Replica Creation Method**, choose how to create your first recovery point. You can transfer the initial backup manually (off network) to avoid bandwidth congestion or over the network. If you choose to wait to transfer the first backup, you can specify the time for the initial transfer. Select **Next**.
 
     ![Initial replication method](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -91,13 +91,13 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     Once the initial backup is complete, the rest of the backups are incremental backups on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 
-9. Choose when you want the consistency check to run and click **Next**.
+9. Choose when you want the consistency check to run and select **Next**.
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
     Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server computer in this scenario) and the backed-up data for that file. If there's a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
 
-10. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
+10. To specify online protection of the datasources, select the databases to be protected to Azure and select **Next**.
 
     ![Select datasources](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 
@@ -124,9 +124,9 @@ The management of SQL Server database backup to Azure and recovery from Azure in
     * The backup on Saturday at 12:00 P.M. is retained for 104 weeks
     * The backup on Last Saturday at 12:00 P.M. is retained for 60 months
     * The backup on Last Saturday of March at 12:00 P.M. is retained for 10 years
-13. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network**
+13. Select **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network**
 
-14. Once you review the policy details in the **Summary** screen, click **Create group** to complete the workflow. You can click **Close** and monitor the job progress in Monitoring workspace.
+14. Once you review the policy details in the **Summary** screen, select **Create group** to complete the workflow. You can select **Close** and monitor the job progress in Monitoring workspace.
 
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
@@ -140,7 +140,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
 2. Right-click on the database and select **Create Recovery Point**.
 
     ![Create Online Recovery Point](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Choose **Online Protection** in the drop-down menu and click **OK** to start creation of a recovery point in Azure.
+3. Choose **Online Protection** in the drop-down menu and select **OK** to start creation of a recovery point in Azure.
 
     ![Create recovery point](./media/backup-azure-backup-sql/sqlbackup-azure.png)
 4. View the job progress in the **Monitoring** workspace.
@@ -154,20 +154,20 @@ The following steps are required to recover a protected entity (SQL Server datab
 1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that's specified as an **Online** point.
 
     ![Select Recovery point](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Right-click the database name and click **Recover**.
+2. Right-click the database name and select **Recover**.
 
     ![Recover from Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. MABS shows the details of the recovery point. Click **Next**. To overwrite the database, select the recovery type **Recover to original instance of SQL Server**. Click **Next**.
+3. MABS shows the details of the recovery point. Select **Next**. To overwrite the database, select the recovery type **Recover to original instance of SQL Server**. Select **Next**.
 
     ![Recover to Original Location](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     In this example, MABS recovers the database to another SQL Server instance, or to a standalone network folder.
 
-4. In the **Specify Recovery options** screen, you can select the recovery options like Network bandwidth usage throttling to throttle the bandwidth used by recovery. Click **Next**.
+4. In the **Specify Recovery options** screen, you can select the recovery options like Network bandwidth usage throttling to throttle the bandwidth used by recovery. Select **Next**.
 
-5. In the **Summary** screen, you see all the recovery configurations provided so far. Click **Recover**.
+5. In the **Summary** screen, you see all the recovery configurations provided so far. Select **Recover**.
 
-    The Recovery status shows the database being recovered. You can click **Close** to close the wizard and view the progress in the **Monitoring** workspace.
+    The Recovery status shows the database being recovered. You can select **Close** to close the wizard and view the progress in the **Monitoring** workspace.
 
     ![Initiate recovery process](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 

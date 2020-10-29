@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
@@ -138,7 +138,7 @@ Use the following variables to define the SQL Server image to use for the virtua
 
 ## Create a resource group
 
-With the Resource Manager deployment model, the first object that you create is the resource group. Use the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet to create an Azure resource group and its resources. Specify the variables that you previously initialized for the resource group name and location.
+With the Resource Manager deployment model, the first object that you create is the resource group. Use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create an Azure resource group and its resources. Specify the variables that you previously initialized for the resource group name and location.
 
 Run this cmdlet to create your new resource group.
 
@@ -148,7 +148,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## Create a storage account
 
-The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, you'll create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet to place your SQL Server data and log files on dedicated disks. Use the [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet to create a standard storage account in your new resource group. Specify the variables that you previously initialized for the storage account name, storage SKU name, and location.
+The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, you'll create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet to place your SQL Server data and log files on dedicated disks. Use the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet to create a standard storage account in your new resource group. Specify the variables that you previously initialized for the storage account name, storage SKU name, and location.
 
 Run this cmdlet to create your new storage account.
 
@@ -171,7 +171,7 @@ The virtual machine requires a number of network resources for network connectiv
 
 ### Create a virtual network subnet configuration
 
-Start by creating a subnet configuration for your virtual network. For this tutorial, create a default subnet using the [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet. Specify the variables that you previously initialized for the subnet name and address prefix.
+Start by creating a subnet configuration for your virtual network. For this tutorial, create a default subnet using the [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet. Specify the variables that you previously initialized for the subnet name and address prefix.
 
 > [!NOTE]
 > You can define additional properties of the virtual network subnet configuration using this cmdlet, but that is beyond the scope of this tutorial.
@@ -184,7 +184,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 ### Create a virtual network
 
-Next, create your virtual network in your new resource group using the [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) cmdlet. Specify the variables that you previously initialized for the name, location, and address prefix. Use the subnet configuration that you defined in the previous step.
+Next, create your virtual network in your new resource group using the [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet. Specify the variables that you previously initialized for the name, location, and address prefix. Use the subnet configuration that you defined in the previous step.
 
 Run this cmdlet to create your virtual network.
 
@@ -196,7 +196,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 ### Create the public IP address
 
-Now that your virtual network is defined, you must configure an IP address for connectivity to the virtual machine. For this tutorial, create a public IP address using dynamic IP addressing to support Internet connectivity. Use the [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) cmdlet to create the public IP address in your new resource group. Specify the variables that you previously initialized for the name, location, allocation method, and DNS domain name label.
+Now that your virtual network is defined, you must configure an IP address for connectivity to the virtual machine. For this tutorial, create a public IP address using dynamic IP addressing to support Internet connectivity. Use the [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) cmdlet to create the public IP address in your new resource group. Specify the variables that you previously initialized for the name, location, allocation method, and DNS domain name label.
 
 > [!NOTE]
 > You can define additional properties of the public IP address using this cmdlet, but that is beyond the scope of this initial tutorial. You could also create a private address or an address with a static address, but that is also beyond the scope of this tutorial.
@@ -238,7 +238,7 @@ To secure the VM and SQL Server traffic, create a network security group.
 
 ### Create the network interface
 
-Now you're ready to create the network interface for your virtual machine. Use the [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) cmdlet to create the network interface in your new resource group. Specify the name, location, subnet, and public IP address previously defined.
+Now you're ready to create the network interface for your virtual machine. Use the [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) cmdlet to create the network interface in your new resource group. Specify the name, location, subnet, and public IP address previously defined.
 
 Run this cmdlet to create your network interface.
 
@@ -260,7 +260,7 @@ Now that storage and network resources are defined, you're ready to define compu
 
 ### Create the VM object
 
-Start by specifying the virtual machine size. For this tutorial, specify a DS13. Use the [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) cmdlet to create a configurable virtual machine object. Specify the variables that you previously initialized for the name and size.
+Start by specifying the virtual machine size. For this tutorial, specify a DS13. Use the [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) cmdlet to create a configurable virtual machine object. Specify the variables that you previously initialized for the name and size.
 
 Run this cmdlet to create the virtual machine object.
 
@@ -270,7 +270,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### Create a credential object to hold the name and password for the local administrator credentials
 
-Before you can set the operating system properties for the virtual machine, you must supply the credentials for the local administrator account as a secure string. To accomplish this, use the [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+Before you can set the operating system properties for the virtual machine, you must supply the credentials for the local administrator account as a secure string. To accomplish this, use the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 Run the following cmdlet. You'll need to type the VM's local administrator name and password into the PowerShell credential request window.
 
@@ -280,7 +280,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 ### Set the operating system properties for the virtual machine
 
-Now you're ready to set the virtual machine's operating system properties with the [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet.
+Now you're ready to set the virtual machine's operating system properties with the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet.
 
 - Set the type of operating system as Windows.
 - Require the [virtual machine agent](../../../virtual-machines/extensions/agent-windows.md) to be installed.
@@ -297,7 +297,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 ### Add the network interface to the virtual machine
 
-Next, use the [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet to add the network interface using the variable that you defined earlier.
+Next, use the [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet to add the network interface using the variable that you defined earlier.
 
 Run this cmdlet to set the network interface for your virtual machine.
 
@@ -317,7 +317,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 ### Set the operating system disk properties for the virtual machine
 
-Next, set the operating system disk properties for the virtual machine using the [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) cmdlet. 
+Next, set the operating system disk properties for the virtual machine using the [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) cmdlet. 
 
 - Specify that the operating system for the virtual machine will come from an image.
 - Set caching to read only (because SQL Server is being installed on the same disk).
@@ -332,7 +332,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 ### Specify the platform image for the virtual machine
 
-The last configuration step is to specify the platform image for your virtual machine. For this tutorial, use the latest SQL Server 2016 CTP image. Use the [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) cmdlet to use this image with the variables that you defined earlier.
+The last configuration step is to specify the platform image for your virtual machine. For this tutorial, use the latest SQL Server 2016 CTP image. Use the [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) cmdlet to use this image with the variables that you defined earlier.
 
 Run this cmdlet to specify the platform image for your virtual machine.
 
@@ -344,7 +344,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 ## Create the SQL VM
 
-Now that you've finished the configuration steps, you're ready to create the virtual machine. Use the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet to create the virtual machine using the variables that you defined.
+Now that you've finished the configuration steps, you're ready to create the virtual machine. Use the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet to create the virtual machine using the variables that you defined.
 
 > [!TIP]
 > Creating the VM can take a few minutes.

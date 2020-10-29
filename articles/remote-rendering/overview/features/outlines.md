@@ -24,7 +24,7 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 | `PulseRateHz`    | float   | The rate at which the outline oscillates per second|
 | `PulseIntensity` | float   | The intensity of the outline pulse effect. Must be between 0.0 for no pulsing and 1.0 for full pulsing. Intensity implicitly sets the minimum opacity of the outline as `MinOpacity = 1.0 - PulseIntensity`. |
 
-![Outlines](./media/outlines.png) The effect of changing the `color` parameter from yellow (left) to magenta (center) and `pulseIntensity` from 0 to 0.8 (right).
+![An object rendered three times with different outline parameters](./media/outlines.png) The effect of changing the `color` parameter from yellow (left) to magenta (center) and `pulseIntensity` from 0 to 0.8 (right).
 
 ## Example
 
@@ -55,6 +55,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 ## Performance
 
 Outline rendering may have a significant impact on rendering performance. This impact varies based on screen-space spatial relation between selected and non-selected objects for a given frame.
+
+## API documentation
+
+* [C# RemoteManager.OutlineSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [C++ RemoteManager::OutlineSettings()](/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
 ## Next steps
 

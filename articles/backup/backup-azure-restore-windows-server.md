@@ -102,7 +102,7 @@ These steps include the following terminology:
 
 5. Provide the vault credential file that corresponds to the sample vault, and select **Next**.
 
-    If the vault credential file is invalid (or expired), download a new vault credential file from the sample vault in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
+    If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
 
 6. On the **Select Backup Server** page, select the source machine from the list of displayed machines, and provide the passphrase. Then select **Next**.
 

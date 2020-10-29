@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
 
 ---
@@ -48,6 +48,9 @@ You can use the following values to create a test environment, or refer to these
 ## <a name="createvnet"></a>1. Create a virtual network
 
 Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
+
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="creategw"></a>2. Create a virtual network gateway
@@ -66,11 +69,11 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 Certificates are used by Azure to authenticate clients connecting to a VNet over a Point-to-Site VPN connection. Once you obtain a root certificate, you [upload](#uploadfile) the public key information to Azure. The root certificate is then considered 'trusted' by Azure for connection over P2S to the virtual network. You also generate client certificates from the trusted root certificate, and then install them on each client computer. The client certificate is used to authenticate the client when it initiates a connection to the VNet. 
 
-### <a name="getcer"></a>1. Obtain the .cer file for the root certificate
+### <a name="getcer"></a>1. Root certificate
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="generateclientcert"></a>2. Generate a client certificate
+### <a name="generateclientcert"></a>2. Client certificate
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -135,21 +138,7 @@ The VPN client configuration files contain settings to configure devices to conn
 
 ### To connect from a Windows VPN client
 
->[!NOTE]
->You must have Administrator rights on the Windows client computer from which you are connecting.
->
->
-
-1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Select **Connect**. A pop-up message may appear that refers to using the certificate. Select **Continue** to use elevated privileges.
-
-2. On the **Connection** status page, select **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then select **OK**.
-
-   ![VPN client connects to Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "connect")
-3. Your connection is established.
-
-   ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png "connection established")
-
-#### Troubleshoot Windows P2S connections
+[!INCLUDE [Connect from a Windows client](../../includes/vpn-gateway-p2s-connect-windows-client.md)]
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
@@ -185,7 +174,11 @@ These instructions apply to Windows clients.
 
 These instructions apply to Windows clients.
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
+
+* Verify that the VPN client configuration package was generated after the DNS server IP addresses were specified for the VNet. If you updated the DNS server IP addresses, generate and install a new VPN client configuration package.
+
+* Use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network.
 
 ## <a name="add"></a>To add or remove trusted root certificates
 

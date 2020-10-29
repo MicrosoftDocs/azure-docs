@@ -1,6 +1,6 @@
 ---
 title: Security recommendations for Linux virtual machines in Azure
-description: Apply these recommendations to help fulfill the security obligations described in the shared responsibility model and to improve the overall security of your deployments.
+description: Apply these recommendations for Linux VMs in Azure to help fulfill the security obligations described in the shared responsibility model and to improve the overall security of your deployments.
 author: msmbaldwin
 manager: RKarlin
 ms.service: virtual-machines

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU manage bandwidth schedules | Microsoft Docs 
-description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge GPU.
+title: Azure Stack Edge Pro GPU manage bandwidth schedules | Microsoft Docs 
+description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 
@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
-# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge GPU 
+# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes how to manage bandwidth schedules on your Azure Stack Edge. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
+This article describes how to manage bandwidth schedules on your Azure Stack Edge Pro. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
-You can add, modify, or delete the bandwidth schedules for your Azure Stack Edge via the Azure portal.
+You can add, modify, or delete the bandwidth schedules for your Azure Stack Edge Pro via the Azure portal.
 
 In this article, you learn how to:
 
@@ -63,12 +63,12 @@ Do the following steps to edit a bandwidth schedule.
 
 4. After the schedule is modified, the list of schedules is updated to reflect the modified schedule.
 
-    ![Modify user](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modify user 2](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## Delete a schedule
 
-Do the following steps to delete a bandwidth schedule associated with your Azure Stack Edge device.
+Do the following steps to delete a bandwidth schedule associated with your Azure Stack Edge Pro device.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**.  
 

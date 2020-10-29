@@ -18,7 +18,7 @@ For more information on the source control services, see [Create a repo (GitHub)
 
 ## Authorize Azure App Service 
 
-To use Azure Repos, make sure your Azure DevOps organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+To use Azure Repos, make sure your Azure DevOps organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
 
 For Bitbucket or GitHub, authorize Azure App Service to connect to your repository. You only need to authorize with a source control service once. 
 
@@ -53,7 +53,7 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
 1. Select your authorized source control provider on the **Deployment Center** page, and select **Continue**. For GitHub or Bitbucket, you can also select **Change account** to change the authorized account. 
    
    > [!NOTE]
-   > To use Azure Repos, make sure your Azure DevOps Services organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+   > To use Azure Repos, make sure your Azure DevOps Services organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
    
 1. For GitHub or Azure Repos, on the **Build provider** page, select **App Service build service**, and then select **Continue**. Bitbucket always uses the App Service build service.
    
@@ -71,7 +71,7 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
    - For Azure Repos, select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously.
      
      > [!NOTE]
-     > If your Azure DevOps organization isn't listed, make sure it's linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)..
+     > If your Azure DevOps organization isn't listed, make sure it's linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)..
      
 1. Select **Continue**.
    
@@ -105,11 +105,11 @@ For Azure App Service to create continuous delivery using Azure Pipelines, your 
 
 1. Select **GitHub** as the source control provider on the **Deployment Center** page and select **Continue**. For **GitHub**, you can select **Change Account** to change the authorized account.
 
-    ![source control](media/app-service-continuous-deployment/deployment-center-src-control.png)
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot of the App Service Deployment Center page.":::
    
 1. On the **Build Provider** page, select **Azure Pipelines (Preview)**, and then select **Continue**.
 
-    ![build provider](media/app-service-continuous-deployment/select-build-provider.png)
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Screenshot showing the Deployment Center page with Azure Pipelines (Preview) selected.":::
    
 1. On the **Configure** page, in the **Code** section, select the **Organization**, **Repository**, and **Branch** you want to deploy continuously and select **Continue**.
      
@@ -118,11 +118,11 @@ For Azure App Service to create continuous delivery using Azure Pipelines, your 
        
     In the **Build** section, specify the Azure DevOps Organization, Project, language framework that Azure Pipelines should use to run build tasks, and then select **Continue**.
 
-   ![build provider](media/app-service-continuous-deployment/build-configure.png)
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot of the Build section with example text in the fields.":::
 
 1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.
 
-   ![build provider](media/app-service-continuous-deployment/summary.png)
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Screenshot of the Deployment Center page showing commits and deployments with the Refresh button highlighted.":::
    
 1. New commits in the selected repository and branch now deploy continuously into your App Service. You can track the commits and deployments on the **Deployment Center** page.
    
@@ -136,11 +136,11 @@ For Azure App Service to create continuous delivery using Azure Pipelines, your 
 
 1. Select **Azure Repos** as the source control provider on the **Deployment Center** page and select **Continue**.
 
-    ![source control](media/app-service-continuous-deployment/deployment-center-src-control.png)
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot of the Deployment Center page showing the Continuous Deployment (CI/CD) selections.":::
 
 1. On the **Build Provider** page, select **Azure Pipelines (Preview)**, and then select **Continue**.
 
-    ![source control](media/app-service-continuous-deployment/azure-pipelines.png)
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Screenshot of the Deployment Center showing Azure Pipelines (Preview).":::
 
 1. On the **Configure** page, in the **Code** section, select the **Organization**, **Repository**, and **Branch** you want to deploy continuously and select **Continue**.
 
@@ -149,11 +149,11 @@ For Azure App Service to create continuous delivery using Azure Pipelines, your 
 
    In the **Build** section, specify the Azure DevOps Organization, Project, language framework that Azure Pipelines should use to run build tasks, and then select **Continue**.
 
-   ![build provider](media/app-service-continuous-deployment/build-configure.png)
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot of the Build section showing the Azure DevOps Organization and Project fields filled with examples.":::
 
 1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.  
      
-   ![build provider](media/app-service-continuous-deployment/summary-azure-pipelines.png)
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Screenshot showing the selected settings on the Summary page.":::
 
 1. New commits in the selected repository and branch now deploy continuously into your App Service. You can track the commits and deployments on the **Deployment Center** page.
 

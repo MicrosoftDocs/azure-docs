@@ -38,7 +38,7 @@ Follow these steps to troubleshoot the VM issue:
 1. Launch Azure Cloud Shell
 2. Run az extension add/update
 3. Run az vm repair create
-4. Perform mitigation steps
+4. Run az vm repair run, or perform mitigation steps.
 5. Run az vm repair restore
 
 For additional documentation and instructions, see [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -55,7 +55,7 @@ For additional documentation and instructions, see [az vm repair](/cli/azure/ext
 
    If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run ``az --version`` to find the version. If you need to install or upgrade your Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
    
-   If you need to login to Cloud Shell with a different account than you are currently logged in to the Azure Portal with you can use ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  To switch between subscriptions associated with your account you can use ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   If you need to login to Cloud Shell with a different account than you are currently logged in to the Azure Portal with you can use ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  To switch between subscriptions associated with your account you can use ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. If this is the first time you have used the `az vm repair` commands, add the vm-repair CLI extension.
 
@@ -75,7 +75,13 @@ For additional documentation and instructions, see [az vm repair](/cli/azure/ext
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Perform any needed mitigation steps on the created repair VM, then proceed to step 5.
+4. Run `az vm repair run`. This command will run the specified repair script on the attached disk via the repair VM. If the troubleshooting guide you are using specified a run-id please use it here, otherwise you can use az vm repair list-scripts to see available repair scripts. The Resource Group and VM name used here are for the non-functional VM used in step 3. Additional information about the repair scripts can be found in the [repair script library](https://github.com/Azure/repair-script-library).
+
+   ```azurecli-interactive
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id lin-hello-world --verbose
+   ```
+
+   Optionally you can perform any needed manual mitigation steps using the repair VM, then proceed to step 5.
 
 5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM. The Resource Group and VM name used here are for the non-functional VM used in step 3.
 

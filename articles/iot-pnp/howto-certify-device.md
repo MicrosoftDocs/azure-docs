@@ -5,7 +5,7 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
 ---
@@ -37,18 +37,18 @@ To meet the certification requirements, your device must:
 - Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
 - Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
-- Send the model ID during [DPS registration](concepts-developer-guide.md#dps-payload) in the DPS provisioning payload.
-- Announce the model ID during the [MQTT connection](concepts-developer-guide.md#model-id-announcement).
+- Send the model ID during [DPS registration](concepts-developer-guide-device-csharp.md#dps-payload) in the DPS provisioning payload.
+- Announce the model ID during the [MQTT connection](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
 ## Test with the Azure IoT Extension CLI
 
-The [Azure IoT CLI extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
+The [Azure IoT CLI extension](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
 
 The following steps show you how to prepare for and run the certification tests using the CLI:
 
 ### Install the Azure IoT extension for the Azure CLI
 
-See the installation instructions to set up the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) in your environment.
+See the installation instructions to set up the [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) in your environment.
 
 To install the Azure IoT Extension, run the following command:
 
@@ -56,7 +56,7 @@ To install the Azure IoT Extension, run the following command:
 az extension add --name azure-iot
 ```
 
-To learn more, see [Azure CLI for Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest).
+To learn more, see [Azure CLI for Azure IoT](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
 
 ### Create a new product test
 
@@ -70,7 +70,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> You need to [sign in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) to your subscription when you use the CLI.
+> You need to [sign in](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) to your subscription when you use the CLI.
 
 The JSON output from the command contains the `primaryKey`, `registrationId`, and `scopeID` to use when you connect your device.
 
@@ -161,9 +161,6 @@ Example test run output
 
 The following steps show you how to use the [Azure Certified Device portal](https://aka.ms/acdp) to onboard, register product details, submit a getting started guide, and run the certification tests.
 
-> [!NOTE]
-> At the time of writing, the portal doesn't support publishing to the [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
-
 ### Onboarding
 
 To use the [certification portal](https://aka.ms/acdp), you must use an Azure Active Directory from your work or school tenant.
@@ -198,6 +195,14 @@ There are three steps to be completed:
 1. Connect and discover interfaces. The device must connect to the Azure IoT certification service through DPS. Choose the authentication method (X.509 certificate, symmetric keys, or trusted platform module) to use and update the device application with the DPS information.
 1. Review interfaces. Review the interface and make sure each one has payload inputs that make sense for testing.
 1. Test. The system tests each device model to check that the telemetry, properties, and commands described in the model follow the IoT Plug and Play conventions. When the test is complete, select the **view logs** link to see the telemetry from the device and the raw data sent to IoT Hub device twin properties.
+
+### Submit and publish
+
+The final required stage is to submit the project for review. This step notifies an Azure Certified Device team member to review your project for completeness, including the device and marketing details, and the get started guide. A team member may contact you at the company email address previously provided with questions or edit requests before approval.
+
+If your device requires further manual validation as part of certification, you'll receive a notice at this time.
+
+When a device is certified, you can choose to publish your product details to the Azure Certified Device Catalog using the **Publish to catalog** feature in the product summary page.
 
 ## Next steps
 

@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
-
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ---
@@ -37,13 +36,16 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | TLS Inspection for outbound traffic is filtered or disabled | The agent registration step or data upload operations may fail if there is TLS inspection or termination for outbound traffic at the network layer. Read more about [how to setup TLS inspection](/previous-versions/tn-archive/ee796230(v=technet.10)) |
 | Firewall ports on the server running the agent |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.<br /><br /><li>TCP port 443</li><li>TCP port 5671</li> <br />Note that port 5671 is no longer required for the latest version of agent. Upgrade to the latest version so only port 443 is required. Read more about [enable firewall ports](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)) |
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https:\//sts.contoso.com</li> Read more about [how to configure IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). In case you have a proxy within your network , please see note below.|
-| Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent. Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
+| Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
+
+> [!IMPORTANT]
+> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
 
 
 > [!NOTE]
 > If you have a highly locked-down and extremely restricted environment, you would require to add the URLs mentioned in the Service endpoint lists below in addition to the ones listed in the Allowed IE enhanced Security configuration above. 
->
+
 
 ### Outbound connectivity to the Azure service endpoints
 
@@ -103,17 +105,6 @@ To verify the agent has been installed, look for the following services on the s
 
 ![Azure AD Connect Health AD FS services](./media/how-to-connect-health-agent-install/install5.png)
 
-### Agent installation on Windows Server 2008 R2 Servers
-
-Steps for Windows Server 2008 R2 servers:
-
-1. Ensure that the server is running at Service Pack 1 or higher.
-2. Turn off IE ESC for agent installation:
-3. Install Windows PowerShell 4.0 on each of the servers ahead of installing the AD Health agent. To install Windows PowerShell 4.0:
-   * Install [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) using the following link to download the offline installer.
-   * Install PowerShell ISE (From Windows Features)
-   * Install Internet Explorer version 10 or above on the server. (Required by the Health Service to authenticate, using your Azure Admin credentials.)
-4. For more information on installing Windows PowerShell 4.0 on Windows Server 2008 R2, see the wiki article [here](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
 ### Enable Auditing for AD FS
 
@@ -122,20 +113,6 @@ Steps for Windows Server 2008 R2 servers:
 >
 
 In order for the Usage Analytics feature to gather and analyze data, the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs, on your AD FS servers.
-
-#### To enable auditing for AD FS on Windows Server 2008 R2
-
-1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
-2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
-3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
-5. Close **Local Security Policy**.
-<br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
-6. Open the **AD FS Management** snap-in. To open the AD FS Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **AD FS 2.0 Management**.
-7. In the **Actions** pane, click **Edit Federation Service Properties**.
-8. In the **Federation Service Properties** dialog box, click the **Events** tab.
-9. Select the **Success audits** and **Failure audits** check boxes.
-10. Click **OK**.
 
 #### To enable auditing for AD FS on Windows Server 2012 R2
 

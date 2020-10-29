@@ -6,6 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include 
 ms.date: 01/08/2019
 ms.author: aahi

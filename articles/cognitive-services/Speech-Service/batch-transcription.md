@@ -40,7 +40,7 @@ Once in the running state, the transcription occurs faster than the audio runtim
 
 ## Prerequisites
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
+As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

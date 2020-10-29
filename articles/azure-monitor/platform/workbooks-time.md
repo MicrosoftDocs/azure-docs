@@ -1,15 +1,13 @@
 ---
 title: Azure Monitor workbooks time parameters 
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+description: Learn how to set time parameters to allow users to set the time context of analysis. The time parameters are used by almost all reports.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Workbook time parameters
@@ -76,5 +74,5 @@ requests
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

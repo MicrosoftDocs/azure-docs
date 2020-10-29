@@ -36,7 +36,7 @@ Alerts are an easy means of monitoring backups of SAP HANA databases. Alerts hel
 
   ![List of backup alerts](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* Click on the alerts to see more details:
+* Select the alerts to see more details:
 
   ![Alert details](./media/sap-hana-db-manage/alert-details.png)
 
@@ -56,9 +56,9 @@ Azure Backup makes management of a backed-up SAP HANA database easy with an abun
 
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
-1. In the vault menu, click **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then click **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then click **OK**. This backup will be retained according to the policy associated with this backup item.
+1. In the vault menu, select **Backup items**.
+2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
+3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained according to the policy associated with this backup item.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 By default, the retention of on-demand backups is 45 days.
@@ -109,7 +109,7 @@ You can change the underlying policy for an SAP HANA backup item.
   ![Choose SAP HANA in Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * Choose the backup item whose underlying policy you want to change
-* Click on the existing Backup policy
+* Select the existing Backup policy.
 
   ![Select existing backup policy](./media/sap-hana-db-manage/existing-backup-policy.png)
 

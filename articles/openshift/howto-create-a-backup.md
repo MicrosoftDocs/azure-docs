@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application backup
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
@@ -86,7 +86,7 @@ EOF
 
 ## Install Velero on Azure Red Hat OpenShift 4 cluster
 
-This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to a Azure Red Hat OpenShift v4 cluster.
+This step will install Velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to an Azure Red Hat OpenShift v4 cluster.
 
 
 ```bash
@@ -116,14 +116,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 A successful backup will output `phase:Completed` and the objects will live in the container in the storage account.
 
+## Create a backup with Velero to include snapshots
+
+To create an application backup with Velero to include the persistent volumes of your application, you'll need to include the namespace that the application is in as well as to include the `snapshot-volumes=true` flag when creating the backup
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+You can check the status of the backup by running:
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+A successful backup with output `phase:Completed` and the objects will live in the container in the storage account.
+
+For more information about how to create backups and restores using Velero see [Backup OpenShift resources the native way](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## Next steps
 
 In this article, an Azure Red Hat OpenShift 4 cluster application was backed up. You learned how to:
 
 > [!div class="checklist"]
 > * Create a OpenShift v4 cluster application backup using Velero
+> * Create a OpenShift v4 cluster application backup with snapshots using Velero
 
 
 Advance to the next article to learn how to create an Azure Red Hat OpenShift 4 cluster application restore.
 
 * [Create a Azure Red Hat OpenShift 4 cluster application restore](howto-create-a-restore.md)
+* [Create a Azure Red Hat OpenShift 4 cluster application restore including snapshots](howto-create-a-restore.md)

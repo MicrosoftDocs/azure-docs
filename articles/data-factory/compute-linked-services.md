@@ -1,6 +1,6 @@
 ---
 title: Compute environments supported by Azure Data Factory 
-description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
+description: Compute environments that can be used with Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -24,11 +24,10 @@ The following table provides a list of compute environments supported by Data Fa
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic-linked-service) | [Machine Learning Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (formerly SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
 >  
@@ -128,7 +127,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | clusterPassword                   | The password in type of secure string to access the cluster. | No       |
 | clusterSshUserName         | The username to SSH remotely connects to cluster’s node (for Linux). | No       |
 | clusterSshPassword         | The password in type of secure string to SSH remotely connect cluster’s node (for Linux). | No       |
-| scriptActions | Specify script for [HDInsight cluster customizations](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) during on-demand cluster creation. <br />Currently, Azure Data Factory's User Interface authoring tool supports specifying only 1 script action, but you can get through this limitation in the JSON (specify multiple script actions in the JSON). | No |
+| scriptActions | Specify script for [HDInsight cluster customizations](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) during on-demand cluster creation. <br />Currently, Azure Data Factory's User Interface authoring tool supports specifying only 1 script action, but you can get through this limitation in the JSON (specify multiple script actions in the JSON). | No |
 
 
 > [!IMPORTANT]
@@ -148,7 +147,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 #### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 
@@ -241,7 +240,7 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 | zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. | No       |
 
 * Specifying node sizes
-See the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which may not be good enough for your scenario. 
+See the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which may not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 
@@ -250,7 +249,7 @@ If you want to create D4 sized head nodes and worker nodes, specify **Standard_D
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article.  	 	
+If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article.  	 	
 
 ### Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
@@ -261,7 +260,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL DB, Azure SQL DW, SQL Server
+* Azure SQL DB, Azure Synapse Analytics, SQL Server
 
 ## Azure HDInsight linked service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
@@ -301,7 +300,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | username          | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes      |
 | password          | Specify password for the user account.                       | Yes      |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Storage (Gen 2) linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you may access data in the Azure Data Lake Storage (Gen 2) from Hive/Pig scripts. </p> | Yes      |
-| isEspEnabled      | Specify '*true*' if the HDInsight cluster is [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture) enabled. Default is '*false*'. | No       |
+| isEspEnabled      | Specify '*true*' if the HDInsight cluster is [Enterprise Security Package](../hdinsight/domain-joined/apache-domain-joined-architecture.md) enabled. Default is '*false*'. | No       |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. <br />For Enterprise Security Package (ESP) enabled HDInsight cluster use a self-hosted integration runtime, which has a line of sight to the cluster or it should be deployed inside the same Virtual Network as the ESP HDInsight cluster. | No       |
 
 > [!IMPORTANT]
@@ -321,7 +320,7 @@ You can create an Azure Batch linked service to register a Batch pool of virtual
 See following articles if you are new to Azure Batch service:
 
 * [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
+* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 ### Example
@@ -364,8 +363,8 @@ See following articles if you are new to Azure Batch service:
 | linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
-## Azure Machine Learning Studio linked service
-You create an Azure Machine Learning Studio linked service to register a Machine Learning batch scoring endpoint to a data factory.
+## Azure Machine Learning Studio (classic) linked service
+You create an Azure Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory.
 
 ### Example
 
@@ -395,7 +394,7 @@ You create an Azure Machine Learning Studio linked service to register a Machine
 | Type                   | The type property should be set to: **AzureML**. | Yes                                      |
 | mlEndpoint             | The batch scoring URL.                   | Yes                                      |
 | apiKey                 | The published workspace model’s API.     | Yes                                      |
-| updateResourceEndpoint | The Update Resource URL for an Azure Machine Learning Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
+| updateResourceEndpoint | The Update Resource URL for an Azure Machine Learning Studio (classic) Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
@@ -558,9 +557,9 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) article for details about this linked service.
 
-## Azure SQL Data Warehouse linked service
+## Azure Synapse Analytics linked service
 
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
+You create an Azure Synapse Analytics (formerly SQL Data Warehouse) linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure Synapse Analytics (formerly SQL Data Warehouse) Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
 
 ## SQL Server linked service
 

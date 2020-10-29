@@ -47,7 +47,7 @@ Once you're done with the quickstart, explore our how-to guides for detailed ste
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [View our Voice Assistants repo on GitHub for samples](https://aka.ms/speech/cc-samples)
 * [Go to the Speech Studio to try out Custom Commands](https://speech.microsoft.com/customcommands)
 * [Get the Speech SDK](speech-sdk.md)

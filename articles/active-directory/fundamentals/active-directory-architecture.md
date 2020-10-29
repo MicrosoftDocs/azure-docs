@@ -119,4 +119,4 @@ Using operational controls such as multi-factor authentication (MFA) for any ope
 
 ## Next steps
 
-[Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop)
+[Azure Active Directory developer's guide](../develop/index.yml)

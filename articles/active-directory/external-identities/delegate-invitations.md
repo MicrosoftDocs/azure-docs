@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 
 ms.author: mimart
 author: msmimart
@@ -22,7 +22,7 @@ This article describes how to enable Azure Active Directory (Azure AD) B2B colla
 
 By default, all users and guests in your directory can invite guests even if they're not assigned to an admin role. External collaboration settings let you turn guest invitations on or off for different types of users in your organization. You can also delegate invitations to individual users by assigning roles that allow them to invite guests.
 
-Azure AD allows you to restrict what external guest users can see in your Azure AD directory. By default, guest users are set to a limited permission level that blocks them from enumerating users, groups, or other directory resources, but lets them see membership of non-hidden groups. A new preview setting lets you restrict guest access even further, so that guests can only view their own profile information. 
+Azure AD allows you to restrict what external guest users can see in your Azure AD directory. By default, guest users are set to a limited permission level that blocks them from enumerating users, groups, or other directory resources, but lets them see membership of non-hidden groups. A new preview setting lets you restrict guest access even further, so that guests can only view their own profile information. For details, see [Restrict guest access permissions (preview)](../enterprise-users/users-restrict-guest-permissions.md).
 
 ## Configure B2B external collaboration settings
 
@@ -42,9 +42,6 @@ By default, all users, including guests, can invite guest users.
 3. Select **External Identities** > **External collaboration settings**.
 
 4. Under **Guest user access restrictions (Preview)**, choose the level of access you want guest users to have:
-
-   > [!IMPORTANT]
-   > For a short time, these new portal controls for guest user permissions will be visible only using the URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). For more information, see [Restrict guest access permissions (preview)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
 

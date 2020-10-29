@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
 ---
 
@@ -23,6 +23,7 @@ The buttons at the top of the page can help you manage the cache:
 * **Start** and [**Stop**](#stop-the-cache) - Resumes or suspends cache operation
 * [**Flush**](#flush-cached-data) - Writes changed data to storage targets
 * [**Upgrade**](#upgrade-cache-software) - Updates the cache software
+* [**Collect diagnostics**](#collect-diagnostics) - Uploads debugging information
 * **Refresh** - Reloads the overview page
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
@@ -191,6 +192,16 @@ $
 ```
 
 ---
+
+## Collect diagnostics
+
+The **Collect diagnostics** button manually starts the process to collect system information and upload it to Microsoft Service and Support for troubleshooting. Your cache automatically collects and uploads the same diagnostic information if a serious cache problem occurs.
+
+Use this control if Microsoft Service and Support requests it.
+
+After clicking the button, click **Yes** to confirm the upload.
+
+![screenshot of the 'Start diagnostics collection' pop-up confirmation message. The default button 'yes' is highlighted.](media/diagnostics-confirm.png)
 
 ## Delete the cache
 

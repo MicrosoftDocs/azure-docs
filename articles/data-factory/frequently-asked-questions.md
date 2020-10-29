@@ -65,7 +65,7 @@ Azure Data Factory visual tools enable iterative development and debugging. You 
 You are not required to publish your changes to the data factory service before selecting **Debug**. This is helpful in scenarios where you want to make sure that the new additions or changes will work as expected before you update your data factory workflows in development, test, or production environments. 
 
 ### Ability to deploy SSIS packages to Azure 
-If you want to move your SSIS workloads, you can create a Data Factory and provision an Azure-SSIS integration runtime. An Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
+If you want to move your SSIS workloads, you can create a Data Factory and provision an Azure-SSIS integration runtime. An Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](./tutorial-deploy-ssis-packages-azure.md) tutorial. 
  
 ### SDKs
 If you are an advanced user and looking for a programmatic interface, Data Factory provides a rich set of SDKs that you can use to author, manage, or monitor pipelines by using your favorite IDE. Language support includes .NET, PowerShell, Python, and REST.
@@ -154,7 +154,7 @@ For Azure Data Factory pricing details, see [Data Factory pricing details](https
 For the most up-to-date information about Azure Data Factory, go to the following sites:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Documentation home page](/azure/data-factory)
+- [Documentation home page](./index.yml)
 - [Product home page](https://azure.microsoft.com/services/data-factory/)
 
 ## Technical deep dive 
@@ -185,7 +185,7 @@ When Microsoft provides help or troubleshooting with data flows, please provide 
 
 ### How do I access data by using the other 90 dataset types in Data Factory?
 
-The mapping data flow feature currently allows Azure SQL Database, Azure SQL Data Warehouse, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
+The mapping data flow feature currently allows Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
 
 Use the Copy activity to stage data from any of the other connectors, and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob storage, and then a Data Flow activity will use a dataset in source to transform that data.
 

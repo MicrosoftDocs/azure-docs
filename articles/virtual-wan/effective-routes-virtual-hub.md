@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ---
 
@@ -46,6 +46,8 @@ Use the scroll bar at the bottom of the table to view the "AS Path".
 * The **Propagate Default Route** field is seen in Azure Virtual WAN portal when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. This field indicates the **enableInternetSecurity** flag, which is always by default "false" for ExpressRoute and VPN connections, but "true" for virtual network connections.
 
 * When viewing effective routes on a VM NIC, if you see the next hop as 'Virtual Network Gateway', that implies the Virtual hub router when the VM is in a spoke connected to a Virtual WAN hub.
+
+* View Effective routes for a virtual hub route table is populated only if the virtual hub has at least one type of connection (VPN/ER/VNET) connected to it.
 
 ## Next steps
 

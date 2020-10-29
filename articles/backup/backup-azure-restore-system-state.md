@@ -50,7 +50,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
 8. Verify the details of recovery on the **Confirmation** pane and select **Recover**.
 
-   ![click Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Select Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
 
@@ -98,7 +98,7 @@ The terminology used in these steps includes:
 
 11. Verify the details of recovery on the Confirmation pane, and select **Recover**.
 
-    ![click the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Select the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copy the *WindowsImageBackup* directory to a non-critical volume of the server (for example D:\). Usually the Windows OS volume is the critical volume.
 

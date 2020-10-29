@@ -46,7 +46,7 @@ Retry the registration. If the problem persists, contact support.
 
 ### Unable to delete the Recovery Services vault after unprotecting a file share
 
-In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage accounts from the Recovery Services vault.
+In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage accounts**. Select **Unregister** to remove the storage accounts from the Recovery Services vault.
 
 >[!NOTE]
 >A Recovery Services vault can only be deleted after unregistering all storage accounts registered with the vault.

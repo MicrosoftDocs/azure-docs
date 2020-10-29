@@ -29,7 +29,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your GoToMeeting app. Once decided, you can assign these users to your GoToMeeting app by following the instructions here:
 
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to GoToMeeting
 
@@ -54,7 +54,7 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 
 1. Set the **Provisioning** Mode to **Automatic**. 
 
-    ![provisioning](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for GoToMeeting in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Under the Admin Credentials section, perform the following steps:
    
@@ -84,6 +84,4 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
-
-
+* [Configure Single Sign-on](./citrix-gotomeeting-tutorial.md)

@@ -6,19 +6,21 @@ ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 04/20/2019
+ms.date: 09/28/2020
 ms.author: zhshang
 ---
+
 # Quickstart: Create a chat room with ASP.NET and SignalR Service
 
-Azure SignalR Service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), which is **not** 100% compatible with ASP.NET SignalR. Azure SignalR Service re-implemented ASP.NET SignalR data protocol based on the latest ASP.NET Core technologies. When using Azure SignalR Service for ASP.NET SignalR, some ASP.NET SignalR features are no longer supported, for example, Azure SignalR does not replay messages when the client reconnects. Also, the Forever Frame transport and JSONP are not supported. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service. 
+Azure SignalR Service is based on [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), which is **not** 100% compatible with ASP.NET SignalR. Azure SignalR Service re-implemented ASP.NET SignalR data protocol based on the latest ASP.NET Core technologies. When using Azure SignalR Service for ASP.NET SignalR, some ASP.NET SignalR features are no longer supported, for example, Azure SignalR does not replay messages when the client reconnects. Also, the Forever Frame transport and JSONP are not supported. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service.
 
-Refer to the [version differences doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) for a complete list of feature comparison between ASP.NET SignalR and ASP.NET Core SignalR.
+Refer to the [version differences doc](/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) for a complete list of feature comparison between ASP.NET SignalR and ASP.NET Core SignalR.
 
 In this quickstart, you will learn how to get started with the ASP.NET and Azure SignalR Service for a similar [Chat Room application](./signalr-quickstart-dotnet-core.md).
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
+
 ## Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
@@ -65,7 +67,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
 1. Select and copy the primary connection string.
 
-1. Now set the connection string in the web.config file.
+1. Now set the connection string in the *web.config* file.
 
     ```xml
     <configuration>
@@ -76,7 +78,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     </configuration>
     ```
 
-1. In *Startup.cs*, instead of calling `MapSignalR()`, you need to call `MapAzureSignalR({your_applicationName})` and pass in connection string to make the application connect to the service instead of hosting SignalR by itself. Replace `{YourApplicationName}` to the name of your application. This name is a unique name to distinguish this application from your other applications. You can use `this.GetType().FullName` as the value.
+1. In *Startup.cs*, instead of calling `MapSignalR()`, you need to call `MapAzureSignalR({YourApplicationName})` and pass in connection string to make the application connect to the service instead of hosting SignalR by itself. Replace `{YourApplicationName}` to the name of your application. This name is a unique name to distinguish this application from your other applications. You can use `this.GetType().FullName` as the value.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -97,24 +99,19 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     > [!NOTE]
     > In the implementation an endpoint `/signalr/negotiate` is exposed for negotiation by Azure SignalR Service SDK. It will return a special negotiation response when clients try to connect and redirect clients to service endpoint defined in the connection string.
 
-1. Press **F5** to run the project in debug mode. You can see the application runs locally. Instead of hosting a SignalR runtime by application itself, it now connects to the Azure SignalR Service.
+1. Press <kbd>F5</kbd> to run the project in debug mode. You can see the application runs locally. Instead of hosting a SignalR runtime by application itself, it now connects to the Azure SignalR Service.
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsnet)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-
-
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
-> 
-> 
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this quickstart used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
-   
 ![Delete](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 After a few moments, the resource group and all of its contained resources are deleted.
@@ -129,4 +126,3 @@ In this quickstart, you created a new Azure SignalR Service resource and used it
 > [Azure SignalR Service with ASP.NET Core](./signalr-quickstart-dotnet-core.md)
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsnet)
-

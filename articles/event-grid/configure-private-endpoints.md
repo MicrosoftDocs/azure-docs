@@ -37,7 +37,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
         3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
         4. Select **Next: Configuration >** button at the bottom of the page. 
 
-            ![Private endpoint - resource page](./media/configure-private-endpoints/resource-page.png)
+            ![Screenshot that shows the "Create a private endpoint - Resource" page.](./media/configure-private-endpoints/resource-page.png)
     2. If you select **Connect to a resource using a resource ID or an alias**, follow these steps:
         1. Enter the ID of the resource. For example: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. For **Resource**, enter **topic** or **domain**. 
@@ -103,7 +103,7 @@ You can reject a private endpoint that's in the pending state or approved state.
 
 1. Select the **private endpoint** you wish to reject, and select **Reject** on the toolbar.
 
-    ![Private endpoint - reject](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot that shows the "Networking - Private endpoint connections (preview)" with "Reject" selected.](./media/configure-private-endpoints/reject-button.png)
 1. On the **Reject connection** dialog box, enter a comment (optional), and select **Yes**. 
 
     ![Private endpoint - reject](./media/configure-private-endpoints/reject.png)

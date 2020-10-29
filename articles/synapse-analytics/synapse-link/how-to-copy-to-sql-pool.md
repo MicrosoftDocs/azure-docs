@@ -24,15 +24,15 @@ Azure Synapse Link for Azure Cosmos DB enables users to run near real-time analy
 * [Have the right setup to import data into a SQL pool from Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## Steps
-In this tutorial, you will connect to the analytical store so there is no impact on the transactional store (it will not consume any Request Units). We will go through the following steps:
+In this tutorial, you'll connect to the analytical store so there's no impact on the transactional store (it won't consume any Request Units). We'll go through the following steps:
 1. Read the Cosmos DB HTAP container into a Spark dataframe
 2. Aggregate the results in a new dataframe
 3. Ingest the data into a SQL pool
 
-[![Spark to SQL Steps](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Spark to SQL Steps 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## Data
-In that example, we use an HTAP container called **RetailSales**. It is part of a linked service called **ConnectedData**, and has the following schema:
+In that example, we use an HTAP container called **RetailSales**. It's part of a linked service called **ConnectedData**, and has the following schema:
 * _rid: string (nullable = true)
 * _ts: long (nullable = true)
 * logQuantity: double (nullable = true)
@@ -45,7 +45,7 @@ In that example, we use an HTAP container called **RetailSales**. It is part of 
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-We will aggregate the sales (*quantity*, *revenue* (price x quantity) by *productCode* and *weekStarting* for reporting purposes. Finally, we will export that data into a SQL pool table called **dbo.productsales**.
+We'll aggregate the sales (*quantity*, *revenue* (price x quantity) by *productCode* and *weekStarting* for reporting purposes. Finally, we'll export that data into a SQL pool table called **dbo.productsales**.
 
 ## Configure a Spark Notebook
 Create a Spark notebook with Scala as Spark (Scala) as the main language. We use the notebook's default setting for the session.
@@ -93,7 +93,7 @@ SELECT  [productCode]
 ```
 
 Your query will present the following results in a chart mode:
-[![Spark to SQL Steps](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+[![Spark to SQL Steps 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## Next steps
 * [Query Azure Cosmos DB Analytical Store with Apache Spark](./how-to-query-analytical-store-spark.md)

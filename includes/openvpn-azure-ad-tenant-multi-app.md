@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/21/2020
+ ms.date: 10/15/2020
  ms.author: cherylmc
  ms.custom: include file
 
@@ -68,13 +68,17 @@ Register the VPN client in the Azure AD tenant.
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
+> [!NOTE]
+> If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD directory id in the URL. You may also have to replace “common” with your directory id in certain other cases as well.
+>
+
 5. Select the **Global Admin** account if prompted.
 
     ![Directory ID](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
 6. Select **Accept** when prompted.
 
-    ![Accept](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![Screenshot shows a window with the message Permissions requested Accept for you organization and information about the request.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. Under your Azure AD, in **Enterprise applications**, you will see **Azure VPN** listed.
 

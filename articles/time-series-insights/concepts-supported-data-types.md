@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ---
 
 # Supported data types
@@ -22,10 +22,10 @@ The following table lists the data types supported by Azure Time Series Insights
 | **double** | A double-precision 64-bit number  | `"value": 31.0482941` | `$event.value.Double` or `$event['value'].Double` |  `value_double`
 | **long** | A signed 64-bit integer  | `"value" : 31` | `$event.value.Long` or `$event['value'].Long` |  `value_long`
 | **string** | Text values, must consist of valid UTF-8. Null and empty strings are treated the same. |  `"site": "DIM_MLGGG"`| `$event.site.String` or `$event['site'].String`| `site_string`
-| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp property(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be unrolled. Payload properties stored as this type are only accessible by selecting `Explore Events` in the TSI Explorer to view raw events, or through the [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) Query API for client-side parsing. |  `"values": "[197, 194, 189, 188]"` | Referencing dynamic types in a Time Series Expression is not yet supported | `values_dynamic`
+| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp property(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be unrolled. Payload properties stored as this type are only accessible by selecting `Explore Events` in the Time Series Insights Explorer to view raw events, or through the [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) Query API for client-side parsing. |  `"values": "[197, 194, 189, 188]"` | Referencing dynamic types in a Time Series Expression is not yet supported | `values_dynamic`
 
 > [!NOTE]
-> 64 bit integer values are supported, but the largest number that the Azure Time Series Insights Explorer can safely express is 9,007,199,254,740,991 (2^53-1) due to JavaScript limitations. If you work with numbers in your data model above this, you can reduce the size by  creating a [Time Series Model variable](/concepts-variables#numeric-variables) and [converting](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) the value.
+> 64 bit integer values are supported, but the largest number that the Azure Time Series Insights Explorer can safely express is 9,007,199,254,740,991 (2^53-1) due to JavaScript limitations. If you work with numbers in your data model above this, you can reduce the size by  creating a [Time Series Model variable](/azure/time-series-insights/concepts-variables#numeric-variables) and [converting](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) the value.
 
 > [!NOTE]
 > **String** type is not nullable:

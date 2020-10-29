@@ -1,5 +1,5 @@
 ---
-title: 'Visualize data in the TSI Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
+title: 'Visualize data in the Time Series Insights Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
 description:  Learn about features and options available in the Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
@@ -42,7 +42,7 @@ The Azure Time Series Insights Explorer consists of the following seven elements
 
 ## 1. Environment panel
 
-The environment panel displays all the Azure Time Series Insights Gen2 environments you have access to. The list includes Gen2 environments as well as Gen 1 environments. Simply select the environment you want to use to immediately be taken there.
+The environment panel displays all the Azure Time Series Insights Gen2 environments you have access to. The list includes Gen2 environments as well as Gen1 environments. Simply select the environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -195,11 +195,11 @@ Azure Time Series Insights Explorer supports two themes:
 
   [![Selected dark theme](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## Gen 1 environment controls
+## Gen1 environment controls
 
 ### Gen2 terms panel
 
-This section applies only to existing Gen 1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen 1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen 1 environment in the new Azure Time Series Insights Explorer.
+This section applies only to existing Gen1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen1 environment in the new Azure Time Series Insights Explorer.
 
 Instead of the hierarchy, the Azure Time Series Insights Gen2 terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 

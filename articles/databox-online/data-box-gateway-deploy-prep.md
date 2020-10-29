@@ -117,7 +117,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Review Data Box Gateway resource details](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Review Data Box Gateway resource details 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## Download the virtual device image
 

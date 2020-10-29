@@ -1,5 +1,5 @@
 ---
-title: Live Video Analytics on IoT Edge quotas - Azure  
+title: Live Video Analytics on IoT Edge quotas and limitations - Azure  
 description: This article describes Live Video Analytics on IoT Edge quotas and limitations.
 ms.topic: conceptual
 ms.date: 05/22/2020 
@@ -60,6 +60,10 @@ At the time of the preview release, the Live Video Analytics on IoT Edge does no
 * The ability to migrate the Media Service account from one subscription to another without an interruption.
 * The ability to use more than one Storage account with the Media Service account.
 * The ability to change the service principal information in the desired properties of the module dynamically, without a restart.
+
+You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
+
+Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. 
 
 ## Next steps
 

@@ -47,9 +47,15 @@
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
+  - name: Link your partner ID
+    displayName: partner earned credit, pec, mpn
+    href: ./how-to/partner-earned-credit.md
   - name: Remove access to a delegation
     displayName: delete, undelegate
     href: ./how-to/remove-delegation.md
+  - name: Azure Arc integration
+    displayName: server, kubernetes, hybrid, infrastructure
+    href: ./how-to/manage-hybrid-infrastructure-arc.md
   - name: Azure Monitor integration
     items:
     - name: Use Azure Monitor Logs at scale
@@ -95,6 +101,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md
+  - name: Terraform
+    href: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
 - name: Resources
   items:
   - name: Microsoft Q&A for Azure Lighthouse
