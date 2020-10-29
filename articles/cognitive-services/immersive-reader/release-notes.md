@@ -19,7 +19,7 @@ ms.author: dylankil
 
 This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.
 
-### New Features
+#### New Features
 
 * Enable saving and loading user preferences across different browsers and devices
 * Enable configuring default display options
@@ -28,7 +28,7 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 * Add ability to disable first run experience
 * Add ImmersiveReaderView for UWP
 
-### Improvements
+#### Improvements
 
 * Update the Android code sample HTML to work with the latest SDK
 * Update launch response to return the number of characters processed
@@ -37,7 +37,7 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 * Check for invalid content by ignoring messages where the data is not a string
 * Wrap call to window in an if clause to check browser support of Promise
 
-### Fixes
+#### Fixes
 
 * Fix dependabot by removing yarn.lock from gitignore
 * Fix security vulnerability by upgrading pug to v3.0.0 in quickstart-nodejs code sample
@@ -50,26 +50,26 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 
 This release contains breaking changes, new features, code sample improvements, and bug fixes.
 
-### Breaking Changes
+#### Breaking Changes
 
 * Require AAD token and subdomain, and deprecates tokens used in previous versions
-* Set CookiePolicy to disable, affecting user preferences stored in cookies by the Immersive Reader
+* Retention of user preferences is disabled by default. The Immersive Reader launches with default settings every time, unless the CookiePolicy is set to enabled
 
-### New Features
+#### New Features
 
 * Add support to enable or disable cookies
 * Add Android Kotlin quick start code sample
 * Add Android Java quick start code sample
 * Add Node.js quick start code sample
 
-### Improvements
+#### Improvements
 
 * Update Node.js advanced README.md
 * Change Python code sample from advanced to quick start
 * Move iOS Swift code sample into js/samples
 * Update code samples to use v1.0.0
 
-### Fixes
+#### Fixes
 
 * Fix for Node.js advanced code sample
 * Add missing files for advanced-csharp-multiple-resources
@@ -81,7 +81,7 @@ This release contains breaking changes, new features, code sample improvements, 
 
 This release contains new features, improvements to code samples, security vulnerability fixes, and bug fixes.
 
-### New Features
+#### New Features
 
 * Add iOS Swift code sample
 * Add C# advanced code sample demonstrating use of multiple resources 
@@ -90,12 +90,12 @@ This release contains new features, improvements to code samples, security vulne
 * Add a callback function that may be used by the host application upon exiting the Immersive Reader
 * Update code samples to use Azure Active Directory Authentication
 
-### Improvements
+#### Improvements
 
 * Update C# advanced code sample to include Word document
 * Update code samples to use v0.0.3
 
-### Fixes
+#### Fixes
 
 * Upgrade lodash to version 4.17.14 to fix security vulnerability
 * Update C# MSAL library to fix security vulnerability
@@ -108,19 +108,19 @@ This release contains new features, improvements to code samples, security vulne
 
 This release contains new features, improvements to code samples, security vulnerability fixes, and bug fixes.
 
-### New Features
+#### New Features
 
 * Add Python advanced code sample
 * Add Java quick start code sample
 * Add simple code sample
 
-### Improvements
+#### Improvements
 
 * Rename resourceName to cogSvcsSubdomain
 * Move secrets out of code and use environment variables
 * Update code samples to use v0.0.2
 
-### Fixes
+#### Fixes
 
 * Fix Immersive Reader button accessibility bugs
 * Fix broken scrolling
