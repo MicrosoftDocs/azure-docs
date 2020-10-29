@@ -144,35 +144,35 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot that shows the "Settings" icon in the top-right selected, and "Setup" selected from the drop-down.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. Scroll down to the **SETTINGS** in the left navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot that shows the "Settings" menu in the left pane, with "Single Sign-On Settings" selected from the "Identity" menu.](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. On the **Single Sign-On Settings** page, click the **Edit** button.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with the "Edit" button selected.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. Select **SAML Enabled**, and then click **Save**.
 
-	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+	![Screenshot that shows the "Single Sign-On Settings" page with the "S A M L Enabled" checkbox selected and the "Save" button selected.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. To configure your SAML single sign-on settings, click **New from Metadata File**.
 
-	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+	![Screenshot that shows the "Single Sign-On Settings" page with the "New from Metadata File" button selected.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. Click **Choose File** to upload the metadata XML file which you have downloaded from the Azure portal and click **Create**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with the "Choose File" and "Create" buttons selected.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. On the **SAML Single Sign-On Settings** page, fields populate automatically and click save.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with fields populated and the "Save" button selected.](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. On the **Single Sign-On Settings** page, click the **Download Metadata** button to download the service provider metadata file. Use this file in the **Basic SAML Configuration** section in the Azure portal for configuring the necessary URLs as explained above.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with the "Download Metadata" button selected.](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. If you wish to configure the application in **SP** initiated mode, following are the prerequisites for that:
 
@@ -197,31 +197,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 13. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot that shows the "Settings" icon in the top-right selected, and "Setup" selected from the drop-down menu.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. Scroll down to the **SETTINGS** in the left navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot that shows the "Settings" menu in the left navigation pane, with "Single Sign-On Settings" selected from the "Identity" menu.](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. On the **Single Sign-On Settings** page, click the **Edit** button.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with "Edit" button selected.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. Select **SAML Enabled**, and then click **Save**.
 
-	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+	![Screenshot that shows the "Single Sign-On Settings" page with the "S A M L Enabled" box checked and the "Save" button selected.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. To configure your SAML single sign-on settings, click **New from Metadata File**.
 
-	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+	![Screenshot that shows the "Single Sign-On Settings" page and "New from Metadata File" button selected.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. Click **Choose File** to upload the metadata XML file and click **Create**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with the "Choose File" button and "Create" button selected.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 19. On the **SAML Single Sign-On Settings** page, fields populate automatically, type the name of the configuration (for example: *SPSSOWAAD_Test*), in the **Name** textbox and click save.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Screenshot that shows the "Single Sign-On Settings" page with fields populated, an example name in the "Name" textbox, and the "Save" button selected.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. To enable your domain on Salesforce Sandbox, perform the following steps:
 
@@ -230,11 +230,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 21. On the left navigation pane in Salesforce Sandbox, click **Company Settings** to expand the related section, and then click **My Domain**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Screenshot that shows the "Company Settings" and "My Domain" selected from the left navigation pane.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. In the **Authentication Configuration** section, click **Edit**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Screenshot that shows the "Authentication Configuration" section, with the "Edit" button selected.](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. In the **Authentication Configuration** section, as **Authentication Service**, select the name of the SAML Single Sign-On Setting which you have set during SSO configuration in Salesforce Sandbox and click **Save**.
 

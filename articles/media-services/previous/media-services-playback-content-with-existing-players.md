@@ -47,11 +47,11 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 #### PlayReady with Token
 
-[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
+[http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html)
 
 ### DASH Players
 
-[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
+"https://dashplayer.azurewebsites.net"
 
 [https://dashif.org](https://dashif.org)
 
