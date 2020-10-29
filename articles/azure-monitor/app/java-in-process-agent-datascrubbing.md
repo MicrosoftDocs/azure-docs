@@ -248,7 +248,7 @@ Note: If renaming is dependent on attributes being modified by the attributes pr
 
 ##### Sample Usage
 
-The following specifies the values of attribute `db.svc`, `operation`, and `id` will form the new name of the span, in that order, separated by the value `::`.
+The following specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
 ```json
 {
     "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -305,7 +305,7 @@ Let's assume input span name is /api/v1/document/12345678/update. Applying the f
 
 ```
 
-The following demonstrates renaming the span name to `{operation_website}` and adding the attribute {Key: operation_website, Value: oldSpanName } when the span has the following properties:
+The following demonstrates renaming the span name to "{operation_website}" and adding the attribute {Key: operation_website, Value: oldSpanName } when the span has the following properties:
 - The span name contains '/' anywhere in the string.
 - The span name is not 'donot/change'.
 ```json
