@@ -24,74 +24,40 @@ Azure Media Services v3 is available via Azure Resource Manager. However, not al
 | --- | --- | --- |
 | ![general availability](./media/azure-clouds-regions/ga.svg) generally available | ![in preview](./media/azure-clouds-regions/preview.svg) in preview | ![future availability](./media/azure-clouds-regions/planned-active.svg) future availability |
 
-## [US](#tab/us)
-
 [!INCLUDE [reference-feature-availability-us](./includes/reference-feature-availability-us.md)]
-
-## [USGov](#tab/usgov)
 
 [!INCLUDE [reference-feature-availability-usgov](./includes/reference-feature-availability-usgov.md)]
 
 ## World regions and sovereign clouds
-
-## [Africa](#tab/africa)
-
+<!-- Africa -->
 [!INCLUDE [reference-feature-availability-africa](./includes/reference-feature-availability-africa.md)]
-
-## [APAC](#tab/apac)
-
+<!-- APAC -->
 [!INCLUDE [reference-feature-availability-apac](./includes/reference-feature-availability-apac.md)]
-
-## [Australia](#tab/australia)
-
+<!-- Australia -->
 [!INCLUDE [reference-feature-availability-australia](./includes/reference-feature-availability-australia.md)]
-
-## [Brazil](#tab/brazil)
-
+<!-- Brazil -->
 stuff goes here
-
-## [Canada](#tab/canada.md)
-
+<!-- Canada -->
 stuff goes here
-
-## [China](#tab/china)
-
+<!-- China -->
 stuff goes here
-
-## [EU](#tab/europe)
-
+<!-- Europe -->
 stuff goes here
-
-## [Germany](#tab/germany)
-
+<!-- Germany -->
 stuff goes here
-
-## [India](#tab/india)
-
+<!-- India -->
 stuff goes here
-
-## [Japan](#tab/japan)
-
+<!-- Japan -->
 stuff goes here
-
-## [Korea](#tab/korea)
-
+<!-- Koria -->
 stuff goes here
-
-## [Norway](#tab/norway)
-
+<!-- Norway -->
 stuff goes here
-
-## [Switzerland](#tab/switzerland)
-
+<!-- Switzerland -->
 stuff goes here
-
-## [UAE](#tab/uae)
-
+<!-- UAE -->
 stuff goes here
-
-## [UK](#tab/uk)
-
+<!-- UK -->
 stuff goes here
 
 ## Regions/geographies/locations
