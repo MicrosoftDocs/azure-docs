@@ -61,7 +61,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 4. In the Cloud Shell, if you see an option to select between **Bash** and **PowerShell**, select **Bash**. 
 5. If you are using the Cloud Shell for the first time, create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files. 
 
-    ![Create storage for cloud shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Screenshot that shows the "You have no storage mounted" dialog with the "Create storage" button selected.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Wait until the Cloud Shell is initialized. 
 
     ![Create storage for cloud shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -204,7 +204,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
    ![Publish function app](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. If you see the following screen, select **Start**. 
 
-   ![Start publish button](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![Screenshot that shows Visual Studios with the "Start" button in the Publish section.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. In the **Publish** dialog box, select **Azure** for **Target**, and select **Next**. 
 
    ![Start publish button](media/event-grid-event-hubs-integration/publish-select-azure.png)

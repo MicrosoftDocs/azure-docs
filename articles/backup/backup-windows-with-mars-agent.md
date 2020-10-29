@@ -121,7 +121,7 @@ To enable network throttling:
 1. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**.
 
     ![Set up network throttling for backup operations](./media/backup-configure-vault/throttling-dialog.png)
-1. Specify the allowed bandwidth during work hours and nonwork hours. Bandwidth values begin at 512 Kbps and go up to 1,023 MBps. Then select **OK**.
+1. Specify the allowed bandwidth during work hours and nonwork hours. Bandwidth values begin at 512 Kbps and go up to 1,023 Mbps. Then select **OK**.
 
 ## Run an on-demand backup
 

@@ -1,8 +1,10 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/27/2020
+ms.author: jehollan
 
 ---
 # Azure Functions networking options
@@ -60,11 +62,30 @@ To provide a higher level of security, you can restrict a number of Azure servic
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## Restrict your storage account to a virtual network
+## Restrict your storage account to a virtual network (preview)
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that configuration will break your app.
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This preview feature currently only works with Windows Premium plans in West Europe.  To setup a function with a storage account restricted to a private network:
 
-To learn more, see [Storage account requirements](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> Restricting the storage account only currently works for Premium functions using Windows in West Europe
+
+1. Create a function with a storage account that does not have service endpoints enabled.
+1. Configure the function to connect to your virtual network.
+1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
+1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
+1. Enable service endpoints or private endpoint for the storage account.  
+    * Be sure to enable the subnet dedicated to your function apps if using a service endpoint.
+    * Be sure to create a DNS record and configure your app to [work with private endpoint endpoints](#azure-dns-private-zones) if using private endpoint.  The storage account will need a private endpoint for the `file` and `blob` sub-resources.  If using certain capabilities like Durable Functions you will also need `queue` and `table` accessible through a private endpoint connection.
+1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
+1. Copy the connection string for this storage account.
+1. Update the **Application Settings** under **Configuration** for the function app to the following:
+    - `AzureWebJobsStorage` to the connection string for the secured storage account.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
+    - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
+    - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
+1. Save the application settings.  
+
+The function app will restart and will now be connected to a secured storage account.
 
 ## Use Key Vault references
 
@@ -81,7 +102,7 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
+When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Runtime Scale Monitoring** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

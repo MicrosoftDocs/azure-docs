@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure RBAC for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 
@@ -25,7 +25,6 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Prerequisites 
-- Sign up for the preview <https://aka.ms/aad-rbac-sign-up-form>.
 - Ensure you have the Azure CLI version 2.9.0 or later
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
 - Ensure you have the `aks-preview` [CLI extension][az-extension-add] v0.4.55 or higher installed
@@ -41,7 +40,7 @@ Register the `EnableAzureRBACPreview` feature flag using the [az feature registe
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-You will have to get approval after submitting the preview form above before the flag can be successfully registered. You can check on the registration status using the [az feature list][az-feature-list] command:
+ You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
@@ -282,4 +281,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

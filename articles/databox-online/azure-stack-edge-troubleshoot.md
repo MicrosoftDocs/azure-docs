@@ -1,6 +1,6 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge | Microsoft Docs 
-description: Learn how to troubleshoot issues on your Azure Stack Edge. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
+title: Use the Azure portal to troubleshoot Azure Stack Edge Pro | Microsoft Docs 
+description: Learn how to troubleshoot issues on your Azure Stack Edge Pro. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
 author: alkohli
 
@@ -10,9 +10,9 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Stack Edge issues
+# Troubleshoot your Azure Stack Edge Pro issues
 
-This article describes how to troubleshoot issues on your Azure Stack Edge. 
+This article describes how to troubleshoot issues on your Azure Stack Edge Pro. 
 
 In this article, you learn how to:
 
@@ -50,7 +50,7 @@ Do the following steps to collect a Support package.
 
 2. After the Support package is created, select **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
-    ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
+    ![Click add user 2](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
 ## Use logs to troubleshoot
 
@@ -60,7 +60,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
       ![Connect to and view share contents](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Select the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
+2. Select the _Microsoft Azure Stack Edge Pro folder_. This folder has two subfolders:
 
     * Upload folder that has log files for upload errors.
     * Refresh folder for errors during refresh.

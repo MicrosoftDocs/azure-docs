@@ -134,17 +134,17 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 
 1. In the Azure portal, navigate to **Monitor**, then **Action groups**. Select the action group called **StartStop_VM_Notication**.
 
-    ![Automation Update Management page](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Screenshot of the Monitor - Action groups page.":::
 
 2. On the StartStop_VM_Notification page, click **Edit details** under **Details**. This opens the Email/SMS/Push/Voice page. Update the email address and click **OK** to save your changes.
 
-    ![Automation Update Management page](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot of the Email/SMS/Push/Voice page showing an example email address updated.":::
 
     Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
 
 The following is an example email that is sent when the feature shuts down virtual machines.
 
-![Automation Update Management page](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot of an example email sent when the feature shuts down virtual machines.":::
 
 ## <a name="add-exclude-vms"></a>Add or exclude VMs
 

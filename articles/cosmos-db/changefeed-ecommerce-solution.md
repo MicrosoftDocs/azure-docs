@@ -45,7 +45,7 @@ The following diagram represents the data flow and components involved in the so
 
 5. **Event Hub:** The Azure Event Hub stores these events and sends them to [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) to perform further analysis.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics defines queries to process the events and perform real-time data analysis. This data is then sent to [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics defines queries to process the events and perform real-time data analysis. This data is then sent to [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI is used to visualize the data sent by Azure Stream Analytics. You can build a dashboard to see how the metrics change in real time.  
 
@@ -310,7 +310,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
    This is how a sample dashboard looks with these charts:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualizations":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Screenshot shows a sample dashboard with charts named Average Price of Items by Action, Unique Visitors, Revenue, and Top 5 Items Purchased.":::
 
 ## Optional: Visualize with an E-commerce site
 
@@ -390,4 +390,4 @@ To delete the resources that you created during this lab, navigate to the resour
 
 ## Next steps 
   
-* To learn more about change feed, see [working with change feed support in Azure Cosmos DB](change-feed.md) 
+* To learn more about change feed, see [working with change feed support in Azure Cosmos DB](change-feed.md)

@@ -1,6 +1,6 @@
 ---
-title: Connect and query Azure SQL Edge (Preview)
-description: Learn how to connect to and query Azure SQL Edge (Preview).
+title: Connect and query Azure SQL Edge
+description: Learn how to connect to and query Azure SQL Edge.
 keywords: 
 services: sql-edge
 ms.service: sql-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 07/25/2020
 ---
 
-# Connect and query Azure SQL Edge (Preview)
+# Connect and query Azure SQL Edge
 
 In Azure SQL Edge, after you deploy a container, you can connect to the database engine from any of the following locations:
 

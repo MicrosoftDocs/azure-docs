@@ -3,7 +3,7 @@ title: Quickstart - Deploy Docker container to container instance - Portal
 description: In this quickstart, you use the Azure portal to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
 ms.date: 08/24/2020
-ms.custom: "seodec18, mvc, devx-track-javascript"
+ms.custom: "seodec18, mvc, devx-track-js"
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure portal

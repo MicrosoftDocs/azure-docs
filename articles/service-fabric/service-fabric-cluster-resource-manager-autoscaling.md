@@ -46,7 +46,7 @@ The only mechanism that can be used with this trigger is PartitionInstanceCountS
 * _Maximum Instance Count_ defines the upper limit for scaling. If number of instances of the partition reaches this limit, then the service will not be scaled out, regardless of the load. It is possible to omit this limit by specifying value of -1, and in that case the service will be scaled out as much as possible (the limit is the number of nodes that are available in the cluster).
 * _Minimum Instance Count_ defines the lower limit for scaling. If number of instances of the partition reaches this limit, then service will not be scaled in regardless of the load.
 
-## Setting auto scaling policy
+## Setting auto scaling policy for instance based scaling
 
 ### Using application manifest
 ``` xml
@@ -128,7 +128,7 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 > [!WARNING] 
 > When AddRemoveIncrementalNamedPartitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale out operation, new partitions will be empty, and in case of scale in operation, **partition will be deleted together with all the data that it contains**.
 
-## Setting auto scaling policy
+## Setting auto scaling policy for partition based scaling
 
 ### Using application manifest
 ``` xml

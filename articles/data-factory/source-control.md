@@ -45,7 +45,7 @@ Below is a list of some of the advantages git integration provides to the author
 
 ## Author with Azure Repos Git integration
 
-Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
+Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
@@ -88,13 +88,13 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 ### Use a different Azure Active Directory tenant
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator)
+The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
 
 ### Use your personal Microsoft account
 
 To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
 
-1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md).
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
@@ -157,6 +157,8 @@ The configuration pane shows the following GitHub repository settings:
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
+
+- Azure Data Factory doesn't support GitHub organization accounts
 
 - A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 

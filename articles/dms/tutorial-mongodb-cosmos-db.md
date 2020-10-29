@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
 ---
 
@@ -209,7 +209,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 * After the migration completes, you can check your Azure Cosmos DB account to verify that all the collections were migrated successfully.
 
-    ![Activity status completed](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+    ![Screenshot that shows where to check your Azure Cosmos DB account to verify that all the collections were migrated successfully.](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 
 ## Post-migration optimization
 

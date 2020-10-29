@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
@@ -29,13 +29,15 @@ This article describes how to use the Azure quickstart templates to partially au
    | &nbsp; | &nbsp; |
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. This article provides the sequence of automated and manual steps.
+
+While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
  
 
 ## Prerequisites 
 To automate the setup of an Always On availability group by using quickstart templates, you must have the following prerequisites: 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) that are in the same availability set or availability zone and that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) that are in the same availability set or availability zone and that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
 - Two available (not used by any entity) IP addresses: one for the internal load balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, you need only one available IP address.  
 
 ## Permissions
@@ -98,6 +100,9 @@ Manually create the availability group as you normally would, by using [SQL Serv
 > Do *not* create a listener at this time, because the **101-sql-vm-aglistener-setup**  quickstart template does that automatically in step 4. 
 
 ## Create load balancer
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 The Always On availability group listener requires an internal instance of Azure Load Balancer. The internal load balancer provides a “floating” IP address for the availability group listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, you can use a Basic load balancer. Otherwise, you need to use a Standard load balancer. 
 
 > [!IMPORTANT]
@@ -221,6 +226,3 @@ For more information, see the following articles:
 * [Pricing guidance for SQL Server VMs](pricing-guidance.md)
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
 * [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

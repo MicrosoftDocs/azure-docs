@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about VMs compute, network, and upcoming maintenance events.
+description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -246,8 +246,8 @@ offer | Offer information for the VM image and is only present for images deploy
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
+platformUpdateDomain |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
+platformFaultDomain | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
 publicKeys | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 publisher | Publisher of the VM image | 2017-04-02

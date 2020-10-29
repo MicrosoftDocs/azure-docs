@@ -39,18 +39,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Translate text
-            url: quickstart-translate.md
-          - text: Transliterate text
-            url: quickstart-transliterate.md
-          - text: Language detection
-            url: quickstart-detect.md
-          - text: Dictionary lookup
-            url: quickstart-dictionary.md
-          - text: Determine sentence length
-            url: quickstart-sentences.md
-          - text: List supported languages
-            url: quickstart-languages.md
+          - text: Quickstart
+            url: quickstart-translator.md
       - linkListType: tutorial
         links:
           - text: Create a WPF translation app, C#
@@ -106,3 +96,10 @@ landingContent:
             url: https://aka.ms/TranslatorGitHub
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context

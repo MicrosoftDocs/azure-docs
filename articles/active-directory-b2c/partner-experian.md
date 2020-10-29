@@ -72,7 +72,7 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided API code to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
@@ -112,7 +112,7 @@ Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/s
 
 ### Part 5 - Replace the configuration values
 
-In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
+In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy), find the following placeholders and replace with the corresponding values from your instance
 
 |                      Placeholder                       |                                   Replace with value                                 |                   Example                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

@@ -339,7 +339,7 @@ Run the application to verify that it works.
 
 Your application should appear, running in a browser.
 
-![Web application][21]
+![Screenshot shows an example of the application running in a browser with the URL highlighted.][21]
 
 ## Put the pieces together
 

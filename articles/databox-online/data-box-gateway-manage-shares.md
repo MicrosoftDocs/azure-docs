@@ -45,7 +45,7 @@ Do the following steps in the Azure portal to create a share.
 5. Choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as blob blocks in Azure, hence we select **Block Blob**. If choosing**Page Blob**, you must ensure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
 
    > [!IMPORTANT]
-   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. This step depends on whether you are creating an SMB or an NFS share.
     - **If creating an SMB share** - In the **All privilege local user** field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
@@ -89,7 +89,7 @@ Do the following steps in the Azure portal to refresh a share.
 
 1. In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
-   ![Select share](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Select share 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Click **Refresh**. 
 
@@ -119,11 +119,11 @@ Do the following steps in the Azure portal to sync your storage access key.
 1. Go to **Overview** in your resource. 
 2. From the list of shares, choose and click a share associated with the storage account that you need to sync. Click **Sync storage key**. 
 
-     ![Sync storage key 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Sync storage key](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Click **Yes** when prompted for confirmation. Exit out of the dialog once the sync is complete.
 
-     ![Sync storage key 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Sync storage key 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > You only have to do this once for a given storage account. You don't need to repeat this action for all the shares associated with the same storage account.

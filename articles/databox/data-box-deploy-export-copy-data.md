@@ -49,7 +49,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
-    ![Get share credentials 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Get share credentials](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
@@ -74,14 +74,14 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Connect to share via File Explorer](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     You should now see the shares as folders.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
-If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox
@@ -118,4 +118,3 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-export-picked-up.md)
-

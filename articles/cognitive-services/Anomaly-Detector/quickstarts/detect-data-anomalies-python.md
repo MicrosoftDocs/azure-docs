@@ -3,24 +3,25 @@ title: "Quickstart: Detect anomalies as a batch using the Anomaly Detector REST 
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data in this quickstart.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 09/03/2020
+ms.author: mbullwin
 ms.custom: devx-track-python
 ---
 
 # Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Python
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the responses.
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends API requests containing JSON-formatted time series data, and gets the responses.
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
-| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
+| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.|
+| Detect change points that mark new data trends | The JSON response containing the detected change points in the time series data. |
 
  While this application is written in Python, the API is a RESTful web service compatible with most programming languages. You can find the source code for this quickstart on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py).
 
@@ -49,6 +50,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     |---------|---------|
     |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Change point detection | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
@@ -68,7 +70,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Detect anomalies as a batch
 
-1. Create a method called `detect_batch()` to detect anomalies throughout the data as a batch. Call the `send_request()` method created above with your endpoint, url, subscription key, and json data.
+1. Create a method called `detect_batch()` to detect anomalies throughout the data as a batch. Call the `send_request()` method created above with your endpoint, URL, subscription key, and json data.
 
 2. Call `json.dumps()` on the result to format it, and print it to the console.
 
@@ -80,11 +82,23 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Detect the anomaly status of the latest data point
 
-1. Create a method called `detect_latest()` to determine if the latest data point in your time series is an anomaly. Call the `send_request()` method above with your endpoint, url, subscription key, and json data.
+1. Create a method called `detect_latest()` to determine if the latest data point in your time series is an anomaly. Call the `send_request()` method above with your endpoint, URL, subscription key, and json data.
 
 2. Call `json.dumps()` on the result to format it, and print it to the console.
 
     [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
+
+## Detect change points in the data
+
+1. Create a method called `detect_change_point()` to detect anomalies throughout the data as a batch. Call the `send_request()` method created above with your endpoint, URL, subscription key, and json data.
+
+2. Call `json.dumps()` on the result to format it, and print it to the console.
+
+3. If the response contains a `code` field, print the error code and error message.
+
+4. Otherwise, find the positions of anomalies in the data set. The response's `isChangePoint` field contains a boolean value indicating whether a given data point is an anomaly. Iterate through the list, and print the index of any `True` values. These values correspond to the indices of trend change points points, if any were found.
+
+    [!code-python[detect change points](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectChangePoint)]
 
 ## Send the request
 
@@ -97,5 +111,6 @@ Call the anomaly detection methods created above.
 A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
 * [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Example change point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

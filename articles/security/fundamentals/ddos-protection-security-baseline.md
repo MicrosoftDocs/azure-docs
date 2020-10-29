@@ -94,7 +94,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 Additionally, Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions)
+- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 

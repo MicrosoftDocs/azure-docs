@@ -46,7 +46,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     
     If you select the **All networks** option, your Service Bus namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-    ![Firewall - All networks option selected](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+    ![Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. To allow access from only specified IP address, select the **Selected networks** option if it isn't already selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
@@ -55,7 +55,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         > [!WARNING]
         > If you choose the **Selected networks** option and don't specify an IP address or address range, the service will allow traffic from all networks. 
 
-        ![Firewall - All networks option selected](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Screenshot of the Azure portal Networking page. The option to allow access from Selected networks is selected and the Firewall section is highlighted.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]
@@ -122,7 +122,7 @@ Template parameters:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],

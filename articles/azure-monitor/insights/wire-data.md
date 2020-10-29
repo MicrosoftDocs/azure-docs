@@ -361,15 +361,15 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 You can use the **Agents capturing network traffic** blade to determine how much network bandwidth is being consumed by computers. This blade can help you easily find the _chattiest_ computer in your environment. Such computers could be overloaded, acting abnormally, or using more network resources than normal.
 
-![log search example](./media/wire-data/log-search-example01.png)
+![Screenshot of the Agents capturing network traffic blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each computer.](./media/wire-data/log-search-example01.png)
 
 Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
 
-![log search example](./media/wire-data/log-search-example02.png)
+![Screenshot of the Local Subnets blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by a each LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 The **Application-level Protocols** blade is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the blade can quickly confirm or disprove your expectation.
 
-![log search example](./media/wire-data/log-search-example03.png)
+![Screenshot of the Application-level Protocols blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each protocol.](./media/wire-data/log-search-example03.png)
 
 It's also useful to know if protocol traffic is increasing or decreasing over time. For example, if the amount of data being transmitted by an application is increasing, that might be something you should be aware of, or that you might find noteworthy.
 

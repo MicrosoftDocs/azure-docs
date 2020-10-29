@@ -1,6 +1,6 @@
 ---
-title: Create a T-SQL streaming job in Azure SQL Edge (Preview) 
-description: Learn about creating Stream Analytics jobs in Azure SQL Edge (Preview). 
+title: Create a T-SQL streaming job in Azure SQL Edge 
+description: Learn about creating Stream Analytics jobs in Azure SQL Edge. 
 keywords: 
 services: sql-edge
 ms.service: sql-edge
@@ -11,12 +11,9 @@ ms.reviewer: sstein
 ms.date: 07/27/2020
 ---
 
-# Create an Azure Stream Analytics job in Azure SQL Edge (Preview) 
+# Create a data streaming job in Azure SQL Edge 
 
-This article explains how to create a T-SQL streaming job in Azure SQL Edge (Preview). You create the external stream input and output objects, and then you define the streaming job query as part of the streaming job creation.
-
-> [!NOTE]
-> To enable the T-SQL streaming feature in Azure SQL Edge, enable TF 11515 as a startup option, or use the [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) command. For more information on how to enable trace flags by using an mssql.conf file, see [Configure using an mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file).
+This article explains how to create a T-SQL streaming job in Azure SQL Edge. You create the external stream input and output objects, and then you define the streaming job query as part of the streaming job creation.
 
 ## Configure the external stream input and output objects
 
@@ -231,7 +228,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```
@@ -250,5 +248,5 @@ The streaming job can have any one of the following statuses:
 
 ## Next steps
 
-- [View metadata associated with streaming jobs in Azure SQL Edge (Preview)](streaming-catalog-views.md) 
+- [View metadata associated with streaming jobs in Azure SQL Edge](streaming-catalog-views.md) 
 - [Create an external stream](create-external-stream-transact-sql.md)

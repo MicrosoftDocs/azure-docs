@@ -54,11 +54,13 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
 
   ```
   version=1.0;
-  authorizationrules={
+  authorizationrules
+  {
   =>deny();
   };
   
-  issuancerules={
+  issuancerules
+  {
   };
   ```
 
@@ -68,11 +70,13 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
 
   ```
   version=1.0;
-  authorizationrules={
+  authorizationrules
+  {
   [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
   };
   
-  issuancerules={
+  issuancerules
+  {
   };
   ```
 
@@ -82,11 +86,13 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
 
   ```
   version=1.0;
-  authorizationrules={
+  authorizationrules
+  {
   [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
   };
   
-  issuancerules={
+  issuancerules
+  {
   => issue(type="SecurityLevelValue", value=100);
   };
   ```
@@ -162,4 +168,4 @@ print(encoded.decode('utf-8'))
 
 ## Next steps
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
-- [Attest an SGX enclave using code samples](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Attest an SGX enclave using code samples](/samples/browse/?expanded=azure&terms=attestation)

@@ -18,7 +18,7 @@ ms.date: 07/11/2020
 > SQL API is generally available.
 > MongoDB API, Gremlin API, and Cassandra API support are currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+> [REST API preview versions](search-api-preview.md) provide these features. There is currently limited portal support, and no .NET SDK support.
 
 > [!WARNING]
 > Only Cosmos DB collections with an [indexing policy](/azure/cosmos-db/index-policy) set to [Consistent](/azure/cosmos-db/index-policy#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
@@ -29,7 +29,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](../cosmos-db/databases-containers-items.md#azure-cosmos-items) accessed through different protocols. 
 
-+ For [SQL API](../cosmos-db/sql-query-getting-started.md), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) to create the data source and indexer.
++ For [SQL API](../cosmos-db/sql-query-getting-started.md), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer) to create the data source and indexer.
 
 + For [MongoDB API (preview)](../cosmos-db/mongodb-introduction.md), you can use either the [portal](#cosmos-indexer-portal) or the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source and indexer.
 
@@ -69,9 +69,11 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 + **Name** is the name of the data source object. Once created, you can choose it for other workloads.
 
-+ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB with the following format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;`.
-    + For version 3.2 and version 3.6 **MongoDB collections** use the following format for the Cosmos DB account in the Azure portal: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-    + For **Gremlin graphs and Cassandra tables**, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.
++ **Cosmos DB account** should be in one of the following formats:
+    1. The primary or secondary connection string from Cosmos DB with the following format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;`.
+        + For version 3.2 and version 3.6 **MongoDB collections** use the following format for the Cosmos DB account in the Azure portal: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
+        + For **Gremlin graphs and Cassandra tables**, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.
+    1.  A managed identity connection string with the following format that does not include an account key: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)`. To use this connection string format, follow the instructions for [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).
 
 + **Database** is an existing database from the account. 
 
@@ -180,7 +182,7 @@ The body of the request contains the data source definition, which should includ
 |---------|-------------|
 | **name** | Required. Choose any name to represent your data source object. |
 |**type**| Required. Must be `cosmosdb`. |
-|**credentials** | Required. Must be a Cosmos DB connection string.<br/><br/>For **SQL collections**, connection strings are in this format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>For version 3.2 and version 3.6 **MongoDB collections** use the following format for the connection string: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>For **Gremlin graphs and Cassandra tables**, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.<br/><br/>Avoid port numbers in the endpoint url. If you include the port number, Azure Cognitive Search will be unable to index your Azure Cosmos DB database.|
+|**credentials** | Required. Must either follow the Cosmos DB connection string format or a managed identity connection string format.<br/><br/>For **SQL collections**, connection strings can follow either of the below formats: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>A managed identity connection string with the following format that does not include an account key: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;`. To use this connection string format, follow the instructions for [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).<br/><br/>For version 3.2 and version 3.6 **MongoDB collections** use either of the following formats for the connection string: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>A managed identity connection string with the following format that does not include an account key: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;`. To use this connection string format, follow the instructions for [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).<br/><br/>For **Gremlin graphs and Cassandra tables**, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.<br/><br/>Avoid port numbers in the endpoint url. If you include the port number, Azure Cognitive Search will be unable to index your Azure Cosmos DB database.|
 | **container** | Contains the following elements: <br/>**name**: Required. Specify the ID of the database collection to be indexed.<br/>**query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Cognitive Search can index.<br/>For the MongoDB API, Gremlin API, and Cassandra API, queries are not supported. |
 | **dataChangeDetectionPolicy** | Recommended. See [Indexing Changed Documents](#DataChangeDetectionPolicy) section.|
 |**dataDeletionDetectionPolicy** | Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.|
@@ -302,10 +304,10 @@ For more information about defining indexer schedules, see [How to schedule inde
 
 The generally available .NET SDK has full parity with the generally available REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype)
++ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index)
++ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="DataChangeDetectionPolicy"></a>
 

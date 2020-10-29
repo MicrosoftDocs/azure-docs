@@ -1,7 +1,7 @@
 ---
 title: Use Computer Vision container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
-description: Deploy the Computer Vision container to an Azure Container Instance, and test it in a web browser.
+description: Learn how to deploy the Computer Vision container using Kubernetes and Helm.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -39,7 +39,7 @@ The following prerequisites before using Computer Vision containers on-premises:
 
 ## Connect to the Kubernetes cluster
 
-The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
+The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer. You can find more information on deployments in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
 ### Sharing Docker credentials with the Kubernetes cluster
 

@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 
@@ -31,7 +31,10 @@ This centralized model of deployment has the following advantages:
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
 
-## Granular role-based access control (RBAC)
+> [!NOTE]
+> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+
+## Granular Azure role-based access control (Azure RBAC)
 
 Each customer subscription that an MSSP will manage must be [onboarded to Azure Lighthouse](onboard-customer.md). This allows designated users in the managing tenant to access and perform management operations on Azure Sentinel workspaces deployed in customer tenants.
 
@@ -60,7 +63,7 @@ If you are managing Azure Sentinel resources for multiple customers, you can vie
 
 [Azure Monitor Workbooks in Azure Sentinel](../../sentinel/overview.md#workbooks) help you visualize and monitor data from your connected data sources to gain insights. You can use the built-in workbook templates in Azure Sentinel, or create custom workbooks for your scenarios.
 
-You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace monitoring](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Note that some capabilities are [not supported across multiple workspaces](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace monitoring](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 You can also deploy workbooks directly in an individual tenant that you manage for scenarios specific to that customer.
 
@@ -71,8 +74,6 @@ Create and save Log Analytics queries for threat detection centrally in the mana
 ## Use automation for cross-workspace management
 
 You can use automation to manage multiple Azure Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Note that some capabilities are [not currently supported across multiple workspaces](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## Manage security of Office 365 environments
 

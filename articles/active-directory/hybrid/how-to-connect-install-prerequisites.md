@@ -29,10 +29,10 @@ Before you install Azure AD Connect, there are a few things that you need.
   * The [Azure portal](https://portal.azure.com).
   * The [Office portal](https://portal.office.com).
 * [Add and verify the domain](../fundamentals/add-custom-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users, make sure this domain has been verified and you're not using only the contoso.onmicrosoft.com default domain.
-* An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Office 365, Azure AD Premium, or Enterprise Mobility + Security.
+* An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.
 
 ### Prepare your on-premises data
-* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Office 365.
+* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Microsoft 365.
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
@@ -41,6 +41,14 @@ Before you install Azure AD Connect, there are a few things that you need.
 * The domain controller used by Azure AD must be writable. Using a read-only domain controller (RODC) *isn't supported*, and Azure AD Connect doesn't follow any write redirects.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
+
+### PowerShell execution policy
+Azure Active Directory Connect runs signed PowerShell scripts as part of the installation. Ensure that the PowerShell execution policy will allow running of scripts.
+
+The recommended execution policy during installation is "RemoteSigned".
+
+For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
@@ -121,7 +129,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
         </system.net>
     ```
 
-* If the proxy configuration is being done in an existing setup, the **Microsoft Azure AD Sync service** needs to be restarted once for the Azure AD Connect to read the proxy configuration and update the behviour. 
+* If the proxy configuration is being done in an existing setup, the **Microsoft Azure AD Sync service** needs to be restarted once for the Azure AD Connect to read the proxy configuration and update the behavior. 
 * When Azure AD Connect sends a web request to Azure AD as part of directory synchronization, Azure AD can take up to 5 minutes to respond. It's common for proxy servers to have connection idle timeout configuration. Ensure the configuration is set to at least 6 minutes or more.
 
 For more information, see MSDN about the [default proxy element](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).

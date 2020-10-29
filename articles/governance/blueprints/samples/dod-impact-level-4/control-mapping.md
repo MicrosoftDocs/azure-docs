@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
-description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 06/30/2020
+description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 10/26/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -21,13 +21,13 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
 > definitions. These policies may help you
 > [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
-> there often is not a 1:1 or complete match between a control and one or more policies. As such,
-> **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're
-> fully compliant with all requirements of a control. In addition, the compliance standard includes
-> controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance
-> in Azure Policy is only a partial view of your overall compliance status. The associations between
-> controls and Azure Policy definitions for this compliance blueprint sample may change over time.
-> To view the change history, see the
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## AC-2 Account Management
@@ -53,8 +53,8 @@ review who has access to Azure resources and their permissions. This blueprint a
 authentication for SQL Servers and Service Fabric. Using Azure Active Directory authentication
 enables simplified permission management and centralized identity management of database users and
 other Microsoft services. Additionally, this blueprint assigns an Azure Policy definition to audit
-the use of custom RBAC rules. Understanding where custom RBAC rules are implement can help you
-verify need and proper implementation, as custom RBAC rules are error prone.
+the use of custom Azure RBAC rules. Understanding where custom Azure RBAC rules are implement can help you
+verify need and proper implementation, as custom Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
@@ -155,11 +155,11 @@ configuration and management. This blueprint helps you ensure events are logged 
 Analytics agent on Azure virtual machines.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-5 Response to Audit Processing Failures
@@ -181,11 +181,11 @@ reporting and analysis. This blueprint helps you ensure events are logged by ass
 Analytics agent on Azure virtual machines.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
@@ -208,7 +208,7 @@ Azure Sentinel and Azure Security Center as well.
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 
 ## AU-12 Audit Generation
 
@@ -219,11 +219,11 @@ operations that are performed within Azure resources. Additionally, auditing and
 Security are configured on SQL servers.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
 - Auditing should be enabled on advanced data security settings on SQL Server
@@ -490,12 +490,9 @@ of the operating system for virtual machine scale sets.
 ## SI-02 (06) Flaw Remediation | Removal of Previous Versions of Software / Firmware
 
 This blueprint assigns policy definitions that help you ensure applications are using the latest
-version of the .NET Framework, HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
+version of HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
 a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
 
-- Ensure that '.Net Framework' version is the latest, if used as a part of the API app
-- Ensure that '.Net Framework' version is the latest, if used as a part of the Function App
-- Ensure that '.Net Framework' version is the latest, if used as a part of the Web app
 - Ensure that 'HTTP Version' is the latest, if used to run the Api app
 - Ensure that 'HTTP Version' is the latest, if used to run the Function app
 - Ensure that 'HTTP Version' is the latest, if used to run the Web app
@@ -503,7 +500,6 @@ a policy definition that ensures that Kubernetes Services is upgraded to its non
 - Ensure that 'Java version' is the latest, if used as a part of the Function app
 - Ensure that 'Java version' is the latest, if used as a part of the Web app
 - Ensure that 'PHP version' is the latest, if used as a part of the Api app
-- Ensure that 'PHP version' is the latest, if used as a part of the Function app
 - Ensure that 'PHP version' is the latest, if used as a part of the WEB app
 - Ensure that 'Python version' is the latest, if used as a part of the Api app
 - Ensure that 'Python version' is the latest, if used as a part of the Function app
@@ -511,7 +507,7 @@ a policy definition that ensures that Kubernetes Services is upgraded to its non
 - Latest TLS version should be used in your API App
 - Latest TLS version should be used in your Function App
 - Latest TLS version should be used in your Web App
-- \[Preview\]: Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
+- Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
 
 ## SI-3 Malicious Code Protection
 
@@ -544,11 +540,11 @@ resources. These capabilities can help you detect anomalous behavior and indicat
 you can take appropriate action.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Advanced data security should be enabled on your managed instances
 - Advanced data security should be enabled on your SQL servers

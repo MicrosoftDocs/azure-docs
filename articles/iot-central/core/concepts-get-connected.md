@@ -7,7 +7,8 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom:  [amqp, mqtt]
+manager: philmea
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 
@@ -93,7 +94,7 @@ To add and verify a root or intermediate certificate to your enrollment group:
 
     :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Primary certificate screenshot":::
 
-1. Use the **Verification code** to generate a verification code in the tool you're using. Then select **Verify** to upload the verification certificate.
+1. Click **Generate verification code** to generate a code for the tool you're using to generate the verification certificate. Then select **Verify** to upload the verification certificate.
 
 1. When the verification is successful, you see the following confirmation:
 
@@ -105,7 +106,7 @@ If you have a security breach or your primary certificate is set to expire, use 
 
 ### Register and connect devices
 
-To bulk connect devices using X.509 certificates, first register the devices in your application by using a CSV file to [import the device IDs and device names](howto-manage-devices.md#import-devices). The device IDs should all be in lower case.
+To bulk connect devices using X.509 certificates, first register the devices in your application by using a CSV file to [import the device IDs and device names](howto-manage-devices.md#import-devices). A device ID can contain letters, numbers, and the `-` character.
 
 Generate X.509 leaf certificates for your devices using the root or intermediate certificate you uploaded to your X.509 enrollment group. Use the **Device ID** as the `CNAME` value in the leaf certificates. Your device code needs the **ID scope** value for your application, the **device ID**, and the corresponding device certificate.
 
@@ -141,7 +142,7 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Group primary key from SAS-IoT-Devices enrollment group":::
 
-1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
+1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device ID can contain letters, numbers, and the `-` character:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -162,7 +163,7 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
 1. [Create an enrollment group](#create-an-enrollment-group) and then [Add and verify a root or intermediate X.509 certificate](#add-and-verify-a-root-or-intermediate-x509-certificate) to your IoT Central application.
 
-1. Generate the leaf-certificates for your devices using the root or intermediate certificate you added to your IoT Central application. Use lower-case device IDs as the `CNAME` in the leaf certificates.
+1. Generate the leaf-certificates for your devices using the root or intermediate certificate you added to your IoT Central application. Use the device IDs as the `CNAME` in the leaf certificates. A device ID can contain letters, numbers, and the `-` character.
 
 1. The OEM flashes each device with a device ID, a generated leaf X.509 certificate, and the application **ID scope** value.
 
@@ -177,7 +178,7 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
 ## Individual enrollment-based device connectivity
 
-For customers connecting devices that each have their own authentication credentials, use individual enrollments. An individual enrollment is an entry for a single device that is allowed to connect. Individual enrollments can use either X.509 leaf certificates or SAS tokens (from a physical or virtual trusted platform module) as attestation mechanisms. The device ID (also known as registration ID) in an individual enrollment is alphanumeric, lowercase, and may contain hyphens. For more information, see [DPS individual enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+For customers connecting devices that each have their own authentication credentials, use individual enrollments. An individual enrollment is an entry for a single device that is allowed to connect. Individual enrollments can use either X.509 leaf certificates or SAS tokens (from a physical or virtual trusted platform module) as attestation mechanisms. The device ID (also known as registration ID) in an individual enrollment A device ID can contain letters, numbers, and the `-` character. For more information, see [DPS individual enrollment](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > When you create an individual enrollment for a device, it takes precedence over the default group enrollment options in your IoT Central application.
@@ -196,7 +197,7 @@ IoT Central supports the following attestation mechanisms for individual enrollm
     > [!TIP]
     > For testing, you can use [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) to generate a self-signed certificate: `node create_test_cert.js device "mytestdevice"`
 
-- **Trusted Platform Module (TPM) attestation:** A [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) is a type of hardware security module. Using a TPM is one of the most secure ways to connect a device. This article assumes you're using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they don't provide the same level of security as discrete, firmware, or integrated TPMs. Don't use software TPMs in production. To create an individual enrollment that uses a TPM, open the **Device Connection** page, select **Individual enrollment** as the connection method, and **TPM** as the mechanism. Enter the TPM endorsement key and save the device connection information.
+- **Trusted Platform Module (TPM) attestation:** A [TPM](../../iot-dps/concepts-tpm-attestation.md) is a type of hardware security module. Using a TPM is one of the most secure ways to connect a device. This article assumes you're using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they don't provide the same level of security as discrete, firmware, or integrated TPMs. Don't use software TPMs in production. To create an individual enrollment that uses a TPM, open the **Device Connection** page, select **Individual enrollment** as the connection method, and **TPM** as the mechanism. Enter the TPM endorsement key and save the device connection information.
 
 ## Automatically associate with a device template
 

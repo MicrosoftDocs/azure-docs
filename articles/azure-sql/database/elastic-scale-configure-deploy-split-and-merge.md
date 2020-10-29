@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer:
@@ -52,7 +52,7 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 1. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database.
 
    > [!IMPORTANT]
-   > At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql).
 
    With Azure SQL Database, the connection string typically is of the form:
 
@@ -70,7 +70,7 @@ For the purposes of a simple test deployment for this tutorial, a minimal set of
 
 ### Create a self-signed certificate
 
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) window:
 
    ```cmd
    makecert ^

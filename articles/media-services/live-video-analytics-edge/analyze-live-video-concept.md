@@ -35,7 +35,7 @@ In this media graph, the frame rate filter processor node lowers the frame rate 
 An enhancement to this example is to use a motion detector processor ahead of the frame rate filter processor node. This will reduce the load on the inference service, since it is used only when there is motion activity in the video.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="Live Video Analytics based on motion detected frames via external inferencing module":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Live Video Analytics based on motion detected frames via external inferencing module":::
 
 ## Next steps
 

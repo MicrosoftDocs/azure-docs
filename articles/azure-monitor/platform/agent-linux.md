@@ -39,9 +39,11 @@ Starting with versions released after August 2018, we are making the following c
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
-### Python 2 requirement
+### Python requirement
 
- The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
+
+If you are using an older version of the agent, you must have the Virtual Machine use python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -67,7 +69,7 @@ The OMS Agent has limited customization support for Linux.
 The following are currently supported: 
 - FIPs
 
-The following are planned but not yet supported:
+The following are in consideration but not yet supported:
 - CIS
 - SELINUX
 
@@ -98,10 +100,10 @@ The Log Analytics agent for Linux is composed of multiple packages. The release 
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | The Log Analytics Agent for Linux
+omsagent | 1.13.9 | The Log Analytics Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the Log Analytics agent
-omi | 1.6.3 | Open Management Infrastructure (OMI) -- a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*
-scx | 1.6.3 | OMI CIM Providers for operating system performance metrics
+omi | 1.6.4 | Open Management Infrastructure (OMI) -- a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*
+scx | 1.6.4 | OMI CIM Providers for operating system performance metrics
 apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for OMI. Only installed if Apache HTTP Server is detected.
 mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
 docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is detected.
@@ -211,7 +213,7 @@ Upgrading from a previous version, starting with version 1.0.0-47, is supported 
 ## Cache information
 Data from the Log Analytics agent for Linux is cached on the local machine at *%STATE_DIR_WS%/out_oms_common*.buffer* before it's sent to Azure Monitor. Custom log data is buffered in *%STATE_DIR_WS%/out_oms_blob*.buffer*. The path may be different for some [solutions and data types](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-The agent attempts to upload every 20 seconds. If it fails, it will wait an exponentially increasing length of time until it succeeds. It will wait 30 seconds before the second attempt, 60 seconds before the next, 120 seconds, and so on to a maximum of 9 minutes between retries until it successfully connects again. The agent will only retry 10 times for a given chunk of data before discarding and moving to the next. This continues until the agent can successfully upload again. The means that data may be buffered up to 8.5 hours before being discarded.
+The agent attempts to upload every 20 seconds. If it fails, it will wait an exponentially increasing length of time until it succeeds: 30 seconds before the second attempt, 60 seconds before the third, 120 seconds ... and so on up to a maximum of 16 minutes between retries until it successfully connects again. The agent will retry up to 6 times for a given chunk of data before discarding and moving to the next one. This continues until the agent can successfully upload again. This means that data may be buffered up to approximately 30 minutes before being discarded.
 
 The default cache size is 10 MB but can be modified in the [omsagent.conf file](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

@@ -3,7 +3,7 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
@@ -26,7 +26,7 @@ To complete this tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
 
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
@@ -52,7 +52,7 @@ Create an ASP.NET web app by following these steps:
 
 1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 
-1. You need a [supported parent image](#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code and save the file:
+1. You need a [supported parent image](configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
    ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -76,7 +76,7 @@ Create an ASP.NET web app by following these steps:
 
    Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
 
-   ![Publish from project overview page](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![Screenshot that highlights the repository name.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. Copy this repository name for later.
 
@@ -164,22 +164,16 @@ The streamed logs looks like this:
 
 ![Updated web app in Azure](./media/quickstart-custom-container/azure-web-app-updated.png)
 
-## Use a different parent image
-
-You're free to use a different custom Docker image to run your app. However, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
-
-- To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2019 [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
-- To deploy .NET Core apps, use a parent image based on the Windows Server Nano 1809 [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
-
-It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
-
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - this image is the base container used across Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Microsoft Windows Nano Server images.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Migrate to Windows container in Azure](tutorial-custom-container.md)
+
+Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure custom container](configure-custom-container.md)
+
 ::: zone-end  
 
 ::: zone pivot="container-linux"
@@ -220,7 +214,7 @@ docker --version
 
 Finally, ensure that your Azure Container Registry is connected. To do this, select the Docker logo in the Activity Bar, then navigate to **REGISTRIES**.
 
-![Registries](./media/quickstart-docker/registries.png)
+![Screenshot shows the Registries value with Azure expanded and a file with the dot i o filename extension.](./media/quickstart-docker/registries.png)
 
 ## Deploy the image to Azure App Service
 
@@ -256,5 +250,10 @@ Next, check out the other Azure extensions.
 
 Or get them all by installing the
 [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
+
+Check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure custom container](configure-custom-container.md)
 
 ::: zone-end

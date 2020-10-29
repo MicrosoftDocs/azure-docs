@@ -6,14 +6,23 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/22/2020
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
 You can mount or unmount a volume for Windows or Linux virtual machines as necessary.  The mount instructions for Linux virtual machines are available on Azure NetApp Files.  
 
-> [!IMPORTANT] 
-> You must have at least one export policy to be able to access an NFS volume.
+## Requirements 
+
+* You must have at least one export policy to be able to access an NFS volume.
+* To mount an NFS volume successfully, ensure that the following NFS ports are open between the client and the NFS volumes:
+    * 111 = `RPCBIND/Portmapper`
+    * 635 = `mountd`
+    * 2049 = `nfs`
+    * 4045 = `nlockmgr` (NFSv3 only)
+    * 4046 = `status` (NFSv3 only)
+
+## Steps
 
 1. Click the **Volumes** blade, and then select the volume for which you want to mount. 
 2. Click **Mount instructions** from the selected volume, and then follow the instructions to mount the volume. 
@@ -45,6 +54,6 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 ## Next steps
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
-* [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [NFS FAQs](./azure-netapp-files-faqs.md#nfs-faqs)
+* [Network File System overview](/windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)

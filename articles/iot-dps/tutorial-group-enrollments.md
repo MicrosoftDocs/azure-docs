@@ -18,7 +18,7 @@ These steps show how to simulate an X.509 device on your development machine run
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 
-## Prepare the environment 
+## Prerequisites
 
 1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
 
@@ -255,4 +255,4 @@ If you plan to continue working on and exploring the device client sample, do no
 In this tutorial, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service and enrollment groups. To learn more about your X.509 device, continue to device concepts. 
 
 > [!div class="nextstepaction"]
-> [IoT Hub Device Provisioning Service device concepts](concepts-device.md)
+> [IoT Hub Device Provisioning Service concepts](concepts-service.md)

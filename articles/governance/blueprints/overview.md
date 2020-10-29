@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -31,8 +31,8 @@ your blueprint objects, regardless of which region Azure Blueprints deploys your
 The service is designed to help with _environment setup_. This setup often consists of a set of
 resource groups, policies, role assignments, and ARM template deployments. A blueprint is a package
 to bring each of these _artifact_ types together and allow you to compose and version that package,
-including through a CI/CD pipeline. Ultimately, each is assigned to a subscription in a single
-operation that can be audited and tracked.
+including through a continuous integration and continuous delivery (CI/CD) pipeline. Ultimately,
+each is assigned to a subscription in a single operation that can be audited and tracked.
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
 with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure –
@@ -68,7 +68,7 @@ support using parameters with policies and initiatives.
 
 ## Blueprint definition
 
-A blueprint is made up of _artifacts_. Azure Blueprints currently supports the following resources
+A blueprint is composed of _artifacts_. Azure Blueprints currently supports the following resources
 as artifacts:
 
 |Resource  | Hierarchy options| Description  |
@@ -113,15 +113,24 @@ updated blueprint is **Published** with a new and unique **Version** and can now
 ## Blueprint assignment
 
 Each **Published** **Version** of a blueprint can be assigned (with a max name length of 90
-characters) to an existing subscription. In the portal, the blueprint defaults the **Version** to
-the one **Published** most recently. If there are artifact parameters (or blueprint parameters),
-then the parameters are defined during the assignment process.
+characters) to an existing management group or subscription. In the portal, the blueprint defaults
+the **Version** to the one **Published** most recently. If there are artifact parameters or
+blueprint parameters, then the parameters are defined during the assignment process.
+
+> [!NOTE]
+> Assigning a blueprint definition to a management group means the assignment object exists at the
+> management group. The deployment of artifacts still targets a subscription. To perform a
+> management group assignment, the
+> [Create Or Update REST API](/rest/api/blueprints/assignments/createorupdate) must be used and the
+> request body must include a value for `properties.scope` to define the target subscription.
 
 ## Permissions in Azure Blueprints
 
-To use blueprints, you must be granted permissions through [Role-based access
-control](../../role-based-access-control/overview.md) (RBAC). To create blueprints, your account
-needs the following permissions:
+To use blueprints, you must be granted permissions through [Azure role-based access
+control (Azure RBAC)](../../role-based-access-control/overview.md). To read or view a blueprint in Azure
+portal, your account must have read access to the scope where the blueprint definition is located.
+
+To create blueprints, your account needs the following permissions:
 
 - `Microsoft.Blueprint/blueprints/write` - Create a blueprint definition
 - `Microsoft.Blueprint/blueprints/artifacts/write` - Create artifacts on a blueprint definition

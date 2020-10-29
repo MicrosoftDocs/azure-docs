@@ -47,6 +47,9 @@ Azure AD Conditional Access supports the following device platforms:
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
+> [!IMPORTANT]
+> Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from Linux or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
+
 ## Locations
 
 When configuring location as a condition, organizations can choose to include or exclude locations. These named locations may include the public IPv4 network information, country or region, or even unknown areas that don't map to specific countries or regions. Only IP ranges can be marked as a trusted location.
@@ -113,6 +116,9 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
+> [!NOTE]
+> Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
+
 #### Why do I see a certificate prompt in the browser
 
 On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD.  When a user first signs in through the browser the user is prompted to select the certificate. The user must select this certificate before using the browser.
@@ -146,27 +152,27 @@ This setting has an impact on access attempts made from the following mobile app
 | Client apps | Target Service | Platform |
 | --- | --- | --- |
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
-| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online | Windows 10 |
+| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device-based policies are not supported.| Any My Apps app service | Android and iOS |
 | Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
-| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, OneNote only). | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
-| Office mobile apps | Office 365 SharePoint Online | Android, iOS |
-| Office Yammer app | Office 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016 (Office for macOS) | Office 365 Exchange Online | macOS |
-| Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| Outlook mobile app | Office 365 Exchange Online | Android, iOS |
+| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
+| Office 2019| SharePoint | Windows 10, macOS |
+| Office mobile apps | SharePoint | Android, iOS |
+| Office Yammer app | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016 (Office for macOS) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) | Exchange Online | Windows 8.1, Windows 7 |
+| Outlook mobile app | Exchange Online | Android, iOS |
 | Power BI app | Power BI service | Windows 10, Windows 8.1, Windows 7, Android, and iOS |
-| Skype for Business | Office 365 Exchange Online| Android, iOS |
+| Skype for Business | Exchange Online| Android, iOS |
 | Visual Studio Team Services app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
 
 ### Exchange ActiveSync clients
 
 - Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to become blocked.
-- When creating a policy assigned to Exchange ActiveSync clients, **Office 365 Exchange Online** should be the only cloud application assigned to the policy. 
+- When creating a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
 If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication** is required, affected users are blocked, because basic authentication does not support multi-factor authentication.

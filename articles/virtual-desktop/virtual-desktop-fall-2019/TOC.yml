@@ -22,6 +22,8 @@
     href: set-up-service-alerts-2019.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: ../manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client

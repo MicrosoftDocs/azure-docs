@@ -48,7 +48,7 @@ Once you have identified the bottleneck of your data flow, use the below optimiz
 
 The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
 
-![Optimize](media/data-flow/optimize.png "Optimize")
+![Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.](media/data-flow/optimize.png)
 
 By default, *Use current partitioning* is selected which instructs Azure Data Factory keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you may want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL DB.
 
@@ -151,7 +151,7 @@ Azure SQL Database has a unique partitioning option called 'Source' partitioning
 
 #### Isolation level
 
-The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
 
 #### Read using query
 
@@ -159,7 +159,7 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), which greatly improves read performance. Enabling PolyBase requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), which greatly improves read performance. Enabling PolyBase requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
@@ -194,7 +194,7 @@ These can both be done natively using Pre and Post-SQL scripts within an Azure S
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
 > [!WARNING]
-> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
 
 #### Scaling up your database
 
@@ -202,7 +202,7 @@ Schedule a resizing of your source and sink Azure SQL DB and DW before your pipe
 
 ### Azure Synapse Analytics sinks
 
-When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using PolyBase.
+When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [PolyBase](/sql/relational-databases/polybase/polybase-guide) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using PolyBase.
 
 Other than PolyBase, the same best practices apply to Azure Synapse Analytics as Azure SQL Database.
 
@@ -256,6 +256,10 @@ If you use literal values in your join conditions or have multiple matches on bo
 #### Sorting before joins
 
 Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting prior to the transformation. The Azure Data Factory team doesn't recommend using Sort transformations in mapping data flows.
+
+### Window transformation performance
+
+The [Window transformation](data-flow-window.md) partitions your data by value in columns that you select as part of the ```over()``` clause in the transformation settings. There are a number of very popular aggregate and analytical functions that are exposed in the Windows transformation. However, if your use case is to generate a window over your entire dataset for the purpose of ranking ```rank()``` or row number ```rowNumber()```, it is recommended that you instead use the [Rank transformation](data-flow-rank.md) and the [Surrogate Key transformation](data-flow-surrogate-key.md). Those transformation will perform better again full dataset operations using those functions.
 
 ### Repartitioning skewed data
 

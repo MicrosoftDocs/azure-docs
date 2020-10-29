@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
@@ -61,7 +61,7 @@ There are three primary ways to interact with data stored in Azure Time Series I
 
 Use Azure Time Series Insights Gen2 to monitor the health, usage, and performance of equipment at scale and measure operational efficiency. Azure Time Series Insights Gen2 helps manage diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
 
-[![Overview](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![Screenshot shows I o T devices / application data, stream processing, operational efficiency, intelligence / insights, and advanced analytics in Azure Time Series Insights Gen2.](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Streaming and continuous processing of data coming from operational processes can successfully transform any business if it's combined with the right technology or solution. Often these solutions are a combination of multiple systems. They enable exploration and analysis of data that changes constantly, especially in the IoT realm, and share a common pattern.
 

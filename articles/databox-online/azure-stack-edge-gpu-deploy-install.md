@@ -1,6 +1,6 @@
 ---
-title: Tutorial to install - Unpack, rack, cable Azure Stack Edge GPU physical device | Microsoft Docs
-description: The second tutorial about installing Azure Stack Edge GPU involves how to unpack, rack, and cable the physical device.
+title: Tutorial to install - Unpack, rack, cable Azure Stack Edge Pro GPU physical device | Microsoft Docs
+description: The second tutorial about installing Azure Stack Edge Pro GPU involves how to unpack, rack, and cable the physical device.
 services: databox
 author: alkohli
 
@@ -9,11 +9,11 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.  
+Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
 ---
-# Tutorial: Install Azure Stack Edge with GPU
+# Tutorial: Install Azure Stack Edge Pro with GPU
 
-This tutorial describes how to install an Azure Stack Edge physical device with a GPU. The installation procedure involves unpacking, rack mounting, and cabling the device. 
+This tutorial describes how to install an Azure Stack Edge Pro physical device with a GPU. The installation procedure involves unpacking, rack mounting, and cabling the device. 
 
 The installation can take around two hours to complete.
 
@@ -32,12 +32,12 @@ The prerequisites for installing a physical device as follows:
 
 Before you begin, make sure that:
 
-* You've completed all the steps in [Prepare to deploy Azure Stack Edge with GPU](azure-stack-edge-gpu-deploy-prep.md).
+* You've completed all the steps in [Prepare to deploy Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-prep.md).
     * You've created an Azure Stack Edge resource to deploy your device.
     * You've generated the activation key to activate your device with the Azure Stack Edge resource.
 
  
-### For the Azure Stack Edge physical device
+### For the Azure Stack Edge Pro physical device
 
 Before you deploy a device:
 
@@ -53,7 +53,7 @@ Before you deploy a device:
 
 Before you begin:
 
-- Review the networking requirements for deploying Azure Stack Edge, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge networking requirements](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Review the networking requirements for deploying Azure Stack Edge Pro, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge Pro networking requirements](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Make sure that the minimum Internet bandwidth is 20 Mbps for optimal functioning of the device.
 
@@ -65,7 +65,7 @@ This device is shipped in a single box. Complete the following steps to unpack y
 1. Place the box on a flat, level surface.
 2. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, don't open it. Contact Microsoft Support to help you assess whether the device is in good working order.
 3. Unpack the box. After unpacking the box, make sure that you have:
-    - One single enclosure Azure Stack Edge device
+    - One single enclosure Azure Stack Edge Pro device
     - Two power cords
     - One rail kit assembly
     - A Safety, Environmental, and Regulatory Information booklet
@@ -78,7 +78,7 @@ If you didn't receive all of the items listed here, [Contact Microsoft Support](
 The device must be installed on a standard 19-inch rack. Use the following procedure to rack mount your device on a standard 19-inch rack.
 
 > [!IMPORTANT]
-> Azure Stack Edge devices must be rack-mounted for proper operation.
+> Azure Stack Edge Pro devices must be rack-mounted for proper operation.
 
 
 ### Prerequisites
@@ -119,7 +119,7 @@ Locate the components for installing the rail kit assembly:
 3. Attach the left and right mounting rails to the front vertical rack flanges using two pairs of screws.
 4. Slide the left and right back brackets forward against the rear vertical rack flanges and attach them using two pairs of screws.
 
-    ![Install and remove tooled rails](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Install and remove tooled rails 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### Install the system in a rack
 
@@ -152,11 +152,11 @@ Locate the components for installing the rail kit assembly:
 
 ## Cable the device
 
-Route the cables and then cable your device. The following procedures explain how to cable your Azure Stack Edge device for power and network.
+Route the cables and then cable your device. The following procedures explain how to cable your Azure Stack Edge Pro device for power and network.
 
 Before you start cabling your device, you need the following:
 
-- Your Azure Stack Edge physical device, unpacked, and rack mounted.
+- Your Azure Stack Edge Pro physical device, unpacked, and rack mounted.
 - Two power cables.
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
@@ -166,9 +166,9 @@ Before you start cabling your device, you need the following:
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 25/10-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
-> - The Azure Stack Edge device should be connected to the datacenter network so that it can ingest data from data source servers.
+> - The Azure Stack Edge Pro device should be connected to the datacenter network so that it can ingest data from data source servers.
 
-On your Azure Stack Edge device:
+On your Azure Stack Edge Pro device:
 
 - The front panel has disk drives and a power button.
 
@@ -202,11 +202,11 @@ Take the following steps to cable your device for power and network.
 
     - Device with 3 PCI slots and one GPU
 
-        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Device with 3 PCI slots and two GPU
 
-        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Locate the disk slots and the power button on the front of the device.
 
@@ -227,7 +227,7 @@ Take the following steps to cable your device for power and network.
 
 ## Next steps
 
-In this tutorial, you learned about Azure Stack Edge topics such as how to:
+In this tutorial, you learned about Azure Stack Edge Pro topics such as how to:
 
 > [!div class="checklist"]
 > * Unpack the device
@@ -237,4 +237,4 @@ In this tutorial, you learned about Azure Stack Edge topics such as how to:
 Advance to the next tutorial to learn how to connect to your device.
 
 > [!div class="nextstepaction"]
-> [Connect Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)
+> [Connect Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-connect.md)

@@ -101,7 +101,7 @@ You're given points for configuring recommended security features or performing 
 
 To see your score history, head over to the [Microsoft 365 security center](https://security.microsoft.com/) and review your overall Microsoft secure score. You can review changes to your overall secure score be clicking on View History. Choose a specific date to see which controls were enabled for that day and what points you earned for each one.
 
-### How does the identity secure score relate to the Office 365 secure score?
+### How does the identity secure score relate to the Microsoft 365 secure score?
 
 The [Microsoft secure score](/office365/securitycompliance/microsoft-secure-score) contains five distinct control and score categories:
 

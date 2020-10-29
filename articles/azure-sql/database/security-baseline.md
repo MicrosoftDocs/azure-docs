@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure SQL Database and Azure SQL Manage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -15,13 +15,13 @@ ms.custom: subject-security-benchmark
 
 The Azure Security Baseline for Azure SQL Database contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security Control: Network Security](../../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -196,7 +196,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -282,15 +282,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### 2.7: Enable alerts for anomalous activity
 
-**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Database for monitoring and alerting on anomalous activity. Enable Advanced Data Security for your SQL Databases. Advanced Data Security includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
+**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Database for monitoring and alerting on anomalous activity. Enable Azure Defender for SQL for your SQL Databases. Azure Defender for SQL includes functionality for surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
 
 Understand Advanced Threat Protection and alerting for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-How to enable Advanced Data Security for Azure SQL Database:
+How to enable Azure Defender for SQL for Azure SQL Database:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 How to manage alerts in Azure Security Center:
 
@@ -326,11 +326,11 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ## Identity and Access Control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security Control: Identity and Access Control](../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Azure Active Directory (AAD) has built-in roles that must be explicitly assigned and are queryable. Use the AAD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
 How to get a directory role in Azure AD with PowerShell:
 
@@ -378,7 +378,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
-**Guidance**: Enable Azure Active Directory (AAD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Enable Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
 How to enable MFA in Azure:
 
@@ -442,13 +442,13 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Create an Azure Active Directory (AAD) administrator for your server.
+**Guidance**: Create an Azure Active Directory (Azure AD) administrator for your server.
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-How to create and configure an AAD instance:
+How to create and configure an Azure AD instance:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -458,7 +458,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure Active Directory (AAD) provides logs to help discover stale accounts. In addition, use Azure Identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Users' access can be reviewed on a regular basis to make sure only the right users have continued access.
+**Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Users' access can be reviewed on a regular basis to make sure only the right users have continued access.
 
 How to use Azure Identity Access Reviews:
 
@@ -470,7 +470,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### 3.11: Monitor attempts to access deactivated accounts
 
-**Guidance**: Configure Azure Active Directory (AAD) authentication with Azure SQL and create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within Log Analytics workspace.
+**Guidance**: Configure Azure Active Directory (Azure AD) authentication with Azure SQL and create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within Log Analytics workspace.
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
@@ -486,7 +486,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### 3.12: Alert on account login behavior deviation
 
-**Guidance**: Use Azure Active Directory (AAD) Identity Protection and risk detections to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure Active Directory (Azure AD) Identity Protection and risk detections to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
 
 How to view Azure AD risk sign-ins:
 
@@ -514,7 +514,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 ## Data Protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security Control: Data Protection](../../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -596,7 +596,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (AAD) for authenticating and controlling access to Azure SQL Database instances.
+**Guidance**: Use Azure Active Directory (Azure AD) for authenticating and controlling access to Azure SQL Database instances.
 
 How to integrate Azure SQL Database with Azure Active Directory for authentication:
 
@@ -648,19 +648,19 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Vulnerability Management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security Control: Vulnerability Management](../../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your servers.
+**Guidance**: Enable Azure Defender for SQL for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your servers.
 
 How to run vulnerability assessments on Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-How to enable Advanced Data Security:
+How to enable Azure Defender for SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 How to implement Azure Security Center vulnerability assessment recommendations:
 
@@ -712,7 +712,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 ## Inventory and Asset Management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security Control: Inventory and Asset Management](../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -867,7 +867,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 ## Secure Configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security Control: Secure Configuration](../../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -991,7 +991,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (AAD). Managed Identities allows you to authenticate to any service that supports AAD authentication, including Azure Key Vault, without any credentials in your code.
+**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
 
 Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL:
 
@@ -1018,7 +1018,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## Malware Defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security Control: Malware Defense](../../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1050,7 +1050,7 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines: 
 
 ## Data Recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security Control: Data Recovery](../../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1114,7 +1114,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## Incident Response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security Control: Incident Response](../../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1193,7 +1193,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1210,5 +1210,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../../security/benchmarks/security-baselines-overview.md)

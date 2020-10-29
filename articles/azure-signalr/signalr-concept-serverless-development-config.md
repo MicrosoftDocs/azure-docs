@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Azure Functions development and configuration with Azure SignalR Service
@@ -193,9 +193,9 @@ By convention, the SDK automatically appends `/negotiate` to the URL and uses it
 
 For more information on how to use the SignalR client SDK, refer to the documentation for your language:
 
-* [.NET Standard](https://docs.microsoft.com/aspnet/core/signalr/dotnet-client)
-* [JavaScript](https://docs.microsoft.com/aspnet/core/signalr/javascript-client)
-* [Java](https://docs.microsoft.com/aspnet/core/signalr/java-client)
+* [.NET Standard](/aspnet/core/signalr/dotnet-client)
+* [JavaScript](/aspnet/core/signalr/javascript-client)
+* [Java](/aspnet/core/signalr/java-client)
 
 ### Sending messages from a client to the service
 

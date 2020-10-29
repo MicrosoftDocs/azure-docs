@@ -31,7 +31,7 @@ Because SAC is limited to an 80x24 screen buffer with no scroll back, add `| mor
 
 Because of SAC's limited screen buffer, longer commands may be easier to type out in a local text editor and then pasted into SAC.
 
-## View and Edit Windows Registry Settings
+## View and Edit Windows Registry Settings using CMD
 ### Verify RDP is enabled
 `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections`
 
@@ -46,7 +46,7 @@ The second key (under \Policies) will only exist if the relevant group policy se
 
 The second key (under \Policies) would only be needed if the relevant group policy setting had been configured. Value will be rewritten at next group policy refresh if it is configured in group policy.
 
-## Manage Windows Services
+## Manage Windows Services using CMD
 
 ### View service state
 `sc query termservice`
@@ -76,7 +76,7 @@ or
 or
 
 `sc stop termservice`
-## Manage Networking Features
+## Manage Networking Features using CMD
 ### Show NIC properties
 `netsh interface show interface`
 ### Show IP properties
@@ -117,7 +117,7 @@ When limited to methods available in Windows by default, PowerShell can be a bet
 You can use this command when troubleshooting to temporarily rule out the Windows Firewall. It will be enable on next restart or when you enable it using the command below. Do not stop the Windows Firewall service (MPSSVC) or Base Filtering Engine (BFE) service as way to rule out the Windows Firewall. Stopping MPSSVC or BFE will result in all connectivity being blocked.
 ### Enable Windows Firewall
 `netsh advfirewall set allprofiles state on`
-## Manage Users and Groups
+## Manage Users and Groups using CMD
 ### Create local user account
 `net user /add <username> <password>`
 ### Add local user to local group
@@ -147,7 +147,7 @@ Example lines of interest from a local admin account:
 
 ### View local groups
 `net localgroup`
-## Manage the Windows Event Log
+## Manage the Windows Event Log using CMD
 ### Query event log errors
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
@@ -162,7 +162,7 @@ Change `/c:10` to the desired number of events to return, or move it to return a
 Use `604800000` to look back 7 days instead of 24 hours.
 ### Query event log by Event ID, Provider, and EventData in the last 7 days
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## View or Remove Installed Applications
+## View or Remove Installed Applications using CMD
 ### List installed applications
 `wmic product get Name,InstallDate | sort /r | more`
 
@@ -172,7 +172,7 @@ The `sort /r` sorts descending by install date to make it easy to see what was r
 
 Replace `<name>` with the name returned in the above command for the application you want to remove.
 
-## File System Management
+## File System Management using CMD
 ### Get file version
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
@@ -203,7 +203,7 @@ The path when using `/restore` needs to be the parent folder of the folder you s
 ## Manage Group Policy
 ### Force group policy update
 `gpupdate /force /wait:-1`
-## Miscellaneous Tasks
+## Miscellaneous Tasks using CMD
 ### Show OS version
 `ver`
 
@@ -256,7 +256,7 @@ If the above command returns the PSReadLine module version, run the following co
 
 `remove-module psreadline`
 
-## View and Edit Windows Registry Settings
+## View and Edit Windows Registry Settings using PowerShell
 ### Verify RDP is enabled
 `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`
 
@@ -269,7 +269,7 @@ The second key (under \Policies) will only exist if the relevant group policy se
 `set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword`
 
 The second key (under \Policies) would only be needed if the relevant group policy setting had been configured. Value will be rewritten at next group policy refresh if it is configured in group policy.
-## Manage Windows Services
+## Manage Windows Services using PowerShell
 ### View service details
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
@@ -288,7 +288,7 @@ When using a service account other than `NT AUTHORITY\LocalService`, `NT AUTHORI
 `start-service termservice`
 ### Stop service
 `stop-service termservice`
-## Manage Networking Features
+## Manage Networking Features using PowerShell
 ### Show NIC properties
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
@@ -354,7 +354,7 @@ or
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
 `Set-NetFirewallProfile` is available on 2012+. For 2008R2 use `netsh advfirewall` as referenced in the CMD section above.
-## Manage Users and Groups
+## Manage Users and Groups using PowerShell
 ### Create local user account
 `new-localuser <name>`
 ### Verify user account is enabled
@@ -383,7 +383,7 @@ or
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`.
-## Manage the Windows Event Log
+## Manage the Windows Event Log using PowerShell
 ### Query event log errors
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
@@ -398,12 +398,12 @@ Change `/c:10` to the desired number of events to return, or move it to return a
 Use `604800000` to look back 7 days instead of 24 hours. |
 ### Query event log by Event ID, Provider, and EventData in the last 7 days
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## View or Remove Installed Applications
+## View or Remove Installed Applications using PowerShell
 ### List installed software
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### Uninstall software
 `(get-wmiobject win32_product -filter "Name='<name>'").Uninstall()`
-## File System Management
+## File System Management using PowerShell
 ### Get file version
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
@@ -412,7 +412,7 @@ This example returns the file version of the virtual NIC driver, which is named 
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
 This example creates a `c:\bin` folder, then downloads and extracts the Sysinternals suite of tools into `c:\bin`.
-## Miscellaneous Tasks
+## Miscellaneous Tasks using PowerShell
 ### Show OS version
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### View OS install date

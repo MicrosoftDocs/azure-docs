@@ -123,11 +123,11 @@ You can also download the exported CSV file in the Azure portal. The following s
 
 You can view the run history of your scheduled export by selecting an individual export in the exports list page. The exports list page also provides you with quick access to view the run time of your previous exports and the next time and export will run. Here's an example showing the run history.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Example showing export run history":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Screenshot shows the Exports pane.":::
 
 Select an export to view its run history.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Example showing export run history":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Screenshot shows the run history of an export.":::
 
 ## Access exported data from other systems
 
