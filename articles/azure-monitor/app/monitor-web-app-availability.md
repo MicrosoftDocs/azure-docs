@@ -98,24 +98,24 @@ The following population tags can be used for the geo-location attribute when de
 
 #### Azure
 
-| Display Name                            | Population Name   |
-|-----------------------------------------|-------------------|
-| Australia East                          | emea-au-syd-edge  |
-| Brazil South                            | latam-br-gru-edge |
-| Central US                              | us-fl-mia-edge    |
-| East Asia                               | apac-hk-hkn-azr   |
-| East US                                 | us-va-ash-azr     |
-| France Central ( Formerly France South) | emea-ch-zrh-edge  |
-| France Central                          | emea-fr-pra-edge  |
-| Japan East                              | apac-jp-kaw-edge  |
-| North Europe                            | emea-gb-db3-azr   |
-| North Central US                        | us-il-ch1-azr     |
-| South Central US                        | us-tx-sn1-azr     |
-| Southeast Asia                          | apac-sg-sin-azr   |
-| UK West                                 | emea-se-sto-edge  |
-| West Europe                             | emea-nl-ams-azr   |
-| West US                                 | us-ca-sjc-azr     |
-| UK South                                | emea-ru-msa-edge  |
+| Display Name                           | Population Name   |
+|----------------------------------------|-------------------|
+| Australia East                         | emea-au-syd-edge  |
+| Brazil South                           | latam-br-gru-edge |
+| Central US                             | us-fl-mia-edge    |
+| East Asia                              | apac-hk-hkn-azr   |
+| East US                                | us-va-ash-azr     |
+| France South (Formerly France Central) | emea-ch-zrh-edge  |
+| France Central                         | emea-fr-pra-edge  |
+| Japan East                             | apac-jp-kaw-edge  |
+| North Europe                           | emea-gb-db3-azr   |
+| North Central US                       | us-il-ch1-azr     |
+| South Central US                       | us-tx-sn1-azr     |
+| Southeast Asia                         | apac-sg-sin-azr   |
+| UK West                                | emea-se-sto-edge  |
+| West Europe                            | emea-nl-ams-azr   |
+| West US                                | us-ca-sjc-azr     |
+| UK South                               | emea-ru-msa-edge  |
 
 ## See your availability test results
 
