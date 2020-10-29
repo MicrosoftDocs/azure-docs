@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 10/27/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
@@ -78,7 +78,7 @@ A rule captures the filtering conditions and output parameters for inventory gen
 | Parameter name | Parameter type        | Notes | Required? |
 |----------------|-----------------------|-------|-----------|
 | destination    | String                | The destination container where all inventory files will be generated. The destination container must already exist. | Yes |
-| enabled        | Boolean               | Used to disable the entire policy. When set to true, the rule level enabled field will override this. When disabled, inventory for all rules will be disabled. | Yes |
+| enabled        | Boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field will override this. When disabled, inventory for all rules will be disabled. | Yes |
 | rules          | Array of rule objects | At least one rule is required in a policy. Up to 10 rules are supported. | Yes |
 
 Each rule within the policy has several parameters:
@@ -86,17 +86,17 @@ Each rule within the policy has several parameters:
 | Parameter name | Parameter type                 | Notes | Required? |
 |----------------|--------------------------------|-------|-----------|
 | name           | String                         | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
-| enabled        | Boolean                        | An optional flag to allow a rule to be temporarily disabled. The default value is true. | Yes |
+| enabled        | Boolean                        | An optional flag to allow a rule to be temporarily disabled. The default value is **true**. | Yes |
 | definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
 
 ## Rule filters
 
 | Filter name         | Filter type                     | Notes | Required? |
 |---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Array of predefined enum values | Valid values are blockBlob and appendBlob for hierarchical namespace enabled accounts, and blockBlob, appendBlob and pageBlob for other accounts. | Yes |
-| prefixMatch         | Array of up to 10 strings for prefixes to be matched. A prefix must start with a container name, for example, `container1/foo` | If you don't define prefixMatch or provide an empty prefix, the rule applies to all blobs within the storage account. | No |
-| includeSnapshots    | Boolean                         | Specifies whether the inventory should include snapshots. Default is false. | No |
-| includeBlobVersions | Boolean                         | Specifies whether the inventory should include blob versions. Default is false. | No |
+| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob` and `pageBlob` for other accounts. | Yes |
+| prefixMatch         | Array of up to 10 strings for prefixes to be matched. A prefix must start with a container name, for example, "container1/foo" | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. | No |
+| includeSnapshots    | Boolean                         | Specifies whether the inventory should include snapshots. Default is **false**. | No |
+| includeBlobVersions | Boolean                         | Specifies whether the inventory should include blob versions. Default is **false**. | No |
 
 ```json
 {
