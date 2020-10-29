@@ -138,6 +138,7 @@ For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernete
 | 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA | 
+
 \* Due to the holiday season AKS is extending the life of 1.16 from November 2020 until January 2021. Read more [here](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
 ## FAQ
