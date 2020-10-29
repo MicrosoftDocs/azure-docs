@@ -24,10 +24,10 @@ Edv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max cached and temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2|2000 |
@@ -39,6 +39,8 @@ Edv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 
+<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+
 ## Edsv4-series
 
 Edsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors. The Edsv4 virtual machine sizes feature up to 504 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
@@ -48,10 +50,10 @@ Edsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2|1000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |

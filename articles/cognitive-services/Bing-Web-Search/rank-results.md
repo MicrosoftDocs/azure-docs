@@ -15,6 +15,11 @@ ms.author: scottwhi
 
 # How to use ranking to display Bing Web Search API results  
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Each search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) answer, that specifies how you must display the search results. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
 
 Within each group (mainline or sidebar), the [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides the following two ways to identify the result within an answer.  
