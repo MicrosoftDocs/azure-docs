@@ -9,7 +9,7 @@ ms.author: keferna
 ms.date: 11/06/2020
 ---
 
-# Detailed configuration for a hosted test drive
+# Detailed configuration for hosted test drives
 
 This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement or Dynamics 365 for Operations.
 
@@ -60,7 +60,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
 
-    :::image type="content" source="./media/test-drive/enable-test-drive-check-box-operations.png" alt-text="Selecting the 'Enable a test drive' check box.":::
+    :::image type="content" source="./media/test-drive/enable-test-drive-check-box-operations.png" alt-text="Select the 'Enable a test drive' check box.":::
 
     - **Type of test drive** – Choose **Dynamics 365 for Operations** option. This means Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
