@@ -21,11 +21,8 @@ With pronunciation assessment, language learners can practice, get instant feedb
 
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
-> [!IMPORTANT]
-> This feature is only available for the speech SDK with C#, C++, Java, Python and Objective-C.
-
 > [!NOTE]
-> The pronunciation assessment feature is currently only available on `westus`, `eastasia` and `centralindia` regions. And this feature is currently only available on `en-US` language.
+> The pronunciation assessment feature is currently only available in regions `westus`, `eastasia` and `centralindia`, and only supports language `en-US`.
 
 ## Pronunciation assessment with the Speech SDK
 
