@@ -28,7 +28,7 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
 
 ## Deny public network access
 
-When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No** (default), customers can connect by using either public endpoints (with IP-based firewall rules or with VNET-based firewall rules) or private endpoints (by using Private Link), as outlined in the [network access overview](network-access-controls-overview.md). 
+When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. When this setting is **No** (default), customers can connect by using either public endpoints (with IP-based firewall rules or with VNET-based firewall rules) or private endpoints (by using Private Link), as outlined in the [network access overview](network-access-controls-overview.md). 
 
  ![Diagram showing connectivity with Deny public network access.][2]
 
@@ -102,7 +102,7 @@ The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/
 Currently, we support TLS 1.0, 1.1, and 1.2. Setting a Minimal TLS Version ensures that newer TLS versions are supported. For example, choosing a TLS version greater than 1.1 means only connections with TLS 1.1 and 1.2 are accepted, and connections with TLS 1.0 are rejected. After testing to confirm that your applications support it, we recommend setting the Minimal TLS Version to 1.2 because it includes fixes for vulnerabilities in previous versions and is the highest version of TLS that's supported in Azure SQL Database.
 
 > [!IMPORTANT]
-> The default for the Minimal TLS Version is to allow all versions. However, once you enforce a version of TLS, it's not possible to revert to the default.
+> The default for the Minimal TLS Version is to allow all versions. Once you enforce a version of TLS, it's not possible to revert to the default.
 
 For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version according to the requirements of your applications. For customers that rely on applications to connect by using an unencrypted connection, we recommend not setting any Minimal TLS Version.
 
