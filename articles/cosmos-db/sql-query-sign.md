@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # SIGN (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.  
   
 ## Syntax

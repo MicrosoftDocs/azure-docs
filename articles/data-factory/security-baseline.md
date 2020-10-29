@@ -686,9 +686,9 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), fo
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -700,9 +700,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), you may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Azure Security Center monitoring**: Currently not available
 

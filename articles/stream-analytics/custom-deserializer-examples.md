@@ -196,7 +196,7 @@ namespace ExampleCustomCode.Serialization
 
 ## Serialization format for REST APIs
 
-Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) documentation.
+Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) documentation.
 
 The following Javascript code is an example of the .NET deserializer serialization format when using the REST API:
 

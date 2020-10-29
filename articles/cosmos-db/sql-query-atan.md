@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ATAN (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.  
   
 ## Syntax
