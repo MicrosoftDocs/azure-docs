@@ -14,40 +14,36 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  - name: Get Started
-    items:
-    - name: Introduction
-      href: get-started.md
-      displayName: get, started
-    - name: 1 Create a Synapse workspace
-      href: get-started-create-workspace.md
-      displayName: get, started
-    - name: 2 Analyze using a SQL Pool
-      href: get-started-analyze-sql-pool.md
-      displayName: get, started
-    - name: 3 Analyze using Spark
-      href: get-started-analyze-spark.md
-      displayName: get, started
-    - name: 4 Analyze using SQL on-demand
-      href: get-started-analyze-sql-on-demand.md
-      displayName: get, started
-    - name: 5 Analyze data in a storage account
-      href: get-started-analyze-storage.md
-      displayName: get, started
-    - name: 6 Integrate with pipelines
-      href: get-started-pipelines.md
-      displayName: get, started
-    - name: 7 Visualize with Power BI
-      href: get-started-visualize-power-bi.md
-      displayName: get, started
-    - name: 8 Monitor
-      href: get-started-monitor.md
-      displayName: get, started
-    - name: 9 Explore the Knowledge Center
-      href: get-started-knowledge-center.md
-      displayName: get, started
-- name: Samples
-  href: https://github.com/Azure-Samples/Synapse
+  - name: Introduction
+    href: get-started.md
+    displayName: get, started
+  - name: 1 Create a Synapse workspace
+    href: get-started-create-workspace.md
+    displayName: get, started
+  - name: 2 Analyze using a SQL Pool
+    href: get-started-analyze-sql-pool.md
+    displayName: get, started
+  - name: 3 Analyze using Spark
+    href: get-started-analyze-spark.md
+    displayName: get, started
+  - name: 4 Analyze using SQL on-demand
+    href: get-started-analyze-sql-on-demand.md
+    displayName: get, started
+  - name: 5 Analyze data in a storage account
+    href: get-started-analyze-storage.md
+    displayName: get, started
+  - name: 6 Integrate with pipelines
+    href: get-started-pipelines.md
+    displayName: get, started
+  - name: 7 Visualize with Power BI
+    href: get-started-visualize-power-bi.md
+    displayName: get, started
+  - name: 8 Monitor
+    href: get-started-monitor.md
+    displayName: get, started
+  - name: 9 Explore the Knowledge Center
+    href: get-started-knowledge-center.md
+    displayName: get, started
 - name: Workspace
   items:
   # - name: Overview
@@ -463,10 +459,6 @@
         href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
       - name: .NET for Apache Spark
         href: ./spark/spark-dotnet.md
-      - name: Apache Spark machine learning
-        items:
-        - name: Create an Apache Spark machine learning pipeline
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Monitoring
       items:
       - name: Spark pool history server
@@ -968,6 +960,8 @@
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
     - name: Run a regression experiment using Azure AutoML
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+    - name: Create an Apache Spark machine learning pipeline
+      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -982,6 +976,8 @@
     href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
     href: /rest/api/synapse/
+  - name: Samples
+    href: https://github.com/Azure-Samples/Synapse
   - name: System views
     href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: T-SQL
