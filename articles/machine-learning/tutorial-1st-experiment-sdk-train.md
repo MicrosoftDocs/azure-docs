@@ -165,6 +165,8 @@ dependencies:
     - python=3.6.2
     - pytorch
     - torchvision
+    - pip
+        - azureml-sdk
 ```
 
 This environment has all the dependencies that your model and training script require. Notice there's no dependency on the Azure Machine Learning SDK for Python.
