@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 
-# Set up a development environment with Azure Databricks for Azure Machine Learning and autoML
+# Set up a development environment with Azure Databricks and autoML for Azure Machine Learning 
 
 Learn how to configure a development environment for Azure Machine Learning that uses Azure Databricks and automated ML.
 
