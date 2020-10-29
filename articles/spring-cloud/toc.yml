@@ -39,8 +39,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Provision an Azure Spring Cloud instance with terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
-    - name: CI/CD with Jenkins
-      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Use managed identity to connect Key Vault to Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Deploy Azure Spring Cloud in virtual network
