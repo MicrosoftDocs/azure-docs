@@ -11,29 +11,35 @@ ms.custom: include file
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
+> [!NOTE]
+> The below examples are for use with Azure Functions V2 or V3. If using Azure Functions V1, the "durableTask" section of the host.json should go in the root, rather than as a field under "extensions".
+
+
 ### Durable Functions 1.x
 
 ```json
 {
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+  "extensions" {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+  }
   }
 }
 ```
