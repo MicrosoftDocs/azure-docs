@@ -180,4 +180,4 @@ To get started building a retail solution:
 * [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
 * [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
 * [Deploy and walk through the video analytics application template](./tutorial-video-analytics-deploy.md).
-* Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).
+* Learn more about IoT Central in the [IoT Central overview](../core/overview-iot-central.md).

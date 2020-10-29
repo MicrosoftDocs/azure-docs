@@ -285,49 +285,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Allows you to write to the streaming function logs at the default trace level. On `context.log`, additional logging methods are available that let you write function logs at other trace levels:
+Allows you to write to the streaming function logs at the default trace level, with other logging levels available. Trace logging is described in detail in the next section. 
 
+## Write trace output to logs
 
-| Method                 | Description                                |
-| ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Writes to error level logging, or lower.   |
-| **warn(_message_)**    | Writes to warning level logging, or lower. |
-| **info(_message_)**    | Writes to info level logging, or lower.    |
-| **verbose(_message_)** | Writes to verbose level logging.           |
+In Functions, you use the `context.log` methods to write trace output to the logs and the console. When you call `context.log()`, your message is written to the logs at the default trace level, which is the _info_ trace level. Functions integrates with Azure Application Insights to better capture your function app logs. Application Insights, part of Azure Monitor, provides facilities for collection, visual rendering, and analysis of both application telemetry and your trace outputs. To learn more, see [monitoring Azure Functions](functions-monitoring.md).
 
-The following example writes a log at the warning trace level:
+The following example writes a log at the info trace level, including the invocation ID:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-You can [configure the trace-level threshold for logging](#configure-the-trace-level-for-console-logging) in the host.json file. For more information on writing logs, see [writing trace outputs](#writing-trace-output-to-the-console) below.
-
-Read [monitoring Azure Functions](functions-monitoring.md) to learn more about viewing and querying function logs.
-
-## Writing trace output to the console 
-
-In Functions, you use the `context.log` methods to write trace output to the console. In Functions v2.x, trace outputs using `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation and aren't displayed in a specific function's logs. They do, however, propagate to Application Insights. In Functions v1.x, you cannot use `console.log` to write to the console.
-
-When you call `context.log()`, your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-This code is equivalent to the code above:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-This code writes to the console at the error level:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Because _error_ is the highest trace level, this trace is written to the output at all trace levels as long as logging is enabled.
 
 All `context.log` methods support the same parameter format that's supported by the Node.js [util.format method](https://nodejs.org/api/util.html#util_util_format_format). Consider the following code, which writes function logs by using the default trace level:
 
@@ -343,9 +311,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### Configure the trace level for console logging
+> [!NOTE]  
+> Don't use `console.log` to write trace outputs. Because output from `console.log` is captured at the function app level, it's not tied to a specific function invocation and isn't displayed in a specific function's logs. Also, version 1.x of the Functions runtime doesn't support using `console.log` to write to the console.
 
-Functions 1.x lets you define the threshold trace level for writing to the console, which makes it easy to control the way traces are written to the console from your function. To set the threshold for all traces written to the console, use the `tracing.consoleLevel` property in the host.json file. This setting applies to all functions in your function app. The following example sets the trace threshold to enable verbose logging:
+### Trace levels
+
+In addition to the default level, the following logging methods are available that let you write function logs at specific trace levels.
+
+| Method                 | Description                                |
+| ---------------------- | ------------------------------------------ |
+| **error(_message_)**   | Writes an error-level event to the logs.   |
+| **warn(_message_)**    | Writes a warning-level event to the logs. |
+| **info(_message_)**    | Writes to info level logging, or lower.    |
+| **verbose(_message_)** | Writes to verbose level logging.           |
+
+The following example writes the same log at the warning trace level, instead of the info level:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Because _error_ is the highest trace level, this trace is written to the output at all trace levels as long as logging is enabled.
+
+### Configure the trace level for logging
+
+Functions lets you define the threshold trace level for writing to the logs or the console. The specific threshold settings depend on your version of the Functions runtime.
+
+# [v2.x+](#tab/v2)
+
+To set the threshold for traces written to the logs, use the `logging.logLevel` property in the host.json file. This JSON object lets you define a default threshold for all functions in your function app, plus you can define specific thresholds for individual functions. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+
+# [v1.x](#tab/v1)
+
+To set the threshold for all traces written to logs and the console, use the `tracing.consoleLevel` property in the host.json file. This setting applies to all functions in your function app. The following example sets the trace threshold to enable verbose logging:
 
 ```json
 {
@@ -355,7 +353,65 @@ Functions 1.x lets you define the threshold trace level for writing to the conso
 }  
 ```
 
-Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information, see [host.json reference](functions-host-json-v1.md).
+Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information, see [host.json v1.x reference](functions-host-json-v1.md).
+
+---
+
+### Log custom telemetry
+
+By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom telemetry data to your Application Insights instance. 
+
+# [v2.x+](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# [v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+The `tagOverrides` parameter sets the `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically generated and custom telemetry for a given function invocation.
 
 ## HTTP triggers and bindings
 

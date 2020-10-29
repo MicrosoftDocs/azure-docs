@@ -23,10 +23,10 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 - [Azure Active Directory](/azure/active-directory) (Azure AD) services began this transition on July 7, 2020.
 - All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
-- Existing Azure endpoints will transition in a phased manner beginning August 13, 2020 and completing by October 26, 2020.
+- Existing Azure endpoints will transition in a phased manner beginning August 13, 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](/azure/iot-dps/) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](/azure/storage) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
+- [Azure Cache for Redis](/azure/azure-cache-for-redis) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services.
 
@@ -47,7 +47,7 @@ TLS certificates used by Azure services will chain up to one of the following Ro
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
+| [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5 |
 
 ## When can I retire the old intermediate thumbprint?
 
@@ -82,6 +82,7 @@ Here are some ways to detect if your application is impacted:
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
+    - http://www&#46;microsoft&#46;com/pkiops
 
 ## Next steps
 

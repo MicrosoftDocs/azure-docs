@@ -56,4 +56,4 @@ To stop a job using Azure SDK for .NET, use the [StreamingJobsOperationsExtensio
 
 ## Stop or delete a job using REST API
 
-To stop a job using REST API, refer to the [Stop](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop) method. To delete a job using REST API, refer to the [Delete](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete) method.
+To stop a job using REST API, refer to the [Stop](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) method. To delete a job using REST API, refer to the [Delete](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) method.

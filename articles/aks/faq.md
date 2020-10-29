@@ -91,6 +91,9 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 Currently, you can't modify the list of admission controllers in AKS.
 
@@ -104,6 +107,8 @@ namespaceSelector:
     - key: control-plane
       operator: DoesNotExist
 ```
+
+AKS firewalls the API server egress so you're admission controller webhooks need to be accessible from within the cluster.
 
 ## Can admission controller webhooks impact kube-system and internal AKS namespaces?
 
@@ -189,11 +194,18 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 
 ## Can I use custom VM extensions?
 
-No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+The Log Analytics agent is supported because it's an extension managed by Microsoft. Otherwise no, AKS is a managed service, and manipulation of the IaaS resources isn't supported. To install custom components, etc., use the Kubernetes APIs and mechanisms. For example, use DaemonSets to install required components.
 
 ## Does AKS store any customer data outside of the cluster's region?
 
 The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
+
+## Are AKS images required to run as root?
+
+Except for the following two images, AKS images are not required to run as root:
+
+- *mcr.microsoft.com/oss/kubernetes/coredns*
+- *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
 <!-- LINKS - internal -->
 

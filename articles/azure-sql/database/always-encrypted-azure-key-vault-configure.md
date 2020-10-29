@@ -19,15 +19,15 @@ ms.date: 04/23/2020
 
 This article shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 
-Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 After you configure the database to use Always Encrypted, you will create a client application in C# with Visual Studio to work with the encrypted data.
 
 Follow the steps in this article and learn how to set up Always Encrypted for your database in Azure SQL Database or SQL Managed Instance. In this article you will learn how to perform the following tasks:
 
-- Use the Always Encrypted wizard in SSMS to create [Always Encrypted keys](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
-  - Create a [column master key (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
-  - Create a [column encryption key (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
+- Use the Always Encrypted wizard in SSMS to create [Always Encrypted keys](/sql/relational-databases/security/encryption/always-encrypted-database-engine#Anchor_3).
+  - Create a [column master key (CMK)](/sql/t-sql/statements/create-column-master-key-transact-sql).
+  - Create a [column encryption key (CEK)](/sql/t-sql/statements/create-column-encryption-key-transact-sql).
 - Create a database table and encrypt columns.
 - Create an application that inserts, selects, and displays data from the encrypted columns.
 
@@ -36,8 +36,8 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 
 - An Azure account and subscription. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - A database in [Azure SQL Database](single-database-create-quickstart.md) or [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) version 13.0.700.242 or later.
+- [.NET Framework 4.6](/dotnet/framework/) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 - [Azure PowerShell](/powershell/azure/) or [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -143,13 +143,13 @@ SSMS provides a wizard that helps you easily configure Always Encrypted by setti
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![Encrypt columns](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Screenshot that highlights the Encrypt Columns... menu option.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration**, **Validation**, and **Summary**.
 
 ### Column Selection
 
-Click **Next** on the **Introduction** page to open the **Column Selection** page. On this page, you will select which columns you want to encrypt, [the type of encryption, and what column encryption key (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) to use.
+Click **Next** on the **Introduction** page to open the **Column Selection** page. On this page, you will select which columns you want to encrypt, [the type of encryption, and what column encryption key (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) to use.
 
 Encrypt **SSN** and **BirthDate** information for each patient. The SSN column will use deterministic encryption, which supports equality lookups, joins, and group by. The BirthDate column will use randomized encryption, which does not support operations.
 
@@ -194,7 +194,7 @@ You can verify the creation of the keys in SSMS by expanding **Clinic** > **Secu
 Now that Always Encrypted is set up, you can build an application that performs *inserts* and *selects* on the encrypted columns.  
 
 > [!IMPORTANT]
-> Your application must use [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) objects when passing plaintext data to the server with Always Encrypted columns. Passing literal values without using SqlParameter objects will result in an exception.
+> Your application must use [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) objects when passing plaintext data to the server with Always Encrypted columns. Passing literal values without using SqlParameter objects will result in an exception.
 
 1. Open Visual Studio and create a new C# **Console Application** (Visual Studio 2015 and earlier) or **Console App (.NET Framework)** (Visual Studio 2017 and later). Make sure your project is set to **.NET Framework 4.6** or later.
 2. Name the project **AlwaysEncryptedConsoleAKVApp** and click **OK**.
@@ -213,7 +213,7 @@ This section explains how to enable Always Encrypted in your database connection
 
 To enable Always Encrypted, you need to add the **Column Encryption Setting** keyword to your connection string and set it to **Enabled**.
 
-You can set this directly in the connection string, or you can set it by using [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). The sample application in the next section shows how to use **SqlConnectionStringBuilder**.
+You can set this directly in the connection string, or you can set it by using [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder). The sample application in the next section shows how to use **SqlConnectionStringBuilder**.
 
 ### Enable Always Encrypted in the connection string
 
@@ -223,7 +223,7 @@ Add the following keyword to your connection string.
 
 ### Enable Always Encrypted with SqlConnectionStringBuilder
 
-The following code shows how to enable Always Encrypted by setting [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
+The following code shows how to enable Always Encrypted by setting [SqlConnectionStringBuilder.ColumnEncryptionSetting](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting) to [Enabled](/dotnet/api/system.data.sqlclient.sqlconnectioncolumnencryptionsetting).
 
 ```csharp
 // Instantiate a SqlConnectionStringBuilder.
@@ -568,9 +568,9 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Screenshot that shows that the encrypted columns do not contain any plaintext data.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-To use SSMS to access the plaintext data, you first need to ensure that the user has proper permissions to the Azure Key Vault: *get*, *unwrapKey*, and *verify*. For detailed information, see [Create and Store Column Master Keys (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
+To use SSMS to access the plaintext data, you first need to ensure that the user has proper permissions to the Azure Key Vault: *get*, *unwrapKey*, and *verify*. For detailed information, see [Create and Store Column Master Keys (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Then add the *Column Encryption Setting=enabled* parameter during your connection.
 
@@ -578,7 +578,7 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window and click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-    ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Screenshot that shows the Additional Correction Parameters tab.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Run the following query on the Clinic database.
 
@@ -594,13 +594,13 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
 
 After your database is configured to use Always Encrypted, you may want to do the following:
 
-- [Rotate and clean up your keys](https://msdn.microsoft.com/library/mt607048.aspx).
-- [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
+- [Rotate and clean up your keys](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio).
+- [Migrate data that is already encrypted with Always Encrypted](/sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted).
 
 ## Related information
 
-- [Always Encrypted (client development)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx)
-- [SQL Server encryption](https://msdn.microsoft.com/library/bb510663.aspx)
-- [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Always Encrypted blog](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)
+- [Always Encrypted (client development)](/sql/relational-databases/security/encryption/always-encrypted-client-development)
+- [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
+- [SQL Server encryption](/sql/relational-databases/security/encryption/sql-server-encryption)
+- [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard)
+- [Always Encrypted blog](/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

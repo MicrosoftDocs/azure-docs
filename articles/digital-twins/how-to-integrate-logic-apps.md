@@ -40,17 +40,15 @@ You also need to complete the following items as part of prerequisite setup. The
 
 To connect an Azure Digital Twins instance to Logic Apps in this article, you'll need to have the **Azure Digital Twins instance** already set up. 
 
-First, set up an Azure Digital Twins instance and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
+First, **set up an Azure Digital Twins instance** and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md).
+* After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-In this tutorial, you will need several values from when you set up your instance. 
-If you need to gather these values again, use the links below to the corresponding sections in the setup article for finding them in the [Azure portal](https://portal.azure.com).
-* Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure AD app registration **_Application (client) ID_** ([find in portal](how-to-set-up-instance-portal.md#collect-important-values))
-* Azure AD app registration **_Directory (tenant) ID_** ([find in portal](how-to-set-up-instance-portal.md#collect-important-values))
+To authenticate the connector, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
+* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find in the Azure portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### Get app registration client secret
 
-You will also need to create a **_Client secret_** for your Azure AD app registration. To do this, navigate to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) page in the Azure portal (you can use this link or look for it in the portal search bar). Select your registration from the list to open its details. 
+You will also need to create a **_Client secret_** for your Azure AD app registration. To do this, navigate to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) page in the Azure portal (you can use this link or look for it in the portal search bar). Select your registration that you created in the previous section from the list, in order to open its details. 
 
 Hit *Certificates and secrets* from the registration's menu, and select *+ New client secret*.
 
@@ -68,7 +66,7 @@ Now, verify that the client secret is visible on the _Certificates & secrets_ pa
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
 
 You will need the **_Twin ID_** of a twin in your instance that you've created.
 
@@ -202,7 +200,7 @@ You may be asked to sign in with your Azure credentials to connect to the connec
 In the new *DigitalTwinsAdd* box, fill the fields as follows:
 * _id_: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
 * _twin_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
-* _api-version_: The latest API version. In the current public preview, this value is *2020-05-31-preview*
+* _api-version_: The latest API version. Currently, this value is *2020-10-31*.
 
 Hit *Save* in the Logic Apps Designer.
 
