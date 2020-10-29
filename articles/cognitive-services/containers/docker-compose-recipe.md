@@ -33,6 +33,7 @@ This procedure requires several tools that must be installed and run locally:
   * **Computer Vision** resource with F0 or Standard pricing tier only.
   * **Form Recognizer** resource with F0 or Standard pricing tier only.
   * **Cognitive Services** resource with the S0 pricing tier.
+* If you're using a gated preview container, You will need to complete the [online request form](https://aka.ms/csgate/) to use it.
 
 ## Docker Compose file
 
