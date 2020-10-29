@@ -55,9 +55,9 @@ For most metrics, all aggregation types are valid; however, for count metrics, t
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |C2D Messages Expired (preview)|C2DMessagesExpired|Count|Total|Number of expired cloud-to-device messages|None|
-|C2D message deliveries completed|c2d.commands.egress.<br>complete.success|Count|Total|Number of cloud-to-device message deliveries completed successfully by the device|None|
-|C2D messages abandoned|c2d.commands.egress.<br>abandon.success|Count|Total|Number of cloud-to-device messages abandoned by the device|None|
-|C2D messages rejected|c2d.commands.egress.<br>reject.success|Count|Total|Number of cloud-to-device messages rejected by the device|None|
+|C2D message deliveries completed|c2d.commands.egress.complete.success|Count|Total|Number of cloud-to-device message deliveries completed successfully by the device|None|
+|C2D messages abandoned|c2d.commands.egress.abandon.success|Count|Total|Number of cloud-to-device messages abandoned by the device|None|
+|C2D messages rejected|c2d.commands.egress.reject.success|Count|Total|Number of cloud-to-device messages rejected by the device|None|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -108,7 +108,7 @@ For *Total number of messages used*, only minimum, maximum, and average aggregat
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |Total devices (deprecated)|devices.totalDevices|Count|Total|Number of devices registered to your IoT hub|None|
-|Connected devices (deprecated) |devices.connectedDevices.<br>allProtocol|Count|Total|Number of devices connected to your IoT hub|None|
+|Connected devices (deprecated) |devices.connectedDevices.allProtocol|Count|Total|Number of devices connected to your IoT hub|None|
 |Total devices (preview)|totalDeviceCount|Count|Average|Number of devices registered to your IoT hub|None|
 |Connected devices (preview)|connectedDeviceCount|Count|Average|Number of devices connected to your IoT hub|None|
 
@@ -122,9 +122,9 @@ For *Total devices (preview)* and *Connected devices (preview)*, only minimum, m
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|Number of throttling errors|d2c.telemetry.ingress.<br>sendThrottle|Count|Total|Number of throttling errors due to device throughput throttles|None|
-|Telemetry message send attempts|d2c.telemetry.ingress.<br>allProtocol|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|None|
-|Telemetry messages sent|d2c.telemetry.ingress.<br>success|Count|Total|Number of device-to-cloud telemetry messages sent successfully to your IoT hub|None|
+|Number of throttling errors|d2c.telemetry.ingress.sendThrottle|Count|Total|Number of throttling errors due to device throughput throttles|None|
+|Telemetry message send attempts|d2c.telemetry.ingress.allProtocol|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|None|
+|Telemetry messages sent|d2c.telemetry.ingress.success|Count|Total|Number of device-to-cloud telemetry messages sent successfully to your IoT hub|None|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -156,13 +156,13 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 |---|---|---|---|---|---|
 |Completed jobs|jobs.completed|Count|Total|The count of all completed jobs.|None|
 |Failed calls to list jobs|jobs.listJobs.failure|Count|Total|The count of all failed calls to list jobs.|None|
-|Failed creations of method invocation jobs|jobs.createDirectMethodJob.<br>failure|Count|Total|The count of all failed creation of direct method invocation jobs.|None|
-|Failed creations of twin update jobs|jobs.createTwinUpdateJob.<br>failure|Count|Total|The count of all failed creation of twin update jobs.|None|
+|Failed creations of method invocation jobs|jobs.createDirectMethodJob.failure|Count|Total|The count of all failed creation of direct method invocation jobs.|None|
+|Failed creations of twin update jobs|jobs.createTwinUpdateJob.failure|Count|Total|The count of all failed creation of twin update jobs.|None|
 |Failed job cancellations|jobs.cancelJob.failure|Count|Total|The count of all failed calls to cancel a job.|None|
 |Failed job queries|jobs.queryJobs.failure|Count|Total|The count of all failed calls to query jobs.|None|
 |Failed jobs|jobs.failed|Count|Total|The count of all failed jobs.|None|
 |Successful calls to list jobs|jobs.listJobs.success|Count|Total|The count of all successful calls to list jobs.|None|
-|Successful creations of method invocation jobs|jobs.createDirectMethodJob.<br>success|Count|Total|The count of all successful creation of direct method invocation jobs.|None|
+|Successful creations of method invocation jobs|jobs.createDirectMethodJob.success|Count|Total|The count of all successful creation of direct method invocation jobs.|None|
 |Successful creations of twin update jobs|jobs.createTwinUpdateJob.<br>success|Count|Total|The count of all successful creation of twin update jobs.|None|
 |Successful job cancellations|jobs.cancelJob.success|Count|Total|The count of all successful calls to cancel a job.|None|
 |Successful job queries|jobs.queryJobs.success|Count|Total|The count of all successful calls to query jobs.|None|
@@ -176,23 +176,23 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 | Routing Delivery Attempts (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
 | Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 | Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
-|Routing: blobs delivered to storage|d2c.endpoints.egress.<br>storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
-|Routing: data delivered to storage|d2c.endpoints.egress.<br>storage.bytes|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
-|Routing: message latency for Event Hub|d2c.endpoints.latency.<br>eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
-|Routing: message latency for Service Bus Queue|d2c.endpoints.latency.<br>serviceBusQueues|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus queue endpoint.|None|
-|Routing: message latency for Service Bus Topic|d2c.endpoints.latency.<br>serviceBusTopics|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus topic endpoint.|None|
-|Routing: message latency for messages/events|d2c.endpoints.latency.<br>builtIn.events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into the built-in endpoint (messages/events) and fallback route.|None|
-|Routing: message latency for storage|d2c.endpoints.latency.<br>storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a storage endpoint.|None|
-|Routing: messages delivered to Event Hub|d2c.endpoints.egress.<br>eventHubs|Count|Total|The number of times IoT Hub routing successfully delivered messages to custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
-|Routing: messages delivered to Service Bus Queue|d2c.endpoints.egress.<br>serviceBusQueues|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus queue endpoints.|None|
-|Routing: messages delivered to Service Bus Topic|d2c.endpoints.egress.<br>serviceBusTopics|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|None|
-|Routing: messages delivered to fallback|d2c.telemetry.egress.<br>fallback|Count|Total|The number of times IoT Hub routing delivered messages to the endpoint associated with the fallback route.|None|
-|Routing: messages delivered to messages/events|d2c.endpoints.egress.<br>builtIn.events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events) and fallback route.|None|
-|Routing: messages delivered to storage|d2c.endpoints.egress.<br>storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|None|
-|Routing: telemetry messages delivered|d2c.telemetry.egress.<br>success|Count|Total|The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery.|None|
-|Routing: telemetry messages dropped |d2c.telemetry.egress.<br>dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|None|
-|Routing: telemetry messages incompatible|d2c.telemetry.egress.<br>invalid|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with a non-transient error. Invalid messages are not retried. This value does not include retries.|None|
-|Routing: telemetry messages orphaned |d2c.telemetry.egress.<br>orphaned|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing query, when fallback route is disabled.|None|
+|Routing: blobs delivered to storage|d2c.endpoints.egress.storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
+|Routing: data delivered to storage|d2c.endpoints.egress.storage.bytes|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
+|Routing: message latency for Event Hub|d2c.endpoints.latency.eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
+|Routing: message latency for Service Bus Queue|d2c.endpoints.latency.serviceBusQueues|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus queue endpoint.|None|
+|Routing: message latency for Service Bus Topic|d2c.endpoints.latency.serviceBusTopics|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus topic endpoint.|None|
+|Routing: message latency for messages/events|d2c.endpoints.latency.builtIn.events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into the built-in endpoint (messages/events) and fallback route.|None|
+|Routing: message latency for storage|d2c.endpoints.latency.storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a storage endpoint.|None|
+|Routing: messages delivered to Event Hub|d2c.endpoints.egress.eventHubs|Count|Total|The number of times IoT Hub routing successfully delivered messages to custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
+|Routing: messages delivered to Service Bus Queue|d2c.endpoints.egress.serviceBusQueues|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus queue endpoints.|None|
+|Routing: messages delivered to Service Bus Topic|d2c.endpoints.egress.serviceBusTopics|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|None|
+|Routing: messages delivered to fallback|d2c.telemetry.egress.fallback|Count|Total|The number of times IoT Hub routing delivered messages to the endpoint associated with the fallback route.|None|
+|Routing: messages delivered to messages/events|d2c.endpoints.egress.builtIn.events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events) and fallback route.|None|
+|Routing: messages delivered to storage|d2c.endpoints.egress.storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|None|
+|Routing: telemetry messages delivered|d2c.telemetry.egress.success|Count|Total|The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery.|None|
+|Routing: telemetry messages dropped |d2c.telemetry.egress.dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|None|
+|Routing: telemetry messages incompatible|d2c.telemetry.egress.invalid|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with a non-transient error. Invalid messages are not retried. This value does not include retries.|None|
+|Routing: telemetry messages orphaned |d2c.telemetry.egress.orphaned|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing query, when fallback route is disabled.|None|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
