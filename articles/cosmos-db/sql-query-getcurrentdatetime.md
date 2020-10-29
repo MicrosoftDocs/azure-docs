@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # GetCurrentDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
   

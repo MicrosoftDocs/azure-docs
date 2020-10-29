@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Conflict types and resolution policies when using multiple write regions
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Conflicts and conflict resolution policies are applicable if your Azure Cosmos DB account is configured with multiple write regions.
 

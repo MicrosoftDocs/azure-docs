@@ -12,6 +12,7 @@ ms.author: anfeldma
 
 ---
 # Azure Cosmos DB SQL API: Java SDK v4 examples
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)

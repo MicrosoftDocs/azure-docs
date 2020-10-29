@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Manage an Azure Cosmos account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 

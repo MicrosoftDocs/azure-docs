@@ -10,6 +10,7 @@ ms.date: 7/29/2020
 ---
 
 # Create an Azure Cosmos Cassandra API account, keyspace and table with autoscale using Azure CLI
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
