@@ -8,8 +8,7 @@ ms.date: 10/15/2020
 
 # Configure a signal gate for event-based video recording
 
-Within a media graph, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another, when the gate is triggered by an event. When triggered, the gate opens and lets media flow through for a specified duration. In the absence of further signals/triggers, the gate will close and media stops flowing. The signal gate processor is applicable for event-based recording.
-
+Within a media graph, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another, when the gate is triggered by an event. When triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate will close and media stops flowing. The signal gate processor is applicable for event-based video recording.
 In this article, you will learn the details about how to configure a signal gate processor.
 
 ## Suggested pre-reading
@@ -18,7 +17,7 @@ In this article, you will learn the details about how to configure a signal gate
 
 
 ## Problem:
- A user may want their video recordings to follow a certain standard or criteria. The user may want to start recording a particular time before or after the gate was triggered by an event. The user may know the acceptable latency within their system, so the user may want to specify the latency of the signal gate. The user may want to specify the shortest and longest that the duration of their recording can be. The user may want to specify how long after an event does the signal gate remain open to allow a new event before closing (stopping recording) and no longer excepting the next event. The user may want to specify how long after an event does the gate remain open to allow multiple new events before closing (stopping recording) and no longer accepting any new events after the last received event.
+The user may want to start recording a particular time before or after the gate was triggered by an event. The user knows the acceptable latency within their system, so the user wants to specify the latency of the signal gate processor. The user wants to specify the shortest and longest that the duration of their recording can be no matter how many new events are received.
  
 ### Use Case Scenario:
 Suppose you want to record video every time the front door of your building opens. You want the **X** seconds prior to the door being opened included in the recording. You want the recording to last at least **Y** seconds if the door is not opened again, and you want the recording to last at most **Z** seconds if the door is repeatedly opened. You know that your door sensor has a latency of **K** seconds and want to decrease the chance of events being dropped ("late arrivals"), so you want to allow at least **K** seconds for the events to arrive.
@@ -28,21 +27,27 @@ Suppose you want to record video every time the front door of your building open
 
 ***Modifying Signal Gate Processor Parameters***
 
-A signal gate is configured by 4 parameters: **activation evaluation window**, **activation signal offset**, **minimum activation window**, and **maximum activation window**. The signal gate collects events from a source and correlates them into individual “activations”. When the signal gate is triggered, it will stay open for the minimum activation time. The activation event begins at the timestamp for the earliest event, plus the activation signal offset. If the signal gate is triggered again, while it is open, the timer resets and it will stay open for “minimum activation time” more seconds. The signal gate will never stay open longer than the maximum activation time. An event (*Event 1*) that occurs before another event (*Event 2*) in media time (based on media timestamps) is subject to be dropped (disregarded) if the system lags and *Event 1* arrives after *Event 2* to the signal gate. If *Event 1* does not arrive between the arrival of *Event 2* and the **activation evaluation window**, *Event 1* will be dropped and not passed through the signal gate. Correlation IDs are set for every event/activation. These IDs are set from the initial event/activation and are sequential for each following event.
+A signal gate processor is configured by 4 parameters:
+- **activation evaluation window**
+- **activation signal offset**
+- **minimum activation window**
+- **maximum activation window**. 
+
+When the signal gate processor is triggered, it will stay open for the minimum activation time. The activation event begins at the timestamp for the earliest event, plus the activation signal offset. If the signal gate processor is triggered again, while it is open, the timer resets and it will stay open for at least the minimum activation time. The signal gate processor will never stay open longer than the maximum activation time. An event **(Event 1)** that occurs before another event **(Event 2)**, based on media timestamps, is subject to being disregarded, if the system lags and **Event 1** arrives to the signal gate processor after **Event 2**. If **Event 1** does not arrive between the arrival of **Event 2** and the **activation evaluation window**, **Event 1** will be disregarded and not passed through the signal gate processor. Correlation IDs are set for every event. These IDs are set from the initial event and are sequential for each following event.
 
 > [!IMPORTANT]
-> The sequence of events arriving to the signal gate may not reflect the sequence of events arriving in media time.
+> Media time is based on the media timestamp of when an event occurred in the media. The sequence of events arriving to the signal gate may not reflect the sequence of events arriving in media time.
 
 
 ### Parameters: (Based on when events arrive in physical time to the signal gate)
 
-**minimumActivationTime** = time window for how long the signal gate will stay open, after any event, to receive new events, unless interrupted by the maximumActivationTime (shortest possible duration of a recording)
+**minimumActivationTime (shortest possible duration of a recording)** = the minimum number of seconds that the signal gate processor will remain open after being triggered to receive new events, unless interrupted by the **maximumActivationTime**
 
-**maximumActivationTime** = time window for how long an individual activation (from the first event) will last, regardless of what events are received (longest possible duration of a recording)
+**maximumActivationTime (longest possible duration of a recording)** = the maximum number of seconds from the initial event that the signal gate processor will remain open after being triggered to receive new events, regardless of what events are received
 
-**activationSignalOffset** = time window buffer for video recording (time added or subtracted from recording from the arrival of the initial event)
+**activationSignalOffset** = the number of seconds between the activation of the signal gate processor and when the video recording begins, typically this value is negative, in order to start the recording before the triggering event
 
-**activationEvaluationWindow** = time window starting from the initial event in which an event that occurred before the initial event in media time must arrive in physical time before being dropped and considered a “late arrival”
+**activationEvaluationWindow** = the number of seconds starting from the initial triggering event, in which an event that occurred before the initial event, in media time, must arrive to the signal gate processor before being disregarded and considered a “late arrival”
 
 > [!NOTE]
 > A late arrival is any event that arrives once the activation evaluation window has passed but this event arrived before the initial event in media time.
@@ -72,6 +77,11 @@ Here is an example of what the Signal Gate Processor node section would like in 
 * **minimumActivationTime = 20 seconds**
 * **maximumActivationTime = 40 seconds**
 
+> [!IMPORTANT]
+> [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations
+) is expected for each parameter value. 
+**Ex: PT1S = 1 second**
+
 
 ```
 "processors":              
@@ -96,8 +106,8 @@ Here is an example of what the Signal Gate Processor node section would like in 
 ```
 
 
+**Let’s consider how this signal gate processor configuration will behave in different recording scenarios.**
 
-## Recording Scenarios:
 
 **1 Event from 1 Source (*Normal Activation*)**
 
