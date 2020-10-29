@@ -47,7 +47,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-Don't create a new connections for each operation in your code. Instead, reuse connections as much as possible. 
+Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible. 
 
 ## Create a new Node.js app
 
