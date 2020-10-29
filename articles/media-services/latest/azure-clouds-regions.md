@@ -14,21 +14,15 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services v3 is available via Azure Resource Manager. However, not all Media Services features are available in all the Azure clouds. This document outlines availabilities of main Media Services v3 components.
+Azure Media Services v3 is available via Azure Resource Manager. However, not all Media Services features are available in all the Azure clouds. This document outlines availabilities of main Media Services v3 components. The following tables show which Media Services features are available in each region.  
 
-## US regions and US government cloud
+[!INCLUDE [reference-feature-availability-us](./includes/regions-availability-table-key.md)]
 
-<br/>
+Use the navigation on the right to find the region you are interested in.
 
-| TABLE KEY | | |
-| --- | --- | --- |
-| ![general availability](./media/azure-clouds-regions/ga.svg) generally available | ![in preview](./media/azure-clouds-regions/preview.svg) in preview | ![future availability](./media/azure-clouds-regions/planned-active.svg) future availability |
-
+<!-- US and US Gov -->
 [!INCLUDE [reference-feature-availability-us](./includes/reference-feature-availability-us.md)]
-
 [!INCLUDE [reference-feature-availability-usgov](./includes/reference-feature-availability-usgov.md)]
-
-## World regions and sovereign clouds
 <!-- Africa -->
 [!INCLUDE [reference-feature-availability-africa](./includes/reference-feature-availability-africa.md)]
 <!-- APAC -->
@@ -36,29 +30,29 @@ Azure Media Services v3 is available via Azure Resource Manager. However, not al
 <!-- Australia -->
 [!INCLUDE [reference-feature-availability-australia](./includes/reference-feature-availability-australia.md)]
 <!-- Brazil -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-brazil](./includes/reference-feature-availability-brazil.md)]
 <!-- Canada -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-canada](./includes/reference-feature-availability-canada.md)]
 <!-- China -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-china](./includes/reference-feature-availability-china.md)]
 <!-- Europe -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-europe](./includes/reference-feature-availability-europe.md)]
 <!-- Germany -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-germany](./includes/reference-feature-availability-germany.md)]
 <!-- India -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-india](./includes/reference-feature-availability-india.md)]
 <!-- Japan -->
-stuff goes here
-<!-- Koria -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-japan](./includes/reference-feature-availability-japan.md)]
+<!-- Korea -->
+[!INCLUDE [reference-feature-availability-korea](./includes/reference-feature-availability-korea.md)]
 <!-- Norway -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-norway](./includes/reference-feature-availability-norway.md)]
 <!-- Switzerland -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-switzerland](./includes/reference-feature-availability-switzerland.md)]
 <!-- UAE -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-uae](./includes/reference-feature-availability-uae.md)]
 <!-- UK -->
-stuff goes here
+[!INCLUDE [reference-feature-availability-uk](./includes/reference-feature-availability-uk.md)]
 
 ## Regions/geographies/locations
 
