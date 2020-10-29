@@ -89,4 +89,4 @@ ms.date: 11/06/2020
 
 ## Next steps
 
-- [Set up your Azure subscription](test-drive-set-up-azure-subscription.md)
+- [Set up your Azure subscription](test-drive-azure-subscription-setup.md)
