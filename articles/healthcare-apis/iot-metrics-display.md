@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/29/2020
 ms.author: jasteppe
 ---
 
@@ -26,7 +26,7 @@ In this article, you'll learn how to view and configure Azure IoT Connector for 
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-main.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-main.png"::: 
 
-4. Select an IoT Connector to view its Metrics (for example: There are (4) IoT Connectors associated with this Azure API for FHIR service)
+4. Select an IoT Connector to view its Metrics (for example: there are (4) IoT Connectors associated with this Azure API for FHIR service).
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
@@ -42,11 +42,11 @@ The displayed IoT Connector Metrics are as follows:
 
 |Metrics Type|Metrics Purpose| 
 |-----------|--------------|
-|Number of Incoming Messages|The number of received raw incoming messages, for example, the device events.|
+|Number of Incoming Messages|The number of received raw incoming messages (for example: the device events).|
 |Number of Normalized Messages|The number of the normalized messages.|
 |Number of Message Groups|The number of groups that have messages aggregated in designated time window.|
 |Average Normalized Stage Latency|Average latency of the normalize stage. Normalize stage is to perform normalization on raw incoming messages.|
-|Average Group Stage Latency|Average latency of the group stage. Group stage is to perform buffering, aggregating and grouping on normalized messages.| 
+|Average Group Stage Latency|Average latency of the group stage. Group stage is to perform buffering, aggregating, and grouping on normalized messages.| 
 |Total Error Count|Total number of errors.| 
 
 ## Focusing and configuring Azure IoT Connector for FHIR (preview) Metrics
