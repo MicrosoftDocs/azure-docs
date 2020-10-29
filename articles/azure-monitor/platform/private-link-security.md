@@ -111,6 +111,9 @@ You can connect your AMPLS first to private endpoints and then to Azure Monitor 
 
     ![Screenshot of select a scope UX](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> Deleting Azure Monitor resources requires that you first disconnect them from any AMPLS objects they are connected to. It's not possible to delete resources connected to an AMPLS.
+
 ### Connect to a private endpoint
 
 Now that you have resources connected to your AMPLS, create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints), or inside your Azure Monitor Private Link Scope, as done in this example.
