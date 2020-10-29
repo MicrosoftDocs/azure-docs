@@ -101,7 +101,7 @@ the Hybrid Connection.
 
 Listeners that attach to Hybrid Connections with HTTP support MUST handle the
 `request` gesture. A listener that doesn't handle `request` and therefore
-causes repeated timeout errors while being connected MAY be blacklisted by the
+causes repeated timeout errors while being connected MAY be blocked by the
 service in the future.
 
 HTTP frame header metadata is translated into JSON for simpler handling by the
@@ -524,7 +524,7 @@ The JSON content for `request` is as follows:
 ##### Responding to requests
 
 The receiver MUST respond. Repeated failure to respond to requests while
-maintaining the connection might result in the listener getting blacklisted.
+maintaining the connection might result in the listener getting blocked.
 
 Responses may be sent in any order, but each request must be responded to
 within 60 seconds or the delivery will be reported as having failed. The

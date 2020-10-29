@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
 ---
 
@@ -32,7 +32,7 @@ Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tr
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
@@ -255,10 +255,10 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 ### How do I enable anonymous pull access?
 
-Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](https://aka.ms/acr/repo-permissions) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
 
 ## Diagnostics and health checks
 
@@ -439,7 +439,7 @@ Please contact your network administrator or check your network configuration an
 ### Why does my pull or push request fail with disallowed operation?
 
 Here are some scenarios where operations may be disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [service tier](https://aka.ms/acr/skus) using [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az-acr-update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).

@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Deploy an app with the LUIS portal"
 description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/06/2020
 ---

@@ -51,7 +51,7 @@ Since in  the trial accounts the Custom Vision integration is managed by Video I
 
 ### Connect your Custom Vision account (paid accounts only)
 
-If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
@@ -92,7 +92,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
 1. Click on the content model customization button on the top-right corner of the page.
 
-    ![Content model customization](./media/animated-characters-recognition/content-model-customization.png)
+    ![Screenshot that shows the "Video Indexer" page with the "content model customization" button selected in the top-right corner.](./media/animated-characters-recognition/content-model-customization.png)
 1. Go to the **Animated characters** tab in the model customization section.
 1. Click on **Add model**.
 1. Name you model and click enter to save the name.
@@ -156,7 +156,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Connect a Custom Vision account.
 
     If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
-    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
     [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Create an animated characters model.

@@ -1,11 +1,11 @@
 ---
 title: Logical replication and logical decoding - Azure Database for PostgreSQL - Flexible Server
 description: Learn about using logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -13,7 +13,7 @@ ms.date: 09/22/2020
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-PostgreSQL's logical replication and logical decoding features are supported in Azure Database for PostgreSQL - Flexible Server.
+PostgreSQL's logical replication and logical decoding features are supported in Azure Database for PostgreSQL - Flexible Server, for Postgres version 11.
 
 ## Comparing logical replication and logical decoding
 Logical replication and logical decoding have several similarities. They both
@@ -39,7 +39,11 @@ Logical decoding
 1. Set the server parameter `wal_level` to `logical`.
 2. Restart the server to apply the `wal_level` change.
 3. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
-4. Use the admin user when executing replication commands.
+4. Grant the admin user replication permissions.
+   ```SQL
+   ALTER ROLE <adminname> WITH REPLICATION;
+   ```
+
 
 ## Using logical replication and logical decoding
 
@@ -50,7 +54,7 @@ Logical replication uses the terms 'publisher' and 'subscriber'.
 
 Here's some sample code you can use to try out logical replication.
 
-1. Connect to the publisher. Create a table and add some data.
+1. Connect to the publisher database. Create a table and add some data.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    INSERT INTO basic(name) VALUES ('apple');
@@ -62,14 +66,14 @@ Here's some sample code you can use to try out logical replication.
    CREATE PUBLICATION pub FOR TABLE basic;
    ```
 
-3. Connect to the subscriber. Create a table with the same schema as on the publisher.
+3. Connect to the subscriber database. Create a table with the same schema as on the publisher.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
 4. Create a subscription that will connect to the publication you created earlier.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. You can now query the table on the subscriber. You will see that it has received data from the publisher.
@@ -166,8 +170,9 @@ SELECT * FROM pg_replication_slots;
 
 [Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
-## Read replicas
-Azure Database for PostgreSQL read replicas are not currently supported for flexible servers.
+## Limitations
+* **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported for flexible servers.
+* **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
 
 ## Next steps
 * Learn more about [networking options](concepts-networking.md)

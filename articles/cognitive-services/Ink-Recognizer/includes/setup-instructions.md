@@ -2,6 +2,7 @@
 author: aahill
 ms.author: aahi
 ms.service: cognitive-services
+ms.subservice: ink-recognizer
 ms.topic: include
 ms.date: 06/20/2019
 ---

@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 08/14/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -52,7 +52,11 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-Follow the instructions in the app to place and recall an anchor.
+In the app, select **BasicDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
+
+![Screenshot 1](./media/get-started-unity-ios/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-ios/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
 When finished, stop the app by pressing **Stop** in Xcode.
 

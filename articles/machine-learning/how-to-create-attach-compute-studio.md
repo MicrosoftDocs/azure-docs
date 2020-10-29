@@ -16,8 +16,11 @@ ms.custom: how-to, contperfq1
 
 In this article, learn how to create and manage compute targets in Azure Machine studio.  You can also create and manage compute targets with:
 
-* [Azure Machine Learning Learning SDK](how-to-create-attach-compute-sdk.md), 
-* The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning
+* Azure Machine Learning Learning SDK or  CLI extension for Azure Machine Learning
+  * [Compute instance](how-to-create-manage-compute-instance.md)
+  * [Compute cluster](how-to-create-attach-compute-cluster.md)
+  * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
+  * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
 
@@ -101,7 +104,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
 |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
-#### <a id="managed-identity"></a> Set up managed identity
+#### <a name="managed-identity"></a> Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

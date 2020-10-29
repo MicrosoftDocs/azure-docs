@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is a Primary Refresh Token?
 
-A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 devices.
+A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 devices.
 
 This article assumes that you already understand the different device states available in Azure AD and how single sign-on works in Windows 10. For more information about devices in Azure AD, see the article [What is device management in Azure Active Directory?](overview.md)
 
@@ -196,6 +196,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | D | The CloudAP plugin will create the PRT cookie, sign in with the TPM-bound session key and send it back to the native client host. As the cookie is signed by the session key, it cannot be tampered with. |
 | E | The native client host will return this PRT cookie to the browser, which will include it as part of the request header called x-ms-RefreshTokenCredential and request tokens from Azure AD. |
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
+
+> [!NOTE]
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, or Incognito in Google Chrome (when using the Microsoft Accounts extension).
 
 ## Next steps
 

@@ -53,7 +53,7 @@ To use the log analytics views, you need:
 
 3. Select either of these views to jump in to the individual reports. You can also set alerts on any of the report parameters. For example, let's set an alert for every time there's a sign-in error. To do this, first select the **Sign-ins Events** view, select **Sign-in errors over time** report and then select **Analytics** to open the details page, with the actual query behind the report. 
 
-    ![Details](./media/howto-install-use-log-analytics-views/details.png)
+    ![Screenshot shows the Analytics details page which has the query for the report.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Select **Set Alert**, and then select **Whenever the Custom log search is &lt;logic undefined&gt;** under the **Alert criteria** section. Since we want to alert whenever there's a sign-in error, set the **Threshold** of the default alert logic to **1** and then select **Done**. 

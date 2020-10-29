@@ -13,7 +13,7 @@ ms.date: 11/03/2017
 ---
 # Manage Azure Machine Learning Studio (classic) web services using API Management
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 ## Overview
@@ -45,7 +45,7 @@ You can manage your Azure Machine Learning web service with an API Management in
 
 It may take up to 30 minutes for a new service to be created.
 
-![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
+![Screenshot shows the A P I Management service dialog box with the required options to create a service.](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
 
 ## Create the API
@@ -82,12 +82,12 @@ First create an operation for the AzureML RRS service:
 2. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
 3. Enter a **Display name** (this example uses "RRS Execute").
 
-   ![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+   ![Screenshot shows the Signature page where you can enter a display name.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
 4. Click **Responses** > **ADD** on the left and select **200 OK**.
 5. Click **Save** to save this operation.
 
-   ![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+   ![Screenshot shows the Operation R R S Execute page with a Save button.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## Add BES Operations
 
@@ -136,15 +136,15 @@ Operations can be called directly from the Developer portal, which provides a co
 
 1. Click **Developer portal**.
 
-   ![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+   ![Screenshot shows the Developer portal link.](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
 2. Click **APIs** from the top menu, and then click **AzureML Demo API** to see the operations available.
 
-   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+   ![Screenshot shows the Azure M L Demo A P I link.](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
 3. Select **RRS Execute** for the operation. Click **Try It**.
 
-   ![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+   ![Screenshot shows the Azure M L Demo A P I dialog box with Post R R S Execute selected and a Try it button.](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
 4. For **Request parameters**, type your **workspace** and  **service**, type "2.0 for the **apiversion**, and  "true" for the **details**. You can find your **workspace** and **service** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
@@ -152,15 +152,15 @@ Operations can be called directly from the Developer portal, which provides a co
 
    For **Request body**, type `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
-   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+   ![Screenshot shows the Azure M L Demo A P I Request parameters, Request headers, Request body, and Authorization.](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
 5. Click **Send**.
 
-   ![send](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![Screenshot shows a Send button.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**.
 
-![response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![Screenshot shows the developer portal displaying the Response status, Response latency, Response headers, and Response content.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## Appendix A - Creating and testing a simple AzureML web service
 ### Creating the experiment
@@ -172,11 +172,11 @@ Below are the steps for creating a simple AzureML experiment and deploying it as
 
 First, using a browser of your choice, navigate to: [https://studio.azureml.net/](https://studio.azureml.net/) and enter your credentials to log in. Next, create a new blank experiment.
 
-![search-experiment-templates](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
+![Screenshot shows a NEW page with EXPERIMENT selected and a text search.](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
 Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and drag **Book Reviews from Amazon** onto your experiment.
 
-![simple-feature-hashing-experiment](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
+![Screenshot shows samples on the left side and a SimpleFeatureHashingExperiment pane on the right with the instruction to Drag items here.](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
 Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
@@ -188,53 +188,53 @@ Click **Select Columns in Dataset** and then click **Launch column selector** an
 
 Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 
-![connect-project-columns](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![Screenshot shows a Feature Hashing item being added to the workspace.](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
 Type **3** for the **Hashing bitsize**. This will create 8 (23) columns.
 
-![hashing-bitsize](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
+![Screenshot shows Properties with Feature Hashing selected and you can enter Hashing bitsize.](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
 
 At this point, you may want to click **Run** to test the experiment.
 
-![run](./media/manage-web-service-endpoints-using-api-management/run.png)
+![Screenshot shows a RUN button.](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### Create a web service
 Now create a web service. Expand **Web Service** and drag **Input** onto your experiment. Connect **Input** to **Feature Hashing**. Also drag **output** onto your experiment. Connect **Output** to **Feature Hashing**.
 
-![output-to-feature-hashing](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![Screenshot shows workspace after the specified changes.](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 Click **Publish web service**.
 
-![publish-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![Screenshot shows a PUBLISH WEB SERVICE button.](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 Click **Yes** to publish the experiment.
 
-![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
+![Screenshot shows a confirm message and the option to publish or not.](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### Test the web service
 An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](/azure/developer/python/azure-sdk-install)).
 
 You will also need the **workspace**, **service**, and **api_key** of your experiment for the sample source below. You can find the workspace and service by clicking either **Request/Response** or **Batch Execution** for your experiment in the web service dashboard.
 
-![find-workspace-and-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![Screenshot shows the Request pane where you can find the workspace and service values.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
 You can find the **api_key** by clicking your experiment in the web service dashboard.
 
-![find-api-key](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
+![Screenshot shows the experiment in the web service dashboard where you can find the A P I key.](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
 #### Test RRS endpoint
 ##### Test button
 An easy way to test the RRS endpoint is to click **Test** on the web service dashboard.
 
-![test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![Screenshot shows the experiment in the web service dashboard which has the Test button.](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Type **This is a good day** for **col2**. Click the checkmark.
 
-![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
+![Screenshot shows the Enter data to predict dialog box where you can enter text like the example This is a good day.](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 
 You will see something like
 
-![sample-output](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![Screenshot shows the result of the experiment, which reads This is a good day and several digits in quotation marks.](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### Sample Code
 Another way to test your RRS is from your client code. If you click **Request/response** on the dashboard and scroll to the bottom, you will see sample code for C#, Python, and R. You will also see the syntax of the RRS request, including the request URI, headers, and body.

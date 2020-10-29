@@ -1,6 +1,8 @@
 ---
 title: Developer resources - Language Understanding
 description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/19/2020
 ms.custom: "devx-track-js, devx-track-csharp"

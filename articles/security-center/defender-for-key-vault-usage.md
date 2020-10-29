@@ -4,7 +4,7 @@ description: Learn about the steps necessary for responding to alerts from Azure
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 
@@ -68,4 +68,4 @@ This page explained the process of responding to an alert from Azure Defender fo
 
 - [Introduction to Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
-- [Export security alerts](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)

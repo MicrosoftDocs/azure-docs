@@ -34,7 +34,7 @@ For **Azure CDN Premium from Verizon** profiles, you must use the **Manage** por
 ### Define the directory path
 To access the geo-filtering feature, select your CDN endpoint within the portal, then select **Geo-filtering** under SETTINGS in the left-hand menu. 
 
-![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-standard.png)
+![Screenshot showing Geo-filtering selected from the menu for an Endpoint.](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
 From the **PATH** box, specify the relative path to the location to which users will be allowed or denied access. 
 
@@ -63,7 +63,7 @@ From the **COUNTRY CODES** list, select the countries/regions that you want to b
 
 After you have finished selecting the countries/regions, select **Save** to activate the new geo-filtering rule. 
 
-![Geo-filtering rules](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+![Screenshot shows COUNTRY CODES to use to block or allow countries or regions.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### Clean up resources
 To delete a rule, select it from the list on the **Geo-filtering** page, then choose **Delete**.
@@ -75,7 +75,7 @@ For **For Azure CDN Premium from Verizon** profiles, the user interface for crea
 
 2. From the Verizon portal, select **HTTP Large**, then select **Country Filtering**.
 
-    ![Geo-filtering standard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
+    ![Screenshot shows how select Country Filtering in Azure C D N.](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
 3. Select **Add Country Filter**.
 
@@ -89,7 +89,7 @@ For **For Azure CDN Premium from Verizon** profiles, the user interface for crea
     
     The new rule appears in the table on the **Country Filtering** page.
 
-    ![Geo-filtering rules](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
+    ![Screenshot shows where the rule appears in Country Filtering.](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### Clean up resources
 In the country/region filtering rules table, select the delete icon next to a rule to delete it or the edit icon to modify it.

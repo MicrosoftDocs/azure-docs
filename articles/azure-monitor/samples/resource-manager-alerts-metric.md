@@ -3126,7 +3126,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 > [!NOTE]
 > `&amp`; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "`&amp`;"
 
-### Parameter file
+### Template file
 
 ```json
 {
@@ -3228,8 +3228,6 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 }
 ```
 
-
-
 ### Parameter file
 
 ```json
@@ -3248,12 +3246,53 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+Additional configuration of the content-match `pingText` parameter is controlled in the `Configuration/Webtest` portion of the template file. Specifically the section below:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### Test locations
+
+|Id                  | Region           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | West Europe      |
+| `us-ca-sjc-azr`    | West US          |
+| `emea-ru-msa-edge` | UK South         |
+| `emea-se-sto-edge` | UK West          |
+| `apac-sg-sin-azr`  | Southeast Asia   |
+| `us-tx-sn1-azr`    | South Central US |
+| `us-il-ch1-azr`    | North Central US |
+| `emea-gb-db3-azr`  | North Europe     |
+| `apac-jp-kaw-edge` | Japan East       |
+| `emea-fr-pra-edge` | France Central   |
+| `emea-ch-zrh-edge` | France South     |
+| `us-va-ash-azr`    | East US          |
+| `apac-hk-hkn-azr`  | East Asia        |
+| `us-fl-mia-edge`   | Central US       |
+| `latam-br-gru-edge`| Brazil South      |
+| `emea-au-syd-edge` | Australia East   |
+
+### US Government test locations
+
+|Id                    | Region           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## Next steps
 

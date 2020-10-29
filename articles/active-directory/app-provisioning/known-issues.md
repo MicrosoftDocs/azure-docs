@@ -67,7 +67,7 @@ If you create an app registration, the corresponding service principal in enterp
 
 **The provisioning interval is fixed**
 
-The [time](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
+The [time](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
 
 **Changes not moving from target app to Azure AD**
 

@@ -22,7 +22,7 @@ You can configure an alert to do the following actions when it triggers:
 You can configure and get information about alert rules using:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL server you want to monitor.
@@ -47,7 +47,7 @@ You can configure and get information about alert rules using:
    
    Select **Done** when complete.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Select metric":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Select metric 2":::
 
 8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
@@ -65,7 +65,7 @@ You can configure and get information about alert rules using:
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group 2"::: 
 
 12. Select **Create alert rule** to create the alert.
 
@@ -81,4 +81,4 @@ Once you have created an alert, you can select it and do the following actions:
 
 ## Next steps
 * Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
-* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* Get an [overview of metrics collection](../azure-monitor/platform/data-platform.md) to make sure your service is available and responsive.

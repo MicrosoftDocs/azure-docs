@@ -88,7 +88,7 @@ RunDetails(run).show()
 
 ## Show output upon completion
 
-When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#scriptrunconfig-logs).
+When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## Query run metrics

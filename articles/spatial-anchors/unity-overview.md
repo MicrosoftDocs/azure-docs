@@ -17,12 +17,12 @@ The following platforms are supported:
 
 **Unity for HoloLens**
 
-[Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
+[Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors](./quickstarts/get-started-unity-hololens.md)
 
 **Unity for Android**
 
-[Quickstart: Create a Unity Android app that uses Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
+[Quickstart: Create a Unity Android app that uses Azure Spatial Anchors](./quickstarts/get-started-unity-android.md)
 
 **Unity for iOS**
 
-[Quickstart: Create a Unity iOS app that uses Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)
+[Quickstart: Create a Unity iOS app that uses Azure Spatial Anchors](./quickstarts/get-started-unity-ios.md)

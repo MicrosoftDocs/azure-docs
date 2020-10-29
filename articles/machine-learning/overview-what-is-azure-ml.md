@@ -58,7 +58,7 @@ You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.m
 
 Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
 
-With many available [compute targets](how-to-create-attach-compute-sdk.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+With many available [compute targets](how-to-create-attach-compute-studio.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
@@ -123,7 +123,8 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 ## Next steps
 
 - Create your first experiment with your preferred method:
-  + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
+- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 

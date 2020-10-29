@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, devx-track-java]
+ms.custom: [mvc, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 03/15/2019
 ms.author: wesmc
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from an Android device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
@@ -100,7 +100,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to monitor the device messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to monitor the device messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

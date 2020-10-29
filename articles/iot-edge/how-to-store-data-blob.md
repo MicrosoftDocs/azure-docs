@@ -12,7 +12,7 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
-Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
+Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:
 
@@ -87,7 +87,7 @@ The name of this setting is `deviceAutoDeleteProperties`. If you are using the I
 | Property | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | deleteOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. <br><br> Environment variable: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. Current maximum minutes allowed is 35791. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true.  <br><br> **CAUTION**: If you are using append blobs, this setting will delete append blobs from local storage when the value expires, and any future Append Block operations to those blobs will fail. You may want to make sure the expiry value is large enough for the expected frequency of append operations performed by your application.<br><br> Environment variable: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## Using SMB share as your local storage
@@ -155,7 +155,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## Configure log files
 
-For information on configuring log files for your module, see these [production best practices](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
+For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
 
 ## Connect to your blob storage module
 
@@ -190,7 +190,7 @@ The following quickstart samples use languages that are also supported by IoT Ed
 
 ## Connect to your local storage with Azure Storage Explorer
 
-You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account.
+You can use [Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) to connect to your local storage account.
 
 1. Download and install Azure Storage Explorer
 

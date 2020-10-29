@@ -1,8 +1,8 @@
 ---
-title: Monitor Python applications with Azure Monitor (preview) | Microsoft Docs
+title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
 ---

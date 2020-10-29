@@ -35,11 +35,11 @@ To open a resource by the service type:
 
 3. Select the resource you want to open.
 
-    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![Screenshot that highlights the selected resource.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
     A storage account looks like:
 
-    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![Screenshot that shows what a storage account looks like.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
 To open a resource by resource group:
 
@@ -109,7 +109,7 @@ You can select the pin icon on the upper right corner of the graphs to pin the g
 
 ## Manage access to resources
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 

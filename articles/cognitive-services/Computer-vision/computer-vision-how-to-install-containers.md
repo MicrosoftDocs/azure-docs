@@ -1,27 +1,45 @@
 ---
-title: How to install and run containers - Computer Vision
+title: Install Read OCR Docker containers from Computer Vision
 titleSuffix: Azure Cognitive Services
-description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
+description: Use the Read OCR Docker containers from Computer Vision to extract text from images and documents, on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: on-premises, OCR, Docker, container
 ---
 
-# Install and run Read containers (Preview)
+# Install Read OCR Docker containers (Preview) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
+Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
-The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read](concept-recognizing-text.md#read-api) API documentation.
+The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+## Read 3.1 container
+
+> [!NOTE]
+> The Read 3.0-preview container has been deprecated. 
+
+The Read 3.1-preview container provides:
+* New models for enhanced accuracy.
+* Support for multiple languages within the same document
+* Support for: Dutch, English, French, German, Italian, Portuguese, and Spanish.
+* A single operation for both documents and images.
+* Support for larger documents and images.
+* Confidence scores from 0 to 1.
+* Support for documents with both print and handwritten text
+* Support for Simplified Chinese and Japanese.
+* confidence scores and labels for printed and handwritten text. 
+* Ability to extract text from only selected page(s) in a document.
+
+If you're using Read 2.0 containers today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
 
 ## Prerequisites
 
@@ -32,6 +50,8 @@ You must meet the following prerequisites before using the containers:
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Request approval to run the container
 
@@ -66,7 +86,7 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
@@ -79,10 +99,10 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 ```
 
-# [Version 3.0-preview](#tab/version-3)
+# [Version 2.0-preview](#tab/version-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 ---
@@ -119,21 +139,20 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Version 3.0-preview](#tab/version-3)
+# [Version 2.0-preview](#tab/version-2)
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
-
 ```
 
 This command:
 
 * Runs the Read container from the container image.
-* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -145,7 +164,7 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-If you need higher throughput (for example, when processing multi-page files), consider deploying multiple v3.0 or v3.1 containers [on a Kubernetes cluster](deploy-computer-vision-on-premises.md), using [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) and [Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+If you need higher throughput (for example, when processing multi-page files), consider deploying multiple containers [on a Kubernetes cluster](deploy-computer-vision-on-premises.md), using [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) and [Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
 
 If you’re using Azure Storage to store images for processing, you can create a [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) to use when calling the container.
 
@@ -167,11 +186,11 @@ The container provides REST-based query prediction endpoint APIs.
 
 # [Version 3.1-preview](#tab/version-3-1)
 
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
-
-# [Version 3.0-preview](#tab/version-3)
-
 Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
+
+# [Version 2.0-preview](#tab/version-2)
+
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json`.
 
 ---
 
@@ -256,9 +275,9 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
-# [Version 3.0-preview](#tab/version-3)
+# [Version 2.0-preview](#tab/version-2)
 
-You can use the `POST /vision/v3.0/read/analyze` and `GET /vision/v3.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
 From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
 
@@ -268,8 +287,8 @@ When the asynchronous POST has run successfully, it returns an **HTTP 202** stat
 
 ```http
  content-length: 0
- date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
 
@@ -277,51 +296,43 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 ```json
 {
-  "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:24:49Z",
-  "lastUpdatedDateTime": "2020-09-02T10:24:50Z",
-  "analyzeResult": {
-    "version": "3.0.0",
-    "readResults": [
-      {
-        "page": 1,
-        "angle": 2.12,
-        "width": 502,
-        "height": 252,
-        "unit": "pixel",
-        "language": "",
-        "lines": [
-          {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
-            "text": "Tabs vs",
-            "words": [
-              {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
-                "text": "Tabs",
-                "confidence": 0.981
-              },
-              {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
-                "text": "vs",
-                "confidence": 0.958
-              }
-            ]
-          },
-          {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
-            "text": "paces",
-            "words": [
-              {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
-                "text": "paces",
-                "confidence": 0.918
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -338,9 +349,9 @@ You can use the following operation to synchronously read an image.
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
-# [Version 3.0-preview](#tab/version-3)
+# [Version 2.0-preview](#tab/version-2)
 
-`POST /vision/v3.0/read/syncAnalyze`
+`POST /vision/v2.0/read/core/Analyze`
 
 ---
 

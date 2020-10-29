@@ -318,9 +318,12 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location on the device:
+    > 1. Create a binding for the Debug Log location in the **Binds** section, replacing the **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** and **$DEBUG_LOG_LOCATION** with the location you want:
+    > `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Use the following command, replacing **$DEBUG_LOG_LOCATION** with the location used in the previous step:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Select **Save**.
 
 1. Reproduce the issue.

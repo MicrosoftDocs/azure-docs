@@ -1,6 +1,8 @@
 ---
 title: Label entity example utterance
 description: Learn how to label a machine-learning entity with subentities in an example utterance in an intent detail page of the LUIS portal.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
 #Customer intent: As a new user, I want to label a machine-learning entity in an example utterance.

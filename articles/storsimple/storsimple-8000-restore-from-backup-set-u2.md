@@ -111,7 +111,7 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
    
 4. Navigate back to the **Backup Catalog** tab and select a backup set. Right-click and then from the context menu, select **Restore**.
 
-    ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Backup set list 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. You will be prompted for confirmation. Review the restore information, and then select the confirmation check box.
    
@@ -119,7 +119,7 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
 
 7. Click **Restore**. This initiates a restore job that you can view by accessing the **Jobs** page.
 
-   ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Confirmation page 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. After the restore is complete, verify that the contents of your volumes are replaced by volumes from the backup.
 

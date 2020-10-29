@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics

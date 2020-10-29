@@ -28,7 +28,7 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 *If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!TIP]
-> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ Follow these steps to create a blank database.
 
 9. On the toolbar, click **Notifications** to monitor the deployment process.
 
-   ![notification](./media/design-first-database-csharp-tutorial/notification.png)
+   ![Screenshot shows Notifications in the Azure portal with Deployment in progress.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## Create a server-level IP firewall rule
 

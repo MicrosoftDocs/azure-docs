@@ -7,11 +7,11 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
@@ -112,7 +112,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
+For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md), [How to use managed identity for App Service and Azure Functions](../../app-service/overview-managed-identity.md), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
 
 ### Rotation function
 Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 

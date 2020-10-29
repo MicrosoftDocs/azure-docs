@@ -6,6 +6,7 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
+ms.custom: contperfq1
 ---
 
 # Command-line and PowerShell reference for Azure Cosmos DB emulator

@@ -3,7 +3,7 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
@@ -26,7 +26,7 @@ To complete this tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
 
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
@@ -76,7 +76,7 @@ Create an ASP.NET web app by following these steps:
 
    Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
 
-   ![Publish from project overview page](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![Screenshot that highlights the repository name.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. Copy this repository name for later.
 
@@ -214,7 +214,7 @@ docker --version
 
 Finally, ensure that your Azure Container Registry is connected. To do this, select the Docker logo in the Activity Bar, then navigate to **REGISTRIES**.
 
-![Registries](./media/quickstart-docker/registries.png)
+![Screenshot shows the Registries value with Azure expanded and a file with the dot i o filename extension.](./media/quickstart-docker/registries.png)
 
 ## Deploy the image to Azure App Service
 

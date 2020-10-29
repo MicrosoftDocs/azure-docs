@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/25/2020
 ms.author: kgremban
 ---
 
@@ -37,8 +37,8 @@ Open Enclave supports multiple hardware platforms. IoT Edge support for enclaves
 
 The Open Enclave repository also includes samples to help developers get started. For more information, choose one of the introductory articles:
 
-* [Building Open Enclave SDK samples on Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
-* [Building Open Enclave SDK samples on Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md)
+* [Building Open Enclave SDK samples on Linux](https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md)
+* [Building Open Enclave SDK samples on Windows](https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesWindows.md)
 
 ## Hardware
 
