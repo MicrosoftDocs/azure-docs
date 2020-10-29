@@ -136,6 +136,8 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > You should not rely on case sensitivity for metadata keys. All keys are read from the service in lowercase.
+>
+>
 
 ## Add a message to a queue
 

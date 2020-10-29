@@ -23,7 +23,8 @@ When you have critical applications and business processes that rely on Azure re
 The **Overview** page in the Azure portal for each Queue storage resource includes a brief view of the resource usage, such as requests and hourly billing. This information is useful, but only a small amount of the monitoring data is available. Some of this data is collected automatically and is available for analysis as soon as you create the resource. You can enable additional types of data collection with some configuration.
 
 ## What is Azure Monitor?
-Azure Queue storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises. 
+
+Azure Queue storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises.
 
 Start with the article [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
 
@@ -37,7 +38,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data
 
-Azure Queue storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Queue storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
 
 See [Azure Queue storage monitoring data reference](monitor-queue-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Queue storage.
 
@@ -47,9 +48,9 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 ## Collection and routing
 
-Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. 
+Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting.
 
-To collect resource logs, you must create a diagnostic setting. When you create the setting, choose **queue** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs. 
+To collect resource logs, you must create a diagnostic setting. When you create the setting, choose **queue** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs.
 
 | Category | Description |
 |:---|:---|
@@ -59,7 +60,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template. 
+You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template.
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -75,7 +76,7 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 3. In the **Monitoring** section, click **Diagnostic settings (preview)**.
 
    > [!div class="mx-imgBorder"]
-   > ![portal - Diagnostics logs](media/monitor-queue-storage/diagnostic-logs-settings-pane.png)   
+   > ![portal - Diagnostics logs](media/monitor-queue-storage/diagnostic-logs-settings-pane.png)
 
 4. Choose **queue** as the type of storage that you want to enable logs for.
 
@@ -95,7 +96,7 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 1. Select the **Archive to a storage account** checkbox, and then click the **Configure** button.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page archive storage](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
@@ -107,7 +108,7 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 1. Select the **Stream to an event hub** checkbox, and then click the **Configure** button.
 
-2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to. 
+2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to.
 
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page event hub](media/monitor-queue-storage/diagnostic-logs-settings-pane-event-hub.png)
@@ -118,7 +119,7 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page log analytics](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### [PowerShell](#tab/azure-powershell)
@@ -245,10 +246,9 @@ To view an Azure Resource Manager template that creates a diagnostic setting, se
 
 ---
 
-
 ## Analyzing metrics
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
 This example shows how to view **Transactions** at the account level.
 
@@ -260,13 +260,12 @@ For metrics that support dimensions, you can filter the metric with the desired 
 
 For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](monitor-queue-storage-reference.md#metrics-dimensions).
 
-Metrics for Azure Queue storage are in these namespaces: 
+Metrics for Azure Queue storage are in these namespaces:
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
 For a list of all Azure Monitor support metrics, which includes Azure Queue storage, see [Azure Monitor supported metrics](../../azure-monitor/platform/metrics-supported.md).
-
 
 ### Accessing metrics
 
@@ -300,7 +299,7 @@ You can read account-level metric values of your storage account or the Queue st
 #### List the account-level metric definition
 
 You can list the metric definition of your storage account or the Queue storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
- 
+
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Queue storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
 ```azurecli-interactive
@@ -318,10 +317,10 @@ You can read the metric values of your storage account or the Queue storage serv
 ### [.NET](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
- 
+
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Queue storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### List the account-level metric definition
 
@@ -454,9 +453,11 @@ The following example shows how to read metric data on the metric supporting mul
     }
 
 ```
+
 ### [Template](#tab/template)
 
 N/A.
+
 ---
 
 ## Analyzing logs
@@ -504,7 +505,7 @@ Here's an example:
 
 ### Accessing logs in an event hub
 
-Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, go to your event hub and verify that the **incoming messages** count is greater than zero. 
+Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, go to your event hub and verify that the **incoming messages** count is greater than zero.
 
 ![Audit logs](media/monitor-queue-storage/event-hub-log.png)
 
@@ -535,6 +536,7 @@ Use these queries to help you monitor your Azure Storage accounts:
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
+
 * To list the top 10 operations that caused the most errors over the last three days.
 
     ```Kusto
@@ -543,6 +545,7 @@ Use these queries to help you monitor your Azure Storage accounts:
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
+
 * To list the top 10 operations with the longest end-to-end latency over the last three days.
 
     ```Kusto
@@ -551,6 +554,7 @@ Use these queries to help you monitor your Azure Storage accounts:
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
+
 * To list all operations that caused server-side throttling errors over the last three days.
 
     ```Kusto
@@ -558,6 +562,7 @@ Use these queries to help you monitor your Azure Storage accounts:
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
+
 * To list all requests with anonymous access over the last three days.
 
     ```Kusto
@@ -565,14 +570,17 @@ Use these queries to help you monitor your Azure Storage accounts:
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
+
 * To create a pie chart of operations used over the last three days.
+
     ```Kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
-    | sort by count_ desc 
+    | sort by count_ desc
     | render piechart
     ```
+
 ## FAQ
 
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**

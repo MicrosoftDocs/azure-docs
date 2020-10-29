@@ -148,6 +148,7 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
+
 You can store this string in the service config file called *ServiceConfiguration.cscfg*. For an app running within a  Microsoft Azure role, access the connection string by calling **RoleEnvironment.getConfigurationSettings**. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString*:
 
 ```java

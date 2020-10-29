@@ -51,9 +51,9 @@ After you add a message, the Azure portal displays a list of all of the messages
 
 ## Dequeue a message
 
-You can dequeue a message from the front of the queue from the Azure portal. When you dequeue a message, the message is deleted. 
+You can dequeue a message from the front of the queue from the Azure portal. When you dequeue a message, the message is deleted.
 
-Dequeueing always removes the oldest message in the queue. 
+Dequeueing always removes the oldest message in the queue.
 
 ![Screenshot showing how to dequeue a message from the portal](media/storage-quickstart-queues-portal/dequeue-message.png)
 

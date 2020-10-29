@@ -17,7 +17,7 @@ See [Monitoring Azure Storage](monitor-queue-storage.md) for details on collecti
 
 ## Metrics
 
-The following tables list the platform metrics collected for Azure Storage. 
+The following tables list the platform metrics collected for Azure Storage.
 
 ### Capacity metrics
 

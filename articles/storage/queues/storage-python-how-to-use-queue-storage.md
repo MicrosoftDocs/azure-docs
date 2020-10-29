@@ -29,7 +29,7 @@ The examples in this article are written in Python and use the [Azure Queue stor
 ## Download and install Azure Storage SDK for Python
 
 The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python version 2.7, 3.3, or later.
- 
+
 ### Install via PyPI
 
 To install via the Python Package Index (PyPI), type:
@@ -69,7 +69,7 @@ The [QueueService](/azure/developer/python/sdk/storage/azure-storage-queue/azure
 
 ```python
 from azure.storage.queue import (
-        QueueService, 
+        QueueService,
         QueueMessageFormat
 )
 

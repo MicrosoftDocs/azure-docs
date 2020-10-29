@@ -156,13 +156,13 @@ The following example updates the text of a message.
 
 # [JavaScript v12](#tab/javascript)
 
-Change the contents of a message in-place in the queue by calling [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Change the contents of a message in-place in the queue by calling [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # [JavaScript v2](#tab/javascript2)
 
-Change the contents of a message in-place in the queue by calling **updateMessage**. 
+Change the contents of a message in-place in the queue by calling **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){

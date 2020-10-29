@@ -2,7 +2,6 @@
 title: Tutorial - Work with Azure Storage queues in .NET
 description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages using .NET code.
 author: mhopkins-msft
-
 ms.author: mhopkins
 ms.date: 06/09/2020
 ms.service: storage
@@ -91,6 +90,8 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
 
    C:\Tutorials\QueueApp>_
    ```
+
+<!-- markdownlint-disable MD023 -->
 
 ## Add the Azure client libraries
 
