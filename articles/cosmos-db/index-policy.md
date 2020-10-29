@@ -9,6 +9,7 @@ ms.author: tisande
 ---
 
 # Indexing policies in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers indexes every property of every item and enforces range indexes for any string or number. This allows you to get high query performance without having to think about indexing and index management upfront.
 

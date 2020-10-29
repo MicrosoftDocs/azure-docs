@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 
 # Configure access to Azure Cosmos DB from virtual networks (VNet)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can configure the Azure Cosmos account to allow access only from a specific subnet of virtual network (VNet). By enabling [Service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to access Azure Cosmos DB on the subnet within a virtual network, the traffic from that subnet is sent to Azure Cosmos DB with the identity of the subnet and Virtual Network. Once the Azure Cosmos DB service endpoint is enabled, you can limit access to the subnet by adding it to your Azure Cosmos account.
 

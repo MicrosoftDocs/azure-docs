@@ -10,6 +10,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Secure access to data in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

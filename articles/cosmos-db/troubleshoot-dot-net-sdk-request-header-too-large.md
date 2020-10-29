@@ -11,6 +11,8 @@ ms.custom: devx-track-dotnet
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB "Request header too large" message
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 The "Request header too large" message is thrown with an HTTP error code 400. This error occurs if the size of the request header has grown so large that it exceeds the maximum-allowed size. We recommend that you use the latest version of the SDK. Use at least version 3.x or 2.x, because these versions add header size tracing to the exception message.
 
 ## Troubleshooting steps

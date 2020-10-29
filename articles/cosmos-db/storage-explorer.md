@@ -9,6 +9,7 @@ ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ---
 # Manage Azure Cosmos DB resources by using Azure Storage Explorer
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
 

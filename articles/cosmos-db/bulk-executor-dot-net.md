@@ -13,6 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!NOTE]
 > This bulk executor library described in this article is maintained for applications using the .NET SDK 2.x version. For new applications, you can use the **bulk support** that is directly available with the [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md) and it does not require any external library. 
