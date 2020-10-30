@@ -220,11 +220,11 @@ Review the Azure Sentinel documentation for additional details on available conn
 
 - [Connect data sources](../sentinel/connect-data-sources.md)
 
-- [Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
+- [Integrate with a SIEM](../security-center/continuous-export.md)
 
 - [Store diagnostic data](diagnostics-extension-to-storage.md)
 
-- [Configuring SIEM integration via Azure Event Hubs](../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs)
+- [Configuring SIEM integration via Azure Event Hubs](../security-center/continuous-export.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -273,7 +273,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [Introduction to Cloud Service Monitoring](cloud-services-how-to-monitor.md)
 
-- [How to Enable Diagnostics in a Worker Role - Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
+- [How to Enable Diagnostics in a Worker Role - Integrate with a SIEM](../security-center/continuous-export.md)
 
 - [Enable diagnostics in Azure Cloud Services using PowerShell](cloud-services-diagnostics-powershell.md)
 
@@ -287,7 +287,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Guidance**: You can monitor Azure Cloud Services log data by integration with Azure Sentinel, or with a third-party SIEM, by enable alerting for anomalous activities.
 
-- [Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
+- [Integrate with a SIEM](../security-center/continuous-export.md)
 
 **Azure Security Center monitoring**: Yes
 
