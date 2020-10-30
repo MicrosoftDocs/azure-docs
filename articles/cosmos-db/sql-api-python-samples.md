@@ -12,6 +12,7 @@ ms.custom: devx-track-python
 
 ---
 # Azure Cosmos DB Python examples
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
