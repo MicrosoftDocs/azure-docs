@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/30/2020
 ---
 
 # Introduction
