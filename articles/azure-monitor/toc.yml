@@ -182,18 +182,6 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
-  - name: Platform logs
-    items:
-    - name: Overview
-      displayName: Platform logs, Resource logs, Activity log
-      href: platform/platform-logs-overview.md 
-    - name: Activity log
-      href: platform/activity-log.md
-    - name: Resource logs
-      href: platform/resource-logs.md
-    - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: platform/diagnostic-settings.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -201,8 +189,6 @@
       href: platform/data-platform-logs.md
     - name: Workspaces and clusters
       items:
-      - name: Design a workspace deployment
-        href: platform/design-logs-deployment.md
       - name: Create a workspace
         items:
         - name: Azure portal
@@ -211,6 +197,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: PowerShell
           href: platform/powershell-workspace-configuration.md
+      - name: Design a workspace deployment
+        href: platform/design-logs-deployment.md
       - name: Monitor a workspace
         href: platform/monitor-workspace.md
       - name: Delete and recover a workspace
@@ -276,7 +264,7 @@
         href: platform/logs-export-logic-app.md
       - name: Query exported data with Data Explorer
         href: platform/azure-data-explorer-query-storage.md
-  - name: Metrics explorer
+  - name: Azure Monitor Metrics
     items:
     - name: Overview
       displayname: Metrics
@@ -291,6 +279,18 @@
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
+  - name: Platform logs
+    items:
+    - name: Overview
+      displayName: Platform logs, Resource logs, Activity log
+      href: platform/platform-logs-overview.md 
+    - name: Activity log
+      href: platform/activity-log.md
+    - name: Resource logs
+      href: platform/resource-logs.md
+    - name: Diagnostic settings
+      displayName: Platform logs, Resource logs, Activity log
+      href: platform/diagnostic-settings.md
   - name: Data collection
     items:
     - name: Data collection rules

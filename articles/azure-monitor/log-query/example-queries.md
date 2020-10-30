@@ -1,5 +1,5 @@
 ---
-title: Saved queries in Azure Monitor Log Analytics
+title: Log Analytics in Azure Monitor offers sets of example queries that you can run on their own or use as a starting point for your own queries. 
 description: Queries you can start from and modify for your needs 
 ms.subservice: logs
 ms.topic: article
@@ -9,7 +9,6 @@ ms.date: 06/16/2020
 ---
 
 # Example queries in Azure Monitor Log Analytics
-
 Log Analytics offers sets of example queries that you can run on their own or use as a starting point for your own queries. This article describes example queries and how to use them.
 
 If you aren't familiar with Log Analytics or the KQL query language, example queries are a great way to start. They can provide instant insight into a resource and provide a nice way to start learning and using KQL, thus shortening the time it takes to start using Log Analytics. We have collected and curated over 250 example queries designed to provide you instant value and that number of example queries is continually growing.

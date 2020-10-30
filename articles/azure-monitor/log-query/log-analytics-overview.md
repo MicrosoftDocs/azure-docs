@@ -19,11 +19,11 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 
 ## Starting Log Analytics
-Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure portal. You'll also see this option in the menu for most Azure resources. Regardless of where you start it from, it will be the same Log Analytics tool. The menu you use to start Log Analytics may determine the data that will be available though. If you start it from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all of the records in a workspace. If you select **Logs** from another type of resources, then your data will be limited to log data for that resource. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md) for details.
+Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure portal. You'll also see this option in the menu for most Azure resources. Regardless of where you start it from, it will be the same Log Analytics tool. The menu you use to start Log Analytics determines the data that will be available though. If you start it from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all of the records in a workspace. If you select **Logs** from another type of resource, then your data will be limited to log data for that resource. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md) for details.
 
 [![Start Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
-When you start Log Analytics, the first thing you'll see is a dialog box with example queries. These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find a that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
+When you start Log Analytics, the first thing you'll see is a dialog box with [example queries](example-queries.md). These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find a that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
 Of course if you want to start with an empty script and write it yourself, you can close the example queries. Just click the **Queries** at the top of the screen if you want to get them back.
 
 ## Log Analytics interface
