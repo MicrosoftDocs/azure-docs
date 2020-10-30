@@ -111,9 +111,9 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Select **Admin > Manage Articles** to add some articles.
 
-To stop Node.js at any time, press `Ctrl+C` in the terminal.
+To stop Node.js at any time, press `Ctrl+C` in the terminal. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create production MongoDB
 

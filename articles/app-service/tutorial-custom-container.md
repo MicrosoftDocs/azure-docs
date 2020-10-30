@@ -223,7 +223,7 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
-* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?
+* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 * Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
@@ -233,21 +233,21 @@ After installing Docker and the Azure CLI, open a terminal window and verify tha
 docker --version
 ```
 
-Also verify that your Azure CLI version is 2.0.80 or higher:	
+Also verify that your Azure CLI version is 2.0.80 or higher:
 
-```azurecli	
-az --version	
-```	
+```azurecli
+az --version
+```
 
-Then sign in to Azure through the CLI:	
+Then sign in to Azure through the CLI:
 
-```azurecli	
-az login	
-```	
+```azurecli
+az login
+```
 
-The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.	
+The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.
 
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.	
+Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
 ## Clone or download the sample app
 

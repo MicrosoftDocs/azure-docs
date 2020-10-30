@@ -43,10 +43,10 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](https://php.net/downloads.php)	
+* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
-* Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML	
-* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+* Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## Prepare local MySQL
 
