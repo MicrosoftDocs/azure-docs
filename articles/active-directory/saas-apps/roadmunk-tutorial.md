@@ -94,9 +94,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	In the **Sign-on URL** text box, type the URL:
     `https://login.roadmunk.com`
 
-	> [!NOTE]
-    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Roadmunk Client support team](mailto:support@roadmunk.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
