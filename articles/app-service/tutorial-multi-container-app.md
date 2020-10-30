@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: cli-validate
+ms.custom: cli-validate, devx-track-azurecli
 #Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers

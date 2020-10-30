@@ -226,3 +226,7 @@
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi-config
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+- name: Resources
+  items:
+    - name: Azure Arc jumpstart
+      href: https://github.com/microsoft/azure_arc

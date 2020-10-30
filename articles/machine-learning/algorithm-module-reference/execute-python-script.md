@@ -124,7 +124,10 @@ The Execute Python Script module contains sample Python code that you can use as
     1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
-    
+ 
+    > [!WARNING]
+    > **Don't** use **app** as the name of folder or your script, since **app** is a reserved word for built-in services. But you can use other namespaces like `app123`.
+   
     Following is a script bundle example, which contains a python script file and a txt file:
       
     > [!div class="mx-imgBorder"]

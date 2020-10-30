@@ -43,7 +43,7 @@ Sign in to Azure at https://portal.azure.com.
 
 ## Enable non-Azure VMs
 
-Machines not in Azure need to be added manually.
+Machines not in Azure need to be added manually. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you also plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 1. From your Automation account select **Inventory** or **Change tracking** under **Configuration Management**.
 

@@ -37,7 +37,7 @@ You must do both of the following:
 
 To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
 
-- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Get started with Application Proxy and install the connector](../manage-apps/application-proxy-add-on-premises-application.md) and [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
 - **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    > [!NOTE]

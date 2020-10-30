@@ -103,10 +103,10 @@
     - name: Build a PHP web app with MySQL
       items:
       - name: Wordpress in containers with MySQL
-        href: ../app-service/containers/tutorial-multi-container-app.md
+        href: ../app-service/tutorial-multi-container-app.md
         maintainContext: true
       - name: PHP with MySQL
-        href: ../app-service/app-service-web-tutorial-php-mysql.md
+        href: ../app-service/tutorial-php-mysql-app.md
         maintainContext: true
   - name: Samples
     items:
@@ -115,7 +115,7 @@
       - name: Java connection pooling
         href: sample-scripts-java-connection-pooling.md
       - name: Azure Policy built-ins
-        href: ./policy-samples.md
+        href: ./policy-reference.md
   - name: Concepts
     items:
      - name: Servers
@@ -253,7 +253,7 @@
       - name: Restore a dropped server
         href: howto-restore-dropped-server.md
         displayName: restore server,dropped, recover
-        
+
     - name: Connect applications
       items:
           - name: Configure SSL
@@ -429,6 +429,7 @@
         - name: Azure CLI
           href: flexible-server/quickstart-create-server-cli.md
         - name: ARM template
+          displayName: Resource Manager
           href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
         items:
@@ -475,6 +476,10 @@
         href: flexible-server/concepts-audit-logs.md
       - name: Metrics
         href: flexible-server/concepts-monitoring.md
+    - name: Replication
+      items:
+      - name: Read replicas
+        href: flexible-server/concepts-read-replicas.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -517,6 +522,14 @@
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-configure-server-parameters-portal.md
+        displayName: server parameters
+      - name: Azure CLI
+        href: flexible-server/how-to-configure-server-parameters-cli.md
+        displayName: server parameters, cli
     - name: Monitoring & Logs
       items:
       - name: Create alerts on metrics
@@ -529,6 +542,16 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-configure-audit-logs-portal.md
+    - name: Restart server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
+    - name: Replication
+      items:
+      - name: Create read replicas Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+      - name: Create read replicas Azure CLI
+        href: flexible-server/how-to-read-replicas-cli.md
     - name: Troubleshoot
       items:
       - name: Connection errors
@@ -552,7 +575,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-mysql.html
+    href: /answers/topics/azure-database-mysql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos

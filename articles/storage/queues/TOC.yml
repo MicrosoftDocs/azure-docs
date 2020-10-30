@@ -1,5 +1,5 @@
 - name: Azure Queue storage documentation
-  href: /azure/storage/queues/
+  href: ./index.yml
 - name: Overview
   expanded: true
   items:
@@ -70,7 +70,7 @@
     - name: Authorizing management operations
       href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Built-in security controls
-      href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/security-baseline.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json
     - name: Use Azure Private Endpoints
       href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
     - name: Security controls by Azure Policy

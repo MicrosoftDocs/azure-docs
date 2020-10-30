@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Create a multi-container (preview) app using a Docker Compose configuration
