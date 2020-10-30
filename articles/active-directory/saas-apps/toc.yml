@@ -1330,6 +1330,8 @@
         href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: ProdPad
+        href: prodpad-tutorial.md
       - name: productboard
         href: productboard-tutorial.md
       - name: Profit.co
