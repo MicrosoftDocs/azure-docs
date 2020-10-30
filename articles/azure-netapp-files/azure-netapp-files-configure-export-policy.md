@@ -28,8 +28,9 @@ You can create up to five export policy rules.
 
     * **Allowed Clients**   
         Specify the value in one of the following formats:  
-        * IPv4 address, for example, `10.1.12.24` 
+        * IPv4 address, for example, `10.1.12.24`
         * IPv4 address with a subnet mask expressed as a number of bits, for example, `10.1.12.10/4`
+        * Rule supports comma separated IP addresses. You can enter multiple hosts IPs in single rule by separating them buy comma"," for example '10.1.12.25,10.1.12.28,10.1.12.29"
 
     * **Access**  
         Select one of the following access types:  
