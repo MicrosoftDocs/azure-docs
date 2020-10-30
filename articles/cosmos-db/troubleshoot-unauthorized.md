@@ -47,3 +47,4 @@ There's a race condition with container creation. An application instance is try
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
 * Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
+* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4-sql.md).
