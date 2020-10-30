@@ -35,7 +35,7 @@ For the rest of these examples, assume that the Azure Database for MariaDB reser
 
 * **Example 4**: You run one 16 vCore Azure Database for MariaDB server from 1 pm to 1:45 pm. You run another 16 vCore Azure Database for MariaDB server from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](./understand-reserved-instance-usage-ea.md).
 
 ## Next steps
 

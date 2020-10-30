@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins twin graph
 
-This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
+This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](/rest/api/digital-twins/dataplane/query).
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -44,6 +44,97 @@ You can select the several "top" items in a query using the `Select TOP` clause.
 SELECT TOP (5)
 FROM DIGITALTWINS
 WHERE ...
+```
+
+### Count items
+
+You can count the number of items in a result set using the `Select COUNT` clause:
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS
+``` 
+
+Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
+
+SELECT COUNT() 
+FROM DIGITALTWINS c 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
+```
+
+You can also use `COUNT` along with the `JOIN` clause. Here is a query that counts all the light bulbs contained in the light panels of rooms 1 and 2:
+
+```sql
+SELECT COUNT()  
+FROM DIGITALTWINS Room  
+JOIN LightPanel RELATED Room.contains  
+JOIN LightBulb RELATED LightPanel.contains  
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
+AND Room.$dtId IN ['room1', 'room2'] 
+```
+
+### Specify return set with projections
+
+Using projections, you can choose which columns a query will return. 
+
+>[!NOTE]
+>At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check. 
+
+Here is an example of a query that uses projection to return twins and relationships. The following query projects the *Consumer*, *Factory* and *Edge* from a scenario where a *Factory* with an ID of *ABC* is related to the *Consumer* through a relationship of *Factory.customer*, and that relationship is presented as the *Edge*.
+
+```sql
+SELECT Consumer, Factory, Edge 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+```
+
+You can also use projection to return a property of a twin. The following query projects the *Name* property of the *Consumers* that are related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*. 
+
+```sql
+SELECT Consumer.name 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the *Name* property of the *Consumers* related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*; but now it also returns two properties of that relationship, *prop1* and *prop2*. It does this by naming the relationship *Edge* and gathering its properties.  
+
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+
+You can also use aliases to simplify queries with projection.
+
+The following query does the same operations as the previous example, but it aliases the property names to `consumerName`, `first`, `second` and `factoryArea`. 
+ 
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+```
+
+Here is a similar query that queries the same set as above, but projects only the *Consumer.name* property as `consumerName`, and projects the complete *Factory* as a twin. 
+
+```sql
+SELECT Consumer.name AS consumerName, Factory 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
 ```
 
 ### Query by property
@@ -82,7 +173,13 @@ WHERE IS_NUMBER(T.Temperature)
 
 ### Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). It supports inheritance and has several overload options.
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). 
+
+It considers [inheritance](concepts-models.md#model-inheritance) and [version ordering](how-to-manage-model.md#update-models) semantics, and evaluates to **true** for a given twin if the twin meets one of these conditions:
+* The twin directly implements the model provided to `IS_OF_MODEL()`, and the version number of the model on the twin is *greater than or equal to* the version number of the provided model
+* The twin implements a model that *extends* the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is *greater than or equal to* the version number of the provided model
+
+This method has several overload options.
 
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
@@ -161,7 +258,7 @@ In the example above, note how *reportedCondition* is a property of the *service
 
 ### Query with multiple JOINs
 
-Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
+Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
 
 Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
 
@@ -182,7 +279,7 @@ You can **combine** any of the above types of query using combination operators 
 | Description | Query |
 | --- | --- |
 | Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
-| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITIALTWINS Room​​`​<br>​`JOIN Thermostat ON Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
+| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
 | Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
 
 ## Reference: Expressions and conditions
@@ -259,10 +356,10 @@ catch (RequestFailedException e)
 
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
 
-There are additional limitations on using `JOIN` during preview.
+There are additional limitations on using `JOIN`.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* During preview, graph traversal depth is restricted to five `JOIN` levels per query.
+* Graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
 ## Query best practices

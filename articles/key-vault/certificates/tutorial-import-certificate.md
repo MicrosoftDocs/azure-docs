@@ -82,7 +82,7 @@ By adding a certificate using **Import** method, Azure Key vault will automatica
 
 Once you receive the message that the certificate has been successfully imported, you may click on it on the list to view its properties. 
 
-![Certificate properties](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+![Screenshot that shows where to view the certificate properties.](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## Import a certificate using Azure CLI
 

@@ -85,6 +85,9 @@
          href: connect-cpp.md
        - name: Go
          href: connect-go.md
+       - name: GitHub Actions
+         href: quickstart-mysql-github-actions.md
+
   - name: Tutorials
     items:
     - name: Design a database
@@ -100,10 +103,10 @@
     - name: Build a PHP web app with MySQL
       items:
       - name: Wordpress in containers with MySQL
-        href: ../app-service/containers/tutorial-multi-container-app.md
+        href: ../app-service/tutorial-multi-container-app.md
         maintainContext: true
       - name: PHP with MySQL
-        href: ../app-service/app-service-web-tutorial-php-mysql.md
+        href: ../app-service/tutorial-php-mysql-app.md
         maintainContext: true
   - name: Samples
     items:
@@ -112,7 +115,7 @@
       - name: Java connection pooling
         href: sample-scripts-java-connection-pooling.md
       - name: Azure Policy built-ins
-        href: ./policy-samples.md
+        href: ./policy-reference.md
   - name: Concepts
     items:
      - name: Servers
@@ -153,6 +156,8 @@
          href: concepts-infrastructure-double-encryption.md
        - name: Security baseline
          href: security-baseline.md
+     - name: Planned maintenance
+       href: concepts-planned-maintenance-notification.md
      - name: Business continuity
        items:
        - name: Business continuity intro
@@ -245,6 +250,10 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore server, backup, geo-restore powershell
+      - name: Restore a dropped server
+        href: howto-restore-dropped-server.md
+        displayName: restore server,dropped, recover
+
     - name: Connect applications
       items:
           - name: Configure SSL
@@ -323,20 +332,26 @@
       - name: Create read replicas Azure PowerShell
         href: howto-read-replicas-powershell.md
         displayName: data-in replication, replica, failover
-      - name: Troubleshoot
-        items:
-        - name: Troubleshoot connection errors
-          href: howto-troubleshoot-common-connection-issues.md
-          displayName: debug, connection issues, connectivity, cannot connect
-        - name: Troubleshoot query performance
-          href: howto-troubleshoot-query-performance.md
-          displayName: debug, performance issues, query performance
-        - name: How to use views in sys schema
-          href: howto-troubleshoot-sys-schema.md
-          displayName: sys schema, views
-        - name: Troubleshoot data encryption
-          href: howto-data-encryption-troubleshoot.md
-          displayName: encryption, security
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot connection errors
+        href: howto-troubleshoot-common-connection-issues.md
+        displayName: debug, connection issues, connectivity, cannot connect
+      - name: Troubleshoot common errors
+        href: howto-troubleshoot-common-errors.md
+        displayName: SUPER privilege, DBA role, Access is denied
+      - name: Troubleshoot query performance
+        href: howto-troubleshoot-query-performance.md
+        displayName: debug, performance issues, query performance
+      - name: How to use views in sys schema
+        href: howto-troubleshoot-sys-schema.md
+        displayName: sys schema, views
+      - name: Troubleshoot data encryption
+        href: howto-data-encryption-troubleshoot.md
+        displayName: encryption, security
+      - name: Troubleshoot replication latency
+        href: howto-troubleshoot-replication-latency.md
+        displayName: replication, latency, monitor
     - name: Advanced threat protection
       items:
       - name: Azure portal
@@ -414,6 +429,7 @@
         - name: Azure CLI
           href: flexible-server/quickstart-create-server-cli.md
         - name: ARM template
+          displayName: Resource Manager
           href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
         items:
@@ -460,6 +476,10 @@
         href: flexible-server/concepts-audit-logs.md
       - name: Metrics
         href: flexible-server/concepts-monitoring.md
+    - name: Replication
+      items:
+      - name: Read replicas
+        href: flexible-server/concepts-read-replicas.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -502,6 +522,14 @@
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-configure-server-parameters-portal.md
+        displayName: server parameters
+      - name: Azure CLI
+        href: flexible-server/how-to-configure-server-parameters-cli.md
+        displayName: server parameters, cli
     - name: Monitoring & Logs
       items:
       - name: Create alerts on metrics
@@ -514,6 +542,16 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-configure-audit-logs-portal.md
+    - name: Restart server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
+    - name: Replication
+      items:
+      - name: Create read replicas Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+      - name: Create read replicas Azure CLI
+        href: flexible-server/how-to-read-replicas-cli.md
     - name: Troubleshoot
       items:
       - name: Connection errors
@@ -537,7 +575,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-mysql.html
+    href: /answers/topics/azure-database-mysql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos

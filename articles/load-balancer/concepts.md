@@ -51,18 +51,9 @@ Load balancer doesn't directly interact with TCP or UDP or the application layer
 - Application payloads are transparent to the load balancer. Any UDP or TCP application can be supported.
 - Because the load balancer doesn't interact with the TCP payload and provide TLS offload, you can build comprehensive encrypted scenarios. Using load balancer gains large scale-out for TLS applications by ending the TLS connection on the VM itself. For example, your TLS session keying capacity is only limited by the type and number of VMs you add to the back-end pool.
 
-## <a name = "limitations"></a>Limitations
-
-- A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
-
-- Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
-
-- Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
-
-- Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
-
 ## Next steps
 
+- Learn about the [components](components.md) that make up Azure Load Balancer.
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
 - Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).

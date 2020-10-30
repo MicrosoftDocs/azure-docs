@@ -174,7 +174,6 @@ Keep these things in mind when you configure company branding in Azure AD B2C:
 
 * Company branding in Azure AD B2C is currently limited to **background image**, **banner logo**, and **background color** customization. The other properties in the company branding pane, for example those in **Advanced settings**, are *not supported*.
 * In your user flow pages, the background color is shown before the background image is loaded. We recommended you choose a background color that closely matches the colors in your background image for a smoother loading experience.
-* The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
 
 ### Enable branding in user flow pages
 

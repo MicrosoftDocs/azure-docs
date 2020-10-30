@@ -17,7 +17,7 @@ ms.custom: "devx-track-csharp"
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
-This article shows how to configure your native application or web application for authentication with Microsoft identity platform 2.0 using a sample application that is available for download. The sample application features .NET, but other languages use a similar approach. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
+This article shows how to configure your native application or web application for authentication with the Microsoft identity platform using a sample application that is available for download. The sample application features .NET, but other languages use a similar approach. For more information about the Microsoft identity platform, see [Microsoft identity platform overview](../../active-directory/develop/v2-overview.md).
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -27,7 +27,7 @@ The sample application provides an end-to-end experience that shows how to confi
 
 ## Assign a role to an Azure AD security principal
 
-To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with Azure RBAC](storage-auth-aad-rbac.md).
+To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ## Register your application with an Azure AD tenant
 
@@ -44,7 +44,7 @@ After you've registered your application, you'll see the application ID (or clie
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot showing the client ID":::
 
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
+For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ### Grant your registered app permissions to Azure Storage
 
@@ -89,7 +89,7 @@ Next, configure implicit grant flow for your application. Follow these steps:
 
 Once you have registered your application and granted it permissions to access data in Azure Blob storage or Queue storage, you can add code to your application to authenticate a security principal and acquire an OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID Connect 1.0. Your application can then use the access token to authorize a request against Azure Blob storage or Queue storage.
 
-For a list of scenarios for which acquiring tokens is supported, see the [authentication flows](/en-us/azure/active-directory/develop/msal-authentication-flows) section of the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) documentation.
+For a list of scenarios for which acquiring tokens is supported, see the [authentication flows](../../active-directory/develop/msal-authentication-flows.md) section of the [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) documentation.
 
 ## Well-known values for authentication with Azure AD
 
@@ -243,7 +243,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## View and run the completed sample
 
@@ -286,6 +286,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## Next steps
 
-- [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Manage access rights to storage data with Azure RBAC](storage-auth-aad-rbac.md)
+- [Microsoft identity platform](../../active-directory/develop/index.yml)
+- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md)
 - [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)

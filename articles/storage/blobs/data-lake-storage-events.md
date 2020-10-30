@@ -121,7 +121,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 2. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Python** as the language, and then select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Create notebook in Databricks")
+    ![Screenshot that shows the Create Notebook dialog box and where to select Python as the language.](./media/data-lake-storage-events/new-databricks-notebook.png "Create notebook in Databricks")
 
     Select **Create**.
 
@@ -263,7 +263,7 @@ Create an Azure Function that runs the Job.
 
 5. In the **Overview** page of the Function App, click **Configuration**.
 
-   ![Configure the function app](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
+   ![Screenshot that highlights the Configuration option under Configured features.](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
 
 6. In the **Application Settings** page, choose the **New application setting** button to add each setting.
 
@@ -340,7 +340,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
 1. In the function code page, click the **Add Event Grid subscription** button.
 
-   ![New event subscription](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
+   ![Screenshot that highlights the Add Event Grid subscription button.](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
 
 2. In the **Create Event Subscription** page, name the subscription, and then use the fields in the page to select your storage account.
 

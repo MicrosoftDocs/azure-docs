@@ -1,7 +1,7 @@
 ---
 title: Manage roles in your workspace
 titleSuffix: Azure Machine Learning
-description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
+description: Learn how to access to an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
+ms.custom: how-to, seodec18, devx-track-azurecli
 
 ---
 
@@ -31,9 +31,9 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 | **Custom Role** | Allows you to customize access to specific control or data plane operations within a workspace. For example, submitting a run, creating a compute, deploying a model or registering a dataset. |
 
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
+> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-For more information on specific built-in roles, see [Built-in roles for Azure](/azure/role-based-access-control/built-in-roles).
+For more information on specific built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## Manage workspace access
 
@@ -63,6 +63,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## Azure Machine Learning operations
 
 Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+## MLflow operations in Azure Machine learning
+
+This tables describes the permission scope that should be added to actions in the custom role created to perform MLflow operations.
+
+| MLflow operation | Scope |
+| --- | --- |
+| List all experiments in the workspace tracking store, get an experiment by id, get an experiment by name | Microsoft.MachineLearningServices/workspaces/experiments/read |
+| Create an experiment with a name , set a tag on an experiment, restore an experiment marked for deletion| Microsoft.MachineLearningServices/workspaces/experiments/write | 
+| Delete an experiment | Microsoft.MachineLearningServices/workspaces/experiments/delete |
+| Get a run and related data and metadata, get a list of all values for the specified metric for a given run, list artifacts for a run | Microsoft.MachineLearningServices/workspaces/experiments/runs/read |
+| Create a new run within an experiment, delete runs, restore deleted runs, log metrics under the current run, set tags on a run, delete tags on a run, log params (key-value pair) used for a run, log a batch of metrics, params, and tags for a run, update run status | Microsoft.MachineLearningServices/workspaces/experiments/runs/write |
+| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model’s version, search model versions, get URI where a model version’s artifacts are stored, search for runs by experiment ids | Microsoft.MachineLearningServices/workspaces/models/read |
+| Create a new registered model, update a registered model’s name/description, rename existing registered model, create new version of the model, update a model version’s description, transition a registered model to one of the stages | Microsoft.MachineLearningServices/workspaces/models/write |
+| Delete a registered model along with all its version, delete specific versions of a registered model | Microsoft.MachineLearningServices/workspaces/models/delete |
+
 
 ## Create custom role
 
@@ -138,7 +154,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
-| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -250,6 +266,46 @@ Yes here are some common scenarios with custom proposed role definitions that yo
         ]
     }
     ```
+     
+* __MLflow Data Scientist Custom__: Allows a data scientist to perform all MLflow AzureML supported operations **except**:
+
+   * Creation of compute
+   * Deploying models to a production AKS cluster
+   * Deploying a pipeline endpoint in production
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+	        "Microsoft.MachineLearningServices/workspaces/experiments/read",
+	        "Microsoft.MachineLearningServices/workspaces/experiments/write",
+	        "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps Custom__: Allows you to assign a role to a service principal and use that to automate your MLOps pipelines. For example, to submit runs against an already published pipeline:
 
@@ -373,13 +429,13 @@ Here are a few things to be aware of while you use Azure role-based access contr
     - "Microsoft.Network/virtualNetworks/join/action" on the VNet resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
     
-    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
 
 - It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
 ### Q. What permissions do I need to use a user-assigned managed identity with my Amlcompute clusters?
 
-To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on Azure RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### Q. Do we support role-based access control on the Studio portal?

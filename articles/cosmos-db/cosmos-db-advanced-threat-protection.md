@@ -11,6 +11,7 @@ manager: rkarlin
 ---
 
 # Advanced Threat Protection for Azure Cosmos DB (Preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Advanced Threat Protection for Azure Cosmos DB provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts. This layer of protection allows you to address threats, even without being a security expert, and integrate them with central security monitoring systems.
 
@@ -21,7 +22,7 @@ Security alerts are triggered when anomalies in activity occur. These security a
 > * Advanced Threat Protection for Azure Cosmos DB is currently available only for the SQL API.
 > * Advanced Threat Protection for Azure Cosmos DB is currently not available in Azure government and sovereign cloud regions.
 
-For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.
+For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](./monitor-cosmos-db.md), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.
 
 ## Threat types
 
@@ -54,16 +55,16 @@ You can configure advanced threat protection in any of several ways, described i
 
 Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific Azure Cosmos DB account.
 
-* [Advanced Threat Protection - Create](https://go.microsoft.com/fwlink/?linkid=2099745)
-* [Advanced Threat Protection - Get](https://go.microsoft.com/fwlink/?linkid=2099643)
+* [Advanced Threat Protection - Create](/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced Threat Protection - Get](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### [PowerShell](#tab/azure-powershell)
 
 Use the following PowerShell cmdlets:
 
-* [Enable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
-* [Get Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
-* [Disable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+* [Enable Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Get Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Disable Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
 
 ### [ARM template](#tab/arm-template)
 
@@ -108,9 +109,9 @@ An email notification is also sent with the alert details and recommended action
 
 ## Cosmos DB ATP alerts
 
- To see a list of the alerts generated when monitoring Azure Cosmos DB accounts, see the [Cosmos DB alerts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) section in the Azure Security Center documentation.
+ To see a list of the alerts generated when monitoring Azure Cosmos DB accounts, see the [Cosmos DB alerts](../security-center/alerts-reference.md#alerts-azurecosmos) section in the Azure Security Center documentation.
 
 ## Next steps
 
 * Learn more about [Diagnostic logging in Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)

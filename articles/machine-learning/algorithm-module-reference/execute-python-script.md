@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ---
 # Execute Python Script module
 
@@ -115,9 +115,50 @@ The Execute Python Script module contains sample Python code that you can use as
 
     ![Execute Python input map](media/module/python-module.png)
 
-4. To include new Python packages or code, add the zipped file that contains these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a file type dataset. You can upload the dataset on the **Datasets** asset page. You can drag the dataset module from the **My datasets** list in the left module tree on the designer authoring page. 
+4. To include new Python packages or code, connect the zipped file that contains these custom resources to **Script bundle** port. Or if your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
 
-    Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
+    
+    1. Bundle the script and other custom resources to a zip file.
+    1. Upload the zip file as a **File Dataset** to the studio. 
+    1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
+    1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
+    
+    Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
+ 
+    > [!WARNING]
+    > **Don't** use **app** as the name of folder or your script, since **app** is a reserved word for built-in services. But you can use other namespaces like `app123`.
+   
+    Following is a script bundle example, which contains a python script file and a txt file:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Script bundle example](media/module/python-script-bundle.png)  
+
+    Following is the content of `my_script.py`:
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Following is sample code showing how to consume the files in the script bundle:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. In the **Python script** text box, type or paste valid Python script.
 

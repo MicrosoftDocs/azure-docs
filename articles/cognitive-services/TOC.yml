@@ -9,6 +9,8 @@
     href: whats-new-docs.md
   - name: Cognitive Services and Machine learning
     href: cognitive-services-and-machine-learning.md
+  - name: Cognitive Services development options
+    href: cognitive-services-development-options.md 
   - name: Custom subdomains for Cognitive Services
     href: cognitive-services-custom-subdomains.md
   - name: Language support
@@ -89,6 +91,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Support & help options
+    href: cognitive-services-support-options.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
   - name: Pricing
@@ -97,8 +101,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Support & help options
-    href: cognitive-services-support-options.md
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
   - name: Videos

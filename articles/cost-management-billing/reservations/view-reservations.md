@@ -50,7 +50,7 @@ There are two options for Power BI users
 - [Manage Azure Reservations](manage-reserved-vm-instance.md).
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-- [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)
 
 ## Need help? Contact us
 

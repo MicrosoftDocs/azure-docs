@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
-description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 09/17/2020
+description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 10/26/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -21,13 +21,13 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
 > definitions. These policies may help you
 > [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
-> there often is not a 1:1 or complete match between a control and one or more policies. As such,
-> **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're
-> fully compliant with all requirements of a control. In addition, the compliance standard includes
-> controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance
-> in Azure Policy is only a partial view of your overall compliance status. The associations between
-> controls and Azure Policy definitions for this compliance blueprint sample may change over time.
-> To view the change history, see the
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## AC-2 Account Management

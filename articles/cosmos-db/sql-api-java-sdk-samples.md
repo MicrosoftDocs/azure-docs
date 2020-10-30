@@ -12,6 +12,7 @@ ms.author: anfeldma
 
 ---
 # Azure Cosmos DB SQL API: Java SDK v4 examples
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
@@ -99,7 +100,7 @@ where *sample.synchronicity.MainClass* can be
 > 
 
 ## Database examples
-The [Database CRUD Samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java) file shows how to perform the following tasks. To learn about the Azure Cosmos databases before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article. 
+The [Database CRUD Samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java) file shows how to perform the following tasks. To learn about the Azure Cosmos databases before running the following samples, see [Working with databases, containers, and items](account-databases-containers-items.md) conceptual article. 
 
 | Task | API reference |
 | --- | --- |
@@ -109,7 +110,7 @@ The [Database CRUD Samples](https://github.com/Azure-Samples/azure-cosmos-java-s
 | [Delete a database](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java#L115-L123) | CosmosDatabase.delete |
 
 ## Collection examples
-The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about the Azure Cosmos collections before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
+The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about the Azure Cosmos collections before running the following samples, see [Working with databases, containers, and items](account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -121,7 +122,7 @@ The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blo
 
 ## Autoscale collection examples
 
-To learn more about autoscale before running these samples, take a look at these instructions for enabling autoscale in your [account](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) and in your [databases and containers](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale).
+To learn more about autoscale before running these samples, take a look at these instructions for enabling autoscale in your [account](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) and in your [databases and containers](./provision-throughput-autoscale.md).
 
 The [autoscale Database CRUD Samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) file shows how to perform the following tasks.
 
@@ -146,7 +147,7 @@ The [Analytical storage Collection CRUD Samples](https://github.com/Azure-Sample
 | [Create a collection](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/sync/AnalyticalContainerCRUDQuickstart.java#L93-L108) | CosmosDatabase.createContainerIfNotExists |
 
 ## Document examples
-The [Document CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) file shows how to perform the following tasks. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
+The [Document CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) file shows how to perform the following tasks. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -160,7 +161,7 @@ The [Document CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/
 | [Read document only if document has changed](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
 
 ## Indexing examples
-The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-types.md), and [indexing paths](index-paths.md) conceptual articles. 
+The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-kinds), and [indexing paths](index-policy.md#include-exclude-paths) conceptual articles. 
 
 | Task | API reference |
 | --- | --- |
@@ -177,7 +178,7 @@ The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blo
 For more information about indexing, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Query examples
-The [Query Samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) file shows how to do the following tasks using the SQL query grammar. To learn about the SQL query reference in Azure Cosmos DB before you run the following samples, see [SQL query examples for Azure Cosmos DB](how-to-sql-query.md). 
+The [Query Samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) file shows how to do the following tasks using the SQL query grammar. To learn about the SQL query reference in Azure Cosmos DB before you run the following samples, see [SQL query examples for Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Task | API reference |
 | --- | --- |

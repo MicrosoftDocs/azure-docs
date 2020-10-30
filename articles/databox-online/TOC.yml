@@ -35,7 +35,11 @@
   - name: Concepts
     items:
     - name: Review requirements
-      href: azure-stack-edge-gpu-system-requirements.md 
+      items:
+      - name: For Azure Stack Edge
+        href: azure-stack-edge-gpu-system-requirements.md
+      - name: For Azure Stack Edge Blob storage
+        href: azure-stack-edge-gpu-system-requirements-rest.md
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview
@@ -57,7 +61,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md  
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md 
+    - name: View Key Vault integration 
+      href: azure-stack-edge-gpu-activation-key-vault.md
   
   - name: How to
     items:
@@ -166,7 +172,9 @@
       - name: Device issues 
         href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
-        href: azure-stack-edge-troubleshoot-ordering.md       
+        href: azure-stack-edge-troubleshoot-ordering.md   
+      - name: Activation issues
+        href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   
@@ -179,6 +187,8 @@
 
   - name: Reference
     items:
+    - name: IoT Edge Role via API, SDK, PowerShell
+      href: azure-stack-edge-gpu-iot-edge-api-update.md
     - name: Azure PowerShell
       href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
     - name: REST API

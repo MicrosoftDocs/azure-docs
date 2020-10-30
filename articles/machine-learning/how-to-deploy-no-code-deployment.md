@@ -9,7 +9,8 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-
+ms.custom: deploy
+ms.reviewer: larryfr
 ---
 
 # (Preview) No-code model deployment

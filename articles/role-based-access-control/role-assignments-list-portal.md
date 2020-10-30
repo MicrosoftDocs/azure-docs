@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -121,7 +121,7 @@ You can list role assignments for system-assigned and user-assigned managed iden
 
     You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 
-    ![Role assignments for a system-assigned managed identity](./media/shared/role-assignments-user-assigned.png)
+    ![Screenshot that shows role assignments for a user-assigned managed identity.](./media/shared/role-assignments-user-assigned.png)
 
 1. To change the subscription, click the **Subscription** list.
 
@@ -135,14 +135,9 @@ If you are getting close to the maximum number and you try to add more role assi
 
 ![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## Download role assignments (Preview)
+## Download role assignments
 
 You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription.
-
-> [!IMPORTANT]
-> Download role assignments is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you download role assignments, you should keep in mind the following criteria:
 
@@ -158,7 +153,7 @@ Follow these steps to download role assignments at a scope.
 
 1. Click **Access control (IAM)**.
 
-1. Click **Download role assignments (preview)** to open the Download role assignments pane.
+1. Click **Download role assignments** to open the Download role assignments pane.
 
     ![Access control - Download role assignments](./media/role-assignments-list-portal/download-role-assignments.png)
 
@@ -178,7 +173,7 @@ Follow these steps to download role assignments at a scope.
 
     ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Screenshot of the downloaded role assignments as in JSON format.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## Next steps
 

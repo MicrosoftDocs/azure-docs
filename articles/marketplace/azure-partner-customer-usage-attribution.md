@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -28,6 +28,8 @@ Customer usage attribution supports three deployment options:
 >- Customer usage attribution is for new deployments and does NOT support tagging existing resources that have already been deployed.
 >
 >- Customer usage attribution is required for [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offers published to Azure Marketplace.
+>
+>- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues today that cause under-reporting of usage.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -263,7 +265,7 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
-Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](./partner-center-portal/support.md).
+Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](support.md).
 
 ### How to submit a technical consultation request
 

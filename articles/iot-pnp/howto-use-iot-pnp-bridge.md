@@ -46,7 +46,7 @@ gcc --version
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
@@ -105,9 +105,13 @@ Expect this operation to take several minutes to complete.
 
 After cloning the IoT Plug and Play bridge repo to your machine, navigate to the `pnpbridge/docs/schema` directory of the cloned repository where you can find the [configuration JSON](https://aka.ms/iot-pnp-bridge-env-config) or `config.json` for the environmental sensor sample of the bridge. You can learn more about config files in the [IoT Plug and Play bridge concepts document](concepts-iot-pnp-bridge.md).
 
-For the `root-_interface_model_id` field you will need to copy the IoT Plug and Play model ID that identifies the model for your device. In this example, it is `dtmi:com:example:SampleDevice;1`. Modify the following parameters under **pnp_bridge_parameters** node in the `config.json` file in the ':
+For the `root-_interface_model_id` field you will need to copy the IoT Plug and Play model ID that identifies the model for your device. In this example, it is `dtmi:com:example:SampleDevice;1`. Modify the following parameters under **pnp_bridge_parameters** node in the `config.json` file:
 
-  Using Connection string (Note: the symmetric_key must match the SAS key in the connection string):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> The symmetric_key must match the SAS key in the connection string.
 
   ```JSON
     {
@@ -124,7 +128,7 @@ For the `root-_interface_model_id` field you will need to copy the IoT Plug and 
   }
   ```
 
- Once filled in you the `config.json` file should resemble:
+ Once filled in, the `config.json` file should resemble:
 
    ```JSON
     {
@@ -147,7 +151,7 @@ For the `root-_interface_model_id` field you will need to copy the IoT Plug and 
 
 Navigate to the *pnpbridge* folder in the repository directory.
 
-For Windows run the following in a [Developer Command Prompt for Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs):
+For Windows run the following in a [Developer Command Prompt for Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs):
 
 ```cmd
 cd scripts\windows

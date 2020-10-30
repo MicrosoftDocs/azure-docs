@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli]
 ---
 # Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
@@ -102,7 +102,7 @@ The sample is also modified to run in a production environment like App Service:
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
 
-These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/).
+These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -125,8 +125,8 @@ Then create the Postgres database in Azure with the [`az postgres up`](/cli/azur
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
-- For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
+- Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint becomes `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
+- For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server. Do not use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 - The B_Gen5_1 (Basic, Gen5, 1 core) [pricing tier](../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
 
 This command performs the following actions, which may take a few minutes:
@@ -141,7 +141,7 @@ This command performs the following actions, which may take a few minutes:
 
 You can do all the steps separately with other `az postgres` and `psql` commands, but `az postgres up` does all the steps together.
 
-When the command completes, it outputs a JSON object that contains different connection strings for the database along with the server URL, a generated user name (such as "joyfulKoala@msdocs-djangodb-12345"), and a GUID password. Copy the user name and password to a temporary text file as you need them later in this tutorial.
+When the command completes, it outputs a JSON object that contains different connection strings for the database along with the server URL, a generated user name (such as "joyfulKoala@msdocs-djangodb-12345"), and a GUID password. Copy the short user name (before the @) and password to a temporary text file as you need them later in this tutorial.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
@@ -191,29 +191,19 @@ Upon successful deployment, the command generates JSON output like the following
 
 With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
 
-The app code expects to find database information in a number of environment variables. To set environment variables in App Service, you create "app settings" with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
+The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. To use production settings, it also needs the `DJANGO_ENV` environment variable set to `production`.
+
+To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>@<postgres-server-name>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command.
-- Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command (or that `az postgres up` generated for you). The `DBUSER` argument must be in the form `<username>@<postgres-server-name>`.
-- The resource group and app name are drawn from the cached values in the *.azure/config* file.
-- The command creates settings named `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` as expected by the app code.
-- In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
+- Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
+- Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. (Also, as noted earlier, you should not use the `$` character in either value as it has a special meaning for Linux environment variables.)
+- The resource group and app names are drawn from the cached values in the *.azure/config* file.
 
-#### Verify the DBUSER setting
-
-It's critical that the `DBUSER` setting is of the form `<username>@<postgres-server-name>`.
-
-To verify the setting, run `az webapp config app settings list` and look at the `DBUSER` value in the results:
-
-```azurecli
-az webapp config app settings list
-```
-
-If you need to correct the value, run the command `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"`, replacing `<username>@<postgres-server-name>` with the appropriate names.
+In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -252,8 +242,6 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     python manage.py createsuperuser
     ```
 
-1. If you see the error "The Username should be in <username@hostname> format." when running the database migrations, see [Verify the DBUSER setting](#verify-the-dbuser-setting).
-
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
 1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
@@ -264,9 +252,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 1. In a browser, open the URL `http://<app-name>.azurewebsites.net`. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-    If you see "Application Error", then it's likely that you didn't create the required settings in the previous step, [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database). Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs](#stream-diagnostic-logs) to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
-
-    If you see the error, "Invalid Username specified. Please check the Username and retry connection. The Username should be in <username@hostname> format.", see [Verify the DBUSER setting](#verify-the-dbuser-setting).
+    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step, [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database), or that those value contain errors. Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs](#stream-diagnostic-logs) to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
 
     After updating the settings to correct any errors, give the app a minute to restart, then refresh the browser.
 
@@ -413,7 +399,7 @@ python manage.py migrate
 
 ### Review app in production
 
-Browse to `http://<app-name>.azurewebsites.net` and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creation a question.)
+Browse to `http://<app-name>.azurewebsites.net` and test the app again in production. (Because you changed only the length of a database field, the change is only noticeable if you try to enter a longer response when creating a question.)
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -456,7 +442,7 @@ By default, the portal shows your app's **Overview** page, which provides a gene
 
 ## Clean up resources
 
-If you'd like to keep the app or continue to the next tutorial, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group create for this tutorial:
+If you'd like to keep the app or continue to the additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group create for this tutorial:
 
 ```azurecli
 az group delete --no-wait

@@ -1,11 +1,11 @@
 ---
-title: Add API connectors to user flows 
+title: Add API connectors to user flows (preview)
 description: Configure an API connector to be used in a user flow.
 services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 
 ms.author: mimart
 author: msmimart
@@ -13,7 +13,10 @@ manager: celestedg
 ms.custom: "it-pro"
 ---
 
-# Add an API connector to a sign-up user flow
+# Add an API connector to a sign-up user flow (preview)
+
+> [!IMPORTANT]
+> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
@@ -44,7 +47,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -66,7 +69,7 @@ Content-type: application/json
 }
 ```
 
-Only user properties and custom attributes listed in the **Azure Active Directory** > **External Identities** > **Custom user attributes** experience are available to be sent in the request.
+Only user properties and custom attributes listed in the **Azure AD B2C** > **User attributes** experience are available to be sent in the request.
 
 Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -76,7 +79,7 @@ Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all 
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
+> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. 
 
 ## Enable the API connector in a user flow
 
@@ -105,7 +108,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -163,7 +166,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -234,8 +237,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Yes      | The version of the API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The returned claim does not need to contain `_<extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow. Custom attributes cannot be sent back in the token. |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
 
 ### Example of a blocking response
 
@@ -263,6 +266,8 @@ Content-type: application/json
 
 ### Example of a validation-error response
 
+
+
 ```http
 HTTP/1.1 400 Bad Request
 Content-type: application/json
@@ -282,6 +287,9 @@ Content-type: application/json
 | status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
 
+> [!NOTE]
+> HTTP status code has to be "400" in addition to the "status" value in the body of the response.
+
 **End-user experience with a validation-error response**
 
 ![Example  validation page](./media/add-api-connector/validation-error-postal-code.png)
@@ -290,7 +298,7 @@ Content-type: application/json
 ## Best practices and how to troubleshoot
 
 ### Using serverless cloud functions
-Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, for example, perform validation logic and limit sign-ups to specific domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -310,4 +318,4 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ## Next steps
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- Get started with our [samples](code-samples.md#api-connectors).
