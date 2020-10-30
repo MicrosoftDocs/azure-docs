@@ -41,17 +41,17 @@ The following sections will guide you through the process of building a landing 
 
 ## Create an Azure AD app registration
 
-The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer’s [Technical configuration](plan-saas-offer.md#technical-information) page.
+The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer’s [Technical configuration](plan-saas-offer.md#technical-information) page.
 
 The first step to using the identity is to make sure your landing page is registered as an Azure AD application. Registering the application lets you use Azure AD to authenticate users and request access to user resources. It can be considered the application’s definition, which lets the service know how to issue tokens to the app based on the app's settings.
 
 ### Register a new application using the Azure portal
 
-To get started, follow the instructions for [registering a new application](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). To let users from other companies visit the app, you must choose one of the multitenant options when asked who can use the application.
+To get started, follow the instructions for [registering a new application](../active-directory/develop/quickstart-register-app.md). To let users from other companies visit the app, you must choose one of the multitenant options when asked who can use the application.
 
-If you intend to query the Microsoft Graph API, [configure your new application to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). When you select the API permissions for this application, the default of **User.Read** is enough to gather basic information about the buyer to make the onboarding process smooth and automatic. Do not request any API permissions labeled **needs admin consent**, as this will block all non-administrator users from visiting your landing page.
+If you intend to query the Microsoft Graph API, [configure your new application to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md). When you select the API permissions for this application, the default of **User.Read** is enough to gather basic information about the buyer to make the onboarding process smooth and automatic. Do not request any API permissions labeled **needs admin consent**, as this will block all non-administrator users from visiting your landing page.
 
-If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](https://aka.ms/incremental-consent) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
+If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
 
 ## Use a code sample as a starting point
 
@@ -70,7 +70,7 @@ This article presents a simplified version of the architecture for implementing 
 - First, the multitenant landing page application described up to this point, except without the functionality to contact the SaaS fulfillment APIs. This functionality will be offloaded to another application, as described below.
 - Second, an application to own the communications with the SaaS fulfillment APIs. This application should be single tenant, only to be used by your organization, and an access control list can be established to limit access to the APIs from only this app.
 
-This enables the solution to work in scenarios that observe the [separation of concerns](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) principle. For example, the landing page uses the first registered Azure AD app to sign in the user. After the user is signed-in, the landing page uses the second Azure AD to request an access token to call the SaaS fulfillment API’s and call the resolve operation.
+This enables the solution to work in scenarios that observe the [separation of concerns](/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) principle. For example, the landing page uses the first registered Azure AD app to sign in the user. After the user is signed-in, the landing page uses the second Azure AD to request an access token to call the SaaS fulfillment API’s and call the resolve operation.
 
 ## Resolve the marketplace purchase identification token
 
@@ -89,7 +89,7 @@ The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saa
 
 ## Read information from claims encoded in the ID token
 
-As part of the [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) flow, Azure AD adds an [ID token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) to the request when the buyer is sent to the landing page. This token contains multiple pieces of basic information that could be useful in the activation process, including the information seen in this table.
+As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) flow, Azure AD adds an [ID token](../active-directory/develop/id-tokens.md) to the request when the buyer is sent to the landing page. This token contains multiple pieces of basic information that could be useful in the activation process, including the information seen in this table.
 
 | Value | Description |
 | ------------ | ------------- |
@@ -104,7 +104,7 @@ As part of the [OpenID Connect](https://docs.microsoft.com/azure/active-director
 
 ## Use the Microsoft Graph API
 
-The ID token contains basic information to identify the buyer, but your activation process may require additional details—such as the buyer’s company—to complete the onboarding process. Use the [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) to request this information to avoid forcing the user to input these details again. The standard **User.Read** permissions include the following information, by default.
+The ID token contains basic information to identify the buyer, but your activation process may require additional details—such as the buyer’s company—to complete the onboarding process. Use the [Microsoft Graph API](/graph/use-the-api) to request this information to avoid forcing the user to input these details again. The standard **User.Read** permissions include the following information, by default.
 
 | Value | Description |
 | ------------ | ------------- |
@@ -117,9 +117,9 @@ The ID token contains basic information to identify the buyer, but your activati
 | surname | Last name of the user. |
 |||
 
-Additional properties—such as the name of the user’s company or the user’s location (country)—can be selected for inclusion in the request. See [properties for the user resource type](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) for more details.
+Additional properties—such as the name of the user’s company or the user’s location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user?view=graph-rest-1.0#properties) for more details.
 
-Most apps that are registered with Azure AD grant delegated permissions to read the user’s information from their company’s Azure AD tenant. Any request to Microsoft Graph for that information must be accompanied by an access token for authentication. Specific steps to generate the access token will depend on the technology stack you’re using, but the sample code will contain an example. For more information, see [Get access on behalf of a user](https://docs.microsoft.com/graph/auth-v2-user).
+Most apps that are registered with Azure AD grant delegated permissions to read the user’s information from their company’s Azure AD tenant. Any request to Microsoft Graph for that information must be accompanied by an access token for authentication. Specific steps to generate the access token will depend on the technology stack you’re using, but the sample code will contain an example. For more information, see [Get access on behalf of a user](/graph/auth-v2-user).
 
 > [!NOTE]
 > Accounts from the MSA tenant (with tenant ID ``9188040d-6c67-4c5b-b112-36a304b66dad``) will not return more information than has already been collected with the ID token. So you can skip this call to the Graph API for these accounts.
