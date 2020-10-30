@@ -10,7 +10,7 @@ ms.date: 10/30/2020
 ms.author: jasteppe
 ---
 
-# Export Azure IoT Connector for FHIR (preview) metrics through Diagnostic settings
+# Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
 
 In this article, you'll learn how to export Azure IoT Connector for FHIR* Metrics logs. The feature that enables metric logging is the [**Diagnostic settings**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) in the Azure portal. 
 
