@@ -11,7 +11,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 10/27/2020
+ms.date: 10/29/2020
 ---
 
 # Machine Learning Services in Azure SQL Managed Instance
@@ -37,6 +37,17 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 [MicrosoftML](/sql/machine-learning/r/ref-r-microsoftml), 
       [olapR](/sql/machine-learning/r/ref-r-olapr), and 
   [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils) for R.
+
+## How to enable Machine Learning Services
+
+You can enable Machine Learning Services in Azure SQL Managed Instance by enabling extensibility with the following SQL commands (SQL Managed Instance will restart and be unavailable for a few seconds):
+
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
+
+For details on how this command affects SQL Managed Instance resources, see [Resource Governance](machine-learning-services-differences.md#resource-governance).
 
 ## Next steps
 
