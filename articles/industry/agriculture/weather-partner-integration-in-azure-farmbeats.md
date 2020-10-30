@@ -9,24 +9,24 @@ ms.author: sunasing
 
 # Weather partner integration with FarmBeats
 
-This article provides information about the Azure FarmBeats Connector docker component. As a weather data provider, you can use the Connector docker to integrate with FarmBeats. Use its APIs to send weather data to 
+This article provides information about the Azure FarmBeats Connector Docker component. As a weather data provider, you can use the Connector Docker to integrate with FarmBeats. Use its APIs to send weather data to 
 FarmBeats. In FarmBeats, the data can be used for data fusion and for building machine learning models or artificial intelligence models.
 
  > [!NOTE]
- > In this article, we use a [reference implementation](https://github.com/azurefarmbeats/noaa_docker) that was built by using Azure Open Datasets and weather data from National Oceanic and Atmospheric Administration (NOAA). We also use the corresponding [docker image](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa).
+ > In this article, we use a [reference implementation](https://github.com/azurefarmbeats/noaa_docker) that was built by using Azure Open Datasets and weather data from National Oceanic and Atmospheric Administration (NOAA). We also use the corresponding [Docker image](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa).
 
-You must provide a [suitable docker image or program](#docker-specifications)
+You must provide a [suitable Docker image or program](#docker-specifications)
 and host the docker image in a container registry that customers can access. Provide the following information to your customers:
 
 - Docker image URL
 - Docker image tag
-- Keys or credentials to access the docker image
+- Keys or credentials to access the Docker image
 - Customer-specific API keys or credentials to access the data from your system
-- VM SKU details (Provide these details if your docker has specific VM requirements. Otherwise, customers can choose from supported VM SKUs in Azure.)
+- VM SKU details (Provide these details if your Docker image has specific VM requirements. Otherwise, customers can choose from supported VM SKUs in Azure.)
 
-Customers use this docker information to register a weather partner in their FarmBeats instance. For more information about how customers can use the docker to ingest weather data in FarmBeats, see [Get data from weather partners](./get-weather-data-from-weather-partner.md).
+Customers use this Docker information to register a weather partner in their FarmBeats instance. For more information about how customers can use the Docker to ingest weather data in FarmBeats, see [Get data from weather partners](./get-weather-data-from-weather-partner.md).
 
-## Connector docker development
+## Connector Docker development
 
 **REST API-based integration**
 
@@ -51,15 +51,15 @@ FarmBeats uses bearer authentication. You can access the APIs by providing an ac
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-You can request the access token from an Azure Functions app that's running on the customer's FarmBeats instance. The Azure Functions URL is provided to the docker program as an argument. You can get the access token by making a `GET` request on the URL. The response from the URL contains the access token. 
+You can request the access token from an Azure Functions app that's running on the customer's FarmBeats instance. The Azure Functions URL is provided to the Docker program as an argument. You can get the access token by making a `GET` request on the URL. The response from the URL contains the access token. 
 
-Use the helper functions in the Datahub lib to get the access token. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
+Use the helper functions in the Datahub lib to get the access token. For more information, see the [GitHub page for the NOAA Docker image](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
 
 The access token is valid only for few hours. When it expires, you must request it again.
 
 **Authentication with partner-side APIs**
 
-To authenticate with the partner-side APIs while the docker is running, customers need to provide the credentials during partner registration. Here's an example:
+To authenticate with the partner-side APIs while the Docker job is running, customers need to provide the credentials during partner registration. Here's an example:
 
 ```json
 {
@@ -71,11 +71,11 @@ To authenticate with the partner-side APIs while the docker is running, customer
 ```
 The API service serializes this dict and stores it in a [key vault](../../key-vault/general/basic-concepts.md).
 
-[Azure Data Factory](../../data-factory/introduction.md) is used to orchestrate weather jobs. It spins up resources to run the docker code. Data Factory also provides a mechanism to push data securely to the VM where the docker job runs. The API credentials are then securely stored in the key vault. 
+[Azure Data Factory](../../data-factory/introduction.md) is used to orchestrate weather jobs. It spins up resources to run the Docker code. Data Factory also provides a mechanism to push data securely to the VM where the Docker job runs. The API credentials are then securely stored in the key vault. 
 
-Credentials are read as secure strings from the key vault. They're provided as extended properties in the working directory of the docker container. Their file path is */mnt/working_dir/activity.json*. 
+Credentials are read as secure strings from the key vault. They're provided as extended properties in the working directory of the Docker container. Their file path is */mnt/working_dir/activity.json*. 
 
-The docker code can read the credentials from *activity.json* during run time to access partner-side APIs for the customer. In the JSON file, the credentials look like this code example:
+The Docker code can read the credentials from *activity.json* during run time to access partner-side APIs for the customer. In the JSON file, the credentials look like this code example:
 
 ```json
 { 
@@ -87,9 +87,9 @@ The docker code can read the credentials from *activity.json* during run time to
 ```
 The `partnerCredentials` credential is available in the way that the customer provided it during partner registration.
 
-The FarmBeats lib provides helper functions. Use these functions to read the credentials from the activity properties. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
+The FarmBeats lib provides helper functions. Use these functions to read the credentials from the activity properties. For more information, see the [GitHub page for the NOAA Docker image](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
 
-The file is used only while the docker code is running. After the code finishes, the file is deleted.
+The file is used only while the Docker code is running. After the code finishes, the file is deleted.
 
 For more information about how Data Factory pipelines and activities work, see [Schema and data type mapping](../../data-factory/copy-activity-schema-and-type-mapping.md).
 
@@ -109,11 +109,11 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Docker specifications
 
-The docker program needs two components: the bootstrap and the job. The program can have more than one job.
+The Docker program needs two components: the bootstrap and the job. The program can have more than one job.
 
 ### Bootstrap
 
-The bootstrap component should run when the customer starts the docker registration on FarmBeats. The following arguments (`arg1` and `arg2`) are passed to the program:
+The bootstrap component should run when the customer starts the Docker registration on FarmBeats. The following arguments (`arg1` and `arg2`) are passed to the program:
 
 - **FarmBeats API endpoint**: The FarmBeats API endpoint for API requests. This endpoint makes API calls to the FarmBeats deployment.
 - **Azure Functions URL**: Your own endpoint. This URL provides your access token for FarmBeats APIs. You can call `GET` on this URL to fetch the access token.
@@ -131,7 +131,7 @@ trigger jobs of that type to get weather data for their location or their farm o
 
 ### Jobs
 
-The Jobs component is invoked every time a FarmBeats user runs a job of the /JobType that you created as part of the bootstrap process. The docker run command for the job is defined as part of the /JobType that you created.
+The Jobs component is invoked every time a FarmBeats user runs a job of the /JobType that you created as part of the bootstrap process. The Docker run command for the job is defined as part of the /JobType that you created.
 
 The job fetches data from the source and pushes it to FarmBeats. During the bootstrap process, the parameters that are required to get the data should be defined as part of /JobType.
 
@@ -180,7 +180,7 @@ For more information about the objects and their properties, see the [FarmBeats 
 
 **Metadata sync**
 
-The Connector docker should be able to send updates on the metadata. For example, it should send updates when the weather provider adds new parameters to a dataset or when new functionality, such as a new 30-day forecast, is added.
+The Connector Docker component should be able to send updates on the metadata. For example, it should send updates when the weather provider adds new parameters to a dataset or when new functionality, such as a new 30-day forecast, is added.
 
 > [!NOTE]
 > Delete isn't supported for metadata in the weather data model.
@@ -260,7 +260,7 @@ Here's an example of a telemetry message:
 
 The partner job runs in the existing job framework. So the errors are logged the same way as errors for other preexisting FarmBeats jobs (like GetFarmData and SensorPlacement). The Data Factory activity that runs within the Data Factory pipeline logs both `STDERR` and `STDOUT`. Both files are available in the `datahublogs-xxx` storage account within the FarmBeats resource group.
 
-The Datahub lib provides helper functions to enable logging as part of overall Datahub logs. For more information, see the [GitHub page for the NOAA docker](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
+The Datahub lib provides helper functions to enable logging as part of overall Datahub logs. For more information, see the [GitHub page for the NOAA Docker image](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
 
 ### Troubleshooting and support
 
@@ -280,4 +280,4 @@ For more information about the /ExtendedType API, see the [FarmBeats Swagger](ht
 
 ## Next steps
 
-Now you have a Connector docker that integrates with FarmBeats. Next, find out how to [get weather data](get-weather-data-from-weather-partner.md) by using your docker in FarmBeats. 
+Now you have a Connector Docker component that integrates with FarmBeats. Next, find out how to [get weather data](get-weather-data-from-weather-partner.md) by using your Docker image in FarmBeats. 
