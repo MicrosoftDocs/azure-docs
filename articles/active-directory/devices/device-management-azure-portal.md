@@ -192,11 +192,11 @@ The audit log has a default list view that shows:
 - The initiator / actor (who) of an activity
 - The activity (what)
 
-![Audit logs](./media/device-management-azure-portal/63.png)
+:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Screenshot of a table in the Activity section of the Devices page that lists the date, target, actor, and activity for four audit logs." border="false":::
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Audit logs](./media/device-management-azure-portal/64.png)
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Screenshot showing the toolbar of the Devices page. The Columns item is highlighted." border="false":::
 
 To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
 
@@ -209,7 +209,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 
 In addition to the filters, you can search for specific entries.
 
-![Audit logs](./media/device-management-azure-portal/65.png)
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot of audit data filter controls, with category, activity resource type, activity, date range, target, and actor fields and a search field." border="false":::
 
 ## Next steps
 
