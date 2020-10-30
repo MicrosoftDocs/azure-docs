@@ -748,6 +748,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: Hirebridge ATS
+        href: hirebridge-ats-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
       - name: Hive
@@ -1144,6 +1146,8 @@
         href: n2f-expensereports-tutorial.md
       - name: Namely
         href: namely-tutorial.md
+      - name: Nature Research
+        href: nature-research-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
