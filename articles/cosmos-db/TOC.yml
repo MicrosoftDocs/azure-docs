@@ -731,6 +731,10 @@
           items: 
           - name: Troubleshoot Java SDK v4
             href: troubleshoot-java-sdk-v4-sql.md  
+          - name: Troubleshoot request timeout
+            href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+          - name: Troubleshoot service unavailable
+            href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
           - name: Troubleshoot- Async Java SDK v2
             href: troubleshoot-java-async-sdk.md
       - name: Change feed
