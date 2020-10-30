@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Create resource lock for a Azure Cosmos DB Core (SQL) API database and container using Azure CLI
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Create an Azure Cosmos Table API account and table using Azure CLI
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

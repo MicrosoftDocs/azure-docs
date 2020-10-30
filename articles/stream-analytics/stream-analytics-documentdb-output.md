@@ -10,7 +10,7 @@ ms.date: 02/2/2020
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
-Azure Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
+Azure Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration. We recommend that you set your job to compatability level 1.2 when using Azure Cosmos DB as output.
 
 If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/) to get started. 
 
@@ -131,3 +131,17 @@ If a transient failure, service unavailability, or throttling happens while Stre
 - NotFound (HTTP error code 404)
 - Forbidden (HTTP error code 403)
 - BadRequest (HTTP error code 400)
+
+## Common issues
+
+1. A unique index constraint is added to the collection and the output data from Stream Analytics violates this constraint. Ensure the output data from Stream Analytics doesn't violate unique constraints or remove constraints. For more information, see [Unique key constraints in Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. The `PartitionKey` column does not exists.
+
+3. The `Id` column does not exist.
+
+## Next steps
+
+* [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md) 
+* [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md)

@@ -4,7 +4,7 @@ description: Learn how to configure the Python container in which web apps are r
 ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
 
 # Configure a Linux Python app for Azure App Service

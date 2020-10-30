@@ -108,7 +108,7 @@ To ensure people outside of your organization can request access packages and ge
 
 - If you want external users to be able to access the SharePoint Online site and resources associated with a Microsoft 365 group, make sure you turn on SharePoint Online external sharing. For more information, see [Turn external sharing on or off](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- For information about how to set the guest policy for Microsoft 365 groups at the directory level in PowerShell, see [Example: Configure Guest policy for groups at the directory level](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- For information about how to set the guest policy for Microsoft 365 groups at the directory level in PowerShell, see [Example: Configure Guest policy for groups at the directory level](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### Review your Teams sharing settings
 

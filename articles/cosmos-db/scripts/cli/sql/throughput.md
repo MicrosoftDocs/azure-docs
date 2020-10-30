@@ -10,6 +10,7 @@ ms.date: 10/07/2020
 ---
 
 # Throughput (RU/s) operations with Azure CLI for a database or container for Azure Cosmos DB Core (SQL) API
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

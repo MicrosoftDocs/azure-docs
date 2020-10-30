@@ -10,6 +10,7 @@ ms.date: 10/07/2020
 ---
 
 # Throughput (RU/s) operations with Azure CLI for a keyspace or table for Azure Cosmos DB - Cassandra API
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

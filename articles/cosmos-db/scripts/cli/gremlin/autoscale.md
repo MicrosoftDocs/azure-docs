@@ -10,6 +10,7 @@ ms.date: 7/29/2020
 ---
 
 # Create an Azure Cosmos Gremlin API account, database and graph with autoscale using Azure CLI
+[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

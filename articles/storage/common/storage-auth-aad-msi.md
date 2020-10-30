@@ -24,7 +24,7 @@ This article shows how to authorize access to blob or queue data from an Azure V
 
 Before you can use managed identities for Azure Resources to authorize access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
-- [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -159,6 +159,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## Next steps
 
-- [Manage access rights to storage data with Azure RBAC](storage-auth-aad-rbac.md).
+- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 - [Use Azure AD with storage applications](storage-auth-aad-app.md).
 - [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-active-directory-powershell.md)

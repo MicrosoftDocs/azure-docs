@@ -55,7 +55,7 @@ A connection can't be established to Microsoft 365 authentication and identity I
 #### Resolution
 
 - Azure Site Recovery requires access to the Microsoft 365 IP ranges for authentication.
-- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Microsoft 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
+- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Microsoft 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
 - If new addresses are added to Azure AD in the future, you need to create new NSG rules.
 
 ### Example NSG configuration

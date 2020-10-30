@@ -17,6 +17,7 @@ ms.custom: mvc
 - Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualize network connections in Power BI using the data collected using dependency analysis (agentless) [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Migration of VMware VMs with data disk size of up to 32 TB is now supported using the Azure Migrate: Server Migration agentless VMware migration method. 
 
 ## Update (August 2020)
 

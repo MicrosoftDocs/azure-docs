@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Create a resource lock for Azure Cosmos Cassandra API keyspace and table using Azure CLI
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

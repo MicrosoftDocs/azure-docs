@@ -1,6 +1,6 @@
 ---
 title: Synapse SQL architecture 
-description: Learn how Azure Synapse SQL combines massively parallel processing (MPP) with Azure Storage to achieve high performance and scalability. 
+description: Learn how Azure Synapse SQL combines distributed query Processing capabilities with Azure Storage to achieve high performance and scalability. 
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -30,7 +30,7 @@ For SQL on-demand, being serverless, scaling is done automatically to accommodat
 
 Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL. 
 
-The SQL pool Control node utilizes MPP engine to optimize queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. 
+The Azure Synapse SQL Control node utilizes a distributed query engine to optimize queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. 
 
 The SQL on-demand Control node utilizes Distributed Query Processing (DQP) engine to optimize and orchestrate distributed execution of user query by splitting it into smaller queries that will be executed on Compute nodes. Each small query is called task and represents distributed execution unit. It reads file(s) from storage, joins results from other tasks, groups or orders data retrieved from other tasks. 
 
@@ -56,7 +56,7 @@ SQL on-demand lets you query files in your data lake in read-only manner, while 
 
 The Control node is the brain of the architecture. It is the front end that interacts with all applications and connections. 
 
-In SQL pool, the MPP engine runs on the Control node to optimize and coordinate parallel queries. When you submit a T-SQL query to SQL pool, the Control node transforms it into queries that run against each distribution in parallel.
+In Synapse SQL, the distributed query engine runs on the Control node to optimize and coordinate parallel queries. When you submit a T-SQL query to SQL pool, the Control node transforms it into queries that run against each distribution in parallel.
 
 In SQL on-demand, DQP engine runs on Control node to optimize and coordinate distributed execution of user query by splitting it into smaller queries that will be executed on Compute nodes. It also assigns sets of files to be processed by each node.
 
@@ -64,7 +64,7 @@ In SQL on-demand, DQP engine runs on Control node to optimize and coordinate dis
 
 The Compute nodes provide the computational power. 
 
-In SQL pool, distributions map to Compute nodes for processing. As you pay for more compute resources, pool remaps the distributions to the available Compute nodes. The number of compute nodes ranges from 1 to 60, and is determined by the service level for SQL pool. Each Compute node has a node ID that is visible in system views. You can see the Compute node ID by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of these system views, see [MPP system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+In SQL pool, distributions map to Compute nodes for processing. As you pay for more compute resources, pool remaps the distributions to the available Compute nodes. The number of compute nodes ranges from 1 to 60, and is determined by the service level for SQL pool. Each Compute node has a node ID that is visible in system views. You can see the Compute node ID by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of these system views, see [Synapse SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 In SQL on-demand, each Compute node is assigned task and set of files to execute task on. Task is distributed query execution unit, which is actually part of query user submitted. Automatic scaling is in effect to make sure enough Compute nodes are utilized to execute user query.
 

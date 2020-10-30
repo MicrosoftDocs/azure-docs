@@ -10,6 +10,7 @@ ms.date: 10/07/2020
 ---
 
 # Throughput (RU/s) operations with Azure CLI for a database or graph for Azure Cosmos DB API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 

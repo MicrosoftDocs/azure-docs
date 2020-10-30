@@ -22,7 +22,7 @@ IP firewall rules grant or deny access to your Synapse workspace based on the or
 
 There are two ways IP firewall rules are added to a Synapse workspace. To add an IP firewall to your workspace, select **Security + networking** and check **Allow connections from all IP addresses** during workspace creation.
 
-![Azure portal Synapse workspace IP configuration.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
+![Screenshot that highlights the Security + networking button.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
 
 ![Azure portal Synapse workspace IP configuration.](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
 

@@ -272,7 +272,7 @@ When running a service with Azure Dev Spaces on an AKS cluster with a [managed i
 
 The services Azure Dev Spaces runs on your cluster utilize the cluster's managed identity to talk to the Azure Dev Spaces backend services outside the cluster. When the pod managed identity is installed, networking rules are configured on your cluster's nodes to redirect all calls for managed identity credentials to a [Node Managed Identity (NMI) DaemonSet installed on the cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). This NMI DaemonSet identifies the calling pod and ensures that pod has been labeled appropriately to access the requested managed identity. Azure Dev Spaces can't detect if a cluster has pod managed identity installed and can't perform the necessary configuration to allow Azure Dev Spaces services to access the cluster's managed identity. Since the Azure Dev Spaces services haven't been configured to access the cluster's managed identity, the NMI DaemonSet will not allow them to obtain an Azure AD token for the managed identity and fail to communicate with Azure Dev Spaces backend services.
 
-To fix this issue, apply an [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
+To fix this issue, apply an [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
 
 Create a file named *webhookException.yaml* and copy the following YAML definition:
 

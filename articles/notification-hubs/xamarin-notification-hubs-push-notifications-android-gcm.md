@@ -77,7 +77,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
         ![New Project dialog](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
 2. On the **New Android App** dialog box, select **Blank App**, and select **OK**.
 
-    ![New Project dialog](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
+    ![Screenshot that highlights the Blank App template.](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
 3. In the **Solution Explorer** window, expand **Properties**, and click **AndroidManifest.xml**. Update the package name to match the package name you entered when adding Firebase Cloud Messaging to your project in the Google Firebase Console.
 
     ![Package name in GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
