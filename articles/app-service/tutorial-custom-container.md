@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python"
+ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -299,6 +299,10 @@ ENTRYPOINT ["init.sh"]
 * The last line, `ENTRYPOINT ["init.sh"]`, invokes `init.sh` to start the SSH service and Python server.
 
 ## Build and test the image locally
+
+> [!NOTE]
+> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user (see **Data transfer**)](https://www.docker.com/pricing). If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> 
 
 1. Run the following command to build the image:
 

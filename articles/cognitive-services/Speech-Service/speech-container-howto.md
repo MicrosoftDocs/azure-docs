@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -486,6 +486,16 @@ This command:
 * Allocates 1 CPU cores and 1 gigabyte (GB) of memory.
 * Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+If you're sending only Speech Language Detection requests, you will need to set the Speech client's `phraseDetection` value to `None`.  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
 
 If you want to run this container with the speech-to-text container, you can use this [Docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this Docker Run command to execute `speech-to-text-with-languagedetection-client`.
 

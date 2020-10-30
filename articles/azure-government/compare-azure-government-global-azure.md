@@ -80,6 +80,7 @@ Azure Government services operate the same way as the corresponding services in 
 |**Web**|API Management Gateway|\*.azure-api.net|\*.azure-api.us||
 ||API Management Portal|\*.portal.azure-api.net|\*.portal.azure-api.us||
 ||API Management management|\*.management.azure-api.net|\*.management.azure-api.us||
+||App Configuration|\*.azconfig.io|\*.azconfig.azure.us|Endpoint|
 ||App Service|\*.azurewebsites.net|\*.azurewebsites.us|Endpoint|
 |||abfa0a7c-a6b6-4736-8310-5855508787cd|6a02c803-dafd-4136-b4c3-5a6f318b4714|Service Principal ID|
 ||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||

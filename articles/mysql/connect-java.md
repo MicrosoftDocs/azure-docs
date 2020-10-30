@@ -4,7 +4,7 @@ description: Learn how to use Java and JDBC with an Azure Database for MySQL dat
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
@@ -12,15 +12,15 @@ ms.date: 08/17/2020
 
 # Use Java and JDBC with Azure Database for MySQL
 
-This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
+This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
-- A supported [Java Development Kit](https://aka.ms/azure-jdks), version 8 (included in Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
 
 ## Prepare the working environment
@@ -63,7 +63,7 @@ az group create \
 The first thing we'll create is a managed MySQL server.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
 

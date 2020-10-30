@@ -11,6 +11,7 @@ ms.date: 05/20/2020
 ---
 
 # Partitioning in Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
 
@@ -21,7 +22,7 @@ From the developer perspective, partitioning behaves in the same way for Azure C
 
 ## Differences between Apache Cassandra and Azure Cosmos DB
 
-In Azure Cosmos DB, each machine on which partitions are stored is itself referred to as a [physical partition](partition-data.md#physical-partitions). The physical partition is akin to a Virtual Machine; a dedicated compute unit, or set of physical resources. Each partition stored on this compute unit is referred to as a [logical partition](partition-data.md#logical-partitions) in Azure Cosmos DB. If you are already familiar with Apache Cassandra, you can think of logical partitions in the same way that you think of regular partitions in Cassandra. 
+In Azure Cosmos DB, each machine on which partitions are stored is itself referred to as a [physical partition](partitioning-overview.md#physical-partitions). The physical partition is akin to a Virtual Machine; a dedicated compute unit, or set of physical resources. Each partition stored on this compute unit is referred to as a [logical partition](partitioning-overview.md#logical-partitions) in Azure Cosmos DB. If you are already familiar with Apache Cassandra, you can think of logical partitions in the same way that you think of regular partitions in Cassandra. 
 
 Apache Cassandra recommends a 100-MB limit on the size of a data that can be stored in a partition. The Cassandra API for Azure Cosmos DB allows up to 20 GB per logical partition, and up to 30GB of data per physical partition. In Azure Cosmos DB, unlike Apache Cassandra, compute capacity available in the physical partition is expressed using a single metric called [request units](request-units.md), which allows you to think of your workload in terms of requests (reads or writes) per second, rather than cores, memory, or IOPS. This can make capacity planning more straight forward, once you understand the cost of each request. Each physical partition can have up to 10000 RUs of compute available to it. You can learn more about scalability options by reading our article on [elastic scale](manage-scale-cassandra.md) in Cassandra API. 
 
@@ -108,6 +109,6 @@ CREATE TABLE uprofile.user (
 
 ## Next steps
 
-* Learn about [partitioning and horizontal scaling in Azure Cosmos DB](partition-data.md).
+* Learn about [partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md).
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md).
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md).

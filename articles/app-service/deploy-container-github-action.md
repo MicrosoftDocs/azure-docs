@@ -45,6 +45,9 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 1. On the **Overview** page, select **Get Publish profile**.
 
+    > [!NOTE]
+    > As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the file**. This requirement will be removed in the future.
+
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
 # [Service principal](#tab/service-principal)
@@ -186,15 +189,17 @@ jobs:
 
 ## Deploy to an App Service container
 
-To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has five parameters:
+To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has seven parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | **app-name** | (Required) Name of the App Service app | 
-| **publish-profile** | (Optional) Publish profile file contents with Web Deploy secrets |
-| **images** | Fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated) |
+| **publish-profile** | (Optional) Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (\*.publishsettings) file contents with Web Deploy secrets | 
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
-| **configuration-file** | (Optional) Path of the Docker-Compose file |
+| **package** | (Optional) Applies to Web App only: Path to package or folder. \*.zip, \*.war, \*.jar or a folder to deploy |
+| **images** | (Required) Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For a multi-container app, multiple container image names can be provided (multi-line separated) |
+| **configuration-file** | (Optional) Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
+| **startup-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
 # [Publish profile](#tab/publish-profile)
 

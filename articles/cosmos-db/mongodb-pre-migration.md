@@ -10,6 +10,7 @@ ms.author: jasonh
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB's API for MongoDB, you should:
 
@@ -31,7 +32,7 @@ The following are specific characteristics about Azure Cosmos DB's API for Mongo
 
 - **Elastic capacity**: The capacity for a given collection or database can change at any time. This allows for the database to elastically adapt to the throughput requirements of your workload.
 
-- **Automatic sharding**: Azure Cosmos DB provides an automatic partitioning system that only requires a shard (or a partition key). The [automatic partitioning mechanism](partition-data.md) is shared across all the Azure Cosmos DB APIs and it allows for seamless data and throughout scaling through horizontal distribution.
+- **Automatic sharding**: Azure Cosmos DB provides an automatic partitioning system that only requires a shard (or a partition key). The [automatic partitioning mechanism](partitioning-overview.md) is shared across all the Azure Cosmos DB APIs and it allows for seamless data and throughout scaling through horizontal distribution.
 
 ## <a id="options"></a>Migration options for Azure Cosmos DB's API for MongoDB
 
@@ -83,7 +84,7 @@ The indexing capabilities provided by Azure Cosmos DB include adding compound in
 ## Next steps
 * [Migrate your MongoDB data to Cosmos DB using the Database Migration Service.](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Provision throughput on Azure Cosmos containers and databases](set-throughput.md)
-* [Partitioning in Azure Cosmos DB](partition-data.md)
+* [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 * [Global Distribution in Azure Cosmos DB](distribute-data-globally.md)
 * [Indexing in Azure Cosmos DB](index-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md)
