@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 # Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 In this article, you will read data from a sample data source and import it into an Azure Cosmos container.

@@ -183,8 +183,8 @@ One route should allow multiple notifications and event types to be selected.
 `CreateOrReplaceEventRouteAsync` is the SDK call that is used to add an event route. Here is an example of its usage:
 
 ```csharp
-var er = new DigitalTwinsEventRoute("<your-endpointName>");
-er.Filter = "true"; //Filter allows all messages
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
 await CreateOrReplaceEventRouteAsync(client, "routeName", er);
 ```
     
