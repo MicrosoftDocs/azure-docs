@@ -58,11 +58,10 @@ From a development standpoint, this means a few things:
 
 * Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect).
 * If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
-* Per RFC guidance, you should not use `localhost` in the redirect URI. Instead, use the actual loopback IP address, `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
+* The IPv6 loopback address (`[::1]`) is not currently supported.
+* To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`.
 
-    To use the `http` scheme with the loopback address (127.0.0.1) instead of localhost, you must edit the [application manifest](reference-app-manifest.md#replyurls-attribute). 
-
-    The IPv6 loopback address (`[::1]`) is not currently supported.
+    To use the `http` scheme with the IP literal loopback address `127.0.0.1`, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
 
 ## Restrictions on wildcards in redirect URIs
 
