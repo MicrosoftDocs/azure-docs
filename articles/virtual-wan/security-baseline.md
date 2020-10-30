@@ -587,7 +587,9 @@ Virtual Wan does not produce or process DNS query logs which would need to be en
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41254.).
 
 **Guidance**: Azure Activity logs, enabled automatically, contain all write operations (PUT, POST, DELETE) for your Azure Virtual WAN resources except read (GET) operations. Activity logs can be used to find an error during troubleshooting or to monitor how a user in your organization modified a resource. However, Virtual WAN does not produce Azure resource logs.
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) Understand logging and different log types in Azure: ../azure-monitor/platform/platform-logs-overview.md
+
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -875,7 +877,9 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41266.).
 
 **Guidance**: Ensure antimalware signatures are updated in a timely and consistent manner. Follow recommendations in Azure Security Center's "Compute &amp; Apps" section to ensure all virtual machines and/or containers are up to date with the latest signatures.
-- [Microsoft's Antimalware processes will automatically install the latest signatures and engine updates by default. For Linux, use a third-party antimalware solution.How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
+
+Microsoft's Antimalware processes will automatically install the latest signatures and engine updates by default. For Linux, use a third-party antimalware solution.
+- [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
 - [Endpoint protection assessment and recommendations in Azure Security Center](../security-center/security-center-endpoint-protection.md)
 
