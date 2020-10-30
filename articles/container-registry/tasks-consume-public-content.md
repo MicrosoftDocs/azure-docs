@@ -45,13 +45,13 @@ This walkthrough sets up:
 1. **ACR task definitions**, including configurations for:
 1. A collection of **registry credentials**, which are pointers to a key vault
 1. A collection of **secrets**, available within an `acr-task.yaml`, which are pointers to a key vault
-1. A collection of configured values used within an `acr-task.yaml`
-1. An Azure key vault to secure all secrets
-1. An Azure container instance, which hosts the `hello-world` build application
+1. A collection of **configured values** used within an `acr-task.yaml`
+1. An **Azure key vault** to secure all secrets
+1. An **Azure container instance**, which hosts the `hello-world` build application
 
 ## Prerequisites
 
-The following steps configure values and resources for the walkthrough.
+The following steps configure values and resources used in the walkthrough.
 
 ### Set environment variables
 
@@ -553,7 +553,7 @@ az acr task run -n base-import-node -r $REGISTRY_BASE_ARTIFACTS
 
 ## Update `hello-world` image to build from gated `node` image
 
-Create an [access token][acr-tokens] to access the base-artifacts registry, scoped to `read` from the `node` repository, and set in the key vault:
+Create an [access token][acr-tokens] to access the base-artifacts registry, scoped to `read` from the `node` repository. Then, set in the key vault:
 
 ```azurecli
 az keyvault secret set \
