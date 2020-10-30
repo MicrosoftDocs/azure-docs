@@ -102,7 +102,7 @@ Then, define a function `computerVision` and declare an async series with primar
 The code in this section analyzes remote images to extract various visual features. You can do these operations as part of the **analyzeImage** method of the client object, or you can call them using individual methods. See the [reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) for details.
 
 > [!NOTE]
-> You can also analyze a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
+> You can also analyze a local image. See the [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) methods, such as **analyzeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
 
 ### Get image description
 
@@ -214,14 +214,14 @@ Define the helper function `describeType`:
 
 Computer Vision can extract the visible text in an image and convert it to a character stream. This sample uses the Read operations.
 
-> [!NOTE]
-> You can also read text from a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
-
 ### Set up test images
 
 Save a reference of the URL of the images you want to extract text from.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
+
+> [!NOTE]
+> You can also read text from a local image. See the [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) methods, such as **readInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
 
 ### Call the Read API
 
@@ -230,11 +230,11 @@ Define the following fields in your function to denote the Read call status valu
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
 
 
-Add the code below, which calls the `readTextFromURL` and `readTextFromFile` functions for the given images.
+Add the code below, which calls the `readTextFromURL` function for the given images.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Define the `readTextFromURL` and `readTextFromFile` functions. These call the **read** and **readInStream** methods on the client object, which return an operation ID and start an asynchronous process to read the content of the image. Then they use the operation ID to check the operation status until the results are returned. They then return the extracted results.
+Define the `readTextFromURL` function. This call thes **read** method  on the client object, which returns an operation ID and starts an asynchronous process to read the content of the image. Then it uses the operation ID to check the operation status until the results are returned. They it returns the extracted results.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

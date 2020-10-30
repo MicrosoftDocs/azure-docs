@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
 
 5. Your PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" icon selected.](common/edit-attribute.png)
 
 6. In addition to above, PolicyStat application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -124,9 +124,9 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 	
-	![image](common/new-save-attribute.png)
+	![Screenshot that shows the "User claims" section with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
 
-	![image](./media/policystat-tutorial/attribute01.png)
+	![Screenshot that shows the "Manage user claims" dialog with the "Name", "Transformation", and "Parameter" text boxes highlighted, and the "Save" button selected.](./media/policystat-tutorial/attribute01.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -160,7 +160,7 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
 
 3. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
    
-    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808636.png "Single Sign-On Configuration")
+    ![Screenshot that shows the "Your I D P Metadata" action selected.](./media/policystat-tutorial/ic808636.png "Single Sign-On Configuration")
    
     a. Open your downloaded metadata file, copy the content, and  then paste it into the **Your Identity Provider Metadata** textbox.
 

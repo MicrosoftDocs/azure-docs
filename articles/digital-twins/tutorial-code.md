@@ -34,7 +34,9 @@ What you need to begin:
 * Any code editor
 * **.NET Core 3.1** on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+### Prepare an Azure Digital Twins instance
+
+[!INCLUDE [Azure Digital Twins: instance prereq](../../includes/digital-twins-prereq-instance.md)]
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
@@ -46,7 +48,7 @@ Open a command prompt or other console window on your machine, and create an emp
 
 Navigate into the new directory.
 
-Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
+Once in the project directory, **create an empty .NET console app project**. In the command window, you can run the following command to create a minimal C# project for the console:
 
 ```cmd/sh
 dotnet new console
@@ -54,17 +56,11 @@ dotnet new console
 
 This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
-Next, add two necessary dependencies for working with Azure Digital Twins:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-The first dependency is the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
-The second dependency provides tools to help with authentication against Azure.
-
 Keep the command window open, as you'll continue to use it throughout the tutorial.
+
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
 
 ## Get started with project code
 
@@ -268,7 +264,7 @@ From this point forward, the tutorial will wrap all calls to service methods in 
 
 Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create **digital twins**. [Digital twins](concepts-twins-graph.md) are instances of a model, and represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. This section creates a few digital twins based on the model you uploaded earlier.
 
-Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`, and the `Serialization` namespace from the [Azure Digital Twins SDK for .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [LINK MODIFIED FOR PREVIEW]:
+Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`, and the `Serialization` namespace from the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true).
 
 ```csharp
 using System.Text.Json;

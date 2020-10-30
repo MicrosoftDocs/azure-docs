@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ARRAY_SLICE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns part of an array expression.
   
 ## Syntax

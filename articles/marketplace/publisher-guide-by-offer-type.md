@@ -32,7 +32,7 @@ The following table shows the commercial marketplace offer types in Partner Cent
 | [**Consulting service**](consulting-services.md) | Consulting services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps, and Finance and Operations apps.|
 | [**IoT Edge module**](iot-edge-module.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
-| [**Managed service**](partner-center-portal/create-new-managed-service-offer.md) | You can create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](/azure/lighthouse/overview).|
+| [**Managed service**](partner-center-portal/create-new-managed-service-offer.md) | You can create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Power BI app**<br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Power BI and Microsoft 365.|
 | [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
 
