@@ -223,6 +223,9 @@ Yes. You can deploy a [firewall network virtual appliance](https://azure.microso
 ### Is there information available about securing VNets?
 Yes. For details, see [Azure Network Security Overview](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### Do Virtual Networks store customer data?
+No. Virtual Networks doesn't store any customer data. 
+
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?

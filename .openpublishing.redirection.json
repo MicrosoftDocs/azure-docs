@@ -1061,6 +1061,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/disk-bursting.md",
+      "redirect_url": "/azure/virtual-machines/disk-bursting",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disk-bursting.md",
+      "redirect_url": "/azure/virtual-machines/disk-bursting",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/disks-ade-sse-conversion-powershell.md",
       "redirect_url": "/azure/virtual-machines/disk-encryption",
       "redirect_document_id": false
@@ -37808,6 +37818,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/external-identities/licensing-guidance.md",
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-b2b-mfa-instructions.md",
       "redirect_url": "/azure/active-directory/b2b/conditional-access",
       "redirect_document_id": true
@@ -44004,6 +44019,11 @@
     {
       "source_path": "articles/azure-monitor/platform/activity-log-collect-tenants.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
+      "redirect_url": "/azure/azure-monitor/log-query/get-started-portal",
       "redirect_document_id": false
     },
     {
@@ -58549,11 +58569,6 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-to/collaborate-knowledge-base.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnAMaker/How-to/use-active-learning.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
     },

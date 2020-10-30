@@ -9,6 +9,7 @@ ms.date: 05/21/2019
 ---
 
 # Common Azure Cosmos DB use cases
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of several common use cases for Azure Cosmos DB.  The recommendations in this article serve as a starting point as you develop your application with Cosmos DB.
 
