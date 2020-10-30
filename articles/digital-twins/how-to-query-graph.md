@@ -327,7 +327,7 @@ The following code snippet illustrates this call from the client app:
 
 ```csharp
 
-var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-UR>);
+var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-URL>);
 var tokenCredential = new DefaultAzureCredential();
 
 var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
