@@ -106,11 +106,11 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 5. SAP Business ByDesign application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" button selected.](common/edit-attribute.png)
 
 6. Click on the **Edit** icon to edit the **Name identifier value**.
 
-	![image](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
+	![Screenshot that shows the "User Attributes & Claims" page with the "Edit" icon selected.](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
 
 7. On the **Manage user claims** section, perform the following steps:
 	![image](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
@@ -145,7 +145,7 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 3. Click **New Identity Provider** and select the metadata XML file that you have downloaded from the Azure portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
 
-	![Configure Single Sign-On](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+	![Screenshot that shows the "Configure Single Sign-On" page with the "Identity Provider" tab selected, and the "New Identity Provider" action selected.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
 4. To include the **Assertion Consumer Service URL** into the SAML request, select **Include Assertion Consumer Service URL**.
 
@@ -155,7 +155,7 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 7. Click the **My System** tab.
 
-    ![Configure Single Sign-On](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Screenshot that shows the "Configure Single Sign-On" page with the "My System" tab selected.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
 8. In the **Azure AD Sign On URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 

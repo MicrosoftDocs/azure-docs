@@ -32,6 +32,10 @@ You can select a regional carrier and land Ethernet connections to one of the su
 
 Check [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
 
+### If I pay for an ExpressRoute circuit of a given bandwidth, do I have this bandwidth allocated for ingress and egress traffic separately?
+
+Yes, the ExpressRoute circuit bandwidth is duplex. For example, if you purchase a 200 mbps ExpressRoute circuit, you are procuring 200 mbps for ingress traffic and 200 mbps for egress traffic.
+
 ### If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
 
 No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure is limited to the ExpressRoute circuit bandwidth that you purchase.

@@ -77,12 +77,12 @@ This section assumes that you have gone through the following two articles or fa
 		![Data Management Gateway - express setup success](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
 	2. Launch Data Management Configuration Manager for the gateway by following [these instructions](data-factory-data-management-gateway.md#configuration-manager). You see the gateway name, node name, status, etc.
 
-		![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+		![Screenshot that shows where you can see the gateway name, node name, and status.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 4. If you choose **manual setup**:
 	1. Download the installation package from the Microsoft Download Center, run it to install gateway on your machine.
 	2. Use the **authentication key** from the **Configure** page to register the gateway.
 	
-		![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+		![Screenshot that shows where to use the authentication key.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
 	3. In the **New gateway node** page, you can provide a custom **name** to the gateway node. By default, node name is same as the machine name.    
 
 		![Data Management Gateway - specify name](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
@@ -106,7 +106,7 @@ This section assumes that you have gone through the following two articles or fa
 6. In Azure portal, launch the **Gateway** page: 
 	1. On the data factory home page in the portal, click **Linked Services**.
 	
-		![Data factory home page](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+		![Screenshot that highlights the Linked services tile.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
 	2. select the **gateway** to see the **Gateway** page:
 	
 		![Data factory home page](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)

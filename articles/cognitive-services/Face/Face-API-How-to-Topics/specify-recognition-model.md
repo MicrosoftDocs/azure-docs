@@ -112,9 +112,9 @@ If you normally specify a confidence threshold (a value between zero and one tha
 
 In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
 
-* [Face .NET SDK](../Quickstarts/csharp-sdk.md)
-* [Face Python SDK](../Quickstarts/python-sdk.md)
-* [Face Go SDK](../Quickstarts/go-sdk.md)
+* [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face Go SDK](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

@@ -9,7 +9,7 @@ ms.custom: subject-armqs
 ms.date: 08/18/2020
 ---
 
-# Create an Azure Cache for Redis using an ARM template
+# Quickstart: Create an Azure Cache for Redis using an ARM template
 
 Learn how to create an Azure Resource Manager template (ARM template) that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. Currently, diagnostic settings are shared for all caches in the same region for a subscription. Updating one cache in the region affects all other caches in the region.
 

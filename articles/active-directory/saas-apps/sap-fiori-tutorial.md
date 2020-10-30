@@ -267,11 +267,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. In SAP, under **Details of NameID Format "Unspecified"**, note the details:
 
-		![The Details of NameID Format "Unspecified" dialog box in SAP](./media/sapfiori-tutorial/nameiddetails.png)
+		![Screenshot that shows the 'Details of NameID Format "Unspecified"' dialog box in S A P.](./media/sapfiori-tutorial/nameiddetails.png)
 
 	1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Azure AD.
 
-		![The User Attributes & Claims dialog box in the Azure portal](./media/sapfiori-tutorial/claimsaad1.png)
+		![Screenshot that shows the "User Attributes & Claims" dialog box.](./media/sapfiori-tutorial/claimsaad1.png)
 
     **Scenario 2**: Select the SAP user ID based on the configured email address in SU01. In this case, the email ID should be configured in SU01 for each user who requires SSO.
 

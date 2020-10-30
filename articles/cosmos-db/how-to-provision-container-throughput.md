@@ -11,6 +11,7 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision standard (manual) throughput on an Azure Cosmos container - SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to provision standard (manual) throughput on a container in Azure Cosmos DB SQL API. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 

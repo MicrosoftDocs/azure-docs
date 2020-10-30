@@ -63,9 +63,9 @@ landingContent:
         - text: Metrics Advisor API
           url: https://go.microsoft.com/fwlink/?linkid=2141634
         - text: Azure PowerShell 
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+          url: /powershell/module/az.cognitiveservices
         - text: Azure CLI 
-          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+          url: /cli/azure/cognitiveservices?view=azure-cli-latest
 
 - title: Help and feedback
   linkLists:

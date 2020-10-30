@@ -9,7 +9,7 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI

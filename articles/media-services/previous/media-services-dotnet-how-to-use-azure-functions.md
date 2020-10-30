@@ -63,11 +63,11 @@ Once your function app is deployed, you can find it among **App Services** Azure
 2. Choose the **C#** language and **Data Processing** scenario.
 3. Choose **BlobTrigger** template. This function is triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
 
-	![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+	![Screenshot shows the Choose a template dialog box with BlobTrigger selected.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Once you select **BlobTrigger**, some more controls appear on the page.
 
-	![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+	![Screenshot shows the Name your function dialog box.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Click **Create**. 
 
@@ -75,7 +75,7 @@ Once your function app is deployed, you can find it among **App Services** Azure
 
 Your Azure function is associated with code files and other files that are described in this section. When you use the Azure portal to create a function, **function.json** and **run.csx** are created for you. You need to add or upload a **project.json** file. The rest of this section gives a brief explanation of each file and shows their definitions.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Screenshot shows the json files in your project.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### function.json
 

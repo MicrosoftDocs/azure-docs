@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Zendesk application expects the SAML assertions in a specific format. There are no mandatory SAML attributes but optionally you can manage from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
     > [!NOTE]
     > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts.
@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To automate the configuration within **Zendesk**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![image](./media/target-process-tutorial/install_extension.png)
+	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
 
 1. After adding extension to the browser, click on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate steps 3-6.
 
@@ -147,11 +147,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Zendesk Admin Center**, click on **Security settings** in the **Security** tab.
 
-	![Security](./media/zendesk-tutorial/settings.png "Security")
+	![Screenshot shows the Zendesk Admin Center with Security settings selected.](./media/zendesk-tutorial/settings.png "Security")
 
 1. Go to the **Single sign-on** page and click on **Edit** in the **SAML**.
 
-	![Security](./media/zendesk-tutorial/saml-sso.png "Security")
+	![Screenshot shows the Single sign-on page with Edit selected.](./media/zendesk-tutorial/saml-sso.png "Security")
 
 1. Perform the following steps in the **SSO** page.
 
