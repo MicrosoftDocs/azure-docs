@@ -316,6 +316,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
+| AADSTS7000114| Application 'appIdentifier' is not allowed to make application on-behalf-of calls.|
 | AADSTS7500529 | The value ‘SAMLId-Guid’ is not a valid SAML ID - Azure AD uses this attribute to populate the InResponseTo attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, id6c1c178c166d486687be4aaf5e482730 is a valid ID. |
 
 ## Next steps

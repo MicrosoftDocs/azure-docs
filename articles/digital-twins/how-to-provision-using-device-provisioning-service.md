@@ -84,7 +84,7 @@ This function will be used by the Device Provisioning Service in a [Custom Alloc
 
 Inside your function app project, add a new function. Also, add a new NuGet package to the project: `Microsoft.Azure.Devices.Provisioning.Service`.
 
-In the newly created function code file, paste in the following code.
+In the newly created function code file, paste in the following code. It makes use of the latest [C# (.NET) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet).
 
 ```C#
 using System;
@@ -190,7 +190,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -215,7 +215,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;
