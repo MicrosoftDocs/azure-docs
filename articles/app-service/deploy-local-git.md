@@ -12,21 +12,23 @@ ms.custom: seodec18, devx-track-azurecli
 
 This how-to guide shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
 
+## Prerequisites
+
+To follow the steps in this how-to guide:
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
 - [Install Git](https://www.git-scm.com/downloads).
-  
+
 - Have a local Git repository with code you want to deploy. To download a sample repository, run the following command in your local terminal window:
   
   ```bash
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy with Kudu build server
 
