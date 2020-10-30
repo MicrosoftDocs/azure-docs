@@ -27919,7 +27919,7 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
-      "redirect_url": "/azure/storage/blobs/service-sas-create",
+      "redirect_url": "/azure/storage/blobs/sas-service-create",
       "redirect_document_id": true
     },
     {
