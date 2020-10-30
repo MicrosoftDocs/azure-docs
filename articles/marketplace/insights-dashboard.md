@@ -77,7 +77,7 @@ This number represents the count of **Call to Action** button clicks completed o
 
 ### Orders by geography
 
-For the selected computation period, the heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country/region.
+For the selected computation period, the heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the unique visitors. Select a record in the table to zoom in on a country/region.
 
 :::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Illustrates the geographical spread chart on the Marketplace Insights dashboard.":::
 
