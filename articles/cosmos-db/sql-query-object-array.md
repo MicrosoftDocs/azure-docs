@@ -9,6 +9,7 @@ ms.author: tisande
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A key feature of the Azure Cosmos DB SQL API is array and object creation.
 

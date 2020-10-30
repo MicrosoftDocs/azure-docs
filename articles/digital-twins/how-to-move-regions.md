@@ -77,11 +77,13 @@ If the sample is not able to handle the size of your graph, you can export and i
 
 To proceed with ADT Explorer, first download the sample application code and set it up to run on your machine. 
 
-Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
+Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**Azure_Digital_Twins__ADT__explorer.zip**_. Unzip the file.
 
-Next, set up permissions for ADT Explorer to run on your machine. To do this, follow the steps in the [*Set ADT Explorer permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) section of the Azure Digital Twins quickstart.
-
-Finally, run and configure ADT Explorer to connect to your original Azure Digital Twins instance. Follow the steps in the [*Run and configure ADT Explorer*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) section of the quickstart.
+Next, set up and configure permissions for ADT Explorer. To do this, follow the instructions in the [*Set up Azure Digital Twins and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
+1. Set up an Azure Digital Twins instance (you can skip this part since you have an instance already)
+2. Set up an **Azure AD app registration** to provide access to your instance
+3. Set up permissions for ADT Explorer to run on your machine
+4. Run ADT Explorer and configure it to connect to your instance. You will use the **hostname** of your original Azure Digital Twins instance that you are moving, and the **client ID** and **tenant ID** from the app registration.
 
 Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
@@ -117,9 +119,6 @@ Next, you will complete the "move" of your instance by creating a new instance i
 First, **create a new instance of Azure Digital Twins in your target region**. To do this, follow the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md), keeping these pointers in mind:
 * You can keep the same name for the new instance **if** it is in a different resource group. If you need to use the same resource group that contains your original instance, then your new instance will need its own distinct name.
 * Enter the target new region when prompted for a location.
-* You do **not need** to recreate the app registration. Your new instance can reuse the same app registration you already have.
-    - If using the [scripted](how-to-set-up-instance-scripted.md) setup article, you can reenter the details of your existing app registration instead of entering a new name when prompted.
-    - If using the manual [portal](how-to-set-up-instance-portal.md) or [CLI](how-to-set-up-instance-cli.md) setup articles, you can stop after the *Create the Azure Digital Twins instance* and *Set up user access permissions* steps. No need to continue through *Set up access permissions for client applications*.
 
 Once this is complete, you will need the **hostname** of your new instance to continue setting it up with your data. If you didn't make a note of this during setup, you can follow [these instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) to get it now from the Azure portal.
 
@@ -135,11 +134,11 @@ Otherwise, to proceed, return to the browser window running **ADT Explorer** and
 
 ##### Connect to the new instance
 
-Currently, ADT Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance  by hitting the *Sign in* button at the top of the window. 
+Currently, ADT Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance by hitting the *Sign in* button at the top of the window. 
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Since you're reusing the app registration, you only need to replace the *ADT URL*. Change this value to that it reads *https://{new instance hostname}*.
+You can reuse the same app registration, so you only need to replace the *ADT URL* to reflect your new instance. Change this value to that it reads *https://{new instance hostname}*.
 
 Hit *Connect*. You may be asked to log in again with your Azure credentials, and/or grant this application consent for your instance.
 

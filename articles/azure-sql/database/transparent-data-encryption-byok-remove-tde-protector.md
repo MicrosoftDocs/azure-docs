@@ -24,7 +24,7 @@ This topic describes how to respond to a potentially compromised TDE protect for
 
 If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it's best to delete the key.
 
-Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes, all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes, all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
 
 This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
 
@@ -39,7 +39,7 @@ This how-to guide goes over two approaches depending on the desired result after
 
 # [PowerShell](#tab/azure-powershell)
 
- For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+ For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
