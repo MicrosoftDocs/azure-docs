@@ -10,6 +10,8 @@ ms.date: 10/10/2020
 ---
 
 # Compare Azure Monitor and Operations Manager
+Azure Monitor 
+
 Both Azure Monitor and System Center Operations Manager monitor the health and availability of your applications and the resources that they depend on. Customers often question which one they should use. You might be working with a new environment with no current monitoring and determining which product would best fit your requirements, or you might be an existing Operations Manager customer wondering if you should migrate to Azure Monitor as you move your applications to the cloud. This article provides guidance for 
 
 
@@ -88,3 +90,20 @@ The most common reason that you will require Operations Manager is monitoring of
 
 Azure Monitor can collect events and performance data from virtual machines but doesn't have predefined sets of logic for analyzing and alerting on that data as in management packs. It also doesn't have a standard process for running scripts in a virtual machine which often provide core functionality in management packs.
 
+
+## New user
+If you have no existing monitoring solution, or if you have an isolated Azure environment, then you should typically use Azure Monitor exclusively for your monitoring. Include Operations Manager only if you require detailed monitoring for workloads running in your VMs.
+
+
+## Existing Operations Manager customer
+If you currently use Operations Manager for your on-premises environment and are currently moving resources into Azure cloud, then you are most likely considering whether to move to Azure Monitor, continue using Operations Manager for monitoring your cloud resources, or using a combination of the two.
+
+The Cloud Monitoring Guide defines a [hybrid cloud monitoring model](https:///azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) that uses a combination of Azure Monitor and Operations Manager. The general strategy of this model is to use Azure Monitor for monitoring your Azure resources while using Operations Manager to monitor the workloads running in your virtual machines.
+
+
+
+
+
+The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) discovers and monitors your Azure resources. It's important to understand the type of monitoring that it will provide though. The Azure management pack is limited to monitoring metrics 
+
+## Extending Operations Manager
