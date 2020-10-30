@@ -80,8 +80,9 @@ To perform the steps described in this article, you must have:
 > [!IMPORTANT]
 > If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to six hours. During this period it will not be possible to delete the VNET or deploy a new resource to it. This behavior is true for clients using api-version 2018-01-01 and earlier. Clients using api-version 2019-01-01 and later, the VNET is freed up as soon as the associated API Management service is deleted.
 
-## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
-You can also enable VNET connectivity using the PowerShell cmdlets.
+## <a name="deploy-apim-external-vnet"> </a>Deploy API Management into External VNET
+
+:::code language="json" source="~/quickstart-templates/201-api-management-create-with-external-vnet/azuredeploy.json":::
 
 * **Create an API Management service inside a VNET**: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a VNET.
 
