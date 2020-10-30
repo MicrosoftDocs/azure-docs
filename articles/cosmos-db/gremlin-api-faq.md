@@ -9,6 +9,7 @@ ms.author: sngun
 ---
 
 # Frequently asked questions about the Gremlin API in Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 This article explains answers to some frequently asked questions about Gremlin API in Azure Cosmos DB.
 
