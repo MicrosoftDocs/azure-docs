@@ -1,7 +1,7 @@
 ---
 title: Deploy ISO 27001 ASE/SQL workload blueprint sample
 description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample including blueprint artifact parameter details.
-ms.date: 07/13/2020
+ms.date: 10/30/2020
 ms.topic: sample
 ---
 # Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample

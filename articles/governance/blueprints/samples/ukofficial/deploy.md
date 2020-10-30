@@ -1,7 +1,7 @@
 ---
 title: Deploy UK OFFICIAL & UK NHS blueprint samples
 description: Deploy steps for the UK OFFICIAL and UK NHS blueprint samples including blueprint artifact parameter details.
-ms.date: 07/13/2020
+ms.date: 10/30/2020
 ms.topic: sample
 ---
 # Deploy the UK OFFICIAL and UK NHS blueprint samples
