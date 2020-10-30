@@ -31,7 +31,7 @@ Each major version of PostgreSQL will be supported by Azure Database for Postgre
 Azure Database for PostgreSQL automatically performs minor version upgrades to the Azure preferred PostgreSQL version as part of periodic maintenance. 
 
 ### Major version retirement policy
-The table below provides the retirement details for PostgreSQL major versions. The dates follow the PostgreSQL community versioning policy. See Retired PostgreSQL versions section for more details.
+The table below provides the retirement details for PostgreSQL major versions. The dates follow the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
 
 | Version | Azure support start date | Retirement date|
 | ----- | ------ | ----- |
@@ -41,7 +41,7 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | PostgreSQL 11 |	July 24, 2019	| November 9, 2023
 | PostgreSQL 12 |	Sept 22, 2020 	| November 14, 2024
 
-### Retired PostgreSQL versions not supported 
+### Retired PostgreSQL engine versions not supported in Azure PostgreSQL
 
 After the retirement date for each PostgreSQL database version, if you continue running the retired version, note the following:
 - As the community will not be releasing any further bug fixes or security fixes, Azure for PostgreSQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. You may experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.

@@ -126,23 +126,19 @@ This method is useful if you have few larger tables in the database and want to 
 
     ```bash
     pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
-    Password:
     ```
     For example,
     ```bash
     pg_dump -Fd -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb -j 4 -f dump.dir
-    Password:
     ```
 
 3. Then restore the backup at the target server.
     ```bash
     $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
-    Password:
     ```
     For example,
     ```bash
     $ pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb -j 4 dump.dir
-    Password:
     ```
 
 > [!TIP]
