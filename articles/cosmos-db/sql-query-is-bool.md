@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # IS_BOOL (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a Boolean value indicating if the type of the specified expression is a Boolean.  
   
 ## Syntax

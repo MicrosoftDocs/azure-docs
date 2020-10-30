@@ -9,6 +9,7 @@ ms.author: ramkris
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB is a cloud native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
