@@ -13,6 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Build a .NET web app using Azure Cosmos DB's API for MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

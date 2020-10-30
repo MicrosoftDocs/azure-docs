@@ -118,7 +118,7 @@ When doing live streaming, you can choose one of the following routes:
 
 The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
 
-![Live workflow](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagram that shows the major parts of the A M S platform involved in the "pass-through" workflow.](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 

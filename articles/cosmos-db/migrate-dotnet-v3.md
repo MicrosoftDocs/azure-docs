@@ -9,6 +9,7 @@ ms.date: 09/23/2020
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > To learn about the Azure Cosmos DB .NET SDK v3, see the [Release notes](sql-api-sdk-dotnet-standard.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v3), .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3-sql.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).

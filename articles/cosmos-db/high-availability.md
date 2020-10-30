@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # How does Azure Cosmos DB provide high availability
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB provides high availability in two primary ways. First, Azure Cosmos DB replicates data across regions configured within a Cosmos account. Second, Azure Cosmos DB maintains 4 replicas of data within a region.
 

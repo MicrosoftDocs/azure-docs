@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # STRINGEQUALS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Returns a Boolean indicating whether the first string expression matches the second.  
   

@@ -47,13 +47,16 @@ See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for 
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-Metrics and logs can be routed to a Log Analytics workspace, where they can be analyzed using Azure Monitor Logs; to Azure Storage for archiving and offline analysis; or to an Event Hubs endpoint where they can be read by external applications, for example, third-party SIEM tools.
+Metrics and logs can be routed to several locations including:
+- The Azure Monitor Logs store via an associated Log Analytics workspace. There they can be analyzed using Log Analytics.
+- Azure Storage for archiving and offline analysis 
+- An Event Hubs endpoint where they can be read by external applications, for example, third-party SIEM tools.
 
 In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your IoT hub followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub.
 
-The following screenshot shows a diagnostic setting for routing Connection operations in resource logs and all platform metrics to a Log Analytics workspace.
+The following screenshot shows a diagnostic setting for routing the resource log type *Connection Operations* and all platform metrics to a Log Analytics workspace.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Diagnostic Settings pane for an IoT hub.":::
 
@@ -77,11 +80,11 @@ For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in 
 
 For IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
-Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
+Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
 
 ## Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. To learn more about Azure Monitor Logs, see [Azure Monitor Logs overview](/azure/azure-monitor/platform/data-platform-logs) in the Azure Monitor documentation. 
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The data in these tables are associated with a Log Analytics workspace and can be queried in Log Analytics. To learn more about Azure Monitor Logs, see [Azure Monitor Logs overview](/azure/azure-monitor/platform/data-platform-logs) in the Azure Monitor documentation. 
 
 To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
 

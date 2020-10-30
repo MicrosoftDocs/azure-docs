@@ -300,7 +300,7 @@ The following code snippet shows how to create a capacity pool in an ARM templat
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.
       See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practice) about NFS versions.
 
-  ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Click **Review + create**.
 

@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # CONCAT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string that is the result of concatenating two or more string values.  
   
 ## Syntax

@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # RAND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a randomly generated numeric value from [0,1).
  
 ## Syntax

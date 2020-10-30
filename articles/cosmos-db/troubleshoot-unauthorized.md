@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB unauthorized exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 401: The MAC signature found in the HTTP request isn't the same as the computed signature.
 If you received the 401 error message "The MAC signature found in the HTTP request is not the same as the computed signature," it can be caused by the following scenarios.

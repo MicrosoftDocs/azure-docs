@@ -29,7 +29,7 @@ This article applies to Azure Virtual Machines in Resource Manager mode.
 
 The following image shows a common deployment of an availability group on Azure virtual machines:
 
-   ![Availability Group](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagram that shows the Azure load balancer and the Availability set with a "Windows Server Failover Cluster" and "Always On Availability Group".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](availability-group-overview.md).
 
@@ -51,7 +51,7 @@ When availability group replicas are on Azure virtual machines in different Azur
 
 The following diagram shows how the networks communicate between data centers.
 
-   ![Availability Group](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagram that shows the two Virtual Networks in different Azure Regions communicating using V P N Gateways.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -96,7 +96,7 @@ To create a replica in a remote data center, do the following steps:
 
    You can create the IP address resource in Failover Cluster Manager. Select the name of the cluster, then right-click the cluster name under **Cluster Core Resources** and select **Properties**: 
 
-   ![Cluster properties](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Screenshot that shows the "Failover Cluster Manager" with a cluster name, "Server Name", and "Properties" selected.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK** on the **IP Address** dialog box, and then select **OK** again on the **Cluster Properties** dialog box to save the new IP address. 
 

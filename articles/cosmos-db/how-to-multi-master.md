@@ -10,6 +10,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 
 # Configure multi-region writes in your applications that use Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Once an account has been created with multiple write regions enabled, you must make two changes in your application to the ConnectionPolicy for the DocumentClient to enable the multi-region writes and multi-homing capabilities in Azure Cosmos DB. Within the ConnectionPolicy, set UseMultipleWriteLocations to true and pass the name of the region where the application is deployed to SetCurrentLocation. This will populate the PreferredLocations property based on the geo-proximity from location passed in. If a new region is later added to the account, the application does not have to be updated or redeployed, it will automatically detect the closer region and will auto-home on to it should a regional event occur.
 

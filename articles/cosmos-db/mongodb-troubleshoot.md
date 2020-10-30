@@ -11,6 +11,7 @@ ms.author: jasonh
 ---
 
 # Troubleshoot common issues in Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 The following article describes common errors and solutions for databases using the Azure Cosmos DB API for MongoDB.
 

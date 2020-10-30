@@ -12,6 +12,7 @@ ms.custom: devx-track-dotnet
 
 ---
 # Quickstart: Build a console app using the .NET V4 SDK to manage Azure Cosmos DB SQL API account resources.
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
