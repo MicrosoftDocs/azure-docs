@@ -10,6 +10,7 @@ ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Manage conflict resolution policies in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 With multi-region writes, when multiple clients write to the same item, conflicts may occur. When a conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies.
 
