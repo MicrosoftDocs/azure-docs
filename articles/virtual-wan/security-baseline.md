@@ -98,7 +98,7 @@ Use Azure Firewall to protect applications and services against potentially mali
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
 
-- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network) 
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
 
 **Azure Security Center monitoring**: Yes
 
@@ -331,7 +331,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Management Group Access](../governance/management-groups/overview.md#management-group-access) 
 
-- [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) 
+- [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -513,7 +513,7 @@ Azure Virtual WAN also supports Azure Resource Manager based resource deployment
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
+- [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -645,7 +645,7 @@ Virtual Wan does not produce or process DNS query logs which would need to be en
 **Guidance**: 
 
 Azure Activity logs, enabled automatically, contain all write operations (PUT, POST, DELETE) for your Azure Virtual WAN resources except read (GET) operations. Activity logs can be used to find an error during troubleshooting or to monitor how a user in your organization modified a resource. However, Virtual WAN does not produce Azure resource logs.
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) Understand logging and different log types in Azure: ../azure-monitor/platform/platform-logs-overview.md 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) Understand logging and different log types in Azure: ../azure-monitor/platform/platform-logs-overview.md
 
 **Azure Security Center monitoring**: Yes
 
@@ -748,7 +748,7 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md) 
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -771,7 +771,7 @@ Ensure that there are written incident response plans that define all roles of p
 
 - [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process) 
 
-- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf) 
+- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -805,7 +805,7 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 
 Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Azure Logic Apps" on security alerts and recommendations.
 
-- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md) 
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -919,7 +919,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 - [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e) 
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -934,7 +934,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41264.).
 
-**Guidance**: Customers are not explicitly allowed to configure Endpoint Detection and Response settings. However, the Virtual Machines used in the Azure Virtual WAN offering do use these capabilities. Learn more about these general capabilities by reviewing the referenced links. 
+**Guidance**: Customers are not explicitly allowed to configure Endpoint Detection and Response settings. However, the Virtual Machines used in the Azure Virtual WAN offering do use these capabilities. Learn more about these general capabilities at the referenced links. 
 
 - [Microsoft Defender Advanced Threat Protection Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
@@ -1166,7 +1166,7 @@ Review additional information available at the referenced links.
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-- [Azure identity management security overview](../security/fundamentals/identity-management-overview.md) 
+- [Azure identity management security overview](../security/fundamentals/identity-management-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
