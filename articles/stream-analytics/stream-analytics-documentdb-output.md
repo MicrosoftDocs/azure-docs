@@ -111,7 +111,7 @@ Using Azure Cosmos DB as an output in Stream Analytics generates the following p
 |Container name | The container name, such as `MyContainer`. One container named `MyContainer` must exist.  |
 |Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If you leave it empty, all events will be inserted, with no update option.|
 
-After you configure the Azure Cosmos DB output, you can use it in the query as the target of an [INTO statement](/stream-analytics-query/into-azure-stream-analytics). When you're using an Azure Cosmos DB output that way, [a partition key needs to be set explicitly](./stream-analytics-parallelization.md#partitions-in-sources-and-sinks). 
+After you configure the Azure Cosmos DB output, you can use it in the query as the target of an [INTO statement](/stream-analytics-query/into-azure-stream-analytics). When you're using an Azure Cosmos DB output that way, [a partition key needs to be set explicitly](./stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). 
 
 The output record must contain a case-sensitive column named after the partition key in Azure Cosmos DB. To achieve greater parallelization, the statement might require a [PARTITION BY clause](./stream-analytics-parallelization.md#embarrassingly-parallel-jobs) that uses the same column.
 
