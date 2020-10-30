@@ -26,6 +26,6 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 * The Review tool dashboard has been updated to show more information about open, pending, and completed reviews. See the [Review tool guide](./Review-Tool-User-Guide/human-in-the-loop.md) for a tour of the new features.
 
-## Cognitive Service updates
+## Cognitive Services updates
 
 [Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
