@@ -130,4 +130,4 @@ In this section, you manually trigger the pipeline published in the previous ste
 Advance to the following article to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics connector](data-factory/connector-azure-sql-data-warehouse.md)
+> [Azure Synapse Analytics connector](../data-factory/connector-azure-sql-data-warehouse.md)
