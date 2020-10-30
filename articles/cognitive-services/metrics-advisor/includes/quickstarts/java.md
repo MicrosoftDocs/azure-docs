@@ -11,7 +11,7 @@ ms.date: 10/14/2020
 ms.author: mbullwin
 ---
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/1.0.2/jar) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src) | [Artifact (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples)
 
 ## Prerequisites
 
@@ -22,15 +22,15 @@ ms.author: mbullwin
   
 > [!TIP]
 > * You can find Java Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples).
-> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
-> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
+> * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
+> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
     
 ## Setting up
 
 ### Create a new Gradle project
 
-This quickstart uses the Gradle dependency manager. You can find more client library information on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+This quickstart uses the Gradle dependency manager. You can find more client library information on the [Maven Central Repository](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor).
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
@@ -139,7 +139,7 @@ MetricsAdvisorAdministrationClient metricsAdvisorAdministrationClient =
 
 ``` 
 
-## Add a datafeed
+## Add a data feed
 
 Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp.
 
@@ -179,11 +179,12 @@ System.out.printf("Data feed granularity value : %d%n",
 System.out.println("Data feed related metric Ids:");
 createdSqlDataFeed.getMetricIds().forEach(metricId -> System.out.println(metricId));
 System.out.printf("Data feed source type: %s%n", createdSqlDataFeed.getSourceType());
+createdSqlDataFeed.getSchema().getMetrics().forEach(metric -> {
+    System.out.printf("metric name: %s metric id:%s", metric.getName(), metric.getId());
+});
 
-if (SQL_SERVER_DB.equals(createdSqlDataFeed.getSourceType())) {
-    System.out.printf("Data feed sql server query: %s%n",
-        ((SQLServerDataFeedSource) createdSqlDataFeed.getSource()).getQuery());
-}
+System.out.printf("Data feed sql server query: %s%n",
+    ((SQLServerDataFeedSource) createdSqlDataFeed.getSource()).getQuery());
 ```
 
 ## Check the ingestion status
@@ -291,7 +292,7 @@ final AnomalyAlertConfiguration anomalyAlertConfiguration
 
 ## Query the alert
 
-This example demonstrates how a user can query alerts triggered for an anomaly detection configuration and get anomalies for that alert.
+This example demonstrates how a user can query alerts triggered for an alert detection configuration and get anomalies for that alert.
 
 ```java
 String alertConfigurationId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";

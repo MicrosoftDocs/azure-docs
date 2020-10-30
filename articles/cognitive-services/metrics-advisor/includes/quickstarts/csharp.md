@@ -11,7 +11,7 @@ ms.date: 10/14/2020
 ms.author: mbullwin
 ---
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://aka.ms/azsdk/net/docs/ref/metricsadvisor) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
 
 ## Prerequisites
 
@@ -20,9 +20,9 @@ ms.author: mbullwin
 * Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
   
 > [!TIP]
-> * You can find JavaScript Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md).
-> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
-> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
+> * You can find .NET Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md).
+> * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
+> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
    
 ## Setting up
@@ -58,7 +58,7 @@ Build succeeded.
 If you are using an IDE other than Visual Studio you can install the Metrics Advisor client library for .NET with the following command:
 
 ```console
-dotnet add package dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.1
+dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.1
 ```
 
 > [!TIP]
@@ -72,11 +72,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Azure.AI.MetricsAdvisor.Administration;
 using Azure.AI.MetricsAdvisor.Models;
-using Azure.AI.MetricsAdvisor.Tests;
-using Azure.Core.TestFramework;
 ```
 
-in the application’s `main()` method, add calls for the methods used in this quickstart. You will create these later.
+In the application’s `Main()` method, add calls for the methods used in this quickstart. You will create these later.
 
 ```csharp
 static void Main(string[] args){
@@ -94,7 +92,7 @@ The following classes handle some of the major features of the Metrics Advisor C
 | [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **Used for**: <br> - Listing incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
 | [MetricsAdvisorAdministrationClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs)| **Allows you to:** <br> - Manage data feeds <br> - Configure anomaly detection configurations <br> - Configure anomaly alerting configurations <br> - Manage hooks  |
 | [DataFeed](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeed.cs)| **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
-| [Metric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/Metrics/MetricSeriesData.cs)| A `Metric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
+| [Metric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeedMetric.cs)| A `Metric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
 
 ## Code examples
 
@@ -110,7 +108,7 @@ These code snippets show you how to do the following tasks with the Metrics Advi
 
 ## Authenticate the client
 
-In the application's `Program` class, create variables for your resource's key and endpoint.
+In the application's `Program` class, create variables for your resource's keys and endpoint.
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
@@ -137,7 +135,7 @@ var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
 var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), credential);
 ```
 
-## Add datafeed
+## Add a data feed
 
 Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server.
 
@@ -195,6 +193,7 @@ Console.WriteLine($"Metric IDs:");
 foreach (DataFeedMetric metric in dataFeed.Schema.MetricColumns)
 {
     Console.WriteLine($" - {metric.MetricName}: {metric.MetricId}");
+}
 ```
 
 ## Check the ingestion status
@@ -264,6 +263,23 @@ Console.WriteLine($"Anomaly detection configuration ID: {detectionConfiguration.
 ### Create a hook
 
 Metrics Advisor supports the `EmailHook` and `WebHook` classes as means of subscribing to alerts notifications. In this example we'll illustrate how to create an `EmailHook`. You need to pass the hook to an anomaly alert configuration to start getting notifications. See the sample [create an anomaly alert configuration](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration) for more information.
+
+```csharp
+string hookName = "Sample hook";
+var emailsToAlert = new List<string>()
+{
+    "email1@sample.com",
+    "email2@sample.com"
+};
+
+var emailHook = new EmailNotificationHook(hookName, emailsToAlert);
+
+Response<NotificationHook> response = await adminClient.CreateHookAsync(emailHook);
+
+NotificationHook hook = response.Value;
+
+Console.WriteLine($"Hook ID: {hook.Id}");
+```
 
 ##  Create an alert configuration
 

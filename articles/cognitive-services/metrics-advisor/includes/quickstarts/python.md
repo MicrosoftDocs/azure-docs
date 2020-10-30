@@ -1,5 +1,5 @@
 ---
-title: Metrics Monitor Python quickstart
+title: Metrics Advisor Python quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -11,7 +11,7 @@ ms.date: 10/14/2020
 ms.author: mbullwin
 ---
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (PiPy)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/README.md) | [Package (PiPy)](https://pypi.org/project/azure-ai-metricsadvisor/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples/README.md)
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ ms.author: mbullwin
 > [!TIP]
 > * You can find Python Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples).
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API.
-> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
+> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/` 
  
 ## Setting up
@@ -50,7 +50,6 @@ Create variables for your resource's Azure endpoint and key.
 > You will need two keys to start using the client library:
 >
 > * The key to your Metrics Advisor resource. You can find this in the **Keys and Endpoint** section of your resource in the Azure portal.
->    * Later you will replace `Ocp-Apim-Subscription-Key` in the examples with this key. 
 > * The API key for your Metrics Advisor instance. You can find this in the web portal for Metrics Advisor, in **API keys** on the left navigation menu.
 >
 > Remember to remove the keys from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
@@ -85,7 +84,7 @@ These code snippets show you how to do the following with the Metrics Advisor cl
 
 ### Authenticate the client
 
-The client is a `MetricsAdvisorAdministrationClient` object that uses your endpoint a `MetricsAdvisorKeyCredential` object that contains your keys. You don't need to copy this code sample. The methods you create later will instantiate the client.
+The client in this example is a `MetricsAdvisorAdministrationClient` object that uses your endpoint a `MetricsAdvisorKeyCredential` object that contains your keys. You don't need to copy this code sample. The methods you create later will instantiate the client. The alternate client is called `MetricsAdvisorClient` more information on this client can be found in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorClient).
 
 ```python
 client = MetricsAdvisorAdministrationClient(service_endpoint,
@@ -180,7 +179,7 @@ sample_get_data_feed_ingestion_progress()
 
 ## Create an anomaly detection configuration 
 
-In a new method, create import statements like the example below. Replace `metric_id` with the ID for the metric you want to configure. Create a client with your keys and endpoint, and use `client.get_data_feed_ingestion_progress()` to get the ingestion progress. The threshold conditions specify the parameters for anomaly detection.
+In a new method, create import statements like the example below. Replace `metric_id` with the ID for the metric you want to configure. Create a client with your keys and endpoint, and use `client.create_metric_anomaly_detection_configuration` to get the ingestion progress. The threshold conditions specify the parameters for anomaly detection.
 
 ```python
 def sample_create_detection_config():
