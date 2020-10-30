@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Azure Stream Analytics output to Azure Cosmos DB  
 Azure Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration. We recommend that you set your job to compatability level 1.2 when using Azure Cosmos DB as output.
 
-If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/) to get started. 
+If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentation](../cosmos-db/index.yml) to get started. 
 
 > [!Note]
 > At this time, Stream Analytics supports connection to Azure Cosmos DB only through the *SQL API*.
@@ -21,7 +21,7 @@ If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentatio
 ## Basics of Azure Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Azure Cosmos DB containers. 
 
-Stream Analytics doesn't create containers in your database. Instead, it requires you to create them up front. You can then control the billing costs of Azure Cosmos DB containers. You can also tune the performance, consistency, and capacity of your containers directly by using the [Azure Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Stream Analytics doesn't create containers in your database. Instead, it requires you to create them up front. You can then control the billing costs of Azure Cosmos DB containers. You can also tune the performance, consistency, and capacity of your containers directly by using the [Azure Cosmos DB APIs](/rest/api/cosmos-db/).
 
 > [!Note]
 > You must add 0.0.0.0 to the list of allowed IPs from your Azure Cosmos DB firewall.
@@ -55,7 +55,7 @@ If the incoming JSON document has an existing ID field, that field is automatica
 If you want to save *all* documents, including the ones that have a duplicate ID, rename the ID field in your query (by using the **AS** keyword). Let Azure Cosmos DB create the ID field or replace the ID with another column's value (by using the **AS** keyword or by using the **Document ID** setting).
 
 ## Data partitioning in Azure Cosmos DB
-Azure Cosmos DB automatically scales partitions based on your workload. So we recommend [unlimited](../cosmos-db/partition-data.md) containers as the approach for partitioning your data. When Stream Analytics writes to unlimited containers, it uses as many parallel writers as the previous query step or input partitioning scheme.
+Azure Cosmos DB automatically scales partitions based on your workload. So we recommend [unlimited](../cosmos-db/partitioning-overview.md) containers as the approach for partitioning your data. When Stream Analytics writes to unlimited containers, it uses as many parallel writers as the previous query step or input partitioning scheme.
 
 > [!NOTE]
 > Azure Stream Analytics supports only unlimited containers with partition keys at the top level. For example, `/region` is supported. Nested partition keys (for example, `/region/name`) are not supported. 
@@ -66,7 +66,7 @@ Depending on your choice of partition key, you might receive this _warning_:
 
 It's important to choose a partition key property that has a number of distinct values, and that lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests that involve the same partition key are limited by the maximum throughput of a single partition. 
 
-The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](../cosmos-db/partition-data.md) is 50 GB). An [ideal partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey) is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
+The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](../cosmos-db/partitioning-overview.md) is 50 GB). An [ideal partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey) is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
 
 Partition keys used for Stream Analytics queries and Cosmos DB don't need to be identical. Fully parallel topologies recommend using *Input Partition key*, `PartitionId`, as the Stream Analytics query's partition key but that may not be the recommended choice for a Cosmos DB container's partition key.
 
@@ -83,7 +83,7 @@ The improved writing mechanism is available under a new compatibility level beca
 
 With levels before 1.2, Stream Analytics uses a custom stored procedure to bulk upsert documents per partition key into Azure Cosmos DB. There, a batch is written as a transaction. Even when a single record hits a transient error (throttling), the whole batch has to be retried. This makes scenarios with even reasonable throttling relatively slow.
 
-The following example shows two identical Stream Analytics jobs reading from the same Azure Event Hubs input. Both Stream Analytics jobs are [fully partitioned](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) with a passthrough query and write to identical Azure Cosmos DB containers. Metrics on the left are from the job configured with compatibility level 1.0. Metrics on the right are configured with 1.2. An Azure Cosmos DB container's partition key is a unique GUID that comes from the input event.
+The following example shows two identical Stream Analytics jobs reading from the same Azure Event Hubs input. Both Stream Analytics jobs are [fully partitioned](./stream-analytics-parallelization.md#embarrassingly-parallel-jobs) with a passthrough query and write to identical Azure Cosmos DB containers. Metrics on the left are from the job configured with compatibility level 1.0. Metrics on the right are configured with 1.2. An Azure Cosmos DB container's partition key is a unique GUID that comes from the input event.
 
 ![Comparison of Stream Analytics metrics](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
 
@@ -111,9 +111,9 @@ Using Azure Cosmos DB as an output in Stream Analytics generates the following p
 |Container name | The container name, such as `MyContainer`. One container named `MyContainer` must exist.  |
 |Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If you leave it empty, all events will be inserted, with no update option.|
 
-After you configure the Azure Cosmos DB output, you can use it in the query as the target of an [INTO statement](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). When you're using an Azure Cosmos DB output that way, [a partition key needs to be set explicitly](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 
+After you configure the Azure Cosmos DB output, you can use it in the query as the target of an [INTO statement](/stream-analytics-query/into-azure-stream-analytics). When you're using an Azure Cosmos DB output that way, [a partition key needs to be set explicitly](./stream-analytics-parallelization.md#partitions-in-sources-and-sinks). 
 
-The output record must contain a case-sensitive column named after the partition key in Azure Cosmos DB. To achieve greater parallelization, the statement might require a [PARTITION BY clause](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) that uses the same column.
+The output record must contain a case-sensitive column named after the partition key in Azure Cosmos DB. To achieve greater parallelization, the statement might require a [PARTITION BY clause](./stream-analytics-parallelization.md#embarrassingly-parallel-jobs) that uses the same column.
 
 Here's a sample query:
 
