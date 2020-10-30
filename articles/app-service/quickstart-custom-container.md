@@ -3,7 +3,7 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
@@ -76,7 +76,7 @@ Create an ASP.NET web app by following these steps:
 
    Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
 
-   ![Publish from project overview page](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![Screenshot that highlights the repository name.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. Copy this repository name for later.
 

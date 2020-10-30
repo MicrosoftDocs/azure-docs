@@ -68,6 +68,12 @@ For a list of the types of container registries supported by Azure Defender for 
 
 If you connect unsupported registries to your Azure subscription, they won't be scanned and you won't be billed for them.
 
+### Can I customize the findings from the vulnerability scanner?
+Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
+
 
 ## Next steps
 

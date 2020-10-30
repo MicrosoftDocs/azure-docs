@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeAdd (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns DateTime string value resulting from adding a specified number value (as a signed integer) to a specified DateTime string  
   

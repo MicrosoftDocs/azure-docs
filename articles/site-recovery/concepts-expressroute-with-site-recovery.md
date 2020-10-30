@@ -32,7 +32,7 @@ Ensure that the [Networking Requirements](vmware-azure-configuration-server-requ
 
 In case you use proxy at on-premises and wish to use ExpressRoute for replication traffic, you need to configure the Proxy bypass list on the Configuration Server and Process Servers. Follow the steps below:
 
-- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user context.
+- Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user context.
 - Open Internet Explorer in system user context by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Add proxy settings in IE

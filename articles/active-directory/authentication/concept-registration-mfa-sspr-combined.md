@@ -31,7 +31,7 @@ This article outlines what combined security registration is. To get started wit
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/security-info-setup-signin.md) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
+Azure AD combined security information registration is not currently available to national clouds like Azure Germany or Azure China 21Vianet. It is available for Azure US Government.
 
 > [!IMPORTANT]
 > Users that are enabled for both the original preview and the enhanced combined registration experience see the new behavior. Users that are enabled for both experiences see only the new My Profile experience. The new *My Profile* aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).

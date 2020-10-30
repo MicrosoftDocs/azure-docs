@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 Recommendations for designing hash-distributed and round-robin distributed tables in Synapse SQL pools.
 
-This article assumes you are familiar with data distribution and data movement concepts in Synapse SQL pool.  For more information, see [Azure Synapse Analytics massively parallel processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md).
+This article assumes you are familiar with data distribution and data movement concepts in Synapse SQL.  For more information, see [Azure Synapse Analytics  architecture](massively-parallel-processing-mpp-architecture.md).
 
 ## What is a distributed table?
 

@@ -25,7 +25,7 @@ The two tabs below show the features of Azure Security Center that are available
 
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
+|[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
@@ -49,8 +49,8 @@ The two tabs below show the features of Azure Security Center that are available
 
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Yes|
-|[Virtual machine behavioral analytics (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
+|[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|-|-|-|Yes|
+|[Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
 |[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|

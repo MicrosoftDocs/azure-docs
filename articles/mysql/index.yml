@@ -150,7 +150,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/mysql/sample-scripts-azure-cli
+            url: ./sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformysql/allversions
       - linkListType: reference
@@ -160,4 +160,4 @@ landingContent:
           - text: REST API developer reference
             url: /rest/api/mysql/
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.mysql
+            url: /powershell/module/az.mysql

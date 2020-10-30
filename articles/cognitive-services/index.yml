@@ -24,6 +24,9 @@ highlightedContent:
     - title: What's new in docs?
       itemType: whats-new
       url: whats-new-docs.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
@@ -36,9 +39,6 @@ highlightedContent:
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Security
-      itemType: concept
-      url: cognitive-services-security.md
     - title: Support & help options
       itemType: reference
       url: ./cognitive-services-support-options.md

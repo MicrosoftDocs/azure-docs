@@ -11,7 +11,6 @@ ms.custom: mvc, seodec18
 ---
 
 # Introduction to the App Service Environments #
- 
 ## Overview ##
 
 The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
@@ -28,7 +27,7 @@ App Service environments (ASEs) are appropriate for application workloads that r
 * Isolation and secure network access.
 * High memory utilization.
 
-Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high RPS workloads.
+Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high requests per second (RPS) workloads.
 
 ASEs host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 

@@ -223,7 +223,7 @@ Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) fo
 }
 ```
 ## Parameterizing Data Factory template
-For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/resource-manager-template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
+For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
 
 * Settings vary by environment (example: development, test, and production)
 * Secrets (such as passwords)
