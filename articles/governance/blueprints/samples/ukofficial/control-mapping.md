@@ -39,8 +39,6 @@ accounts and Redis Cache.
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
 - Show audit results from Windows web servers that are not using secure communication protocols
-- Deploy prerequisites to audit Windows web servers that are not using secure communication
-  protocols
 - Web Application should only be accessible over HTTPS
 - Function App should only be accessible over HTTPS
 - API App should only be accessible over HTTPS
@@ -164,12 +162,6 @@ Windows VMs that don't enforce minimum strength and other password requirements.
 violation of the password strength policy helps you take corrective actions to ensure passwords for
 all VM user accounts are compliant with policy.
 
-- Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
-- Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
-- Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
-- Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14
-  characters
-- Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
 - Show audit results from Windows VMs that do not have the password complexity setting enabled
 - Show audit results from Windows VMs that do not have a maximum password age of 70 days
 - Show audit results from Windows VMs that do not have a minimum password age of 1 day
@@ -182,9 +174,6 @@ definitions. These policies audit use of resource types and configurations that 
 permissive access to resources. Understanding resources that are in violation of these policies can
 help you take corrective actions to ensure access Azure resources is restricted to authorized users.
 
-- Deploy prerequisites to audit Linux VMs that have accounts without passwords
-- Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without
-  passwords
 - Show audit results from Linux VMs that have accounts without passwords
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
@@ -205,7 +194,7 @@ application controls on virtual machines.
 - Access through Internet facing endpoint should be restricted
 - Adaptive Network Hardening recommendations should be applied on internet facing virtual machines
 - Endpoint protection solution should be installed on virtual machine scale sets
-- Just-In-Time network access control should be applied on virtual machines
+- Management ports of virtual machines should be protected with just-in-time network access control
 - Remote debugging should be turned off for Function Apps
 - Remote debugging should be turned off for Web Applications
 - Remote debugging should be turned off for API Apps
