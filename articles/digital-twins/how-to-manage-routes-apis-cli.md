@@ -180,12 +180,12 @@ If there is a route name and a different filter is added, messages will be filte
 
 One route should allow multiple notifications and event types to be selected. 
 
-`CreateEventRoute` is the SDK call that is used to add an event route. Here is an example of its usage:
+`CreateOrReplaceEventRouteAsync` is the SDK call that is used to add an event route. Here is an example of its usage:
 
 ```csharp
-EventRoute er = new EventRoute("<your-endpointName>");
-er.Filter = "true"; //Filter allows all messages
-await CreateEventRoute(client, "routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
+await CreateOrReplaceEventRouteAsync(client, "routeName", er);
 ```
     
 > [!TIP]
@@ -195,7 +195,7 @@ await CreateEventRoute(client, "routeName", er);
 
 The following sample method shows how to create, list, and delete an event route:
 ```csharp
-private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
 {
   try
   {
@@ -203,15 +203,15 @@ private async static Task CreateEventRoute(DigitalTwinsClient client, String rou
             
     // Make a filter that passes everything
     er.Filter = "true";
-    await client.CreateEventRouteAsync(routeName, er);
+    await client.CreateOrReplaceEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable<EventRoute> result = client.GetEventRoutes();
-    foreach (EventRoute r in result)
+    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
-    foreach (EventRoute r in result)
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
