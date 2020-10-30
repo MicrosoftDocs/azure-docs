@@ -25,22 +25,18 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 
 *For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
-### NS-1: Implement security for internal traffic
+### NS-1:   
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40024.).
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure firewall is a portal extension and is not a service. 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-2: Connect private networks together
 
@@ -49,15 +45,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Firewall manager is a portal extension. Cannot be deployed to or accessed from a private network
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-3: Establish private network access to Azure services
 
@@ -66,32 +58,24 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable;  Azure Firewall Manager does not allow for its resources to be secured to a private network via the Private Link service or Service Endpoints.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### NS-4: Protect applications and services from external network attacks
+### NS-4: 
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40027.).
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -100,15 +84,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesn't get deployed in VNET on it;s own.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-6: Simplify network security rules
 
@@ -117,15 +97,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-7: Secure Domain Name Service (DNS)
 
@@ -134,15 +110,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Identity Management
 
@@ -155,15 +127,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-2: Manage application identities securely and automatically
 
@@ -172,15 +140,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication to Azure Resource Manager and can be used with API/Azure Portal/CLI/PowerShell.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
@@ -189,15 +153,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
@@ -206,15 +166,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Yes
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
 
@@ -223,15 +179,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Security Center can  alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Use custom RBAC policy to control access and view changes in activity logs. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-6: Restrict Azure resource access based on conditions
 
@@ -240,15 +194,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+ Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
@@ -257,15 +207,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Firewall Manager doesn't allow customer to deploy any persisted data into the running environment.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IM-8: Secure user access to legacy applications
 
@@ -274,15 +220,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Firewall Manager doesn't access any legacy applications.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Privileged Access
 
@@ -295,15 +237,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure firewall manager can be accessed by AD built-in accounts and custom RBAC accounts. 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -312,15 +250,21 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Firewall Manager uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151 
+
+Management Group Access ../../governance/management-groups/overview.md#management-group-access 
+
+Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md 
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### PA-3: Review and reconcile user access regularly
 
@@ -329,15 +273,19 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Firewall Manager uses Azure Active Directory (AAD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Note: Some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
+
+- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### PA-4: Set up emergency access in Azure AD
 
@@ -346,15 +294,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Firewall Manager uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
+You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
+- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-5: Automate entitlement management 
 
@@ -363,15 +309,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Firewall Manager is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
+- [What are Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) 
+- [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-6: Use privileged access workstations
 
@@ -380,15 +324,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -397,15 +341,17 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Firewall Manager is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Use built-in roles to allocate permission and only create custom role when required.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+What is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ## Data Protection
 
