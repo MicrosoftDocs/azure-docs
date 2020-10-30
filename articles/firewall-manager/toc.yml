@@ -28,7 +28,7 @@
     href: deployment-overview.md
   - name: Security partner providers
     href: trusted-security-partners.md
-  - name: Check Point CloudGuard Connect overview
+  - name: Secure hubs using Check Point Cloudguard Connect
     href: check-point-overview.md
   - name: IP Groups
     href: ip-groups.md
