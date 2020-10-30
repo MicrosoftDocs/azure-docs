@@ -1,6 +1,6 @@
 ---
-title: Check Point CloudGuard Connect with Azure Firewall Manager overview
-description: Learn using Check Point CloudGuard Connect with Azure Firewall Manager
+title: Secure Azure hubs using Check Point Cloudguard Connect
+description: Learn about Check Point CloudGuard Connect to secure Azure hubs
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -9,7 +9,7 @@ ms.date: 10/30/2020
 ms.author: victorh
 ---
 
-# Check Point CloudGuard Connect with Azure Firewall Manager overview
+# Secure Azure hubs using Check Point Cloudguard Connect
 
 Check Point CloudGuard Connect is a Trusted Security Partner in Azure Firewall Manager. It protects globally distributed branch office to Internet (B2I) or virtual network to Internet (V2I) connections with advanced threat prevention. 
 
