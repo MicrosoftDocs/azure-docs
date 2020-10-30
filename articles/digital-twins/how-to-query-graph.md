@@ -327,10 +327,10 @@ The following code snippet illustrates this call from the client app:
 
 ```csharp
 
-var client = new DigitalTwinsClient(
-    new Uri(your-Azure-Digital-Twins-instance-UR),
-    <your-credentials>
-);
+var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-UR>);
+var tokenCredential = new DefaultAzureCredential();
+
+var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
 
 string query = "SELECT * FROM digitaltwins";
 AsyncPageable<string> result = await client.QueryAsync<string>(query);
