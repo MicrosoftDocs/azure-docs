@@ -75,6 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     In the **Reply URL** text box, enter one of the following URLs:
+    
     	| Reply URL|
 	|----------|
 	| `https://www.skedda.com/saml2/acs` |
