@@ -21,14 +21,28 @@ Java In Process Agent has now the capabilities to pre-process telemetry data bef
 
 ## Quick Start
 
-Create a configuration file named ApplicationInsights.json, and place it in the same directory as `applicationinsights-agent-***.jar`, with the following content:
+Create a configuration file named ApplicationInsights.json, and place it in the same directory as `applicationinsights-agent-***.jar`, with the following template.
 
 ```json
 {
     "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
     "preview": {
         "processors": [
-            // your processor configuration
+            {
+                "type": "attribute",
+                "processorName": "attributeProcessor1",
+                "....."
+            },
+            {
+                "type": "attribute",
+                "processorName": "attributeProcessor2",
+                "....."
+            },
+            {
+                "type": "span",
+                "processorName": "spanProcessor1",
+                "....."
+            }
         ]
     }
 }
