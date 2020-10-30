@@ -74,11 +74,11 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 4. To test your query with a local file, select **Upload sample input** on the **Input preview** tab. 
 
-   ![Azure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![Screenshot shows the Upload sample input option.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
 5. Upload your local file to test the query. You can only upload files with the JSON, CSV, or AVRO formats. Select **OK**.
 
-   ![Azure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![Screenshot shows the Upload sample data dialog box where you can select a file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
 6. As soon as you upload the file, you can also see the file contents in the form as a table or in it's raw format. If you select **Reset**, the sample data will return to the incoming input data explained in the previous section. You can upload any other file to test the query at any time.
 
