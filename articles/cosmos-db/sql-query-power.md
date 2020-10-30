@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # POWER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the value of the specified expression to the specified power.  
   
 ## Syntax
