@@ -46,11 +46,12 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
- - <a href="https://git-scm.com/" target="_blank">Install Git</a>
+To complete this tutorial:
 
- - <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
 
 ## Create local .NET Core app
 
@@ -71,6 +72,8 @@ Navigate to `http://localhost:5000` and try adding, editing, and removing todo i
 ![ASP.NET Core API running locally](./media/tutorial-auth-aad/local-run.png)
 
 To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy apps to Azure
 

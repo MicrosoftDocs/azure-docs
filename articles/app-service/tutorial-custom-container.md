@@ -37,7 +37,7 @@ In this step, you set up the local .NET project.
 - [Download the sample project](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
 - Extract (unzip) the  *custom-font-win-container.zip* file.
 
-The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either re-architect your code to remove the integration, or migrate it as-is in a custom Windows container.
+The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either rearchitect your code to remove the integration, or migrate it as-is in a custom Windows container.
 
 ### Install the font
 
@@ -221,19 +221,33 @@ In this tutorial, you learn how to:
 
 Completing this tutorial incurs a small charge in your Azure account for the container registry and can incur additional costs for hosting the container for longer than a month.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## Set up your initial environment
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
- - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
-
- - This tutorial requires version 2.0.80 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?
+* Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
+* Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
 ```
+
+Also verify that your Azure CLI version is 2.0.80 or higher:	
+
+```azurecli	
+az --version	
+```	
+
+Then sign in to Azure through the CLI:	
+
+```azurecli	
+az login	
+```	
+
+The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.	
+
+Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.	
 
 ## Clone or download the sample app
 
@@ -324,6 +338,8 @@ ENTRYPOINT ["init.sh"]
 1. Browse to `http://localhost:8000` to verify the web app and container are functioning correctly.
 
     ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+
+[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
