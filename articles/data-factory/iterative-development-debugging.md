@@ -74,7 +74,7 @@ You can monitor active data flow debug sessions across a factory in the **Monito
  
 ### Debugging a pipeline with a data flow activity
 
-When execting a debug pipeline run with a data flow, you have two options on which compute to use. You can either use an existing debug cluster or spin up a new just-in-time cluster for your data flows.
+When executing a debug pipeline run with a data flow, you have two options on which compute to use. You can either use an existing debug cluster or spin up a new just-in-time cluster for your data flows.
 
 Using an existing debug session will greatly reduce the data flow start up time as the cluster is already running, but is not recommended for complex or parallel workloads as it may fail when multiple jobs are run at once.
 
