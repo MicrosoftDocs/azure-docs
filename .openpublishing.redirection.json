@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/concepts-convert-models.md",
+      "redirect_url": "/azure/digital-twins/how-to-convert-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/ddos-protection-overview.md",
+      "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/manage-ddos-protection.md",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/ddos-protection-partner-onboarding.md",
+      "redirect_url": "/azure/ddos-protection/ddos-protection-partner-onboarding",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/configure-lvm.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-lvm",
       "redirect_document_id": false
@@ -1038,6 +1058,16 @@
     {
       "source_path": "articles/virtual-machines/linux/disks-ade-sse-conversion-cli.md",
       "redirect_url": "/azure/virtual-machines/disk-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disk-bursting.md",
+      "redirect_url": "/azure/virtual-machines/disk-bursting",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disk-bursting.md",
+      "redirect_url": "/azure/virtual-machines/disk-bursting",
       "redirect_document_id": false
     },
     {
@@ -6948,6 +6978,11 @@
       "redirect_url": "/azure/event-grid/template-samples",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-grid/partner-topics-overview.md",
+      "redirect_url": "/azure/event-grid/partner-events-overview",
+      "redirect_document_id": false
+    },      
     {
       "source_path": "articles/event-grid/premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
@@ -21054,12 +21089,12 @@
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
-      "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-manage-ps.md",
-      "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
       "redirect_document_id": false
     },
     {
@@ -32883,11 +32918,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/security/azure-ddos-best-practices.md",
-      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/security/azure-infrastructure-availability.md",
       "redirect_url": "/azure/security/fundamentals/infrastructure-availability",
       "redirect_document_id": true
@@ -37789,6 +37819,11 @@
     },
     {
       "source_path": "articles/active-directory/b2b/licensing-guidance.md",
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/external-identities/licensing-guidance.md",
       "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
       "redirect_document_id": false
     },
@@ -43989,6 +44024,16 @@
     {
       "source_path": "articles/azure-monitor/platform/activity-log-collect-tenants.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
+      "redirect_url": "/azure/azure-monitor/log-query/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
       "redirect_document_id": false
     },
     {
@@ -57638,6 +57683,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/get-started-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/get-started-nodejs.md",
       "redirect_url": "/azure/dev-spaces/",
       "redirect_document_id": false
@@ -58538,11 +58588,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnAMaker/How-to/use-active-learning.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/QnAMaker/How-to/language-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
@@ -59002,9 +59047,11 @@
       "source_path": "articles/data-factory/copy-data-tool-troubleshoot-guide.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-azure-copy-wizard#troubleshooting",
       "redirect_document_id": false
-    }  
-    
-
-
+    },
+    {
+      "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/overview",
+      "redirect_document_id": false
+    }    
   ]
 }

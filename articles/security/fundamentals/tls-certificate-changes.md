@@ -82,6 +82,7 @@ Here are some ways to detect if your application is impacted:
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
+    - http://www&#46;microsoft&#46;com/pkiops
 
 ## Next steps
 
