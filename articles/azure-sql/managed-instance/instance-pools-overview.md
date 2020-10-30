@@ -72,7 +72,10 @@ There are several resource limitations regarding instance pools and instances in
 - All [instance-level limits](resource-limits.md#service-tier-characteristics) apply to instances created within a pool.
 - In addition to instance-level limits, there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
-  - Total number of user databases per pool (500).
+  - Total number of user databases per pool. This limit depends on the pool vCores value:
+    - 8 vCores pool supports up to 200 databases,
+    - 16 vCores pool supports up to 400 databases,
+    - 24 and larger vCores pool supports up to 500 databases.
 - AAD Admin cannot be set for the instances deployed inside the instance pool therefore AAD Authentication can't be used.
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
@@ -80,11 +83,9 @@ Total storage allocation and number of databases across all instances must be lo
 - Instance pools support 8, 16, 24, 32, 40, 64, and 80 vCores.
 - Managed instances inside pools support 2, 4, 8, 16, 24, 32, 40, 64, and 80 vCores.
 - Managed instances inside pools support storage sizes between 32 GB and 8 TB, except:
-  - 2 vCore instances support sizes between 32 GB and 640 GB
-  - 4 vCore instances support sizes between 32 GB and 2 TB
-- Managed instances inside pools support have limit of up to 100 user databases per instance:
-  - 2 vCore instances support maximum of 50 user databases
-  - 4-80 vCore instances support maximum of 100 user databases
+  - 2 vCore instances support sizes between 32 GB and 640 GB,
+  - 4 vCore instances support sizes between 32 GB and 2 TB.
+- Managed instances inside pools have limit of up to 100 user databases per instance, except 2 vCore instances that support up to 50 user databases per instance.
 
 The [service tier property](resource-limits.md#service-tier-characteristics) is associated with the instance pool resource, so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
 
