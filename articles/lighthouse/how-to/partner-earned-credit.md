@@ -39,7 +39,7 @@ You can [view PEC details in the Azure portal](/partner-center/partner-earned-cr
 
 If you have followed the steps above, and do not see the expected association, open a support request in the Azure portal.
 
-You can also use the [Partner Center SDK](https://docs.microsoft.com/en-us/partner-center/develop/get-invoice-unbilled-consumption-lineitems) and filter on `rateOfPartnerEarnedCredit` to automate PEC verification for a subscription.
+You can also use the [Partner Center SDK](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) and filter on `rateOfPartnerEarnedCredit` to automate PEC verification for a subscription.
 
 ## Next steps
 
