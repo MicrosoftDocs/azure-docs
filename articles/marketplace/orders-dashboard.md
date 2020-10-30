@@ -20,13 +20,13 @@ To access the **Orders** dashboard in the Partner Center, under **Commercial Mar
 
 ## Orders dashboard
 
-The **Orders** dashboard displays the current orders for all your SaaS offers. You can view graphical representations of the following items:
+The **Orders** dashboard displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
 - Orders trend
 - Orders per seat and site trend
 - Orders by offers and SKUs
 - Orders by geography
--Detailed orders table
+- Detailed orders table
 - Orders page filters
 
 > [!NOTE]
@@ -54,9 +54,9 @@ There are two Orders counters: _Active_ and _Cancelled_.
 
 :::image type="content" source="./media/orders-dashboard/orders-trend.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.":::
 
-### Orders per seat and site trend
+### Orders by per seat and site trend
 
-The **Orders per seat and site-based** line chart represents the metric and trend of per-site SaaS and per-seat SaaS orders purchased by customers (this chart includes canceled orders).
+The **Orders by per seat and site-based** line chart represents the metric and trend of per-site SaaS and per-seat SaaS orders purchased by customers (this chart includes canceled orders).
 
 :::image type="content" source="./media/orders-dashboard/seats-sites.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the orders per seat and site trend.":::
 
@@ -102,7 +102,7 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 - The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1000.
 - If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Apply filters to the **Order details** table to display only the data you're interested in. Filter by Country/Region, Azure license type, commercial marketplace license type, Offer type, Order status, Free trails, commercial marketplace subscription ID, Customer ID, and Company name.
-- Because SaaS offers purchased through Azure Marketplace or Microsoft AppSource, do not require an Azure subscription, the Marketplace Subscription ID will appear as 00000000-0000-0000-0000-000000000000 in the **Detailed orders data** section.
+- Because SaaS offers purchased through Azure Marketplace or Microsoft AppSource, do not require an Azure subscription, the Marketplace Subscription ID will appear in the form 00000000-0000-0000-0000-000000000000 in the **Detailed orders data** section.
 - When an order is purchased by a protected customer, information in **Orders Detailed Data** is masked (************).
 
 ***Table 1: Dictionary of data terms***

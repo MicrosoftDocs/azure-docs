@@ -114,7 +114,7 @@ This chart shows the following:
 
 For the selected computation period, the heatmap displays the total number of customers, and the percentage of newly added customers against geography dimension. The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country or region.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-geography.png" alt-text="Illustrates the Orders tab of the Orders by Customer Type widget on the Customers page.":::
+:::image type="content" source="./media/customer-dashboard/customers-by-geography.png" alt-text="Illustrates the Orders tab of the Orders by geography widget on the Customers page.":::
 
 Note the following:
 
