@@ -193,7 +193,7 @@ The Cluster Resource Manager automatically figures out what services are related
 
 <center>
 
-![][Image5]
+![Diagram that shows that Cluster Resource Manager determines what services are related.][Image5]
 </center>
 
 ## Next steps
