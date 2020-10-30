@@ -127,8 +127,12 @@ If you have problems in accessing your subscription, see [Set up authentication 
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
+   | Storage account | The default storage account for the workspace. By default, a new one is created. |
+   | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
+   | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
+   | Container Registry | The Azure Container Registry for the workspace. By default, a new one is created. |
 
-    ![Configure your workspace](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
 1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking) and [Advanced](#advanced) sections to configure more settings for the workspace.
 
