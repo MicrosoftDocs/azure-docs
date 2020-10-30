@@ -36,31 +36,17 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## October 2020
 
-[1183112](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1183112&triage=true&fullScreen=false&_a=edit)
-
 ### Azure AD On-Premises Hybrid Agents Impacted by Azure TLS Certificate Changes
 
 **Type:** Plan for change  
 **Service category:** N/A  
 **Product capability:** Platform
 
-
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This update is due to the current CA certificates not complying with one of the CA/Browser Forum Baseline requirements.
-This change will impact Azure AD hybrid agents installed on-premises that have hardened environments with a fixed list of root certificates and will need to be updated to trust the new certificate issuers.
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This update is due to the current CA certificates not complying with one of the CA/Browser Forum Baseline requirements. This change will impact Azure AD hybrid agents installed on-premises that have hardened environments with a fixed list of root certificates and will need to be updated to trust the new certificate issuers.
 
 This change will result in disruption of service if you don't take action immediately. These agents include [Application Proxy connectors](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) for remote access to on-premises, [Passthrough Authentication](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) agents that allow your users to sign in to applications using the same passwords, and [Cloud Provisioning Preview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) agents that perform AD to Azure AD sync. 
 
-If you have an environment with firewall rules set to allow outbound calls to only specific Certificate Revocation List (CRL) download, you will need to allow the following CRL and OCSP URLs. Also, if you have Online Certificate Status Protocol (OCSP) verification locations, you will need to allow the following CRL and OCSP URLs:
-- http://crl3.digicert.com
-- http://crl4.digicert.com
-- http://ocsp.digicert.com
-- http://www.d-trust.net
-- http://root-c3-ca2-2009.ocsp.d-trust.net
-- http://crl.microsoft.com
-- http://oneocsp.microsoft.com
-- http://ocsp.msocsp.com
-
-For full details on the change and steps to take, go to [Azure TLS certificate changes](../../key-vault/general/whats-new.md#azure-tls-certificate-changes).
+If you have an environment with firewall rules set to allow outbound calls to only specific Certificate Revocation List (CRL) download, you will need to allow the following CRL and OCSP URLs. For full details on the change and the CRL and OCSP URLs to enable access to, see  [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md).
 
 ## September 2020
 
