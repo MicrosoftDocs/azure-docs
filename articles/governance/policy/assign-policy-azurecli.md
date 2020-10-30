@@ -23,8 +23,8 @@ Azure environment.
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- This quickstart requires that you run Azure CLI version 2.0.76 or later to install and use the CLI
-  locally. To find the version, run `az --version`. If you need to install or upgrade, see
+- This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
+  `az --version`. If you need to install or upgrade, see
   [Install Azure CLI](/cli/azure/install-azure-cli).
 
 - Register the Azure Policy Insights resource provider using Azure CLI. Registering the resource
