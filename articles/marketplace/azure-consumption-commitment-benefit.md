@@ -52,4 +52,4 @@ If you are unsure if your organization has a qualifying agreement, sign in to th
 
 ## Next steps
 
-- To learn more about how your organization can leverage the Azure Marketplace, complete our Microsoft Learn module: [Simplify cloud procurement and governance with Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).
+- To learn more about how your organization can leverage the Azure Marketplace, complete our Microsoft Learn module: [Simplify cloud procurement and governance with Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

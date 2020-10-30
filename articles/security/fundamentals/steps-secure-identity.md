@@ -140,7 +140,7 @@ Azure Active Directory has many capabilities that automatically intercept attack
 
 User risk indicates the likelihood a user's identity has been compromised and is calculated based on the [user risk detections](../../active-directory/identity-protection/overview.md) that are associated with a user's identity. A user risk policy is a Conditional Access policy that evaluates the risk level to a specific user or group. Based on Low, Medium, High risk-level, a policy can be configured to block access or require a secure password change using multi-factor authentication. Microsoft's recommendation is to require a secure password change for users on high risk.
 
-![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Screenshot shows Users flagged for risk, with a user selected.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### Implement sign-in risk policy using Azure AD Identity Protection
 
@@ -170,7 +170,7 @@ Azure AD Identity Protection provides two important reports you should monitor d
 1. Risky sign-in reports will surface user sign-in activities you should investigate, the legitimate owner may not have performed the sign-in.
 2. Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event.
 
-![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Screenshot shows the Azure A D Identity Protection pane with users and their risk levels.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### Audit apps and consented permissions
 

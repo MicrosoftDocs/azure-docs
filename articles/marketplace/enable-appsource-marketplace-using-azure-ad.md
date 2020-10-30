@@ -74,7 +74,7 @@ If you're new to using Azure AD federated single sign-on, take these steps:
 
 Use Azure AD to support one of the following actions:
 
-- Add guest users to your directory by using [Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
+- Add guest users to your directory by using [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md).
 - Manually set up trials for customers by using the **Contact Me** publishing option.
 - Develop a per-customer test drive.
 - Build a multi-tenant sample demo app that uses SSO.

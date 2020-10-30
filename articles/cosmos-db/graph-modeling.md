@@ -73,7 +73,7 @@ One common pitfall is to map properties of a single entity as separate vertices.
 
 * **Property-embedded vertices**: This approach takes advantage of the key-value pair list to represent all the properties of the entity inside a vertex. This approach provides reduced model complexity, which will lead to simpler queries and more cost-efficient traversals.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Entity model with vertices for properties." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram shows the Luis vertex from the previous diagram with i d, label, and properties." border="false":::
 
 > [!NOTE]
 > The above examples show a simplified graph model to only show the comparison between the two ways of dividing entity properties.
