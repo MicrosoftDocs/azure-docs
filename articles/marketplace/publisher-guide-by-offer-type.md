@@ -34,10 +34,8 @@ The following table shows the commercial marketplace offer types in Partner Cent
 | [**IoT Edge module**](iot-edge-module.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
 | [**Managed service**](partner-center-portal/create-new-managed-service-offer.md) | You can create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](/azure/lighthouse/overview).|
 | [**Power BI app**<br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Power BI and Microsoft 365.|
-| [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
+| [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. For information on single sign-on requirements for SaaS offers, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md). |
 
-
-For information on single sign-on requirements by listing options and offer types, see [**Azure AD requirements**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## Next steps
 
