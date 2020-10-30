@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # SUBSTRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
   
 ## Syntax

@@ -30,7 +30,7 @@ To follow this guide, you need to have an Azure API Management instance. If you 
 Before you can use Azure Application Insights, you first need to create an instance of the service.
 
 1. Open the **Azure portal** and navigate to **Application Insights**.  
-    ![App Insights create](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+    ![Screenshot that shows how to navigate to Application Insights.](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. Click **+ Add**.  
     ![App Insights create](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Fill the form. Select **General** as the **Application Type**.
@@ -41,11 +41,11 @@ Before you can use Azure Application Insights, you first need to create an insta
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
 2. Select **Application Insights** from the menu on the left.
 3. Click **+ Add**.  
-    ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+    ![Screenshot that shows where to add a new connection.](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Select the previously created **Application Insights** instance and provide a short description.
 5. Click **Create**.
 6. You have just created an Azure Application Insights logger with an instrumentation key. It should now appear in the list.  
-    ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+    ![Screenshot that shows where to view the newly created Azure Application Insights logger with instrumentation key.](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
 > Behind the scene, a [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
