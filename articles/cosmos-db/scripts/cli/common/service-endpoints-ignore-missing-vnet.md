@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Connect an existing Azure Cosmos account with virtual network service endpoints using Azure CLI
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

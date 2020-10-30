@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Prevent Azure Cosmos DB resources from being deleted or changed
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 As an administrator, you may need to lock an Azure Cosmos account, database or container to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly.
 

@@ -12,6 +12,7 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 ---
 
 # Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)

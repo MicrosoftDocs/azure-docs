@@ -9,6 +9,7 @@ ms.date: 06/04/2020
 ---
 
 # Create Azure Cosmos containers and databases with autoscale throughput
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
 

@@ -158,6 +158,14 @@ Another way to improve your score and ensure your users don't create resources t
 
 The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
 
+The set of security recommendations provided with Security Center is tailored to the available resources in each organization’s environment. The recommendations can be further customized by [disabling policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempting specific resources from a recommendation](exempt-resource.md). 
+ 
+We recommend every organization carefully review their assigned Azure Policy initiatives. 
+
+> [!TIP]
+> For details of reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
+
+Even though Security Center’s default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it’ll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it’s aligned with your organization’s own policies. industry standards, regulatory standards, and benchmarks you’re obligated to meet.<br><br>
 <div class="foo">
 
 <style type="text/css">
@@ -186,7 +194,7 @@ The table below lists the security controls in Azure Security Center. For each c
     <td class="tg-lboi"; width=55%>- Management ports of virtual machines should be protected with just-in-time network access control<br>- Virtual machines should be associated with a Network Security Group<br>- Management ports should be closed on your virtual machines</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Apply system updates (max score 6)</p></strong>System updates provide organizations with the ability to maintain operational efficiency, reduce security vulnerabilities, and provide a more stable environment for end users. Not applying updates leaves unpatched vulnerabilities and results in environments that are susceptible to attacks. These vulnerabilities can be exploited and lead to data loss, data exfiltration, ransomware, and resource abuse. To deploy system updates, you can use the <a href="/azure/automation/automation-update-management">Update Management solution to manage patches and updates</a> for your virtual machines. Update management is the process of controlling the deployment and maintenance of software releases.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Apply system updates (max score 6)</p></strong>System updates provide organizations with the ability to maintain operational efficiency, reduce security vulnerabilities, and provide a more stable environment for end users. Not applying updates leaves unpatched vulnerabilities and results in environments that are susceptible to attacks. These vulnerabilities can be exploited and lead to data loss, data exfiltration, ransomware, and resource abuse. To deploy system updates, you can use the <a href="/azure/automation/update-management/overview">Update Management solution to manage patches and updates</a> for your virtual machines. Update management is the process of controlling the deployment and maintenance of software releases.</td>
     <td class="tg-lboi"; width=55%>- Monitoring agent health issues should be resolved on your machines<br>- Monitoring agent should be installed on virtual machine scale sets<br>- Monitoring agent should be installed on your machines<br>- OS version should be updated for your cloud service roles<br>- System updates on virtual machine scale sets should be installed<br>- System updates should be installed on your machines<br>- Your machines should be restarted to apply system updates<br>- Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version<br>- Monitoring agent should be installed on your virtual machines<br>- Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)<br>- Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)</td>
   </tr>
   <tr>

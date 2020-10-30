@@ -171,23 +171,82 @@ Browse to the storage account where the Azure file share is located, click **Acc
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
-When you try to delete a file, you may receive the following error:
+One of the key purposes of a file share is that multiple users and applications may simultaneously interact with files and directories in the share. To assist with this interaction, file shares provide several ways of mediating access to files and directories.
 
-The specified resource is marked for deletion by an SMB client.
+When you open a file from a mounted Azure file share over SMB, your application/operating system request a file handle, which is a reference to the file. Among other things, your application specifies a file sharing mode when it requests a file handle, which specifies the level of exclusivity of your access to the file enforced by Azure Files: 
 
-### Cause
-This issue typically occurs if the file or directory has an open handle. 
+- `None`: you have exclusive access. 
+- `Read`: others may read the file while you have it open.
+- `Write`: others may write to the file while you have it open. 
+- `ReadWrite`: a combination of both the `Read` and `Write` sharing modes.
+- `Delete`: others may delete the file while you have it open. 
 
-### Solution
+Although as a stateless protocol, the FileREST protocol does not have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it is treated as equivalent to a file handle with a file sharing mode of `None`. 
 
-If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
+Although file handles and leases serve an important purpose, sometimes file handles and leases may be orphaned. When this happens, this can cause problems modifying or deleting files. You may see error messages like:
 
-- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+- The process cannot access the file because it is being used by another process.
+- The action can't be completed because the file is open in another program.
+- The document is locked for editing by another user.
+- The specified resource is marked for deletion by an SMB client.
 
-- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+The resolution to this issue depends on whether this is being caused by an orphaned file handle or lease. 
+
+### Cause 1
+A file handle is preventing a file/directory from being modified or deleted. You can use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles. 
+
+If all SMB clients have closed their open handles on a file/directory and the issue continues to occur, you can force close a file handle.
+
+### Solution 1
+To force a file handle to be closed, use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet. 
 
 > [!Note]  
 > The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### Cause 2
+A file lease is prevent a file from being modified or deleted. You can check if a file has a file lease with the following PowerShell, replacing `<resource-group>`, `<storage-account>`, `<file-share>`, and `<path-to-file>` with the appropriate values for your environment:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+If a file has a lease, the returned object should contain the following properties:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### Solution 2
+To remove a lease from a file, you can release the lease or break the lease. To release the lease, you need the LeaseId of the lease, which you set when you create the lease. You do not need the LeaseId to break the lease.
+
+The following example shows how to break the lease for the file indicated in cause 2 (this example continues with the PowerShell variables from cause 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Windows
