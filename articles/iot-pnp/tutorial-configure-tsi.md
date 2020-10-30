@@ -13,7 +13,7 @@ services: iot-pnp
 
 # Tutorial: Create and Connect to Time Series Insights Gen2 to store, visualize, and analyze IoT Plug and Play device telemetry
 
-In this tutorial, you'll learn how to create and correclty configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) (TSI) environment to integrate with your IoT Plug and Play solution. With TSI, you can collect, process, store, query and visualize time series data at Internet of Things (IoT) scale.
+In this tutorial, you'll learn how to create and correctly configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) (TSI) environment to integrate with your IoT Plug and Play solution. With TSI, you can collect, process, store, query and visualize time series data at Internet of Things (IoT) scale.
 
 First you'll provision a TSI environment and connect your IoT Hub as a streaming event source. Then you'll work through model synchronization to author your TSI environment's Time Series Model based off of the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files you used for the temperature controller and thermostat devices.
 
@@ -27,7 +27,7 @@ To avoid the requirement to install the Azure CLI locally, you can use the Azure
 
 ### Time Series ID selection
 
-While provisioning your TSI environment, you'll be required to select a Time Series ID. Selecting the appropriate Time Series ID is critical, as the property is immutable and cannot be changed after it's set. Choosing a Time Series ID is like choosing a partition key for a database. Typically, your TS ID should be the leaf node of your asset model. In other words, you typically want to select the ID property of the most granular asset or sensor that is emitting telemtry.
+While provisioning your TSI environment, you'll be required to select a Time Series ID. Selecting the appropriate Time Series ID is critical, as the property is immutable and cannot be changed after it's set. Choosing a Time Series ID is like choosing a partition key for a database. Typically, your TS ID should be the leaf node of your asset model. In other words, you typically want to select the ID property of the most granular asset or sensor that is emitting telemetry.
 
 As an IoT Plug and Play user, the pertinent question for selecting your TS ID is the presence of [components](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) in your device models. 
 
@@ -177,18 +177,18 @@ Repeat the above steps for your second Thermostat.
 
 ### View your data
 
-Navigate back to the charting pane and expand the Device Fleet and Temperatur Controller. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2.
+Navigate back to the charting pane and expand the Device Fleet and TemperatureController. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2.
 
 ![Change instance type](./media/tutorial-configure-tsi/charting-values.png)
 
-## Next Steps
+## Next steps
 
 * To learn more about the various charting options, including interval sizing and Y-axis controls, view the [Azure Time Series Insights Explorer
 ](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels) documentation.
 
-* For an indepth overview of your environment's Time Series Model see [this](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview) article.
+* For an in-depth overview of your environment's Time Series Model see [this](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview) article.
 
-* To dive into the query APIs and the Time Series Expression syntax clik [here](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis).
+* To dive into the query APIs and the Time Series Expression syntax, [select](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis).
 
 
 
