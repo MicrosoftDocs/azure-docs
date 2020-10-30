@@ -9,6 +9,7 @@ ms.author: tisande
 
 ---
 # SQL subquery examples for Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A subquery is a query nested within another query. A subquery is also called an inner query or inner select. The statement that contains a subquery is typically called an outer query.
 

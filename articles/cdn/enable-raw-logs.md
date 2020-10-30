@@ -62,7 +62,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 ## Configuration - Azure PowerShell
 
-Use [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) to configure the diagnostic setting for raw logs.
+Use [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) to configure the diagnostic setting for raw logs.
 
 Retention data is defined by the **-RetentionInDays** option in the command.
 
@@ -206,7 +206,7 @@ The Metrics are displayed in charts and accessible via PowerShell, CLI, and API.
 
 Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. 
 
-For more information, see [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
 
 **Metrics supported by Azure CDN from Microsoft**
 
@@ -256,7 +256,7 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md).
 
 ### Additional Metrics
 You can enable additional metrics using Azure Log Analytics and raw logs for an additional cost.
@@ -288,6 +288,6 @@ For more information on Azure CDN and the other Azure services mentioned in this
 
 * [Analyze](cdn-log-analysis.md) Azure CDN usage patterns.
 
-* Learn more about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+* Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
-* Configure [Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+* Configure [Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

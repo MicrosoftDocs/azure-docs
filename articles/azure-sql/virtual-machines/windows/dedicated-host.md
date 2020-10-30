@@ -18,10 +18,10 @@ ms.reviewer: jroth
 # Run SQL Server VM on an Azure Dedicated Host 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article details the specifics of using a SQL Server virtual machine (VM) with [Azure Dedicated Host](/azure/virtual-machines/windows/dedicated-hosts). Additional information about Azure Dedicated Host can be found in the blog post [Introducing Azure Dedicated Host](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+This article details the specifics of using a SQL Server virtual machine (VM) with [Azure Dedicated Host](../../../virtual-machines/dedicated-hosts.md). Additional information about Azure Dedicated Host can be found in the blog post [Introducing Azure Dedicated Host](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## Overview
-[Azure Dedicated Host](/azure/virtual-machines/windows/dedicated-hosts) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in Microsoft's data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+[Azure Dedicated Host](../../../virtual-machines/dedicated-hosts.md) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in Microsoft's data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
 ## Limitations
 
@@ -49,7 +49,7 @@ Host-level options for using existing SQL Server licenses:
 
 
 ## Provisioning  
-Provisioning a SQL Server VM to the dedicated host is no different than any other Azure virtual machine. You can do so using [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), the [Azure portal](../../../virtual-machines/windows/dedicated-hosts-portal.md), and the [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md).
+Provisioning a SQL Server VM to the dedicated host is no different than any other Azure virtual machine. You can do so using [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), the [Azure portal](../../../virtual-machines/dedicated-hosts-portal.md), and the [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md).
 
 The process of adding an existing SQL Server VM to the dedicated host requires downtime, but will not affect data, and will not have data loss. Nonetheless, all databases, including system databases, should be backed up prior to the move.
 
@@ -73,5 +73,3 @@ For more information, see the following articles:
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
-
-

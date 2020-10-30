@@ -9,6 +9,7 @@ ms.author: tisande
 ---
 
 # Working with JSON in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB's SQL (Core) API, items are stored as JSON. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).
 

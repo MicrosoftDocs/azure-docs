@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with ScreenSteps, perform the following ste
 
 1. Click **Single Sign-on**.
 
-    ![Remote authentication](./media/screensteps-tutorial/ic778524.png "Remote authentication")
+    ![Screenshot that shows "Single Sign-on" selected.](./media/screensteps-tutorial/ic778524.png "Remote authentication")
 
 1. Click **Create Single Sign-on Endpoint**.
 
