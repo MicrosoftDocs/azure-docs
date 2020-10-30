@@ -178,8 +178,7 @@ Using the above methods for listing outgoing and incoming relationships to a twi
 private static async Task FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_Id)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_Id);
-            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Response<BasicDigitalTwin> res = client.GetDigitalTwin(twin_Id);
             
             await FindOutgoingRelationshipsAsync(client, twin_Id);
             await FindIncomingRelationshipsAsync(client, twin_Id);
@@ -297,7 +296,7 @@ namespace minimal
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
-            roomTwin.CustomProperties = props;
+            roomTwin.Contents = props;
             //Create the twin
             await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(targetId, roomTwin);
             
@@ -363,8 +362,7 @@ namespace minimal
         private static async Task FetchAndPrintTwinAsync(string twin_Id, DigitalTwinsClient client)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_Id);
-            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Response<BasicDigitalTwin> res = client.GetDigitalTwin(twin_Id);
             await FindOutgoingRelationshipsAsync(client, twin_Id);
             await FindIncomingRelationshipsAsync(client, twin_Id);
 
@@ -488,7 +486,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     }
 
     BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.CustomProperties = initData;
+    twin.Contents = initData;
     // Set the type of twin to be created
     twin.Metadata = new DigitalTwinMetadata() { ModelId = modelId };
     
