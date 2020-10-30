@@ -16,7 +16,7 @@ ms.custom: subject-security-benchmark
 
 This security
 baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Resource Manager. The Azure Security Benchmark
+1.0](../../security/benchmarks/overview-v1.md) to Microsoft Azure Resource Manager. The Azure Security Benchmark
 provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Azure Resource Manager. **Controls** not applicable to Azure Resource Manager have been excluded.
@@ -27,17 +27,17 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
 **Guidance**: Ingest Azure Policy activity logs via Azure Monitor. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long-term or archival storage. Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md) 
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md) 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -49,9 +49,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Resource Manager uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -63,11 +63,11 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md) 
+- [Getting started with Log Analytics queries](../../azure-monitor/log-query/get-started-portal.md) 
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -77,11 +77,11 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Use Azure Security Center with Log Analytics for monitoring and alerting on anomalous activity found in Activity logs. Alternatively, you may enable and on-board data to Azure Sentinel. 
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
+- [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on Log Analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on Log Analytics log data](../../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -89,7 +89,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -117,7 +117,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
-- [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to use Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -127,7 +127,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations. 
 
-- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Understand SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -137,9 +137,9 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
+- [How to monitor identity and access within Azure Security Center](../../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -149,9 +149,9 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable Azure AD MFA](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -163,7 +163,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
+- [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -173,7 +173,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions.
 
-- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [How to configure Azure AD named locations](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -183,7 +183,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 **Guidance**: Use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions.
 
-- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [How to configure Azure AD named locations](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -195,7 +195,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
-- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
+- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -219,9 +219,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [How to configure and enable Identity Protection risk policies](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -229,7 +229,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
+*For more information, see the [Azure Security Benchmark: Data protection](../../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -245,7 +245,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD RBAC to control access to data and resources, otherwise use service-specific access control methods.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -255,7 +255,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: For server-side encryption at rest, Azure Resource Manager supports Microsoft-managed keys.
 
-- [Understand data protection in Azure Resource Manager](management/azure-resource-manager-security-controls.md#data-protection)
+- [Understand data protection in Azure Resource Manager](azure-resource-manager-security-controls.md#data-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -265,7 +265,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -273,7 +273,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -281,11 +281,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 Although classic Azure resources may be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager resources.
 
-- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
 - [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Understand Azure RBAC](../role-based-access-control/overview.md)
+- [Understand Azure RBAC](../../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -336,9 +336,9 @@ More related details are provided below,
 
 Use Azure Resource Graph to query for and discover resources within their subscriptions.  Ensure that all Azure resources present in the environment are approved.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -353,9 +353,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 More related details are provided below,
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -365,7 +365,7 @@ More related details are provided below,
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -381,7 +381,7 @@ More related details are provided below,
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -393,11 +393,11 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Single and multi-resource export to a template in Azure portal](templates/export-template-portal.md)
+- [Single and multi-resource export to a template in Azure portal](../templates/export-template-portal.md)
 
-- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
+- [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -409,13 +409,13 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 Additionally, as an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly.
 
-- [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
+- [Understand Azure Policy effects](../../governance/policy/concepts/effects.md)
 
-- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Resource Manager templates overview](templates/overview.md)
+- [Azure Resource Manager templates overview](../templates/overview.md)
 
-- [How to lock resources to prevent unexpected changes](management/lock-resources.md)
+- [How to lock resources to prevent unexpected changes](lock-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -437,9 +437,9 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You can also make use of built-in policy definitions related to your specific resources.  Additionally, you can use Azure Automation to deploy configuration changes.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
+- [How to use aliases](../../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -449,7 +449,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Guidance**: Use built-in Azure Policy definitions as well as custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -461,7 +461,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
-- [Implement Template security best practices](templates/template-best-practices.md)
+- [Implement Template security best practices](../templates/template-best-practices.md)
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -471,13 +471,13 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if necessary.
 
-- [Deploy resources with ARM templates and Azure portal](templates/deploy-portal.md)
+- [Deploy resources with ARM templates and Azure portal](../templates/deploy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -497,7 +497,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
+*For more information, see the [Azure Security Benchmark: Incident response](../../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -527,9 +527,9 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the continuous export feature to help identify risks to Azure resources. Continuous export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-- [How to configure continuous export](../security-center/continuous-export.md)
+- [How to configure continuous export](../../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -539,7 +539,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
 
-- [How to configure workflow automation in Security Center](../security-center/workflow-automation.md)
+- [How to configure workflow automation in Security Center](../../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -547,7 +547,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
