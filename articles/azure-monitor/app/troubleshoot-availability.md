@@ -13,35 +13,26 @@ ms.reviewer: sdash
 
 This article will help you to troubleshoot common issues that may occur when using availability monitoring.
 
-## SSL/TLS errors
+## Troubleshooting report steps
 
-|Symptom/error message| Possible causes|
-|--------|------|
-|Could not create SSL/TLS Secure Channel  | SSL version. Only TLS 1.0, 1.1, and 1.2 are supported. **SSLv3 is not supported.**
-|TLSv1.2 Record Layer: Alert (Level: Fatal, Description: Bad Record MAC)| See StackExchange thread for [more information](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
-|URL that is failing is to a CDN (Content Delivery Network) | This may be caused by a misconfiguration on your CDN |  
+The Troubleshooting Report allows you to easily diagnose common problems that cause your Availability tests to fail.
 
-### Possible workaround
-
-* If the URLs that are experiencing the issue are always to dependent resources, it is recommended to disable **parse dependent requests** for the web test.
-
-## Test fails only from certain locations
-
-|Symptom/error message| Possible causes|
-|----|---------|
-|A connection attempt failed because the connected party did not properly respond after a period of time  | Test agents in certain locations are being blocked by a firewall.|
-|    |Rerouting of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
-|    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](../../expressroute/expressroute-asymmetric-routing.md).|
-
-## Test failure with a protocol violation error
-
-|Symptom/error message| Possible causes| Possible Resolutions |
-|----|---------|-----|
-|The server committed a protocol violation. Section=ResponseHeader Detail=CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate the end of line, which violates the HTTP specification. Application Insights enforces this HTTP specification and fails responses with malformed headers.| a. Contact web site host provider / CDN provider to fix the faulty servers. <br> b. In case the failed requests are resources (e.g. style files, images, scripts), you may consider disabling the parsing of dependent requests. Keep in mind, if you do this you will lose the ability to monitor the availability of those files).
+![Animation of navigating from the availability tab by selecting a failure to the end-to-end transaction details to view the troubleshooting report](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
 > [!NOTE]
-> The URL may not fail on browsers that have a relaxed validation of HTTP headers. See this blog post for a detailed explanation of this issue: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+> If step 1 is present, steps 2-4 would not be present.
 
+|Step | Error message | Possible cause |
+|-----|---------------|----------------|
+| Connection reuse | n/a | Usually dependent on a previously established connection meaning the web test step is dependent. So there would be no DSN connection or SSL step required. |
+| Connection establishment | A connection attempt failed because the connected party did not properly respond after a period of time | In general, it means your server is not responding to the HTTP request. A common cause is that our test agents are being blocked by a firewall on your server. If you would like to test within an Azure Virtual Network, you should add the Availability service tag to your environment.|
+| SSL handshakes | The client and server cannot communicate because they do not possess a common algorithm.| SSL version is not supported. Only TLS 1.0, 1.1, and 1.2 are supported. SSLv3 is not supported. |
+| Receiving response body | Unable to read data from the transport connection: The connection was closed | Your server committed a protocol error in the response header or response body. For example, Connection closed by your server when the response is not fully read or the chunk size is wrong in chunked response body. |
+| Receiving response header | Unable to read data from the transport connection. The connection was closed. | Your server committed a protocol error in the response header or response body. For example, Connection closed by your server when the response is not fully read or the chunk size is wrong in chunked response body |
+| Redirect limit validation | This webpage has too many redirects. This loop will be terminated here since this request exceeded the limit for auto redirects. | There's a limit of 100 requests per test. The test is stopped if it runs longer than the set timeout. |
+| Status code validation | `200 - OK` does not match the expected status `400 - BadRequest` | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned. |
+| Content validation | The required text 'hello' did not appear in the response. | The string is not an exact case-sensitive match in every response, for example the string "Welcome!". It must be a plain string, without wildcard characters (for example an asterisk). If your page content changes you might have to update the string. Only English characters are supported with content match. |
+  
 ## Common troubleshooting questions
 
 ### Site looks okay but I see test failures? Why is Application Insights alerting me?
