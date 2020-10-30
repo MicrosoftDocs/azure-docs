@@ -186,7 +186,6 @@ The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.mi
 Release note for `1.8.0-amd64`:
 
 [Feature]
-* Supoort custom base model download (use option `BaseModelLocale=<locale>` with `docker run` command)
 * Fully migrate to DotNet 3.1
 
 | Image Tags                    | Notes |
@@ -198,10 +197,6 @@ Release note for `1.8.0-amd64`:
 # [Previous version](#tab/previous)
 
 Release note for `1.7.0-amd64`:
-
-[Feature]
-* Support custom pronunciation on custom models
-* Support Azure and Azure US Government Cloud
 
 [Fix]
 * Fix run as non-root user issue on Diarization mode
