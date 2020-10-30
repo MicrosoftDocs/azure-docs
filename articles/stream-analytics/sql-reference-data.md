@@ -169,6 +169,35 @@ When using the delta query, [temporal tables in Azure SQL Database](../azure-sql
 ## Test your query
    It is important to verify that your query is returning the expected dataset that the Stream Analytics job will use as reference data. To test your query, go to Input under Job Topology section on portal. You can then select Sample Data on your SQL Database Reference input. After the sample becomes available, you can download the file and check to see if the data being returned is as expected. If you want a optimize your development and test iterations, it is recommended to use the [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). You can also any other tool of your preference to first ensure the query is returning the right results from you Azure SQL Database and then use that in your Stream Analytics job. 
 
+### Test your query with Visual Studio Code
+
+   Install [Azure Stream Analytics Tools](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) and [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) on Visual Studio Code and set up your ASA project. For more information, see [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) and the [SQL Server (mssql) extension tutorial](https://aka.ms/mssql-getting-started).
+
+1. Configure your SQL reference data input.
+   
+   ![Configure SQL reference data input](./media/sql-reference-data/configure-sql-reference-data-input.png)
+
+2. Select the SQL Server icon and click **Add Connection**.
+   
+   ![Click SQL Server icon and click add connection](./media/sql-reference-data/add-sql-connection.png)
+
+3. Fill in the connection information.
+   
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/fill-connection-information.png)
+
+4. Right-click in reference SQL and select **Execute Query**.
+   
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/execute-query.png)
+
+5. Choose your connection.
+   
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/choose-connection.png)
+
+6. Review and verify your query result.
+   
+   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/verify-result.png)
+
+
 ## FAQs
 
 **Will I incur additional cost by using SQL reference data input in Azure Stream Analytics?**
