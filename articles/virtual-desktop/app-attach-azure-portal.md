@@ -53,7 +53,7 @@ To set up the side load portal extension:
 
       console.warn("Registering WVD extension...");
 
-      return MsPortalImpl.Extension.registerTestExtension({name: "Microsoft_Azure_WVD", uri: "<https://msixappattach.azurewebsites.net>"});
+      return MsPortalImpl.Extension.registerTestExtension({name: "Microsoft_Azure_WVD", uri: "https://msixappattach.azurewebsites.net"});
 
       }).finally(function () {
 
