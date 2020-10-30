@@ -134,9 +134,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b.	Select **Azure SAML**.
 
-    c.  In the **SAML Endpoint** texbox, paste the **Login URL** value you copied the Azure portal.
+    c.  In the **SAML Endpoint** textbox, paste the **Login URL** value you copied the Azure portal.
 
-    d. In the **Issuer** texbox, Paste the Azure AD Identifier value copied from the Azure portal.
+    d. In the **Issuer** textbox, Paste the Azure AD Identifier value copied from the Azure portal.
 
     e. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
 
