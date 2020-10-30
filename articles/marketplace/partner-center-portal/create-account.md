@@ -4,7 +4,7 @@ description: Learn how to create a Microsoft commercial marketplace account in P
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 10/30/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
@@ -85,7 +85,7 @@ When you use your Microsoft Partner Network account, it links your company's wor
 >[!NOTE]
 > You must have an **account admin** or a **global admin** role to sign in to Microsoft Partner Network.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) with your Microsoft Partner Network account.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/) with your Microsoft Partner Network account.
 1. Select **Settings** > **Partner Settings** > **Programs** > **Get Started**.
 
    Microsoft Partner Network detects your subscription and displays the **Publisher profile** pane.
@@ -113,7 +113,7 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 
 When you register for the commercial marketplace program with the same account as your developer program, you can see all of your existing program enrollments in the left pane of Partner Center.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) with your existing account.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/) with your existing account.
 1. Select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work email address.
 1. Complete the details on the **Publisher profile** page.
 2. Read the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
