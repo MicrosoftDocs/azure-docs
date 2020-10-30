@@ -31,7 +31,7 @@ After a certificate is imported and protected in Key Vault, its associated passw
 
 When you import a certificate, you need to ensure that the key is included in the file. If you have a private key stored separately in a different format, you need to combine the key with the certificate. Some certificate authorities (CAs) provide certificates in other formats. Therefore, before you import the certificate, make sure that it's in either PEM or PFX file format and that the key uses either Rivest–Shamir–Adleman (RSA) or elliptic-curve cryptography (ECC) encryption. 
 
-For more information, see [certificate requirements](./certificate-scenarios.md#formats-of-import-we-support) and [certificate key requirements](../keys/about-keys.md#cryptographic-protection).
+For more information, see [certificate requirements](./certificate-scenarios.md#formats-of-import-we-support) and [certificate key requirements](../keys/about-keys.md).
 
 ###  Can I import a certificate by using an ARM template?
 

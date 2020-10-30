@@ -621,7 +621,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 Supporting documentation:
 
-- [Encryption Model and key management table](../../security/fundamentals/encryption-atrest.md#encryption-model-and-key-management-table)
+- [Encryption Model and key management table](../../security/fundamentals/encryption-atrest.md)
 
 
 **Azure Security Center monitoring**: Not applicable
