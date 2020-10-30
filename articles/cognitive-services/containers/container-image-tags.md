@@ -196,10 +196,8 @@ Release note for `1.8.0-amd64`:
 
 # [Previous version](#tab/previous)
 
-Release note for `1.7.0-amd64`:
-
-[Fix]
-* Fix run as non-root user issue on Diarization mode
+[Feature]
+* Partially migrate to DotNet 3.1
 
 | Image Tags                    | Notes               |
 |-------------------------------|:--------------------|
