@@ -1040,6 +1040,8 @@
         href: loop-flow-crm-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
+      - name: Luum
+        href: luum-tutorial.md
       - name: Lynda.com
         href: lynda-tutorial.md
       - name: M-Files
@@ -1416,7 +1418,7 @@
         href: riva-tutorial.md
       - name: Robin
         href: robin-tutorial.md
-      - name: RStudio Connect
+      - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md

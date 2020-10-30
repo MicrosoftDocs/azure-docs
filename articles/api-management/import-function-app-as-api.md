@@ -47,23 +47,23 @@ Follow the steps below to create a new API from an Azure Function App.
 
 2. In the **Add a new API** list, select **Function App**.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-01.png)
+    ![Screenshot that shows the Function App tile.](./media/import-function-app-as-api/add-01.png)
 
 3. Click **Browse** to select Functions for import.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-02.png)
+    ![Screenshot that highlights the Browse button.](./media/import-function-app-as-api/add-02.png)
 
 4. Click on the **Function App** section to choose from the list of available Function Apps.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-03.png)
+    ![Screenshot that highlights the Function App section.](./media/import-function-app-as-api/add-03.png)
 
 5. Find the Function App you want to import Functions from, click on it and press **Select**.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-04.png)
+    ![Screenshot that highlights the Function App you want to import Functions from and the Select button.](./media/import-function-app-as-api/add-04.png)
 
 6. Select the Functions you would like to import and click **Select**.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-05.png)
+    ![Screenshot that highlights the Functions to import and the Select button.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
     > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
@@ -79,27 +79,27 @@ Follow the steps below to append Azure Function App to an existing API.
 
 2. Choose an API you want to import an Azure Function App to. Click **...** and select **Import** from the context menu.
 
-    ![Append from Function App](./media/import-function-app-as-api/append-01.png)
+    ![Screenshot that highlights the Import menu option.](./media/import-function-app-as-api/append-01.png)
 
 3. Click on the **Function App** tile.
 
-    ![Append from Function App](./media/import-function-app-as-api/append-02.png)
+    ![Screenshot that highlights the Function App tile.](./media/import-function-app-as-api/append-02.png)
 
 4. In the pop-up window, click **Browse**.
 
-    ![Append from Function App](./media/import-function-app-as-api/append-03.png)
+    ![Screenshot that shows the Browse button.](./media/import-function-app-as-api/append-03.png)
 
 5. Click on the **Function App** section to choose from the list of available Function Apps.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-03.png)
+    ![Screenshot that highlights the list of Function Apps.](./media/import-function-app-as-api/add-03.png)
 
 6. Find the Function App you want to import Functions from, click on it and press **Select**.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-04.png)
+    ![Screenshot that highlights the Function App you want to import functions from.](./media/import-function-app-as-api/add-04.png)
 
 7. Select the Functions you would like to import and click **Select**.
 
-    ![Add from Function App](./media/import-function-app-as-api/add-05.png)
+    ![Screenshot that highlights the functnios you'd like to import.](./media/import-function-app-as-api/add-05.png)
 
 8. Click **Import**.
 
@@ -125,11 +125,11 @@ For APIs created after April 4th 2019, the host key is passed in HTTP requests f
 
 2. Select **Function App settings** from the overview.
 
-    ![Add from Function App](./media/import-function-app-as-api/keys-02-a.png)
+    ![Screenshot that highlights the Function Apps settings option.](./media/import-function-app-as-api/keys-02-a.png)
 
 3. The key is located in the **Host Keys** section.
 
-    ![Add from Function App](./media/import-function-app-as-api/keys-02-b.png)
+    ![Screenshot that highlights the Host Keys section.](./media/import-function-app-as-api/keys-02-b.png)
 
 ### Access the named value in Azure API Management
 

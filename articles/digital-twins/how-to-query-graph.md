@@ -61,6 +61,7 @@ Add a `WHERE` clause to count the number of items that meet a certain criteria. 
 SELECT COUNT() 
 FROM DIGITALTWINS 
 WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
+
 SELECT COUNT() 
 FROM DIGITALTWINS c 
 WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
@@ -172,7 +173,13 @@ WHERE IS_NUMBER(T.Temperature)
 
 ### Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). It supports inheritance and has several overload options.
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). 
+
+It considers [inheritance](concepts-models.md#model-inheritance) and [version ordering](how-to-manage-model.md#update-models) semantics, and evaluates to **true** for a given twin if the twin meets one of these conditions:
+* The twin directly implements the model provided to `IS_OF_MODEL()`, and the version number of the model on the twin is *greater than or equal to* the version number of the provided model
+* The twin implements a model that *extends* the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is *greater than or equal to* the version number of the provided model
+
+This method has several overload options.
 
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
@@ -251,7 +258,7 @@ In the example above, note how *reportedCondition* is a property of the *service
 
 ### Query with multiple JOINs
 
-Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
+Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
 
 Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
 
@@ -349,10 +356,10 @@ catch (RequestFailedException e)
 
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
 
-There are additional limitations on using `JOIN` during preview.
+There are additional limitations on using `JOIN`.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* During preview, graph traversal depth is restricted to five `JOIN` levels per query.
+* Graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
 ## Query best practices
