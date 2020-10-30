@@ -732,8 +732,8 @@ In this article. you used ACR tasks to create an automated gating workflow to in
 [acr]:                          https://aka.ms/acr
 [acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
 [acr-task]:                     https://aka.ms/acr/tasks
-[acr-task-triggers]:            container-registry-tasks-overview#task-scenarios
-[acr-task-credentials]:         https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-authentication-managed-identity#4-optional-add-credentials-to-the-task
+[acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
+[acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
 [acr-tokens]:                   https://aka.ms/acr/tokens
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
