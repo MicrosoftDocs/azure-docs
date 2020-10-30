@@ -196,69 +196,79 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
     On the **Create alert rule** pane, there are four sections: **Scope** is already set to your IoT hub, so we'll leave this one alone. **Condition** sets the signal and conditions that will trigger the alert. **Actions** will determine what happens when the alert triggers. Finally **Alert rule details** lets you create a name and a description for the alert.
 
-1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
+1. First configure the condition that the alert will trigger on.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
+    1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
 
-1. On the **Configure signal logic** pane, set or confirm the following fields (you can ignore the chart):
+       :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
 
-   **Threshold**:  *Static*.
+    1. On the **Configure signal logic** pane, set or confirm the following fields (you can ignore the chart):
 
-   **Operator**: *Greater than*.
+       **Threshold**:  *Static*.
 
-   **Aggregation type**: *Total*.
+       **Operator**: *Greater than*.
 
-   **Threshold value**: 1000.
+       **Aggregation type**: *Total*.
 
-   **Aggregation granularity (Period)**: *5 minutes*.
+       **Threshold value**: 1000.
 
-   **Frequency of evaluation**: *Every 1 Minute*
+       **Aggregation granularity (Period)**: *5 minutes*.
 
-    :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Screenshot showing alert conditions settings.":::
+       **Frequency of evaluation**: *Every 1 Minute*
 
-   These settings set the signal to total the number of messages over a period of 5 minutes. This total will be evaluated every minute, and, if the total for the preceding 5 minutes exceeds 1000 messages, the alert will trigger.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Screenshot showing alert conditions settings.":::
 
-   Select **Done** to save the signal logic.
+       These settings set the signal to total the number of messages over a period of 5 minutes. This total will be evaluated every minute, and, if the total for the preceding 5 minutes exceeds 1000 messages, the alert will trigger.
 
-1. Now set up your action. Back on the **Create alert rule** pane, under **Actions**, select **Select action group**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
+       Select **Done** to save the signal logic.
 
-1. On the **Create action group** pane, give your Action group a name and a display name.
+1. Now configure the action for the alert.
 
-1. Select the **Notifications** tab. For **Notification type**, select **Email/SMS message/Push/Voice** from the dropdown.
+    1. Back on the **Create alert rule** pane, under **Actions**, select **Select action group**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
 
-1. On the **Email/SMS message/Push/Voice** pane, select email and enter your email address, then select **OK**.
+    1. On the **Create action group** pane, give your Action group a name and a display name.
 
-1. Back on the **Notifications** pane, enter a name for the notification. 
+    1. Select the **Notifications** tab. For **Notification type**, select **Email/SMS message/Push/Voice** from the dropdown.
 
-1. If you select the **Actions** tab, and then select the **Action type** dropdown, you can see the kinds of actions that you can trigger with an alert. For this article we will only use notifications, so you can ignore these.Select the **Review and Create** tab, verify your settings, and select **Create**.
+    1. On the **Email/SMS message/Push/Voice** pane, select email and enter your email address, then select **OK**.
 
-1. Back on the **Select an action group to attach to this alert rule** pane, select your new action group from the list, then click **Select**.  
+    1. Back on the **Notifications** pane, enter a name for the notification. 
 
-1. Now set up another alert for the *Total number of messages used*. This metric is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages.
+    1. (Optional) If you select the **Actions** tab, and then select the **Action type** dropdown, you can see the kinds of actions that you can trigger with an alert. For this article we will only use notifications, so you can ignore these.
 
-   On the **View classic alerts** screen, select **Add metric alert (classic)**, then fill in these fields on the **Add rule** pane.
+    1. Select the **Review and Create** tab, verify your settings, and select **Create**.
 
-   **Name**: Provide a name for your alert rule, such as *number-of-messages-used*.
+    1. Back on the **Select an action group to attach to this alert rule** pane, select your new action group from the list, then click **Select**.  
 
-   **Description**: Provide a description of your alert, such as *alert when getting close to quota*.
+1. Finally configure the alert rule details and save the alert.
 
-   **Source**: Set this field to *Metrics*.
+    1. On the **Select an action group to attach to this alert rule** pane, under Alert rule details, enter a name and a description for your alert. Make sure that **Enable alert rule upon creation** is checked.
 
-    **Subscription**, **Resource group**, and **Resource** should be set to the values you selected on the **View classic alerts** screen. 
+    1. Select **Create alert rule** to save your new rule. 
 
-    Set **Metric** to *Total number of messages used*.
+1. Now set up another alert for the *Total number of messages used*. This metric is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages. Follow the steps you did before, with the following differences.
 
-1. Under the chart, fill in the following fields:
+    1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane,  select **Total number of messages used**.
 
-   **Condition**: Set to *Greater than*.
+    1. On the **Configure signal logic** pane, set or confirm the following fields (you can ignore the chart):
 
-   **Threshold**: Set to 1000.
+       **Threshold**:  *Static*.
 
-   **Period**: Set this field to *Over the last 5 minutes*. 
+       **Operator**: *Greater than*.
 
-   **Notification email recipients**: Put your e-mail address here. 
+       **Aggregation type**: *Max*.
 
-   Select **OK** to save the rule. 
+       **Threshold value**: 4000.
+
+       **Aggregation granularity (Period)**: *5 Minutes*.
+
+       **Frequency of evaluation**: *Every 1 Minute*
+
+       These settings set the signal to fire when the maximum number of messages over a period of 4 hours reaches 4000. The metric is evaluated every minute. Because this metric actually contains a snapshot If the total for the preceding 5 minutes exceeds 1000 messages, the alert will trigger.
+
+       Select **Done** to save the signal logic.
+
+
 
 1. You should now see two alerts in the classic alerts pane: 
 
@@ -266,7 +276,7 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
 1. Close the alerts pane.
 
-    With these settings, you will get an alert when the number of messages sent is greater than 400 and when the total number of messages used exceeds NUMBER.
+With these settings, an alert will trigger, and you'll get an email notification when more than 1000 messages are sent within a 5 minute time span and also when the total number of messages used exceeds 4000 (50% of the daily quota for an IoT hub in the free tier).
 
 ## Run the simulated device app
 
