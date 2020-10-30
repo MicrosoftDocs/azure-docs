@@ -1,7 +1,7 @@
 ---
 title: Link your partner ID to track your impact on delegated resources
 description: Learn how to associate your partner ID to receive partner earned credit (PEC) on customer resources you manage through Azure Lighthouse.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
 ---
 
@@ -37,7 +37,9 @@ Once the account has been [linked to your Associated MPN ID](../../cost-manageme
 
 You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) and confirm which costs have received the benefit of PEC. Remember that PEC only applies to CSP customers who have signed the MCA and are under the Azure plan.
 
-If you have followed the steps above, and do not see the association, open a support request in the Azure portal.
+If you have followed the steps above, and do not see the expected association, open a support request in the Azure portal.
+
+You can also use the [Partner Center SDK](https://docs.microsoft.com/en-us/partner-center/develop/get-invoice-unbilled-consumption-lineitems) and filter on `rateOfPartnerEarnedCredit` to automate PEC verification for a subscription.
 
 ## Next steps
 
