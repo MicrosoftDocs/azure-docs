@@ -35,16 +35,14 @@ There are a variety of compute sizes that you can choose from:
 - GPU sizes, so that your students can use computer-intensive types of applications. For example, this choice can be appropriate for artificial intelligence and machine learning.
 
 For guidance on selecting the appropriate VM Size, refer to the following articles:
-- [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing).
-- [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+- [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing)
+- [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 > [!NOTE]
 > Depending on the region of your lab, you might see fewer compute sizes available, because this varies by region. Generally, you should select the smallest compute size that is closest to your needs. With Azure Lab Services, you can set up a new lab with a different compute capacity later, if needed.
 
 ### What dependencies does the class have on external Azure or network resources?
-If your lab VMs need to use external resources, such as a database, file share, or licensing server, coordinate with your administrators to ensure that your lab has access to these resources.
-
-For access to Azure resources that are *not* secured by a virtual network, you don't need to seek additional configuration by your administrators. You can access these resources through the public internet.
+If your lab VMs need to use external resources, such as a database, file share, or licensing server, coordinate with your IT administrators to ensure that your lab has access to these resources.
 
 > [!NOTE]
 > You should consider whether you can reduce your lab's dependencies to external resources by providing the resource directly on the VM. For example, to eliminate the need to read data from an external database, you can install the database directly on the VM.  
@@ -57,7 +55,7 @@ Lab Services uses a pay-as-you-go pricing model, which means that you only pay f
 - **Auto-shutdown**: When enabled, the auto-shutdown setting causes Windows VMs to automatically shut down after a certain length of time, after a student has disconnected from a Remote Desktop Protocol (RDP) session. By default, this setting is disabled.
 
 Read the following articles for more information:
-- [Estimating Costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
+- [Estimating costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
 - [Manage costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#manage-costs)
 
 ### How will students save their work?
@@ -102,12 +100,12 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 1. **Manage VM pool and capacity.** You can easily scale up or down VM capacity, as needed by your class. Keep in mind that increasing the VM capacity might take several hours, because this involves setting up new VMs. See the steps the steps in the following articles:
     - [Set up and manage a VM pool](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords)
-    - [Manage a VM pool in Lab Services from Teams](https://docs.microsoft.com/en-us/azure/lab-services/how-to-manage-vm-pool-within-teams)
+    - [Manage a VM pool in Lab Services from Teams](https://docs.microsoft.com/azure/lab-services/how-to-manage-vm-pool-within-teams)
 
 1. **Add and manage lab users.** To add users to your lab, refer to steps in the following tutorials:
    - [Add users to the lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
    - [Send invitations to users](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
-   - [Manage Lab Services user lists from Teams](https://docs.microsoft.com/en-us/azure/lab-services/how-to-manage-user-lists-within-teams)
+   - [Manage Lab Services user lists from Teams](https://docs.microsoft.com/azure/lab-services/how-to-manage-user-lists-within-teams)
 
     For information on the types of accounts that students can use, see [Student accounts](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
   

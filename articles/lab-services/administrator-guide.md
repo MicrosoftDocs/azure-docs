@@ -14,7 +14,7 @@ Information Technology (IT) administrators who manage a university's cloud resou
 - Lab accounts, shared image gallery, and image versions are hosted within your subscription.
 - You can have your lab account and the shared image gallery in the same resource group. In this diagram, they are in different resource groups.
 
-For more details on the architecture, read the article: [Labs architecture fundamentals](https://docs.microsoft.com/en-us/azure/lab-services/classroom-labs-fundamentals)
+For more details on the architecture, read the article: [Labs architecture fundamentals](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals)
 
 ## Subscription
 Your university has one or more Azure subscriptions. A subscription is used to manage billing and security for all Azure resources\services that are used within it, including lab accounts.
