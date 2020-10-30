@@ -22,7 +22,7 @@ This article explains how to define the market availability and the pricing deta
 In the **Markets** section, you select the countries or regions where your consulting service will be available.
 
 1. Under **Markets**, select the **Edit markets** link.
-2. In the dialog box that appears, select the market locations where you want to make your plan available. You must select a minimum of one and maximum of 141 markets.
+2. In the dialog box that appears, select the market locations where you want to make your offer available. You must select a minimum of one and maximum of 141 markets.
 3. Select **Save** to close the dialog box.
 
 ## Preview audience
