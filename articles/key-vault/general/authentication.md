@@ -104,19 +104,11 @@ The following table links to different articles that demonstrate how to work wit
 
 | Key Vault Secrets | Key Vault Keys | Key Vault Certificates |
 |  --- | --- | --- |
-<<<<<<< HEAD
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
-=======
 | [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
 | [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
-| [.NET (SDK v3)](../secrets/quick-create-net-v3.md) | -- | -- |
+| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
 | [Java](../secrets/quick-create-java.md) | -- | -- |
 | [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
->>>>>>> 75a2446687a (Links: Azure - key-vault - 0)
 | | | |
 | [Azure portal](../secrets/quick-create-portal.md) | [Azure portal](../keys/quick-create-portal.md) | [Azure portal](../certificates/quick-create-portal.md) |
 | [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
