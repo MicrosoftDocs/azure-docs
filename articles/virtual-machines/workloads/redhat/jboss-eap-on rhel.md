@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ---
 
 # Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux
@@ -24,12 +24,12 @@ These Quickstart templates will show you how to deploy [JBoss EAP](https://www.r
 
 * RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before you deploy the Quickstart template.
 
-## JBoss EAP Migration
+## Java EE / Jakarata EE Application Migration
 
 ### Migrate to JBoss EAP
 JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Edition (Java EE) 8 and Jakarta EE 8 specifications. JBoss EAP provides preconfigured options for features such as high-availability (HA) clustering, messaging, and distributed caching. It also enables users to write, deploy, and run applications using the various APIs and services that JBoss EAP provides.  For additional information on JBoss EAP, visit [Introduction to JBoss EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index) or [Introduction to JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
 
- #### Applications on JBoss EAP:
+ #### Applications on JBoss EAP
 
 * Web Services Applications - Web services provide a standard means of interoperating among different software applications. Each application can run on different platforms and frameworks. These web services facilitate internal, heterogeneous subsystem communication. To learn more, visit [Developing Web Services Applications on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_web_services_applications/index) or [Developing Web Services Applications on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_web_services_applications/index).
 
@@ -38,7 +38,7 @@ JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Editi
 * Hibernate Applications - Developers and administrators can develop and deploy Java Persistence API (JPA)/Hibernate applications with JBoss EAP. Hibernate Core is an object-relational mapping framework for the Java language. It provides a framework for mapping an object-oriented domain model to a relational database, allowing applications to avoid direct interaction with the database. Hibernate Entity Manager implements the programming interfaces and lifecycle rules as defined by the [JPA 2.1 specification](https://www.jcp.org/en/jsr/overview). Together with Hibernate Annotations, this wrapper implements a complete (and standalone) JPA solution on top of the mature Hibernate Core. To learn more about Hibernate, visit [JPA on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/java_persistence_api) or  [Jakarta Persistence on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/development_guide/java_persistence_api).
 
 #### Red Hat Migration Toolkit for Applications (MTA)
-MTA is a migration tool for Java application servers. Use this tool to migrate from another app server to JBoss EAP. It works with IDE plugins for [Eclipse IDE](https://www.eclipse.org/ide/), [Red Hat CodeReady Workspaces](https://developers.redhat.com/products/codeready-workspaces/overview), and Visual Studio Code ([VS Code])(https://code.visualstudio.com/docs/languages/java) for Java.  MTA is a free and open-source tool that will:
+[Red Hat Migration Toolkit for Applications (MTA)](https://developers.redhat.com/products/mta/overview) is a migration tool for Java application servers. Use this tool to migrate from another app server to JBoss EAP. It works with IDE plugins for [Eclipse IDE](https://www.eclipse.org/ide/), [Red Hat CodeReady Workspaces](https://developers.redhat.com/products/codeready-workspaces/overview), and [Visual Studio Code (VS Code)](https://code.visualstudio.com/docs/languages/java) for Java.  MTA is a free and open-source tool that will:
 * Automate application analysis
 * Support effort estimation
 * Accelerate code migration
@@ -57,27 +57,26 @@ These Marketplace offer includes various combinations of EAP and RHEL versions t
 * JBoss EAP 7.2 on RHEL 8.0 VM (BYOS)
 * JBoss EAP 7.3 on RHEL 8.0 VM (BYOS)
 
-Along with Azure Marketplace offers, there are Quickstart templates made available for you to get started on your Azure migration journey. These Quickstarts include pre-built Azure Resource Manager(ARM) templates and script to deploy JBoss EAP on RHEL in various configurations and version combinations. You'll have: 
+Along with Azure Marketplace offers, there are Quickstart templates made available for you to get started on your Azure migration journey. These Quickstarts include pre-built Azure Resource Manager(ARM) templates and script to deploy JBoss EAP on RHEL in various configurations and version combinations. You'll have:
 
-* Load Balancer (LB) 
+* Load Balancer (LB)
 * Private IP for load balancing and VMs
 * Virtual Network (VNET) with a single subnet
 * VM configuration (cluster or stand-alone)
-* Network Security Group (NSG)
 * A sample Java application
 
 Solution architecture for these templates includes:
 
 * JBoss EAP on stand-alone RHEL VM
-* JBoss EAP clustered across multiple RHEL VMs
+* JBoss EAP clustered across Multiple RHEL VMs
 * JBoss EAP clustered using Azure Virtual Machine Scale Set
 
-#### Linux Workload Migration for JBoss EAP 
+#### Linux Workload Migration for JBoss EAP
 Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation and migration process for Java apps running JBoss EAP on premises to Azure. It integrates with Azure migrate discovery to identify JBoss EAP servers. Then it will dynamically generate Ansible playbook for JBoss EAP server deployment. It leverages the RH MTA tool to migrate servers from other app servers to JBoss EAP. Steps for simplifying migration includes:
-* Assessment - scans applications and infrastructure
+* JBoss EAP clustered using VMSS (Azure Virtual Machine Scale Set)	* Assessment - scans applications and infrastructure
 * Infrastructure configuration - creates workload profile
 * Deployment and testing - deploy, migrate and test workload
-* Post-deployment configuration - integrates with data, monitoring, security, backup, and more 
+* Post-deployment configuration - integrates with data, monitoring, security, backup, and more
 
 ## Server configuration choice
 
@@ -165,7 +164,7 @@ You can deploy the template in three following ways:
 
 - Use Azure portal - You can deploy to the Azure portal by going to the *Azure Quickstart templates* as noted in the below section. Once you're in the Quickstart, click on **Deploy to Azure** or **Browse on GitHub** button.
 
-## Azure QuickStart templates 
+## Azure QuickStart templates
 
 You can start with one of the Quickstart templates of JBoss EAP on RHEL combination that meets your deployment goal. Following is the list of available Quickstart templates.
 
@@ -177,8 +176,8 @@ You can start with one of the Quickstart templates of JBoss EAP on RHEL combinat
 
 ## Resource Links:
 
-* [Azure Hybrid Benefits)(https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
-* [Configuring a Java app for Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux)
+* [Azure Hybrid Benefits](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
+* [Configuring a Java app for Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java)
 * [JBoss EAP on Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
 * [JBoss EAP on Azure App Service Linux](https://docs.microsoft.com/azure/app-service/quickstart-java) Quickstart
 * [How to deploy JBoss EAP onto Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service) tutorial
