@@ -22,6 +22,8 @@ Use a compute instance as your fully configured and managed development environm
 
 For production grade model training, use an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
 
+For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms.
+
 ## Why use a compute instance?
 
 A compute instance is a fully managed cloud-based workstation optimized for your machine learning development environment. It provides the following benefits:
