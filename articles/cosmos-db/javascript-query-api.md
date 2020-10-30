@@ -11,6 +11,7 @@ ms.custom: devx-track-js
 ---
 
 # JavaScript query API in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos DB server-side SDK](https://github.com/Azure/azure-cosmosdb-js-server/) provides a JavaScript interface for performing optimized queries in Cosmos DB Stored Procedures and Triggers. You don't have to be aware of the SQL language to use this JavaScript interface. The JavaScript query API allows you to programmatically build queries by passing predicate functions into sequence of function calls, with a syntax familiar to ECMAScript5's array built-ins and popular JavaScript libraries like Lodash. Queries are parsed by the JavaScript runtime and efficiently executed using Azure Cosmos DB indices.
 

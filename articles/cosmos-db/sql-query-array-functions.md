@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Array functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The array functions let you perform operations on arrays in Azure Cosmos DB.
 

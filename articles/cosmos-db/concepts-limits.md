@@ -9,6 +9,7 @@ ms.date: 09/02/2020
 ---
 
 # Azure Cosmos DB service quotas
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 

@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 08/19/2020
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)

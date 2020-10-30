@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # COS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.  
   
 ## Syntax

@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Create an Azure Cosmos Core (SQL) API account, database and container with autoscale using Azure CLI
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

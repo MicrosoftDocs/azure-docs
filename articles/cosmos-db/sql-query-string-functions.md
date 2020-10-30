@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # String functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The string functions let you perform operations on strings in Azure Cosmos DB.
 

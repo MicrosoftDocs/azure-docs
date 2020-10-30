@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # TRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string expression after it removes leading and trailing blanks.  
   
 ## Syntax

@@ -9,6 +9,7 @@ ms.author: tisande
 
 ---
 # Getting started with SQL queries
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
