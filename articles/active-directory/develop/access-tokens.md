@@ -27,7 +27,7 @@ For details on what is inside the access token, clients should use the token res
 See the following sections to learn how your API can validate and use the claims inside an access token.  
 
 > [!NOTE]
-> All documentation on this page, except where noted, applies only to tokens issued for APIs you've registered.  It does not apply to tokens issued for Microsoft-owned APIs, nor can those tokens be used to validate how the Microsoft Identity platform will issue tokens for an API you create.  
+> All documentation on this page, except where noted, applies only to tokens issued for APIs you've registered.  It does not apply to tokens issued for Microsoft-owned APIs, nor can those tokens be used to validate how the Microsoft identity platform will issue tokens for an API you create.  
 
 ## Token formats and ownership
 
