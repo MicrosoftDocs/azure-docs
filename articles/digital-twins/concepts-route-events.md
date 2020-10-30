@@ -74,19 +74,19 @@ The endpoint APIs that are available in control plane are:
  
 To create an event route, you can use the Azure Digital Twins [**data plane APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Here is an example of creating an event route within a client application, using the `CreateEventRoute` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) call: 
+Here is an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet) call: 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. First, an `EventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
+1. First, a `DigitalTwinsEventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
 2. The event route object also has a [**Filter**](how-to-manage-routes-apis-cli.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no additional filtering (a filter of `false` disables the route). 
 
-3. This event route object is then passed to `CreateEventRoute`, along with a name for the route.
+3. This event route object is then passed to `CreateOrReplaceEventRouteAsync`, along with a name for the route.
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
