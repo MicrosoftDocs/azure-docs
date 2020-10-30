@@ -51,7 +51,7 @@ This walkthrough sets up:
 
 ## Prerequisites
 
-The following steps configure values and resources used in the walkthrough.
+The following steps configure values for resources created and used in the walkthrough.
 
 ### Set environment variables
 
@@ -60,7 +60,7 @@ Configure variables unique to your environment. We follow best practices for pla
 The examples in this article are formatted for the bash shell.
 
 ```bash
-# Set the three registry names, unique to your environment:
+# Set the three registry names, must be unique:
 REGISTRY_PUBLIC=publicregistry
 REGISTRY_BASE_ARTIFACTS=contosobaseartifacts
 REGISTRY=contoso
@@ -79,7 +79,7 @@ REGISTRY_PUBLIC_URL=${REGISTRY_PUBLIC}.azurecr.io
 REGISTRY_BASE_ARTIFACTS_URL=${REGISTRY_BASE_ARTIFACTS}.azurecr.io
 REGISTRY_URL=${REGISTRY}.azurecr.io
 
-# Azure key vault for storing secrets
+# Azure key vault for storing secrets, name must be unique
 AKV=acr-task-credentials
 AKV_RG=${AKV}-rg
 
@@ -90,17 +90,23 @@ ACI_RG=${ACI}-rg
 
 ### Git repositories and tokens
 
-To simulate your environment, fork each of the following Git repos into repositories you can manage. Then, update the following variables for your forked repositories.
+To simulate your environment, fork each of the following Git repos into repositories you can manage. 
+
+* https://github.com/importing-public-content/base-image-node.git
+* https://github.com/importing-public-content/import-baseimage-node.git
+* https://github.com/importing-public-content/hello-world.git
+
+Then, update the following variables for your forked repositories.
 
 The `:main` appended to the end of the git URLs represents the default repository branch.
 
 ```azurecli-interactive
-GIT_BASE_IMAGE_NODE=https://github.com/importing-public-content/base-image-node.git#main
-GIT_NODE_IMPORT=https://github.com/importing-public-content/import-baseimage-node.git#main
-GIT_HELLO_WORLD=https://github.com/importing-public-content/hello-world.git#main
+GIT_BASE_IMAGE_NODE=https://github.com/<your-fork>/base-image-node.git#main
+GIT_NODE_IMPORT=https://github.com/<your-fork>/import-baseimage-node.git#main
+GIT_HELLO_WORLD=https://github.com/<your-fork>/hello-world.git#main
 ```
 
-You need a [GitHub access token (PAT)][git-token] for ACR Tasks to clone and establish Git webhooks. For steps to create a token with the required permissions, see [Create a GitHub access token](container-registry-tutorial-build-task.md#create-a-github-personal-access-token). 
+You need a [GitHub access token (PAT)][git-token] for ACR Tasks to clone and establish Git webhooks. For steps to create a token with the required permissions to a private repo, see [Create a GitHub access token](container-registry-tutorial-build-task.md#create-a-github-personal-access-token). 
 
 ```bash
 GIT_TOKEN=<set-git-token-here>
@@ -337,7 +343,7 @@ az acr task run -r $REGISTRY -n hello-world
 
 Once created, get the IP address of the container hosting the `hello-world` image.
 
-```bash
+```azurecli-interactive
 az container show \
   --resource-group $ACI_RG \
   --name ${ACI} \
@@ -366,7 +372,7 @@ Commit the change and watch for ACR Tasks to automatically start building.
 Watch for the task to start executing:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY_PUBLIC
+watch -n1 az acr task list-runs -r $REGISTRY_PUBLIC -o table
 ```
 
 You should eventually see STATUS `Succeeded` based on a TRIGGER of `Commit`:
@@ -386,10 +392,10 @@ az acr task logs -r $REGISTRY_PUBLIC
 Once the `node` image is completed, `watch` for ACR Tasks to automatically start building the `hello-world` image:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY
+watch -n1 az acr task list-runs -r $REGISTRY -o table
 ```
 
-You should eventually see STATUS `Succeeded` based on a TRIGGER of `Image Update`
+You should eventually see STATUS `Succeeded` based on a TRIGGER of `Image Update`:
 
 ```azurecli-interactive
 RUN ID    TASK         PLATFORM    STATUS     TRIGGER       STARTED               DURATION
@@ -405,7 +411,7 @@ az acr task logs -r $REGISTRY
 
 Once completed, get the IP address of the site hosting the updated `hello-world` image:
 
-```bash
+```azurecli-interactive
 az container show \
   --resource-group $ACI_RG \
   --name ${ACI} \
@@ -419,7 +425,7 @@ In your browser, go to the site, which should have an orange (questionable) back
 
 At this point, you've created a `hello-world` image that is automatically built on Git commits and changes to the base `node` image. In this example, the task builds against a base image in Azure Container Registry, but any supported registry could be used.
 
-The base image update automatically re-triggers the task run when the `node` image is updated. As seen here, not all updates are wanted.
+The base image update automatically retriggers the task run when the `node` image is updated. As seen here, not all updates are wanted.
 
 ## Gated imports of public content
 
@@ -429,9 +435,9 @@ In this section, you create an ACR task to:
 
 * Build a test image
 * Run a functional test script `./test.sh` against the test image
-* If the image tests successfully, import the public image to the **baseimages** registry/
+* If the image tests successfully, import the public image to the **baseimages** registry
 
-### Write automation testing
+### Add automation testing
 
 To gate any upstream content, automated testing is implemented. In this example, a `test.sh` is provided which checks the `$BACKGROUND_COLOR`. If the test fails, an `EXIT_CODE` of `1` is returned which causes the ACR task step to fail, ending the task run. The tests can be expanded in any form of tools, including logging results. The gate is managed by a pass/fail response in the script, reproduced here:
 
@@ -616,7 +622,7 @@ ENV BACKGROUND_COLOR Green
 Commit the change and monitor the sequence of updates:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY_PUBLIC
+watch -n1 az acr task list-runs -r $REGISTRY_PUBLIC -o table
 ```
 
 Once running, type **Ctrl+C** and monitor the logs:
@@ -628,7 +634,7 @@ az acr task logs -r $REGISTRY_PUBLIC
 Once complete, monitor the **base-image-import** task:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY_BASE_ARTIFACTS
+watch -n1 az acr task list-runs -r $REGISTRY_BASE_ARTIFACTS -o table
 ```
 
 Once running, type **Ctrl+C** and monitor the logs:
@@ -640,7 +646,7 @@ az acr task logs -r $REGISTRY_BASE_ARTIFACTS
 Once complete, monitor the **hello-world** task:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY
+watch -n1 az acr task list-runs -r $REGISTRY -o table
 ```
 
 Once running, type **Ctrl+C** and monitor the logs:
@@ -651,7 +657,7 @@ az acr task logs -r $REGISTRY
 
 Once completed, get the IP address of the site hosting the updated `hello-world` image:
 
-```bash
+```azurecli-interactive
 az container show \
   --resource-group $ACI_RG \
   --name ${ACI} \
@@ -678,7 +684,7 @@ ENV BACKGROUND_COLOR Red
 Commit the change and monitor the sequence of updates:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY_PUBLIC
+watch -n1 az acr task list-runs -r $REGISTRY_PUBLIC -o table
 ```
 
 Once running, type **Ctrl+C** and monitor the logs:
@@ -690,7 +696,7 @@ az acr task logs -r $REGISTRY_PUBLIC
 Once complete, monitor the **base-image-import** task:
 
 ```azurecli-interactive
-watch -n1 az acr task list-runs -r $REGISTRY_BASE_ARTIFACTS
+watch -n1 az acr task list-runs -r $REGISTRY_BASE_ARTIFACTS -o table
 ```
 
 Once running, type **Ctrl+C** and monitor the logs:
@@ -702,6 +708,7 @@ az acr task logs -r $REGISTRY_BASE_ARTIFACTS
 At this point, you should see the **base-import-node** task fail validation and stop the sequence to publish a `hello-world` update. Output is similar to:
 
 ```console
+[...]
 2020/10/30 03:57:39 Launching container with name: validate-base-image
 Validating Image
 NODE_VERSION: 15-alpine
