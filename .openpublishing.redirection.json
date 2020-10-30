@@ -5615,7 +5615,12 @@
     },
     {
       "source_path": "articles/key-vault/vs-secure-secret-appsettings.md",
-      "redirect_url": "/azure/key-vault/general/vs-secure-secret-appsettings",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/vs-secure-secret-appsettings.md",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
       "redirect_document_id": false
     },
     {
