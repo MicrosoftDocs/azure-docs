@@ -10,6 +10,8 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB not found exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 The HTTP status code 404 represents that the resource no longer exists.
 
 ## Expected behavior

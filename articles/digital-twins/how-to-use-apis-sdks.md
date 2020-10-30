@@ -307,7 +307,7 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 See how to use the APIs to set up an Azure Digital Twins instance and authentication:
-* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md)
+* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md)
 
 Or, walk through the steps to create a client app like the one used in this how-to:
 * [*Tutorial: Code a client app*](tutorial-code.md)
