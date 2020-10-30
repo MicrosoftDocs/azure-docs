@@ -19,7 +19,7 @@ Identity Governance helps organizations achieve a balance between productivity -
 
 **Identity lifecycle management** is the foundation for Identity Governance, and effective governance at scale requires modernizing the identity lifecycle management infrastructure for applications. Identity Lifecycle Management aims to automate and manage the entire digital identity lifecycle process. 
 
-![cloud provisioning](media/what-is-provisioning/cloud1.png)
+![cloud provisioning](media/what-is-provisioning/cloud-1.png)
 
 ## What is a digital identity?
 
