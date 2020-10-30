@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting connectivity
-description: Troubleshooting connectivity in dedicated Synapse SQL pool.
+description: Troubleshooting connectivity in dedicated SQL pool.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---
 
-# Troubleshooting connectivity issues in dedicated Synapse SQL pool
+# Troubleshooting connectivity issues in dedicated SQL pool
 
 This article lists common troubleshooting techniques around connecting to your dedicated SQL pool database.
 

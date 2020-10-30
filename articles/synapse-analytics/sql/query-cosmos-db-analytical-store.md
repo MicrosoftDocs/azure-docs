@@ -358,6 +358,6 @@ You can report suggestions and issues on [Azure Synapse feedback page](https://f
 
 For more information, see the following articles:
 
-- [Use Power BI and serverless Synapse SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
+- [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [How-to create and use views in serverless SQL pool](create-use-views.md) 
 - [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)

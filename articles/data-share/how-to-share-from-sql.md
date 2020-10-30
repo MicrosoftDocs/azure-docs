@@ -269,7 +269,7 @@ When you share data from SQL source, the following mapping are used from SQL Ser
 
 >[!NOTE]
 > 1. For data types that map to the Decimal interim type, currently snapshot supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string. 
-> 1.  If you are sharing data from Azure SQL database to Azure Synapse Analytics, not all data types are supported. Refer to [Table data types in dedicated Synapse SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) for details. 
+> 1.  If you are sharing data from Azure SQL database to Azure Synapse Analytics, not all data types are supported. Refer to [Table data types in dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) for details. 
 
 ## SQL Always Encrypted or Dynamic Data Masking
 Currently, Azure Data Share does not support Azure SQL databases with Always Encrypted configured. 

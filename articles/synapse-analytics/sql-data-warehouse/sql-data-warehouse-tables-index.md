@@ -1,6 +1,6 @@
 ---
 title: Indexing tables
-description: Recommendations and examples for indexing tables in dedicated Synapse SQL pool.
+description: Recommendations and examples for indexing tables in dedicated SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg

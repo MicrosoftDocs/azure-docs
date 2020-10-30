@@ -17,7 +17,7 @@ ms.date: 12/18/2018
 
 In this tutorial, you walk through an end-to-end analytics scenario. The scenario demonstrates how analytics over tenant data can empower software vendors to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps:
 
-1. **Extract data** from each tenant database into an analytics store, in this case, a dedicated Synapse SQL pool.
+1. **Extract data** from each tenant database into an analytics store, in this case, a dedicated SQL pool.
 2. **Optimize the extracted data** for analytics processing.
 3. Use **Business Intelligence** tools to draw out useful insights, which can guide decision making.
 
@@ -39,7 +39,7 @@ SaaS applications hold a potentially vast amount of tenant data in the cloud. Th
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse for query.
 
-This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a dedicated Synapse SQL pool. This tutorial uses [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as the analytics store.
+This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a dedicated SQL pool. This tutorial uses [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as the analytics store.
 
 Next, the extracted data is transformed and loaded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 

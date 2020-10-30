@@ -103,7 +103,7 @@ Advisor detects whether you can increase load performance and throughput by incr
 
 ## Co-locate the storage account in the same region to minimize latency when loading
 
-Advisor detects whether you're loading from a region that's different from your dedicated Synapse SQL pool. Consider loading from a storage account that's in the same region as your dedicated SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
+Advisor detects whether you're loading from a region that's different from your dedicated SQL pool. Consider loading from a storage account that's in the same region as your dedicated SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
 
 ## Use a supported Kubernetes version
 

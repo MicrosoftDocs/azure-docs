@@ -141,4 +141,4 @@ After you choose these options, you should see a graph like the following screen
 
 [Use T-SQL to query Azure Cosmos DB data using Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
-Use serverless Synapse SQL pool to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+Use serverless SQL pool to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

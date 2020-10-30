@@ -89,7 +89,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 ## SQLDWOutputInvalidServiceEdition
 
 * **Cause**: SQL Database is not supported.
-* **Recommendation**: Use dedicated Synapse SQL pool.
+* **Recommendation**: Use dedicated SQL pool.
 
 ## Next steps
 

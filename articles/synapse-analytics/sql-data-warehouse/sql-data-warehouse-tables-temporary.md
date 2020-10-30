@@ -1,6 +1,6 @@
 ---
 title: Temporary tables
-description: Essential guidance for using temporary tables in dedicated Synapse SQL pool, highlighting the principles of session level temporary tables. 
+description: Essential guidance for using temporary tables in dedicated SQL pool, highlighting the principles of session level temporary tables. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,7 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Temporary tables in dedicated Synapse SQL pool
+# Temporary tables in dedicated SQL pool
 
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
 
@@ -230,5 +230,5 @@ Also, views can't be created on temporary tables.  Temporary tables can only be 
 
 ## Next steps
 
-To learn more about developing tables, see the [Designing tables using dedicated Synapse SQL pool](sql-data-warehouse-tables-overview.md) article.
+To learn more about developing tables, see the [Designing tables using dedicated SQL pool](sql-data-warehouse-tables-overview.md) article.
 
