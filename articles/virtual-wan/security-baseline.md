@@ -48,9 +48,7 @@ WAN security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41240.).
 
-**Guidance**: 
-
-Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, offer more reliability, faster speeds, and lower latencies than typical internet connections. 
+**Guidance**: Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, offer more reliability, faster speeds, and lower latencies than typical internet connections. 
 
 For point-to-site VPN and site-to-site VPN, connect on-premises devices or networks to a virtual network using any combination of these VPN options and ExpressRoute. To connect two or more virtual networks in Azure together, use Virtual Network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
 
@@ -71,9 +69,7 @@ For point-to-site VPN and site-to-site VPN, connect on-premises devices or netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41241.).
 
-**Guidance**: 
-
-Use Azure Private Link to enable private access to Azure Virtual WAN from your virtual networks without crossing the internet. Private access is another defense-in-depth measure in addition to authentication and traffic security offered by Azure services.
+**Guidance**: Use Azure Private Link to enable private access to Azure Virtual WAN from your virtual networks without crossing the internet. Private access is another defense-in-depth measure in addition to authentication and traffic security offered by Azure services.
 
 - [Understand Azure Private Link](../private-link/private-link-overview.md)
 
@@ -88,9 +84,7 @@ Use Azure Private Link to enable private access to Azure Virtual WAN from your v
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41242.).
 
-**Guidance**: 
-
-Protect your Azure Virtual WAN resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application-specific attacks, and unsolicited and potentially malicious internet traffic. 
+**Guidance**: Protect your Azure Virtual WAN resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application-specific attacks, and unsolicited and potentially malicious internet traffic. 
 
 Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Use Azure DDoS Protection for your assets against attacks on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network-related resources.
 
@@ -122,9 +116,7 @@ Use Azure Firewall to protect applications and services against potentially mali
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41244.).
 
-**Guidance**: 
-
-Use Azure Virtual Network service tags to define network access controls on Azure network security groups or Azure Firewall configured for your Virtual WAN resources. 
+**Guidance**: Use Azure Virtual Network service tags to define network access controls on Azure network security groups or Azure Firewall configured for your Virtual WAN resources. 
 
 Use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example: {VirtualWAN: Virtual Network}) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
@@ -137,9 +129,7 @@ Use service tags in place of specific IP addresses when creating security rules.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41245.).
 
-**Guidance**: 
-
-Azure Virtual WAN offers Custom DNS servers for Point-to-Site VPN Gateways. 
+**Guidance**: Azure Virtual WAN offers Custom DNS servers for Point-to-Site VPN Gateways. 
 
 Follow the best practices for DNS security to mitigate against common attacks like dangling DNS, DNS amplifications attacks, DNS poisoning and spoofing, and so on.
 
@@ -164,9 +154,7 @@ When Azure DNS is used as your authoritative DNS service, ensure DNS zones and r
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41225.).
 
-**Guidance**: 
-
-Azure Virtual WAN's Point-to-Site VPN is integrated with Azure Active Directory (Azure AD), which is Azure's default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
+**Guidance**: Azure Virtual WAN's Point-to-Site VPN is integrated with Azure Active Directory (Azure AD), which is Azure's default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
 
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machines (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
@@ -193,9 +181,7 @@ Azure AD also supports external identities, which allow users without a Microsof
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41226.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not use any identities or manage any secrets for them.
+**Guidance**: Not applicable; Azure Virtual WAN does not use any identities or manage any secrets for them.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -206,9 +192,7 @@ Not applicable; Azure Virtual WAN does not use any identities or manage any secr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41227.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not support single sign-on for authentication to its resources.
+**Guidance**: Not applicable; Azure Virtual WAN does not support single sign-on for authentication to its resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -219,9 +203,7 @@ Not applicable; Azure Virtual WAN does not support single sign-on for authentica
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41228.).
 
-**Guidance**: 
-
-Azure Virtual WAN's Point-to-Site VPN is integrated with Azure Active Directory (Azure AD), which supports strong authentication controls with multifactor authentication, and strong passwordless methods.
+**Guidance**: Azure Virtual WAN's Point-to-Site VPN is integrated with Azure Active Directory (Azure AD), which supports strong authentication controls with multifactor authentication, and strong passwordless methods.
 
 - Multifactor authentication - Enable Azure AD multifactor authentication and follow Azure Security Center's Identity and Access Management recommendations for best practices for your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign in conditions and risk factors.
 
@@ -240,9 +222,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41229.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not use any sensitive accounts. There are no available account activity logs or any methods for customers to export them.
+**Guidance**: Not applicable; Azure Virtual WAN does not use any sensitive accounts. There are no available account activity logs or any methods for customers to export them.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -253,9 +233,7 @@ Not applicable; Azure Virtual WAN does not use any sensitive accounts. There are
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41230.).
 
-**Guidance**: 
-
-Azure Virtual WAN's Point-to-Site VPN supports Azure AD conditional access for a more granular access control based on user-defined conditions. For example, user logins from certain IP ranges have to use multifactor authentication for logging in. Granular authentication session management policy can also be used for different use cases.
+**Guidance**: Azure Virtual WAN's Point-to-Site VPN supports Azure AD conditional access for a more granular access control based on user-defined conditions. For example, user logins from certain IP ranges have to use multifactor authentication for logging in. Granular authentication session management policy can also be used for different use cases.
 
 - [Common conditional access policies](../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
 
@@ -272,9 +250,7 @@ Azure Virtual WAN's Point-to-Site VPN supports Azure AD conditional access for a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41231.).
 
-**Guidance**: 
-
-Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 For GitHub, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
 
@@ -306,9 +282,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41232.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not use any administrative accounts.
+**Guidance**: Not applicable; Azure Virtual WAN does not use any administrative accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -319,9 +293,7 @@ Not applicable; Azure Virtual WAN does not use any administrative accounts.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41233.).
 
-**Guidance**: 
-
-Azure Virtual WAN uses Azure role-based access controls (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
+**Guidance**: Azure Virtual WAN uses Azure role-based access controls (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
 Also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
@@ -342,9 +314,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41234.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not use any user accounts.
+**Guidance**: Not applicable; Azure Virtual WAN does not use any user accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -355,9 +325,7 @@ Not applicable; Azure Virtual WAN does not use any user accounts.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41235.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not require or support emergency accounts.
+**Guidance**: Not applicable; Azure Virtual WAN does not require or support emergency accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -368,9 +336,7 @@ Not applicable; Azure Virtual WAN does not require or support emergency accounts
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41236.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not support any automation for accounts or roles management.
+**Guidance**: Not applicable; Azure Virtual WAN does not support any automation for accounts or roles management.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -381,9 +347,7 @@ Not applicable; Azure Virtual WAN does not support any automation for accounts o
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41237.).
 
-**Guidance**: 
-
-Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations or Azure Bastion for administrative tasks. Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
+**Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations or Azure Bastion for administrative tasks. Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
 - [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md)
 
@@ -398,9 +362,7 @@ Secured, isolated workstations are critically important for the security of sens
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41238.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not support any role-based administrative accounts.
+**Guidance**: Not applicable; Azure Virtual WAN does not support any role-based administrative accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -437,9 +399,7 @@ Not applicable; Azure Virtual WAN does not support any role-based administrative
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41248.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not offer this capability, as it does not store any customer data.
+**Guidance**: Not applicable; Azure Virtual WAN does not offer this capability, as it does not store any customer data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -450,9 +410,7 @@ Not applicable; Azure Virtual WAN does not offer this capability, as it does not
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41249.).
 
-**Guidance**: 
-
-Encryption is critical for traffic on external and public networks.
+**Guidance**: Encryption is critical for traffic on external and public networks.
 
 - Use access controls, data-in-transit should be protected against ‘out of band’ attacks (for example traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
@@ -473,9 +431,7 @@ In general, we provide encryption on the secure Microsoft backbone and opportuni
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41250.).
 
-**Guidance**: 
-
-Azure Virtual WAN does not interact with sensitive data. As a result, you can not leverage any data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
+**Guidance**: Azure Virtual WAN does not interact with sensitive data. As a result, you can not leverage any data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -490,9 +446,7 @@ Azure Virtual WAN does not interact with sensitive data. As a result, you can no
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41268.).
 
-**Guidance**: 
-
-Not applicable; no risk visibility is provided to Azure Virtual WAN by Azure Security Center's 'Security Reader' role.
+**Guidance**: Not applicable; no risk visibility is provided to Azure Virtual WAN by Azure Security Center's 'Security Reader' role.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -503,9 +457,7 @@ Not applicable; no risk visibility is provided to Azure Virtual WAN by Azure Sec
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41269.).
 
-**Guidance**: 
-
-Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+**Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
 Azure Virtual WAN also supports Azure Resource Manager based resource deployments and Azure Resource Graph queries. 
 
@@ -541,9 +493,7 @@ Azure Virtual WAN also supports Azure Resource Manager based resource deployment
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41271.).
 
-**Guidance**: 
-
-Not applicable; customers can not use the offering's capabilities to inventory and manage assets. Microsoft controls all asset lifecycle management processes behind the scenes, with the customer having no control over this process.
+**Guidance**: Not applicable; customers can not use the offering's capabilities to inventory and manage assets. Microsoft controls all asset lifecycle management processes behind the scenes, with the customer having no control over this process.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -554,9 +504,7 @@ Not applicable; customers can not use the offering's capabilities to inventory a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41272.).
 
-**Guidance**: 
-
-Use Azure Conditional Access to limit users ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Use Azure Conditional Access to limit users ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
@@ -584,9 +532,7 @@ Use Azure Conditional Access to limit users ability to interact with Azure Resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41251.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not produce customer facing resource logs, which can be used for threat detection.
+**Guidance**: Not applicable; Azure Virtual WAN does not produce customer facing resource logs, which can be used for threat detection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -597,9 +543,7 @@ Not applicable; Azure Virtual WAN does not produce customer facing resource logs
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41252.).
 
-**Guidance**: 
-
-Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel, SIEM or monitoring tools for more sophisticated monitoring and analytics use cases. These are:
+**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel, SIEM or monitoring tools for more sophisticated monitoring and analytics use cases. These are:
 
 - Sign in – The sign in report provides information about the usage of managed applications and user sign in activities.
 - Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD, such as, adding or removing users, apps, groups, roles and policies.
@@ -642,9 +586,7 @@ Virtual Wan does not produce or process DNS query logs which would need to be en
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41254.).
 
-**Guidance**: 
-
-Azure Activity logs, enabled automatically, contain all write operations (PUT, POST, DELETE) for your Azure Virtual WAN resources except read (GET) operations. Activity logs can be used to find an error during troubleshooting or to monitor how a user in your organization modified a resource. However, Virtual WAN does not produce Azure resource logs.
+**Guidance**: Azure Activity logs, enabled automatically, contain all write operations (PUT, POST, DELETE) for your Azure Virtual WAN resources except read (GET) operations. Activity logs can be used to find an error during troubleshooting or to monitor how a user in your organization modified a resource. However, Virtual WAN does not produce Azure resource logs.
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) Understand logging and different log types in Azure: ../azure-monitor/platform/platform-logs-overview.md
 
 **Azure Security Center monitoring**: Yes
@@ -656,9 +598,7 @@ Azure Activity logs, enabled automatically, contain all write operations (PUT, P
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41255.).
 
-**Guidance**: 
-
-Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements. Ensure you are integrating Azure Activity logs into your central logging systems. 
+**Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements. Ensure you are integrating Azure Activity logs into your central logging systems. 
 
 Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure storage accounts for long term and archival storage. In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
@@ -677,9 +617,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41256.).
 
-**Guidance**: 
-
-Azure Virtual WAN does not produce any security-related logs. Customers are not able to set any log retention.
+**Guidance**: Azure Virtual WAN does not produce any security-related logs. Customers are not able to set any log retention.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -690,9 +628,7 @@ Azure Virtual WAN does not produce any security-related logs. Customers are not 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41257.).
 
-**Guidance**: 
-
-Azure Virtual WAN does not support configuring your own time synchronization sources. Virtual WAN relies on Microsoft-provided time synchronization sources, without any exposure to customers for configuration.
+**Guidance**: Azure Virtual WAN does not support configuring your own time synchronization sources. Virtual WAN relies on Microsoft-provided time synchronization sources, without any exposure to customers for configuration.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -707,9 +643,7 @@ Azure Virtual WAN does not support configuring your own time synchronization sou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41258.).
 
-**Guidance**: 
-
-Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness. Ensure you service offering is included in the incident response process, as applicable.
+**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness. Ensure you service offering is included in the incident response process, as applicable.
 
 - [Implement security across the enterprise environment](https://aka.ms/AzSec4) 
 - [Incident Response Reference Guide](https://aka.ms/IRRG)
@@ -723,9 +657,7 @@ Ensure your organization has processes to respond to security incidents, has upd
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41259.).
 
-**Guidance**: 
-
-Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
+**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
 
 Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are fully resolved.
 
@@ -759,9 +691,7 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41261.).
 
-**Guidance**: 
-
-Build out an incident response guide for your organization. Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Build out an incident response guide for your organization. Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -782,9 +712,7 @@ Ensure that there are written incident response plans that define all roles of p
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41262.).
 
-**Guidance**: 
-
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (such as, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
@@ -801,9 +729,7 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41263.).
 
-**Guidance**: 
-
-Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Azure Logic Apps" on security alerts and recommendations.
+**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Azure Logic Apps" on security alerts and recommendations.
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
@@ -820,9 +746,7 @@ Use the Workflow Automation feature in Azure Security Center to automatically tr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41278.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not hold any security configurations.
+**Guidance**: Not applicable; Azure Virtual WAN does not hold any security configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -833,9 +757,7 @@ Not applicable; Azure Virtual WAN does not hold any security configurations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41279.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not hold any security configurations.
+**Guidance**: Not applicable; Azure Virtual WAN does not hold any security configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -846,9 +768,7 @@ Not applicable; Azure Virtual WAN does not hold any security configurations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41280.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not contain any resource configurations.
+**Guidance**: Not applicable; Azure Virtual WAN does not contain any resource configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -859,9 +779,7 @@ Not applicable; Azure Virtual WAN does not contain any resource configurations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41281.).
 
-**Guidance**: 
-
-Not applicable, this recommendation is intended for compute resources.
+**Guidance**: Not applicable, this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -872,9 +790,7 @@ Not applicable, this recommendation is intended for compute resources.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41282.).
 
-**Guidance**: 
-
-Not applicable, this recommendation is intended for compute resources.
+**Guidance**: Not applicable, this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -896,9 +812,7 @@ Not applicable, this recommendation is intended for compute resources.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41284.).
 
-**Guidance**: 
-
-Azure Virtual WAN is a core networking service. Customers can not install their vulnerability assessment software on it. Microsoft performs vulnerability scanning on the underlying infrastructure supporting the service.
+**Guidance**: Azure Virtual WAN is a core networking service. Customers can not install their vulnerability assessment software on it. Microsoft performs vulnerability scanning on the underlying infrastructure supporting the service.
 
 **Azure Security Center monitoring**: Yes
 
@@ -909,9 +823,7 @@ Azure Virtual WAN is a core networking service. Customers can not install their 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41285.).
 
-**Guidance**: 
-
-As per your requirements, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
+**Guidance**: As per your requirements, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy, execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
@@ -951,9 +863,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41265.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not interact with compute hosts, containers or storage endpoints requiring anti-malware protection.
+**Guidance**: Not applicable; Azure Virtual WAN does not interact with compute hosts, containers or storage endpoints requiring anti-malware protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -964,9 +874,7 @@ Not applicable; Azure Virtual WAN does not interact with compute hosts, containe
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41266.).
 
-**Guidance**: 
-
-Ensure antimalware signatures are updated in a timely and consistent manner. Follow recommendations in Azure Security Center's "Compute &amp; Apps" section to ensure all virtual machines and/or containers are up to date with the latest signatures.
+**Guidance**: Ensure antimalware signatures are updated in a timely and consistent manner. Follow recommendations in Azure Security Center's "Compute &amp; Apps" section to ensure all virtual machines and/or containers are up to date with the latest signatures.
 - [Microsoft's Antimalware processes will automatically install the latest signatures and engine updates by default. For Linux, use a third-party antimalware solution.How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
 - [Endpoint protection assessment and recommendations in Azure Security Center](../security-center/security-center-endpoint-protection.md)
@@ -984,9 +892,7 @@ Ensure antimalware signatures are updated in a timely and consistent manner. Fol
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41274.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not offer or support any data-backup features.
+**Guidance**: Not applicable; Azure Virtual WAN does not offer or support any data-backup features.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1008,9 +914,7 @@ Not applicable; Azure Virtual WAN does not offer or support any data-backup feat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41276.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not offer or support any data-backup features.
+**Guidance**: Not applicable; Azure Virtual WAN does not offer or support any data-backup features.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1021,9 +925,7 @@ Not applicable; Azure Virtual WAN does not offer or support any data-backup feat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41277.).
 
-**Guidance**: 
-
-Not applicable; Azure Virtual WAN does not manage any keys.
+**Guidance**: Not applicable; Azure Virtual WAN does not manage any keys.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1100,8 +1002,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41288.).
 
-**Guidance**: 
-Ensure you document and
+**Guidance**: Ensure you document and
 communicate a clear strategy for roles and responsibilities in your security
 organization. Prioritize your efforts based on clear accountability for
 security decisions, educating everyone on the shared responsibility model, and
