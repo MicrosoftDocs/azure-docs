@@ -2,14 +2,14 @@
 title: Get model with REST call in Java
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
-ms.author: diberry
+
 ---
 
 [Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)

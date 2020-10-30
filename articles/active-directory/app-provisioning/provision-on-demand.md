@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ---
@@ -23,12 +23,17 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 ## How to use on-demand provisioning
 
 1. Sign in to the **Azure portal**.
-2. Go to **All services** > **Enterprise applications**.
-3. Select your application, and then go to the provisioning configuration page.
-4. Configure provisioning by providing your admin credentials.
-5. Select **Provision on demand**.
-6. Search for a user by first name, last name, display name, user principal name, or email address.
-7. Select **Provision** at the bottom of the page.
+1. Go to **All services** > **Enterprise applications**.
+1. Select your application, and then go to the provisioning configuration page.
+1. Configure provisioning by providing your admin credentials.
+1. Select **Provision on demand**.
+1. Search for a user by first name, last name, display name, user principal name, or email address.
+   > [!NOTE]
+   > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
+   > For Workday scenario, please provide "WID" of the user in Workday. 
+   > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
+ 
+1. Select **Provision** at the bottom of the page.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand.":::
 
@@ -139,7 +144,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
 
-* Workday, Amazon Web Services (AWS), and SuccessFactors applications don't support on-demand provisioning. 
+* Amazon Web Services (AWS) application does not support on-demand provisioning. 
 * On-demand provisioning of groups and roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
 

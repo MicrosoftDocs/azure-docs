@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
 ---
 
@@ -56,7 +56,7 @@ On an initial run, when the index is empty, an indexer will read in all of the d
 
 For each of the document it ingests, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer is also instrumental in driving skillset execution and outputs, assuming a skillset is defined.
 
-![Indexer Stages](./media/search-indexer-overview/indexer-stages.png "indexer stages")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Indexer Stages" border="false":::
 
 ### Stage 1: Document cracking
 

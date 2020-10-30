@@ -5,7 +5,7 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
+ms.date: 09/25/2020
 ---
 
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
@@ -110,7 +110,7 @@ To create your own custom SecretProviderClass object with provider-specific para
 
 In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 
-* **userAssignedIdentityID**: # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM 
+* **userAssignedIdentityID**: # [REQUIRED] If you're using a service principal, use the client ID to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client ID. If the value is empty, it defaults to use the system-assigned identity on the VM 
 * **keyvaultName**: The name of your key vault
 * **objects**: The container for all of the secret content you want to mount
     * **objectName**: The name of the secret content
@@ -181,6 +181,7 @@ If you're using a service principal, grant permissions for it to access your key
 1. Grant the service principal permissions to get secrets:
     ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
+    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
     ```
 
 1. You've now configured your service principal with permissions to read secrets from your key vault. The **$AZURE_CLIENT_SECRET** is the password of your service principal. Add your service principal credentials as a Kubernetes secret that's accessible by the Secrets Store CSI driver:
@@ -210,8 +211,6 @@ If you're using managed identities, assign specific roles to the AKS cluster you
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
-
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
@@ -235,6 +234,7 @@ If you're using managed identities, assign specific roles to the AKS cluster you
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
+    az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
     ```
 
 ## Deploy your pod with mounted secrets from your key vault
@@ -307,8 +307,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-          nodePublishSecretRef:
-              name: secrets-store-creds 
+        nodePublishSecretRef:           # Only required when using service principal mode
+          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 Run the following command to deploy your pod:

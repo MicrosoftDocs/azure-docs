@@ -113,7 +113,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 * Design and implement a complete network architecture to identify and control all ingress and egress points to Azure resources
 * Consider utilising a Hub and Spoke Network Design for virtual networks as discussed in the Microsoft Virtual Data Centre (VDC) documentation
 * Utilise products with inbuilt security capabilities for outbound connections to the Internet (for example, Azure Firewall, Network Virtual Appliances or Web Proxies)
-* Use identity controls such as Role-Based Access, Conditional Access, and Multi-Factor Authentication (MFA) to limit network configuration privileges
+* Use identity controls such as Azure role-based access control, Conditional Access, and Multi-Factor Authentication (MFA) to limit network configuration privileges
 * Implement Locks to prevent modification or deletion of key elements of the network configuration
 * Deploy PaaS in a VNet integrated configuration for increased segregation and control
 * Implement ExpressRoute for connectivity with on-premises networks
@@ -353,7 +353,7 @@ Achieving this outcome is based on implementing the necessary network segmentati
 
 ### Network Security Groups (NSGs)
 
-NSGs are used to specify the inbound and outbound traffic permitted for a subnet or a specific network interface. When configuring NSGs, commonwealth entities should use a whitelisting approach where rules are configured to permit the necessary traffic with a default rule configured to deny all traffic that does not match a specific permit statement. When planning and configuring NSGs, care must be taken to ensure that all necessary inbound and outbound traffic is captured appropriately. This includes identifying and understanding all private IP address ranges utilised within virtual networks and the on-premises environment, and specific Microsoft services such as Azure Load Balancer and PaaS management requirements. Individuals involved in the design and implementation of NSGs should also understand the use of Service Tags and Application Security Groups for creating fine-grained, service, and application-specific security rules.
+NSGs are used to specify the inbound and outbound traffic permitted for a subnet or a specific network interface. When configuring NSGs, commonwealth entities should use a approval list approach where rules are configured to permit the necessary traffic with a default rule configured to deny all traffic that does not match a specific permit statement. When planning and configuring NSGs, care must be taken to ensure that all necessary inbound and outbound traffic is captured appropriately. This includes identifying and understanding all private IP address ranges utilised within virtual networks and the on-premises environment, and specific Microsoft services such as Azure Load Balancer and PaaS management requirements. Individuals involved in the design and implementation of NSGs should also understand the use of Service Tags and Application Security Groups for creating fine-grained, service, and application-specific security rules.
 
 It is important to note that the default configuration for an NSG permits outbound traffic to all addresses within the virtual network and all public IP addresses.
 

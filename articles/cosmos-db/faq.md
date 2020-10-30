@@ -9,6 +9,7 @@ ms.author: sngun
 ms.custom: seodec18
 ---
 # Frequently asked questions about different APIs in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 ### What are the typical use cases for Azure Cosmos DB?
 
@@ -64,7 +65,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 
 To ask a technical question, you can post to one of these two question and answer forums:
 
-* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&A question page](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -79,7 +80,7 @@ Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscrip
 
 The following conditions apply to Try Azure Cosmos DB subscriptions:
 
-* Account access can be granted to personal Microsoft accounts (MSA). Avoid using Active Directory (AAD) accounts or accounts belonging to corporate AAD Tenants, they might have limitations in place that could block access granting.
+* Account access can be granted to personal Microsoft accounts (MSA). Avoid using Azure Active Directory (Azure AD) accounts or accounts belonging to corporate Azure AD Tenants, they might have limitations in place that could block access granting.
 * One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for SQL, Gremlin API, and Table accounts.
 * Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
 * One [throughput provisioned database](./set-throughput.md#set-throughput-on-a-database) per subscription. Throughput provisioned databases can contain any number of containers inside.
@@ -96,9 +97,9 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB account to your Azure subscription.
 
-### What is a master key?
+### What is a primary key?
 
-A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-with-cli.md#list-account-keys).
+A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. The primary primary key and secondary primary key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-with-cli.md#list-account-keys).
 
 ### What are the regions that PreferredLocations can be set to?
 
@@ -173,7 +174,7 @@ The SQL API supports low-latency aggregation at any scale via aggregate function
 
 The SQL API supports optimistic concurrency control (OCC) through HTTP entity tags, or ETags. Every SQL API resource has an ETag, and the ETag is set on the server every time a document is updated. The ETag header and the current value are included in all response messages. ETags can be used with the If-Match header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated. If the ETag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client then refetches the resource to acquire the current ETag value for the resource. In addition, ETags can be used with the If-None-Match header to determine whether a refetch of a resource is needed.
 
-To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on GitHub.
+To use optimistic concurrency in .NET, use the [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on GitHub.
 
 ### How do I perform transactions in the SQL API?
 
@@ -204,7 +205,7 @@ This is limitation of JavaScript. JavaScript uses double-precision floating-poin
 Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level isn't currently allowed.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## Next steps
 

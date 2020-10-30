@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/09/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -36,14 +36,14 @@ Here are the limits for a single logic app definition:
 
 <a name="run-duration-retention-limits"></a>
 
-## Run duration and retention limits
+## Run duration and retention history limits
 
 Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified *at start time* by the workflow setting, [**Run history retention in days**](#change-duration). <p><p>To change the default limit, which is 90 days, see [change run duration](#change-duration). |
-| Run retention in storage | 90 days | 366 days | Run retention is calculated by using a run's start time and the limit that's specified *at the current time* by the workflow setting, [**Run history retention in days**](#change-retention). Whether a run completes or times out, the retention calculation always uses the run's start time. When a run's duration exceeds the *current* retention limit, the run is removed from the runs history. <p><p>If you change this setting, the current limit is always used for calculating retention, no matter the previous limit. For example, if you reduce the retention limit from 90 days to 30 days, a run that's 60 days old is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's 20 days old stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run retention in storage](#change-retention). |
+| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
+| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements. |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -51,17 +51,23 @@ Here are the limits for a single logic app run:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### Change run duration and run retention in storage
+### Change run duration and history retention in storage
 
-To change the default limit for run duration and run retention in storage, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+The same setting controls the maximum number of days that a workflow can run and for keeping run history in storage. To change the default or current limit for these properties, follow these steps.
 
-> [!NOTE]
-> For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
-> For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
+* For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
-1. Go to the [Azure portal](https://portal.azure.com). In the portal search box, find and select **Logic apps**.
+* For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
 
-1. Select and then open your logic app in the Logic App Designer.
+For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
+
+> [!IMPORTANT]
+> If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
+> To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
+
+1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
+
+1. Find and select your logic app. Open your logic app in the Logic App Designer.
 
 1. On the logic app's menu, select **Workflow settings**.
 
@@ -70,6 +76,27 @@ To change the default limit for run duration and run retention in storage, follo
 1. Drag the slider to change the number of days that you want.
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
+
+If you generate an Azure Resource Manager template for your logic app, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
 
 <a name="looping-debatching-limits"></a>
 
@@ -218,12 +245,12 @@ Each Azure subscription has these integration account limits:
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 5 total integration accounts:
+* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 20 total integration accounts:
 
   | ISE SKU | Integration account limits |
   |---------|----------------------------|
-  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
-  | **Developer** | 5 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
+  | **Premium** | 20 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
+  | **Developer** | 20 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -352,6 +379,8 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | East US 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253 |
 | France Central | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | France South | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
+| Germany North | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
+| Germany West Central | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
 | Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japan West | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
@@ -418,6 +447,8 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 | East US 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100, 104.209.247.23, 52.225.129.144, 40.65.220.25, 40.70.151.96 - 40.70.151.127 |
 | France Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239, 40.79.148.96 - 40.79.148.127 |
 | France South | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154, 40.79.180.224 - 40.79.180.255 |
+| Germany North | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.211.212, 51.116.60.192 - 51.116.60.223, 51.116.59.16 - 51.116.60.31 |
+| Germany West Central | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.236.78, 51.116.158.96 - 51.116.158.127, 51.116.155.80 - 51.116.155.95 |
 | Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
 | Japan West | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24, 40.80.180.64 - 40.80.180.95 |
 | Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |

@@ -9,6 +9,7 @@ ms.author: rosouz
 ---
 
 # What is Azure Cosmos DB Analytical Store (Preview)?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB analytical store is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -166,7 +167,7 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ### Security
 
-Authentication with the analytical store is the same as the transactional store for a given database. You can use master or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
+Authentication with the analytical store is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
 
 ### Support for multiple Azure Synapse Analytics runtimes
 

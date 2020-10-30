@@ -26,7 +26,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
@@ -99,7 +99,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -247,7 +247,7 @@ The following sample creates a diagnostic setting for an Azure SQL database by a
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/', parameters('settingName'))]",
           "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",

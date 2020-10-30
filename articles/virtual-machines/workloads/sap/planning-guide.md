@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # Azure Virtual Machines planning and implementation for SAP NetWeaver
 
@@ -480,18 +480,18 @@ As pricing model you have several different pricing options that list like:
 The pricing of each of the different offers with different service offers around operating systems and different regions is available on the site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For details and flexibility of one year and three year reserved instances, check these articles:
 
 - [What are Azure Reservations?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Virtual machine size flexibility with Reserved VM Instances](../../windows/reserved-vm-instance-size-flexibility.md)
+- [Virtual machine size flexibility with Reserved VM Instances](../../reserved-vm-instance-size-flexibility.md)
 - [How the Azure reservation discount is applied to virtual machines](../../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 For more information on spot pricing, read the article [Azure Spot Virtual Machines](https://azure.microsoft.com/pricing/spot/). Pricing of the same VM type can also be different between different Azure regions. For some customers, it was worth to deploy into a less expensive Azure region.
 
-Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](../../windows/dedicated-hosts.md). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](../../maintenance-and-updates.md).
+Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](../../dedicated-hosts.md). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](../../maintenance-and-updates.md).
 
 #### Generation 1 and Generation 2 virtual machines
-Microsoft's hypervisor is able to handle two different generations of virtual machines. Those formats are called **Generation 1** and **Generation 2**. **Generation 2** was introduced in the year 2012 with Windows Server 2012 hypervisor. Azure started out using Generation 1 virtual machines. As you deploy Azure virtual machines, the default is still to use the Generation 1 format. Meanwhile you can deploy Generation 2 VM formats as well. The article [Support for generation 2 VMs on Azure](../../windows/generation-2.md) lists the Azure VM families that can be deployed as Generation 2 VM. This article also lists the important functional differences of Generation 2 virtual machines as they can run on Hyper-V private cloud and Azure. More important this article also lists functional differences between Generation 1 virtual machines and Generation 2 VMs, as those run in Azure.
+Microsoft's hypervisor is able to handle two different generations of virtual machines. Those formats are called **Generation 1** and **Generation 2**. **Generation 2** was introduced in the year 2012 with Windows Server 2012 hypervisor. Azure started out using Generation 1 virtual machines. As you deploy Azure virtual machines, the default is still to use the Generation 1 format. Meanwhile you can deploy Generation 2 VM formats as well. The article [Support for generation 2 VMs on Azure](../../generation-2.md) lists the Azure VM families that can be deployed as Generation 2 VM. This article also lists the important functional differences of Generation 2 virtual machines as they can run on Hyper-V private cloud and Azure. More important this article also lists functional differences between Generation 1 virtual machines and Generation 2 VMs, as those run in Azure.
 
 > [!NOTE]
-> There are functional differences of Generation 1 and Generation 2 VMs running in Azure. Read the article  [Support for generation 2 VMs on Azure](../../windows/generation-2.md) to see a list of those differences.
+> There are functional differences of Generation 1 and Generation 2 VMs running in Azure. Read the article  [Support for generation 2 VMs on Azure](../../generation-2.md) to see a list of those differences.
 
 Moving an existing VM from one generation to the other generation is not possible. To change the virtual machine generation, you need to deploy a new VM of the generation you desire and re-install the software that you are running in the virtual machine of the generation. This change only affects the base VHD image of the VM and has no impact on the data disks or attached NFS or SMB shares. Data disks, NFS, or SMB shares that originally were assigned to, for example, on a Generation 1 VM.
 
@@ -766,7 +766,7 @@ Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thus it
 
 You plan to move a specific SAP system from on-premises to Azure. This can be done by uploading the VHD, which contains the OS, the SAP Binaries, and DBMS binaries plus the VHDs with the data and log files of the DBMS to Azure. In contrast to [scenario #2 below][planning-guide-5.1.2], you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. See chapters [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document for on-premises preparation steps and upload of non-generalized VMs or VHDs to Azure. Read chapter [Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP][deployment-guide-3.4] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
-Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) of the [About disaster recovery for on-premises apps](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) guide.
+Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](../../../site-recovery/site-recovery-workload.md#protect-sap) of the [About disaster recovery for on-premises apps](../../../site-recovery/site-recovery-workload.md) guide.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Deploying a VM with a customer-specific image
 
@@ -1826,7 +1826,7 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-For more details, see [Availability of Windows virtual machines in Azure](../../windows/manage-availability.md) and [Availability of Linux virtual machines in Azure](../../linux/manage-availability.md).
+For more details, see [Availability of Windows virtual machines in Azure](../../manage-availability.md) and [Availability of Linux virtual machines in Azure](../../manage-availability.md).
 
 #### Azure Storage Redundancy
 
@@ -1853,7 +1853,7 @@ Azure managed disks are automatically placed in the Fault Domain of the virtual 
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts could look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2900]
+![Diagram that shows an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts.][planning-guide-figure-2900]
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and Managed Disks could look like this:
 
@@ -1913,7 +1913,7 @@ Unmanaged disks only: The concepts as explained below may need to be compromised
 
 ##### ![Windows logo.][Logo_Windows] HA on Windows
 
-![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]
+![Diagram that shows the SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS.][planning-guide-figure-3200]
 
 The following Azure constructs are used for the SAP NetWeaver system, to minimize impact by infrastructure issues and host patching:
 

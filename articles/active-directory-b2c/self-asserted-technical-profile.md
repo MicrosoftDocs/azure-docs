@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -172,6 +172,14 @@ The following example demonstrates the use of a self-asserted technical profile 
 </TechnicalProfile>
 ```
 
+### Output claims sign-up or sign-in page
+
+In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element the specifies a `unifiedssp` or `unifiedssd` page type:
+
+- Only the username and password claims are rendered.
+- The first two output claims must be the username and the password (in this order). 
+- Any other claims are not rendered; for these claims, you'll need to either set the `defaultValue` or invoke a claims form validation technical profile. 
+
 ## Persist claims
 
 The PersistedClaims element is not used. The self-asserted technical profile doesn't persist the data to Azure AD B2C. Instead, a call is made to a validation technical profile that's responsible for persisting the data. For example, the sign-up policy uses the `LocalAccountSignUpWithLogonEmail` self-asserted technical profile to collect the new user profile. The `LocalAccountSignUpWithLogonEmail` technical profile calls the validation technical profile to create the account in Azure AD B2C.
@@ -199,11 +207,13 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.showSignupLink <sup>2</sup>| No | Displays the sign-up button. Possible values: `true` (default), or `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.|
 | setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox. Possible values: `true` , or `false` (default). |
+| setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 Notes:
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`. [Page layout version](page-layout.md) 1.1.0 and above.
+1. Available for [page layout version](page-layout.md) 1.2.0 and above.
 
 ## Cryptographic keys
 

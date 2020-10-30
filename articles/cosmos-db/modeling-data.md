@@ -10,6 +10,7 @@ ms.date: 07/23/2019
 
 ---
 # Data modeling in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 While schema-free databases, like Azure Cosmos DB, make it super easy to store and query unstructured and semi-structured data, you should spend some time thinking about your data model to get the most of the service in terms of performance and scalability and lowest cost.
 
@@ -435,7 +436,7 @@ Just as there is no single way to represent a piece of data on a screen, there i
 
 To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](sql-api-partition-data.md).
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](partitioning-overview.md).
 
 To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
 Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).

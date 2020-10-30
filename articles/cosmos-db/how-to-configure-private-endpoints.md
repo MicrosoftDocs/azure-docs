@@ -10,6 +10,7 @@ ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure Private Link for an Azure Cosmos account
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos account over private IP addresses. When Private Link is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../private-link/private-link-overview.md) article.
 
@@ -679,7 +680,7 @@ If you don't clean up the DNS records, unexpected data plane issues might happen
 
 To learn more about Azure Cosmos DB security features, see the following articles:
 
-* To configure a firewall for Azure Cosmos DB, see [Firewall support](firewall-support.md).
+* To configure a firewall for Azure Cosmos DB, see [Firewall support](how-to-configure-firewall.md).
 
 * To learn how to configure a virtual network service endpoint for your Azure Cosmos account, see [Configure access from virtual networks](how-to-configure-vnet-service-endpoint.md).
 

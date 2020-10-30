@@ -10,6 +10,7 @@ ms.date: 7/29/2020
 ---
 
 # Create a database with autoscale and shared collections for MongoDB API for Azure Cosmos DB using Azure CLI
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

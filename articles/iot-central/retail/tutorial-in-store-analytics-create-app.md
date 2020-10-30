@@ -141,7 +141,7 @@ To add a RuuviTag device template to your application:
 
 1. Select **Next: Customize**.
 
-    ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    ![Screenshot that highlights the Next: Customize button.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
 1. Select **Create**. The application adds the RuuviTag device template.
 
@@ -184,7 +184,7 @@ For the `humidity` telemetry type, make the following changes:
 
 1. Select **Save** to save your changes.
 
-    ![Azure IoT Central RuuviTag device template customization](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    ![Screenshot that shows the Customize screen and highlights the Save button.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 To add a cloud property to a device template in your application:
 

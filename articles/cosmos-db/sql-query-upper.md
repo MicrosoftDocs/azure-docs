@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # UPPER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string expression after converting lowercase character data to uppercase.  
 
 The UPPER system function does not utilize the index. If you plan to do frequent case insensitive comparisons, the UPPER system function may consume a significant amount of RU's. If this is the case, instead of using the UPPER system function to normalize data each time for comparisons, you can normalize the casing upon insertion. Then a query such as SELECT * FROM c WHERE UPPER(c.name) = 'BOB' simply becomes SELECT * FROM c WHERE c.name = 'BOB'.

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 08/31/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -147,16 +147,16 @@ If you need to kick off a new round of synchronization, see [Azure AD Connect sy
 
 There are two factors that affect which authentication methods are available with an NPS extension deployment:
 
-1. The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
+* The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
    - **PAP** supports all the authentication methods of Azure Multi-Factor Authentication in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** and **EAP** support phone call and mobile app notification.
 
-      > [!NOTE]
-      > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
-      >
-      > In addition, if your VPN client UX supports input fields and you have configured Network Access Policy, the authentication might succeed. However, none of the RADIUS attributes configured in the Network Policy will be applied to neither the Network Access Device, like the RRAS server, nor the VPN client. As a result, the VPN client might have more access than desired, or less to no access.
+    > [!NOTE]
+    > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
+    >
+    > Also, regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS cient (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
 
-2. The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
+* The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
 You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#verification-methods) in Azure.
 

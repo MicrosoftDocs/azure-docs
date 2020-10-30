@@ -9,6 +9,7 @@ ms.author: sngun
 ---
 
 # Frequently asked questions about the Table API in Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 The Azure Cosmos DB Table API is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
@@ -92,7 +93,7 @@ You can use the Azure portal to browse the data. You can also use the Table API 
 
 ### Which tools work with the Table API?
 
-You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page.
 
@@ -110,7 +111,7 @@ Yes, you can connect by creating two separate instances of the CloudTableClient,
 
 ### How do I migrate an existing Azure Table storage application to this offering?
 
-[AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) and the [Azure Cosmos DB Data Migration Tool](import-data.md) are both supported.
+[AzCopy](../storage/common/storage-use-azcopy-v10.md) and the [Azure Cosmos DB Data Migration Tool](import-data.md) are both supported.
 
 ### How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time?
 
@@ -226,7 +227,7 @@ From the .NET SDK it can be submitted in the app.config file:
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API?
 
-The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](how-to-sql-query.md).
+The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](./sql-query-getting-started.md).
 
 ### When should I change TableThroughput for the Table API?
 
@@ -288,7 +289,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 You can share your feedback in any of the following ways:
 
 * [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&A question page](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ## Next steps

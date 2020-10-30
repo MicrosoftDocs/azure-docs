@@ -60,9 +60,9 @@ When you create an indexer and set the **parsingMode** to `jsonLines` - without 
     }
 ```
 
-This setup will result in the Azure Cognitive Search index containing the following information (base64 encoded id shortened for brevity)
+This setup will result in the Azure Cognitive Search index containing the following information (base64 encoded ID shortened for brevity)
 
-| id | temperature | pressure | timestamp |
+| ID | temperature | pressure | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -104,6 +104,9 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 
 > [!NOTE]
 > The approach used by `AzureSearch_DocumentKey` of ensuring uniqueness per extracted entity is subject to change and therefore you should not rely on it's value for your application's needs.
+
+## Help us make Azure Cognitive Search better
+If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). If you need help using the existing feature, post your question on [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## Next steps
 

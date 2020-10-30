@@ -6,9 +6,11 @@ ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
+ms.custom: contperfq1
 ---
 
 # Troubleshoot issues when using the Azure Cosmos emulator
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the tips in this article to help troubleshoot issues you encounter when installing or using the Azure Cosmos Emulator. 
 

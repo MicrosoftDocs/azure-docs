@@ -21,9 +21,9 @@ ms.reviewer: jroth
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
-> * [SQL Server 2016/2017](automated-backup.md)
+> * [SQL Server 2016 +](automated-backup.md)
 
-Automated Backup v2 automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016/2017 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server infrastructure as a service (IaaS) Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
+Automated Backup v2 automatically configures [Managed Backup to Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) for all existing and new databases on an Azure VM running SQL Server 2016 or later Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server infrastructure as a service (IaaS) Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -38,17 +38,14 @@ To use Automated Backup v2, review the following prerequisites:
 
 - SQL Server 2016 or higher: Developer, Standard, or Enterprise
 
-> [!IMPORTANT]
-> Automated Backup v2 works with SQL Server 2016 or later. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure virtual machines (VMs)](automated-backup-sql-2014.md).
+> [!NOTE]
+> For SQL Server 2014, see [Automated Backup for SQL Server 2014](automated-backup-sql-2014.md).
 
 **Database configuration**:
 
-- Target databases must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup under the full recovery model](https://technet.microsoft.com/library/ms190217.aspx).
-- System databases do not have to use the full recovery model. However, if you require log backups to be taken for Model or MSDB, you must use the full recovery model.
-- Target databases must be on either the default SQL Server instance or a [properly installed](frequently-asked-questions-faq.md#administration) named instance. 
-
-> [!NOTE]
-> Automated Backup relies on the **SQL Server IaaS Agent Extension**. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
+- Target _user_ databases must use the full recovery model. System databases do not have to use the full recovery model. However, if you require log backups to be taken for Model or MSDB, you must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup under the full recovery model](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
+- The SQL Server VM has been registered with the SQL VM resource provider in [full management mode](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  Automated backup relies on the full [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). As such, automated backup is only supported on target databases from the default instance, or a single named instance. If there is no default instance, and multiple named instances, the SQL IaaS extension fails and automated backup will not work. 
 
 ## Settings
 The following table describes the options that can be configured for Automated Backup v2. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
@@ -309,22 +306,21 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 To monitor Automated Backup on SQL Server 2016/2017, you have two main options. Because Automated Backup uses the SQL Server Managed Backup feature, the same monitoring techniques apply to both.
 
-First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Or query the [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) table-valued function.
+First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Or query the [msdb.managed_backup.fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) table-valued function.
 
 Another option is to take advantage of the built-in Database Mail feature for notifications.
 
-1. Call the [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) stored procedure to assign an email address to the **SSMBackup2WANotificationEmailIds** parameter. 
+1. Call the [msdb.managed_backup.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) stored procedure to assign an email address to the **SSMBackup2WANotificationEmailIds** parameter. 
 1. Enable [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) to send the emails from the Azure VM.
-1. Use the SMTP server and user name to configure Database Mail. You can configure Database Mail in SQL Server Management Studio or with Transact-SQL commands. For more information, see [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
-1. [Configure SQL Server Agent to use Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Use the SMTP server and user name to configure Database Mail. You can configure Database Mail in SQL Server Management Studio or with Transact-SQL commands. For more information, see [Database Mail](/sql/relational-databases/database-mail/database-mail).
+1. [Configure SQL Server Agent to use Database Mail](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verify that the SMTP port is allowed both through the local VM firewall and the network security group for the VM.
 
 ## Next steps
-Automated Backup v2 configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) to understand the behavior and implications.
+Automated Backup v2 configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) to understand the behavior and implications.
 
 You can find additional backup and restore guidance for SQL Server on Azure VMs in the following article: [Backup and restore for SQL Server on Azure virtual machines](backup-restore.md).
 
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure virtual machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
-

@@ -72,5 +72,5 @@ See the [REST API guide](./try-review-api-job.md) to get started using jobs.
 ## Next steps
 
 * Test drive the [Job API console](try-review-api-job.md), and use the REST API code samples. If you're familiar with Visual Studio and C#, also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
-* For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the reviews section of the [.NET quickstart](dotnet-sdk-quickstart.md).
+* For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the reviews section of the [.NET quickstart](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 * For video reviews, use the [Video review quickstart](video-reviews-quickstart-dotnet.md), and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).

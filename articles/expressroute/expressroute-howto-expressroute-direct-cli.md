@@ -1,13 +1,13 @@
 ---
 
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
-description: Learn how use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations across the world.
+description: Learn how to use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
 author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 09/28/2020
 ms.author: duau 
 ms.custom: devx-track-azurecli
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 # Configure ExpressRoute Direct by using the Azure CLI
 
-You can use Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Create the resource
 
@@ -207,6 +207,14 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    }  
    ```
 
+## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
+
+Input the recently created ExpressRoute Direct resource name, resource group name, and a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
+
 ## <a name="state"></a>Change AdminState for links
 
 Use this process to conduct a layer 1 test. Ensure that each cross-connection is properly patched into each router in the primary and secondary ports.
@@ -283,9 +291,10 @@ By default, you can create 10 circuits in the subscription that contains the Exp
 
 You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 Gbps and 100 Gbps.
 
-**SkuTier** can be Local, Standard or Premium.
+**SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+
 Create a circuit on the ExpressRoute Direct resource:
 
   ```azurecli

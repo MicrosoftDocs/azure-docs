@@ -64,7 +64,7 @@ For example, it could be one of the following levels:
 
 For more information, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Also see [Manage Role-Based Access Control with the Azure command-line interface](../../role-based-access-control/role-assignments-cli.md). 
+Also see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 ## Next steps
 

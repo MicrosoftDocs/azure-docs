@@ -1,16 +1,17 @@
 ---
-title: Install and run containers - Text Analytics
+title: Install and run Docker containers for the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
+description: Use the Docker containers for the Text Analytics API to perform natural language processing such as sentiment analysis, on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.author: aahi
+keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
 
 # Install and run Text Analytics containers

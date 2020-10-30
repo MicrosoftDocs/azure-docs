@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for SQL.
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
@@ -13,7 +13,7 @@ manager: rkarlin
 
 # Introduction to Azure Defender for SQL
 
-Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/advanced-data-security.md) to secure your databases and their data wherever they're located. 
+Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. 
 
 ## Availability
 
@@ -65,5 +65,5 @@ In this article, you learned about Azure Defender for SQL.
 For related material, see the following articles: 
 
 - [How to enable Azure Defender for SQL servers on machines](defender-for-sql-usage.md)
-- [How to enable Azure Defender for SQL database servers](../azure-sql/database/advanced-data-security.md)
+- [How to enable Azure Defender for SQL database servers](../azure-sql/database/azure-defender-for-sql.md)
 - [The list of Azure Defender alerts for SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

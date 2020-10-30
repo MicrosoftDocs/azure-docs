@@ -9,10 +9,11 @@ ms.author: thvankra
 ---
 
 # Elastically scale an Azure Cosmos DB Cassandra API account
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 There are a variety of options to explore the elastic nature of the Azure Cosmos DB API for Cassandra. To understand how to scale effectively in Azure Cosmos DB, it is important to understand how to provision the right amount of request units (RU/s) to account for the performance demands in your system. To learn more about request units, see the [request units](request-units.md) article. 
 
-For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). This is helpful in determining the amount of RU/s you will need to provision in the service.
+For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](./find-request-unit-charge-cassandra.md). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
@@ -41,7 +42,7 @@ The advantage of this method is that it is a straightforward turnkey way to mana
 
 ## <a id="use-control-plane"></a>Use the control plane
 
-The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
+The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and PowerShell.
 
@@ -57,7 +58,7 @@ The advantage of this approach is that it allows you to respond to scale needs d
 
 In addition to standard (manual) or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale provisioned throughput. Autoscale will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale](provision-throughput-autoscale.md) article.
 
-The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
+The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It will not apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 
 To set or alter max throughput (RUs) for autoscale using CQL, use the following (replacing keyspace/table name accordingly):
 

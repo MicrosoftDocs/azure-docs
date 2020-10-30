@@ -2,7 +2,7 @@
 title: Reduce service costs using Azure Advisor
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 09/27/2020
 
 ---
 
@@ -55,8 +55,8 @@ Advisor analyzes usage patterns for the past 30 days for the following resources
 ### Azure Cosmos DB reserved capacity
 Advisor analyzes your Azure Cosmos DB usage patterns for the past 30 days and recommends reserved capacity purchases to optimize costs. By using reserved capacity, you can pre-purchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
-### SQL PaaS reserved capacity
-Advisor analyzes SQL PaaS elastic database pools and SQL Managed Instance usage patterns over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. Your SQL license is charged separately and isn't discounted by the reservation. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
+### SQL Database and SQL Managed Instance reserved capacity
+Advisor analyzes SQL Database and SQL Managed Instance usage patterns over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. Your SQL license is charged separately and isn't discounted by the reservation. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings. For details, see [Azure SQL Database & SQL Managed Instance reserved capacity](../azure-sql/database/reserved-capacity-overview.md).
 
 ### App Service Stamp Fee reserved capacity
 Advisor analyzes the Stamp Fee usage pattern for your Azure App Service isolated environment over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase hourly usage for the isolated environment Stamp Fee and save over your pay-as-you-go costs. Note that reserved capacity applies only to the Stamp Fee and not to App Service instances. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing based on usage patterns over the past 30 days.
@@ -107,6 +107,7 @@ Advisor identifies resources where reducing the table cache policy will free up 
 
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
+* [Advisor score](azure-advisor-score.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor high availability recommendations](advisor-high-availability-recommendations.md)

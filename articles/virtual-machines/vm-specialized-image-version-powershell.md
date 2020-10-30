@@ -15,7 +15,7 @@ ms.reviewer: akjosh
 
 Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM using a generalized image](vm-generalized-image-version-powershell.md).
 
-Once you have a specialized image version, you can create one or more new VMs. Using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
+Once you have a specialized image version, you can create one or more new VMs using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
 
 In this example, we are using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `Set-AzVMSourceImage -Id`. For example, to use image version *1.0.0* type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 

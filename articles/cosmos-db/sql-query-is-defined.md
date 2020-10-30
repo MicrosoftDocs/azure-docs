@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # IS_DEFINED (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a Boolean indicating if the property has been assigned a value.  
   
 ## Syntax

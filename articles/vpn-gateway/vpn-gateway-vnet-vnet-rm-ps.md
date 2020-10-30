@@ -63,7 +63,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * [VNets that reside in the same subscription](#samesub): The steps for this configuration use TestVNet1 and TestVNet4.
 
-  ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![Diagram that shows V Net-to-V Net steps for V Nets that reside in the same subscription.](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 * [VNets that reside in different subscriptions](#difsub): The steps for this configuration use TestVNet1 and TestVNet5.
 
@@ -199,7 +199,7 @@ We use the following values in the examples:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your CloudShell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
+After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
 
 ### Step 3 - Create and configure TestVNet4
 
@@ -444,7 +444,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Use the example below. Replace the Name, Id, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Use the example below. Replace the Name, ID, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
    Connect to Subscription 1 before running the following example:
 
@@ -471,7 +471,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 

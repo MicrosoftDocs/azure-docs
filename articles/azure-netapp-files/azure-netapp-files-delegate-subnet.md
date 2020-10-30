@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/28/2020
 ms.author: b-juche
 ---
 # Delegate a subnet to Azure NetApp Files 
@@ -28,7 +28,8 @@ You must delegate a subnet to Azure NetApp Files.   When you create a volume, yo
    You can have only a single delegated subnet in a VNet. A NetApp account can deploy volumes into multiple VNets, each having its own delegated subnet.  
 * You cannot designate a network security group or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail.
 * Access to a volume from a globally peered virtual network is not currently supported.
-* Creating [user-defined custom routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) on VM subnets with address prefix (destination) to a subnet delegated to Azure NetApp Files is unsupported. Doing so will impact VM connectivity. Azure NetApp Files creates a system route to the delegated subnet. The route is shown in **Effective routes** in the route table if you need it for troubleshooting.
+* [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDRs) and Network security groups (NSGs) are not supported on delegated subnets for Azure NetApp Files. However, you can apply UDRs and NSGs to other subnets, even within the same VNet as the subnet delegated to Azure NetApp Files.  
+   Azure NetApp Files creates a system route to the delegated subnet. The route is shown in **Effective routes** in the route table if you need it for troubleshooting.
 
 ## Steps
 
@@ -48,6 +49,4 @@ You can also create and delegate a subnet when you [create a volume for Azure Ne
 ## Next steps
 
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-
-
+* [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

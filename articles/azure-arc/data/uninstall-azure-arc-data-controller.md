@@ -68,12 +68,31 @@ oc adm policy remove-scc-from-user privileged -z default -n arc
 oc adm policy remove-scc-from-user anyuid     -z default -n arc
 ```
 
+### Delete Cluster level objects
+
+In addition to the namespace scoped objects if you also want to delete the cluster level objects such as the CRDs, `clusterroles` and `clusterrolebindings` run the following commands:
+
+```console
+# Cleanup azure arc data service artifacts
+#Delete CRDs
+kubectl delete crd datacontrollers.arcdata.microsoft.com 
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
+#Delete clusterrole
+kubectl delete clusterrole <namespace>:cr-arc-metricsdc-reader
+#For example: kubectl delete clusterrole arc:cr-arc-metricsdc-reader
+#Delete rolebinding
+kubectl delete clusterrolebinding <namespace>:crb-arc-metricsdc-reader
+#For example: kubectl delete clusterrolebinding arc:crb-arc-metricsdc-reader
+```
+
 ### Optionally, delete the Azure Arc data controller namespace
 
 
 ```console
 kubectl delete ns <nameSpecifiedDuringCreation>
-# for example kubectl delete ns arc
+# for example: kubectl delete ns arc
 ```
 
 ## Next steps

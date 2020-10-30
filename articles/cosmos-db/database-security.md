@@ -4,11 +4,12 @@ description: Learn how Azure Cosmos DB provides database protection and data sec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 10/21/2020
 ms.author: mjbrown
 ---
 
 # Security in Azure Cosmos DB - overview
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article discusses database security best practices and key features offered by Azure Cosmos DB to help you prevent, detect, and respond to database breaches.
 
@@ -54,9 +55,9 @@ Let's dig into each one in detail.
 
 |Security requirement|Azure Cosmos DB's security approach|
 |---|---|
-|Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems, but they are expanded so that an Azure Cosmos database account is only accessible from an approved set of machines or cloud services. Learn more in [Azure Cosmos DB firewall support](firewall-support.md) article.<br><br>Azure Cosmos DB enables you to enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB resources from the general Internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
-|Authorization|Azure Cosmos DB uses hash-based message authentication code (HMAC) for authorization. <br><br>Each request is hashed using the secret account key, and the subsequent base-64 encoded hash is sent with each call to Azure Cosmos DB. To validate the request, the Azure Cosmos DB service uses the correct secret key and properties to generate a hash, then it compares the value with the one in the request. If the two values match, the operation is authorized successfully and the request is processed, otherwise there is an authorization failure and the request is rejected.<br><br>You can use either a [master key](secure-access-to-data.md#master-keys), or a [resource token](secure-access-to-data.md#resource-tokens) allowing fine-grained access to a resource such as a document.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
-|Users and permissions|Using the master key for the account, you can create user resources and permission resources per database. A resource token is associated with a permission in a database and determines whether the user has access (read-write, read-only, or no access) to an application resource in the database. Application resources include container, documents, attachments, stored procedures, triggers, and UDFs. The resource token is then used during authentication to provide or deny access to the resource.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
+|Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems, but they are expanded so that an Azure Cosmos database account is only accessible from an approved set of machines or cloud services. Learn more in [Azure Cosmos DB firewall support](how-to-configure-firewall.md) article.<br><br>Azure Cosmos DB enables you to enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB resources from the general Internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
+|Authorization|Azure Cosmos DB uses hash-based message authentication code (HMAC) for authorization. <br><br>Each request is hashed using the secret account key, and the subsequent base-64 encoded hash is sent with each call to Azure Cosmos DB. To validate the request, the Azure Cosmos DB service uses the correct secret key and properties to generate a hash, then it compares the value with the one in the request. If the two values match, the operation is authorized successfully and the request is processed, otherwise there is an authorization failure and the request is rejected.<br><br>You can use either a [primary key](#primary-keys), or a [resource token](secure-access-to-data.md#resource-tokens) allowing fine-grained access to a resource such as a document.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
+|Users and permissions|Using the primary key for the account, you can create user resources and permission resources per database. A resource token is associated with a permission in a database and determines whether the user has access (read-write, read-only, or no access) to an application resource in the database. Application resources include container, documents, attachments, stored procedures, triggers, and UDFs. The resource token is then used during authentication to provide or deny access to the resource.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
 |Active directory integration (RBAC)| You can also provide or restrict access to the Cosmos account, database, container, and offers (throughput) using Access control (IAM) in the Azure portal. IAM provides role-based access control and integrates with Active Directory. You can use built in roles or custom roles for individuals and groups. See [Active Directory integration](role-based-access-control.md) article for more information.|
 |Global replication|Azure Cosmos DB offers turnkey global distribution, which enables you to replicate your data to any one of Azure's world-wide datacenters with the click of a button. Global replication lets you scale globally and provide low-latency access to your data around the world.<br><br>In the context of security, global replication ensures data protection against regional failures.<br><br>Learn more in [Distribute data globally](distribute-data-globally.md).|
 |Regional failovers|If you have replicated your data in more than one data center, Azure Cosmos DB automatically rolls over your operations should a regional data center go offline. You can create a prioritized list of failover regions using the regions in which your data is replicated. <br><br>Learn more in [Regional Failovers in Azure Cosmos DB](high-availability.md).|
@@ -64,7 +65,7 @@ Let's dig into each one in detail.
 |Automated online backups|Azure Cosmos databases are backed up regularly and stored in a geo redundant store. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).|
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)|
 |Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.<br><br>Personal data and other confidential data can be isolated to specific container and read-write, or read-only access can be limited to specific users.|
-|Monitor for attacks|By using [audit logging and activity logs](logging.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more as shown in the screenshot following this table.|
+|Monitor for attacks|By using [audit logging and activity logs](./monitor-cosmos-db.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more as shown in the screenshot following this table.|
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
@@ -77,10 +78,29 @@ Let's dig into each one in detail.
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 
 :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Activity logs for Azure Cosmos DB":::
 
+<a id="primary-keys"></a>
+
+## Primary keys
+
+Primary keys provide access to all the administrative resources for the database account. Primary keys:
+
+- Provide access to accounts, databases, users, and permissions. 
+- Cannot be used to provide granular access to containers and documents.
+- Are created during the creation of an account.
+- Can be regenerated at any time.
+
+Each account consists of two primary keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
+
+In addition to the two primary keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
+
+Primary, secondary, read only, and read-write primary keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
+
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control (IAM) in the Azure portal - demonstrating NoSQL database security":::
+
 ## Next steps
 
-For more information about master keys and resource tokens, see [Securing access to Azure Cosmos DB data](secure-access-to-data.md).
+For more information about primary keys and resource tokens, see [Securing access to Azure Cosmos DB data](secure-access-to-data.md).
 
-For more information about audit logging, see [Azure Cosmos DB diagnostic logging](logging.md).
+For more information about audit logging, see [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md).
 
 For more information about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

@@ -35,7 +35,7 @@ Version 11 consolidates multiple packages and libraries into one. Post-migration
 
 + [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-+ [API reference for the client library](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [API reference for the client library](/dotnet/api/overview/azure/search.documents-readme)
 
 ## Client differences
 
@@ -192,4 +192,4 @@ In terms of service version updates, where code changes in version 11 relate to 
 
 + [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Samples on GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
-+ [Azure.Search.Document API reference](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Azure.Search.Document API reference](/dotnet/api/overview/azure/search.documents-readme)

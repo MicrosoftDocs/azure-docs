@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ROUND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a numeric value, rounded to the closest integer value.  
   
 ## Syntax

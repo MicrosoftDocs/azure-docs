@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # RADIANS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns radians when a numeric expression, in degrees, is entered.  
   
 ## Syntax

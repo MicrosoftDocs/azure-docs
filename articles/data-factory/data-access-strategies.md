@@ -23,7 +23,7 @@ Typically a cloud data store controls access using the below mechanisms:
 * Authorization mechanisms that restrict users to specific actions and data
 
 > [!TIP]
-> With the [introduction of Static IP address range](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), you can now allow list IP ranges for the particular Azure integration runtime region to ensure you don’t have to allow all Azure IP addresses in your cloud data stores. This way, you can restrict the IP addresses that are permitted to access the data stores.
+> With the [introduction of Static IP address range](./azure-integration-runtime-ip-addresses.md), you can now allow list IP ranges for the particular Azure integration runtime region to ensure you don’t have to allow all Azure IP addresses in your cloud data stores. This way, you can restrict the IP addresses that are permitted to access the data stores.
 
 > [!NOTE] 
 > The IP address ranges are blocked for Azure Integration Runtime and is currently only used for Data Movement, pipeline and external activities. Dataflows and Azure Integration Runtime that enable Managed Virtual Network now do not use these IP ranges. 
@@ -32,11 +32,11 @@ This should work in many scenarios, and we do understand that a unique Static IP
 
 ## Data access strategies through Azure Data Factory
 
-* **[Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)** - You can create an Azure Integration Runtime within Azure Data Factory Managed Virtual Network and it will leverage private endpoints to securely connect to supported data stores. Traffic between Managed Virtual Network and data sources travels the Microsoft backbone network and are not exposure to public network.
-* **[Trusted Service](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - Azure Storage (Blob, ADLS Gen2) supports firewall configuration that enables select trusted Azure platform services to access the storage account securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless whitelisted to do so using it's managed identity. You can find more details in **[this blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. Hence, this is extremely secure and recommended. 
+* **[Private Link](../private-link/private-link-overview.md)** - You can create an Azure Integration Runtime within Azure Data Factory Managed Virtual Network and it will leverage private endpoints to securely connect to supported data stores. Traffic between Managed Virtual Network and data sources travels the Microsoft backbone network and are not exposure to public network.
+* **[Trusted Service](../storage/common/storage-network-security.md#exceptions)** - Azure Storage (Blob, ADLS Gen2) supports firewall configuration that enables select trusted Azure platform services to access the storage account securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless approved to do so using it's managed identity. You can find more details in **[this blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. Hence, this is extremely secure and recommended. 
 * **Unique Static IP** - You will need to set up a self-hosted integration runtime to get a Static IP for Data Factory connectors. This mechanism ensures you can block access from all other IP addresses. 
-* **[Static IP range](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - You can use Azure Integration Runtime's IP addresses to allow list it in your storage (say S3, Salesforce, etc.). It certainly restricts IP addresses that can connect to the data stores but also relies on Authentication/ Authorization rules.
-* **[Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - A service tag represents a group of IP address prefixes from a given Azure service (like Azure Data Factory). Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. It is useful when whitelisting data access on IaaS hosted data stores in Virtual Network.
+* **[Static IP range](./azure-integration-runtime-ip-addresses.md)** - You can use Azure Integration Runtime's IP addresses to allow list it in your storage (say S3, Salesforce, etc.). It certainly restricts IP addresses that can connect to the data stores but also relies on Authentication/ Authorization rules.
+* **[Service Tag](../virtual-network/service-tags-overview.md)** - A service tag represents a group of IP address prefixes from a given Azure service (like Azure Data Factory). Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. It is useful when filtering data access on IaaS hosted data stores in Virtual Network.
 * **Allow Azure Services** - Some services lets you allow all Azure services to connect to it in case you choose this option. 
 
 For more information about supported network security mechanisms on data stores in Azure Integration Runtime and Self-hosted Integration Runtime, see below two tables.  
@@ -77,7 +77,7 @@ For more information about supported network security mechanisms on data stores 
 ## Next steps
 
 For more information, see the following related articles:
-* [Supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
-* [Azure Key Vault ‘Trusted Services’](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
-* [Azure Storage ‘Trusted Microsoft Services’](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Managed identity for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Supported data stores](./copy-activity-overview.md#supported-data-stores-and-formats)
+* [Azure Key Vault ‘Trusted Services’](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Azure Storage ‘Trusted Microsoft Services’](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Managed identity for Data Factory](./data-factory-service-identity.md)

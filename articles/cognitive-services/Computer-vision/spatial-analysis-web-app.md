@@ -58,14 +58,14 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### Deploy the container on Azure IoT Edge on the host computer
 
-Deploy the spatial analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) on GitHub, which includes a basic deployment configuration for the *spatial-analysis* container. 
+Deploy the spatial analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) as well as a [non-Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) on GitHub, which include a basic deployment configuration for the *spatial-analysis* container. 
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find a sample *DeploymentManifest.json* file [on Github](https://go.microsoft.com/fwlink/?linkid=2142179) 
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find two sample *DeploymentManifest.json* files on Github, for either a [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179) or another [Desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
 ### Set environment variables
 
-Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* file linked above. In the file, search for the `BILLING_ENDPOINT` and `API_KEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
+Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* files linked above. In the file, search for the `BILLING_ENDPOINT` and `API_KEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
 
 ```json
 "EULA": { 
@@ -84,7 +84,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 
 Now that the initial configuration of the *spatial-analysis* container is complete, the next step is to configure the operations parameters and add them to the deployment. 
 
-The first step is to update the sample [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) and configure the operationId for `cognitiveservices.vision.spatialanalysis-personcount` as shown below:
+The first step is to update the sample deployment manifest linked above and configure the operationId for `cognitiveservices.vision.spatialanalysis-personcount` as shown below:
 
 
 ```json
@@ -102,7 +102,7 @@ The first step is to update the sample [deployment manifest](https://go.microsof
 },
 ```
 
-After the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) is updated, follow the camera manufacturer's instructions to install the camera, configure the camera url, and configure the user name and password. 
+After the deployment manifest is updated, follow the camera manufacturer's instructions to install the camera, configure the camera url, and configure the user name and password. 
 
 Next, set `VIDEO_URL` to the RTSP url of the camera, and the credentials for connecting to the camera.
 
@@ -117,19 +117,18 @@ You can also select a confidence threshold for when detected people are counted 
 
 ### Execute the deployment
 
-Now that the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) is complete, use this command in the Azure CLI to deploy the container on the host computer as an IoT Edge Module.
+Now that the deployment manifest is complete, use this command in the Azure CLI to deploy the container on the host computer as an IoT Edge Module.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 Fill in the required parameters:
 
-* Deployment name: Choose a name for this deployment
 * IoT Hub Name: Your Azure IoT Hub name
-* Deployment.json: The name of your deployment file
+* DeploymentManifest.json: The name of your deployment file
 * IoT Edge device name: The IoT Edge device name of your host computer
 * Subscription: Your subscription ID or name
 
@@ -141,7 +140,7 @@ Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-anal
 
 ![Example deployment verification](./media/spatial-analysis/deployment-verification.png)
 
-At this point, the spatial-analysis container is running the operation. It emits AI insights for the `cognitiveservices.vision.spatialanalysis-personcount` operation and it routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) file and execute the deployment again.
+At this point, the spatial-analysis container is running the operation. It emits AI insights for the `cognitiveservices.vision.spatialanalysis-personcount` operation and it routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the deployment manifest file and execute the deployment again.
 
 ## Person Counting Web Application
 

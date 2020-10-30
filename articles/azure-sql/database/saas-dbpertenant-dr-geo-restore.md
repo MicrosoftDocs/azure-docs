@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer:
@@ -37,7 +37,7 @@ This tutorial explores both restore and repatriation workflows. You learn how to
 
 Before you start this tutorial, complete the following prerequisites:
 * Deploy the Wingtip Tickets SaaS database per tenant app. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS database per tenant application](saas-dbpertenant-get-started-deploy.md). 
-* Install Azure PowerShell. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Install Azure PowerShell. For details, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## Introduction to the geo-restore recovery pattern
 
@@ -52,17 +52,17 @@ Disaster recovery (DR) is an important consideration for many applications, whet
  * Repatriate databases to their original region with minimal impact to tenants when the outage is resolved.  
 
 > [!NOTE]
-> The application is recovered into the paired region of the region in which the application is deployed. For more information, see [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> The application is recovered into the paired region of the region in which the application is deployed. For more information, see [Azure paired regions](../../best-practices-availability-paired-regions.md).   
 
 This tutorial uses features of Azure SQL Database and the Azure platform to address these challenges:
 
-* [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants.
+* [Azure Resource Manager templates](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants.
 * [Elastic Database Client Library](elastic-database-client-library.md) (EDCL), to create and maintain a tenant database catalog. The extended catalog includes periodically refreshed pool and database configuration information.
 * [Shard management recovery features](elastic-database-recovery-manager.md) of the EDCL, to maintain database location entries in the catalog during recovery and repatriation.  
 * [Geo-restore](../../key-vault/general/disaster-recovery-guidance.md), to recover the catalog and tenant databases from automatically maintained geo-redundant backups. 
-* [Asynchronous restore operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), sent in tenant-priority order, are queued for each pool by the system and processed in batches so the pool isn't overloaded. These operations can be canceled before or during execution if necessary.   
+* [Asynchronous restore operations](../../azure-resource-manager/management/async-operations.md), sent in tenant-priority order, are queued for each pool by the system and processed in batches so the pool isn't overloaded. These operations can be canceled before or during execution if necessary.   
 * [Geo-replication](active-geo-replication-overview.md), to repatriate databases to the original region after the outage. There is no data loss and minimal impact on the tenant when you use geo-replication.
-* [SQL server DNS aliases](../../sql-database/dns-alias-overview.md), to allow the catalog sync process to connect to the active catalog regardless of its location.  
+* [SQL server DNS aliases](./dns-alias-overview.md), to allow the catalog sync process to connect to the active catalog regardless of its location.  
 
 ## Get the disaster recovery scripts
 
@@ -99,7 +99,7 @@ In this task, you start a process to sync the configuration of the servers, elas
 
 > [!IMPORTANT]
 > For simplicity, the sync process and other long-running recovery and repatriation processes are implemented in these samples as local PowerShell jobs or sessions that run under your client user login. The authentication tokens issued when you log in expire after several hours, and the jobs will then fail. 
-> In a production scenario, long-running processes should be implemented as reliable Azure services of some kind, running under a service principal. See [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> In a production scenario, long-running processes should be implemented as reliable Azure services of some kind, running under a service principal. See [Use Azure PowerShell to create a service principal with a certificate](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). 
 
 1. In the PowerShell ISE, open the ...\Learning Modules\UserConfig.psm1 file. Replace `<resourcegroup>` and `<user>` on lines 10 and 11 with the value used when you deployed the app. Save the file.
 
@@ -175,11 +175,11 @@ Imagine there's an outage in the region in which the application is deployed, an
 
 	* The script opens in a new PowerShell window and then starts a set of PowerShell jobs that run in parallel. These jobs restore servers, pools, and databases to the recovery region.
 
-	* The recovery region is the paired region associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+	* The recovery region is the paired region associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](../../best-practices-availability-paired-regions.md). 
 
 3. Monitor the status of the recovery process in the PowerShell window.
 
-	![Recovery process](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+	![Screenshot that shows the PowerShell window where you can monitor the status of the recovery process.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > To explore the code for the recovery jobs, review the PowerShell scripts in the ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs folder.
@@ -197,7 +197,7 @@ While the application endpoint is disabled in Traffic Manager, the application i
 
   * If you open a tenant's events page directly while the tenant is offline, the page displays a tenant offline notification. For example, if Contoso Concert Hall is offline, try to open http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
-	![Recovery process](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+	![Screenshot that shows an offline events page.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## Provision a new tenant in the recovery region
 Even before tenant databases are restored, you can provision new tenants in the recovery region. New tenant databases provisioned in the recovery region are repatriated with the recovered databases later.   
@@ -369,7 +369,7 @@ In this tutorial, you learned how to:
 > * Use a DNS alias to enable an application to connect to the tenant catalog throughout without reconfiguration.
 > * Use geo-replication to repatriate recovered databases to their original region after an outage is resolved.
 
-Try the [Disaster recovery for a multitenant SaaS application using database geo-replication](../../sql-database/saas-dbpertenant-dr-geo-replication.md) tutorial to learn how to use geo-replication to dramatically reduce the time needed to recover a large-scale multitenant application.
+Try the [Disaster recovery for a multitenant SaaS application using database geo-replication](./saas-dbpertenant-dr-geo-replication.md) tutorial to learn how to use geo-replication to dramatically reduce the time needed to recover a large-scale multitenant application.
 
 ## Additional resources
 

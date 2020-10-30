@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
@@ -25,12 +25,13 @@ When you provision an Azure Time Series Insights Gen2 environment, you create th
 * An optional warm store for faster and unlimited queries
 
 > [!TIP]
+>
 > * Learn [how to plan your environment](./time-series-insights-update-plan.md).
 > * Read about how to [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md) or how to [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 You will learn how to:
 
-1.  Associate each Azure Time Series Insights Gen 2 environment with an event source. You will also provide a Timestamp ID property and a unique consumer group to ensure that the environment has access to the appropriate events.
+1. Associate each Azure Time Series Insights Gen 2 environment with an event source. You will also provide a Timestamp ID property and a unique consumer group to ensure that the environment has access to the appropriate events.
 
 1. After provisioning is complete, you can modify your access policies and other environment attributes to suit your business needs.
 
@@ -40,6 +41,7 @@ You will learn how to:
 ## Create the environment
 
 To create an Azure Time Series Insights Gen 2 environment:
+
 1. Create an Azure Time Series Insights resource under *Internet of Things* on [Azure portal](https://portal.azure.com/).
 
 1. Select **Gen2(L1)** as the **Tier**. Provide an environment name, and choose the subscription group and resource group to use. Then select a supported location to host the environment.
@@ -49,19 +51,20 @@ To create an Azure Time Series Insights Gen 2 environment:
 1. Enter a Time Series ID.
 
     > [!NOTE]
+    >
     > * The Time Series ID is *case-sensitive* and *immutable*. (It can't be changed after it's set.)
     > * Time Series IDs can be up to *three* keys. Think of it as a primary key in a database, which uniquely represents each device sensor that would send data to your environment. It could be one property or a combination of upto three properties.
     > * Read more about [How to choose a Time Series ID](time-series-insights-update-how-to-id.md)
 
-1. Create an Azure Storage account by selecting a storage account name, account kind and designating a [replication](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) choice. Doing so automatically creates an Azure Storage  account. By default, [general purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) account will be created. The account is created in the same region as the Azure Time Series Insights Gen2 environment that you previously selected. 
-Alternatively, you can also bring your own storage (BYOS) through [ARM template](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) when you create a new Azure Time Series Gen2 environment. 
+1. Create an Azure Storage account by selecting a storage account name, account kind and designating a [replication](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) choice. Doing so automatically creates an Azure Storage  account. By default, [general purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) account will be created. The account is created in the same region as the Azure Time Series Insights Gen2 environment that you previously selected.
+Alternatively, you can also bring your own storage (BYOS) through [ARM template](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) when you create a new Azure Time Series Gen2 environment.
 
 1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option in the left navigation pane, after you create an Azure Time Series Insights Gen2 environment.
 
 1. **(Optional)** You can add an event source now. You can also wait until after the instance has been provisioned.
 
-   * Azure Time Series Insights supports [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) and [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) as event source options. Although you can add only a single event source when you create the environment, you can add another event source later. 
-   
+   * Azure Time Series Insights supports [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) and [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) as event source options. Although you can add only a single event source when you create the environment, you can add another event source later.
+
      You can select an existing consumer group or create a new consumer group when you add the event source. Please note that the event source requires a unique consumer group for your environment to read data into it.
 
    * Choose the appropriate Timestamp property. By default, Azure Time Series Insights uses the message-enqueued time for each event source.
@@ -95,8 +98,8 @@ You can manage your Azure Time Series Insights Gen2 environment by using the Azu
 
 ## Next steps
 
-- Learn more about Azure Time Series Insights generally available environments and Gen2 environments by reading [Plan your environment](./time-series-insights-update-plan.md).
+* Learn more about Azure Time Series Insights generally available environments and Gen2 environments by reading [Plan your environment](./time-series-insights-update-plan.md).
 
-- Learn how to [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Learn how to [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-- Configure an [IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Configure an [IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).

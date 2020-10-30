@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 
 ## Datasets
 
-Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your dataBy creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. 
+Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
 
 Because datasets are lazily evaluated, and the data remains in its existing location, you
 

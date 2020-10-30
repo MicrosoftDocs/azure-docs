@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
 ---
 
@@ -274,6 +274,34 @@ There are two options for setting up the on-premises environment to use Kerberos
 * Option 1: [Join a self-hosted integration runtime machine in the Kerberos realm](#kerberos-join-realm)
 * Option 2: [Enable mutual trust between the Windows domain and the Kerberos realm](#kerberos-mutual-trust)
 
+For either option, make sure you turn on webhdfs for Hadoop cluster:
+
+1. Create the HTTP principal and keytab for webhdfs.
+
+    > [!IMPORTANT]
+    > The HTTP Kerberos principal must start with "**HTTP/**" according to Kerberos HTTP SPNEGO specification.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. HDFS configuration options: add the following three properties in `hdfs-site.xml`.
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="kerberos-join-realm"></a>Option 1: Join a self-hosted integration runtime machine in the Kerberos realm
 
 #### Requirements
@@ -282,13 +310,24 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 #### How to configure
 
+**On the KDC server:**
+
+Create a principal for Azure Data Factory to use, and specify the password.
+
+> [!IMPORTANT]
+> The username should not contain the hostname.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **On the self-hosted integration runtime machine:**
 
 1.	Run the Ksetup utility to configure the Kerberos Key Distribution Center (KDC) server and realm.
 
     The machine must be configured as a member of a workgroup, because a Kerberos realm is different from a Windows domain. You can achieve this configuration by setting the Kerberos realm and adding a KDC server by running the following commands. Replace *REALM.COM* with your own realm name.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -297,7 +336,7 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 2.	Verify the configuration with the `Ksetup` command. The output should be like:
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:

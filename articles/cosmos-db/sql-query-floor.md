@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # FLOOR (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the largest integer less than or equal to the specified numeric expression.  
   
 ## Syntax

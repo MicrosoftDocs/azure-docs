@@ -1,16 +1,17 @@
 ---
 title: Troubleshoot common errors in Azure Cosmos DB's API for Mongo DB
 description: This doc discusses the ways to troubleshoot common issues encountered in Azure Cosmos DB's API for MongoDB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: lbosq
+ms.author: jasonh
 
 ---
 
 # Troubleshoot common issues in Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 The following article describes common errors and solutions for databases using the Azure Cosmos DB API for MongoDB.
 

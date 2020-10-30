@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_DISTANCE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the distance between the two GeoJSON Point, Polygon, MultiPolygon or LineString expressions. To learn more, see the [Geospatial and GeoJSON location data](sql-query-geospatial-intro.md) article.
   
 ## Syntax

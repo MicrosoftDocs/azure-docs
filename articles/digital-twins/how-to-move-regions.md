@@ -50,18 +50,18 @@ Here are some questions you may want to consider:
     - Device Provisioning Service (DPS)
 * What other **personal or company apps** do I have that connect to my instance?
 
-You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 ## Prepare
 
-In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. This article does this using the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. This article does this using the [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 >[!NOTE]
 >You may already have files containing the models and/or the graph in your instance. If so, you do not need to download everything again—just the pieces you are missing or things that may have changed since you originally uploaded these files (such as twins that may have been updated with new data).
 
 ### Limitations of ADT Explorer
 
-The [Azure Digital Twins (ADT) Explorer sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph, and provides visual interaction with your instance. This article shows how to use it to download, and later re-upload, your models, twins, and graphs.
+The [Azure Digital Twins (ADT) Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph, and provides visual interaction with your instance. This article shows how to use it to download, and later re-upload, your models, twins, and graphs.
 
 Please note, however, that this is a **sample** and not a complete tool. It has not been stress tested, and was not built to handle graphs of a large size. Consequently, please keep in mind the following out-of-the-box sample limitations:
 * The sample has currently only been tested on graph sizes up to 1000 nodes and 2000 relationships
@@ -77,11 +77,13 @@ If the sample is not able to handle the size of your graph, you can export and i
 
 To proceed with ADT Explorer, first download the sample application code and set it up to run on your machine. 
 
-Navigate to the sample here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
+Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**Azure_Digital_Twins__ADT__explorer.zip**_. Unzip the file.
 
-Next, set up permissions for ADT Explorer to run on your machine. To do this, follow the steps in the [*Set ADT Explorer permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) section of the Azure Digital Twins quickstart.
-
-Finally, run and configure ADT Explorer to connect to your original Azure Digital Twins instance. Follow the steps in the [*Run and configure ADT Explorer*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) section of the quickstart.
+Next, set up and configure permissions for ADT Explorer. To do this, follow the instructions in the [*Set up Azure Digital Twins and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
+1. Set up an Azure Digital Twins instance (you can skip this part since you have an instance already)
+2. Set up an **Azure AD app registration** to provide access to your instance
+3. Set up permissions for ADT Explorer to run on your machine
+4. Run ADT Explorer and configure it to connect to your instance. You will use the **hostname** of your original Azure Digital Twins instance that you are moving, and the **client ID** and **tenant ID** from the app registration.
 
 Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
@@ -117,9 +119,6 @@ Next, you will complete the "move" of your instance by creating a new instance i
 First, **create a new instance of Azure Digital Twins in your target region**. To do this, follow the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md), keeping these pointers in mind:
 * You can keep the same name for the new instance **if** it is in a different resource group. If you need to use the same resource group that contains your original instance, then your new instance will need its own distinct name.
 * Enter the target new region when prompted for a location.
-* You do **not need** to recreate the app registration. Your new instance can reuse the same app registration you already have.
-    - If using the [scripted](how-to-set-up-instance-scripted.md) setup article, you can reenter the details of your existing app registration instead of entering a new name when prompted.
-    - If using the manual [portal](how-to-set-up-instance-portal.md) or [CLI](how-to-set-up-instance-cli.md) setup articles, you can stop after the *Create the Azure Digital Twins instance* and *Set up user access permissions* steps. No need to continue through *Set up access permissions for client applications*.
 
 Once this is complete, you will need the **hostname** of your new instance to continue setting it up with your data. If you didn't make a note of this during setup, you can follow [these instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) to get it now from the Azure portal.
 
@@ -135,11 +134,11 @@ Otherwise, to proceed, return to the browser window running **ADT Explorer** and
 
 ##### Connect to the new instance
 
-Currently, ADT Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance  by hitting the *Sign in* button at the top of the window. 
+Currently, ADT Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance by hitting the *Sign in* button at the top of the window. 
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Since you're reusing the app registration, you only need to replace the *ADT URL*. Change this value to that it reads *https://{new instance hostname}*.
+You can reuse the same app registration, so you only need to replace the *ADT URL* to reflect your new instance. Change this value to that it reads *https://{new instance hostname}*.
 
 Hit *Connect*. You may be asked to log in again with your Azure credentials, and/or grant this application consent for your instance.
 
@@ -220,7 +219,7 @@ After completing this step, your new instance in the target region should be a c
 To verify that your new instance was set up correctly, you can use the following tools:
 * The [**Azure portal**](https://portal.azure.com) (good for verifying that your new instance exists and is in the correct target region; also good for verifying endpoints and routes, and connections to other Azure services)
 * The [Azure Digital Twins **CLI commands**](how-to-use-cli.md) (good for verifying that your new instance exists and is in the correct target region; also can be used to verify instance data)
-* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (good for verifying instance data like models, twins, and graph)
+* [**ADT Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (good for verifying instance data like models, twins, and graph)
 * The [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) (good for verifying instance data like models, twins, and graph; also good for verifying endpoints and routes)
 
 You can also try running any custom apps or end-to-end flows that you had running with your original instance, to help you verify that they're working with the new instance correctly.

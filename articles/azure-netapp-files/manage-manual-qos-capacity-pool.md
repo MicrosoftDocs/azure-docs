@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: b-juche
 ---
 # Manage a manual QoS capacity pool
@@ -39,7 +39,7 @@ The manual QoS type feature is currently in preview. If you are using this featu
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
     ```
-You can also use [Azure CLI commands](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Set up a new manual QoS capacity pool 
 
@@ -85,3 +85,10 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 * [Troubleshoot capacity pool issues](troubleshoot-capacity-pools.md)
+* [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
+* [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Create an NFS volume](azure-netapp-files-create-volumes.md)
+* [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
+* [Create a dual-protocol volume](create-volumes-dual-protocol.md)

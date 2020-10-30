@@ -19,7 +19,7 @@ Azure Key Vault is a cloud service for securely storing and accessing secrets. A
 
 Here are other important terms:
 
-- **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It's most often used to refer to the set of Azure and Office 365 services for an organization.
+- **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It's most often used to refer to the set of Azure and Microsoft 365 services for an organization.
 
 - **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
 

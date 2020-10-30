@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -45,6 +45,13 @@ For information on quota and region availability for ACI, see [Quotas and region
     For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
+
+## Limitations
+
+* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
+
+For more information, see [How to secure inferencing with virtual networks](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ## Deploy to ACI
 
@@ -92,6 +99,8 @@ See [deploy your models with VS Code](tutorial-train-deploy-image-classification
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.
 
+> [!IMPORTANT]
+> We append hashed workspace id to all underlying ACI resources which are created, all ACI names from same workspace will have same suffix. The Azure Machine Learning service name would still be the same customer provided "service_name" and all the user facing Azure Machine Learning SDK APIs do not need any change. We do not give any guarantees on the names of underlying resources being created.
 
 ## Next steps
 
