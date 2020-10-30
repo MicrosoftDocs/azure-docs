@@ -52,8 +52,8 @@ This release contains breaking changes, new features, code sample improvements, 
 
 #### Breaking Changes
 
-* Require AAD token and subdomain, and deprecates tokens used in previous versions
-* Retention of user preferences is disabled by default. The Immersive Reader launches with default settings every time, unless the CookiePolicy is set to enabled
+* Require AAD token and subdomain, and deprecates tokens used in previous versions.
+* Set CookiePolicy to disabled. Retention of user preferences is disabled by default. The Reader launches with default settings every time, unless the CookiePolicy is set to enabled.
 
 #### New Features
 
