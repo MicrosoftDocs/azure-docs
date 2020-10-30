@@ -68,6 +68,55 @@ To create your first availability request, open the Availability pane and select
 |**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
+### Location population tags
+
+The following population tags can be used for the geo-location attribute when deploying an availability URL ping test using Azure Resource Manager.
+
+#### Azure Gov
+
+| Display Name   | Population Name     |
+|----------------|---------------------|
+| USGov Virginia | usgov-va-azr        |
+| USGov Arizona  | usgov-phx-azr       |
+| USGov Texas    | usgov-tx-azr        |
+| USDoD East     | usgov-ddeast-azr    |
+| USDoD Central  | usgov-ddcentral-azr |
+
+#### US Sec
+
+| Display Name | Population Name |
+|--------------|-----------------|
+| USSec West   | ussec-west-azr  |
+| USSec East   | ussec-east-azr  |
+
+#### US Nat
+
+| Display Name | Population Name |
+|--------------|-----------------|
+| USNat East   | usnat-east-azr  |
+| USNat West   | usnat-west-azr  |
+
+#### Azure
+
+| Display Name                           | Population Name   |
+|----------------------------------------|-------------------|
+| Australia East                         | emea-au-syd-edge  |
+| Brazil South                           | latam-br-gru-edge |
+| Central US                             | us-fl-mia-edge    |
+| East Asia                              | apac-hk-hkn-azr   |
+| East US                                | us-va-ash-azr     |
+| France South (Formerly France Central) | emea-ch-zrh-edge  |
+| France Central                         | emea-fr-pra-edge  |
+| Japan East                             | apac-jp-kaw-edge  |
+| North Europe                           | emea-gb-db3-azr   |
+| North Central US                       | us-il-ch1-azr     |
+| South Central US                       | us-tx-sn1-azr     |
+| Southeast Asia                         | apac-sg-sin-azr   |
+| UK West                                | emea-se-sto-edge  |
+| West Europe                            | emea-nl-ams-azr   |
+| West US                                | us-ca-sjc-azr     |
+| UK South                               | emea-ru-msa-edge  |
+
 ## See your availability test results
 
 Availability test results can be visualized with both line and scatter plot views.

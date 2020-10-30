@@ -15,6 +15,7 @@ Stream Analytics has first-class integration with Azure data streams as inputs f
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 These input resources can live in the same Azure subscription as your Stream Analytics job or a different subscription.
 
@@ -119,18 +120,18 @@ When you use stream data from an IoT Hub, you have access to the following metad
 | **IoTHub.EnqueuedTime** | The time when the message was received by the IoT Hub. |
 
 
-## Stream data from Blob storage
-For scenarios with large quantities of unstructured data to store in the cloud, Azure Blob storage offers a cost-effective and scalable solution. Data in Blob storage is usually considered data at rest; however, blob data can be processed as a data stream by Stream Analytics. 
+## Stream data from Blob storage or Data Lake Storage Gen2
+For scenarios with large quantities of unstructured data to store in the cloud, Azure Blob storage or Azure Data Lake Storage Gen2 (ADLS Gen2) offers a cost-effective and scalable solution. Data in Blob storage or ADLS Gen2 is usually considered data at rest; however, this data can be processed as a data stream by Stream Analytics. 
 
-Log processing is a commonly used scenario for using Blob storage inputs with Stream Analytics. In this scenario, telemetry data files have been captured from a system and need to be parsed and processed to extract meaningful data.
+Log processing is a commonly used scenario for using such inputs with Stream Analytics. In this scenario, telemetry data files have been captured from a system and need to be parsed and processed to extract meaningful data.
 
-The default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified, which is `BlobLastModifiedUtcTime`. If a blob is uploaded to a storage account at 13:00, and the Azure Stream Analytics job is started using the option *Now* at 13:01, the blob will not be picked up as its modified time falls outside the job run period.
+The default timestamp of a Blob storage or ADLS Gen2 event in Stream Analytics is the timestamp that it was last modified, which is `BlobLastModifiedUtcTime`. If a blob is uploaded to a storage account at 13:00, and the Azure Stream Analytics job is started using the option *Now* at 13:01, it will not be picked up as its modified time falls outside the job run period.
 
 If a blob is uploaded to a storage account container at 13:00, and the Azure Stream Analytics job is started using *Custom Time* at 13:00 or earlier, the blob will be picked up as its modified time falls inside the job run period.
 
 If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics will pick up the blob. The timestamp assigned to each blob is based only on `BlobLastModifiedTime`. The folder the blob is in has no relation to the the timestamp assigned. For example, if there is a blob *2019/10-01/00/b1.txt* with a `BlobLastModifiedTime` of 2019-11-11, then the timestamp assigned to this blob is 2019-11-11.
 
-To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
+To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage or ADLS Gen2 input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
 
 CSV-formatted inputs require a header row to define fields for the data set, and all header row fields must be unique.
 
@@ -146,10 +147,10 @@ The following table explains each property in the **New input** page in the Azur
 | Property | Description |
 | --- | --- |
 | **Input alias** | A friendly name that you use in the job's query to reference this input. |
-| **Subscription** | Choose the subscription in which the IoT Hub resource exists. | 
+| **Subscription** | Choose the subscription in which the storage resource exists. | 
 | **Storage account** | The name of the storage account where the blob files are located. |
-| **Storage account key** | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the Blob storage settings manually. |
-| **Container** | The container for the blob input. Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Azure Blob storage service, you must specify a container for that blob. You can choose either **Use existing** container or  **Create new** to have a new container created.|
+| **Storage account key** | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the settings manually. |
+| **Container** | Containers provide a logical grouping for blobs. You can choose either **Use existing** container or  **Create new** to have a new container created.|
 | **Path pattern** (optional) | The file path used to locate the blobs within the specified container. If you want to read blobs from the root of the container, do not set a path pattern. Within the path, you can specify one or more instances of the following three variables: `{date}`, `{time}`, or `{partition}`<br/><br/>Example 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Example 2: `cluster1/logs/{date}`<br/><br/>The `*` character is not an allowed value for the path prefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed. Do not include container names or file names. |
 | **Date format** (optional) | If you use the date variable in the path, the date format in which the files are organized. Example: `YYYY/MM/DD` <br/><br/> When blob input has `{date}` or `{time}` in its path, the folders are looked at in ascending time order.|
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH` for hours. |
