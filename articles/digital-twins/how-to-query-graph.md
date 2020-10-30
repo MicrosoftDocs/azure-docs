@@ -172,7 +172,13 @@ WHERE IS_NUMBER(T.Temperature)
 
 ### Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). It supports inheritance and has several overload options.
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). 
+
+It considers [inheritance](concepts-models.md#model-inheritance) and [version ordering](how-to-manage-model.md#update-models) semantics, and evaluates to **true** for a given twin if the twin meets one of these conditions:
+* The twin directly implements the model provided to `IS_OF_MODEL()`, and the version number of the model on the twin is *greater than or equal to* the version number of the provided model
+* The twin implements a model that *extends* the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is *greater than or equal to* the version number of the provided model
+
+This method has several overload options.
 
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
