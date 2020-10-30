@@ -63,7 +63,7 @@ The **Usage** widget of the **Summary** dashboard represents the total normalize
 The usage summary table displays the customer usage hours for all offers they have purchased.
 
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
-- Raw usage hours are defined as the number of times VMs have been running in terms of hours.
+- Raw usage hours are defined as the amount of time VMs have been running in terms of hours.
 
 The percentage value below the total usage hours represents the amount of growth in usage hours during the selected computation period.
 

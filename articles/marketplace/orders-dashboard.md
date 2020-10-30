@@ -115,7 +115,7 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 | Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
 | Marketplace License Type | Marketplace License Type | The billing method of the Marketplace offer. The different values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> |
 | SKU | SKU | The plan associated with the offer |
-| Customer Country | Customer Country | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure Subscription. |
+| Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure Subscription. |
 | Is Preview SKU | Is Preview SKU | The value will let you know if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". |
 | Order Id | Order Id | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers are not associated with an order. |
 | Order Quantity | Order Quantity | Number of assets associated with the order ID for active orders |
@@ -138,8 +138,6 @@ The **Orders** page filters are applied at the Orders page level. You can select
 
 > [!TIP]
 > You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by clicking on the “thumbs up” or “thumbs down” icon.
-
-Detailed definitions for each of the fields in Orders grid, page filters, and their possible selections are located in the FAQ article noted below.
 
 ## Next steps
 

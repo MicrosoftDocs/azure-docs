@@ -40,7 +40,7 @@ The following sections describe how to use the Usage dashboard and how to read t
 
 ### Month range
 
-You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Illustrates the Month filters on the Usage dashboard.":::
 
@@ -165,7 +165,7 @@ The **Usage** page filters are applied at the Orders page level. You can select 
 The widgets and export report for VM Raw usage are similar to VM Normalized usage with the following distinctions:
 
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
-- Raw usage hours are defined as the number of times VMs have been running in terms of usage units.
+- Raw usage hours are defined as the amount of time VMs have been running in terms of usage units.
 
 ### Metered Billing Usage
 
