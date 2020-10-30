@@ -57683,6 +57683,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/get-started-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/get-started-nodejs.md",
       "redirect_url": "/azure/dev-spaces/",
       "redirect_document_id": false
