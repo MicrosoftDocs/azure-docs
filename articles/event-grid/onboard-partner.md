@@ -51,11 +51,11 @@ To complete the remaining steps, make sure you have:
     1. In the **Registration details** section, follow these steps:
         1. For **Registration name**, enter a name for the registration. 
         1. For **Organization name**, enter the name of your organization. 
-    1. In the **Partner resource type** section, follow these steps: The details about your resource type will be displayed on the **create** page for your **partner topic**. 
-        1. For **Partner resource type name**, enter the name for the resource type. 
-        1. For **Display name**, enter a user-friendly display name for the partner topic (resource) type. 
-        1. Enter a **description for the resource type**. 
-        1. Enter a **description for the scenario**. It should explain the ways or scenarios in which the partner topics for your resources can be used.  
+    1. In the **Partner resource type** section, enter details about your resource type that will be displayed on the **partner topic create** page: 
+        1. For **Partner resource type name**, enter the name for the resource type. This will be the type of partner topic that will be created in your Azure subscription. 
+        2. For **Display name**, enter a user-friendly display name for the partner topic (resource) type. 
+        3. Enter a **description for the resource type**. 
+        4. Enter a **description for the scenario**. It should explain the ways or scenarios in which the partner topics for your resources can be used.  
 
             :::image type="content" source="./media/onboard-partner/create-partner-registration-page.png" alt-text="Create partner registration":::            
 1. Select **Next: Custom Service** at the bottom of the page. On the **Customer Service** tab of the **Create Partner Registration** page, enter information that subscriber users will use to contact you in case of a problem with the event source:
