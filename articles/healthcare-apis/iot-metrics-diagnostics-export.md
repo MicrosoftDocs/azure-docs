@@ -1,24 +1,24 @@
 ---
-title: Export Azure IoT Connector for FHIR (preview) metrics through Diagnostic settings
-description: This article explains how to export Azure IoT Connector for FHIR (preview) metrics through Diagnostic settings
+title: Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
+description: This article explains how to export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/30/2020
 ms.author: jasteppe
 ---
 
 # Export Azure IoT Connector for FHIR (preview) metrics through Diagnostic settings
 
-In this article, you'll learn how to export Azure IoT Connector for FHIR* metrics logs. The feature that enables metric logging is the [**Diagnostic settings**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) in the Azure portal. 
+In this article, you'll learn how to export Azure IoT Connector for FHIR* Metrics logs. The feature that enables metric logging is the [**Diagnostic settings**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) in the Azure portal. 
 
 > [!TIP]
 > Follow the guidance in [Enable Diagnostic Logging in Azure API for FHIR and Azure IoT Connector for FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) to set up audit logging.
 
-## Enable metric logging for the Azure IoT Connector for FHIR (preview)
-1. To enable metric logging for the Azure IoT Connector for FHIR, select your Azure API for FHIR service in the Azure portal 
+## Enable Metrics logging for the Azure IoT Connector for FHIR (preview)
+1. To enable Metrics logging for the Azure IoT Connector for FHIR, select your Azure API for FHIR service in the Azure portal 
 
 2. Navigate to **Diagnostic settings** 
 
@@ -41,12 +41,12 @@ In this article, you'll learn how to export Azure IoT Connector for FHIR* metric
    :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
 
 > [!Note] 
-> It might take up to 15 minutes for the first metric logs to display in the repository of your choice.  
+> It might take up to 15 minutes for the first Metrics logs to display in the repository of your choice.  
  
 For more information about how to work with diagnostic logs, see the [Azure Resource Log documentation](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
 
 ## Conclusion 
-Having access to metric logs is essential for monitoring and troubleshooting.  Azure IoT Connector for FHIR allows you to do these actions through metric logs. 
+Having access to Metrics logs is essential for monitoring and troubleshooting.  Azure IoT Connector for FHIR allows you to do these actions through Metrics logs. 
 
 ## Next steps
 
