@@ -24,6 +24,10 @@ This article focuses on managing digital twins; to work with relationships and t
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
 
+## Prerequisites
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## Create a digital twin
 
 To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
@@ -36,14 +40,19 @@ To create a digital twin, you need to provide:
 * The desired ID for the digital twin
 * The [model](concepts-models.md) you want to use
 
-Optionally, you can provide initial values for all properties of the digital twin. 
+Optionally, you can provide initial values for all properties of the digital twin. Properties are treated as optional and can be set later, but **they won't show up as part of a twin until they've been set.**
 
-The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
+>[!NOTE]
+>While twin properties don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
+
+The model and any initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so if you need an instant response, use the API call instead of querying to see your newly-created twins. 
 
 ### Initialize model and properties
+
+You can initialize the properties of a twin at the time that the twin is created. 
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
