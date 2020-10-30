@@ -262,18 +262,11 @@ From this point forward, the tutorial will wrap all calls to service methods in 
 
 Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create **digital twins**. [Digital twins](concepts-twins-graph.md) are instances of a model, and represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. This section creates a few digital twins based on the model you uploaded earlier.
 
-Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`, and the `Serialization` namespace from the [Azure Digital Twins SDK for .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [LINK MODIFIED FOR PREVIEW]:
+Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`:
 
 ```csharp
 using System.Text.Json;
-using Azure.DigitalTwins.Core.Serialization;
 ```
-
->[!NOTE]
->`Azure.DigitalTwins.Core.Serialization` is not required to work with digital twins and relationships; it's an optional namespace that can help get data into the right format. Some alternatives to using it include:
->* Concatenating strings to form a JSON object
->* Using a JSON parser like `System.Text.Json` to build up a JSON object dynamically
->* Modeling your custom types in C#, instantiating them, and serializing them to strings
 
 Then, add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
 
@@ -302,8 +295,6 @@ Notice that no error is thrown when the twins are created the second time, even 
 ### Create relationships
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
-
-To help with creating relationships, this code sample uses the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier in the [*Create digital twins*](#create-digital-twins) section.
 
 Add a new static method to the `Program` class, underneath the `Main` method:
 

@@ -47,7 +47,7 @@ The model and initial property values are provided through the `initData` parame
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-First, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter, like this:
+First, you can create a data object to represent the twin and its property data, like this:
 
 ```csharp
 await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
@@ -92,7 +92,7 @@ You can access the details of any digital twin by calling the `GetDigitalTwin()`
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-This call returns twin data as a strongly typed object type such as BasicDigitalTwin. Here's an example of how to use this to view twin details:
+This call returns twin data as a strongly-typed object type such as `BasicDigitalTwin`. Here's an example of how to use this to view twin details:
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -214,9 +214,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
   }
 ]
 ```
-You can create patches using a serialization helper class in the [SDK](how-to-use-apis-sdks.md). Here is an example.
-
-#### Create patches using the helper class
+You can create patches using a `JsonPatchDocument` in the [SDK](how-to-use-apis-sdks.md). Here is an example.
 
 ```csharp
 var updateTwinData = new JsonPatchDocument();

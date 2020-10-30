@@ -224,14 +224,14 @@ client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 
 ##### Deserialize a relationship
 
-You can always deserialize relationship data to a type of your choice. For basic access to a relationship, use the type BasicRelationship.
+You can always deserialize relationship data to a type of your choice. For basic access to a relationship, use the type `BasicRelationship`.
 
 ```csharp
 BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
 ```
 
-The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through a `Dictionary<string, object>`. To list properties, you can use:
+The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through a `IDictionary<string, object>`. To list properties, you can use:
 
 ```csharp
 BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
@@ -260,7 +260,7 @@ client.CreateOrReplaceRelationshipAsync("mySourceTwin", "rel001", rel);
 
 ##### Create a patch for twin update
 
-Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. To create lists of JSON Patch operations, you can use the JsonPatchDocument as shown below.
+Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. To create lists of JSON Patch operations, you can use the `JsonPatchDocument` as shown below.
 
 ```csharp
 var updateTwinData = new JsonPatchDocument();
@@ -269,7 +269,7 @@ updateTwinData.AppendAddOp("/myComponent/Property", "Hello");
 // Un-set a property
 updateTwinData.AppendRemoveOp("/Humidity");
 
-client.UpdateDigitalTwin("myTwin", uou.updateTwinData);
+client.UpdateDigitalTwin("myTwin", updateTwinData);
 ```
 
 ## General API/SDK usage notes

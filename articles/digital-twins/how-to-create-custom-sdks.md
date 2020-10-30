@@ -119,11 +119,8 @@ AutoRest generates two types of paging patterns for the SDK:
 * One for all APIs except the Query API
 * One for the Query API
 
-In the non-query paging pattern, there are two versions of each call:
-* A version to make the initial call (such as `DigitalTwins.ListEdges()`)
-* A version to get the following pages. These calls have a suffix of "Next" (like `DigitalTwins.ListEdgesNext()`)
+In the non-query paging pattern, here is a code snippet showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
 
-Here is a code snippet showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
 ```csharp
  try 
  {
