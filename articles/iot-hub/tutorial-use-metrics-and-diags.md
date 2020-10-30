@@ -268,7 +268,7 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
     With these settings, you will get an alert when the number of messages sent is greater than 400 and when the total number of messages used exceeds NUMBER.
 
-## Run Simulated Device app
+## Run the simulated device app
 
 Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.  
 
@@ -278,15 +278,17 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
 1. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    Replace the value of the `s_connectionString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.cs**.
+    1. Replace the value of the `s_connectionString` variable with the device connection string you made a note of earlier. Save your changes to **SimulatedDevice.cs**.
 
-1. Still in SimulatedDevice.cs, in the `SendDeviceToCloudMessagesAsync` method, change the `Task.Delay` from 1000 to 1, which reduces the amount of time between sending messages from 1 second to .001 seconds. Shortening this delay increases the number of messages sent. (You will likely not get a message rate of 100 messages per second.)
+    1. In the `SendDeviceToCloudMessagesAsync` method, change the `Task.Delay` from 1000 to 1, which reduces the amount of time between sending messages from 1 second to .001 seconds. Shortening this delay increases the number of messages sent. (You will likely not get a message rate of 100 messages per second.)
 
-  ```csharp
-  await Task.Delay(1);
-  ```
+        ```csharp
+        await Task.Delay(1);
+        ```
 
-1. In the local terminal window, run the following commands to install the required packages for simulated device application:
+    1. Save your changes to **SimulatedDevice.cs**.
+
+1. In the local terminal window, run the following command to install the required packages for the simulated device application:
 
     ```cmd/sh
     dotnet restore
@@ -302,7 +304,7 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
     ![Run the simulated device](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
-Let the application run for several minutes, at least 10-15, but, ideally, let it run until it stops sending messages. This will indicate that you've exceeded the daily quota for your IoT hub and that the IoT hub has stopped receiving any more messages.
+Let the application run for at least 10-15 minutes. Ideally, let it run until it stops sending messages (about 20-30 minutes). This will happen when you've exceeded the daily message quota for your IoT hub, and it has stopped receiving any more messages.
 
 ### See the metrics in the portal dashboard
 
@@ -324,7 +326,7 @@ Select the alert for telemetry messages. It shows the metric result and a chart 
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/15-alert-email.png" alt-text="Screenshot of the e-mail showing the alerts have fired.":::
 
-### See the Azure Monitor Logs
+### See the Azure Monitor logs
 
 You set up the connections diagnostic logs to be exported to blob storage. Go to your resource group and select your storage account *contosostoragemon*. Select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. 
 
@@ -369,7 +371,7 @@ Select **Download** to download it and open it. You see the logs of the device c
 }
 ```
 
-## Clean up resources 
+## Clean up resources
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**. Be sure to save your changes after doing this. 
 
