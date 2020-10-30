@@ -225,6 +225,16 @@ mysqli_close($conn);
 ?>
 ```
 
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Connect to Azure Database for MySQL via SSL](howto-configure-ssl.md)

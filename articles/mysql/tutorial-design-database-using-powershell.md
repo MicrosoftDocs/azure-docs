@@ -251,6 +251,27 @@ The new server created during a restore does not have the VNet service endpoints
 original server. These rules must be set up separately for the new server. Firewall rules from the
 original server are restored.
 
+## Clean up resources
+
+If the resources created in this tutorial aren't needed for another quickstart or tutorial, you
+can delete them by running the following example.
+
+> [!CAUTION]
+> The following example deletes the specified resource group and all resources contained within it.
+> If resources outside the scope of this tutorial exist in the specified resource group, they will
+> also be deleted.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myresourcegroup
+```
+
+To delete only the server created in this tutorial without deleting the resource group, use the
+`Remove-AzMySqlServer` cmdlet.
+
+```azurepowershell-interactive
+Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
