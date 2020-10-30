@@ -171,7 +171,7 @@ Browse to the storage account where the Azure file share is located, click **Acc
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
-One of the key purposes of a file share is that multiple users and applications may simulatenously interact with files and directories in the share. To assist with this interaction, file shares provide several ways of mediating access to files and directories.
+One of the key purposes of a file share is that multiple users and applications may simultaneously interact with files and directories in the share. To assist with this interaction, file shares provide several ways of mediating access to files and directories.
 
 When you open a file from a mounted Azure file share over SMB, your application/operating system request a file handle, which is a reference to the file. Among other things, your application specifies a file sharing mode when it requests a file handle, which specifies the level of exclusivity of your access to the file enforced by Azure Files: 
 
