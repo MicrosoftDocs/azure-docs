@@ -41,7 +41,7 @@
       href: onboard-powershell.md
   - name: Manage
     items:
-    - name: Azure VM extensions
+    - name: VM extensions
       items:
         - name: Overview
           href: manage-vm-extensions.md
