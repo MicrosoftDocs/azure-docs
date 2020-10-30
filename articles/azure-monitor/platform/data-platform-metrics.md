@@ -79,8 +79,8 @@ This metric can answer questions such as "what was the network throughput for ea
 ## Interacting with Azure Monitor Metrics
 Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](rest-api-walkthrough.md).
 
-![Metrics Explorer](media/data-platform/metrics-explorer.PNG)
-:::image type="content" source="media/data-platform/metrics-explorer.PNG" alt-text="MetricsExplorer":::
+> [!div class="mx-imgBorder"]
+> ![Metrics Explorer](media/data-platform/metrics-explorer.PNG)
 
 ## Sources of Azure Monitor Metrics
 There are three fundamental sources of metrics collected by Azure Monitor. Once these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source.
