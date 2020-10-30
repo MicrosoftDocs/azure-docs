@@ -33,7 +33,7 @@ See the following sections to learn how your API can validate and use the claims
 
 ### v1.0 and v2.0 
 
-There are two versions of available access tokens in the Microsoft Identity platform - v1.0 and v2.0.  These govern what claims are in the token, ensuring that a Web API can control what their tokens look like. Web APIs have one of these selected as a default during registration - v1.0 for Azure AD-only apps, and v2.0 for apps that support consumer accounts.  This is controllable by applications using the `accessTokenAcceptedVersion` setting in the [app manifest](reference-app-manifest.md#manifest-reference), where `null` and `1` result in v1.0 tokens, and `2` results in v2.0 tokens. 
+There are two versions of access tokens available in the Microsoft identity platform: v1.0 and v2.0.  These versions govern what claims are in the token, ensuring that a web API can control what their tokens look like. Web APIs have one of these selected as a default during registration - v1.0 for Azure AD-only apps, and v2.0 for apps that support consumer accounts.  This is controllable by applications using the `accessTokenAcceptedVersion` setting in the [app manifest](reference-app-manifest.md#manifest-reference), where `null` and `1` result in v1.0 tokens, and `2` results in v2.0 tokens. 
 
 ### What app is a token "for"? 
 
