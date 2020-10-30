@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure using PowerShell
 description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc enabled servers using PowerShell.
-ms.date: 10/27/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
 ---
 
@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
+- A machine with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
 Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Arc enabled servers, you need to install the `Az.ConnectedMachine` module. Run the following command on your Arc enabled server:
 
@@ -39,21 +39,21 @@ When the installation completes, the following message is returned:
 
     * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run:
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        ```
     
     * To install the Connected Machine agent on the target machine that communicates through a proxy server, run:
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+        
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        ```
 
 If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows at *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*, and on Linux at */var/opt/azcmagent/log/himds.log*.
 
 ## Install and connect using PowerShell remoting
 
-Perform the following steps to configure the target Windows server or machine with Azure Arc enabled servers. PowerShell remoting must be enabled on the remote computer. Use the `Enable-PSRemoting` cmdlet to enable PowerShell remoting.
+Perform the following steps to configure one or more Windows servers with Azure Arc enabled servers. PowerShell remoting must be enabled on the remote machine. Use the `Enable-PSRemoting` cmdlet to enable PowerShell remoting.
 
 1. Open a PowerShell console as an Administrator.
 
@@ -61,25 +61,32 @@ Perform the following steps to configure the target Windows server or machine wi
 
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
-To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
+    * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
+    
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
+    
+    * To install the Connected Machine agent on multiple remote machines at the same time, add a list of remote machine names separated by a comma.
 
-```azurepowershell
-$session = Connect-PSSession -ComputerName myMachineName
-Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
 
-The following example is the results of the command:
-
-```azurepowershell
-time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
-time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
-time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
-time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
-
-Name           Location OSName   Status     ProvisioningState
-----           -------- ------   ------     -----------------
-myMachineName  eastus   windows  Connected  Succeeded
-```
+    The following example is the results of the command targeting a single machine:
+    
+    ```azurepowershell
+    time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+    time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+    time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+    time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+    
+    Name           Location OSName   Status     ProvisioningState
+    ----           -------- ------   ------     -----------------
+    myMachineName  eastus   windows  Connected  Succeeded
+    ```
 
 ## Verify the connection with Azure Arc
 
