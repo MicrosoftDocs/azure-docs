@@ -21,7 +21,7 @@ To enroll and take advantage of all the technical, marketing, and sales enableme
 
 ## Set up your Microsoft Partner Center account
 
-To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
+To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
 
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center.
@@ -62,11 +62,11 @@ After you have completed the steps above, your existing Dynamics 365 CE and/or D
 
 The final step for enrollment in the Business Applications ISV Connect program is to publish and certify your existing applications. To publish and certify your application to AppSource, follow the appropriate link:
 
-- [For Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-- [For Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [For Dynamics 365 Customer Engagement](/powerapps/developer/common-data-service/publish-app-appsource) 
+- [For Dynamics 365 for Finance and Operations](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> You need to re-certify your apps every 6 months to keep them live on AppSource. For details, see marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
+> You need to re-certify your apps every 6 months to keep them live on AppSource. For details, see marketplace policy [Commercial Marketplace Certification Policies](/legal/marketplace/certification-policies).
 
 ## Next steps
 
