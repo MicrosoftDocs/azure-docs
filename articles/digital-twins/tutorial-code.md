@@ -262,7 +262,7 @@ From this point forward, the tutorial will wrap all calls to service methods in 
 
 Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create **digital twins**. [Digital twins](concepts-twins-graph.md) are instances of a model, and represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. This section creates a few digital twins based on the model you uploaded earlier.
 
-Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`, and the `Serialization` namespace from the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview).
+Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`, and the `Serialization` namespace from the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true).
 
 ```csharp
 using System.Text.Json;
