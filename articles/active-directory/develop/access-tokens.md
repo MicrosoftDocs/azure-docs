@@ -177,7 +177,7 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 
 ## Validating tokens
 
-Only confidential clients (web APIs and web apps) need to validate tokens, as public clients talk directly to the IDP over secured channels. Applications must only validate tokens that have an `aud` claim that matches their application, as other resources may have custom token validation rules that you cannot implement (e.g. tokens for MS Graph will not validate according to these rules due to their proprietary format). Validating and accepting tokens meant for another resource is an example of a [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.  
+Only confidential clients (web apps and web APIs) need to validate tokens. Because public clients talk directly to the IDP over secured channels, they don't need to do so. Applications must only validate tokens that have an `aud` claim that matches their application; other resources may have custom token validation rules that you can't implement. For example, tokens for Microsoft Graph won't validate according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.  
 
 To validate an id_token or an access_token, your app should validate the token's signature and issuer first. These need to be validated against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
