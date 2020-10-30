@@ -142,7 +142,7 @@ Contains one or more `healthRuleOverride` elements that each define an override.
 | `monitors` | Yes | List of one or more strings that define which monitors will receive this override.  |
 | `monitorConfiguration` | No | Configuration for the monitor including health states and how they are calculated. |
 | `alertConfiguration` | No | Alerting configuration for the monitor. |
-| `isEnabled` | Yes | Controls whether monitor is enabled or not. Disabled monitor switches to special *Disabled* health state and states disabled unless re-enabled. If omitted, monitor will inherit its status from parent monitor in the hierarchy. |
+| `isEnabled` | No | Controls whether monitor is enabled or not. Disabled monitor switches to special *Disabled* health state and states disabled unless re-enabled. If omitted, monitor will inherit its status from parent monitor in the hierarchy. |
 
 
 ## scopes element
@@ -159,7 +159,7 @@ The following table shows examples of different scopes.
 
 
 ### monitors element
-List of one or more strings that define which monitors in health hierarchy will receive this override. Each element can be the name of a monitor or a regular expression that matches the name of one or more monitors that will receive this override. 
+List of one or more strings that define which monitors in health hierarchy will receive this override. Each element can be a monitor name or type name that matches one or more monitors that will receive this override. 
 
 ```json
 "monitors": [
@@ -196,7 +196,7 @@ Specifies whether an alert should be created from the monitor.
 
 | Element | Mandatory | Description | 
 |:---|:---|:---|
-| `isEnabled` | Yes | If set to true, monitor will generate alert when switching to a critical or warning state and resolve alert when returning to healthy state. |
+| `isEnabled` | No | If set to true, monitor will generate alert when switching to a critical or warning state and resolve alert when returning to healthy state. If false or omitted, no alert is generated.  |
 
 
 ## monitorConfiguration element

@@ -10,14 +10,16 @@ ms.date: 10/27/2020
 ---
 
 # Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can drill down on the detailed health of a particular virtual machine or quickly check the health of all virtual machines in a subscription or resource group. 
+Azure Monitor for VMs guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can quickly check the health of all virtual machines in a subscription or resource group, drill down on the detailed health of a particular virtual machine, or be proactively notified when a virtual machine becomes unhealthy. 
 
 ## Enable virtual machine health
 See [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
 
+## Cost
+There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health data state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md) for details on pricing models and costs.
 
 ## View virtual machine health
-A **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
+The **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
 
 [![Get started page with guest VM health](media/vminsights-health-overview/get-started-page.png)](media/vminsights-health-overview/get-started-page.png#lightbox)
 
