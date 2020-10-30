@@ -17,7 +17,7 @@ A new user to LUIS needs to follow this procedure:
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you should skip ahead to create an app. You will have two options signing up:
 
-    * Using an Azure resource (recommended) - allows you to link your LUIS account with a new or existing Azure Authoring resource. This is equivalent to signing up already migrated. You won't need to go through the [migration process](../luis-migration-authoring.md#what-is-migration) later on. All users will be required to migrate by November 2, 2020.
+    * Using an Azure resource (recommended) - allows you to link your LUIS account with a new or existing Azure Authoring resource. This is equivalent to signing up already migrated. You won't need to go through the [migration process](../luis-migration-authoring.md#what-is-migration) later on.
 
     * Using a trial key. This allows you to sign in to LUIS with a trial resource that you don't need to set up. If you choose this option, you will eventually be required to [migrate your account](../luis-migration-authoring.md#migration-steps) and link your applications to an authoring resource.
 
