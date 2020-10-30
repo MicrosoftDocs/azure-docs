@@ -24,6 +24,10 @@ This article focuses on managing digital twins; to work with relationships and t
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
 
+## Prerequisites
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## Create a digital twin
 
 To create a twin, you use the `CreateDigitalTwin()` method on the service client like this:
