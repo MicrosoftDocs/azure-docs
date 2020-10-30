@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. This is done by modeling individual elements as **digital twins**, then connecting them into a knowledge **graph** that can respond to live events and be queried for information.
 
-In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a digital representation of an environment, view visual images of the twins and graph that are created to represent the environment in Azure Digital Twins, and perform other management activities through a browser-based, visual experience.
+In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a digital representation of an environment, view visual images of the twins and graph that are created to represent the environment in Azure Digital Twins, and perform other management activities through a browser-setting up based, visual experience.
 
 The quickstart contains the following major steps:
 
@@ -44,7 +44,7 @@ Finally, you will also need to download the sample to use during the quickstart:
 
 The first step in working with Azure Digital Twins is to set up an **Azure Digital Twins instance**. After you create an instance of the service, you'll be able to populate it with the example data later in the quickstart.
 
-You'll also set up permissions for ADT Explorer to run on your computer and access your Azure Digital Twins instance. This will allow you to use the sample app to explore your instance and its data.
+You'll also set up permissions for ADT Explorer to run on your computer and access your Azure Digital Twins instance, including setting up an Azure Active Directory (Azure AD) **app registration** for it to use. After this, you can use the sample app to explore your instance and its data.
 
 ### Set up Azure Digital Twins instance and app registration
 
