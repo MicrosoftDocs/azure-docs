@@ -100,7 +100,9 @@ You can view the metrics of a trained model using ```run.get_metrics()```. For e
 
 You can browse completed run records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the **Experiments** tab and select your experiment. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
+Navigate to the **Experiments** tab. To view all your runs in your Workspace across Experiments, select the 'All runs' tab. You can drill down on runs for specific Experiments by applying the Experiment filter in the top menu bar. 
+
+For the individual Experiment view, select the 'All experiments' tab. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
 
 Drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment so you can share the experiment folder with others.
 
