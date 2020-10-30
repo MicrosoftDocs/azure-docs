@@ -836,9 +836,47 @@
           href: tutorial-query-graph.md
       - name: Concepts
         items:
+<<<<<<< HEAD
         - name: FAQ
           href: gremlin-api-faq.md
       - name: How-to guides
+=======
+        - name: Common errors
+          items:
+          - name: Troubleshoot query performance
+            href: troubleshoot-query-performance.md
+          - name : Troubleshoot service request timeout
+            href: troubleshoot-request-timeout.md
+          - name : Troubleshoot request rate too large
+            href: troubleshoot-request-rate-too-large.md
+          - name : Troubleshoot not found
+            href: troubleshoot-not-found.md
+          - name : Troubleshoot unauthorized
+            href: troubleshoot-unauthorized.md
+          - name : Availability issues in multiregional environments
+            href: troubleshoot-sdk-availability.md
+        - name: .NET
+          items: 
+          - name: General Troubleshooting .NET SDK
+            href: troubleshoot-dot-net-sdk.md
+          - name : Troubleshoot request header too large
+            href: troubleshoot-dot-net-sdk-request-header-too-large.md
+          - name : Troubleshoot request timeout
+            href: troubleshoot-dot-net-sdk-request-timeout.md
+          - name : Troubleshoot service unavailable
+            href: troubleshoot-service-unavailable.md 
+        - name: .Java
+          items: 
+          - name: Troubleshoot Java SDK v4
+            href: troubleshoot-java-sdk-v4-sql.md  
+          - name: Troubleshoot request timeout
+            href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+          - name: Troubleshoot service unavailable
+            href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
+          - name: Troubleshoot- Async Java SDK v2
+            href: troubleshoot-java-async-sdk.md
+      - name: Change feed
+>>>>>>> b46a712679b9c1fbcbd16fcc4ac100623380b130
         items:
         - name: Graph data modeling
           href: graph-modeling.md
