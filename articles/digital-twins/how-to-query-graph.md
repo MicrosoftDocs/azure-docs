@@ -338,7 +338,7 @@ AsyncPageable<string> result = await client.QueryAsync<string>(query);
 
 This call returns query results in the form of a string object.
 
-Query calls support paging. Here is a complete example using BasicDigitalTwin as query result type with error handling and paging:
+Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
 ```csharp
 string query = "SELECT * FROM digitaltwins";
