@@ -14,13 +14,9 @@ In this quickstart, you write Java code using the azure-messaging-servicebus pac
 
 ## Prerequisites
 
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
-    1. Create a Service Bus **namespace**.
-    2. Get the **connection string**.
-    3. Create a **topic** in the namespace.
-    4. Create a **subscription** (just one) to the topic in the namespace.
-3. [Azure SDK for Java][Azure SDK for Java].
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You will use only one subscription for this quickstart. 
+- [Azure SDK for Java][Azure SDK for Java].
 
 ## Create a Java project 
 Create a Java project using Eclipse or a tool of your choice. 
@@ -52,7 +48,7 @@ import reactor.core.Disposable;
 import java.util.concurrent.TimeUnit;
 ```
 
-## Send messages to the topic
+## Send messages to a topic
 To send messages to a Service Bus topic, your application instantiates a **ServiceBusSenderAsyncClient** object and sends messages asynchronously. The following code shows how to send a message to a topic that was created using the Azure portal.
 
 ```csharp
@@ -91,7 +87,7 @@ public class TopicAndSubscriptionClients {
 }
 ```
 
-## Receive messages from the subscription
+## Receive messages from a subscription
 Add the following code after the `senderClient.close()` method to receive messages from the subscription for the topic.
 
 ```csharp

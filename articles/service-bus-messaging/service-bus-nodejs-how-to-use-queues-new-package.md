@@ -14,7 +14,7 @@ In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmj
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the name of the queue you created. We'll use these values in the samples.
+- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
@@ -27,7 +27,7 @@ npm install @azure/service-bus@next
 ```
 
 ## Send messages to a queue
-The following sample code shows you how to send a message to a queue. See the code comments for details. 
+The following sample code shows you how to send a message to a queue.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a file called `send.ts` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
