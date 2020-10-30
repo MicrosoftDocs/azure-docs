@@ -28,7 +28,7 @@ When you create a new Stream Analytics job, it's a best practice to create it by
 
 ## Set the compatibility level
 
-You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/stream-analytics-job).
+You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](./stream-analytics-quick-create-portal.md).
 
 To update the compatibility level of the job in the Azure portal:
 
@@ -72,13 +72,13 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 **Previous levels:** The upsert behavior was *insert or merge*.
 
-**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 The upsert behavior is *insert or replace*.
 
 ### DateTimeOffset when writing to SQL output
 
-**Previous levels:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
+**Previous levels:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
 
 **1.2 level:** DateTimeOffset is no longer adjusted.
 
@@ -147,4 +147,4 @@ The following major changes are introduced in compatibility level 1.1:
 ## Next steps
 
 * [Troubleshoot Azure Stream Analytics inputs](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics Resource health](stream-analytics-resource-health.md)
+* [Stream Analytics Resource health](./stream-analytics-troubleshoot-query.md)
