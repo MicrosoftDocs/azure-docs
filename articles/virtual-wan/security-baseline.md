@@ -163,8 +163,9 @@ Secure Azure AD with high priority in your organization’s cloud security pract
 
 Azure AD also supports external identities, which allow users without a Microsoft account to sign in to their applications and resources with their external identity. Review information on using Azure AD in Point-to-Site VPN scenarios at the referenced links.
 
-- [- Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections](openvpn-azure-ad-tenant-multi-app.md)
-- [- Configure Azure Active Directory authentication for User VPN](virtual-wan-point-to-site-azure-ad.md)
+- [Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections](openvpn-azure-ad-tenant-multi-app.md)
+
+- [Configure Azure Active Directory authentication for User VPN](virtual-wan-point-to-site-azure-ad.md)
 
 - [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
@@ -421,6 +422,12 @@ All types of access controls should be aligned to your enterprise segmentation s
 - At the underlying infrastructure, Azure provides data in transit encryption by default for data traffic between Azure datacenters.
 
 In general, we provide encryption on the secure Microsoft backbone and opportunities to encrypt traffic in your Site-to-site VPN, Site-to-site VPN over Azure ExpressRoute and Point-to-site User VPN.
+
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
+
+- [Information on TLS Security](/security/engineering/solving-tls1-problem)
+
+- [Double encryption for Azure data in transit](../security/fundamentals/double-encryption.md#data-in-transit)
 
 **Azure Security Center monitoring**: Yes
 
