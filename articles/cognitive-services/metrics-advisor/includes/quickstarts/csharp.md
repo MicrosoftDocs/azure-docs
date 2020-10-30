@@ -99,7 +99,7 @@ The following classes handle some of the major features of the Metrics Advisor C
 These code snippets show you how to do the following tasks with the Metrics Advisor client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Add a datafeed](#add-datafeed)
+* [Add a data feed](#add-datafeed)
 * [Check the ingestion status](#check-the-ingestion-status)
 * [Configure anomaly detection](#configure-anomaly-detection)
 * [Create a hook](#create-a-hook)

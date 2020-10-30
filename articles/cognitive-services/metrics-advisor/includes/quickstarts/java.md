@@ -108,7 +108,7 @@ The following classes handle some of the major features of the Metrics Advisor J
 These code snippets show you how to do the following tasks with the Metrics Advisor client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Add a datafeed](#add-a-datafeed)
+* [Add a data feed](#add-a-datafeed)
 * [Check the ingestion status](#check-the-ingestion-status)
 * [Configure anomaly detection](#configure-anomaly-detection)
 * [Create a hook](#create-a-hook)
