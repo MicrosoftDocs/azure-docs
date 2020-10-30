@@ -245,7 +245,9 @@ To install the Azure AD Password Protection proxy service, complete the followin
     > [!NOTE]
     > If multiple Azure AD Password Protection proxy servers are installed in your environment, it doesn't matter which proxy server you use to register the forest.
 
-    The cmdlet requires either *Global Administrator* or *Security Administrator* credentials for your Azure tenant. You must also run this cmdlet using an account with local administrator privileges. It also requires on-premises Active Directory Enterprise Administrator privileges. This step is run once per forest.
+    The cmdlet requires either *Global Administrator* or *Security Administrator* credentials for your Azure tenant. It also requires on-premises Active Directory Enterprise Administrator privileges. You must also run this cmdlet using an account with local administrator privileges. The Azure account that is used to register the forest may be different from the on-premises Active Directory account.
+    
+    This step is run once per forest.
 
     The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes. The first two modes support Azure Multi-Factor Authentication but the third mode doesn't.
 
