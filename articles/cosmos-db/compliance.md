@@ -64,7 +64,7 @@ The following table lists the certifications supported by Azure Cosmos DB in Azu
 
 To learn more about Azure compliance certifications, see the following articles:
 
-* To find out the latest compliance certifications for Azure Cosmos DB, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Appendix A & B.  
+* To find out the latest compliance certifications for Azure Cosmos DB, see [Microsoft Azure Compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Appendix A & B.  
 
 * For an overview of Azure Cosmos DB security and the latest improvements, see [Azure Cosmos database security](database-security.md) article.
 
