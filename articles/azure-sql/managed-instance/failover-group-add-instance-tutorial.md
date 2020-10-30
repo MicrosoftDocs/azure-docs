@@ -5,12 +5,12 @@ description: In this tutorial, learn to create a failover group between a primar
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
 ---
 # Tutorial: Add SQL Managed Instance to a failover group
@@ -46,9 +46,11 @@ To complete the tutorial, make sure you have the following items:
 ---
 
 
-## 1 - Create a resource group and primary managed instance
+## Create a resource group and primary managed instance
 
 In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal or PowerShell. 
+
+Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
 
 
 # [Portal](#tab/azure-portal) 
@@ -398,7 +400,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 ---
 
-## 2 - Create secondary virtual network
+## Create secondary virtual network
 
 If you're using the Azure portal to create your managed instance, you will need to create the virtual network separately because there is a requirement that the subnet of the primary and secondary managed instance do not have overlapping ranges. If you're using PowerShell to configure your managed instance, skip ahead to step 3. 
 
@@ -438,7 +440,7 @@ This step is only necessary if you're using the Azure portal to deploy SQL Manag
 
 ---
 
-## 3 - Create a secondary managed instance
+## Create a secondary managed instance
 In this step, you will create a secondary managed instance in the Azure portal, which will also configure the networking between the two managed instances. 
 
 Your second managed instance must:
@@ -728,12 +730,14 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 ---
 
-## 4 - Create a primary gateway 
+## Create a primary gateway 
 
-For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#7---create-a-failover-group).  
+For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#create-a-failover-group).  
 
 This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
+> [!NOTE]
+> The SKU of the gateway affects throughput performance. This tutorial deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # [Portal](#tab/azure-portal)
 
@@ -761,7 +765,6 @@ Create the gateway for the virtual network of your primary managed instance usin
     | **Gateway type** | Select **VPN**. |
     | **VPN Type** | Select **Route-based**. |
     | **SKU**| Leave default of `VpnGw1`. |
-    | **Location**| The location where your primary managed instance and primary virtual network are.   |
     | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-primary`. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address, such as `primary-gateway-IP`. |
@@ -825,7 +828,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 ---
 
 
-## 5 - Create secondary gateway 
+## Create secondary gateway 
 In this step, create the gateway for the virtual network of your secondary managed instance using the Azure portal. 
 
 
@@ -843,8 +846,7 @@ Using the Azure portal, repeat the steps in the previous section to create the v
    | **Gateway type** | Select **VPN**. |
    | **VPN Type** | Select **Route-based**. |
    | **SKU**| Leave default of `VpnGw1`. |
-   | **Location**| The location where your secondary managed instance and secondary virtual network are.   |
-   | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
+   | **Virtual network**| Select the virtual network for the secondary managed instance, such as `vnet-sql-mi-secondary`. |
    | **Public IP address**| Select **Create new**. |
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
@@ -877,7 +879,7 @@ Create the gateway for the virtual network of the secondary managed instance usi
                      -VirtualNetwork $secondaryVirtualNetwork
    $drLocation = $secondaryVirtualNetwork.Location
    
-   Write-host "Creating primary gateway..."
+   Write-host "Creating secondary gateway..."
    Write-host "This will take some time."
    $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
             -Location $drLocation -AllocationMethod Dynamic
@@ -905,7 +907,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 ---
 
 
-## 6 - Connect the gateways
+## Connect the gateways
 In this step, create a bidirectional connection between the two gateways of the two virtual networks. 
 
 
@@ -917,21 +919,24 @@ Connect the two gateways using the Azure portal.
 1. Select **Create a resource** from the [Azure portal](https://portal.azure.com).
 1. Type `connection` in the search box and then press enter to search, which takes you to the **Connection** resource, published by Microsoft.
 1. Select **Create** to create your connection. 
-1. On the **Basics** tab, select the following values and then select **OK**. 
+1. On the **Basics** page, select the following values and then select **OK**. 
     1. Select `VNet-to-VNet` for the **Connection type**. 
     1. Select your subscription from the drop-down. 
     1. Select the resource group for SQL Managed Instance in the drop-down. 
     1. Select the location of your primary managed instance from the drop-down. 
-1. On the **Settings** tab, select or enter the following values and then select **OK**:
-    1. Choose the primary network gateway for the **First virtual network gateway**, such as `Primary-Gateway`.  
-    1. Choose the secondary network gateway for the **Second virtual network gateway**, such as `Secondary-Gateway`. 
+1. On the **Settings** page, select or enter the following values and then select **OK**:
+    1. Choose the primary network gateway for the **First virtual network gateway**, such as `primaryGateway`.  
+    1. Choose the secondary network gateway for the **Second virtual network gateway**, such as `secondaryGateway`. 
     1. Select the checkbox next to **Establish bidirectional connectivity**. 
     1. Either leave the default primary connection name, or rename it to a value of your choice. 
     1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
+    1. Select **OK** to save your settings. 
 
-   ![Create gateway connection](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
+    ![Create gateway connection](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-1. On the **Summary** tab, review the settings for your bidirectional connection and then select **OK** to create your connection. 
+    
+
+1. On the **Review + create** page, review the settings for your bidirectional connection and then select **OK** to create your connection. 
 
 
 # [PowerShell](#tab/azure-powershell)
@@ -964,7 +969,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 ---
 
 
-## 7 - Create a failover group
+## Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
 
@@ -1007,7 +1012,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 ---
 
 
-## 8 - Test failover
+## Test failover
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
 

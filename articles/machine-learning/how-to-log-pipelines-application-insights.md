@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
@@ -32,7 +32,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 This section is an introduction specific to using OpenCensus from an Azure Machine Learning pipeline. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
+Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies

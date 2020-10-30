@@ -1,24 +1,20 @@
 ---
-title: Single sign-on with Application Proxy | Microsoft Docs
-description: Covers how to provide single sign-on using Azure AD Application Proxy.
+title: Kerberos-based single sign-on (SSO) in Azure Active Directory with Application Proxy
+description: Covers how to provide single sign-on using Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
+ms.custom: contperfq2
 ---
 
-# Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy
+# Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy
 
 You can provide single sign-on for on-premises applications published through Application Proxy that are secured with Integrated Windows Authentication. These applications require a Kerberos ticket for access. Application Proxy uses Kerberos Constrained Delegation (KCD) to support these applications. 
 
@@ -27,7 +23,7 @@ You can enable single sign-on to your applications using Integrated Windows Auth
 ## How single sign-on with KCD works
 This diagram explains the flow when a user attempts to access an on premises application that uses IWA.
 
-![Microsoft AAD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft AAD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. The user enters the URL to access the on premises application through Application Proxy.
 2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
@@ -57,7 +53,7 @@ The Active Directory configuration varies, depending on whether your Application
 5. Select **Use any authentication protocol**.
 6. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
-   ![Connector-SVR Properties window screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Connector-SVR Properties window screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### Connector and application server in different domains
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
@@ -92,7 +88,6 @@ The Active Directory configuration varies, depending on whether your Application
 
    ![Advanced Application Configuration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## SSO for non-Windows apps
 
 The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). 
@@ -101,7 +96,7 @@ In the next phase, a request is sent to the backend application with this Kerber
 
 There are several mechanisms that define how to send the Kerberos ticket in such requests. Most non-Windows servers expect to receive it in form of SPNEGO token. This mechanism is supported on Azure AD Application Proxy, but is disabled by default. A connector can be configured for SPNEGO or standard Kerberos token, but not both.
 
-If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard Kerberos token should be routed through other connectors that are not configured for SPNEGO.
+If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard Kerberos token should be routed through other connectors that are not configured for SPNEGO. Some web applications accept both formats without requiring any change in configuration. 
  
 
 To enable SPNEGO:
@@ -131,6 +126,8 @@ With Application Proxy, you can select which identity to use to obtain the Kerbe
 ![Delegated login identity parameter screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 If delegated login identity is used, the value might not be unique across all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
+
+If **On-premises SAM account name** is used for the logon identity, the computer hosting the connector must be added to the domain in which the user account is located.
 
 ### Configure SSO for different identities
 1. Configure Azure AD Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  

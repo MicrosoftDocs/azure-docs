@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # RAND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a randomly generated numeric value from [0,1).
  
 ## Syntax
@@ -23,7 +25,8 @@ RAND ()
 
 ## Remarks
 
-  `RAND` is a nondeterministic function. Repetitive calls of `RAND` do not return the same results.
+  `RAND` is a nondeterministic function. Repetitive calls of `RAND` do not return the same results. This system function will not utilize the index.
+
 
 ## Examples
   
@@ -38,10 +41,6 @@ SELECT RAND() AS rand
 ```json
 [{"rand": 0.87860053195618093}]  
 ``` 
-
-## Remarks
-
-This system function will not utilize the index.
 
 ## Next steps
 

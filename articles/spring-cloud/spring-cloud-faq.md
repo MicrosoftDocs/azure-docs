@@ -4,9 +4,10 @@ description: This article answers frequently asked questions about Azure Spring 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Azure Spring Cloud FAQ
@@ -31,14 +32,18 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, West US 2, West Europe, and Southeast Asia.
+East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
+
+### Is any customer data stored outside of the specified region?
+
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
-During preview release, Azure Spring Cloud has the following known limitations:
-
+Azure Spring Cloud has the following known limitations:
+	
 * `spring.application.name` will be overridden by the application name that's used to create each application.
-* `server.port` defaults to ports 80/443. If any other value is applied, it will be overridden to 80/443.
+* `server.port` defaults to port 1025. If any other value is applied, it will be overridden. Please also respect this setting and not specify server port in your code.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
 
 ### What pricing tiers are available? 
@@ -47,34 +52,38 @@ Which one should I use and what are the limits within each tier?
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
+If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## Development
 
 ### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an Azure Spring Cloud application?
 
-For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart-launch-app-portal.md).
+For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart.md).
 
+::: zone pivot="programming-language-java"
 ### What Java runtime does Azure Spring Cloud support?
 
 Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
+::: zone-end
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
-Find metrics in the App Overview tab and the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) tab.
+Find metrics in the App Overview tab and the [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) tab.
 
-Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Cloud support distributed tracing?
 
 Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
 
+::: zone pivot="programming-language-java"
 ### What resource types does Service Binding support?
 
 Three services are currently supported:
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Cache for Redis.
+::: zone-end
 
 ### Can I view, add, or move persistent volumes from inside my applications?
 
@@ -84,11 +93,18 @@ Yes.
 
 It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
+You can delete Spring Cloud's diagnostic settings by using Azure CLI:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
+
+::: zone pivot="programming-language-java"
 ## Java runtime and OS versions
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 build 252 and Java 11 build 7 are supported. See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 and Java 11 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### Who built these Java runtimes?
 
@@ -100,14 +116,14 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 ### How long will Java 8 and Java 11 LTS versions be supported?
 
-See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Java 8 LTS will be supported until December 2030.
 * Java 11 LTS will be supported until September 2027.
 
 ### How can I download a supported Java runtime for local development?
 
-See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### What is the retire policy for older Java runtimes?
 
@@ -118,16 +134,17 @@ Public notice will be sent out at 12 months before any old runtime version is re
 
 ### How can I get support for issues at the Java runtime level?
 
-You can open a support ticket with Azure Support.  See [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+You can open a support ticket with Azure Support.  See [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### What is the operation system to run my apps?
 
 The most recent Ubuntu LTS version is used, currently [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/focal/) is the default OS.
 
-### How often will OS security patches be applied?
+### How often are OS security patches applied?
 
-Security patches applicable to Azure Spring Cloud will be rolled out to production at monthly basis.
-Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud will be rolled out as soon as possible.
+Security patches applicable to Azure Spring Cloud are rolled out to production on a monthly basis.
+Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud are rolled out as soon as possible.
+::: zone-end
 
 ## Deployment
 
@@ -140,12 +157,13 @@ No.  Azure Spring Cloud abstracts the developer from the underlying architecture
 
 ### Does Azure Spring Cloud support building containers from source?
 
-Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-launch-from-source.md).
+Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-quickstart.md).
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-No.
+Yes.  For more information, see [Setup autoscale](spring-cloud-tutorial-setup-autoscale.md).
 
+::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
 
 As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, it's a good idea to observe the following best practices:
@@ -156,8 +174,22 @@ As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, i
 * We recommend that you use official, stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no service-level agreement (SLA) support.
 
 After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
+::: zone-end
 
-## Trouble Shooting
+::: zone pivot="programming-language-csharp"
+## .NET Core versions
+
+### Which .NET Core versions are supported?
+
+.NET Core 3.1 and later versions.
+
+### How long will .NET Core 3.1 be supported?
+
+Until Dec 3, 2022. See [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+::: zone-end
+
+
+## Troubleshooting
 
 ### What are the impacts of service registry rarely unavailable?
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial deploy into an existing virtual network using PowerShell - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using PowerShell into an existing virtual network
 services: dedicated-hsm
@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18"
+ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
@@ -36,7 +36,7 @@ This tutorial focuses on a pair of HSMs and the required ExpressRoute Gateway (s
 
 ## Prerequisites
 
-Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command-line or using PowerShell. This tutorial will use PowerShell in the Azure Cloud Shell. If you are new to PowerShell, follow getting started instructions here: [Azure PowerShell Get Started](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command-line or using PowerShell. This tutorial will use PowerShell in the Azure Cloud Shell. If you are new to PowerShell, follow getting started instructions here: [Azure PowerShell Get Started](/powershell/azure/get-started-azureps).
 
 Assumptions:
 
@@ -229,7 +229,7 @@ When you are connected to the HSM device using ssh, run the following command to
 
 The output should look like the image shown below:
 
-![provision status](media/tutorial-deploy-hsm-powershell/output.png)
+![Screenshot that shows the output from the hsm show command.](media/tutorial-deploy-hsm-powershell/output.png)
 
 At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Gemalto Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Gemalto for download once you are registered in the Gemalto Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
 

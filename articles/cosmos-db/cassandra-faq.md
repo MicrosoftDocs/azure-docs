@@ -4,10 +4,11 @@ description: Get answers to frequently asked questions about the Cassandra API f
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
 ---
 # Frequently asked questions about the Cassandra API in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes the functionality differences between Apache Cassandra and Cassandra API in Azure Cosmos DB. It also provides answers to frequently asked questions about the Cassandra API in Azure Cosmos DB.
 
@@ -69,17 +70,17 @@ It's essential to see what operations (and their volume) cause this issue. You c
 
 Metrics are available that show you how throughput is used over hours, over days, and per seven days, across partitions or in aggregate. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
 
-Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](logging.md) article.
+Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md) article.
 
 ### Does the primary key map to the partition key concept of Azure Cosmos DB?
 
-Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article. The essential takeaway here is that a logical partition shouldn't go over the 10-GB limit.
+Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partitioning-overview.md) article. The essential takeaway here is that a logical partition shouldn't go over the 20-GB limit.
 
 ### What happens when I get a notification that a partition is full?
 
-Azure Cosmos DB is a system based on service-level agreement (SLA). It provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. This unlimited storage is based on horizontal scale-out of data, using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article.
+Azure Cosmos DB is a system based on service-level agreement (SLA). It provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. This unlimited storage is based on horizontal scale-out of data, using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partitioning-overview.md) article.
 
-You should adhere to the 10-GB limit on the number of entities or items per logical partition. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can come only if your data is skewed: that is, you have lot of data for one partition key (more than 10&nbsp;GB). You can find the distribution of data by using the storage portal. The way to fix this error is to re-create the table and choose a granular primary (partition key), which allows better distribution of data.
+You should adhere to the 20-GB limit on the number of entities or items per logical partition. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can come only if your data is skewed: that is, you have lot of data for one partition key (more than 20 GB). You can find the distribution of data by using the storage portal. The way to fix this error is to re-create the table and choose a granular primary (partition key), which allows better distribution of data.
 
 ### Can I use the Cassandra API as a key value store with millions or billions of partition keys?
 
@@ -129,9 +130,9 @@ Yes, TTL is supported.
 
 Azure Cosmos DB is a platform service that helps you increase productivity and not worry about managing and monitoring infrastructure. For example, you don't need to monitor node status, replica status, gc, and OS parameters earlier with various tools. You just need to take care of throughput that's available in portal metrics to see if you're getting throttled, and then increase or decrease that throughput. You can:
 
-- Monitor [SLAs](monitor-accounts.md)
+- Monitor [SLAs](./monitor-cosmos-db.md)
 - Use [metrics](use-metrics.md)
-- Use [diagnostic logs](logging.md)
+- Use [diagnostic logs](./monitor-cosmos-db.md)
 
 ### Which client SDKs can work with the Cassandra API?
 
@@ -181,7 +182,7 @@ You can read about migration options in the [Migrate your data to Cassandra API 
 Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## Next steps
 

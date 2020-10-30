@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # Interact with Windows containers using Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers. At this time, you cannot debug or attach to Windows containers with Azure Dev Spaces.
 
 ## Set up your cluster
@@ -162,17 +164,16 @@ You can see the service running by opening the public URL, which is displayed in
 
 ## Next steps
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+Learn more about how Azure Dev Spaces works.
 
 > [!div class="nextstepaction"]
-> [Team development in Azure Dev Spaces][team-development-qs]
+> [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
-[team-development-qs]: ../quickstart-team-development.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

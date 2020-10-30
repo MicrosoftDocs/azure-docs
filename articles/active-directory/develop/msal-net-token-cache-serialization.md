@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about token cache serialization so I can have fine-grained control of the proxy.
 ---
 
@@ -83,7 +83,7 @@ static class TokenCacheHelper
   /// <summary>
   /// Path to the token cache. Note that this could be something different for instance for MSIX applications:
   /// private static readonly string CacheFilePath =
-$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{AppName}\msalcache.bin";
+  /// $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{AppName}\msalcache.bin";
   /// </summary>
   public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
 
@@ -330,5 +330,5 @@ The following samples illustrate token cache serialization.
 
 | Sample | Platform | Description|
 | ------ | -------- | ----------- |
-|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF) application calling the Microsoft Graph API. ![Topology](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF) application calling the Microsoft Graph API. ![Diagram shows a topology with Desktop App W P F TodoListClient flowing to Azure A D by acquiring a token interactively and to Microsoft Graph.](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Console) | Set of Visual Studio solutions illustrating the migration of Azure AD v1.0 applications (using ADAL.NET) to Microsoft identity platform applications (using MSAL.NET). In particular, see [Token Cache Migration](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

@@ -1,7 +1,7 @@
 ---
 title: 'Architecture: Global transit network architecture'
 titleSuffix: Azure Virtual WAN
-description: Learn about global transit network architecture for Virtual WAN
+description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between cloud workloads.
 services: virtual-wan
 author: cherylmc
 
@@ -40,7 +40,7 @@ Azure Virtual WAN allows a global transit network architecture by enabling ubiqu
 
 **Figure 2: Global transit network and Virtual WAN**
 
-In the Azure Virtual WAN architecture, virtual WAN hubs are provisioned in Azure regions, to which you can choose to connect your branches, VNets, and remote users. The physical branch sites are connected to the hub by Premium ExpressRoute or site-to site-VPNs, VNets are connected to the hub by VNet connections, and remote users can directly connect to the hub using User VPN (point-to-site VPNs). Virtual WAN also supports cross-region VNet connection where a VNet in one region can be connected to a virtual WAN hub in a different region.
+In the Azure Virtual WAN architecture, virtual WAN hubs are provisioned in Azure regions, to which you can choose to connect your branches, VNets, and remote users. The physical branch sites are connected to the hub by Premium or Standard ExpressRoute or site-to site-VPNs, VNets are connected to the hub by VNet connections, and remote users can directly connect to the hub using User VPN (point-to-site VPNs). Virtual WAN also supports cross-region VNet connection where a VNet in one region can be connected to a virtual WAN hub in a different region.
 
 You can establish a virtual WAN by creating a single virtual WAN hub in the region that has the largest number of spokes (branches, VNets, users), and then connecting the spokes that are in other regions to the hub. This is a good option when an enterprise footprint is mostly in one region with a few remote spokes.  
   
@@ -84,7 +84,7 @@ Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path all
 
 ### ExpressRoute Global Reach and Virtual WAN
 
-ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. Connecting a branch site to Virtual WAN with Express Route requires 1) Premium Circuit 2) Circuit to be in a Global Reach enabled location.
+ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. Connecting a branch site to Virtual WAN with Express Route requires 1) Premium or Standard Circuit 2) Circuit to be in a Global Reach enabled location.
 
 ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other.
 

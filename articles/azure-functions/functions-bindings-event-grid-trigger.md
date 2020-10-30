@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit, devx-track-python
+ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli"
 ---
 
 # Azure Event Grid trigger for Azure Functions

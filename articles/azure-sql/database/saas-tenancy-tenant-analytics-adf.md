@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -17,7 +17,7 @@ ms.date: 12/18/2018
 
 In this tutorial, you walk through an end-to-end analytics scenario. The scenario demonstrates how analytics over tenant data can empower software vendors to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps:
 
-1. **Extract data** from each tenant database into an analytics store, in this case, a SQL Data Warehouse.
+1. **Extract data** from each tenant database into an analytics store, in this case, a SQL pool.
 2. **Optimize the extracted data** for analytics processing.
 3. Use **Business Intelligence** tools to draw out useful insights, which can guide decision making.
 
@@ -39,7 +39,7 @@ SaaS applications hold a potentially vast amount of tenant data in the cloud. Th
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse for query.
 
-This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a SQL Data Warehouse. This tutorial uses [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) as the analytics store.
+This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a SQL pool. This tutorial uses [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as the analytics store.
 
 Next, the extracted data is transformed and loaded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -48,7 +48,7 @@ Next, the extracted data is transformed and loaded into a set of [star-schema](h
 
 Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image:
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
+![Diagram that shows the star schema that is used in this tutorial.](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
 
 Finally, the star-schema tables are queried. Query results are displayed visually using Power BI to highlight insights into tenant behavior and their use of the application. With this star-schema, you run queries that expose:
 
@@ -64,10 +64,10 @@ This tutorial provides basic examples of insights that can be gleaned from the W
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](../../sql-database/saas-dbpertenant-get-started-deploy.md).
+- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](./saas-dbpertenant-get-started-deploy.md).
 - The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/).
-- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
+- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](./saas-dbpertenant-provision-and-catalog.md).
 
 ### Create data for the demo
 
@@ -77,11 +77,11 @@ This tutorial explores analytics over ticket sales data. In this step, you gener
     - **$DemoScenario** = **1** Purchase tickets for events at all venues
 2. Press **F5** to run the script and create ticket purchasing history for all the venues. With 20 tenants, the script generates tens of thousands of tickets and may take 10 minutes or more.
 
-### Deploy SQL Data Warehouse, Data Factory, and Blob Storage
+### Deploy Azure Synapse Analytics, Data Factory, and Blob Storage
 
-In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into SQL Data Warehouse most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.
+In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into Azure Synapse Analytics (formerly SQL Data Warehouse) most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) to load the data into the data warehouse.
 
-In this step, you deploy the additional resources used in the tutorial: a SQL Data Warehouse called _tenantanalytics_, an Azure Data Factory called _dbtodwload-\<user\>_, and an Azure storage account called _wingtipstaging\<user\>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
+In this step, you deploy the additional resources used in the tutorial: a SQL pool called _tenantanalytics_, an Azure Data Factory called _dbtodwload-\<user\>_, and an Azure storage account called _wingtipstaging\<user\>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
 
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* and set:
     - **$DemoScenario** = **2** Deploy tenant analytics data warehouse, blob storage, and data factory
@@ -91,7 +91,7 @@ Now review the Azure resources you deployed:
 
 #### Tenant databases and analytics store
 
-Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P\@ssword1*. See the [introductory tutorial](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P\@ssword1*. See the [introductory tutorial](./saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![Connect to SQL Database from SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -105,7 +105,7 @@ In the Object Explorer:
     1. The star-schema tables are **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
     1. The stored procedure, **sp_transformExtractedData** is used to  transform the data and load it into the star-schema tables.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![Screenshot shows Object Explorer with Tables expanded to show various database objects.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### Blob storage
 
@@ -142,18 +142,18 @@ This section explores the objects created in the data factory. The following fig
 
 ![adf_overview](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory.PNG)
 
-In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) and three [datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) created.
+In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](../../data-factory/concepts-pipelines-activities.md) and three [datasets](../../data-factory/concepts-datasets-linked-services.md) created.
 ![adf_author](./media/saas-tenancy-tenant-analytics-adf/adf_author_tab.JPG)
 
 The three nested pipelines are: SQLDBToDW, DBCopy, and TableCopy.
 
 **Pipeline 1 - SQLDBToDW** looks up the names of the tenant databases stored in the Catalog database (table name: [__ShardManagement].[ShardsGlobal]) and for each tenant database, executes the **DBCopy** pipeline. Upon completion, the provided **sp_TransformExtractedData** stored procedure schema, is executed. This stored procedure transforms the loaded data in the staging tables and populates the star-schema tables.
 
-**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.
+**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](../../data-factory/control-flow-for-each-activity.md)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.
 
 **Pipeline 3 - TableCopy** uses row version numbers in SQL Database (_rowversion_) to identify rows that have been changed or updated. This activity looks up the start and the end row version for extracting rows from the source tables. The **CopyTracker** table stored in each tenant database tracks the last row extracted from each source table in each run. New or changed rows are copied to the corresponding staging tables in the data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues**, and **raw_Events**. Finally the last row version is saved in the **CopyTracker** table to be used as the initial row version for the next extraction.
 
-There are also three parameterized linked services that link the data factory to the source SQL Databases, the target SQL Data Warehouse, and the intermediate Blob storage. In the **Author** tab, click on **Connections** to explore the linked services, as shown in the following image:
+There are also three parameterized linked services that link the data factory to the source SQL Databases, the target SQL pool, and the intermediate Blob storage. In the **Author** tab, click on **Connections** to explore the linked services, as shown in the following image:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -161,8 +161,8 @@ Corresponding to the three linked services, there are three datasets that refer 
   
 ### Data warehouse pattern overview
 
-Azure Synapse (formerly Azure SQL Data Warehouse) is used as the analytics store to perform aggregation on the tenant data. In this sample, PolyBase is used to load data into the data warehouse. Raw data is loaded into staging tables that have an identity column to keep track of rows that have been transformed into the star-schema tables. The following image shows the loading pattern:
-![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse (formerly SQL Data Warehouse) is used as the analytics store to perform aggregation on the tenant data. In this sample, PolyBase is used to load data into the data warehouse. Raw data is loaded into staging tables that have an identity column to keep track of rows that have been transformed into the star-schema tables. The following image shows the loading pattern:
+![Diagram shows the loading pattern of database tables.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 Slowly Changing Dimension (SCD) type 1 dimension tables are used in this example. Each dimension has a surrogate key defined using an identity column. As a best practice, the date dimension table is pre-populated to save time. For the other dimension tables, a CREATE TABLE AS SELECT... (CTAS) statement is used to create a temporary table containing the existing modified and non-modified rows, along with the surrogate keys. This is done with IDENTITY_INSERT=ON. New rows are then inserted into the table with IDENTITY_INSERT=OFF. For easy roll-back, the existing dimension table is renamed and the temporary table is renamed to become the new dimension table. Before each run, the old dimension table is deleted.
 
@@ -176,14 +176,14 @@ Follow the steps below to run the complete extract, load, and transform pipeline
 
 1. In the **Author** tab of the ADF user interface, select **SQLDBToDW** pipeline from the left pane.
 1. Click **Trigger** and from the pulled down menu click **Trigger Now**. This action runs the pipeline immediately. In a production scenario, you would define a timetable for running the pipeline to refresh the data on a schedule.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![Screenshot shows Factory Resources for a pipeline named S Q L D B To D W with the Trigger option expanded and Trigger Now selected.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. On **Pipeline Run** page, click **Finish**.
 
 ### Monitor the pipeline run
 
 1. In the ADF user interface, switch to the **Monitor** tab from the menu on the left.
 1. Click **Refresh** until SQLDBToDW pipeline's status is **Succeeded**.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![Screenshot shows the S Q L D B To D W pipeline with a status of Succeeded.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Connect to the data warehouse with SSMS and query the star-schema tables to verify that data was loaded in these tables.
 
 Once the pipeline has completed, the fact table holds ticket sales data for all venues and the dimension tables are populated with the corresponding venues, events, and customers.
@@ -271,4 +271,4 @@ Congratulations!
 
 ## Additional resources
 
-- Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

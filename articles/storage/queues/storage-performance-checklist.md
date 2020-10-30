@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
+ms.custom: devx-track-csharp
 ---
 
 # Performance and scalability checklist for Queue storage
@@ -47,7 +48,7 @@ This article organizes proven practices for performance into a checklist you can
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### Maximum number of storage accounts
 
@@ -123,7 +124,7 @@ Set the connection limit before opening any connections.
 
 For other programming languages, see that language's documentation to determine how to set the connection limit.  
 
-For more information, see the blog post [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+For more information, see the blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### Increase minimum number of threads
 
@@ -141,7 +142,7 @@ While parallelism can be great for performance, be careful about using unbounded
 
 ## Client libraries and tools
 
-For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
+For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](./reference.md).
 
 ## Handle service errors
 

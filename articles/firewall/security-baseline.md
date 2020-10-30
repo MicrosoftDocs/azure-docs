@@ -6,7 +6,7 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -72,7 +72,7 @@ Note that you cannot create your own service tag, nor specify which IP addresses
 
 **Guidance**: Azure policy is not yet fully supported for Azure Firewall. Azure Firewall Manager can be used to achieve standardization of security configurations.
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -368,7 +368,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
-**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Firewall resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control. 
+**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Firewall resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control. 
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
@@ -414,11 +414,11 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory role-based access control (RBAC) to control access to Azure Firewall and related resources.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Firewall and related resources.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 

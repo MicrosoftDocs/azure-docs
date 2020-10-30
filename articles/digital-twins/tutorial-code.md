@@ -1,10 +1,10 @@
 ---
 # Mandatory fields.
-title: Code a client app
+title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
 description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
@@ -15,9 +15,16 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Coding with the Azure Digital Twins APIs
+# Tutorial: Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). It walks you through writing a C# console client app step by step, starting from scratch.
+
+> [!div class="checklist"]
+> * Set up project
+> * Get started with project code   
+> * Complete code sample
+> * Clean up resources
+> * Next steps
 
 ## Prerequisites
 
@@ -29,6 +36,8 @@ What you need to begin:
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
 ## Set up project
 
 Once you are ready to go with your Azure Digital Twins instance, start setting up the client app project. 
@@ -37,7 +46,7 @@ Open a command prompt or other console window on your machine, and create an emp
 
 Navigate into the new directory.
 
-Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
+Once in the project directory, **create an empty .NET console app project**. In the command window, you can run the following command to create a minimal C# project for the console:
 
 ```cmd/sh
 dotnet new console
@@ -45,17 +54,11 @@ dotnet new console
 
 This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
-Next, add two necessary dependencies for working with Azure Digital Twins:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-The first dependency is the [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-The second dependency provides tools to help with authentication against Azure.
-
 Keep the command window open, as you'll continue to use it throughout the tutorial.
+
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
 
 ## Get started with project code
 
@@ -99,41 +102,19 @@ Next, you'll add code to this file to fill out some functionality.
 
 The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-In order to authenticate, you need three pieces of information:
-* The *Directory (tenant) ID* for your subscription
-* The *Application (client) ID* created when you set up the Azure Digital Twins instance earlier
-* The *hostName* of your Azure Digital Twins instance
-
->[!TIP]
-> If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
-> 
-> ```azurecli-interactive
-> az account show --query tenantId
-> ```
+In order to authenticate, you need the *hostName* of your Azure Digital Twins instance.
 
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
-Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*, `clientId` to your *Application ID*, and `tenantId` to your *Directory ID*.
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 Save the file. 
-
-Note that this example uses an interactive browser credential:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-This type of credential will cause a browser window to open, asking you to provide your Azure credentials. 
-
->[!NOTE]
-> For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 In your command window, run the code with this command: 
 
@@ -177,7 +158,7 @@ In the directory where you created your project, create a new *.json* file calle
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
+> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -230,8 +211,7 @@ await foreach (ModelData md in modelDataList)
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
 ```
-
-Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so expect to see an exception when you re-run the program.
+Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
 
 Now, run the program again with this command in your command window:
 
@@ -254,7 +234,6 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-
 If you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
 
 ```cmd/sh
@@ -266,11 +245,11 @@ Load model: 409:Service request failed.
 Status: 409 (Conflict)
 
 Content:
-{"error":{"code":"DocumentAlreadyExists","message":"A document with same identifier already exists.","details":[]}}
+{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
 
 Headers:
 api-supported-versions: REDACTED
-Date: Tue, 05 May 2020 01:57:51 GMT
+Date: Thu, 10 Sep 2020 01:57:51 GMT
 Content-Length: 115
 Content-Type: application/json; charset=utf-8
 
@@ -283,12 +262,18 @@ From this point forward, the tutorial will wrap all calls to service methods in 
 
 Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create **digital twins**. [Digital twins](concepts-twins-graph.md) are instances of a model, and represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. This section creates a few digital twins based on the model you uploaded earlier.
 
-Add a new `using` statement at the top, as you will need the built-in .NET Json serializer in `System.Text.Json`:
+Add these new `using` statements at the top, as this code sample uses the built-in .NET Json serializer in `System.Text.Json`, and the `Serialization` namespace from the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview).
 
 ```csharp
 using System.Text.Json;
 using Azure.DigitalTwins.Core.Serialization;
 ```
+
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` is not required to work with digital twins and relationships; it's an optional namespace that can help get data into the right format. Some alternatives to using it include:
+>* Concatenating strings to form a JSON object
+>* Using a JSON parser like `System.Text.Json` to build up a JSON object dynamically
+>* Modeling your custom types in C#, instantiating them, and serializing them to strings
 
 Then, add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
 
@@ -318,12 +303,10 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the relationship base type in the SDK:skip this if already added.
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
+To help with creating relationships, this code sample uses the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier in the [*Create digital twins*](#create-digital-twins) section.
 
-Next, add a new static method to the `Program` class, underneath the `Main` method:
+Add a new static method to the `Program` class, underneath the `Main` method:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -345,7 +328,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Then, add the following code to the end of the `Main` method to call the `CreateRelationship` code:
+Next, add the following code to the end of the `Main` method, to call the `CreateRelationship` method and use the code you just wrote:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -388,6 +372,25 @@ await ListRelationships(client, "sampleTwin-0");
 
 In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created.
 
+Here is an example output:
+
+```cmd/sh
+Hello World!
+Service client created - ready to go
+
+Upload a model
+Type name: System.Collections.Generic.Dictionary'2[System.String,System.String]: dtmi:contosocom:DigitalTwins:SampleModel;1
+Create twin: sampleTwin-0
+Create twin: sampleTwin-1
+Create twin: sampleTwin-2
+Created relationship successfully
+Created relationship successfully
+Twin sampleTwin-0 is connected to:
+-contains->sampleTwin-1
+-contains->sampleTwin-2
+
+```
+
 ### Query digital twins
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment.
@@ -422,7 +425,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -434,11 +436,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();
@@ -535,24 +536,7 @@ namespace minimal
  
 The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
  
-If you no longer need the resources created in this tutorial, follow these steps to delete them.
-
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
-
-Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Finally, delete the project folder you created on your local machine.
 
@@ -564,7 +548,3 @@ Continue to the next tutorial to explore the things you can do with such a sampl
 
 > [!div class="nextstepaction"]
 > [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
-
-You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
-* [*How-to: Manage custom models*](how-to-manage-model.md)
-* [*Concepts: Custom models*](concepts-models.md)

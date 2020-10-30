@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/25/2019
+ms.date: 10/28/2020
 
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
@@ -17,7 +17,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio 
 
 Although you can perform these same tasks in the [Azure portal](https://portal.azure.com) and in Visual Studio, you can get started faster in Visual Studio Code when you're already familiar with logic app definitions and want to work directly in code. For example, you can disable, enable, delete, and refresh already created logic apps. Also, you can work on logic apps and integration accounts from any development platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
-For this article, you can create the same logic app from this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. In Visual Studio Code, the logic app looks like this example:
+For this article, you can create the same logic app from this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. You can also [learn to create the example app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), and [learn to create and manage apps through the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md). In Visual Studio Code, the logic app looks like this example:
 
 ![Example logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -127,7 +127,7 @@ Before you start, make sure that you have these items:
    For example, here is a sample logic app workflow definition, which starts with an RSS trigger and an Office 365 Outlook action. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
 
    > [!IMPORTANT]
-   > If you want to reuse this sample logic app definition, you need an Office 365 organizational account, 
+   > If you want to reuse this sample logic app definition, you need an organizational account, 
    > for example, @fabrikam.com. Make sure that you replace the fictitious email address with your own 
    > email address. To use a different email connector, such as Outlook.com or Gmail, replace the 
    > `Send_an_email_action` action with a similar action available from an 
@@ -313,4 +313,4 @@ In Visual Studio Code, you can open and review the earlier versions for your log
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Create stateful or stateless logic apps in Visual Studio Code (Preview)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

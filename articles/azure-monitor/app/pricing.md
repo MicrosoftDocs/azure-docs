@@ -2,6 +2,7 @@
 title: Manage usage and costs for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
@@ -259,7 +260,7 @@ The default retention for Application Insights resources is 90 days. Different r
 
 To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
 
-![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
+![Screenshot that shows where to change the data retention period.](./media/pricing/pricing-005.png)
 
 When the retention is lowered, there is a several day grace period before the oldest data is removed.
 

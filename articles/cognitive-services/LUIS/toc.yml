@@ -23,11 +23,7 @@
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
   - name: Use SDK
-    items:
-    - name: Authoring app
-      href: sdk-authoring.md
-    - name: Query prediction endpoint
-      href: sdk-query-prediction-endpoint.md
+    href: azure-sdk-quickstart.md
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -135,6 +131,8 @@
       href: luis-concept-devops-automation.md
 - name: How-to guides
   items:
+  - name: Sign in to LUIS portal
+    href: sign-in-luis-portal.md
   - name: Start a new app
     href: luis-how-to-start-new-app.md
     displayName: import, export, container
@@ -405,6 +403,8 @@
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
   - name: Code samples
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
   - name: Regional availability
@@ -425,15 +425,12 @@
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
     href: luis-encryption-of-data-at-rest.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/LUIS
-  - name: UserVoice
-    href: https://go.microsoft.com/fwlink/?linkid=2092090
+  - name: Configure virtual networks
+    maintainContext: true
+    href: ../cognitive-services-virtual-networks.md
   - name: Search
     href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
 - name: LUIS portal
   href: https://www.luis.ai

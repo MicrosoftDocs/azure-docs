@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LENGTH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the number of characters of the specified string expression.  
   
 ## Syntax

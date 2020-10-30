@@ -6,6 +6,7 @@ author: avanigupta
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
@@ -121,7 +122,7 @@ In this article, you'll work with C# functions that have the following propertie
 - Azure Functions runtime version 3.x
 - Function triggered by timer every 10 minutes
 
-To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Don't make any changes to the environment variables in the code you've downloaded. You'll create the required app settings in the next section.
@@ -130,13 +131,13 @@ To make it easier for you to start backing up your data, we've [tested and publi
 ### Build your own function
 
 If the sample code provided earlier doesn't meet your requirements, you can also create your own function. Your function must be able to perform the following tasks in order to complete the backup:
-- Periodically read contents of your queue to see if it contains any notifications from Event Grid. Refer to the [Storage Queue SDK](/azure/storage/queues/storage-quickstart-queues-dotnet) for implementation details.
-- If your queue contains [event notifications from Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
+- Periodically read contents of your queue to see if it contains any notifications from Event Grid. Refer to the [Storage Queue SDK](../storage/queues/storage-quickstart-queues-dotnet.md) for implementation details.
+- If your queue contains [event notifications from Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
 - Read all settings from the primary store. Update only those settings in the secondary store that have a corresponding event in the queue. Delete all settings from the secondary store that were present in the queue but not in the primary store. You can use the [App Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) to access your configuration stores programmatically.
 - Delete messages from the queue if there were no exceptions during processing.
 - Implement error handling according to your needs. Refer to the preceding code sample to see some common exceptions that you might want to handle.
 
-To learn more about creating a function, see: [Create a function in Azure that is triggered by a timer](/azure/azure-functions/functions-create-scheduled-function) and [Develop Azure Functions using Visual Studio](/azure/azure-functions/functions-develop-vs).
+To learn more about creating a function, see: [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) and [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -164,16 +165,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## Grant access to the managed identity of the function app
 
-Use the following command or the [Azure portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) to add a system-assigned managed identity for your function app.
+Use the following command or the [Azure portal](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned managed identity for your function app.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to add or remove Azure role assignments by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to add or remove Azure role assignments by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-Use the following commands or the [Azure portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) to grant the managed identity of your function app access to your App Configuration stores. Use these roles:
+Use the following commands or the [Azure portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) to grant the managed identity of your function app access to your App Configuration stores. Use these roles:
 - Assign the `App Configuration Data Reader` role in the primary App Configuration store.
 - Assign the `App Configuration Data Owner` role in the secondary App Configuration store.
 
@@ -193,7 +194,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Use the following command or the [Azure portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
+Use the following command or the [Azure portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
 
 ```azurecli-interactive
 az role assignment create \
@@ -213,7 +214,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 You've triggered the event. In a few moments, Event Grid will send the event notification to your queue. *After the next scheduled run of your function*, view configuration settings in your secondary store to see if it contains the updated key-value from the primary store.
 
 > [!NOTE]
-> You can [trigger your function manually](/azure/azure-functions/functions-manually-run-non-http) during the testing and troubleshooting without waiting for the scheduled timer-trigger.
+> You can [trigger your function manually](../azure-functions/functions-manually-run-non-http.md) during the testing and troubleshooting without waiting for the scheduled timer-trigger.
 
 After you make sure that the backup function ran successfully, you can see that the key is now present in your secondary store.
 
@@ -240,9 +241,9 @@ If you don't see the new setting in your secondary store:
 
 - Make sure the backup function was triggered *after* you created the setting in your primary store.
 - It's possible that Event Grid couldn't send the event notification to the queue in time. Check if your queue still contains the event notification from your primary store. If it does, trigger the backup function again.
-- Check [Azure Functions logs](/azure/azure-functions/functions-create-scheduled-function#test-the-function) for any errors or warnings.
-- Use the [Azure portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) to ensure that the Azure function app contains correct values for the application settings that Azure Functions is trying to read.
-- You can also set up monitoring and alerting for Azure Functions by using [Azure Application Insights](/azure/azure-functions/functions-monitoring?tabs=cmd). 
+- Check [Azure Functions logs](../azure-functions/functions-create-scheduled-function.md#test-the-function) for any errors or warnings.
+- Use the [Azure portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) to ensure that the Azure function app contains correct values for the application settings that Azure Functions is trying to read.
+- You can also set up monitoring and alerting for Azure Functions by using [Azure Application Insights](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
 ## Clean up resources

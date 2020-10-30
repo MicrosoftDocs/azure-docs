@@ -101,11 +101,11 @@ It's possible to turn off the default limitations so that a guest user in the co
 ![Screenshot showing the External users option in the user settings](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
-Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Manage guest access in Microsoft 365 Groups](/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## Can I update a guest user's email address?
 
-If a guest user accepts your invitation and they subsequently change their email address, the new email doesn't automatically sync to the guest user object in your directory. The mail property is created via [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). You can update the mail property via the Exchange admin center or [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), and the change will be reflected in the Azure AD guest user object.
+If a guest user accepts your invitation and they subsequently change their email address, the new email doesn't automatically sync to the guest user object in your directory. The mail property is created via [Microsoft Graph API](/graph/api/resources/user?view=graph-rest-1.0). You can update the mail property via the Microsoft Graph API, the Exchange admin center, or [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). The change will be reflected in the Azure AD guest user object.
 
 ## Next steps
 

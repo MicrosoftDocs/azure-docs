@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/22/2020
 tags: connectors
 ---
 
@@ -62,6 +62,9 @@ Now, continue with these steps:
 
 ### Connect to Azure SQL Database or Managed Instance
 
+To access an Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
+
+
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
 1. For **Authentication Type**, select the authentication that's required and enabled on your database in Azure SQL Database or Azure SQL Managed Instance:
@@ -74,7 +77,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    This example continues with **Azure AD Integrated**:
 
-   ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   ![Screenshot that shows the "SQL Server" connection window with the opened "Authentication Type" list and "Azure AD Integrated" selected.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
 1. After you select **Azure AD Integrated**, select **Sign In**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
 
@@ -204,23 +207,31 @@ In this example, the logic app starts with the [Recurrence trigger](../connector
 
    This step automatically enables and publishes your logic app live in Azure.
 
+<a name="handle-bulk-data"></a>
+
 ## Handle bulk data
 
 Sometimes, you have to work with result sets so large that the connector doesn't return all the results at the same time, or you want better control over the size and structure for your result sets. Here's some ways that you can handle such large result sets:
 
-* To help you manage results as smaller sets, turn on *pagination*. For more information, see [Get bulk data, records, and items by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* To help you manage results as smaller sets, turn on *pagination*. For more information, see [Get bulk data, records, and items by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). For more information, see [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
-* Create a stored procedure that organizes the results the way you want.
+* Create a [*stored procedure*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that organizes the results the way that you want. The SQL connector provides many backend features that you can access by using Azure Logic Apps so that you can more easily automate business tasks that work with SQL database tables.
 
   When getting or inserting multiple rows, your logic app can iterate through these rows by using an [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) within these [limits](../logic-apps/logic-apps-limits-and-config.md). However, when your logic app has to work with record sets so large, for example, thousands or millions of rows, that you want to minimize the costs resulting from calls to the database.
 
-  To organize the results in the way that you want, you can create a [*stored procedure*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. This solution gives you more control over the size and structure of your results. Your logic app calls the stored procedure by using the SQL Server connector's **Execute stored procedure** action.
+  To organize the results in the way that you want, you can create a stored procedure that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. This solution gives you more control over the size and structure of your results. Your logic app calls the stored procedure by using the SQL Server connector's **Execute stored procedure** action. For more information, see [SELECT - ORDER BY Clause](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
-  For more solution details, see these articles:
-
-  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
-
-  * [SELECT - ORDER BY Clause](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). 
+  > Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. You can work around this problem 
+  > by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs.
+  > 
+  > For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
+  > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For 
+  > [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
+  > and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), 
+  > you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent). To learn more, see 
+  > [Handle long-running stored procedure timeouts in the SQL connector for Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### Handle dynamic bulk data
 
@@ -246,6 +257,16 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
 
+## Troubleshoot problems
+
+* Connection problems can commonly happen, so to troubleshoot and resolve these kinds of issues, review [Solving connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Here are some examples:
+
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
 ## Connector-specific details
 
 For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](/connectors/sql/), which is generated from the Swagger description.
@@ -253,4 +274,3 @@ For technical information about this connector's triggers, actions, and limits, 
 ## Next steps
 
 * Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
-

@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: "devx-track-csharp, sqldbrb=2"
 ms.devlang: dotnet
 ms.topic: quickstart
 author: stevestein
@@ -72,7 +72,7 @@ Get the connection information you need to connect to the database. You'll need 
    
 1. When the install completes, you can close **NuGet Package Manager**. 
    
-1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<server>`, `<username>`, `<password>`, and `<database>`.
+1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<your_server>`, `<your_username>`, `<your_password>`, and `<your_database>`.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
@@ -91,10 +91,10 @@ Get the connection information you need to connect to the database. You'll need 
                try 
                { 
                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                   builder.DataSource = "<server>.database.windows.net"; 
-                   builder.UserID = "<username>";            
-                   builder.Password = "<password>";     
-                   builder.InitialCatalog = "<database>";
+                   builder.DataSource = "<your_server>.database.windows.net"; 
+                   builder.UserID = "<your_username>";            
+                   builder.Password = "<your_password>";     
+                   builder.InitialCatalog = "<your_database>";
    
                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                    {
@@ -141,11 +141,10 @@ Get the connection information you need to connect to the database. You'll need 
 - Learn how to [connect and query a database in Azure SQL Database by using .NET Core](connect-query-dotnet-core.md) on Windows/Linux/macOS.  
 - Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [Design your first database in Azure SQL Database by using SSMS](design-first-database-tutorial.md) or [Design your first database in Azure SQL Database by using .NET](design-first-database-csharp-tutorial.md).
-- For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
+- For more information about .NET, see [.NET documentation](/dotnet/).
 - Retry logic example: [Connect resiliently to Azure SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

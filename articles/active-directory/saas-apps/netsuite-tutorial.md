@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with NetSuite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and NetSuite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Azure AD single sign-on (SSO) with NetSuite
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate NetSuite with Azure Active Direc
 * Enable your users to be automatically signed in to NetSuite with their Azure AD accounts.
 * Manage your accounts in one central location, the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -45,7 +39,7 @@ NetSuite supports:
 * IDP-initiated SSO.
 * JIT (just-in-time) user provisioning.
 * [Automated user provisioning](NetSuite-provisioning-tutorial.md).
-* Once you configure the NetSuite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure the NetSuite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
@@ -97,7 +91,7 @@ To enable Azure AD SSO in the Azure portal, do the following:
 
     * You will get the **<`Instance ID`>** value in the Netsuite configuration section which is explained later in the tutorial at step 8 under Netsuite Configuration. You will find the exact domain (such as system.na0.netsuite.com in this case).
 
-        ![Configure single sign-on](./media/NetSuite-tutorial/domain-value.png)
+        ![Screenshot shows SAML Setup page where you can get the domain.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > The values in the preceding URLs are not real. Update them with the actual Reply URL. To get the value, contact the [NetSuite Client support team](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). You can also refer to the formats shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -165,31 +159,31 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
 2. In the top navigation bar, select **Setup**, and then select **Company** > **Enable Features**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Screenshot shows Enable Features selected from Company.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. In the toolbar at the middle of the page, select **SuiteCloud**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Screenshot shows SuiteCloud selected.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. Under **Manage Authentication**, select the **SAML Single Sign-on** check box to enable the SAML single sign-on option in NetSuite.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Screenshot shows Manage Authentication where you can select SAML Single Sign-on.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. In the top navigation bar, select **Setup**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot shows Setup selected from the NETSUITE navigation bar.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. In the **Setup Tasks** list, select **Integration**.
 
-	![Configure single sign-on](./media/NetSuite-tutorial/ns-integration.png)
+	![Screenshot shows Integration selected from SETUP TASKS.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. Under **Manage Authentication**, select **SAML Single Sign-on**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-saml.png)
+    ![Screenshot show SAML Single Sign-on selected from the Integration item in SETUP TASKS.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. In the **SAML Setup** pane, under **NetSuite Configuration**, do the following:
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Screenshot shows SAML Setup where you can enter the values described.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Select the **Primary Authentication Method** check box.
 
@@ -199,9 +193,9 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
 9. In the NetSuite top navigation bar, select **Setup**, and then select **Company** > **Company Information**.
 
-	![Configure single sign-on](./media/NetSuite-tutorial/ns-com.png)
+	![Screenshot shows Company Information selected from Company.](./media/NetSuite-tutorial/ns-com.png)
 
-	![Configure single sign-on](./media/NetSuite-tutorial/ns-account-id.png)
+	![Screenshot shows the pane where you can enter the values described.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. In the **Company Information** pane, in the right column, copy the **Account ID** value.
 
@@ -211,23 +205,23 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
     a. In the top navigation bar, select **Setup**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot shows Setup selected from the NETSUITE navigation bar.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. In the left pane, select **Users/Roles**, then select **Manage Roles**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Screenshot shows the Manage Roles pane where you can select New Role.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Select **New Role**.
 
     d. Enter a **Name** for the new role.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Screenshot shows the Setup Manager where you can enter a name for the role.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Select **Save**.
 
     f. In the top navigation bar, select **Permissions**. Then select **Setup**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-sso.png)
+    ![Screenshot shows the Setup tab where you can enter the values described.](./media/NetSuite-tutorial/ns-sso.png)
 
     g. Select **SAML Single Sign-on**, and then select **Add**.
 
@@ -235,19 +229,19 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
     i. In the top navigation bar, select **Setup**, and then select **Setup Manager**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot shows Setup selected from the NETSUITE navigation bar.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. In the left pane, select **Users/Roles**, and then select **Manage Users**.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Screenshot shows the Manage Users pane where you can select Suite Demo Team.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Select a test user, select **Edit**, and then select the **Access** tab.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Screenshot shows the Manage Users pane where you can select Edit.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. In the **Roles** pane, assign the appropriate role that you have created.
 
-    ![Configure single sign-on](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Screenshot shows Administrator selected from Employee.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Select **Save**.
 
@@ -259,14 +253,14 @@ In this section, a user called B.Simon is created in NetSuite. NetSuite supports
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the NetSuite tile in the Access Panel, you should be automatically signed in to the NetSuite for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the NetSuite tile in the Access Panel, you should be automatically signed in to the NetSuite for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 - [Try NetSuite with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect NetSuite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect NetSuite with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

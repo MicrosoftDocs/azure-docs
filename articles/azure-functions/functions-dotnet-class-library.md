@@ -3,6 +3,7 @@ title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
 
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 
 ---
@@ -159,18 +160,7 @@ The *function.json* file generation is performed by the NuGet package [Microsoft
 
 The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks and the same `Sdk` package:
 
-**Functions 1.x**
-
-```xml
-<PropertyGroup>
-  <TargetFramework>net461</TargetFramework>
-</PropertyGroup>
-<ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
-</ItemGroup>
-```
-
-**Functions 2.x**
+# [v2.x+](#tab/v2)
 
 ```xml
 <PropertyGroup>
@@ -181,6 +171,19 @@ The same package is used for both version 1.x and 2.x of the Functions runtime. 
   <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
 </ItemGroup>
 ```
+
+# [v1.x](#tab/v1)
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+---
+
 
 Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 2.x triggers and bindings target .NET Core.
 
@@ -254,25 +257,6 @@ public static class ICollectorExample
 }
 ```
 
-## Logging
-
-To log output to your streaming logs in C#, include an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`, as in the following example:  
-
-```csharp
-public static class SimpleExample
-{
-    [FunctionName("QueueTrigger")]
-    public static void Run(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        ILogger log)
-    {
-        log.LogInformation($"C# function processed: {myQueueItem}");
-    }
-} 
-```
-
-Avoid using `Console.Write` in Azure Functions. For more information, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
-
 ## Async
 
 To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
@@ -322,6 +306,237 @@ public static class CancellationTokenExample
     }
 }
 ```
+
+## Logging
+
+In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't using `Console.Write` to write your logs, since this data isn't captured by Application Insights. 
+
+### ILogger
+
+In your function definition, include an [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) parameter, which supports [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. The following code writes `Information` logs with category `Function.<YOUR_FUNCTION_NAME>.User.`:
+
+```cs
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
+{
+    logger.LogInformation("Request for item with key={itemKey}.", id);
+```
+
+### Structured logging
+
+The order of placeholders, not their names, determines which parameters are used in the log message. Suppose you have the following code:
+
+```csharp
+string partitionKey = "partitionKey";
+string rowKey = "rowKey";
+logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionKey, rowKey);
+```
+
+If you keep the same message string and reverse the order of the parameters, the resulting message text would have the values in the wrong places.
+
+Placeholders are handled this way so that you can do structured logging. Application Insights stores the parameter name-value pairs and the message string. The result is that the message arguments become fields that you can query on.
+
+If your logger method call looks like the previous example, you can query the field `customDimensions.prop__rowKey`. The `prop__` prefix is added to ensure there are no collisions between fields the runtime adds and fields your function code adds.
+
+You can also query on the original message string by referencing the field `customDimensions.prop__{OriginalFormat}`.  
+
+Here's a sample JSON representation of `customDimensions` data:
+
+```json
+{
+  "customDimensions": {
+    "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
+    "Category":"Function",
+    "LogLevel":"Information",
+    "prop__message":"c9519cbf-b1e6-4b9b-bf24-cb7d10b1bb89"
+  }
+}
+```
+
+## Log custom telemetry in C# functions
+
+There is a Functions-specific version of the Application Insights SDK that you can use to send custom telemetry data from your functions to Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use the following command from the command prompt to install this package:
+
+# [Command](#tab/cmd)
+
+```cmd
+dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VERSION>
+```
+
+---
+
+In this command, replace `<VERSION>` with a version of this package that supports your installed version of [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/). 
+
+The following C# examples uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+
+# [v2.x+](#tab/v2)
+
+Version 2.x and later versions of the runtime use newer features in Application Insights to automatically correlate telemetry with the current operation. There's no need to manually set the operation `Id`, `ParentId`, or `Name` fields.
+
+```cs
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public class HttpTrigger2
+    {
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
+
+        [FunctionName("HttpTrigger2")]
+        public Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Write an event to the customEvents table.
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            this.telemetryClient.TrackEvent(evt);
+
+            // Generate a custom metric, in this case let's use ContentLength.
+            this.telemetryClient.GetMetric("contentLength").TrackValue(req.ContentLength);
+
+            // Log a custom dependency in the dependencies table.
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            this.telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
+
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+
+
+# [v1.x](#tab/v1)
+
+```cs
+using System;
+using System.Net;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Azure.WebJobs;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        private static string key = TelemetryConfiguration.Active.InstrumentationKey = 
+            System.Environment.GetEnvironmentVariable(
+                "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
+
+        private static TelemetryClient telemetryClient = 
+            new TelemetryClient() { InstrumentationKey = key };
+
+        [FunctionName("HttpTrigger2")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            HttpRequestMessage req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Get request body
+            dynamic data = await req.Content.ReadAsAsync<object>();
+
+            // Set name to query string or body data
+            name = name ?? data?.name;
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+        }
+        
+        // Correlate all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
+}
+```
+---
+
+Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
+
+Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
+
 
 ## Environment variables
 

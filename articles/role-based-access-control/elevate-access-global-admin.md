@@ -28,7 +28,7 @@ If you are a Global Administrator, there might be times when you want to do the 
 
 ## How does elevated access work?
 
-Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/roles/permissions-reference.md#company-administrator-permissions) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 
 When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
 
@@ -139,6 +139,22 @@ To remove the User Access Administrator role assignment for yourself or another 
     ```
 
 ## Azure CLI
+
+### Elevate access for a Global Administrator
+
+Use the following basic steps to elevate access for a Global Administrator using the Azure CLI.
+
+1. Use the [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Make the changes you need to make at elevated access.
+
+    For information about assigning roles, see [Add or remove Azure role assignments using the Azure CLI](role-assignments-cli.md).
+
+1. Perform the steps in a later section to remove your elevated access.
 
 ### List role assignment at root scope (/)
 

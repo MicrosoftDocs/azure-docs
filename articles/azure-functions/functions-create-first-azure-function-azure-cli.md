@@ -3,7 +3,7 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell"
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -77,19 +77,23 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
 
-# [bash](#tab/bash)
+> [!IMPORTANT]
+> + Use `-DjavaVersion=11` if you want to your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+> + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
+
+# [Bash](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
 ```
 # [PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" 
 ```
 # [Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8"
 ```
 ---
 
@@ -106,8 +110,6 @@ Provide the following values when prompted:
 Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
-
-To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
 
 ::: zone-end  
 Navigate into the project folder:
@@ -155,8 +157,6 @@ Settings for the Azure resources created to host your app are defined in the **c
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 You can change these settings to control how resources are created in Azure, such as by changing `runtime.os` from `windows` to `linux` before initial deployment. For a complete list of settings supported by the Maven plug-in, see the [configuration details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
-
-If you want to run your function app on Java 11 instead of Java 8, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](functions-reference-java.md#java-versions). When running on Java 11, make sure that  
 
 #### FunctionTest.java
 

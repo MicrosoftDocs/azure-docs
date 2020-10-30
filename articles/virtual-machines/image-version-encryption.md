@@ -3,9 +3,10 @@ title: Preview - Create an image version encrypted with your own keys
 description: Create a an image version in a Shared Image Gallery, using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 10/12/2020
 ms.author: cynthn
 ---
 
@@ -13,23 +14,29 @@ ms.author: cynthn
 
 Gallery images are stored as managed disks, so they are automatically encrypted using server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-You can rely on platform-managed keys for the encryption of your images, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
+You can rely on platform-managed keys for the encryption of your images, use your own keys, or you can use both together, for double encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
 Server-side encryption using customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](../key-vault/keys/hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault.
 
-To use customer managed keys for images, you first need an Azure Key Vault. You then create a disk encryption set. The disk encryption set is then used when creating you image versions.
+## Prerequisites
 
-For more information about creating and using disk encryption sets, see [Customer managed keys](./windows/disk-encryption.md#customer-managed-keys).
+This article requires that you already have a disk encryption set to use for your image.
+
+- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > You must use this link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
 
 ## Limitations
 
 There are several limitations when using customer managed keys for encrypting shared image gallery images:	
 
-- Encryption key sets must be in the same subscription and region as you image.
+- Encryption key sets must be in the same subscription as your image.
 
-- You cannot share images that use customer managed keys. 
+- Encryption key sets are regional resources so each region requires a different encryption key set.
 
-- You cannot replicate images that use customer managed keys to other regions.
+- You cannot copy or share images that use customer managed keys. 
 
 - Once you have used your own keys to encrypt a disk or image, you cannot go back to using platform-managed keys for encrypting those disks or images.
 
@@ -86,7 +93,19 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$eastUS2osDiskImageEncryption = @{DiskEncryptionSetId='subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myEastUS2DESet'}
+
+$eastUS2dataDiskImageEncryption1 = @{DiskEncryptionSetId='subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myEastUS2DESet1';Lun=1}
+
+$eastUS2dataDiskImageEncryption2 = @{DiskEncryptionSetId='subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myEastUS2DESet2';Lun=2}
+
+$eastUS2DataDiskImageEncryptions = @($eastUS2dataDiskImageEncryption1,$eastUS2dataDiskImageEncryption2)
+
+$encryption2 = @{OSDiskImage=$eastUS2osDiskImageEncryption;DataDiskImages=$eastUS2DataDiskImageEncryptions}
+
+$region2 = @{Name='East US 2';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption2}
+
+$targetRegion = @($region1, $region2)
 
 
 # Create the image
@@ -138,7 +157,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a space-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 If the source for the OS disk is a managed disk or a VM, use `--managed-image` to specify the source for the image version. In this example, the source is a managed image that has an OS disk as well as a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1 and the data disk will be encrypted with DiskEncryptionSet2.
 
@@ -146,8 +165,9 @@ If the source for the OS disk is a managed disk or a VM, use `--managed-image` t
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
-   --target-regions westus=2=standard_lrs \
-   --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
+   --location westus \
+   --target-regions westus=2=standard_lrs eastus2 \
+   --target-region-encryption WestUSDiskEncryptionSet1,0,WestUSDiskEncryptionSet2 EastUS2DiskEncryptionSet1,0,EastUS2DiskEncryptionSet2 \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
@@ -161,11 +181,12 @@ In this example, the sources are disk snapshots. There is an OS disk, and also a
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
-   --target-regions westus=2=standard_lrs \
-   --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --location westus\
+   --target-regions westus=2=standard_lrs eastus\
+   --target-region-encryption WestUSDiskEncryptionSet1,0,WestUSDiskEncryptionSet2 EastUS2DiskEncryptionSet1,0,EastUS2DiskEncryptionSet2 \
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -178,15 +199,19 @@ You can create a VM from a shared image gallery and use customer-managed keys to
 
 ## Portal
 
-When you create your image version in the portal, you can use the **Encryption** tab to enter the information about your storage encryption sets.
+When you create your image version in the portal, you can use the **Encryption** tab to enter apply your storage encryption sets.
+
+> [!IMPORTANT]
+> To use double encryption, you must use this link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
+
 
 1. In the **Create an image version** page, select the **Encryption** tab.
-2. In **Encryption type**, select **Encryption at-rest with a customer-managed key**. 
+2. In **Encryption type**, select **Encryption at-rest with a customer-managed key** or **Double encryption with platform-managed and customer-managed keys**. 
 3. For each disk in the image, select the **Disk encryption set** to use from the drop-down. 
 
 ### Create the VM
 
-You can create a VM from a shared image gallery and use customer-managed keys to encrypt the disks. When you create the VM in the portal, on the **Disks** tab, select **Encryption at-rest with customer-managed keys** for the **Encryption type**. You can then select the encryption set from the drop-down.
+You can create a VM from an image version and use customer-managed keys to encrypt the disks. When you create the VM in the portal, on the **Disks** tab, select **Encryption at-rest with customer-managed keys** or **Double encryption with platform-managed and customer-managed keys** for the **Encryption type**. You can then select the encryption set from the drop-down.
 
 ## Next steps
 

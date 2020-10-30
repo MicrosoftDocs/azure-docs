@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -81,6 +81,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## Next steps
-For more information on the App Service Environment, see [App Service Environment documentation](https://docs.microsoft.com/azure/app-service/environment).
+For more information on the App Service Environment, see [App Service Environment documentation](/azure/app-service/environment).
 
 To further secure your web app, information about Web Application Firewall on Application Gateway can be found in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).

@@ -5,12 +5,12 @@ description: A description of the restrictions and limitations on redirect URI (
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
+ms.reviewer: marsma, lenalepa, manrath
 ---
 # Redirect URI (reply URL) restrictions and limitations
 
@@ -18,7 +18,7 @@ A redirect URI, or reply URL, is the location where the authorization server sen
 
  The following restrictions apply to redirect URIs:
 
-* The redirect URI must begin with the scheme `https`.
+* The redirect URI must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
 
 * The redirect URI is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
@@ -56,11 +56,12 @@ Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and
 
 From a development standpoint, this means a few things:
 
-1. Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect).
-1. If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
-1. Per RFC guidance, you should not use `localhost` in the redirect URI. Instead, use the actual loopback IP address, `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
+* Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect).
+* If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
+* The IPv6 loopback address (`[::1]`) is not currently supported.
+* To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`.
 
-    The IPv6 loopback address (`[::1]`) is not currently supported.
+    To use the `http` scheme with the IP literal loopback address `127.0.0.1`, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
 
 ## Restrictions on wildcards in redirect URIs
 
@@ -70,9 +71,9 @@ Wildcard URIs are currently unsupported in app registrations configured to sign 
 
 To add redirect URIs with wildcards to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to [section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) and use only absolute URIs.
 
-If your scenario requires more redirect URIs than the maximum limit allowed, consider the [following approach](#use-a-state-parameter) instead of adding a wildcard redirect URI.
+If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) instead of adding a wildcard redirect URI.
 
-### Use a state parameter
+#### Use a state parameter
 
 If you have several subdomains and your scenario requires that, upon successful authentication, you redirect users to the same page from which they started, using a state parameter might be helpful.
 

@@ -10,51 +10,48 @@ By default, Event Hubs namespaces are accessible from internet as long as the re
 
 This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
->[!WARNING]
-> Enabling IP filtering can prevent other Azure services from interacting with Event Hubs.
+>[!IMPORTANT]
+> Turning on firewall rules for your Event Hubs namespace blocks incoming requests by default, unless requests originate from a service operating from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. 
 >
-> Trusted Microsoft services are not supported when IP filtering are implemented.
+> Here are some of the services that can't access Event Hubs resources when the IP filtering is enabled. Note that the list is **NOT** exhaustive.
 >
-> Common Azure scenarios that don't work with IP filtering (note that the list is **NOT** exhaustive) -
 > - Azure Stream Analytics
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (Diagnostic Settings)
 >
-> The following Microsoft services are required to be on a virtual network
-> - Azure Web Apps
-> - Azure Functions
-> - Azure Monitor (diagnostic setting)
-
+> As an exception, you can allow access to Event Hubs resources from certain trusted services even when the IP filtering is enabled. For a list of trusted services, see [Trusted Microsoft services](#trusted-microsoft-services).
 
 ## IP firewall rules
-The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+The IP firewall rules are applied at the Event Hubs namespace level. So, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 ## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for an Event Hubs namespace. 
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-4. Select **Networking** under **Settings** on the left menu. 
-
+4. Select **Networking** under **Settings** on the left menu. You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
     > [!NOTE]
-    > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
-
-    By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via public internet (using the access key). 
+    > By default, the **Selected networks** option is selected as shown in the following image. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via **public internet** (using the access key).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
     If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-    ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Screenshot that shows the "Firewall and virtual networks" page with the "All networks" option selected.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. To restrict access to specific IP addresses, confirm that the **Selected networks** option is selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
+3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. See [Trusted Microsoft services](#trusted-microsoft-services) for details. 
 
-        ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+      ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]
     > To restrict access to specific virtual networks, see [Allow access from specific networks](event-hubs-service-endpoints.md).
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
 
 ## Use Resource Manager template
 
@@ -118,7 +115,7 @@ Template parameters:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "type": "Microsoft.EventHub/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],

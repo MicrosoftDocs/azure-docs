@@ -85,7 +85,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
     The **simple contract** declares a state variable named **balance**. There are two functions defined. The **add** function adds a number to **balance**. The **get** function returns the value of **balance**.
 1. To compile the contract, first select the Solidity compiler pane then select the  **Compile simple.sol**.
 
-    ![Compile](./media/connect-metamask/compile.png)
+    ![Screen capture shows a contract being compiled.](./media/connect-metamask/compile.png)
 
 1. Select the **Deploy & Run** pane then set the **Environment** to **Injected Web3** to connect through MetaMask to your blockchain member.
 
@@ -93,7 +93,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
 1. Select the **simple** contract, then **Deploy**.
 
-    ![Deploy](./media/connect-metamask/deploy.png)
+    ![Screen capture shows deploy and run transactions with a contract selected and Deploy selected.](./media/connect-metamask/deploy.png)
 
 
 1. A MetaMask notification alerts you of insufficient funds to perform the transaction.

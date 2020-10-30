@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 06/02/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
@@ -42,11 +42,11 @@ For additional licensing information, including costs, see the following pages:
 * [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## Enable group or user-based licensing
 
-Azure AD supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property on the user. Assignment of licenses can be done under the **User** > **Profile** > **Settings** section in the Azure portal. *When you use group license assignment, any users without a usage location specified inherit the location of the directory.*
 

@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
 ---
 # Azure SQL Managed Instance content reference
@@ -66,7 +66,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Manual tuning](../database/performance-guidance.md)
 - [Use DMVs to monitor performance](../database/monitoring-with-dmvs.md)
-- [Use Query Store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Use Query Store to monitor performance](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Troubleshoot performance with Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Use the Intelligent Insights diagnostics log](../database/intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-Memory OLTP space](../in-memory-oltp-monitor-space.md)
@@ -76,6 +76,14 @@ In this article you can find a content reference to various guides, scripts, and
 - [Extended events](../database/xevent-db-diff-from-svr.md)
 - [Store extended events into an event file](../database/xevent-code-event-file.md)
 - [Store extended events into a ring buffer](../database/xevent-code-ring-buffer.md)
+
+### Alerting
+
+- [Create alerts on managed instance](alerts-create.md)
+
+## Operations
+
+- [User-initiated manual failover on SQL Managed Instance](user-initiated-failover.md)
 
 ## Develop applications
 
@@ -101,8 +109,6 @@ In this article you can find a content reference to various guides, scripts, and
 - [SaaS design patterns](../database/saas-tenancy-app-design-patterns.md)
 - [SaaS video indexer](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS app security](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## Next steps
 

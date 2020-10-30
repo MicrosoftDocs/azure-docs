@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2019
@@ -25,7 +25,7 @@ The SQL Server IaaS Agent Extension (SqlIaasExtension) runs on Azure virtual mac
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [SQL Server IaaS Agent Extension for SQL Server VMs (classic)](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+To view the classic version of this article, see [SQL Server IaaS Agent Extension for SQL Server VMs (classic)](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension).
 
 
 ## Supported services
@@ -79,7 +79,7 @@ The SQL Server IaaS extension is installed when you register your SQL Server VM 
     -Version "2.0" -Location "Central US";  
   ```
 
-> [!NOTE]
+> [!WARNING]
 > Installing the extension restarts the SQL Server service. 
 
 

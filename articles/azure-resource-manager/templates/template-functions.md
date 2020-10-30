@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ---
 # ARM template functions
 
@@ -98,9 +98,11 @@ Resource Manager provides the following functions for working with logical condi
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [false](template-functions-logical.md#false)
 * [if](template-functions-logical.md#if)
 * [not](template-functions-logical.md#not)
 * [or](template-functions-logical.md#or)
+* [true](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -135,10 +137,12 @@ Resource Manager provides the following functions for working with integers:
 Resource Manager provides several functions for working with objects.
 
 * [contains](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
 * [empty](template-functions-object.md#empty)
 * [intersection](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [null](template-functions-object.md#null)
 * [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -161,6 +165,7 @@ Resource Manager provides the following functions for getting resource values:
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
+* [pickZones](template-functions-resource.md#pickzones)
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.

@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
+ms.reviewer: mathoma, sstein
+ms.date: 08/27/2020
 ---
 
 # Creating and using active geo-replication - Azure SQL Database
@@ -24,7 +24,7 @@ Active geo-replication is an Azure SQL Database feature that allows you to creat
 Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disaster or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
 
 > [!NOTE]
-> Active geo-replication replicates changes by streaming database transaction log. It is unrelated to [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), which replicates changes by executing DML (INSERT, UPDATE, DELETE) commands.
+> Active geo-replication replicates changes by streaming database transaction log. It is unrelated to [transactional replication](/sql/relational-databases/replication/transactional/transactional-replication), which replicates changes by executing DML (INSERT, UPDATE, DELETE) commands.
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using Active geo-replication.
 
@@ -41,15 +41,15 @@ You can manage replication and failover of an individual database or a set of da
 - [PowerShell: Single database](scripts/setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Elastic pool](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [REST API: Single database](/rest/api/sql/replicationlinks)
 
-Active geo-replication leverages the [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of the database engine to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+Active geo-replication leverages the [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of the database engine to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 > [!NOTE]
 > If there is a network failure between two regions, we retry every 10 seconds to re-establish connections.
 
 > [!IMPORTANT]
-> To guarantee that a critical change on the primary database is replicated to a secondary before you failover, you can force synchronization to ensure the replication of critical changes (for example, password updates). Forced synchronization impacts performance because it blocks the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). To monitor the replication lag between the primary database and geo-secondary, see [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+> To guarantee that a critical change on the primary database is replicated to a secondary before you failover, you can force synchronization to ensure the replication of critical changes (for example, password updates). Forced synchronization impacts performance because it blocks the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). To monitor the replication lag between the primary database and geo-secondary, see [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
 The following figure shows an example of active geo-replication configured with a primary in the North Central US region and secondary in the South Central US region.
 
@@ -78,7 +78,7 @@ To achieve real business continuity, adding database redundancy between datacent
 > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
 
 > [!IMPORTANT]
-> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee availability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](high-availability-sla.md#zone-redundant-configuration) to achieve availability zone isolation.
+> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee availability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) or General Purpose service tier [zone redundant configuration](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) to achieve availability zone isolation.
 >
 
 - **Planned failover**
@@ -113,7 +113,7 @@ To ensure that your application can immediately access the new primary after fai
 
 ## Configuring secondary database
 
-Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up.
+Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same backup storage redundancy and compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up.
 
 Another consequence of an imbalanced secondary configuration is that after failover, application performance may suffer due to insufficient compute capacity of the new primary. In that case, it will be necessary to scale up database service objective to the necessary level, which may take significant time and compute resources, and will require a [high availability](high-availability-sla.md) failover at the end of the scale up process.
 
@@ -121,8 +121,13 @@ If you decide to create the secondary with lower compute size, the log IO percen
 
 Transaction log rate throttling on the primary due to lower compute size on a secondary is reported using the HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait type, visible in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views.
 
+By default, the backup storage redundancy of the secondary is same as that of the primary database. You can choose to configure the secondary with a different backup storage redundancy. Backups are always taken on the primary database. If the secondary is configured with a different backup storage redundancy, after failover when the secondary is promoted to the primary, backups will be billed according to the storage redundancy selected on the new primary (previous secondary). 
+
 > [!NOTE]
 > Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Redundancy is currently generally available in Southeast Asia Azure region only. When the source database is created with locally-redundant or zone-redundant backup storage redundancy, creating a secondary database in a different Azure region is not supported. 
 
 For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](purchasing-models.md).
 
@@ -173,7 +178,8 @@ The client performing the changes needs network access to the primary server. Al
 
 ### On the master of the secondary server
 
-1. Add the IP address to the allow list of the client performing the changes. It must the same exact IP address of the primary server.
+1. Add the client IP address to the allowed list under firewall rules for the secondary server. Validate that the exact same client IP address that has been added on the primary server has also been added to the secondary. This is a required step to be done before running the ALTER DATABASE ADD SECONDARY command to initiate geo-replication.
+
 1. Create the same login as on the primary server, using the same username password, and SID:
 
    ```sql
@@ -233,7 +239,7 @@ To measure lag with respect to changes on the primary database that have been ap
 
 ## Programmatically managing active geo-replication
 
-As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](/rest/api/sql/) and [Azure PowerShell cmdlets](/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### T-SQL: Manage failover of single and pooled databases
 
@@ -242,9 +248,9 @@ As discussed previously, active geo-replication can also be managed programmatic
 
 | Command | Description |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary to initiate failover |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary to initiate failover |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returns information about all existing replication links for each database on a server. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Gets the last replication time, last replication lag, and other information about the replication link for a given database. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Shows the status for all database operations including the status of the replication links. |
@@ -255,15 +261,15 @@ As discussed previously, active geo-replication can also be managed programmatic
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 | Cmdlet | Description |
 | --- | --- |
-| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Gets one or more databases. |
-| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Creates a secondary database for an existing database and starts data replication. |
-| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Switches a secondary database to be primary to initiate failover. |
-| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Terminates data replication between a SQL Database and the specified secondary database. |
-| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Gets the geo-replication links between an Azure SQL Database and a resource group or logical SQL server. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Gets one or more databases. |
+| [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |Creates a secondary database for an existing database and starts data replication. |
+| [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Switches a secondary database to be primary to initiate failover. |
+| [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Terminates data replication between a SQL Database and the specified secondary database. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Gets the geo-replication links between an Azure SQL Database and a resource group or logical SQL server. |
 |  | |
 
 > [!IMPORTANT]
@@ -273,13 +279,13 @@ As discussed previously, active geo-replication can also be managed programmatic
 
 | API | Description |
 | --- | --- |
-| [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Creates, updates, or restores a primary or a secondary database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returns the status during a create operation. |
-| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Sets which secondary database is primary by failing over from the current primary database. **This option is not supported for SQL Managed Instance.**|
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which secondary database is primary by failing over from the current primary database. This operation might result in data loss. **This option is not supported for SQL Managed Instance.**|
-| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. **This option is not supported for SQL Managed Instance.**|
-| [Replication Links - List By Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |
+| [Create or Update Database (createMode=Restore)](/rest/api/sql/databases/createorupdate) |Creates, updates, or restores a primary or a secondary database. |
+| [Get Create or Update Database Status](/rest/api/sql/databases/createorupdate) |Returns the status during a create operation. |
+| [Set Secondary Database as Primary (Planned Failover)](/rest/api/sql/replicationlinks/failover) |Sets which secondary database is primary by failing over from the current primary database. **This option is not supported for SQL Managed Instance.**|
+| [Set Secondary Database as Primary (Unplanned Failover)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which secondary database is primary by failing over from the current primary database. This operation might result in data loss. **This option is not supported for SQL Managed Instance.**|
+| [Get Replication Link](/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. **This option is not supported for SQL Managed Instance.**|
+| [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Delete Replication Link](/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |
 |  | |
 
 ## Next steps

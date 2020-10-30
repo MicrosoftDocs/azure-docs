@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # REPLICATE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Repeats a string value a specified number of times.
   
 ## Syntax
@@ -30,7 +32,8 @@ REPLICATE(<str_expr>, <num_expr>)
   Returns a string expression.
   
 ## Remarks
-  The maximum length of the result is 10,000 characters i.e. (length(*str_expr*)  *  *num_expr*) <= 10,000.
+
+  The maximum length of the result is 10,000 characters i.e. (length(*str_expr*)  *  *num_expr*) <= 10,000. This system function will not utilize the index.
 
 ## Examples
   
@@ -45,10 +48,6 @@ SELECT REPLICATE("a", 3) AS replicate
 ```json
 [{"replicate": "aaa"}]
 ```  
-
-## Remarks
-
-This system function will not utilize the index.
 
 ## Next steps
 

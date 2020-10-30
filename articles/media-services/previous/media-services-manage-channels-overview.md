@@ -19,6 +19,8 @@ ms.author: juliako
 ---
 # Overview of Live Streaming using Media Services
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
@@ -86,7 +88,7 @@ Following table provides a guide to comparing the two Channel types supported in
 
 The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
 
-![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagram that shows the major parts of the A M S platform for the "pass-through" workflow.](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 

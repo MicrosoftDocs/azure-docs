@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Azure Arc for servers agent connection issues
-description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc for servers (preview) when trying to connect to the service.
-ms.date: 07/20/2020
+title: Troubleshoot Azure Arc enabled servers agent connection issues
+description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc enabled servers when trying to connect to the service.
+ms.date: 09/02/2020
 ms.topic: conceptual
 ---
 
 # Troubleshoot the Connected Machine agent connection issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc for servers (preview) Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Arc for servers overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc enabled servers Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Arc enabled servers overview](./overview.md).
 
 ## Agent verbose log
 
@@ -17,13 +17,13 @@ Before following the troubleshooting steps described later in this article, the 
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an interactive installation.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an at-scale installation using a service principal.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -41,13 +41,13 @@ The following is an example of the command to enable verbose logging with the Co
 >[!NOTE]
 >You must have *root* access permissions on Linux machines to run **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an at-scale installation using a service principal.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \
@@ -74,7 +74,7 @@ The following table lists some of the known errors and suggestions on how to tro
 |Failed to AzcmagentConnect ARM resource |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Azure resource providers are not registered. |Register the [resource providers](./agent-overview.md#register-azure-resource-providers). |
 |Failed to AzcmagentConnect ARM resource |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |Proxy server or firewall is blocking access to `management.azure.com` endpoint. |Verify connectivity to the endpoint and it is not blocked by a firewall or proxy server. |
 
-<a name="footnote1"></a><sup>1</sup>If this GPO is enabled and applies to machines with the Connected Machine agent, it deletes the user profile associated with the built-in account specified for the *himds* service. As a result, it also deletes the authentication certificate used to communicate with the service that is cached in the local certificate store for 30 days. Before the 30 day limit, an attempt is made to renew the certificate. To resolve this issue, follow the steps to [unregister the machine](manage-agent.md#unregister-machine) and then re-register it with the service running `azcmagent connect`.
+<a name="footnote1"></a><sup>1</sup>If this GPO is enabled and applies to machines with the Connected Machine agent, it deletes the user profile associated with the built-in account specified for the *himds* service. As a result, it also deletes the authentication certificate used to communicate with the service that is cached in the local certificate store for 30 days. Before the 30-day limit, an attempt is made to renew the certificate. To resolve this issue, follow the steps to [unregister the machine](manage-agent.md#unregister-machine) and then re-register it with the service running `azcmagent connect`.
 
 ## Next steps
 

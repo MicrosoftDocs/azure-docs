@@ -6,10 +6,11 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB allows you to perform optimized queries by using a fluent JavaScript interface without any knowledge of SQL language that can be used to write stored procedures or triggers. To learn more about JavaScript Query API support in Azure Cosmos DB, see [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) article.
 

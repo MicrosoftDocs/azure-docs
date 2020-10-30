@@ -44,6 +44,8 @@
       items:
       - name: Azure portal
         href: service-bus-quickstart-topics-subscriptions-portal.md
+      - name: Azure CLI
+        href: service-bus-tutorial-topics-subscriptions-cli.md
       - name: ARM template
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
@@ -62,21 +64,14 @@
         href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
-  - name: Update inventory - PowerShell
-    href: service-bus-tutorial-topics-subscriptions-powershell.md
-  - name: Update inventory - Portal
+  - name: Update inventory
     href: service-bus-tutorial-topics-subscriptions-portal.md
-  - name: Update inventory - CLI
-    href: service-bus-tutorial-topics-subscriptions-cli.md
   - name: Respond to events via Event Grid
     href: service-bus-to-event-grid-integration-example.md
 - name: Samples
   items:
   - name: Service Bus samples
     href: service-bus-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Premium messaging
@@ -95,6 +90,8 @@
     href: service-bus-throttling.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -110,8 +107,6 @@
           href: service-bus-managed-service-identity.md
         - name: Authenticate from an application
           href: authenticate-application.md
-    - name: Built-in security controls
-      href: service-bus-messaging-security-controls.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -119,6 +114,8 @@
       href: network-security.md
 - name: How-to guides
   items:
+  - name: Move across regions
+    href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: deprecate-service-bus-management.md
   - name: Create a namespace
@@ -272,6 +269,9 @@
     href: service-bus-messaging-sql-filter.md
   - name: SQLRuleAction syntax
     href: service-bus-messaging-sql-rule-action.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: FAQ

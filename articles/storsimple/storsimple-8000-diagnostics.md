@@ -1,6 +1,6 @@
 ---
 title: Diagnostics Tool to troubleshoot StorSimple 8000 device | Microsoft Docs
-description: Describes the StorSimple device modes and explains how to use Windows PowerShell for StorSimple to change the device mode.
+description: This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
 services: storsimple
 documentationcenter: ''
 author: alkohli

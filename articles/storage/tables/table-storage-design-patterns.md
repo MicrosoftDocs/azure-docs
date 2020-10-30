@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
+ms.custom: devx-track-csharp
 ---
 # Table design patterns
 This article describes some patterns appropriate for use with Table service solutions. Also, you will see how you can practically address some of the issues and trade-offs discussed in other Table storage design articles. The following diagram summarizes the relationships between the different patterns:  
@@ -292,7 +293,7 @@ In a relational database, it is natural to use joins in queries to return relate
 
 Assume you are storing employee entities in the Table service using the following structure:  
 
-![Employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Screenshot that shows how you can store employee entities in the Table service.](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 
@@ -309,7 +310,7 @@ Notice how the **RowKey** is now a compound key made up of the employee ID and t
 
 The following example outlines how you can retrieve all the review data for a particular employee (such as employee 000123 in the Sales department):  
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt '000123_2012')&$select=RowKey,Manager Rating,Peer Rating,Comments  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  

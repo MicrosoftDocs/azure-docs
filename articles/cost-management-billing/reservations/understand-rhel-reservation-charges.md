@@ -3,6 +3,7 @@ title: Red Hat reservation plan discounts - Azure
 description: Learn how Red Hat plan discounts are applied to Red Hat software on virtual machines.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
@@ -46,7 +47,7 @@ Azure portal marketplace names:
 To learn more about reservations, see the following articles:
 
 - [What are reservations for Azure](save-compute-costs-reservations.md)
-- [Prepay for Red Hat software plans with Azure reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prepay for Red Hat software plans with Azure reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Manage reservations for Azure](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)

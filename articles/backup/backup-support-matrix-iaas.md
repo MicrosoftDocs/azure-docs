@@ -22,7 +22,7 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
-Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
+Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that's running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
 Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
 Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
@@ -44,7 +44,7 @@ Backups per day (via DPM/MABS) | Two scheduled backups per day.
 Monthly/yearly backup| Not supported when backing up with Azure VM extension. Only daily and weekly is supported.<br/><br/> You can set up the policy to retain daily/weekly backups for monthly/yearly retention period.
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
-Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM; However even if the time change is reverted, successful backup isn't guaranteed.
+Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
 Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Backup and restore are supported for VMs with [orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) set to 3. <br><br>Availability sets are unsupported.
 
 ## Operating system support (Windows)
@@ -83,7 +83,7 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 **Setting** | **Limits**
 --- | ---
 Maximum recovery points per protected instance (machine/workload) | 9999.
-Maximum expiry time for a recovery point | No limit.
+Maximum expiry time for a recovery point | No limit (99 years).
 Maximum backup frequency to vault (Azure VM extension) | Once a day.
 Maximum backup frequency to vault (MARS agent) | Three backups per day.
 Maximum backup frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
@@ -125,7 +125,7 @@ Restore VM directly to an availability set | For managed disks, you can restore 
 Restore backup of unmanaged VMs after upgrading to managed VM| Supported.<br/><br/> You can restore disks, and then create a managed VM.
 Restore VM to restore point before the VM was migrated to managed disks | Supported.<br/><br/> You restore to unmanaged disks (default), convert the restored disks to managed disk, and create a VM with the managed disks.
 Restore a VM that's been deleted. | Supported.<br/><br/> You can restore the VM from a recovery point.
-Restore a domain controller (DC) VM that is part of a multi-DC configuration through portal | Supported if you restore the disk and create a VM by using PowerShell.
+Restore a domain controller VM  | Supported. For details, see [Restore domain controller VMs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Restore VM in different virtual network |Supported.<br/><br/> The virtual network must be in the same subscription and region.
 
 ## VM compute support
@@ -136,31 +136,32 @@ VM size |Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Le
 Back up VMs in [availability sets](../virtual-machines/availability.md#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
 Back up VMs that are deployed with [Hybrid Use Benefit (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Supported.
 Back up VMs that are deployed in a [scale set](../virtual-machine-scale-sets/overview.md) |Supported. [Orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md) should be set to 2 for Fault Domain. Availability set is unsupported.
-Back up VMs that are deployed from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS). We don't restore the Azure Marketplace VMs backed as VMs, as these need purchase information. They are only restored as disks.
+Back up VMs that are deployed from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS). We don't restore Azure Marketplace VMs backed as VMs, as these need purchase information. They are only restored as disks.
 Back up VMs that are deployed from a custom image (third-party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
 Backup with [Diagnostic Settings](../azure-monitor/platform/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
-Restore of Zone-pinned VMs | Supported (for VM that is backed-up after Jan 2019 and where [availability zone](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that is pinned in VMs. However, if the zone is unavailable, restore fails.
+Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable, restore fails.
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
-[Spot VMs](../virtual-machines/windows/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
+[Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
 
 ## VM storage support
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in all regions except National Clouds (Azure Government, Azure China 21Vianet, and Azure Germany).<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
+Azure VM data disks | Support for backup of Azure VMs with up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the disks with Write Accelerator (WA) enabled during backup. Since they aren't backed up, you can't restore these disks from recovery points of the VM. <br><br> **Important note**: Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup.)
+Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure Backup automatically excludes the disks with Write Accelerator (WA) enabled during backup. Since they aren't backed up, you can't restore these disks from recovery points of the VM. <br><br> **Important note**: Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup.)
 Back up & Restore deduplicated VMs/disks | Azure Backup doesn't support deduplication. For more information, see this [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure Backup doesn't deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
-[Shared disks](../virtual-machines/windows/disks-shared-enable.md) | Not supported.
+[Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
+Ultra SSD disks | Not supported. For more details, see these [limitations](selective-disk-backup-restore.md#limitations).
 
 ## VM network support
 

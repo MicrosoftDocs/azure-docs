@@ -9,11 +9,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/19/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using C#
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple C# application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
@@ -23,21 +29,20 @@ Although this application is written in C#, the API is a RESTful Web service com
 ## Prerequisites
 
 - Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
-
-- The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install the NuGet package in Visual Studio:
-
-   1. Right-click your project in **Solution Explorer**.
-   2. Select **Manage NuGet Packages**.
-   3. Search for and select *Newtonsoft.Json*, and then install the package.
-
-- If you're using Linux/MacOS, this application can be run by using [Mono](https://www.mono-project.com/).
+- Or if you're using Linux or MacOS, you can follow this quickstart using [Visual Studio Code](https://code.visualstudio.com/) and [.NET Core](/dotnet/core/install/macos)
+- [Free Azure account](https://azure.microsoft.com/free/dotnet)
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. Create a new C# console solution in Visual Studio. Then, add the following namespaces into the main code file:
+1. Create a new C# console solution in Visual Studio. 
+1. Add the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package.
+    1. Right-click your project in **Solution Explorer**.
+    2. Select **Manage NuGet Packages**.
+    3. Search for and select *Newtonsoft.Json*, and then install the package.
+1. Then, add the following namespaces into the main code file:
     
     ```csharp
     using Newtonsoft.Json;

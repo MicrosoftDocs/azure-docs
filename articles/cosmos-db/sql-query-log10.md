@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LOG10 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the base-10 logarithm of the specified numeric expression.  
   
 ## Syntax
@@ -28,7 +30,7 @@ LOG10 (<numeric_expr>)
   
 ## Remarks
   
-  The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n.  
+  The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n. This system function will not utilize the index.
   
 ## Examples
   
@@ -43,10 +45,6 @@ SELECT LOG10(100) AS log10
 ```json
 [{log10: 2}]  
 ```  
-
-## Remarks
-
-This system function will not utilize the index.
 
 ## Next steps
 

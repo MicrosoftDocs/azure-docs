@@ -11,7 +11,7 @@ In this quickstart, you'll learn how to use the Speech Devices SDK for Linux to 
 
 The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). It runs on a 64-bit Java 8 runtime environment (JRE).
 
-This guide requires an [Azure Cognitive Services](../get-started.md) account with a Speech service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This guide requires an [Azure Cognitive Services](../get-started.md) account with a Speech service resource. 
 
 The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -55,7 +55,7 @@ Make sure these dependencies are installed before starting Eclipse.
   > - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
 > - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-Conversation Transcription is currently only available for "en-US" and "zh-CN", in the “centralus” and “eastasia” regions. You must have a speech key in one of those regions to use Conversation Transcription.
+Conversation Transcription is currently only available for "en-US" and "zh-CN", in the "centralus" and "eastasia" regions. You must have a speech key in one of those regions to use Conversation Transcription.
 
 If you plan to use the intents you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). A [sample LUIS model](https://aka.ms/sdsdk-luis) is available for this app.
 
@@ -65,7 +65,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. In the **Eclipse IDE Launcher**, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
 
-   ![Screenshot of Eclipse Launcher](../media/speech-devices-sdk/eclipse-launcher-linux.png)
+   ![Screenshot that shows the Eclipse Launcher.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. In a moment, the main window of the Eclipse IDE appears. Close the Welcome screen if one is present.
 
@@ -156,22 +156,22 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. The Speech Devices SDK example application starts and displays the following options:
 
-   ![Sample Speech Devices SDK example application and options](../media/speech-devices-sdk/java-sample-app-linux.png)
+   ![Screenshot that shows a Speech Devices SDK example application and options.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant's voice signatures they can be put into `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Demo Conversation Transcription application](../media/speech-devices-sdk/cts-sample-app-linux.png)
+   ![Screenshot that shows a demo Conversation Transcription application.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## Create and run standalone the application
 
 1. In the **Package explorer**, right-click your project. Choose **Export**. 
 1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![Screenshot of the Export window](../media/speech-devices-sdk/eclipse-export-linux.png) 
+   ![Screenshot that shows the Export window.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
 1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
  
-   ![Screenshot of Runnable JAR File Export](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
+   ![Screenshot that shows the Runnable JAR File Export window.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
 1. Please put `kws.table` and `participants.properties` in the destination folder chosen above as these files are needed by the application.
 

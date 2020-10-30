@@ -4,11 +4,12 @@ description:  Learn how to configure and change the default indexing policy for 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
 ---
 
 # Indexing policies in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers indexes every property of every item and enforces range indexes for any string or number. This allows you to get high query performance without having to think about indexing and index management upfront.
 
@@ -25,11 +26,11 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) until complete.
 
 > [!NOTE]
-> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. In June 2020, we introduced a change that no longer allows new containers to be set to Lazy indexing mode. If your Azure Cosmos DB account already contains at least one container with lazy indexing, this account is automatically exempt from the change. You can also request an exemption by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. In June 2020, we introduced a change that no longer allows new containers to be set to Lazy indexing mode. If your Azure Cosmos DB account already contains at least one container with lazy indexing, this account is automatically exempt from the change. You can also request an exemption by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
 
-## <a id="include-exclude-paths"></a> Including and excluding property paths
+## <a id="include-exclude-paths"></a>Including and excluding property paths
 
 A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can substantially reduce the latency and RU charge of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
@@ -76,7 +77,7 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 When including and excluding paths, you may encounter the following attributes:
 
-- `kind` can be either `range` or `hash`. Range index functionality provides all of the functionality of a hash index, so we recommend using a range index.
+- `kind` can be either `range` or `hash`. Hash index support is limited to equality filters. Range index functionality provides all of the functionality of hash indexes as well as efficient sorting, range filters, system functions. We always recommend using a range index.
 
 - `precision` is a number defined at the index level for included paths. A value of `-1` indicates maximum precision. We recommend always setting this value to `-1`.
 
@@ -256,6 +257,9 @@ The following considerations are used when creating composite indexes to optimiz
 
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 
+> [!IMPORTANT]
+> Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
+
 > [!NOTE]
 > It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
@@ -263,7 +267,7 @@ There is no impact to write availability during any index transformations. The i
 
 There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
 
-When removing indexes and immediately running queries that filter on the dropped indexes, there is not a guarantee of consistent or complete query results. If you remove multiple indexes and do so in one single indexing policy change, the query engine guarantees consistent and complete results throughout the index transformation. However, if you remove indexes through multiple indexing policy changes, the query engine does not guarantee consistent or complete results until all index transformations complete. Most developers do not drop indexes and then immediately try to run queries that utilize these indexes so, in practice, this situation is unlikely.
+When removing indexes and immediately running queries that filter on the dropped indexes, there is not a guarantee of consistent or complete query results. If you remove multiple indexes and do so in one single indexing policy change, the query engine provides consistent and complete results throughout the index transformation. However, if you remove indexes through multiple indexing policy changes, the query engine will not provide consistent or complete results until all index transformations complete. Most developers do not drop indexes and then immediately try to run queries that utilize these indexes so, in practice, this situation is unlikely.
 
 > [!NOTE]
 > Where possible, you should always try to group multiple indexing changes into one single indexing policy modification

@@ -1,14 +1,12 @@
 ---
 title: Upgrade Azure Kubernetes Service (AKS) node images 
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
-author: laurenhughes
-ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 08/17/2020
 ---
 
-# Preview - Azure Kubernetes Service (AKS) node image upgrades
+# Azure Kubernetes Service (AKS) node image upgrade
 
 AKS supports upgrading the images on a node so you're up to date with the newest OS and runtime updates. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images as well as how to update node pool images without upgrading the version of Kubernetes.
 
@@ -16,23 +14,13 @@ If you're interested in learning about the latest images provided by AKS, see th
 
 For information on upgrading the Kubernetes version for your cluster, see [Upgrade an AKS cluster][upgrade-cluster].
 
-## Register the node image upgrade preview feature
+## Limitations
 
-To use the node image upgrade feature during the preview period, you need to register the feature.
+* The AKS cluster must use virtual machine scale sets for the nodes.
 
-```azurecli
-# Register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
-```
+## Install the AKS CLI Extension
 
-It will take several minutes for the registration to complete. Use the following command to verify the feature is registered:
-
-```azurecli
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-During preview, you need the *aks-preview* CLI extension to use node image upgrade. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+Before the next core CLI version is released, you need the *aks-preview* CLI extension to use node image upgrade. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli
 # Install the aks-preview extension
@@ -41,12 +29,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
 
 ## Upgrade all nodes in all node pools
 

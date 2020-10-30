@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
+ms.date: 08/19/2020
 
 ---
 
@@ -24,7 +24,7 @@ A data collection rule includes the following components.
 
 | Component | Description |
 |:---|:---|
-| Data sources | Unique source of monitoring data with its own format and method exposing its data. Examples of a data source include Windows event log, performance counters, and syslog. Each data source matches a particular data source type as described below. |
+| Data sources | Unique source of monitoring data with its own format and method of exposing its data. Examples of a data source include Windows event log, performance counters, and syslog. Each data source matches a particular data source type as described below. |
 | Streams | Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream may be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace. |
 | Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace, Azure Monitor Metrics, and Azure Event Hubs. | 
 | Data flows | Definition of which streams should be sent to which destinations. | 
@@ -34,13 +34,13 @@ The following diagram shows the components of a data collection rule and their r
 [![Diagram of DCR](media/data-collection-rule/data-collection-rule-components.png)](media/data-collection-rule/data-collection-rule-components.png#lightbox)
 
 ### Data source types
-Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table.
+Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown in the following table.
 
 | Data source type | Description | 
 |:---|:---|
 | extension | VM extension-based data source |
 | performanceCounters | Performance counters for both Windows and Linux |
-| syslog | Syslog events on Linux virtual machine |
+| syslog | Syslog events on Linux |
 | windowsEventLogs | Windows event log |
 
 
@@ -50,21 +50,21 @@ The following table lists the limits that currently apply to each data collectio
 | Limit | Value |
 |:---|:---|
 | Maximum number of data sources | 10 |
-| Maximum counter specifiers in performance | 100 |
-| Maximum facility names in SysLog | 20 |
-| Maximum XPath queries in EventLog | 100 |
-| Maximum data flows | 10 |
-| Maximum data streams | 10 |
+| Maximum number of counter specifiers in performance counter | 100 |
+| Maximum number of facility names in Syslog | 20 |
+| Maximum number of XPath queries in Event Log | 100 |
+| Maximum number of data flows | 10 |
+| Maximum number of data streams | 10 |
 | Maximum number of extensions | 10 |
 | Maximum size of extension settings | 32 Kb |
-| Maximum Log Analytics workspaces | 10 |
+| Maximum number of Log Analytics workspaces | 10 |
 
 
 ## Create a DCR
 There are currently two available methods to create a DCR:
 
 - [Use the Azure portal](data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
-- Directly edit the data collection rule in JSON and submit using the REST API.
+- Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).
 
 ## Sample data collection rule
 The sample data collection rule below is for virtual machines with Azure Management agent and has the following details:
@@ -79,8 +79,7 @@ The sample data collection rule below is for virtual machines with Azure Managem
   - Collects Debug, Critical, and Emergency events from cron facility.
   - Collects Alert, Critical, and Emergency events from syslog facility.
 - Destinations
-  - Sends all data to a Log Analytics workspace named centralTeamWorkspace.
-  - Sends performance data to Azure Monitor Metrics in the current subscription.
+  - Sends all data to a Log Analytics workspace named centralWorkspace.
 
 ```json
 {
@@ -153,7 +152,7 @@ The sample data collection rule below is for virtual machines with Azure Managem
             ]
           },
           {
-            "name": "sylogBase",
+            "name": "syslogBase",
             "streams": [
               "Microsoft-Syslog"
             ],

@@ -4,7 +4,7 @@ description: Learn how to enable diagnostic logging and add instrumentation to y
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 
 ---
 # Enable diagnostics logging for apps in Azure App Service
@@ -41,12 +41,12 @@ To enable application logging for Windows apps in the [Azure portal](https://por
 
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
 
-The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
+The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the App Service file system (without code modifications to write logs to external storage).
 >
-> Also, if you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated access keys. To do this:
+> Also, if you [regenerate your storage account's access keys](../storage/common/storage-account-create.md), you must reset the respective logging configuration to use the updated access keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob again. Save your setting.
@@ -84,7 +84,7 @@ For **Web server logging**, select **Storage** to store logs on blob storage, or
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
 > [!NOTE]
-> If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
+> If you [regenerate your storage account's access keys](../storage/common/storage-account-create.md), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob again. Save your setting.
@@ -111,7 +111,7 @@ In your application code, you use the usual logging facilities to send log messa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/).
 
 ## Stream logs
 
@@ -146,7 +146,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### In local terminal
 
-To stream logs in the local console, [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [sign in to your account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Once signed in, followed the [instructions for Cloud Shell](#in-cloud-shell)
+To stream logs in the local console, [install Azure CLI](/cli/azure/install-azure-cli) and [sign in to your account](/cli/azure/authenticate-azure-cli). Once signed in, followed the [instructions for Cloud Shell](#in-cloud-shell)
 
 ## Access log files
 
@@ -180,16 +180,16 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows support | Linux (Docker) support | Description |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | TBD | File changes via FTP and Kudu |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | Yes | Container logs |
+| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | Yes | Yes | Standard output and standard error |
+| AppServiceHTTPLogs | Yes | TBA | Yes | Yes | Web server logs |
+| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| AppServiceAuditLogs | Yes | TBA | Yes | Yes | Login activity via FTP and Kudu |
+| AppServiceFileAuditLogs | Yes | TBA | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | TBA | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | TBA | Yes | Yes | Container operation logs |
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

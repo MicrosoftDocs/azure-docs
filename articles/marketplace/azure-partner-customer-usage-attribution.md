@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -28,6 +28,8 @@ Customer usage attribution supports three deployment options:
 >- Customer usage attribution is for new deployments and does NOT support tagging existing resources that have already been deployed.
 >
 >- Customer usage attribution is required for [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offers published to Azure Marketplace.
+>
+>- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues today that cause under-reporting of usage.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -92,9 +94,9 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 1. Open the Resource Manager template.
 
-1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+1. Add a new resource of type [Microsoft.Resources/deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-1. Enter the GUID value after the `pid-` prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Enter the GUID value after the `pid-` prefix as the name of the resource. For example, if the GUID is eb7927c8-dd66-43e1-b0cf-c346a422063, the resource name will be _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Check the template for any errors.
 
@@ -107,11 +109,11 @@ To add a globally unique identifier (GUID), you make a single modification to th
 To enable tracking resources for your template, you need to add the following additional resource under the resources section. Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
 The resource needs to be added in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -148,6 +150,20 @@ For Python, use the **config** attribute. You can only add the attribute to a Us
 
 > [!NOTE]
 > Add the attribute for each client. There's no global static configuration. You might tag a client factory to be sure every client is tracking. For more information, see this [client factory sample on GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### Example: The .NET SDK
+
+For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) library can be used to set the user agent with the following code (example in C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### Tag a deployment by using the Azure PowerShell
 
@@ -249,39 +265,7 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
-There are two support channels depending on the issues you are facing.
-
-If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Screenshot of Get support page](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-If you need assistance for Marketplace Onboarding and/or customer usage attribution in general, such as how to set up the customer usage attribution, follow the steps below:
-
-1. Go to the [support page](https://go.microsoft.com/fwlink/?linkid=844975).
-
-1. Under **Problem type**, select **Marketplace Onboarding**.
-
-1. Choose the **Category** for your issue:
-
-   - For usage association issues, select **Other**.
-   - For access issues with Azure Marketplace, select **Access Problem**.
-
-     ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Select **Start Request**.
-
-1. On the next page, enter the required values. Select **Continue**.
-
-1. On the next page, enter the required values.
-
-   > [!IMPORTANT]
-   > In the **Incident title** box, enter **ISV Usage Tracking**. Describe your issue in detail.
-
-   ![Enter ISV Usage Tracking for the incident title](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Complete the form, and then select **Submit**.
-
-You can also receive technical guidance from a Microsoft Partner Technical Consultant for technical presales, deployment and app development scenarios to understand and incorporate customer usage attribution.
+Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](support.md).
 
 ### How to submit a technical consultation request
 
@@ -334,7 +318,7 @@ You can create a VM offer in marketplace using your custom VHD and mark it as Pr
 
 **Failed to update *contentVersion* property for the main template?**
 
-Likely a bug in some cases when the template is being deployed by using a TemplateLink from another template that expect older contentVersion for some reason. The workaround is to use the metadata property:
+This is likely a bug, in cases when the template is being deployed using a TemplateLink from another template that expects older contentVersion for some reason. The workaround is to use the metadata property:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

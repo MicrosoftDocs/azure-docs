@@ -128,7 +128,7 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link**.
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
-    ![Private Link overview](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Private Link overview":::
 
 1. In **Create a private endpoint - Basics**, enter or select this information:
 
@@ -171,7 +171,7 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
 
-    ![Private Link created](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Private Link created":::
 
     > [!NOTE] 
     > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
@@ -217,7 +217,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Address:  10.1.3.4
     ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
 
 4. In **New connection**, enter or select this information:
 
@@ -247,7 +247,7 @@ When you're done using the private endpoint, PostgreSQL server, and the VM, dele
 
 ## Next steps
 
-In this how-to, you created a VM on a virtual network, an Azure Database for PostgreSQL - Single server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the PostgreSQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+In this how-to, you created a VM on a virtual network, an Azure Database for PostgreSQL - Single server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the PostgreSQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](../private-link/private-endpoint-overview.md).
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

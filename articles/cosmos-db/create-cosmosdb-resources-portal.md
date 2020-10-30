@@ -7,9 +7,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/19/2020
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)
@@ -22,7 +23,7 @@ ms.date: 08/05/2020
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database, and container, and add data to the container. 
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](./introduction.md) account, create a document database, and container, and add data to the container. 
 
 ## Prerequisites
 
@@ -47,6 +48,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
     |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
     |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
     |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>[Learn more about the SQL API](introduction.md).|
+    |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](set-throughput.md) mode. Select **Serverless** to create an account in [serverless](serverless.md) mode.<br><br>**Note**: Serverless is currently available for Core (SQL) API accounts only.|
     |Apply Free Tier Discount|Apply or Do not apply|With Azure Cosmos DB free tier, you will get the first 400 RU/s and 5 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
     |Account Type|Production or Non-Production|Select **Production** if the account will be used for a production workload. Select **Non-Production** if the account will be used for non-production, e.g. development, testing, QA, or staging. This is an Azure resource tag setting that tunes the Portal experience but does not affect the underlying Azure Cosmos DB account. You can change this value anytime.|
@@ -54,9 +56,14 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
     |Multi-region Writes|Enable or Disable|Multi-region writes capability allows you to take advantage of the provisioned throughput for your databases and containers across the globe.|
     |Availability Zones|Enable or Disable|Availability Zones help you further improve availability and resiliency of your application.|
 
-
 > [!NOTE]
 > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
+
+> [!NOTE]
+> The following options are not available if you select **Serverless** as the **Capacity mode**:
+> - Apply Free Tier Discount
+> - Geo-redundancy
+> - Multi-region Writes
    
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="The new account page for Azure Cosmos DB":::
 
@@ -86,7 +93,7 @@ You can use the Data Explorer in the Azure portal to create a database and conta
     |Setting|Suggested value|Description
     |---|---|---|
     |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
-    |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
+    |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.<br><br>**Note**: This setting is not available when creating a new container in a serverless account.| 
     |**Container ID**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
 

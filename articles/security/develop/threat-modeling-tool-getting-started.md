@@ -94,11 +94,11 @@ Ricardo begins by selecting the first item on the list. Here’s what happens:
 
 First, the interaction between the two stencils is enhanced
 
-![Interaction](./media/threat-modeling-tool-getting-started/interaction.png)
+![Screenshot shows two stencils and the curved arrow connecting them in a heavier weight of line.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 Second, additional information about the threat appears in the Threat Properties window
 
-![Interaction Info](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Screenshot shows the Threat Properties window, which contains Title, Category, Description, Interaction, and Priority.](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 The generated threat helps him understand potential design flaws. The STRIDE categorization gives him an idea on potential attack vectors, while the additional description tells him exactly what’s wrong, along with potential ways to mitigate it. He can use editable fields to write notes in the justification details or change priority ratings depending on his organization’s bug bar.
 
@@ -115,7 +115,7 @@ Threats not applicable to the design due to existing mitigations or security gua
 
 Once Ricardo goes through the list with Cristina and adds important notes, mitigations/justifications, priority and status changes, he selects Reports -> Create Full Report -> Save Report, which prints out a nice report for him to go through with colleagues to ensure the proper security work is implemented.
 
-![Interaction Info](./media/threat-modeling-tool-feature-overview/report.png)
+![Screenshot shows a representative Threat Modeling Report.](./media/threat-modeling-tool-feature-overview/report.png)
 
 If Ricardo wants to share the file instead, he can easily do so by saving in his organization’s OneDrive account. Once he does that, he can copy the document link and share it with his colleagues. 
 

@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang:
-ms.topic: conceptual
+ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
 ---
 # Resources limits for elastic pools using the DTU purchasing model
@@ -17,7 +17,7 @@ ms.date: 07/28/2020
 
 This article provides the detailed resource limits for databases in Azure SQL Database that are within an elastic pool using the DTU purchasing model.
 
-* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](resource-limits-vcore-elastic-pools.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](resource-limits-dtu-single-databases.md).
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 
 ## Elastic pool: Storage sizes and compute sizes
@@ -148,7 +148,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 > [!NOTE]
-> For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ### Database properties for pooled databases
 

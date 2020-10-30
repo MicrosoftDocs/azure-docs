@@ -54,7 +54,7 @@ To create a DSVM instance:
 
 ## Access the DSVM
 
-After the VM is created and provisioned, follow the steps listed to [connect to your Azure-based virtual machine](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
+After the VM is created and provisioned, follow the steps listed to [connect to your Azure-based virtual machine](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base). Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
 
 You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through **Start** menu tiles and desktop icons.
 
@@ -67,6 +67,5 @@ You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM
 
 * Explore the tools on the DSVM by opening the **Start** menu.
 * Learn about the Azure Machine Learning by reading [What is Azure Machine Learning?](../overview-what-is-azure-ml.md) and trying out [tutorials](../index.yml).
-* Read the article [Ten things you can do on the Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Visit the [Azure AI Gallery](https://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and on the desktop of the virtual machine.
+* Read the article [Data Science with a Windows Data Science Virtual Machine in Azure](./vm-do-ten-things.md)
 

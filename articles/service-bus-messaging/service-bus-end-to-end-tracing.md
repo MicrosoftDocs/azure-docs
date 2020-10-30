@@ -3,6 +3,7 @@ title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
 description: Overview of Service Bus client diagnostics and end-to-end tracing (client through all the services that are involved in processing.)
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Distributed tracing and correlation through Service Bus messaging

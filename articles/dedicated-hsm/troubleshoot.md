@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.custom: "mvc, seodec18"
 ms.date: 12/07/2018
 ms.author: mbaldwin
@@ -69,7 +69,7 @@ When a particular stamp or region is becoming full, that is, nearly all free HSM
 ###  How do I see HSMs when provisioned?
 Due to Dedicated HSM being a whitelisted service, it is considered a "Hidden Type" in the Azure portal. To see the HSM resources, you must check the "Show hidden types" check box as shown below. The NIC resource always follows the HSM and is a good place to find out the IP address of the HSM prior to using SSH to connect.
 
-![Subnet Delegation](./media/troubleshoot/hsm-provisioned.png)
+![Screenshot that highlights the Show hidden types check](./media/troubleshoot/hsm-provisioned.png)
 
 ## Networking Resources
 
@@ -83,7 +83,7 @@ Dedicated HSM uses ExpressRoute Gateway as a "tunnel" for communication between 
 
 The sample templates provided for Dedicated HSM assume the HSM IP will be automatically taken from a given subnet range. You can specify an explicit IP address for the HSM via a "NetworkInterfaces" attribute in the ARM template. 
 
-![Subnet Delegation](./media/troubleshoot/private-ip-address.png)
+![Screenshot that shows the sample template for Dedicated HSM.](./media/troubleshoot/private-ip-address.png)
 
 ## HSM Initialization
 

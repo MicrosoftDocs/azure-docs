@@ -10,7 +10,7 @@ manager: anandsub
 ms.reviewer:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
+ms.date: 09/08/2020
 ---
 
 # Source control in Azure Data Factory
@@ -41,11 +41,11 @@ Below is a list of some of the advantages git integration provides to the author
 -   **Better Performance:** An average factory with git integration loads 10 times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
 
 > [!NOTE]
-> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes can be made directly to the service via PowerShell or an SDK.
+> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes made via PowerShell or an SDK are published directly to the Data Factory service, and are not entered into Git.
 
 ## Author with Azure Repos Git integration
 
-Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
+Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
@@ -88,13 +88,13 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 ### Use a different Azure Active Directory tenant
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator)
+The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
 
 ### Use your personal Microsoft account
 
 To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
 
-1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md).
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
@@ -157,6 +157,8 @@ The configuration pane shows the following GitHub repository settings:
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
+
+- Azure Data Factory doesn't support GitHub organization accounts
 
 - A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 
@@ -237,13 +239,13 @@ Below are some examples of situations that can cause a stale publish branch:
 
 ## Switch to a different Git repository
 
-To switch to a different Git repository, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can't see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
+To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**. 
 
-![Git icon](media/author-visually/remove-repo.png)
+![Git icon](media/author-visually/remove-repository.png)
 
-Once the Repository Settings pane appears, select **Remove Git**. Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
+Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
 
-![Remove the association with the current Git repo](media/author-visually/remove-repo2.png)
+![Remove the association with the current Git repo](media/author-visually/remove-repository-2.png)
 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing Data Factory resources to the new repo.
 

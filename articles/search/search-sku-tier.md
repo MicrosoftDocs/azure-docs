@@ -1,19 +1,19 @@
 ---
-title: Choose a pricing tier or SKU 
+title: Choose a pricing tier
 titleSuffix: Azure Cognitive Search
-description: 'Azure Cognitive Search can be provisioned in these SKUs: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
+description: 'Azure Cognitive Search can be provisioned in these tiers: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/14/2020
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you create an Azure Cognitive Search service, a [resource is created](search-create-service-portal.md) at a pricing tier (or SKU) that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
+When you create an Azure Cognitive Search service, a [resource is created](search-create-service-portal.md) at a pricing tier that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
 
 Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments.
 
@@ -23,19 +23,19 @@ The following table describes tier-related feature constraints.
 
 | Feature | Limitations |
 |---------|-------------|
-| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. |
+| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD.  |
 | [AI enrichment](search-security-manage-encryption-keys.md) | Runs on the Free tier but not recommended. |
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
 | [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
-| [Integration with Azure Private Link](service-create-private-endpoint.md) | Not available on the Free tier. |
+| [Private endpoint (integration with Azure Private Link)](service-create-private-endpoint.md) | For inbound connections to a search service, not available on the Free tier. For outbound connections by indexers to other Azure resources, not available on Free or S3 HD. For indexers that use skillsets, not available on Free, Basic, S1, or S3 HD.|
 
 Most features are available on every tier, including Free, but resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
-## Tiers (SKUs)
+## Tiers
 
 Tiers are differentiated by:
 
-+ Quantity of indexes and indexers you can create
++ Quantity of indexes and indexers (maximum limits)
 + Size and speed of partitions (physical storage)
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
@@ -94,7 +94,7 @@ For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [atta
 | Operation | Billing impact |
 |-----------|----------------|
 | Document cracking, text extraction | Free |
-| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
+| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
 | [Built-in cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
 | Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
 
@@ -126,7 +126,7 @@ The following suggestions can help you lower costs or manage costs more effectiv
 
 + Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-Additionally, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) for built-in tools and features related to spending.
+Additionally, visit [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for built-in tools and features related to spending.
 
 Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
 
@@ -154,7 +154,7 @@ To determine the size of an index, you have to [build one](search-what-is-an-ind
 For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
 > [!NOTE] 
-> Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one SKU to another.
+> Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one tier to another.
 >
 
 ### Estimate with the Free tier
@@ -171,7 +171,7 @@ With a rough estimate in hand, you might double that amount to budget for two in
 
 Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
-1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 

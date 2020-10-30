@@ -1,22 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshservice | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Freshservice.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshservice
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Freshservice with Azure Active D
 * Enable your users to be automatically signed-in to Freshservice with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -44,7 +38,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Freshservice supports **SP** initiated SSO
-* Once you configure Freshservice you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Freshservice you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Freshservice from the gallery
 
@@ -57,7 +51,7 @@ To configure the integration of Freshservice into Azure AD, you need to add Fres
 1. In the **Add from the gallery** section, type **Freshservice** in the search box.
 1. Select **Freshservice** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Freshservice
+## Configure and test Azure AD SSO for Freshservice
 
 Configure and test Azure AD SSO with Freshservice using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Freshservice.
 
@@ -83,13 +77,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<democompany>.freshservice.com`
+    `https://<company-name>.freshservice.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<democompany>.freshservice.com`
+    `https://<company-name>.freshservice.com`
 
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<company-name>.freshservice.com/login/saml`
+	
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -131,7 +128,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Freshservice SSO
 
-1. Open a new web browser window and sign into your Freshservice company site as an administrator.
+1. To automate the configuration within Freshservice, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Freshservice** will direct you to the Freshservice application. From there, provide the admin credentials to sign into Freshservice. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Freshservice manually, log in to your Freshservice company site as an administrator.
 
 1. In the menu on the left, click **Admin** and select **Helpdesk Security** in the **General Settings**.
 
@@ -194,14 +199,14 @@ To enable Azure AD users to sign in to FreshService, they must be provisioned in
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Freshservice tile in the Access Panel, you should be automatically signed in to the Freshservice for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Freshservice tile in the Access Panel, you should be automatically signed in to the Freshservice for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Freshservice with Azure AD](https://aad.portal.azure.com/)

@@ -30,7 +30,7 @@ The Azure Database Migration Service ARM template requires the following:
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json" highlight="33-75":::
+:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
 
 Three Azure resources are defined in the template: 
 

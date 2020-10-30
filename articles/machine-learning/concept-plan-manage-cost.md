@@ -44,7 +44,7 @@ The following screenshot shows the cost estimation by using the calculator:
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
-While the Enterprise edition is in preview, there is no ML surcharge. When the Enterprise edition becomes generally available, it will have a surcharge (for training and inferencing).  For more information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+For more information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## Get cost alerts
 
@@ -56,7 +56,9 @@ As you use resources with Azure Machine Learning, you incur costs. Azure resourc
 
 You can view costs in graphs and tables for different time intervals. You can also view costs against budgets and forecasted costs. Switching to longer views over time helps identify spending trends and see where overspending might have occurred. If you've created budgets, see where they exceeded.  
 
-You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces.
+You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces. 
+
+Note that while the Machine Learning workspace itself does not have direct cost, you are billed on managed compute resources. Therefore, if you added tags to the workspaces, since there is no direct cost on it, the cost analysis pane will reflect this for the workspace. For accurate cost management via tags, you will need to tag the associated compute resources.  
 
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 
@@ -64,7 +66,7 @@ With constantly changing data, you need fast and streamlined model training and 
 
 Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
 
-Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
+Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning compute](how-to-create-attach-compute-cluster.md).
 
 ## Configure training clusters for autoscaling
 
@@ -79,9 +81,9 @@ You can also configure the amount of time the node is idle before scale down. By
 + If you perform less iterative experimentation, reduce this time to save costs.
 + If you perform highly iterative dev/test experimentation, you might need to increase the time so you aren't paying for constant scaling up and down after each change to your training script or environment.
 
-AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
-```azure cli
+```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
 ```
 
@@ -122,4 +124,4 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 Learn more about:
 * [Manage and increase resource quotas](how-to-manage-quotas.md)
 * [Managing costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).
+* Create Azure Machine Learning compute with [SDK](how-to-create-attach-compute-cluster.md) or in [studio](how-to-create-attach-compute-studio.md#amlcompute).

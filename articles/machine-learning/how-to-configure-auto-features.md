@@ -15,14 +15,16 @@ ms.date: 05/28/2020
 
 # Featurization in automated machine learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this guide, you'll learn:
+
+In this guide, you learn:
 
 - What featurization settings Azure Machine Learning offers.
 - How to customize those features for your [automated machine learning experiments](concept-automated-ml.md).
 
 *Feature engineering* is the process of using domain knowledge of the data to create features that help machine learning (ML) algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine learning, or *AutoML*, experiments.
+
+## Prerequisites
 
 This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
 
@@ -62,9 +64,9 @@ The following table summarizes techniques that are automatically applied to your
 | ------------- | ------------- |
 |**Drop high cardinality or no variance features*** |Drop these features from training and validation sets. Applies to features with all values missing, with the same value across all rows, or with high cardinality (for example, hashes, IDs, or GUIDs).|
 |**Impute missing values*** |For numeric features, impute with the average of values in the column.<br/><br/>For categorical features, impute with the most frequent value.|
-|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br><br> *For forecasting tasks,* these additional DateTime features are created: ISO year, Half - half-year, Calendar month as string, Week, Day of week as string, Day of quarter, Day of year, AM/PM (0 if hour is before noon (12 pm), 1 otherwise), AM/PM as string, Hour of day (12hr basis)<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams. Learn more about [how this is done with BERT.](#bert-integration)|
+|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br><br> *For forecasting tasks,* these additional DateTime features are created: ISO year, Half - half-year, Calendar month as string, Week, Day of week as string, Day of quarter, Day of year, AM/PM (0 if hour is before noon (12 pm), 1 otherwise), AM/PM as string, Hour of day (12 hr basis)<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams. Learn more about [how this is done with BERT.](#bert-integration)|
 |**Transform and encode***|Transform numeric features that have few unique values into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical features. One-hot-hash encoding is used for high-cardinality categorical features.|
-|**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pretrained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
+|**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pre-trained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
 |**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross-validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
 |**Text target encoding**|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
 |**Weight of Evidence (WoE)**|Calculates WoE as a measure of correlation of categorical columns to the target column. WoE is calculated as the log of the ratio of in-class vs. out-of-class probabilities. This step produces one numeric feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
@@ -104,7 +106,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 **Missing feature values imputation** |Passed <br><br><br> Done| No missing feature values were detected in your training data. Learn more about [missing-value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
 **High cardinality feature handling** |Passed <br><br><br> Done| Your inputs were analyzed, and no high-cardinality features were detected. <br><br> High-cardinality features were detected in your inputs and were handled.
 **Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
-**Class balancing detection** |Passed <br><br><br><br><br> Alerted <br><br><br><br> Done| Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered to be balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data). <br><br> Imbalanced classes were detected in your inputs and the sweeping logic has determined to apply balancing.
+**Class balancing detection** |Passed <br><br><br><br>Alerted <br><br><br>Done | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered to be balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Imbalanced classes were detected in your inputs and the sweeping logic has determined to apply balancing.
 **Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
 **Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 
@@ -118,7 +120,7 @@ Supported customizations include:
 
 |Customization|Definition|
 |--|--|
-|**Column purpose update**|Override the auto-detected feature type for the specified column.|
+|**Column purpose update**|Override the autodetected feature type for the specified column.|
 |**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (mean, most frequent, and median) and *HashOneHotEncoder*.|
 |**Drop columns** |Specifies columns to drop from being featurized.|
 |**Block transformers**| Specifies block transformers to be used in the featurization process.|
@@ -138,34 +140,196 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-## BERT integration 
-[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of Automated ML. In this layer we detect if a column contains free text or other types of data like timestamps or simple numbers and we featurize accordingly. For BERT we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
+## Featurization transparency
 
-To enable BERT, you should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer. In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see [this notebook for an example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+Every AutoML model has featurization automatically applied.  Featurization includes automated feature engineering (when `"featurization": 'auto'`) and scaling and normalization, which then impacts the selected algorithm and its hyperparameter values. AutoML supports different methods to ensure you have visibility into what was applied to your model.
 
-AutoML takes the following steps, for the case of BERT (please note you have to set  "enable_dnn: True" in automl_settings for these items to happen):
+Consider this forecasting example:
 
-1. Preprocessing including tokenization of all text columns (you will see "StringCast" transformer in the final model's featurization summary. Please visit [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) to see an example of how to produce the model's featurization summary using the `get_featurization_summary()` method.
++ There are four input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime).
++ Numeric feature C is dropped because it is an ID column with all unique values.
++ Numeric features A and B have missing values and hence are imputed by the mean.
++ DateTime feature D is featurized into 11 different engineered features.
+
+To get this information, use the `fitted_model` output from your automated ML experiment run.
 
 ```python
-text_transformations_used = []
-for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
-    text_transformations_used.extend(column_group['Transformations'])
-text_transformations_used
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+### Automated feature engineering 
+The `get_engineered_feature_names()` returns a list of engineered feature names.
+
+  >[!Note]
+  >Use 'timeseriestransformer' for task='forecasting', else use 'datatransformer' for 'regression' or 'classification' task.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
+  ```
+
+This list includes all engineered feature names. 
+
+  ```
+  ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+  ```
+
+The `get_featurization_summary()` gets a featurization summary of all the input features.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+  ```
+
+Output
+
+  ```
+  [{'RawFeatureName': 'A',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'B',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'C',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'Yes',
+    'EngineeredFeatureCount': 0,
+    'Tranformations': []},
+   {'RawFeatureName': 'D',
+    'TypeDetected': 'DateTime',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 11,
+    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+  ```
+
+   |Output|Definition|
+   |----|--------|
+   |RawFeatureName|Input feature/column name from the dataset provided.|
+   |TypeDetected|Detected datatype of the input feature.|
+   |Dropped|Indicates if the input feature was dropped or used.|
+   |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
+   |Transformations|List of transformations applied to input features to generate engineered features.|
+
+### Scaling and normalization
+
+To understand the scaling/normalization and the selected algorithm with its hyperparameter values, use `fitted_model.steps`. 
+
+The following sample output is from running `fitted_model.steps` for a chosen run:
+
+```
+[('RobustScaler', 
+  RobustScaler(copy=True, 
+  quantile_range=[10, 90], 
+  with_centering=True, 
+  with_scaling=True)), 
+
+  ('LogisticRegression', 
+  LogisticRegression(C=0.18420699693267145, class_weight='balanced', 
+  dual=False, 
+  fit_intercept=True, 
+  intercept_scaling=1, 
+  max_iter=100, 
+  multi_class='multinomial', 
+  n_jobs=1, penalty='l2', 
+  random_state=None, 
+  solver='newton-cg', 
+  tol=0.0001, 
+  verbose=0, 
+  warm_start=False))
 ```
 
-2. Concatenates all text columns into a single text column hence you will see "StringConcatTransformer" in the final model. 
+To get more details, use this helper function: 
 
-> [!NOTE]
-> Our implementation of BERT limits total text length of a training sample to 128 tokens. That means, all text columns when concatenated, should ideally be at most 128 tokens  in length. Ideally, if multiple columns are present, each column should be pruned such that this condition is satisfied. For instance, if there are two text columns in the data, both text columns should be pruned to 64 tokens each (assuming you want both columns to be equally represented in the final concatenated text column) before feeding the data to AutoML. For concatenated columns of length >128 tokens, BERT's tokenizer layer will truncate this input to 128 tokens.
+```python
+from pprint import pprint
 
-3. In the feature sweeping step, AutoML compares BERT against the baseline (bag of words features) on a sample of the data and determines if BERT would give accuracy improvements. If it determines that BERT performs better than the baseline, AutoML then uses BERT for text featurization as the optimal featurization strategy and proceeds with featurizing the whole data. In that case, you will see the "PretrainedTextDNNTransformer" in the final model.
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0] + ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()
 
-BERT generally runs longer than most other featurizers. It can be sped up by providing more compute in your cluster. AutoML will distribute BERT training across multiple nodes if they are available (upto a max of 8 nodes). This can be done by setting [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) to higher than 1. For better performance, we recommend using skus with RDMA capabilities (such as "STANDARD_NC24r" or "STANDARD_NC24rs_V3")
+print_model(model)
+```
+
+This helper function returns the following output for a particular run using `LogisticRegression with RobustScalar` as the specific algorithm.
+
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
+
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
+
+### Predict class probability
+
+Models produced using automated ML all have wrapper objects that mirror functionality from their open-source origin class. Most classification model wrapper objects returned by automated ML implement the `predict_proba()` function, which accepts an array-like or sparse matrix data sample of your features (X values), and returns an n-dimensional array of each sample and its respective class probability.
+
+Assuming you have retrieved the best run and fitted model using the same calls from above, you can call `predict_proba()` directly from the fitted model, supplying an `X_test` sample in the appropriate format depending on the model type.
+
+```python
+best_run, fitted_model = automl_run.get_output()
+class_prob = fitted_model.predict_proba(X_test)
+```
+
+If the underlying model does not support the `predict_proba()` function or the format is incorrect, a model class-specific exception will be thrown. See the [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) and [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) reference docs for examples of how this function is implemented for different model types.
+
+## BERT integration
+
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of AutoML. In this layer, if a column contains free text or other types of data like timestamps or simple numbers, then featurization is applied accordingly.
+
+For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output  as features alongside others, like timestamp-based features, day of week. 
+
+
+### BERT steps
+
+In order to invoke BERT, you have to set  `enable_dnn: True` in your automl_settings and use a GPU compute (e.g. `vm_size = "STANDARD_NC6"`, or a higher GPU). If a CPU compute is used, then instead of BERT, AutoML enables the BiLSTM DNN featurizer.
+
+AutoML takes the following steps for BERT. 
+
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
+
+2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
+
+    Our implementation of BERT limits total text length of a training sample to 128 tokens. That means, all text columns when concatenated, should ideally be at most 128 tokens in length. If multiple columns are present, each column should be pruned so this condition is satisfied. Otherwise, for concatenated columns of length >128 tokens BERT's tokenizer layer truncates this input to 128 tokens.
+
+3. **As part of feature sweeping, AutoML compares BERT against the baseline (bag of words features) on a sample of the data.** This comparison determines if BERT would give accuracy improvements. If BERT performs better than the baseline, AutoML then uses BERT for text featurization for the whole data. In that case, you will see the `PretrainedTextDNNTransformer` in the final model.
+
+BERT generally runs longer than other featurizers. For better performance, we recommend using "STANDARD_NC24r" or "STANDARD_NC24rs_V3" for their RDMA capabilities. 
+
+AutoML will distribute BERT training across multiple nodes if they are available (upto a max of eight nodes). This can be done in your `AutoMLConfig` object by setting the `max_concurrent_iterations` parameter to higher than 1. 
+### Supported languages
 
 AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
 
-In the following code, the German BERT model is triggered, since the dataset language is specified to 'deu', the 3 letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/deu):
+In the following code, the German BERT model is triggered, since the dataset language is specified to `deu`, the three letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

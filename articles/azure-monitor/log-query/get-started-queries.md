@@ -168,7 +168,7 @@ The preceding example generates this output:
 You can also use **project** to rename columns and define new ones. The following example uses project to do the following:
 
 * Select only the *Computer* and *TimeGenerated* original columns.
-* Rename the *Activity* column to *EventDetails*.
+* Displays the *Activity* column as *EventDetails*.
 * Create a new column named *EventCode*. The **substring()** function is used to get only the first four characters from the Activity field.
 
 

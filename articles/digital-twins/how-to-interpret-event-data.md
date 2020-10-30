@@ -31,7 +31,7 @@ In general, notifications are made up of two parts: the header and the body.
 
 Notification message headers are represented with key-value pairs. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. This section discusses general header information for notification messages, regardless of the specific protocol and serialization chosen.
 
-Some notifications conform to the CloudEvents standard. CloudEvents conformance is as follows.
+Some notifications conform to the [CloudEvents](https://cloudevents.io/) standard. CloudEvents conformance is as follows.
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
 * Notifications emitted from [digital twins](concepts-twins-graph.md) with a [model](concepts-models.md) conform to CloudEvents
@@ -108,7 +108,7 @@ Here are the fields in the body of a life-cycle notification.
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID of the digital twin |
@@ -194,7 +194,7 @@ Here are the fields in the body of an edge change notification.
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
@@ -203,7 +203,7 @@ Here are the fields in the body of an edge change notification.
 
 #### Body details
 
-The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](how-to-use-apis-sdks.md). 
+The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
 "Updating a relationship" means properties of the relationship have changed. 
 
@@ -250,7 +250,7 @@ Here are the fields in the body of a digital twin change notification.
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID of the digital twin |

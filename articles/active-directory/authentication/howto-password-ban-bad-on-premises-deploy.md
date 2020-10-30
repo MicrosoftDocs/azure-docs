@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 
@@ -46,6 +46,8 @@ It's also possible for stronger password validation to affect your existing Acti
 * [Domain controller demotion fails due to a weak local Administrator password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more secure passwords. Additional monitoring during this time is a good idea.
+
+It is important to note that Azure AD Password Protection can only validate passwords during password change or set operations. Passwords that were accepted and stored in Active Directory prior to the deployment of Azure AD Password Protection will never be validated and will continue working as-is. Over time, all users and accounts will eventually start using Azure AD Password Protection-validated passwords as their existing passwords expire normally. Accounts configured with "password never expires" are exempt from this.
 
 ### Multiple forest considerations
 
@@ -98,7 +100,7 @@ The following requirements apply to the Azure AD Password Protection DC agent:
     * The Active Directory domain or forest doesn't need to be at Windows Server 2012 domain functional level (DFL) or forest functional level (FFL). As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there's no minimum DFL or FFL required for either the DC agent or proxy software to run.
 * All machines that run the Azure AD Password Protection DC agent must have .NET 4.5 installed.
 * Any Active Directory domain that runs the Azure AD Password Protection DC agent service must use Distributed File System Replication (DFSR) for sysvol replication.
-   * If your domain isn't already using DFSR, you must migrate before installing Azure AD Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * If your domain isn't already using DFSR, you must migrate before installing Azure AD Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > The Azure AD Password Protection DC agent software will currently install on domain controllers in domains that are still using FRS (the predecessor technology to DFSR) for sysvol replication, but the software will NOT work properly in this environment.
@@ -120,15 +122,15 @@ The following requirements apply to the Azure AD Password Protection proxy servi
     * .NET 4.7 should already be installed on a fully updated Windows Server. If necessary, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
-* A *Global Administrator* account to register the Azure AD Password Protection proxy service and forest with Azure AD.
-* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* A *Global Administrator* or *Security Administrator* account to register the Azure AD Password Protection proxy service and forest with Azure AD.
+* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### Microsoft Azure AD Connect Agent Updater prerequisites
 
 The Microsoft Azure AD Connect Agent Updater service is installed side by side with the Azure AD Password Protection Proxy service. Additional configuration is required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function:
 
-* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > Azure AD Password Protection proxy and Azure AD Application Proxy install different versions of the Microsoft Azure AD Connect Agent Updater service, which is why the instructions refer to Application Proxy content. These different versions are incompatible when installed side by side and doing so will prevent the Agent Updater service from contacting Azure for software updates, so you should never install Azure AD Password Protection Proxy and Application Proxy on the same machine.
@@ -150,9 +152,11 @@ In the next section, you install the Azure AD Password Protection DC agents on d
 
 Choose one or more servers to host the Azure AD Password Protection proxy service. The following considerations apply for the server(s):
 
-* Each such service can only provide password policies for a single forest. The host machine must be joined to a domain in that forest. Root and child domains are both supported. You need network connectivity between at least one DC in each domain of the forest and the password protection machine.
+* Each such service can only provide password policies for a single forest. The host machine must be joined to any domain in that forest.
+* It does supported to install proxy the service in either root or child domains, or a combination of those.
+* You need network connectivity between at least one DC in each domain of the forest and one password protection proxy server.
 * You can run the Azure AD Password Protection proxy service on a domain controller for testing, but that domain controller then requires internet connectivity. This connectivity can be a security concern. We recommend this configuration for testing only.
-* We recommend at least two Azure AD Password Protection proxy servers for redundancy, as noted in the previous section on [high availability considerations](#high-availability-considerations).
+* We recommend at least two Azure AD Password Protection proxy servers per forest for redundancy, as noted in the previous section on [high availability considerations](#high-availability-considerations).
 * It's not supported to run the Azure AD Password Protection proxy service on a read-only domain controller.
 
 To install the Azure AD Password Protection proxy service, complete the following steps:
@@ -190,7 +194,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
 
 1. The proxy service is running on the machine, but doesn't have credentials to communicate with Azure AD. Register the Azure AD Password Protection proxy server with Azure AD using the `Register-AzureADPasswordProtectionProxy` cmdlet.
 
-    This cmdlet requires global administrator credentials for your Azure tenant. You also need on-premises Active Directory domain administrator privileges in the forest root domain. This cmdlet must also be run using an account with local administrator privileges:
+    This cmdlet requires either *Global Administrator* or *Security Administrator* credentials for your Azure tenant. This cmdlet must also be run using an account with local administrator privileges.
 
     After this command succeeds once for a Azure AD Password Protection proxy service, additional invocations of it succeed, but are unnecessary.
 
@@ -241,7 +245,9 @@ To install the Azure AD Password Protection proxy service, complete the followin
     > [!NOTE]
     > If multiple Azure AD Password Protection proxy servers are installed in your environment, it doesn't matter which proxy server you use to register the forest.
 
-    The cmdlet requires global administrator credentials for your Azure tenant. You must also run this cmdlet using an account with local administrator privileges. It also requires on-premises Active Directory Enterprise Administrator privileges. This step is run once per forest.
+    The cmdlet requires either *Global Administrator* or *Security Administrator* credentials for your Azure tenant. It also requires on-premises Active Directory Enterprise Administrator privileges. You must also run this cmdlet using an account with local administrator privileges. The Azure account that is used to register the forest may be different from the on-premises Active Directory account.
+    
+    This step is run once per forest.
 
     The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes. The first two modes support Azure Multi-Factor Authentication but the third mode doesn't.
 

@@ -2,7 +2,7 @@
 title: Create an organizational unit (OU) in Azure AD Domain Services | Microsoft Docs'
 description: Learn how to create and manage a custom Organizational Unit (OU) in an Azure AD Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Create an Organizational Unit (OU) in an Azure Active Directory Domain Services managed domain
@@ -85,8 +85,8 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 
 For more information on using the administrative tools or creating and using service accounts, see the following articles:
 
-* [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
-* [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)
+* [Active Directory Administrative Center: Getting Started](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))
+* [Service Accounts Step-by-Step Guide](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

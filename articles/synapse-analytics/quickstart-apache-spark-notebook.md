@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Create an Apache Spark for Azure Synapse Analytics notebook'
-description: This quickstart shows how to use the web tools to create an Apache Spark pool (preview) in Azure Synapse Analytics, and run a Spark SQL query.
+title: 'Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools'
+description: This quickstart shows how to use the web tools to create an Apache Spark pool in Azure Synapse Analytics, and run a Spark SQL query.
 services: synapse-analytics
 author: euangMS
 ms.author: euang 
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ---
 
 # Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools
@@ -37,14 +37,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 A notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown, text, and perform simple visualizations.
 
 1. From the Azure portal view for the Azure Synapse workspace you want to use, select **Launch Synapse Studio**.
-2. Once Synapse Studio has launched, select **Develop**. Then, hover over the **Notebooks** entry. Select the ellipsis (**...**).
-3. From there, select **New notebook**. A new notebook is created and opened with an automatically generated name.
-  ![New notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "New notebook")
+2. Once Synapse Studio has launched, select **Develop**. Then, select the "**+**" icon to add a new resource.
+3. From there, select **Notebook**. A new notebook is created and opened with an automatically generated name.
+ 
+     ![New notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "New notebook")
 
 4. In the **Properties** window, provide a name for the notebook.
 5. On the toolbar, click **Publish**.
 6. If there is only one Apache Spark pool in your workspace, then it's selected by default. Use the drop-down to select the correct Apache Spark pool if none is selected.
-7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine.
+7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine. Other supported languages are Scala and .NET for Spark.
 8. Next you create a simple Spark DataFrame object to manipulate. In this case, you create it from code. There are three rows and three columns:
 
    ```python
@@ -59,11 +60,11 @@ A notebook is an interactive environment that supports various programming langu
    - Select the blue play icon to the left of the cell.
    - Select the **Run all** button on the toolbar.
 
-   ![Create data frame object](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Output from the Spark job ")
+       ![Create data frame object](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. If the Apache Spark pool instance isn't already running, it is automatically started. You can see the Apache Spark pool instance status below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes. Once the code has finished running, information below the cell displays showing how long it took to run and its execution. In the output cell, you see the output.
 
-    ![Output from executing a cell](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Output from the Spark job ")
+    ![Output from executing a cell](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. The data now exists in a DataFrame from there you can use the data in many different ways. You are going to need it in different formats for the rest of this quickstart.
 12. Enter the code below in another cell and run it, this creates a Spark table, a CSV, and a Parquet file all with copies of the data:
@@ -80,7 +81,7 @@ A notebook is an interactive environment that supports various programming langu
 
     ![Storage explorer view of the output](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Storage explorer view of the output ")
 
-    ![Storage explorer view of the output](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Storage explorer view of the output ")
+    ![Screenshot that highlights default > demodata > demo_df path.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Storage explorer view of the output ")
 
 ## Run Spark SQL statements
 

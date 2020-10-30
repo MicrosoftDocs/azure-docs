@@ -21,26 +21,24 @@
       href: quick-create-template.md
 - name: Concepts
   items:
-  - name: Share dashboards with role-based access control
+  - name: Share dashboards with Azure role-based access control
     href: azure-portal-dashboard-share-access.md
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md
 - name: How-to guides
   items:
-  - name: Set your Azure portal preferences
+  - name: Manage Azure portal settings and preferences
     href: set-preferences.md
-  - name: Set inactive timeout settings for all users
-    href: admin-timeout.md
-  - name: Turn on high contrast or change theme
-    href: azure-portal-change-theme-high-contrast.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
-  - name: Create and share Azure dashboards
-    href: azure-portal-dashboards.md
-  - name: Use a custom markdown tile
-    href: azure-portal-markdown-tile.md
-  - name: Export or delete user settings
-    href: azure-portal-export-delete-settings.md
+  - name: View and filter resource information
+    href: manage-filter-resource-views.md
+  - name: Create Azure dashboards
+    items:
+    - name: Create and share Azure dashboards
+      href: azure-portal-dashboards.md
+    - name: Use a custom markdown tile
+      href: azure-portal-markdown-tile.md
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
   - name: Create and manage support requests

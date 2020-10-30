@@ -5,7 +5,7 @@ author: ghogen
 manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018

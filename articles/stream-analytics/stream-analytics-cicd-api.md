@@ -131,7 +131,7 @@ Example of request body in JSON:
 } 
 ```
  
-For more information, see the [API documentation](/rest/api/streamanalytics/stream-analytics-job).  
+For more information, see the [API documentation](/rest/api/streamanalytics/).  
  
 ## Publish Edge package 
  

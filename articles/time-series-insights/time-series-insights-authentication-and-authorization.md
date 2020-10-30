@@ -10,13 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
 
-This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with a Azure Time Series Insights environment.
+This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with an Azure Time Series Insights environment.
 
 ## Service principal
 
@@ -41,6 +41,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 > Follow the principle of **Separation of Concerns** (described for this scenario above) when configuring your Azure Time Series Insights security policy.
 
 > [!NOTE]
+
 > * The article focuses on a single-tenant application where the application is intended to run in only one organization.
 > * You'll typically use single-tenant applications for line-of-business applications that run in your organization.
 
@@ -79,7 +80,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. In C#, the following code can acquire the token on behalf of the application. For a complete sample on how to query data from a Gen1 environment, read [Query data using C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+        See the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo to access the C# code.
 
    1. The token can then be passed in the `Authorization` header when the application calls the Azure Time Series Insights API.
 
@@ -110,7 +111,8 @@ Required request headers are described below.
 
 > [!IMPORTANT]
 > The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
-> * Your [Postman](https://www.getpostman.com/) **AuthURL** will therefore be: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+
+> * Your [Postman](https://www.getpostman.com/) **AuthURL** will therefore be: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
 > * `https://api.timeseries.azure.com/` is valid but `https://api.timeseries.azure.com` is not.
 
 Optional request headers are described below.
@@ -150,7 +152,7 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 | Optional query parameter | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
+| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
 | `storeType=<storeType>` | For Gen2 environments with warm store enabled, the query can be executed either on the `WarmStore` or `ColdStore`. This parameter in the query defines which store the query should be executed on. If not defined, the query will be executed on the cold store. To query the warm store, **storeType** needs to be set to `WarmStore`. If not defined, the query will be executed against the cold store. | Gen2 |
 
 ## Next steps
@@ -159,6 +161,6 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 * For sample code that calls the Gen2 Azure Time Series Insights API code samples, read [Query Gen2 data using C#](./time-series-insights-update-query-data-csharp.md).
 
-* For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
+* For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api) documentation.
 
 * Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

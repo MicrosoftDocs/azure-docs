@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -29,7 +29,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
     - If you do not have a carrier account, go to:
-        - [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or
+        - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
         - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
@@ -64,7 +64,7 @@ Perform the following steps to prepare the drives.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
-     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md).
+     Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 
 4. Modify the *driveset.csv* file in the root folder where the tool resides. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
@@ -85,7 +85,7 @@ Perform the following steps to prepare the drives.
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     Multiple entries can be made in the same file corresponding to multiple drives. Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md).
+     Multiple entries can be made in the same file corresponding to multiple drives. Learn more about [preparing the driveset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 5. Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
@@ -107,6 +107,8 @@ Perform the following steps to prepare the drives.
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 
 ## Step 2: Create an import job
+
+### [Portal](#tab/azure-portal)
 
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
@@ -155,6 +157,86 @@ Perform the following steps to create an import job in the Azure portal.
     - Click **OK** to complete import job creation.
 
         ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the following steps to create an import job in the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### Create a job
+
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+
+    ```azurecli
+    az storage account create -resource-group myierg -name myssdocsstorage --https-only
+    ```
+
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region:
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+
+
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## Step 3: Ship the drives to the Azure datacenter
 

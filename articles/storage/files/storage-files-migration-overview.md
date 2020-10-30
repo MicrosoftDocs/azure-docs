@@ -21,7 +21,7 @@ Azure has multiple available types of cloud storage. A fundamental aspect of fil
 
 [Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
 
-For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario.
+For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/managed-disks-overview.md) for this scenario.
 
 Some cloud apps don't depend on SMB or on machine-local data access or shared access. For those apps, object storage like [Azure blobs](../blobs/storage-blobs-overview.md) is often the best choice.
 
@@ -33,7 +33,7 @@ Here are the two basic components of a file:
 - **File metadata**: The file metadata has these subcomponents:
    * File attributes like read-only
    * File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
-   * Timestamps, most notably the creation and last-modified timestamps
+   * Timestamps, most notably the creation, and last-modified timestamps
    * An alternative data stream, which is a space to store larger amounts of nonstandard properties
 
 File fidelity in a migration can be defined as the ability to:
@@ -116,7 +116,7 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10.4 or later| Supported. | Full fidelity.* |
-|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Supported. | Doesn't copy metadata. [Data Box can be used with Azure File Sync](storage-sync-offline-data-transfer.md). |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox now fully supports metadata. [Data Box can also be used in combination with Azure File Sync](storage-sync-offline-data-transfer.md). |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
 |||||

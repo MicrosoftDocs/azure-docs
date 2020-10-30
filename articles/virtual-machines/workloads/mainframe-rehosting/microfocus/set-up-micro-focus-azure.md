@@ -1,6 +1,6 @@
 ---
 title: Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure | Microsoft Docs
-description: Rehost your IBM z/OS mainframe workloads using the Micro Focus development and test environment on Azure virtual machines (VMs).
+description: In this article, learn how to install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter:
 author: maggsl
@@ -66,9 +66,9 @@ Before getting started, check out these prerequisites:
 
 8.  From the RDP session, load the following two files. Because you're using Windows, you can drag and drop the files into the RDP session:
 
-    -   **es\_50.exe**, the Enterprise Server installation file.
+    -   `es\_50.exe`, the Enterprise Server installation file.
 
-    -   **mflic**, the corresponding license file—Enterprise Server won't load
+    -   `mflic`, the corresponding license file—Enterprise Server won't load
         without it.
 
 9.  Double-click the file to start the installation. In the first window, select the installation location and accept the end-user license agreement.
@@ -87,11 +87,11 @@ After the installation, be sure to check for any additional updates as a number 
 
 1.  Start the Micro Focus License Administration.
 
-2.  Select **Start** \> **Micro Focus License Manager** \> **License Administration**, and then click the **Install** tab. Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the **mflic** file uploaded previously to the VM and select **Install Licenses**.
+2.  Select **Start** \> **Micro Focus License Manager** \> **License Administration**, and then click the **Install** tab. Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the *`mflic` file uploaded previously to the VM and select **Install Licenses**.
 
     ![Micro Focus License Administration dialog box](media/install-image-3.png)
 
-3.  Verify that Enterprise Server loads. Try launching the Enterprise Server Administration site from a browser using this URL: <http://localhost:86/>. The Enterprise Server Administration page is displayed as shown.
+3.  Verify that Enterprise Server loads. Try launching the Enterprise Server Administration site from a browser using this URL: `http://localhost:86/`. The Enterprise Server Administration page is displayed as shown.
 
     ![Enterprise Server Administration page](media/install-image-4.png)
 
@@ -103,9 +103,9 @@ After the installation, be sure to check for any additional updates as a number 
 
 3.  From the RDP session, load the following two files (drag and drop if you like):
 
-    -   **edvs2017.exe**, the Enterprise Server installation file.
+    -   `edvs2017.exe`, the Enterprise Server installation file.
 
-    -   **mflic**, the corresponding license file (Enterprise Developer will not
+    -   `mflic`, the corresponding license file (Enterprise Developer will not
         load without it).
 
 4.  Double-click the **edvs2017.exe** file to start the installation. In the first window, select the installation location and accept the end-user license agreement. If you want, choose **Install Rumba 9.5** to install this terminal emulator, which you'll probably need.
@@ -118,7 +118,7 @@ After the installation, be sure to check for any additional updates as a number 
 
 6.  Start the Micro Focus License Manager just as you did for Enterprise Server. Choose **Start** \> **Micro Focus License Manager** \> **License Administration**, and click the **Install** tab.
 
-7.  Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the **mflic** file uploaded previously to the VM and select  **Install Licenses**.
+7.  Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the `mflic` file uploaded previously to the VM and select  **Install Licenses**.
 
     ![Micro Focus License Administration dialog box](media/install-image-7.png)
 

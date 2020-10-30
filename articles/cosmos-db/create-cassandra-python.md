@@ -7,11 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 08/13/2020
 ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -63,68 +64,29 @@ Now let's clone a Cassandra API app from GitHub, set the connection string, and 
 
 This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the *pyquickstart.py* file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* The username and password values were set using the connection string page in the Azure portal. The `path\to\cert` provides a path to an X509 certificate. 
+* The `cluster` is initialized with `contactPoint` and `port` information that is retrieved from the Azure portal. The `cluster` then connects to the Azure Cosmos DB Cassandra API by using the `connect()` method. An authorized connection is established by using the username, password, and the default certificate or an explicit certificate if you provide one within the config file.
 
-   ```python
-	ssl_opts = {
-		    'ca_certs': 'path\to\cert',
-		    'ssl_version': ssl.PROTOCOL_TLSv1_2
-		    }
-    auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
-    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
-	session = cluster.connect()
-   
-   ```
-
-* The `cluster` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
-
-    ```python
-   cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider)
-    ```
-
-* The `cluster` connects to the Azure Cosmos DB Cassandra API.
-
-    ```python
-    session = cluster.connect()
-    ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="authenticateAndConnect":::
 
 * A new keyspace is created.
 
-    ```python
-   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }')
-    ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="createKeyspace":::
 
 * A new table is created.
 
-   ```
-   session.execute('CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)');
-   ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="createTable":::
 
 * Key/value entities are inserted.
 
-    ```Python
-    insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    session.execute(insert_data, [1,'Lybkov','Seattle'])
-    session.execute(insert_data, [2,'Doniv','Dubai'])
-    session.execute(insert_data, [3,'Keviv','Chennai'])
-    session.execute(insert_data, [4,'Ehtevs','Pune'])
-    session.execute(insert_data, [5,'Dnivog','Belgaum'])
-    ....
-    
-    ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="insertData":::
 
 * Query to get all key values.
 
-    ```Python
-    rows = session.execute('SELECT * FROM uprofile.user')
-    ```  
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="queryAllItems":::
     
 * Query to get a key-value.
 
-    ```Python
-    
-    rows = session.execute('SELECT * FROM uprofile.user where user_id=1')
-    ```  
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="queryByID":::
 
 ## Update your connection string
 
@@ -162,7 +124,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension *.cer*.
 
-   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Open *pyquickstart.py* and change the `path\to\cert` to point to your new certificate.
 

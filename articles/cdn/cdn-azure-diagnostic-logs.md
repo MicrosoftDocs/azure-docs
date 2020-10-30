@@ -1,7 +1,7 @@
 ---
 title: Diagnostic logs
 titleSuffix: Azure Content Delivery Network
-description: Customer can enable log analysis for Azure CDN.
+description: Learn how to use Azure diagnostic logs to save core analytics, which allows you to export usage metrics from your Azure Content Delivery Network endpoint.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -55,7 +55,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
- >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** for more information.
+ >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
@@ -74,7 +74,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** for more information.
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -91,7 +91,7 @@ To use Log Analytics for the logs, follow these steps:
 To use an event hub for the logs, follow these steps:
 
 >[!NOTE] 
->An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** for more information.
+>An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -365,14 +365,7 @@ Example properties:
 
 ## Additional resources
 
-* [Azure Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Core analytics via Azure CDN supplemental portal](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Azure Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)
+* [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
+* [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Log Analytics REST API](/rest/api/loganalytics)

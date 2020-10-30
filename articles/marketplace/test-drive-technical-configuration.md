@@ -17,15 +17,15 @@ If you no longer want to provide a test drive for your offer, return to the **Of
 
 ## Azure Resource Manager test drive
 
-This is the only test drive option for virtual machine or Azure app offers and also requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
+This is the only test drive option for virtual machine or Azure app offers and requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
 
 ## Hosted test drive
 
-Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deployment using this type of test drive. The configuration for this type of hosted test drive is the same regardless of whether the test drive is targeting a Dynamics 365 Business Central, Dynamics 365 Customer Engagement, or Dynamics 365 Operations audience.
+Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deprovisioning. The configuration for this type of test drive is the same regardless of whether the test drive is targeting a Dynamics 365 Customer Engagement or Dynamics 365 Operations audience.
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so ensure you have enough licenses available to support the maximum limit set. The recommended value is 3-5.
 
-- **Test drive duration** (required) – Enter the number of hours the test drive will stay active. After this time, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not). The user can request a new session if they run out of time and want to access the test drive again.
+- **Test drive duration** (required) – Enter the number of hours the test drive will stay active for each customer. After this period, the session will end and no longer consumes one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2 hours” is valid; "1.5 hours" is not). The user can request a new session if they run out of time and want to access the test drive again.
 
 - **Instance URL** (required) – The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (for example, `https://testdrive.crm.dynamics.com`).
 
@@ -69,7 +69,7 @@ To allow Microsoft to deploy the test drive on your behalf, create and provide a
 
 - **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (such as `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
+- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, and select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, and choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
 
 ## Test drive listings
 
@@ -88,6 +88,15 @@ The **Test Drive listings** option found under the **Test drive** tab in Partner
 
 If you are currently creating your test drive in Partner Center, select **Save draft** before continuing.
 
-## Next step
+## Next steps
 
+- [Test Drive Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; make sure your pop-up blocker is off)
 - [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
+
+## Additional Resources
+
+## Feedback
+
+Submit and view feedback for
+[This Product](https://feedback.azure.com/forums/216369-azure-marketplace)

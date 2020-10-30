@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
 
@@ -113,25 +113,25 @@ When planning access control using RBAC for Security Center, be sure to understa
 A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Security Center, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
 
 Security Center policies contain the following components:
-- [Data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agent provisioning and data collection settings.
-- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
-- [Email notifications](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): security contacts and notification settings.
-- [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): free or standard pricing selection, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
+- [Data collection](security-center-enable-data-collection.md): agent provisioning and data collection settings.
+- [Security policy](tutorial-security-policy.md): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
+- [Email notifications](security-center-provide-security-contact-details.md): security contacts and notification settings.
+- [Pricing tier](security-center-pricing.md): with or without Azure Defender, which determine which Security Center features are available for resources in scope (can be specified for subscriptions and workspaces, or resource groups using the API).
 
 > [!NOTE]
-> Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) for more information on how to enable this recommendation.
+> Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information on how to enable this recommendation.
 
 ### Security policies definitions and recommendations
 Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Security Center or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups (which can represent the entire organization, a business unit in it etc.), and monitor compliance to these policies across these scopes.
 
-Before configuring security policies, review each of the [security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations), and determine whether these policies are appropriate for your various subscriptions and resource groups. It is also important to understand what action should be taken to address Security Recommendations and who in your organization will be responsible for monitoring for new recommendations and taking the needed steps.
+Before configuring security policies, review each of the [security recommendations](security-center-recommendations.md), and determine whether these policies are appropriate for your various subscriptions and resource groups. It is also important to understand what action should be taken to address Security Recommendations and who in your organization will be responsible for monitoring for new recommendations and taking the needed steps.
 
 ## Data collection and storage
-Azure Security Center uses the Log Analytics agent – this is the same agent used by the Azure Monitor service – to collect security data from your virtual machines. [Data collected](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) from this agent will be stored in your Log Analytics workspace(s).
+Azure Security Center uses the Log Analytics agent – this is the same agent used by the Azure Monitor service – to collect security data from your virtual machines. [Data collected](security-center-enable-data-collection.md) from this agent will be stored in your Log Analytics workspace(s).
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) or [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
+When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/platform/agent-windows.md) or [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
 
 The Log Analytics agent for Windows requires use TCP port 443. See the [Troubleshooting article](security-center-troubleshooting-guide.md) for additional details.
 
@@ -154,12 +154,12 @@ In the Azure portal, you can browse to see a list of your Log Analytics workspac
 For workspaces created by Azure Security Center, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier. If you want, you can also use an existing workspace.
 
 > [!NOTE]
-> Microsoft makes strong commitment to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Azure Security Center Data Security](security-center-data-security.md).
+> Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Azure Security Center Data Security](security-center-data-security.md).
 >
 
-## Onboarding non-Azure resources
+## Onboard non-Azure resources
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers) for more information on how to onboarding non-Azure resources.
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
 
 ## Ongoing security monitoring
 After initial configuration and application of Security Center recommendations, the next step is considering Security Center operational processes.
@@ -185,9 +185,9 @@ You should also regularly monitor existing resources for configuration changes t
 
 ### Hardening access and applications
 
-As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you are reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) access feature to hardening access to your VMs.
+As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you are reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](security-center-just-in-time.md) access feature to hardening access to your VMs.
 
-You can use [Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Security Center analyzes processes running in the VM to help you create whitelisting rules.
+You can use [adaptive application controls](security-center-adaptive-application.md) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Security Center analyzes processes running in the VM to help you create allow listing rules.
 
 
 ## Incident response
@@ -195,7 +195,7 @@ Security Center detects and alerts you to threats as they occur. Organizations s
 
 While this article doesn't have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 
-![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Stages of the incident response in the cloud lifecycle](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.
@@ -213,13 +213,11 @@ The following example shows a suspicious RDP activity taking place:
 
 ![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
+This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
 
-From this page, you can also start an investigation to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
+Once you identify the compromised system, you can run a [workflow automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
-Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
-
-In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
+In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that show how Security Center can be used in each one of those stages.
 
 > [!NOTE]
 > Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process.
@@ -231,6 +229,6 @@ In this document, you learned how to plan for Security Center adoption. To learn
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+* [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance.

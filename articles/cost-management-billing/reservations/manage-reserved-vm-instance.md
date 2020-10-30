@@ -2,6 +2,7 @@
 title: Manage Azure Reservations
 description: Learn how to manage Azure Reservations. See steps to change the reservation scope, split a reservation, and optimize reservation use.
 ms.service: cost-management-billing
+ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
@@ -66,7 +67,7 @@ To delegate access management for a reservation:
 
 ## Split a single reservation into two reservations
 
- After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription or shared. For example, you bought 10 reservation instances and specified the scope to be subscription A. You may now want to change the scope for seven reservations to subscription A and the remaining three to subscription B. Splitting a reservation allows you to distribute instances for granular scope management. You can simplify the allocation to subscriptions by choosing shared scope. But for cost management or budgeting purposes, you can allocate quantities to specific subscriptions.
+ After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription, resource group or shared. Lets say, you bought a reservation for 10 VM instances and specified the scope to be subscription A. You now want to change the scope for 7 VM instances to subscription A and the remaining three to subscription B. Splitting a reservation allows you todo that. After you split a reservation, the original ReservationID is cancelled and two new reservations are created. Split doesn't impact the reservation order - there is no new commercial transaction with split and the new reservations have the same end date as the one that was split.
 
  You can split a reservation into two reservations though PowerShell, CLI, or through the API.
 
@@ -103,7 +104,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Change optimize setting for Reserved VM Instances
 
- When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](https://aka.ms/RIVMGroups). Capacity priority prioritizes data center capacity for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
+ When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority prioritizes data center capacity for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
 
 By default, when the scope of the reservation is shared, the instance size flexibility is on. The data center capacity isn't prioritized for VM deployments.
 
@@ -166,7 +167,7 @@ Buy a service plan:
 - [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Buy a software plan:
-- [Prepay for Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prepay for Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Prepay for SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Understand discount and usage:

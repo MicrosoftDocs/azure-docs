@@ -3,6 +3,7 @@ title: Configure ASP.NET apps
 description: Learn how to configure an ASP.NET app in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: dotnet
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 
@@ -91,7 +92,7 @@ Redeploy your app with the updated *Web.config*. You should now see the same det
 
 ## Access diagnostic logs
 
-You can add diagnostic messages in your application code using [System.Diagnostics.Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). For example: 
+You can add diagnostic messages in your application code using [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace). For example: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

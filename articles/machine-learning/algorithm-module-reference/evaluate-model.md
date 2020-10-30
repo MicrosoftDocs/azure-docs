@@ -13,7 +13,7 @@ ms.date: 07/27/2020
 ---
 # Evaluate Model module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
@@ -35,6 +35,14 @@ Use this module to measure the accuracy of a trained model. You provide a datase
     > Actual label column (used in training), 'Scored Probabilities' column and 'Scored Labels' column exist to calculate metrics like AUC, Accuracy for binary classification/anomaly detection.
     > Actual label column, 'Scored Labels' column exist to calculate metrics for multi-class classification/regression.
     > 'Assignments' column, columns 'DistancesToClusterCenter no.X' (X is centroid index, ranging from 0, ..., Number of centroids-1)     exist to calculate metrics for clustering.
+
+    > [!IMPORTANT]
+    > + To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model module requirements.
+    > + The `Labels` column will be considered as actual labels.
+    > + For regression task, the dataset to evaluate must has one column, named `Regression Scored Labels`, which represents scored labels.
+    > + For binary classification task, the dataset to evaluate must has two columns, named `Binary Class Scored Labels`,`Binary Class Scored Probabilities`, which represent scored labels, and probabilities respectively.
+    > + For multi classification task, the dataset to evaluate must has one column, named `Multi Class Scored Labels`, which represents scored labels.
+    > If the outputs of the upstream module does not have these columns, you need to modify according to the requirements above.
 
 2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters for the second model to the **right** input port of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
 

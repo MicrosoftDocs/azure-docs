@@ -15,6 +15,8 @@
   items:
   - name: Set up a Time Series Insights Gen2 environment
     href: tutorials-set-up-tsi-environment.md
+  - name: Model synchronization between Azure Digital Twins and Time Series Insights Gen2
+    href: tutorials-model-sync.md
 - name: Concepts
   items:
   - name: Azure Time Series Insights Gen2
@@ -67,9 +69,11 @@
     items:
     - name: Authenticate and authorize
       href: time-series-insights-authentication-and-authorization.md
-    - name: Query data by using C#
+    - name: Query data by using C# - Gen2
+      href: time-series-insights-update-query-data-csharp.md
+    - name: Query data by using C# - Gen1
       href: time-series-insights-query-data-csharp.md
-    - name: Manage reference data in C#
+    - name: Manage reference data in C# - Gen1
       href: time-series-insights-manage-reference-data-csharp.md
     - name: Share a custom view
       href: time-series-insights-parameterized-urls.md
@@ -127,8 +131,6 @@
       href: time-series-insights-send-events.md
     - name: Scale your environment
       href: time-series-insights-how-to-scale-your-environment.md
-    - name: Shape JSON for ingress and queries
-      href: how-to-shape-query-json.md
     - name: Mitigate throttling
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnose and troubleshoot
@@ -156,7 +158,7 @@
     - name: Data Access Gen1
       items:
       - name: Overview
-        href: https://docs.microsoft.com/rest/api/time-series-insights/ga
+        href: https://docs.microsoft.com/rest/api/time-series-insights/gen1
       - name: Query
         items:
         - name: Query

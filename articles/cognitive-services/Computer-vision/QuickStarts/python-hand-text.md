@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:  Computer Vision 2.1 and 3.0 - Extract printed and handwritten text - REST, Python"
+title: "Quickstart:  Computer Vision 2.1 and 3.1 - Extract printed and handwritten text - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with Python.
 services: cognitive-services
@@ -15,10 +15,10 @@ ms.custom: seodec18, devx-track-python
 ---
 # Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Python
 
-In this quickstart, you'll extract printed and handwritten text from an image using the Computer Vision REST API. With the [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
+In this quickstart, you'll extract printed and handwritten text from an image using the Computer Vision REST API. With the [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
 
 > [!IMPORTANT]
-> The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
+> The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
 
 ---
 
@@ -63,14 +63,14 @@ missing_env = False
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_ENDPOINT environment variable, such as \"https://westus2.api.cognitive.microsoft.com\".\n")
     missing_env = True
 
 if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
     subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable, such as \"1234567890abcdef1234567890abcdef\".\n")
     missing_env = True
 
@@ -78,7 +78,7 @@ if missing_env:
     print("**Restart your shell or IDE for changes to take effect.**")
     sys.exit()
 
-text_recognition_url = endpoint + "/vision/v3.0/read/analyze"
+text_recognition_url = endpoint + "/vision/v3.1/read/analyze"
 
 # Set image_url to the URL of an image that you want to recognize.
 image_url = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg"
@@ -141,7 +141,7 @@ A successful response is returned in JSON. The sample webpage parses and display
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

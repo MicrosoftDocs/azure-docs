@@ -3,7 +3,7 @@ title: Advanced usage of AuthN/AuthZ
 description: Learn to customize the authentication and authorization feature in App Service for different scenarios, and get user claims and different tokens.
 ms.topic: article
 ms.date: 07/08/2020
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service
@@ -141,7 +141,7 @@ App Service passes user claims to your application by using special headers. Ext
 
 Code that is written in any language or framework can get the information that it needs from these headers. For ASP.NET 4.6 apps, the **ClaimsPrincipal** is automatically set with the appropriate values. ASP.NET Core, however, doesn't provide an authentication middleware that integrates with App Service user claims. For a workaround, see [MaximeRouiller.Azure.AppService.EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-Your application can also obtain additional details on the authenticated user by calling `/.auth/me`. The Mobile Apps server SDKs provide helper methods to work with this data. For more information, see [How to use the Azure Mobile Apps Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), and [Work with the .NET backend server SDK for Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+If the [token store](overview-authentication-authorization.md#token-store) is enabled for your app, you can also obtain additional details on the authenticated user by calling `/.auth/me`. The Mobile Apps server SDKs provide helper methods to work with this data. For more information, see [How to use the Azure Mobile Apps Node.js SDK](/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk#howto-tables-getidentity), and [Work with the .NET backend server SDK for Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#user-info).
 
 ## Retrieve tokens in app code
 
@@ -156,14 +156,14 @@ From your server code, the provider-specific tokens are injected into the reques
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me`. The returned JSON has the provider-specific tokens.
+From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me` ([token store](overview-authentication-authorization.md#token-store) must be enabled). The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
 > Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see Refresh access tokens.
 
 ## Refresh identity provider tokens
 
-When your provider's access token (not the [session token](#extend-session-token-expiration-grace-period)) expires, you need to reauthenticate the user before you use that token again. You can avoid token expiration by making a `GET` call to the `/.auth/refresh` endpoint of your application. When called, App Service automatically refreshes the access tokens in the token store for the authenticated user. Subsequent requests for tokens by your app code get the refreshed tokens. However, for token refresh to work, the token store must contain [refresh tokens](https://auth0.com/learn/refresh-tokens/) for your provider. The way to get refresh tokens are documented by each provider, but the following list is a brief summary:
+When your provider's access token (not the [session token](#extend-session-token-expiration-grace-period)) expires, you need to reauthenticate the user before you use that token again. You can avoid token expiration by making a `GET` call to the `/.auth/refresh` endpoint of your application. When called, App Service automatically refreshes the access tokens in the [token store](overview-authentication-authorization.md#token-store) for the authenticated user. Subsequent requests for tokens by your app code get the refreshed tokens. However, for token refresh to work, the token store must contain [refresh tokens](https://auth0.com/learn/refresh-tokens/) for your provider. The way to get refresh tokens are documented by each provider, but the following list is a brief summary:
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
@@ -293,6 +293,9 @@ Your auth settings can optionally be configured via a file that is provided by y
     2.	Set `isAuthFromFile` to "true"
     3.	Set `authFilePath` to the name of the file (for example, "auth.json")
 
+> [!NOTE]
+> The format for `authFilePath` varies between platforms. On Windows, both relative and absolute paths are supported. Relative is recommended. For Linux, only absolute paths are supported currently, so the value of the setting should be "/home/site/wwwroot/auth.json" or similar.
+
 Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to Azure Resource Manager configuration, you can do so by setting `isAuthFromFile` back to "false".
 
 ### Configuration file reference
@@ -314,6 +317,46 @@ The following exhausts possible configuration options within the file:
             "/path1",
             "/path2"
         ]
+    },
+    "httpSettings": {
+        "requireHttps": <true|false>,
+        "routes": {
+            "apiPrefix": "<api prefix>"
+        },
+        "forwardProxy": {
+            "convention": "NoProxy|Standard|Custom",
+            "customHostHeaderName": "<host header value>",
+            "customProtoHeaderName": "<proto header value>"
+        }
+    },
+    "login": {
+        "routes": {
+            "logoutEndpoint": "<logout endpoint>"
+        },
+        "tokenStore": {
+            "enabled": <true|false>,
+            "tokenRefreshExtensionHours": "<double>",
+            "fileSystem": {
+                "directory": "<directory to store the tokens in if using a file system token store (default)>"
+            },
+            "azureBlobStorage": {
+                "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
+            }
+        },
+        "preserveUrlFragmentsForLogins": <true|false>,
+        "allowedExternalRedirectUri": [
+            "https://uri1.azurewebsites.net/",
+            "https://uri2.azurewebsites.net/",
+            "url_scheme_of_your_app://easyauth.callback"
+        ],
+        "cookieExpiration": {
+            "convention": "FixedTime|IdentityProviderDerived",
+            "timeToExpiration": "<timespan>"
+        },
+        "nonce": {
+            "validateNonce": <true|false>,
+            "nonceExpirationInterval": "<timespan>"
+        }
     },
     "identityProviders": {
         "azureActiveDirectory": {
@@ -345,7 +388,7 @@ The following exhausts possible configuration options within the file:
             "graphApiVersion": "v3.3",
             "login": {
                 "scopes": [
-                    "profile",
+                    "public_profile",
                     "email"
                 ]
             },
@@ -390,7 +433,7 @@ The following exhausts possible configuration options within the file:
             }
         },
         "openIdConnectProviders": {
-            "provider name": {
+            "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
@@ -419,45 +462,6 @@ The following exhausts possible configuration options within the file:
                 }
             },
             //...
-        },
-        "login": {
-            "routes": {
-                "logoutEndpoint": "<logout endpoint>"
-            },
-            "tokenStore": {
-                "enabled": <true|false>,
-                "tokenRefreshExtensionHours": "<double>",
-                "fileSystem": {
-                    "directory": "<directory to store the tokens in if using a file system token store (default)>"
-                },
-                "azureBlobStorage": {
-                    "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
-                }
-            },
-            "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUrls": [
-                "https://uri1.azurewebsites.net/",
-                "https://uri2.azurewebsites.net/"
-            ],
-            "cookieExpiration": {
-                "convention": "FixedTime|IdentityProviderDerived",
-                "timeToExpiration": "<timespan>"
-            },
-            "nonce": {
-                "validateNonce": <true|false>,
-                "nonceExpirationInterval": "<timespan>"
-            }
-        },
-        "httpSettings": {
-            "requireHttps": <true|false>,
-            "routes": {
-                "apiPrefix": "<api prefix>"
-            },
-            "forwardProxy": {
-                "convention": "NoProxy|Standard|Custom",
-                "customHostHeaderName": "<host header value>",
-                "customProtoHeaderName": "<proto header value>"
-            }
         }
     }
 }
@@ -481,7 +485,7 @@ You can view the current version of the platform authentication middleware eithe
 
 ##### From the Azure CLI
 
-Using the Azure CLI, view the current middleware version with the [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
+Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -512,7 +516,7 @@ You can also hit /.auth/version endpoint on an app also to view the current midd
 
 #### Update the current runtime version
 
-Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
+Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update) command.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -522,7 +526,7 @@ az webapp auth update --name <my_app_name> \
 
 Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app. Also, replace `<version>` with a valid version of the 1.x runtime or `~1` for the latest version. You can find the release notes on the different runtime versions [here] (https://github.com/Azure/app-service-announcements) to help determine the version to pin to.
 
-You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli) to execute this command after executing [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) to sign in.
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
 ## Next steps
 

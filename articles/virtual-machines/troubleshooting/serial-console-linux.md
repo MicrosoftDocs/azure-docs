@@ -1,6 +1,6 @@
 ---
 title: Azure Serial Console for Linux | Microsoft Docs
-description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets.
+description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets using a Linux example.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -70,7 +70,7 @@ Oracle Linux        | Serial console access enabled by default.
 ### Custom Linux images
 To enable the serial console for your custom Linux VM image, enable console access in the file */etc/inittab* to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. You may also need to spawn a getty on ttyS0. This can be done with `systemctl start serial-getty@ttyS0.service`.
 
-You will also want to add ttys0 as the destination for serial output. For more information on configuring a custom image to work with the serial console, see the general system requirements at [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+You will also want to add ttys0 as the destination for serial output. For more information on configuring a custom image to work with the serial console, see the general system requirements at [Create and upload a Linux VHD in Azure](../linux/create-upload-generic.md#general-linux-system-requirements).
 
 If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path.
 
@@ -125,7 +125,7 @@ Issue                           |   Mitigation
 Pressing **Enter** after the connection banner does not cause a sign-in prompt to be displayed. | GRUB may not be configured correctly. Run the following commands: `grub2-mkconfig -o /etc/grub2-efi.cfg` and/or `grub2-mkconfig -o /etc/grub2.cfg`. For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This issue can occur if you're running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to connect to the serial port.
 Serial console text only takes up a portion of the screen size (often after using a text editor). | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. Install xterm or a similar utility to provide you with the `resize` command, and then run `resize`.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
-Erratic keyboard input in SLES BYOS images. Keyboard input is only sporadically recognized. | This is an issue with the Plymouth package. Plymouth should not be run in Azure as you don't need a splash screen and Plymouth interferes with the platform ability to use Serial Console. Remove Plymouth with `sudo zypper remove plymouth` and then reboot. Alternatively, modify the kernel line of your GRUB config by appending `plymouth.enable=0` to the end of the line. You can do this by [editing the boot entry at boot time](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), or by editing the GRUB_CMDLINE_LINUX line in `/etc/default/grub`, rebuilding GRUB with `grub2-mkconfig -o /boot/grub2/grub.cfg`,  and then rebooting.
+Erratic keyboard input in SLES BYOS images. Keyboard input is only sporadically recognized. | This is an issue with the Plymouth package. Plymouth should not be run in Azure as you don't need a splash screen and Plymouth interferes with the platform ability to use Serial Console. Remove Plymouth with `sudo zypper remove plymouth` and then reboot. Alternatively, modify the kernel line of your GRUB config by appending `plymouth.enable=0` to the end of the line. You can do this by [editing the boot entry at boot time](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles), or by editing the GRUB_CMDLINE_LINUX line in `/etc/default/grub`, rebuilding GRUB with `grub2-mkconfig -o /boot/grub2/grub.cfg`,  and then rebooting.
 
 
 ## Frequently asked questions
