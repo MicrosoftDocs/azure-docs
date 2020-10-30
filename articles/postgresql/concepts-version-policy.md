@@ -33,13 +33,13 @@ Azure Database for PostgreSQL automatically performs minor version upgrades to t
 ### Major version retirement policy
 The table below provides the retirement details for PostgreSQL major versions. The dates follow the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
 
-| Version | Azure support start date | Retirement date|
-| ----- | ------ | ----- |
-| PostgreSQL 9.5 | April 18, 2018	| February 11, 2021
-| PostgreSQL 9.6 | April 18, 2018	| November 11, 2021
-| PostgreSQL 10 |	June 4, 2018	| November 10, 2022
-| PostgreSQL 11 |	July 24, 2019	| November 9, 2023
-| PostgreSQL 12 |	Sept 22, 2020 	| November 14, 2024
+| Version | What's New | Azure support start date | Retirement date|
+| ----- | ----- | ------ | ----- |
+| PostgreSQL 9.5 |  | April 18, 2018	| February 11, 2021
+| [PostgreSQL 9.6](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Features](https://wiki.postgresql.org/wiki/NewIn96) | April 18, 2018	| November 11, 2021
+| [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Features](https://wiki.postgresql.org/wiki/New_in_postgres_10) | June 4, 2018	| November 10, 2022
+| [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2023
+| [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
 
 ### Retired PostgreSQL engine versions not supported in Azure PostgreSQL
 
