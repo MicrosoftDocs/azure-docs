@@ -231,7 +231,7 @@ BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_i
 Console.WriteLine($"Relationship Name: {rel.Name}");
 ```
 
-The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through a `IDictionary<string, object>`. To list properties, you can use:
+The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through an `IDictionary<string, object>`. To list properties, you can use:
 
 ```csharp
 BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
