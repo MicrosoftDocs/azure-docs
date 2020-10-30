@@ -30,12 +30,12 @@ Additional resources:
 * [API reference documentation](/dotnet/api/azure.storage.queues)
 * [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up

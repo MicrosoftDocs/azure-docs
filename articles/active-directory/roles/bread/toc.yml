@@ -3,6 +3,15 @@
   topicHref: /azure/index
   items:
   - name: Active Directory
+    tocHref: /azure/active-directory/roles/
+    topicHref: /azure/active-directory/roles/index
+    items:
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
     tocHref: /azure/active-directory/fundamentals/
     topicHref: /azure/active-directory/index
     items:
@@ -99,9 +108,9 @@
   topicHref: /azure/index
   items:  
   - name: Active Directory
-    tocHref: /azure/enterprise-users/
+    tocHref: /azure/active-directory/enterprise-users/
     topicHref: /azure/active-directory/index
     items:
     - name: Roles
-      tocHref: /azure/enterprise-users/
+      tocHref: /azure/active-directory/enterprise-users/
       topicHref: /azure/active-directory/roles/index

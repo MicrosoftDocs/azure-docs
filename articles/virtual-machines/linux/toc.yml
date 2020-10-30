@@ -320,7 +320,7 @@
     - name: Select a disk type for IaaS VMs
       href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encryption
-      href: disk-encryption.md
+      href: ../disk-encryption.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Virtual machine and disk performance
@@ -328,7 +328,7 @@
     - name: Designing for high performance
       href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk bursting
-      href: disk-bursting.md
+      href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -1024,8 +1024,6 @@
         href: disks-benchmarks.md
       - name: Optimizing performance
         href: optimization.md
-      - name: Configure LVM
-        href: configure-lvm.md
     - name: Find unattached disks - CLI
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal

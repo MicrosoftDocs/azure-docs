@@ -7,6 +7,7 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
+ms.custom: contperfq2
 ---
 
 # Azure consumption commitment benefit

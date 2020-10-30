@@ -83,7 +83,7 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 When using service endpoints for Azure SQL Database, review the following considerations:
 
-- **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
+- **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../../virtual-network/network-security-groups-overview.md#service-tags) for Azure SQL Database.
 
 ### ExpressRoute
 
@@ -106,9 +106,9 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
 #### Prerequisites
 
-- Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Enabling this configuration will allow PolyBase and the COPY statement to connect to the storage account using strong authentication where network traffic remains on the Azure backbone. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
+- Install Azure PowerShell using this [guide](/powershell/azure/install-az-ps).
+- If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](../../storage/common/storage-account-upgrade.md).
+- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Enabling this configuration will allow PolyBase and the COPY statement to connect to the storage account using strong authentication where network traffic remains on the Azure backbone. Refer to this [guide](../../storage/common/storage-network-security.md#exceptions) for more information.
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
@@ -123,21 +123,21 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Create a **general-purpose v2 Storage Account** using this [guide](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md).
+   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
 1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
 
    > [!NOTE]
-   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md).
   
 1. **Polybase connectivity to the Azure Storage account:**
 
-   1. Create a database **[master key](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** if you haven't created one earlier:
+   1. Create a database **[master key](/sql/t-sql/statements/create-master-key-transact-sql)** if you haven't created one earlier:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
@@ -151,7 +151,7 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
        > [!NOTE]
        >
-       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) under the covers.
        > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
 
    1. Create external data source with `abfss://` scheme for connecting to your general-purpose v2 storage account using PolyBase:
@@ -162,11 +162,11 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
        > [!NOTE]
        >
-       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with `abfss://` scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
-       > - For more information on `abfss://` scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with `abfss://` scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
+       > - For more information on `abfss://` scheme, refer to this [guide](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Query as normal using [external tables](/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
@@ -292,12 +292,12 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

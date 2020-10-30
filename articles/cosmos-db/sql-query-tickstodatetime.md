@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # TicksToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converts the specified ticks value to a DateTime.
   
