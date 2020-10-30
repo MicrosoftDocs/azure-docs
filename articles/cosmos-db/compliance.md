@@ -43,7 +43,7 @@ Azure Cosmos DB is continually expanding its certification coverage. Currently, 
 | ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
-To learn more about each of these compliance offerings and how they benefit you, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Appendix A & B.
+To learn more about each of these compliance offerings and how they benefit you, see [Microsoft Azure Compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Appendix A & B.
 
 The following table lists the certifications supported by Azure Cosmos DB in Azure Government:
 
