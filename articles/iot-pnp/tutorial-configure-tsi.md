@@ -80,7 +80,7 @@ Navigate to your resource group in the [Azure portal](https://portal.azure.com) 
 
 In the explorer, you should see your two thermostats under "All hierarchies." Next, you'll curate your Time Series Model based off of your device model.
 
-![Explorer view 1](./media/tutorial-configure-tsi/view-environment.png)
+![Explorer view 1](./media/tutorial-configure-tsi/tsi-env-first-view.png)
 
 ## Model synchronization between Digital Twins Definition Language and Time Series Insights Gen2
 
