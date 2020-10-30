@@ -22,13 +22,13 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
 3. Verify that the **Dynamics 365 Customer Engagement Plan** license is available.
 
-    :::image type="content" source="./media/test-drive/check-plan-license.png" alt-text="Checking the plan license.":::
+    [![Checking the plan license.](media/test-drive/check-plan-license.png)](media/test-drive/check-plan-license.png#lightbox)
 
 4. Create an Azure Active Directory (AD) app in Azure. AppSource will use this app to provision and deprovision the test drive user in your tenant.
     1. From the filter pane, select **Azure Active Directory**.
     2. Select **App registrations**.
 
-        :::image type="content" source="./media/test-drive/app-registrations.png" alt-text="Selecting app registrations.":::
+        [![Selecting app registrations.](media/test-drive/app-registrations.png)](media/test-drive/app-registrations.png#lightbox)
 
     3. Select **New registration**.
     4. Provide an appropriate application name.
@@ -55,7 +55,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     13. Once the permission is added, select **Grant admin consent for Microsoft**.
     14. From the message alert, select **Yes**.
 
-        :::image type="content" source="./media/test-drive/api-permissions-confirmation-customer.png" alt-text="Shows the application permissions successfully granted.":::
+        [![Shows the application permissions successfully granted.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
     15. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
@@ -125,7 +125,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     12. Once the permission is added, select **Grant admin consent for Microsoft**.
     13. From the message alert, select **Yes**.
 
-        :::image type="content" source="./media/test-drive/api-permissions-confirmation-operations.png" alt-text="Shows application permissions successfully granted.":::
+        [![Shows application permissions successfully granted.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
@@ -155,7 +155,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
 The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).
 
-:::image type="content" source="./media/test-drive/system-admin-user-id.png" alt-text="The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).":::
+[![The user ID on whose behalf the actions will be performed (typically the System Admin of the instance or a user who has privileges to add other users).](media/test-drive/system-admin-user-id.png)](media/test-drive/system-admin-user-id.png#lightbox)
 
 ## Next steps
 
