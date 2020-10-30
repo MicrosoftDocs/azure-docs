@@ -18,6 +18,8 @@ Learn about different migration options and considerations to migrate your SQL S
 
 You can migrate SQL Server running on-premises or on: 
 
+#TO BE DELETED - TEST COMMENT
+
 - SQL Server on Virtual Machines  
 - Amazon Web Services (AWS) EC2 
 - Amazon Relational Database Service (AWS RDS) 
