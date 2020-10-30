@@ -10,6 +10,7 @@ ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Manage consistency levels in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
