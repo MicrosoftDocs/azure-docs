@@ -317,23 +317,27 @@ Once you have decided on a query string, you execute it by making a call to the 
 The following code snippet illustrates this call from the client app:
 
 ```csharp
-var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
-client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
+var client = new DigitalTwinsClient(
+    <your-tenant-Id>,
+    <your-client-Id>,
+    <your-client-secret>,
+    <your-Azure-Digital-Twins-instance-URL>
+);
 
-QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
-QueryResult result = await client.Query.QueryTwinsAsync(spec);
+string query = "SELECT * FROM digitaltwins";
+AsyncPageable<string> result = await client.QueryAsync<string>(query);
 ```
 
-This call returns query results in the form of a QueryResult object. 
+This call returns query results in the form of a string object.
 
-Query calls support paging. Here is a complete example with error handling and paging:
+Query calls support paging. Here is a complete example using BasicDigitalTwin as query result type with error handling and paging:
 
 ```csharp
 string query = "SELECT * FROM digitaltwins";
 try
 {
-    AsyncPageable<string> qresult = client.QueryAsync(query);
-    await foreach (string item in qresult) 
+    AsyncPageable<BasicDigitalTwin> qresult = client.QueryAsync<BasicDigitalTwin>(query);
+    await foreach (BasicDigitalTwin item in qresult)
     {
         // Do something with each result
     }
@@ -341,7 +345,7 @@ try
 catch (RequestFailedException e)
 {
     Log.Error($"Error {e.Status}: {e.Message}");
-    return null;
+    throw;
 }
 ```
 
@@ -350,6 +354,7 @@ catch (RequestFailedException e)
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
 
 There are additional limitations on using `JOIN` during preview.
+
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * During preview, graph traversal depth is restricted to five `JOIN` levels per query.
