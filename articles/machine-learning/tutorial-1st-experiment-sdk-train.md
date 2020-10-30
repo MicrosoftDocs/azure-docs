@@ -179,7 +179,7 @@ conda activate pytorch-env                      # activate conda environment
 python src/train.py                             # train model
 ```
 
-After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
+After you run this script, you'll see the data downloaded into a directory called `tutorial/data`. Note that when testing locally, you may need to change ```num_worker=2``` to ```num_workers=0```
 
 ## Create the control script
 
