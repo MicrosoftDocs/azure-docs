@@ -8,7 +8,7 @@
     href: redhat-imagelist.md
 - name: Red Hat Java Quickstarts
   items: 
-  - name: JBoss EAP + RHEL on VMs/VMSS
+  - name: JBoss EAP + RHEL on VM/VMSS
     href: jboss-eap-on-rhel.md
   - name: WildFly + CentOS on VM
     href: wildfly-on-centos.md
