@@ -1694,6 +1694,8 @@
         href: teamwork-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
+      - name: Terraform Cloud
+        href: terraform-cloud-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
       - name: TextExpander
