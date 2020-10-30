@@ -1,5 +1,5 @@
 ---
-title: 'What is provisioning with Azure AD? | Microsoft Docs'
+title: 'What is provisioning with Azure Active Directory? | Microsoft Docs'
 description: Describes overview of identity provisioning and the ILM scenarios.
 services: active-directory
 author: billmath
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 8/24/2020
+ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ Azure AD currently provides three areas of automated provisioning.  They are:
 
 ## HR-driven provisioning
 
-![HR provisioning](media/what-is-provisioning/cloud2a.png)
+![HR provisioning](media/what-is-provisioning/cloud-2a.png)
 
 Provisioning from HR to Azure AD involves the creation of objects, typically user identities representing each employee, but in some cases other objects representing departments or other structures, based on the information that is in your HR system.  
 
@@ -52,7 +52,7 @@ For more information, see [What is HR driven provisioning?](what-is-hr-driven-pr
 
 ## App provisioning
 
-![app provisioning](media/what-is-provisioning/cloud3b.png)
+![app provisioning](media/what-is-provisioning/cloud-3b.png)
 
 In Azure AD, the term **[app provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refers to automatically creating copies of user identities in the applications that users need access to, for applications that have their own data store, distinct from Azure AD or Active Directory. In addition to creating user identities, app provisioning includes the maintenance and removal of user identities from those apps, as the user's status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), as each of these applications have their own user repository distinct from Azure AD.
 
@@ -60,7 +60,7 @@ For more information, see [What is app provisioning?](what-is-app-provisioning.m
 
 ## Inter-directory provisioning
 
-![inter-directory provisioning](media/what-is-provisioning/cloud4a.png)
+![inter-directory provisioning](media/what-is-provisioning/cloud-4a.png)
 
 Many organizations rely upon both Active Directory and Azure AD, and may have applications connected to Active Directory, such as on-premises file servers.
 

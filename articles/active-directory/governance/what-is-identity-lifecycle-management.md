@@ -1,5 +1,5 @@
 ---
-title: 'What is identity lifecycle management with Azure AD? | Microsoft Docs'
+title: 'What is identity lifecycle management with Azure Active Directory? | Microsoft Docs'
 description: Describes overview of identity lifecycle management.
 services: active-directory
 author: billmath
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/07/2020
+ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

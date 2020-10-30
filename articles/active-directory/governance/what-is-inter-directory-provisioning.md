@@ -1,5 +1,5 @@
 ---
-title: 'What is inter-directory provisioning with Azure AD? | Microsoft Docs'
+title: 'What is inter-directory provisioning with Azure Active Directory? | Microsoft Docs'
 description: Describes overview of identity inter-directory provisioning.
 services: active-directory
 author: billmath
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 5/18/2020
+ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
