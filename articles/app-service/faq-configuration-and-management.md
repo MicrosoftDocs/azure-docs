@@ -61,7 +61,7 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
-For the App services that run on Windows, see the output from the Windows `tzutil /L` command, using the value from the second line of each entry.  For example: "Tonga Standard Time".  Some of these values are also listed in the **Timezone** column in the [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones) article.
+For the App services that run on Windows, see the output from the Windows `tzutil /L` command. Use the value from the second line of each entry. For example: "Tonga Standard Time". Some of these values are also listed in the **Timezone** column in [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones).
 
 For the App services that run on Linux, set a value from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example: "America/Adak".
 
