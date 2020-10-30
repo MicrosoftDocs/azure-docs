@@ -17,9 +17,9 @@ This how-to guide shows you how to deploy your app to [Azure App Service](overvi
 To follow the steps in this how-to guide:
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+ 
 - [Install Git](https://www.git-scm.com/downloads).
-
+ 
 - Have a local Git repository with code you want to deploy. To download a sample repository, run the following command in your local terminal window:
   
   ```bash
