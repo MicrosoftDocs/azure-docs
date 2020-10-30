@@ -96,8 +96,8 @@ After you install the agent and configure it to connect to a server enabled with
 
 ## Next steps
 
-* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
+* If necessary, see the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
 * Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md).
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, or manage it by using Automation runbooks or features like Update Management. This agent is also required to use other Azure services, such as [Azure Security Center](../../security-center/security-center-introduction.md).
+* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, or manage it by using Azure Automation runbooks or features like Update Management. This agent is also required to use other Azure services, such as [Azure Security Center](../../security-center/security-center-introduction.md).
