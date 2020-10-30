@@ -239,8 +239,6 @@ FetchAndPrintTwin(twin_Id, client);
 }
 ```
 
-#### Create patches using the helper class
-
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
 uou.AppendAddOp("/Temperature", 25.0);
