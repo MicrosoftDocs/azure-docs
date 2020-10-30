@@ -99,7 +99,6 @@ For example, if there were four sign-in transactions to your app during a given 
 |Transaction 1|Transaction 2|Transaction 3|Transaction 4|
 |---|---|---|---|
 |7 ms|4 ms|13 ms|16 ms|
-|
 
 Then the resulting metric publication to Azure Monitor would be as follows:
 * Min: 4
@@ -128,7 +127,8 @@ In the following example, you create a custom metric called **Memory Bytes in Us
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -168,7 +168,7 @@ There's no need to predefine a custom metric in Azure Monitor before it's emitte
 After custom metrics are submitted to Azure Monitor, you can browse them via the Azure portal and query them via the Azure Monitor REST APIs. You can also create alerts on them to notify you when certain conditions are met.
 
 > [!NOTE]
-> You need to be a reader or contributor role to view custom metrics.
+> You need to be a reader or contributor role to view custom metrics. See [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### Browse your custom metrics via the Azure portal
 1.    Go to the [Azure portal](https://portal.azure.com).
@@ -178,34 +178,20 @@ After custom metrics are submitted to Azure Monitor, you can browse them via the
 5.    Select the metrics namespace for your custom metric.
 6.    Select the custom metric.
 
+> [!NOTE]
+> See [Getting started with Azure Metrics Explorer](./metrics-getting-started.md) for more info on viewing metrics in the Azure portal.
+
 ## Supported regions
-During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
+During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. See [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) for more info on Azure regions. The azure region code used in the below endpoints is just the name of the region with whitespace removed The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
 |Azure region |Regional endpoint prefix|
 |---|---|
-| **US and Canada** | |
-|West Central US | https:\//westcentralus.monitoring.azure.com |
-|West US 2       | https:\//westus2.monitoring.azure.com |
-|North Central US | https:\//northcentralus.monitoring.azure.com
-|South Central US| https:\//southcentralus.monitoring.azure.com |
-|Central US      | https:\//centralus.monitoring.azure.com |
-|Canada Central | https:\//canadacentral.monitoring.azure.com |
-|East US| https:\//eastus.monitoring.azure.com |
-|East US 2 | https:\//eastus2.monitoring.azure.com |
-| **Europe** | |
-|North Europe    | https:\//northeurope.monitoring.azure.com |
-|West Europe     | https:\//westeurope.monitoring.azure.com |
-|UK South | https:\//uksouth.monitoring.azure.com
-|France Central | https:\//francecentral.monitoring.azure.com |
-| **Africa** | |
-|South Africa North | https:\//southafricanorth.monitoring.azure.com |
-| **Asia** | |
-|Central India | https:\//centralindia.monitoring.azure.com |
-|Australia East | https:\//australiaeast.monitoring.azure.com |
-|Japan East | https:\//japaneast.monitoring.azure.com |
-|Southeast Asia  | https:\//southeastasia.monitoring.azure.com |
-|East Asia | https:\//eastasia.monitoring.azure.com |
-|Korea Central   | https:\//koreacentral.monitoring.azure.com |
+| All Public Cloud Regions | https://<azure_region_code>.monitoring.azure.com |
+| **Azure Government** | |
+| US Gov Arizona | https:\//usgovarizona.monitoring.azure.us |
+| US Gov Virginia | https:\//usgovvirginia.monitoring.azure.us |
+| **China** | |
+| China East 2 | https:\//chinaeast2.monitoring.azure.cn |
 
 ## Latency and storage retention
 
