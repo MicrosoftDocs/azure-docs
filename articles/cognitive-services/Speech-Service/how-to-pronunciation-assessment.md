@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: yulili
+ms.custom: references_regions 
 zone_pivot_groups: programming-languages-set-nineteen
 ---
 
