@@ -66,10 +66,10 @@ In advanced Hive log4j configurations, the current default deletion schedule is 
 
 ## Next steps
 
-If you don't see your problem or are unable to resolve it, go to one of the following channels for more support:
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
-* Get answers from Azure experts on [Azure Community Support](https://azure.microsoft.com/support/community/).
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Azure account for improving your experience by connecting you to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Help** on the menu bar or open the **Help + support** hub. For more detailed information, see [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to subscription management and billing support is included with your Azure subscription, and technical support is provided through one of the [Azure support plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
