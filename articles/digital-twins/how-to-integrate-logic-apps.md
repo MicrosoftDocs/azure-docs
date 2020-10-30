@@ -59,7 +59,7 @@ Hit *Certificates and secrets* from the registration's menu, and select *+ New c
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
 
-Enter whatever values you would like for Description and Expires, and hit *Add*.
+Enter whatever values you would like for *Description* and *Expires*, and hit *Add*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Add client secret":::
 
