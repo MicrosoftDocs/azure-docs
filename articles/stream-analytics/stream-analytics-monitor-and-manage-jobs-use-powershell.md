@@ -547,10 +547,10 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[msdn-rest-api-create-stream-analytics-job]: https://msdn.microsoft.com/library/dn834994.aspx
-[msdn-rest-api-create-stream-analytics-input]: https://msdn.microsoft.com/library/dn835010.aspx
-[msdn-rest-api-create-stream-analytics-output]: https://msdn.microsoft.com/library/dn835015.aspx
-[msdn-rest-api-create-stream-analytics-transformation]: https://msdn.microsoft.com/library/dn835007.aspx
+[msdn-rest-api-create-stream-analytics-job]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal
+[msdn-rest-api-create-stream-analytics-input]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs
+[msdn-rest-api-create-stream-analytics-output]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs
+[msdn-rest-api-create-stream-analytics-transformation]: https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/transformation
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

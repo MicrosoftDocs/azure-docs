@@ -61,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ![dedicated SQL pool create flow - review settings tab.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. At this point, the resource provisioning flow will start.
- ![dedicated SQL pool create flow - resource provisioning.](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
+ ![Screenshot that shows the "Your deployment is complete" page.](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
 
 8. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created dedicated SQL pool.
  ![dedicated SQL pool create flow - resource provisioning.](media/quickstart-create-sql-pool/create-sql-pool-portal-07.png)
