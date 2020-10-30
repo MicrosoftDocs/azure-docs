@@ -15,16 +15,18 @@ HDInsight Enterprise Security Package (ESP) clusters use Ranger for authorizatio
 
 ## General guidelines
 
-* Always deploy clusters with groups.
-* Instead of changing group filters in Ambari and Ranger, try to manage all these in Azure AD and use nested groups to bring in the required users.
-* Once a user is synced, it isn't removed even if the user isn't part of the groups.
-* If you need to change the LDAP filters directly, use the UI first as it contains some validations.
+* Always deploy clusters with one or more groups.
+* If you want to use more groups in the cluster, check if it makes sense to update the group memberships in AAD.
+* If you want to change the cluster groups, then you can change the sync filters using Ambari.
+* All the group membership changes in AAD get reflected in the cluster during the subsequent syncs. The changes need to get synced to AAD DS first and then to the clusters.
+* HDInsight clusters use Samba / Winbind to project the group memberships on the cluster nodes.
+* Group members are synced transitively (all the subgroups and their members) to both Ambari and Ranger. 
 
 ## Users are synced separately
 
-Ambari and Ranger don't share the user database because they serve two different purposes. If a user needs to use the Ambari UI, then the user needs to be synced to Ambari. If the user isn't synced to Ambari, Ambari UI / API will reject it but other parts of the system will work (these are guarded by Ranger or Resource Manager and not Ambari). If you want to include the user into a Ranger policy, then sync the user to Ranger.
-
-When a secure cluster is deployed, group members are synced transitively (all the subgroups and their members) to both Ambari and Ranger. 
+ * Ambari and Ranger don't share the user database because they serve two different purposes. 
+   * If a user needs to use the Ambari UI, then the user needs to be synced to Ambari. 
+   * If the user isn't synced to Ambari, Ambari UI / API will reject it but other parts of the system will work (these are guarded by Ranger or Resource Manager and not Ambari).    * To include users or groups in Ranger policies, the principals need to be synced in Ranger explicitly
 
 ## Ambari user sync and configuration
 
@@ -32,15 +34,7 @@ From the head nodes, a cron job, `/opt/startup_scripts/start_ambari_ldap_sync.py
 
 The logs should be in `/var/log/ambari-server/ambari-server.log`. For more information, see [Configure Ambari logging level](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
-In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in accessing staging and other temporary folders.
-
-### Update groups to be synced to Ambari
-
-If you can't manage groups memberships in Azure AD, you have two choices:
-
-* Perform a one time sync as described more fully at [Synchronize LDAP Users and Groups](https://docs.cloudera.com/HDPDocuments/HDP3/latest/ambari-authentication-ldap-ad/content/authe_ldapad_synchronizing_ldap_users_and_groups.html). Whenever the group membership changes, you'll have to do this sync again.
-
-* Write a cron job, call the [Ambari API periodically](https://community.cloudera.com/t5/Support-Questions/How-do-I-automate-the-Ambari-LDAP-sync/m-p/96634) with the new groups.
+In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in running jobs as the home folder may not be setup correctly.
 
 ## Ranger User sync and configuration
 
