@@ -699,7 +699,7 @@
       - name: gr8 People
         href: gr8-people-tutorial.md
       - name: Gradle Enterprise
-        href: intune-gradle-enterprise-tutorial.md
+        href: gradle-enterprise-tutorial.md
       - name: Grammarly
         href: grammarly-tutorial.md
       - name: Gra-Pe
