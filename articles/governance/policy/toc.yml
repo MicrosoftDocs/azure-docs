@@ -191,7 +191,15 @@
       href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+      href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Storage integration
+    items:
+    - name: Audit TLS with Azure Policy
+      href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+  - name: Azure Web Application Firewall integration
+    items:
+    - name: Integrate WAF with Azure Policy
+      href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: Common issues
