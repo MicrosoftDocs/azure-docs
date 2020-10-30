@@ -293,6 +293,8 @@
       href: https://www.azadvertizer.net/
     - name: Azure Governance Visualizer
       href: https://github.com/julianhayward/azure-mg-sub-governance-reporting
+    - name: Azure Policy scripts for Azure Monitor
+      href: https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts
   - name: Feedback and support
     items:
     - name: Microsoft Q&A for Azure Policy
