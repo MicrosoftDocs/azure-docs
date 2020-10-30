@@ -22168,6 +22168,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/enable-appsource-marketplace-using-azure-ad.md",
+      "redirect_url": "/azure/marketplace/azure-ad-saas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/create-new-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
