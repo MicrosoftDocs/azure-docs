@@ -108,10 +108,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to EAComposer.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to GitHub AE.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **EAComposer**.
+1. In the applications list, select **GitHub AE**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
