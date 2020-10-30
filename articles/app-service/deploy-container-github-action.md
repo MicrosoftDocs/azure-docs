@@ -45,8 +45,8 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 1. On the **Overview** page, select **Get Publish profile**.
 
-> [!NOTE]
-> As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the file**. This requirement will be removed in the future.
+    > [!NOTE]
+    > As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the file**. This requirement will be removed in the future.
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
