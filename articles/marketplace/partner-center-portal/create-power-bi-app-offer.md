@@ -229,7 +229,7 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 ## Technical configuration
 
-Promote your app in Power BI Service to production and provide the Power BI app installer link that enables customers to install your app. For more information, see [Publish apps with dashboards and reports in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Promote your app in Power BI Service to production and provide the Power BI app installer link that enables customers to install your app. For more information, see [Publish apps with dashboards and reports in Power BI](/power-bi/service-create-distribute-apps).
 
 ## Supplemental content
 
