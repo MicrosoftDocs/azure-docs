@@ -36,99 +36,58 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## October 2020
- 
 
-[811330](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=811330&triage=true&fullScreen=false&_a=edit)
-
-### Now you can disable and delete guest users when they are denied access to a resource
-
-**Type:**   
-**Service category:**   
-**Product capability:** Identity Governance
- 
-
-Disable and delete is an advanced control in Azure AD Access Reviews to help organizations better manage external guests in Groups and Apps. If guests are denied in an access review, turning on “disable and delete” will automatically block them from sign in for 30 days, then will remove them from the tenant all together. 
-
-Documentation: https://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-external-users under "Disable and delete..."
- 
-
----
- 
-
-[1171607](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1171607&triage=true&fullScreen=false&_a=edit)
-
-### Provisioning events are planned to be removed from audit logs and published solely to provisioning logs
+### Provisioning events will be removed from audit logs and published solely to provisioning logs
 
 **Type:** Plan for change  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
+Activity by the SCIM [provisioning service](../app-provisioning/user-provisioning.md) is logged in both the audit logs and provisioning logs. This includes activity such as the creation of a user in ServiceNow, group in GSuite, or import of a role from AWS. In the future, these events will only be published in the provisioning logs. This change is being implemented to avoid duplicate events across logs, and additional costs incurred by customers consuming the logs in log analytics. 
 
-Activity by the SCIM provisioning service such as the creation of a user in ServiceNow, group in GSuite, or import of a role from AWS is logged in both the audit logs and provisioning logs. In the future, these events will only be published in the provisioning logs, to avoid duplicate events across logs and additional cost incurred by customers consuming the logs in log analytics. We will provide an update when a date is finalized. This deprecation is not planned for calendar year 2020. 
+We'll provide an update when a date is completed. This deprecation isn't planned for the calendar year 2020. 
 
-Note: This does not impact any events in the audit logs outside of the synchronization events emitted by the provisioning service. Events such as the creation of an application, conditional access policy, a user in the directory, etc. will continue to be emitted in the audit logs. 
-
-Learn more
+> [!NOTE]
+> This does not impact any events in the audit logs outside of the synchronization events emitted by the provisioning service. Events such as the creation of an application, conditional access policy, a user in the directory, etc. will continue to be emitted in the audit logs. [Learn more](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context).
  
 
 ---
- 
 
-[1183112](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1183112&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD On-Premises Hybrid Agents Impacted by Azure TLS Certificate Changes
+### Azure AD On-Premises Hybrid Agents Impacted by Azure Transport Layer Security (TLS) Certificate Changes
 
 **Type:** Plan for change  
 **Service category:** N/A  
 **Product capability:** Platform
  
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). There will be an update because of the current CA certificates not following one of the CA/Browser Forum Baseline requirements. This change will impact Azure AD hybrid agents installed on-premises that have hardened environments with a fixed list of root certificates. These agents will need to be updated to trust the new certificate issuers.
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. 
-This change will impact Azure AD hybrid agents installed on-premises that have hardened environments with a fixed list of root certificates and will need to be updated to trust the new certificate issuers. This change will result in disruption of service if proper action is not taken immediately. These agents include Application Proxy connectors for remote access to on-premises, Passthrough Authentication agents that allows your users to sign in to applications using the same passwords, Cloud Provisioning Preview agents that perform AD to Azure AD sync. 
+This change will result in disruption of service if you don't take action immediately. These agents include: 
+- [Application Proxy connectors](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) for remote access to on-premises 
+- [Passthrough Authentication](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) agents that allow your users to sign in to applications using the same passwords
+- [Cloud Provisioning Preview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) agents that do AD to Azure AD sync. 
 
-If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations. You will need to allow the following CRL and OCSP URLs as soon as possible:
-http://crl3.digicert.com
-http://crl4.digicert.com
-http://ocsp.digicert.com
-http://www.d-trust.net
-http://root-c3-ca2-2009.ocsp.d-trust.net
-http://crl.microsoft.com
-http://oneocsp.microsoft.com
-http://ocsp.msocsp.com
-For full details on the change and steps to take, Azure TLS certificate changes.
+If you have an environment with firewall rules set to allow outbound calls to only specific Certificate Revocation List (CRL) download, you'll need to allow CRL and OCSP URLs. For full details on the change and the CRL and OCSP URLs to enable access to, see  [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md).
  
-
 ---
- 
 
-[1184476](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1184476&triage=true&fullScreen=false&_a=edit)
-
-### Azure Active Directory TLS 1.0, TLS 1.1 and 3DES Deprecation in US Gov Cloud
+### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES Deprecation in US Gov Cloud
 
 **Type:** Plan for change  
 **Service category:** N/A  
 **Product capability:** Standards
  
+Azure Active Directory will deprecate the following protocols by March 31, 2021:
+- TLS 1.0
+- TLS 1.1
+- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
 
-TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation for Azure US Gov and Office GCC
+All client-server and browser-server combinations should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services.
 
-Azure Active Directory will remove support for the following by Feb 28, 2021:
-
-TLS 1.0
-TLS 1.1
-3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA )
-You should make sure that all client-server and browser-server combinations use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365 and Microsoft 365 services.
-
-Impacted environments are:
-
-Azure US Gov
-Office 365 GCC High & DoD
+Affected environments are:
+- Azure US Gov
+- [Office 365 GCC High & DoD](https://docs.microsoft.com/en-us/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
  
-
 ---
- 
-
-[735141](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=735141&triage=true&fullScreen=false&_a=edit)
 
 ### Assign applications to roles on AU and object scope
 
@@ -136,31 +95,21 @@ Office 365 GCC High & DoD
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-
-This feature enables the ability to assign an application (SPN) to an administrator role on Administrative Unit scope.
- 
+This feature enables the ability to assign an application (SPN) to an administrator role on the Administrative Unit scope. To learn more, refer to [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md).
 
 ---
- 
 
-[818623](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=818623&triage=true&fullScreen=false&_a=edit)
-
-### Now you can disable and delete guest users when they are denied access to a resource
+### Now you can disable and delete guest users when they're denied access to a resource
 
 **Type:** New feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
+Disable and delete is an advanced control in Azure AD Access Reviews to help organizations better manage external guests in Groups and Apps. If guests are denied in an access review, **disable and delete** will automatically block them from signing in for 30 days. After 30 days, then they'll be removed from the tenant altogether.
 
-Disable and delete is an advanced control in Azure AD Access Reviews to help organizations better manage external guests in Groups and Apps. If guests are denied in an access review, turning on “disable and delete” will automatically block them from sign in for 30 days, then will remove them from the tenant all together.
-
-Documentation: https://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-external-users under "Disable and delete..."
+For more information about this feature, see [Disable and delete external identities with Azure AD Access Reviews (Preview)](../governance/access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews-preview).
  
-
 ---
- 
-
-[1116832](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1116832&triage=true&fullScreen=false&_a=edit)
 
 ### Access Review creators can add custom messages in emails to reviewers
 
@@ -168,16 +117,9 @@ Documentation: https://docs.microsoft.com/en-us/azure/active-directory/governanc
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-
-In Azure AD access reviews, administrators creating reviews now have the ability to write a custom message to the reviewers. Reviewers will see the message in the email they receive, asking them to complete the review.
-
-Documentation: https://docs.microsoft.com/en-us/azure/active-directory/governance/create-access-review step 6 under Advanced settings
- 
+In Azure AD access reviews, administrators creating reviews can now write a custom message to the reviewers. Reviewers will see the message in the email they receive that prompts them to complete the review. To learn more about using this feature, see step 6 of the [Advanced Settings](../governance/create-access-review.md#advanced-settings) section.
 
 ---
- 
-
-[1187123](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1187123&triage=true&fullScreen=false&_a=edit)
 
 ### New provisioning connectors in the Azure AD Application Gallery - October 2020
 
@@ -185,23 +127,19 @@ Documentation: https://docs.microsoft.com/en-us/azure/active-directory/governanc
 **Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
  
-
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-Apple Business Manager
-Apple School Manager
-Code42
-AlertMedia
-OpenText Directory Services
-Cinode
-Global Relay Identity Sync
-For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
- 
+- [Apple Business Manager](../saas-apps/apple-business-manager-provision-tutorial.md)
+- [Apple School Manager](../saas-apps/apple-school-manager-provision-tutorial.md)
+- [Code42](../saas-apps/code42-provisioning-tutorial.md)
+- [AlertMedia](../saas-apps/alertmedia-provisioning-tutorial.md)
+- [OpenText Directory Services](../saas-apps/open-text-directory-services-provisioning-tutorial.md)
+- [Cinode](../saas-apps/cinode-provisioning-tutorial.md)
+- [Global Relay Identity Sync](../saas-apps/global-relay-identity-sync-provisioning-tutorial.md)
 
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
 ---
- 
-
-[1023894](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1023894&triage=true&fullScreen=false&_a=edit)
 
 ### Integration assistant for Azure AD B2C
 
@@ -209,31 +147,22 @@ For more information about how to better secure your organization by using autom
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-
-The Integration Assistant (preview) experience is now available for Azure AD B2C App registrations. This experience helps guide you in configuring your application for common scenarios and following best practices. Learn more about Microsoft identity platform best practices and recommendations.
+The Integration Assistant (preview) experience is now available for Azure AD B2C App registrations. This experience helps guide you in configuring your application for common scenarios.. Learn more about [Microsoft identity platform best practices and recommendations](../develop/identity-platform-integration-checklist.md).
  
-
 ---
- 
 
-[979616](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=979616&triage=true&fullScreen=false&_a=edit)
-
-### View role template ID in Azure Portal UI
+### View role template ID in Azure portal UI
 
 **Type:** New feature  
-**Service category:** RBAC  
+**Service category:** Azure roles  
 **Product capability:** Access Control
  
 
-You can now view the immutable template ID of each Azure AD role in its description section. Go to Azure portal --> Azure AD --> Roles and administrators --> {role} --> Description. We suggest customers to use these role template IDs in their PowerShell script and code, instead of display name. To encourage this practice, we now support role template ID in methods related to directoryRoles object. Role Template ID is already supported in our new roleDefinition object.
+You can now view the template ID of each Azure AD role in the Azure portal. In Azure AD, select  **description** of the selected role. 
 
-Image
- 
+It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](https://docs.microsoft.com/graph/api/resources/directoryrole?view=graph-rest-1.0) and [roleDefinition](https://docs.microsoft.com/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. For more information on role template IDs, see [Role template IDs](../roles/permissions-reference.md#role-template-ids).
 
 ---
- 
-
-[695572](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=695572&triage=true&fullScreen=false&_a=edit)
 
 ### API connectors for Azure AD B2C sign-up user flows is now in public preview
 
@@ -242,57 +171,43 @@ Image
 **Product capability:** B2B/B2C
  
 
-In June, we introduced API connectors for External Identities self-service sign-up. Now, we're bringing the same API connectors feature to Azure AD B2C. API connectors enable you to leverage web APIs to customize your sign-up user flows and integrate with external cloud systems. For example, you can you can use API connectors to:
+API connectors are now available for use with Azure Active Directory B2C. API connectors enable you to use web APIs to customize your sign-up user flows and integrate with external cloud systems. You can you can use API connectors to:
 
-Integrate with a custom approval workflows. Connect to custom approval workflows for managing account creation. Manage user sign-ups by triggering manual review processes, implement allow and block lists, perform identity verification checks, or send out special invite codes.
-Validate user input data. Validate against malformed or invalid user data. For example, you can validate user-provided data against a specific format or set of values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
-Overwrite user attributes. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized.
-Run custom business logic. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
+- Integrate with custom approval workflows
+- Validate user input data
+- Overwrite user attributes 
+- Run custom business logic 
 
-These are just a of the rich sign-up experiences possible with API connectors. Visit our documentation to learn more.
-
-
- 
+ Visit the [Use API connectors to customize and extend self-service sign-up](../..//external-identities/api-connectors-overview.md) documentation to learn more.
 
 ---
- 
-
-[1001522](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1001522&triage=true&fullScreen=false&_a=edit)
 
 ### State property for connected organizations in entitlement management
 
 **Type:** New feature  
-**Service category:** Other  
+**Service category:** Directory Management 
 **Product capability:** Entitlement Management
  
 
-Going forward, all connected organizations will have an additional property called "State" that will control how the connected organization will be used in policies that refer to "all configured connected organizations".  The value will be either "configured" (meaning the organization is in scope of policies that use the "all" clause) or "proposed" (meaning that the organization is not in scope).  Manually created connected organizations will have a default setting of "configured" while automatically created ones (created via policies that allow any user from the internet to request access) will default to "proposed."  Any connected organizations created before 9/9/2020 will be set to "configured."  Admins can update this property as needed.
+ All connected organizations will now have an additional property called "State". The state will control how the connected organization will be used in policies that refer to "all configured connected organizations". The value will be either "configured" (meaning the organization is in the scope of policies that use the "all" clause) or "proposed" (meaning that the organization is not in scope).  
+
+Manually created connected organizations will have a default setting of "configured". Meanwhile, automatically created ones (created via policies that allow any user from the internet to request access) will default to "proposed."  Any connected organizations created before September 9 2020 will be set to "configured." Admins can update this property as needed. [Learn more](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
  
 
 ---
- 
 
-[1092874](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1092874&triage=true&fullScreen=false&_a=edit)
-
-### Azure Active Directory External Identities goes premium with advanced security for B2C
+### Azure Active Directory External Identities now has premium advanced security settings for B2C
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-
-Security is essential to maintaining your customers’ and consumers’ trust and protecting your organization’s data. That’s why so many of our Azure AD customers rely on Azure AD Identity Protection and Azure AD Conditional Access. Identity Protection helps organizations automatically protect against account compromise with cloud intelligence, powered by advanced risk detection based on heuristics, User and Entity Behavior Analytics (UEBA), and machine learning (ML) from signals across the Microsoft ecosystem. By pairing Conditional Access policies with the power of Identity Protection, admins can automate responses to risky authentications with the appropriate policy action. This combination already helps Fortune 500 organizations prevent over 10 million attacks each month.
+Risk-based Conditional Access and risk detection features of Identity Protection are now available in [Azure AD B2C](../..//active-directory-b2c/conditional-access-identity-protection-overview.md). With these advanced security features, customers can now:
+- Leverage intelligent insights to assess risk with B2C apps and end user accounts. Detections include atypical travel, anonymous IP addresses, malware-linked IP addresses, and Azure AD threat intelligence. Portal and API-based reports are also available.
+- Automatically address risks by configuring adaptive authentication policies for B2C users. App developers and administrators can mitigate real-time risk by requiring multi-factor authentication (MFA) or blocking access depending on the user risk level detected, with additional controls available based on location, group, and app.
+- Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized. Customization is according to the organization’s voice, brand, and mitigation alternatives.
  
-By making risk-based Conditional Access and risk detection features of Identity Protection available in Azure AD B2C, our customers can now:
-Leverage intelligent insights to assess risk with B2C apps and end user accounts. Powered by signals from billions of monthly authentications across Azure AD and Microsoft accounts, Identity Protection real-time ML algorithms use adaptive intelligence to flag authentications as low, medium, or high risk and gets smarter and more accurate over time. Detections include atypical travel, anonymous IP addresses, malware-linked IP addresses, and Azure AD threat intelligence. Portal and API-based reports are also available.
-Automatically address risks by configuring adaptive authentication policies for B2C users. By tailoring Conditional Access policies, app developers and administrators can mitigate real-time risk by requiring multi-factor authentication (MFA) or blocking access depending on the user risk level detected, with additional controls available based on location, group, and app.
-Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized according to the organization’s voice, brand, and mitigation alternatives.
- 
-
 ---
- 
-
-[1190793](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1190793&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - October 2020
 
@@ -300,50 +215,15 @@ Integrate with Azure AD B2C user flows and custom policies. Conditions can be tr
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
  
-
-
 In October 2020 we have added following 27 new applications in our App gallery with Federation support:
 
-
-
-Sentry, Bumblebee - Productivity Superapp, ABBYY FlexiCapture Cloud, EAComposer, Genesys Cloud Integration for Azure, Zone Technologies Portal, Beautiful.ai, Datawiza Access Broker, ZOKRI, CheckProof, Ecochallenge.org, atSpoke, Appointment Reminder, Cloud.Market, TravelPerk, Greetly, OrgVitality SSO, Web Cargo Air, Loop Flow CRM, Starmind, Workstem, Retail Zipline, Hoxhunt, MEVISIO, Samsara, Nimbus, Pulse Secure virtual Traffic Manager
-
-
+[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee - Productivity Superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys Cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [Zone Technologies Portal](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [Ecochallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [Appointment Reminder](https://app.appointmentreminder.co.nz/account/login), [Cloud.Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [Greetly](https://app.greetly.com/), [OrgVitality SSO}(../saas-apps/orgvitality-sso-tutorial.md), [Web Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [Loop Flow CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [Retail Zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](h../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure virtual Traffic Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
-
- 
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 ---
- 
-
-[956093](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=956093&triage=true&fullScreen=false&_a=edit)
-
-### Announcing Cloud Provisioning Public Preview Refresh
-
-**Type:** New feature  
-**Service category:** Azure AD Cloud Provisioning  
-**Product capability:** Identity Lifecycle Management
- 
-
-Azure AD Connect Cloud Provisioning public preview refresh features 2 major enhancements our customers have been asking for. 
-
-Attribute Mapping Experience through Azure Portal
-
-With this feature, IT Admins can map user, group or contact attributes from AD to Azure AD using various mapping types present today. Attribute mapping is a feature used for standardizing the values of the attributes that flow from Active Directory to Azure Active Directory. One can determine whether to directly map the attribute value as is from AD to Azure AD or use expressions to transform the attribute values when provisioning users. Learn more
-
-On-demand Provisioning or Test User experience
-
-Once you have setup your configuration, you might want to test to see if the user transformation is working as expected before applying it to all your users in scope. With on-demand provisioning, IT Admins can enter the Distinguished Name (DN) of an AD user and see if they are getting synced as expected. This is a great way to ensure that the attribute mappings you did previously works as expected. Learn More
- 
-
----
- 
-
-[1017356](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1017356&triage=true&fullScreen=false&_a=edit)
 
 ### Provisioning logs can now be streamed to log analytics
 
@@ -353,18 +233,14 @@ Once you have setup your configuration, you might want to test to see if the use
  
 
 Publish your provisioning logs to log analytics in order to:
-Store provisioning logs for more than 30 days
-Define custom alerts and notifications
-Build dashboards to visualize the logs
-Execute complex queries to analyze the logs 
+- Store provisioning logs for more than 30 days
+- Define custom alerts and notifications
+- Build dashboards to visualize the logs
+- Execute complex queries to analyze the logs 
 
-Learn more
+To learn how to use the feature, see [Understand how provisioning integrates with Azure Monitor logs](../app-provisioning/application-provisioning-log-analytics.md).
  
-
 ---
- 
-
-[1080928](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1080928&triage=true&fullScreen=false&_a=edit)
 
 ### Provisioning logs can now be viewed by application owners
 
@@ -372,34 +248,21 @@ Learn more
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
-
-Allow application owners to monitor activity by the provisioning service and troubleshoot issues without providing them a privileged role or making IT a bottleneck. 
-
-Learn more.
+You can now allow application owners to monitor activity by the provisioning service and troubleshoot issues without providing them a privileged role or making IT a bottleneck. [Learn more](../reports-monitoring/concept-provisioning-logs.md).
  
-
 ---
- 
 
-[596975](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=596975&triage=true&fullScreen=false&_a=edit)
-
-### We are renaming 10 Azure Active Directory roles
+### Renaming 10 Azure Active Directory roles
 
 **Type:** Changed feature  
-**Service category:** RBAC  
+**Service category:** Azure roles  
 **Product capability:** Access Control
  
+Some Azure Active Directory (AD) built-in roles have names that differ from those that appear in Microsoft 365 admin center, the Azure AD portal, and Microsoft Graph. This inconsistency can cause problems in automated processes. With this update, we're renaming 10 role names to make them consistent. The following table has the new role names:
 
-Some Azure Active Directory (AD) built-in roles have names that differ from those that appear in Microsoft 365 admin center, the Azure AD portal, and Microsoft Graph. This inconsistency can cause problems in automated processes. With this update, we are renaming 10 role names to make them consistent.
-
-Table of new role names
-
- 
+![Table of new role names](media/whats-new/azure-role.png)
 
 ---
- 
-
-[919348](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=919348&triage=true&fullScreen=false&_a=edit)
 
 ### Azure AD B2C support for auth code flow for SPAs using MSAL JS 2.x
 
@@ -407,30 +270,20 @@ Table of new role names
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-
-Azure AD B2C will now support using the authorization code flow with PKCE for single page web apps (SPAs) using MSAL JS 2.x.
-
-MSAL.js version 2.x introduced support for the authorization code flow for single-page web apps (SPAs). Azure AD B2C will now support the use of the SPA app type on the Azure portal and the use of MSAL.js  authorization code flow with PKCE for single-page apps. This will allow SPAs using Azure AD B2C to maintain SSO with newer browsers and abide by newer authentication protocol recommendations. Get started with our tutorial.
-
- 
+MSAL.js version 2.x now includes support for the authorization code flow for single-page web apps (SPAs). Azure AD B2C will now support the use of the SPA app type on the Azure portal and the use of MSAL.js  authorization code flow with PKCE for single-page apps. This will allow SPAs using Azure AD B2C to maintain SSO with newer browsers and abide by newer authentication protocol recommendations. Get started with the [Register a single-page application (SPA) in Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-spa.md) tutorial.
 
 ---
- 
 
-[1100393](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1100393&triage=true&fullScreen=false&_a=edit)
-
-### Updates to Remember Multi-Factor Authentication (MFA) on a trusted device settings
+### Updates to Remember Multi-Factor Authentication (MFA) on a trusted device setting
 
 **Type:** Changed feature  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-We have recently updated the remember Multi-Factor Authentication (MFA) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the Conditional Access – Sign-in Frequency policy that provides more flexibility for reauthentication settings.
+We've recently updated the [remember Multi-Factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the [Conditional Access – Sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) that provides more flexibility for reauthentication settings.
 
-For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to the remember MFA on a trusted device setting. 
-
-To get started, review our latest guidance on optimizing the reauthentication experience.
+For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to the remember MFA on a trusted device setting. To get started, review our [latest guidance on optimizing the reauthentication experience](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ---
 
@@ -462,7 +315,7 @@ For more information about how to better secure your organization by using autom
  
 Azure AD Connect Cloud Provisioning public preview refresh features two major enhancements developed from customer feedback: 
 
-- Attribute Mapping Experience through Azure Portal
+- Attribute Mapping Experience through Azure portal
 
     With this feature, IT Admins can map user, group, or contact attributes from AD to Azure AD using various mapping types present today. Attribute mapping is a feature used for standardizing the values of the attributes that flow from Active Directory to Azure Active Directory. One can determine whether to directly map the attribute value as it is from AD to Azure AD or use expressions to transform the attribute values when provisioning users. [Learn more](../cloud-provisioning/how-to-attribute-mapping.md)
 
