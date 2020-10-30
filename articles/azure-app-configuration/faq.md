@@ -84,14 +84,14 @@ The following are considerations for choosing a tier.
 
 - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
 - **Storage per resource**: In the free tier, each configuration store is limited to 10 MB of storage. In the standard tier, each configuration store can use up to 1 GB of storage.
-- **Key history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
-- **Requests per day**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
+- **Revision history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
+- **Requests quota**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
 
-    For standard tier stores, the first 200,000 requests each day are included in the daily charge. Additional requests are billed as overage.
+    Standard tier stores are limited to 20,000 requests per hour. Once the quota is exhausted, HTTP status code 429 will be returned for all requests until the end of the hour.
 
 - **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
-- **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, Azure RBAC support, and managed identity. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
-- **Cost**: Standard tier stores have a daily usage charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
+- **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, Azure RBAC support, managed identity, and service tags. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
+- **Cost**: Standard tier stores have a daily usage charge. The first 200,000 requests each day are included in the daily charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
 
 ## Can I upgrade a store from the Free tier to the Standard tier? Can I downgrade a store from the Standard tier to the Free tier?
 
