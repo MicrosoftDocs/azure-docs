@@ -15,8 +15,8 @@ Azure Monitor for VMs guest health allows you to view the health of virtual mach
 ## Enable virtual machine health
 See [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
 
-## Cost
-There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health data state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md) for details on pricing models and costs.
+## Pricing
+There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md) for details on pricing models and costs.
 
 ## View virtual machine health
 The **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
