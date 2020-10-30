@@ -28,7 +28,7 @@ You can rely on Microsoft-managed keys for the encryption of your container data
 
 The rest of the document covers the steps required to encrypt your ACI deployment data with your key (customer-managed key). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Encrypt data with a customer-managed key
 

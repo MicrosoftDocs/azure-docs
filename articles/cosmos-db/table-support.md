@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Developing with Azure Cosmos DB Table API and Azure Table storage
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB Table API and Azure Table storage share the same table data model and expose the same create, delete, update, and query operations through their SDKs.
 

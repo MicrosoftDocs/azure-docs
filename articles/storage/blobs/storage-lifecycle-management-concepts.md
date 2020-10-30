@@ -1,10 +1,10 @@
 ---
-title: Managing the Azure Storage lifecycle
-description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
+title: Optimize costs by automating Azure Blob Storage access tiers
+description: Create automated rules for moving data between hot, cool, and archive tiers.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -12,9 +12,9 @@ ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
-# Manage the Azure Blob storage lifecycle
+# Optimize costs by automating Azure Blob Storage access tiers
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob storage lifecycle management offers a rich, rule-based policy for GPv2 and Blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rich, rule-based policy for GPv2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
 
 The lifecycle management policy lets you:
 
@@ -28,9 +28,12 @@ Consider a scenario where data gets frequent access during the early stages of t
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
+>[!NOTE]
+>If you need data to stay readable, for example, when used by StorSimple, do not set a policy to move blobs to the Archive tier.
+
 ## Availability and pricing
 
-The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, Blob storage accounts, Premium Block Blob storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, blob storage accounts, Premium Block Blob storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -533,7 +536,7 @@ Some data should only be expired if explicitly marked for deletion. You can conf
 
 ### Manage versions
 
-For data that is modified and accessed regularly throughout its lifetime, you can enable Blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after version creation to cool tier, and deletes previous versions that are 365 days or older.
+For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after version creation to cool tier, and deletes previous versions that are 365 days or older.
 
 ```json
 {

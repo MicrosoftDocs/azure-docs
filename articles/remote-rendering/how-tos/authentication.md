@@ -43,7 +43,7 @@ Account keys are recommended for quick prototyping, during development only. It'
 
  For more information, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## Role-based access control
+## Azure role-based access control
 
 To help control the level of access granted your service, use the following roles when granting role-based access:
 

@@ -72,6 +72,7 @@ az extension update --name aks-preview
 - During preview, you can only add *Namespace level* permissions via the Azure CLI.
 - If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to provide `Microsoft.ContainerService/managedClusters/*/read`. AKS is working on providing more granular permissions for CRDs. For the remaining objects you can use the specific API Groups, for example: `Microsoft.ContainerService/apps/deployments/read`.
 - New role assignments can take up to 5min to propagate and be updated by the authorization server.
+- Requires the Azure AD tenant configured for authentication to be the same as the tenant for the subscription that holds the AKS cluster. 
 
 ## Create a new cluster using Azure RBAC and managed Azure AD integration
 

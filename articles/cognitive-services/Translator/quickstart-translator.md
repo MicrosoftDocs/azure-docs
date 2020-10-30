@@ -2438,6 +2438,12 @@ After a successful call, you should see the following response. For more informa
 ]
 ```
 
+## Troubleshooting
+
+### Java users
+
+If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store. 
+
 ## Next steps
 
 * [Learn how the API counts characters](character-counts.md)

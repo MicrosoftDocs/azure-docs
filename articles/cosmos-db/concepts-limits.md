@@ -9,6 +9,7 @@ ms.date: 09/02/2020
 ---
 
 # Azure Cosmos DB service quotas
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
@@ -30,7 +31,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
-| Minimum RUs required per 1 GB | 10 RU/s |
+| Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
@@ -139,7 +140,7 @@ There are no restrictions on the item payloads like number of properties and nes
 
 ## Per-request limits
 
-Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
+Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
@@ -186,7 +187,7 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 
 ## SQL query limits
 
-Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
+Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
 
 | Resource | Default limit |
 | --- | --- |

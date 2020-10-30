@@ -52,7 +52,7 @@ landingContent:
           url: how-to-custom-speech-train-model.md
         - text: Create human-labeled transcriptions
           url: how-to-custom-speech-human-labeled-transcriptions.md
-- title: References
+- title: Reference
   linkLists:
     - linkListType: reference
       links:
@@ -62,3 +62,9 @@ landingContent:
           url: faq-stt.md
         - text: Speech-to-text pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

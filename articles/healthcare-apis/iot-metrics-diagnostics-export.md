@@ -53,7 +53,7 @@ Having access to metric logs is essential for monitoring and troubleshooting.  A
 Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.md)
 
 *In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 

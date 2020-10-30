@@ -97,7 +97,7 @@ This result is the total number of cores to be set up before failover or test fa
 ![Required number of Azure cores in the deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png)
 
 ### Required on-premises infrastructure
-This figure is the total number of configuration servers and additional process servers to be configured that would suffice to protect all the compatible VMs. Depending on the supported [size recommendations for the configuration server](https://aka.ms/asr-v2a-on-prem-components), the tool might recommend additional servers. The recommendation is based on the larger of either the per-day churn or the maximum number of protected VMs (assuming an average of three disks per VM), whichever is hit first on the configuration server or the additional process server. You'll find the details of total churn per day and total number of protected disks in the "On-premises summary" section.
+This figure is the total number of configuration servers and additional process servers to be configured that would suffice to protect all the compatible VMs. Depending on the supported [size recommendations for the configuration server](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server), the tool might recommend additional servers. The recommendation is based on the larger of either the per-day churn or the maximum number of protected VMs (assuming an average of three disks per VM), whichever is hit first on the configuration server or the additional process server. You'll find the details of total churn per day and total number of protected disks in the "On-premises summary" section.
 
 ![Required on-premises infrastructure in the deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
@@ -163,7 +163,7 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 
 **Log Storage Account Type**: All the replication logs are stored in a standard storage account.
 
-**Suggested Prefix for Storage Account**: The suggested three-character prefix that can be used for naming the cache storage account. You can use your own prefix, but the tool's suggestion follows the [partition naming convention for storage accounts](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix for Storage Account**: The suggested three-character prefix that can be used for naming the cache storage account. You can use your own prefix, but the tool's suggestion follows the [partition naming convention for storage accounts](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Suggested Log Account Name**: The storage-account name after you include the suggested prefix. Replace the name within the angle brackets (< and >) with your custom input.
 
@@ -217,7 +217,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **VM Name**: The VM name or IP address that's used in the VMListFile when a report is generated. This column also lists the VMDKs that are attached to the VMs. To distinguish vCenter VMs with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the VM was placed when the tool discovered during the profiling period.
 
-**VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
+**VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](/en-in/azure/storage/common/scalability-targets-standard-account), can be any of the following:
 
 * Wrong data disk size or wrong OS disk size. [Review](vmware-physical-azure-support-matrix.md#azure-vm-requirements) the support limits. 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.

@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. The examples in this article use the Bash shell on Windows 10 for the curl commands. See [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The curl examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use the Windows PowerShell cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. The examples in this article use the Bash shell on Windows 10 for the curl commands. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The curl examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use the Windows PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## Create Apache HBase cluster
 
@@ -222,6 +222,31 @@ HBase data can also be queried from Hive using ESP-enabled HBase:
 ## Use HBase REST APIs using Curl
 
 The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+
+1. To enable HBase REST APIs in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
+
+
+	```bash
+	#! /bin/bash
+
+	THIS_MACHINE=`hostname`
+
+	if [[ $THIS_MACHINE != wn* ]]
+	then
+		printf 'Script to be executed only on worker nodes'
+		exit 0
+	fi
+
+	RESULT=`pgrep -f RESTServer`
+	if [[ -z $RESULT ]]
+	then
+		echo "Applying mitigation; starting REST Server"
+		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+	else
+		echo "Rest server already running"
+		exit 0
+	fi
+	```
 
 1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 

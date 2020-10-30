@@ -40,34 +40,39 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 ## Create with the APIs
 
-This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](how-to-use-apis-sdks.md), to provide additional context on what goes on inside each of these concepts.
+This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) and [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet), to provide additional context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
-Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to instantiate a twin of type *Room*.
+Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type *Room*.
 
-In the current preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
+You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
 You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see the [*Create a digital twin*](how-to-manage-twin.md#create-a-digital-twin) section of *How-to: Manage digital twins*.
 
+>[!NOTE]
+>While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
+
 ### Create relationships
 
-Here is some example client code that uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
+Here is some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
 await CreateRoom("Cafe", 70, 66);
 await CreateFloor("GroundFloor", averageTemperature=70);
 // Create relationships
-Dictionary<string, object> targetrec = new Dictionary<string, object>()
+var relationship = new BasicRelationship
 {
-    { "$targetId", "Cafe" }
+    TargetId = "Cafe",
+    Name = "contains"
 };
 try
 {
-    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+    string relId = $"GroundFloor-contains-Cafe";
+    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

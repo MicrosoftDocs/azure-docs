@@ -79,8 +79,6 @@
   items:
   - name: Publishing guide by offer type
     href: publisher-guide-by-offer-type.md 
-  - name: Enable offer authentication with Azure AD
-    href: enable-appsource-marketplace-using-azure-ad.md
   - name: Azure application offers
     items:
     - name: Plan a solution template offer
@@ -105,12 +103,22 @@
         href: partner-center-portal/create-azure-container-technical-assets.md
       - name: Create an Azure Container offer
         href: partner-center-portal/create-azure-container-offer.md
-  - name: Azure virtual machine offer
+  - name: Azure virtual machine offers
     items:
     - name: Plan a VM offer
       href: marketplace-virtual-machines.md
     - name: Create and publish a VM offer
-      items: 
+      items:
+      - name: Create a VM offer
+        href: azure-vm-create.md
+      - name: Configure VM offer properties
+        href: azure-vm-create-properties.md
+      - name: Configure VM offer listing
+        href: azure-vm-create-listing.md
+      - name: Create VM plans
+        href: azure-vm-create-plans.md
+      - name: Add a preview audience
+        href: azure-vm-create-preview.md
       - name: Create VM technical assets
         items:
         - name: Create VM from an approved base
@@ -127,26 +135,18 @@
           href: azure-vm-create-faq.md
         - name: VM certification troubleshooting
           href: azure-vm-create-certification-faq.md
-      - name: Create a VM offer
-        href: azure-vm-create.md
-      - name: Configure VM offer properties
-        href: azure-vm-create-properties.md
-      - name: Configure VM offer listing
-        href: azure-vm-create-listing.md
-      - name: Create VM plans
-        href: azure-vm-create-plans.md
-      - name: Add a preview audience
-        href: azure-vm-create-preview.md
   - name: Consulting services
     items: 
-    - name: Plan a consulting services offer
-      href: consulting-services.md
-    - name: Create and publish a consulting services offer
-      items:
-      - name: Prerequisites
-        href: partner-center-portal/consulting-service-prerequisites.md
-      - name: Create a consulting service offer
-        href: partner-center-portal/create-consulting-service-offer.md
+    - name: Plan a consulting service offer
+      href: plan-consulting-service-offer.md
+    - name: Create a consulting service offer
+      href: create-consulting-service-offer.md
+    - name: Configure consulting service properties
+      href: create-consulting-service-offer-properties.md
+    - name: Configure consulting service listing
+      href: create-consulting-service-offer-listing.md
+    - name: Configure pricing and availability
+      href: create-consulting-service-pricing-availability.md
   - name: Dynamics 365 offers
     items: 
     - name: Plan a Dynamics 365 offer
@@ -163,14 +163,14 @@
           href: dynamics-365-finance-operations-functional-validation.md
       - name: Create a Dynamics 365 Business Central offer
         href: partner-center-portal/create-new-business-central-offer.md
-    - name: IoT Edge module offers
-      items:
-      - name: Plan an IoT Edge module offer
-        href: iot-edge-module.md
-      - name: Create an IoT Edge module offer
-        href: partner-center-portal/azure-iot-edge-module-creation.md
-      - name: Prepare IoT Edge module technical assets
-        href: partner-center-portal/create-iot-edge-module-asset.md
+  - name: IoT Edge module offers
+    items:
+    - name: Plan an IoT Edge module offer
+      href: iot-edge-module.md
+    - name: Create an IoT Edge module offer
+      href: partner-center-portal/azure-iot-edge-module-creation.md
+    - name: Prepare IoT Edge module technical assets
+      href: partner-center-portal/create-iot-edge-module-asset.md
   - name: Managed Service offers
     items:
     - name: Create a Managed Service offer

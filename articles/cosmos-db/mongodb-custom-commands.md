@@ -10,6 +10,7 @@ ms.custom: devx-track-js
 ---
 
 # Use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 The following document contains the custom action commands that are specific to Azure Cosmos DB's API for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](account-databases-containers-items.md).
 
