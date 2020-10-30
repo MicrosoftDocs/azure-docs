@@ -93,7 +93,7 @@ This startup script uses the EAP_HOME/bin/standalone.conf file to set some defau
     
  ```$EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml```
     
-For a complete listing of all available startup script arguments and their purposes, use the --help argument or see the [Server Runtime Arguments on EAP 7.2 (https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) or [Server Runtime Arguments on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) section.
+For a complete listing of all available startup script arguments and their purposes, use the --help argument or see the [Server Runtime Arguments on EAP 7.2] (https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) or [Server Runtime Arguments on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) section.
     
 JBoss EAP can also work in cluster mode. Check out [Clusters Overview on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) or [ Clusters Overview on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview) to learn more. JBoss EAP cluster messaging allows grouping of JBoss EAP messaging servers to share message processing load. Each active node in the cluster is an active JBoss EAP messaging server, which manages its own messages and handles its own connections.
 
@@ -111,8 +111,8 @@ Check out [Red Hat Enterprise Linux pricing](https://azure.microsoft.com/pricing
 
 #### Using RHEL OS with BYOS Model
 
-To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy this Quickstart template.
- a
+To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy this Quickstart template:
+
 1. Ensure you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
 2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management (RHSM) documentation](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) to complete the process, which includes these steps:
 
@@ -131,14 +131,14 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
     3.1 Launch an Azure CLI session and authenticate with your Azure account. Refer to [Signing in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) for assistance. Make sure you are running the latest Azure CLI version before moving on.
 
     3.2 Verify the RHEL BYOS images are available in your subscription by running the following CLI command. If you don't get any results here, refer to #2 and ensure that your Azure subscription is activated for RHEL BYOS images.
+   
+   ```az vm image list --offer rhel-byos --all```
 
-```az vm image list --offer rhel-byos --all```
+    3.3 Run the following command to accept the Marketplace Terms for RHEL 7.7 BYOS and RHEL 8.0 BYOS, respectively.
 
-   3.3 Run the following command to accept the Marketplace Terms for RHEL 7.7 BYOS and RHEL 8.0 BYOS, respectively.
+   ```az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm77``` - *For RHEL 7.7 BYOS VM*
 
-```az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm77``` - *For RHEL 7.7 BYOS VM*
-
-```az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm8``` - *For RHEL 8.0 BYOS VM*
+   ```az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm8``` - *For RHEL 8.0 BYOS VM*
 
 4. Your subscription is now ready to deploy RHEL 7.7 or 8.0 BYOS on Azure virtual machines.
 
@@ -152,15 +152,15 @@ You can deploy the template in three following ways:
 
 - Use PowerShell - Deploy the template by running the following commands: (Check out [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) for information on installing and configuring Azure PowerShell).
 
-```New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment```
+  ```New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment```
 
-```New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>```
+  ```New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>```
     
 - Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for details on installing and configuring the Azure CLI).
 
-```az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment```
+  ```az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment```
 
-```az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>```
+  ```az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>```
 
 - Use Azure portal - You can deploy to the Azure portal by going to the *Azure Quickstart templates* as noted in the below section. Once you're in the Quickstart, click on **Deploy to Azure** or **Browse on GitHub** button.
 
