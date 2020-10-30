@@ -27,6 +27,8 @@ Your administrators are typically the owners and contributors for a lab account.
 
 [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
+Lab users only see a single list of the virtual machines that they have access to across tenants inside Azure Lab Services.
+
 ### Who will be allowed to create and manage labs?
 
 You might choose to have your administrators and faculty members create and manage labs. These users (typically from the Azure AD tenant associated with your subscription) are assigned to the Lab Creator role within the lab account.
