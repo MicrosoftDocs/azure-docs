@@ -10,6 +10,7 @@ ms.date: 08/19/2020
 ---
 
 # Plan and manage costs for Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how you can plan and manage costs for Azure Cosmos DB:
 

@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LEFT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the left part of a string with the specified number of characters.  
   
 ## Syntax

@@ -44,7 +44,7 @@ To extract high-resolution keyframes for your video, you must first upload and i
 
 To extract keyframes using the Video Indexer website, upload and index your video. Once the indexing job is complete, click on the **Download** button and select **Artifacts (ZIP)**. This will download the artifacts folder to your computer. 
 
-![Keyframes](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![Screenshot that shows the "Download" drop-down with "Artifacts" selected.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find all of the keyframes that were extracted from your video. 
 

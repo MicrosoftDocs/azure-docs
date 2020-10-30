@@ -9,6 +9,7 @@ ms.date: 09/01/2020
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can load data from various data sources to Azure Cosmos DB. Since Azure Cosmos DB supports multiple APIs, the targets can be any of the existing APIs. The following are some scenarios where you migrate data to Azure Cosmos DB:
 

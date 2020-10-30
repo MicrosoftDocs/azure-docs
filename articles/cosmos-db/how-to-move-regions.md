@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Move an Azure Cosmos DB account to another region
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to either:
 

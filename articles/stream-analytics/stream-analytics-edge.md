@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 10/29/2020
 ms.custom: seodec18
 ---
 
@@ -203,23 +203,23 @@ There are two ways to update the reference data:
 
 This version information was last updated on 2019-06-27:
 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
+   - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
    - platform:
       - architecture: amd64
       - os: linux
-  
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+ 
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
+   - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
    - platform:
       - architecture: arm
       - os: linux
-  
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+ 
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
+   - base image: mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
    - platform:
-      - architecture: amd64
-      - os: windows
+      - architecture: arm64
+      - os: linux
       
       
 ## Get help

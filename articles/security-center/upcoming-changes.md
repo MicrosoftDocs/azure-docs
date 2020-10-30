@@ -38,19 +38,27 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-The following 18 new recommendations will be added to Security Center to increase the coverage of the benchmark.
+The following 29 new recommendations will be added to Security Center to increase the coverage of the benchmark.
 
 Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
 - Azure Backup should be enabled for virtual machines
+- Audit retention for SQL servers should be set to at least 90 days
+- Diagnostic logs should be enabled in App Service 
 - Enforce SSL connection should be enabled for MySQL database servers
 - Enforce SSL connection should be enabled for PostgreSQL database servers
+- FTPS should be required in your API app
+- FTPS should be required in your function app
+- FTPS should be required in your web app
 - Geo-redundant backup should be enabled for Azure Database for MariaDB
 - Geo-redundant backup should be enabled for Azure Database for MySQL
 - Geo-redundant backup should be enabled for Azure Database for PostgreSQL
 - Java should be updated to the latest version for your API app
 - Java should be updated to the latest version for your function app
 - Java should be updated to the latest version for your web app
+- Managed identity should be used in your API app
+- Managed identity should be used in your function app
+- Managed identity should be used in your web app
 - PHP should be updated to the latest version for your API app
 - PHP should be updated to the latest version for your web app
 - Private endpoint should be enabled for MariaDB servers
@@ -59,6 +67,9 @@ Preview recommendations don't render a resource unhealthy, and they aren't inclu
 - Python should be updated to the latest version for your API app
 - Python should be updated to the latest version for your function app
 - Python should be updated to the latest version for your web app
+- TLS should be updated to the latest version for your API app
+- TLS should be updated to the latest version for your function app
+- TLS should be updated to the latest version for your web app
 - Web apps should request an SSL certificate for all incoming requests
 
 Related links:

@@ -10,6 +10,7 @@ ms.custom: devx-track-python, devx-track-java, contperfq1
 ---
 
 # Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos emulator supports only secure communication through TLS connections.
 

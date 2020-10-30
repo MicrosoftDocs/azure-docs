@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # RIGHT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the right part of a string with the specified number of characters.  
   
 ## Syntax

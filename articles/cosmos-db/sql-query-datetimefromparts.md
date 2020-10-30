@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeFromParts (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns a string DateTime value constructed from input values.
   

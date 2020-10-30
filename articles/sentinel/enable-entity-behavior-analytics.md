@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 10/28/2020
 ms.author: yelevin
 
 ---
@@ -23,7 +23,17 @@ ms.author: yelevin
 
 ## Prerequisites
 
-- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD in order to enable or disable UEBA, but not to run it.
+To enable or disable this feature (these prerequisites are not required to use the feature):
+
+- Your user must be a member of your organization's Azure Active Directory, and not a guest user.
+
+- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
+
+- Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
+    - **Azure Sentinel Contributor** at the workspace or resource group levels.
+    - **Log Analytics Contributor** at the resource group or subscription levels.
+
+- Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 ## How to enable User and Entity Behavior Analytics
 

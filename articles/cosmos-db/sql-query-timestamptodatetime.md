@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # TimestampToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converts the specified timestamp value to a DateTime.
   
