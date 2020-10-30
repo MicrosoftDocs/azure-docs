@@ -75,25 +75,23 @@ Provisioning issues can include the following failure scenarios:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
-\***
-
 ## Software compliance for Windows
 
-If your Windows image request is rejected because of a software compliance issue, you might have created a Windows image with the installed SQL server instance instead of taking the relevant SQL version base image from Azure Marketplace.
+If your Windows image request is rejected because of a software compliance issue, you might have created a Windows image with an installed SQL server instance. Instead, you need to take the relevant SQL version base image from Azure Marketplace.
 
-Don't create your own Windows image with SQL server installed in it. Instead, use the approved SQL base images (Enterprise/Standard/web) from Azure Marketplace.
+Don't create your own Windows image with SQL server installed in it. Use the approved SQL base images (Enterprise/Standard/web) from Azure Marketplace.
 
 If you're trying to install Visual Studio or any Office-licensed product, contact the Support team for prior approval.
 
 For more information about selecting an approved base, see [Create a virtual machine from an approved base](azure-vm-create-using-approved-base.md).
 
-## Tool kit test case execution failed
+## Toolkit test case execution failed
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
 Download the [Microsoft Certification toolkit](azure-vm-image-test.md).
 
-## Linux test cases
+### Linux test cases
 
 The following table lists the Linux test cases that the toolkit will run. Test validation is stated in the description.
 
@@ -101,7 +99,7 @@ The following table lists the Linux test cases that the toolkit will run. Test v
 |---|---|---|
 |1|Bash history|Bash history files should be cleared before you create the VM image.|
 |2|Linux Agent version|Azure Linux Agent 2.2.41 or later should be installed.|
-|3|Required kernel parameters|Verifies that the following kernel parameters are set: <br>console=ttyS0<br>earlyprintk=ttyS0<br>rootdelay=300|
+|3|Required kernel parameters|Verifies that the following kernel parameters are set: <br>console=ttyS0<br>earlyprintk=ttyS0<br>rootdelay=300 |
 |4|Swap partition on OS disk|Verifies that swap partitions aren't created on the OS disk.|
 |5|Root partition on OS disk|Create a single root partition for the OS disk.|
 |6|OpenSSL version|The OpenSSL version should be v0.9.8 or later.|
@@ -150,7 +148,7 @@ If you come across any failures with the preceding test cases, refer to the **De
 
 ## Data disk size verification
 
-If the size of any request that's submitted with the data disk is greater than 1023 gigabytes (GB), the request won't be approved. This rule applies to both Linux and Windows.
+Data disk requests with a size greater than 1023 gigabytes (GB) won't be approved. This rule applies to both Linux and Windows.
 
 Resubmit the request with a size less than or equal to 1023 GB.
 
@@ -162,29 +160,24 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 |---|---|
 |Linux|30 GB to 1023 GB|
 |Windows|30 GB to 250 GB|
-|
 
-As VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Because disks aren’t expandable without downtime, use a disk size from 30 GB to 50 GB.
+Because VMs allow access to the underlying operating system, you need to ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime so you should use a disk size from 30 GB to 50 GB.
 
 |VHD size|Actual occupied size|Solution|
 |---|---|---|
 |>500 tebibytes (TiB)|n/a|Contact the Support team for an exception approval.|
 |250-500 TiB|>200 gibibytes (GiB) difference from blob size|Contact the Support team for an exception approval.|
-|
 
 > [!NOTE]
-> Larger disk sizes incur higher costs and will incur a delay during the setup and replication process. Because of this delay and cost, the Support team might seek justification for the exception approval.
+> Larger disk sizes incur higher costs and will result in a delay during the setup and replication process. Because of this delay and cost, the Support team might seek justification for the exception approval.
 
 ## WannaCry patch verification test for Windows
 
 To prevent a potential attack related to the WannaCry virus, ensure that all Windows image requests are updated with the latest patch.
 
-To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table: 
+You can verify the image file version from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
-The image file version can be verified from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
-
-> [!NOTE]
-> Windows Server 2019 doesn't have any mandatory version requirements.
+The following table shows the minimum patched version of Windows Server: 
 
 |OS|Version|
 |---|---|
@@ -193,7 +186,9 @@ The image file version can be verified from `C:\windows\system32\drivers\srv.sys
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|NA|
-|
+
+> [!NOTE]
+> Windows Server 2019 doesn't have any mandatory version requirements.
 
 ## SACK vulnerability patch verification
 
@@ -261,96 +256,107 @@ Follow guidelines when you're converting from a raw disk to VHD, and ensure that
 
 ## VM access denied
 
-If you come across access denied issues while you're running the test cases on the VM, it might be because of insufficient privileges to run the test cases.
+If you get an access denied issue when you run a  test case on the VM, it might be because of insufficient privileges to run the test cases.
 
 Check to see whether proper access is enabled for the account on which the self-test cases are running. If access is not enabled, enable it to run the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
 
-If you want to submit your request with SSH disabled image for certification process, please follow the below steps
+To submit your request with SSH disabled image for certification process:
 
-1. Execute the Azure toolkit on your image. (Please download [Latest Toolkit](https://aka.ms/AzureCertificationTestTool)
+1. Execute the [latest Azure toolkit](https://aka.ms/AzureCertificationTestTool) on your image.
 
-2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport), attach the toolkit report and provide offer details- offer name, publisher name, plan id/SKU and version.
+2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport). Make sure to attach the toolkit report and provide offer details:
+   - offer name
+   - publisher name
+   - plan ID/SKU and version
 
-3. Please re-submit your certification request..
-
+3. Re-submit your certification request.
 
 ## Download failure
     
-Refer to the following table for any issues that arise when you download the VM image by using a shared access signature (SAS) URL.
+Refer to the following table for any issues that arise when you download the VM image with a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
 |1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
-|2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it by using an SAS URL.|
+|2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it with an SAS URL.|
 |3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
-|7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
+|7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 |
 
-## First MB (2048 KB) partition (Only for Linux)
+## First MB (2048 KB) partition (Linux only)
 
-When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail*.
+When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail.
 
 >[!NOTE]
->*For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a Billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
+>For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
 
+## Steps for creating first MB (2048 KB) partition (Linux only) on an empty VHD
 
-## Steps for creating First MB (2048 KB) partition (Only for Linux) on an Empty VHD
+1. Create any kind of VM (Example: Ubuntu, Cent OS, etc). Fill the required fields and click on **Next:Disks >**
 
-Step 1: Create any kind of VM (Example: Ubuntu, Cent OS, etc). Fill the required fields and click on “Next:Disks>” \
-![Next: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
+   ![Next: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
 
-Step 2: Create an un-managed disk for the above VM.
-![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+1. Create an un-managed disk for the above VM.
 
-Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
+   Either use the default values or specify any value for fields like NIC, NSG, and public IP.
 
-Step 3: After creating the VM, please click on “Disks” which is on the left side as shown below
-![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
+   ![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
 
-Step 4:  Please attach your VHD as data disk to the above VM for creating Partition table as below.
-![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+1. After you create the VM, select **Disks** in the left pane.
 
-Click on Add DataDisk -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click OK as below \
-![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+   ![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
 
-Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
+1. Attach your VHD as data disk to the above VM for creating Partition table.
 
-Step 5:  After re-starting the VM, Login into the VM using Putty(or any other client) and run “sudo  -i” command to gain root access.
+   1. Select **Add DataDisk** > **Existing Blob**
 
-![Login into the VM](./media/create-vm/vm-certification-issues-solutions-20.png)
+      ![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
 
-Step 6: Follow below steps to create partition on your VHD.
+   1. Find your VHD storage account
+   1. Select **Container** and then select your VHD.
+   1. Select **OK**.
 
-a) Type fdisk /dev/sdb command
+      ![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
 
-b) For viewing the existing partition list from your VHD, Type p
+      Your VHD will be added as data disk LUN 0.
 
-c) Type d for deleting all existing partition available in your VHD (You can skip this step, if it is not required)
-![Delete all existing partition](./media/create-vm/vm-certification-issues-solutions-21.png)
+   1. Restart the VM.
 
-d) Type n to create new partition and select p for (primary partition).
+1. After you restart the VM, log in to the VM using Putty or another client and run the `sudo  -i` command to gain root access.
 
-e) Please enter 2048 as “First Sector” value and you can leave “last Sector” as it will take default value.Please note that any data will be erased till 2048 KB.
-           
->[!NOTE]
->*Please note that by creating the partition as above any existing data will be erased till 2048 KB, hence it is advised to take a backup of the VHD before executing the above command.
+   ![Login into the VM](./media/create-vm/vm-certification-issues-solutions-20.png)
 
-Please find the below screenshot for your reference.
-![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
+1. Create a partition on your VHD.
 
-f) Type w to confirm the creation of partition. 
+   1. Enter `fdisk /dev/sdb` command.
+   1. To view the existing partition list from your VHD, enter `p`.
+   1. Enter `d` to delete all existing partitions available in your VHD. You can skip this step, if it's not required.
 
-![Creation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
+      ![Delete all existing partition](./media/create-vm/vm-certification-issues-solutions-21.png)
 
-g) You can verify the partition table by running the command n fdisk /dev/sdb and typing p, then you can see as below, that partition is created with 2048 offset value. 
+   1. Ener `n` to create new partition and select `p` for (primary partition).
 
- ![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
+   1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
 
-Step 7:  please detach the VHD from VM and Delete the VM.
+      >[!IMPORTANT]
+      >Any existing data will be erased till 2048 KB. Backup of the VHD before you create a new new partition.
 
-         
+      ![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+   1. Type w to confirm the creation of partition. 
+
+      ![Creation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+   1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value. 
+
+   ![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+1. Detach the VHD from VM and delete the VM.
+
+\***       
+  
 ## Steps for creating First MB (2048 KB) partition (Only for Linux) by moving the existing data on VHD
 
 Step 1: Create any kind of VM (Example: Ubuntu, Cent OS, etc). Fill the required fields and click on “Next:Disks>” \
