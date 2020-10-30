@@ -37,7 +37,7 @@ Before you begin this tutorial, you should:
 
 ## Install Azure Migrate PowerShell module
 
-Azure Migrate PowerShell module is available in public preview. You'll need to install the PowerShell module using the following command. 
+Azure Migrate PowerShell module is available in preview. You'll need to install the PowerShell module using the following command. 
 
 ```azurepowershell
 Install-Module -Name Az.Migrate 
@@ -140,7 +140,7 @@ You can specify the replication properties as follows.
 - **Target virtual network and subnet** - Specify the ID of the Azure Virtual Network and the name of the subnet that the VM should be migrated to by using the `TargetNetworkId` and `TargetSubnetName` parameters respectively. 
 - **Target VM name** - Specify the name of the Azure VM to be created by using the `TargetVMName` parameter.
 - **Target VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".  
-- **License** - To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for `LicenseType` parameter as "AHUB". Otherwise, specify the value for `LicenseType` parameter as "NoLicenseType".
+- **License** - To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for `LicenseType` parameter as "WindowsServer". Otherwise, specify the value for `LicenseType` parameter as "NoLicenseType".
 - **OS Disk** - Specify the unique identifier of the disk that has the operating system bootloader and installer. The disk ID to be used is the unique identifier (UUID) property for the disk retrieved using the `Get-AzMigrateServer` cmdlet.
 - **Disk Type** - Specify the value for the `DiskType` parameter as follows.
     - To use premium-managed disks, specify "Premium_LRS" as value for `DiskType` parameter. 
@@ -150,6 +150,7 @@ You can specify the replication properties as follows.
     - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for `TargetAvailabilityZone` parameter.
     - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for `TargetAvailabilitySet` parameter. 
 
+### Replicate VMs with all disks
 In this tutorial, we'll replicate all the disks of the discovered VM and specify a new name for the VM in Azure. We specify the first disk of the discovered server as OS Disk and migrate all disks as Standard HDD. The OS disk is the disk that has the operating system bootloader and installer.
 
 ```azurepowershell
@@ -172,6 +173,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### Replicate VMs with select disks
 You can also selectively replicate the disks of the discovered VM by using `New-AzMigrateDiskMapping` cmdlet and providing that as an input to the `DiskToInclude` parameter in the `New-AzMigrateServerReplication` cmdlet. You can also use `New-AzMigrateDiskMapping` cmdlet to specify different target disk types for each individual disk to be replicated. 
 
 Specify values for the following parameters of the `New-AzMigrateDiskMapping` cmdlet.
@@ -418,7 +420,7 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying Azure Cost Management to monitor resource usage and spending.
+-  Consider deploying [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
 
 
 

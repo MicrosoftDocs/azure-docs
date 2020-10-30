@@ -18,7 +18,7 @@ ms.date: 09/01/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-By using Azure Private Link, you can connect to various platform as a service (PaaS) deployments in Azure via a private endpoint. A private endpoint is a private IP address within a specific virtual network and subnet. For a list of PaaS deployments that support Private Link functionality, see [Private Link documentation](https://docs.microsoft.com/azure/private-link/). 
+By using Azure Private Link, you can connect to various platform as a service (PaaS) deployments in Azure via a private endpoint. A private endpoint is a private IP address within a specific virtual network and subnet. For a list of PaaS deployments that support Private Link functionality, see [Private Link documentation](../private-link/index.yml). 
 
 ## Secure communication between customer networks and Azure Data Factory 
 You can set up an Azure virtual network as a logical representation of your network in the cloud. Doing so provides the following benefits:
@@ -63,7 +63,7 @@ Enabling the Private Link service for each of the preceding communication channe
 > When you create a linked service, make sure that your credentials are stored in an Azure key vault. Otherwise, the credentials won't work when you enable Private Link in Azure Data Factory.
 
 ## Set up Private Link for Azure Data Factory
-You can create private endpoints by using [the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell, or the Azure CLI.
+You can create private endpoints by using [the Azure portal](../private-link/create-private-endpoint-portal.md).
 
 You can also go to your Azure data factory in the Azure portal and create a private endpoint, as shown here:
 
@@ -85,4 +85,3 @@ If you want to block public access to the Azure data factory and allow access on
 - [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
 - [Introduction to Azure Data Factory](introduction.md)
 - [Visual authoring in Azure Data Factory](author-visually.md)
-

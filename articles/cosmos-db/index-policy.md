@@ -9,6 +9,7 @@ ms.author: tisande
 ---
 
 # Indexing policies in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers indexes every property of every item and enforces range indexes for any string or number. This allows you to get high query performance without having to think about indexing and index management upfront.
 
@@ -29,7 +30,7 @@ Azure Cosmos DB supports two indexing modes:
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
 
-## <a id="include-exclude-paths"></a> Including and excluding property paths
+## <a id="include-exclude-paths"></a>Including and excluding property paths
 
 A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can substantially reduce the latency and RU charge of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
@@ -266,7 +267,7 @@ There is no impact to write availability during any index transformations. The i
 
 There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
 
-When removing indexes and immediately running queries that filter on the dropped indexes, there is not a guarantee of consistent or complete query results. If you remove multiple indexes and do so in one single indexing policy change, the query engine guarantees consistent and complete results throughout the index transformation. However, if you remove indexes through multiple indexing policy changes, the query engine does not guarantee consistent or complete results until all index transformations complete. Most developers do not drop indexes and then immediately try to run queries that utilize these indexes so, in practice, this situation is unlikely.
+When removing indexes and immediately running queries that filter on the dropped indexes, there is not a guarantee of consistent or complete query results. If you remove multiple indexes and do so in one single indexing policy change, the query engine provides consistent and complete results throughout the index transformation. However, if you remove indexes through multiple indexing policy changes, the query engine will not provide consistent or complete results until all index transformations complete. Most developers do not drop indexes and then immediately try to run queries that utilize these indexes so, in practice, this situation is unlikely.
 
 > [!NOTE]
 > Where possible, you should always try to group multiple indexing changes into one single indexing policy modification

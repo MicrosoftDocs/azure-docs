@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/06/2019
  ms.author: mbaldwin
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 ## Create a resource group
 

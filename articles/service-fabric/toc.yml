@@ -148,8 +148,6 @@
       href: service-fabric-application-and-service-security.md
     - name: Service Fabric Cluster security
       href: service-fabric-cluster-security.md
-    - name: Built-in security controls
-      href: service-fabric-security-controls.md
     - name: Certificate-based authentication in Service Fabric 
       href: cluster-security-certificates.md
     - name: Certificate management in Service Fabric
@@ -932,7 +930,7 @@
   - name: Release notes
     href: release-notes.md
   - name: Sample code
-    href: https://aka.ms/servicefabricsamples
+    href: /samples/browse/?products=azure
   - name: Support options
     href: service-fabric-support.md
   - name: Service Fabric versions

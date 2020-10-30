@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ---
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio

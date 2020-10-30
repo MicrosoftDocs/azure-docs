@@ -46,7 +46,7 @@ On the landing page, the customer should be logged on to the new or existing Saa
 The publisher should implement SSO log in to provide the user experience required by Microsoft for this flow.  Make sure to use multi-tenant Azure AD application, allow both work and school accounts or personal Microsoft accounts, when configuring the SSO.  This requirement only applies to the landing page, and for users who are redirected to the SaaS service when already logged in with Microsoft credentials. It doesn't apply to all logins to the SaaS service.
 
 > [!NOTE]
->If SSO log in requires that an admin grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This is to comply with [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>If SSO log in requires that an admin grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This is to comply with [commercial marketplace certification policies](/legal/marketplace/certification-policies#10003-authentication-options).
 
 Once logged in, the customer should complete the SaaS configuration on the publisher side. Then the publisher must call [Activate Subscription API](#activate-a-subscription) to send a signal to Marketplace that the provisioning of the SaaS account is complete.
 This will start the customer's billing cycle. If the Activate Subscription API call is not successful, the customer is not billed for the purchase.
@@ -996,11 +996,11 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 
 To start the development process, we recommend creating dummy API responses on the publisher side.  These responses can be based on sample responses provided in this document.
 
-When the publisher is ready for the end to end testing: 
+When the publisher is ready for the end to end testing:
 
 * Publish a SaaS offer to a limited preview audience and keep it in preview stage.
-* This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  Another option is to set a non-zero price and cancel all test purchases within 24 hours. 
-* Ensure all flows are invoked end to end, just like a customer would purchase the offer. 
+* This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  Another option is to set a non-zero price and cancel all test purchases within 24 hours.
+* Ensure all flows are invoked end to end, just like a customer would purchase the offer.
 * If the partner wants to test full purchase and billing flow, do so with offer that is priced above 0$.  The purchase will be billed, and an invoice will be generated.
 
 A purchase flow can be triggered from the Azure portal or Microsoft AppSource sites, depending on where the offer is being published.
@@ -1009,8 +1009,7 @@ A purchase flow can be triggered from the Azure portal or Microsoft AppSource si
 
 ## Get support
 
-See [Support for the commercial marketplace program in Partner Center](support.md) for publisher support options.
-
+See [Support for the commercial marketplace program in Partner Center](../support.md) for publisher support options.
 
 ## Next steps
 

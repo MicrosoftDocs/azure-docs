@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ---
 
-# Tutorial: Migrate Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server  online using DMS via the Azure portal
+# Tutorial: Migrate/Upgrade Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server  online using DMS via the Azure portal
 
 You can use Azure Database Migration Service to migrate the databases from an [Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instance to same or different version of Azure Database for PostgreSQL - Single Server instance or Azure Database for PostgreSQL - Flexible Server with minimal downtime. In this tutorial, you migrate the **DVD Rental** sample database from an Azure Database for PostgreSQL v10 to Azure Database for PostgreSQL - Single Server by using the online migration activity in Azure Database Migration Service.
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need to:
 
 * Check [status of migration scenarios supported by Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status) for supported migration and version combinations. 
-* An existing [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 and later instance with the **DVD Rental** database. Azure Database Migration Service does not support migrating from Azure DB for PostgreSQL 9.5 or 9.6.
+* An existing [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 and later instance with the **DVD Rental** database. 
 
     Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 10 can migrate to Azure Database for PostgreSQL 10, or 11, but not to Azure Database for PostgreSQL 9.6.
 
@@ -253,7 +253,20 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 * Select **Run migration**.
 
-    The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**.
+The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**. You may encounter the following error when upgrading from Azure DB for PostgreSQL 9.5 or 9.6:
+
+**A scenario reported an unknown error. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"**
+
+This is because the PostgreSQL does not have appropriate privileges to create required logical replication artifacts. To enable required privileges, you can do the following:
+
+1. Open "Connection security" settings for the source Azure DB for PostgreSQL server you are trying to migrate/upgrade from.
+2. Add a new firewall rule with a name ending with "_replrule" and add the IP address from the error message to the start IP and End IP fields. For the above error example -
+> Firewall rule name = sr_replrule;
+> Start IP = 40.121.141.121;
+> End IP = 40.121.141.121
+
+3. Click save and let the change complete. 
+4. Retry DMS activity. 
 
 ## Monitor the migration
 

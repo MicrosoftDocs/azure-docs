@@ -342,7 +342,7 @@ A&nbsp;score&nbsp;has&nbsp;been&nbsp;reached| Use `experiment_exit_score` comple
 
 You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) for more details.
 
-See [Understand automated machine learning results](how-to-understand-automated-ml.md) for definitions and examples of the performance charts and metrics provided for each run. 
+See [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md) for definitions and examples of the performance charts and metrics provided for each run. 
 
 To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 

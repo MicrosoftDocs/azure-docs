@@ -2,7 +2,7 @@
 title: Access network-restricted registry with trusted service
 description: Enable a trusted service instance to securely access a network-restricted container registry using a system-assigned managed identity 
 ms.topic: article
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ---
 
 # Allow trusted services to securely access a network-restricted container registry
@@ -20,7 +20,7 @@ Azure Container Registry has a layered security model, supporting multiple netwo
 * [Private endpoint with Azure Private Link](container-registry-private-link.md). When configured, a registry's private endpoint is accessible only to resources within the virtual network, using private IP addresses.  
 * [Registry firewall rules](container-registry-access-selected-networks.md), which allow access to the registry's public endpoint only from specific public IP addresses or address ranges. You can also configure the firewall to block all access to the public endpoint when using private endpoints.
 
-A user or service attempting to access a registry from outside those sources will be denied access. Several managed Azure services operate from networks that can't be included in registry network settings, preventing them from pulling or pushing images for certain scenarios. By allowing trusted services, a registry owner can enable select trusted Azure resources to securely bypass network restrictions placed on a registry. 
+When a registry is placed in a virtual network or access is limited with firewall rules, users or services from outside those sources will be denied access. Several multi-tenant Azure services operate from networks that can't be included in registry network settings, preventing them from pulling or pushing images for certain scenarios. By allowing trusted services, a registry owner can enable select trusted Azure resources to securely bypass network restrictions placed on a registry. 
 
 ## Limitations
 
@@ -52,15 +52,13 @@ By default, the network rule bypass options setting is enabled in new Azure cont
 To disable:
 
 ```azurecli
-az acr update --name myregistry --resource-group myResourceGroup \
-  --network-rule-bypass-options disabled
+az acr update --name myregistry --network-rule-bypass-options disabled
 ```
 
 To enable the setting in an existing registry or a registry where it's already disabled:
 
 ```azurecli
-az acr update --name myregistry --resource-group myResourceGroup \
-  --network-rule-bypass-options enabled
+az acr update --name myregistry --network-rule-bypass-options enabled
 ```
 
 ## Trusted services workflow

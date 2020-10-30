@@ -345,7 +345,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## Use Async-Await pattern with common Queue storage APIs
 
-This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # [\.NET v12](#tab/dotnet)
 
@@ -486,10 +486,10 @@ queue.Delete();
 Now that you've learned the basics of Queue storage, follow these links to learn about more complex storage tasks.
 
 - View the Queue service reference documentation for complete details about available APIs:
-  - [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Storage Client Library for .NET reference](/dotnet/api/overview/azure/storage)
+  - [REST API reference](/rest/api/storageservices/)
 - View more feature guides to learn about additional options for storing data in Azure.
-  - [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
-  - [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+  - [Get started with Azure Table storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) to store structured data.
+  - [Get started with Azure Blob storage using .NET](../blobs/storage-quickstart-blobs-dotnet.md) to store unstructured data.
   - [Connect to SQL Database by using .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) to store relational data.
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

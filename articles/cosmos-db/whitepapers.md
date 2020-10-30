@@ -10,6 +10,7 @@ ms.custom: seodec18
 ---
 
 # Azure Cosmos DB whitepapers
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Whitepapers allow you to explore Azure Cosmos DB concepts at a deeper level. This article provides you with a list of available whitepapers for Azure Cosmos DB.
 

@@ -2,12 +2,12 @@
 title: Quickstart - Create and manage access tokens
 titleSuffix: An Azure Communication Services quickstart
 description: Learn how to manage identities and access tokens using the Azure Communication Services Administration client library.
-author: matthewrobertson
+author: tomaschladek
 manager: jken
 services: azure-communication-services
-ms.author: marobert
+ms.author: tchladek
 ms.date: 08/20/2020
-ms.topic: quickstart
+ms.topic: quickstart 
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---

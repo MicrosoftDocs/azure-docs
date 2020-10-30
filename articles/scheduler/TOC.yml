@@ -49,7 +49,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-scheduler.html
+    href: /answers/topics/azure-scheduler.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-scheduler
   - name: Pricing

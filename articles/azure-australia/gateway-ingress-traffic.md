@@ -106,7 +106,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 * Restrict communication flows to PaaS capabilities to only those necessary for system functionality
 * Deploy PaaS in a VNet integrated configuration for increased segregation and control
 * Configure systems to use encryption mechanisms in line with the ACSC Consumer Guidance and ISM
-* Use identity-based protections such as authentication and role-based access control in addition to traditional network controls
+* Use identity-based protections such as authentication and Azure role-based access control in addition to traditional network controls
 * Implement ExpressRoute for connectivity with on-premises networks
 * Implement VPNs for administrative traffic and integration with external networks
 * Utilize Azure Policy to restrict the regions and resources to only those that are necessary for system functionality
@@ -141,7 +141,7 @@ Standard provides additional mitigation capabilities over the Basic service tier
 |Resource|Link|
 |---|---|
 |Azure DDoS Protection Overview|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Azure DDoS Best Practices|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
+|Azure DDoS Best Practices|[https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices](https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices)|
 |Managing DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

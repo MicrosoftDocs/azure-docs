@@ -564,7 +564,9 @@ Azure Key Vault logging: https://docs.microsoft.com/azure/key-vault/key-vault-lo
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: All traffic to Azure Key Vault for authentication, management, and data plane access, is encrypted and goes over HTTPS: port 443. (However, there will occasionally be HTTP [port 80] traffic for CRL.) 
+**Guidance**: All traffic to Azure Key Vault for authentication, management, and data plane access, is encrypted and goes over HTTPS: port 443. (However, there will occasionally be HTTP [port 80] traffic for CRL.) Azure Key Vault continues to allow TLS 1.1 and TLS 1.0 data to be ingested. Data may be restricted to TLS 1.2 through configuration on the client side.
+
+
 
 Access Azure Key Vault behind a firewall: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
