@@ -29,7 +29,7 @@ To avoid the requirement to install the Azure CLI locally, you can use the Azure
 
 While provisioning your TSI environment, you'll be required to select a Time Series ID. Selecting the appropriate Time Series ID is critical, as the property is immutable and cannot be changed after it's set. Choosing a Time Series ID is like choosing a partition key for a database. Typically, your TS ID should be the leaf node of your asset model. In other words, you typically want to select the ID property of the most granular asset or sensor that is emitting telemtry.
 
-As an IoT Plug and Play user, the pertinent question for selecting your TS ID is the prevalence of [components](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) your device models. 
+As an IoT Plug and Play user, the pertinent question for selecting your TS ID is the presence of [components](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) in your device models. 
 
 ![TS ID selection](./media/tutorial-configure-tsi/ts-id-selection-pnp.png)
 
