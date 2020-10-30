@@ -130,7 +130,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
    | Storage account | The default storage account for the workspace. By default, a new one is created. |
    | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
    | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
-   | Container Registry | The Azure Container Registry for the workspace. By default, a new one is created. |
+   | Container Registry | The Azure Container Registry for the workspace. By default, a new one is _not_ initially created for the workspace. Instead, it is created once you need it when creating a Docker image during training or deployment. |
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
