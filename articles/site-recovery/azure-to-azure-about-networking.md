@@ -24,7 +24,7 @@ Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-
 
 The following diagram depicts a typical Azure environment, for applications running on Azure VMs:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagram that depicts a typical Azure environment for applications running on Azure VMs.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment is as follows:
 
@@ -57,9 +57,9 @@ login.microsoftonline.com | Required for authorization and authentication to the
 While using NSG to control outbound connectivity, these service tags need to be allowed.
 
 - For the storage accounts in source region:
-    - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
+    - Create a [Storage service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
-- Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+- Create a [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 - Create an EventsHub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
 - Create an AzureSiteRecovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
 - Create an AzureKeyVault service tag-based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.

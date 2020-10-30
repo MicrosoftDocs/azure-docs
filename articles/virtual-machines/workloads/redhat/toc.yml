@@ -1,5 +1,9 @@
 - name: Overview
   href: overview.md
+- name: Red Hat Quickstarts
+  items: 
+- name: Quickstart - WildFly on CentOS
+  href: wildfly-on-centos.md
 - name: Red Hat Enterprise Linux Images
   items:
   - name: Red Hat Enterprise Linux Image Overview

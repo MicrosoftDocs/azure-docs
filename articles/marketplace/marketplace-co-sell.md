@@ -74,7 +74,16 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
-1. We’ll review the materials you uploaded and determine if your offer qualifies for the Co-sell program.
+1. After ensuring you have met the [criteria for the Co-sell status you are pursuing](#co-sell-publishing-steps-and-requirements), please follow the below guidance to nominate your offer for Co-sell:
+    1. **If you have a Microsoft Partner Manager (e.g., PDM):** reach out to your Partner Manager for assistance. They will guide you through the nomination process for Co-sell ready status and Azure IP Co-sell or Business Applications Co-sell incentivized (if applicable).
+    
+    1. **If you do not have a Microsoft Partner Manager (e.g., PDM):** [self-nominate via the Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Select "Becoming co-sell ready" under the "Desired CED Services" dropdown:
+<ul><ul>
+
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="This image shows the CED dropdown to request a Co-sell review.":::
+
+The CED will reach out to you to complete the process.
+</ul></ul>
 
 ## Next steps
 

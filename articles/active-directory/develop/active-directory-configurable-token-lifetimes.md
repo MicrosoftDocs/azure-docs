@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
@@ -20,7 +20,29 @@ ms.reviewer: hirsin, jlu, annaba
 You can specify the lifetime of a token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we've implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 30, 2020 no new tenant will be able to use configurable token lifetime policy to configure session and refresh tokens. The deprecation will happen within several months after that, which means that we will stop honoring existing session and refresh tokens polices. You can still configure access token lifetimes after the deprecation.
+> After January 30, 2021, tenants will no longer be able to configure refresh and session token lifetimes and Azure Active Directory will stop honoring existing refresh and session token configuration in policies after that date. You can still configure access token lifetimes after the retirement.
+> We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. Conditional Access is an Azure AD Premium P1 feature and you can evaluate whether premium is right for your organzation on the [premium pricing page](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
+> 
+> For tenants that do not use authentication session management in Conditional Access after the retirement date, they can expect that Azure AD will honor the default configuration outlined in the next section.
+
+## Configurable token lifetime properties after the retirement
+Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration, Azure AD will only honor the default value described below, regardless of whether policies have custom values configured configured custom values.  
+
+|Property   |Policy property string    |Affects |Default |
+|----------|-----------|------------|------------|
+|Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
+|Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
+|Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |180 days  |
+|Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
+|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |180 days |
+
+You can use the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet to identify token lifetime policies whose property values differ from the Azure AD defaults.
+
+To further understand how your policies are used in your tenant, you can use the [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet to identify which apps and service principals are linked to your policies. 
+
+If your tenant has policies which define custom values for refresh and session token configuration properties, Microsoft recommends you update those policies in scope to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.  
+
+## Overview
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 

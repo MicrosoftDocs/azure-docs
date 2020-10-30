@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync, from start to finish, using th
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -413,7 +413,6 @@ In the **Add server endpoint** pane, enter the following information to create a
 - **Path**: The Windows Server path to be synced as part of the sync group.
 - **Cloud Tiering**: A switch to enable or disable cloud tiering. With cloud tiering, infrequently used or accessed files can be tiered to Azure Files.
 - **Volume Free Space**: The amount of free space to reserve on the volume on which the server endpoint is located. For example, if volume free space is set to 50% on a volume that has a single server endpoint, roughly half the amount of data is tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the sync group.
-- **Initial download mode**: This is an optional selection, starting with agent version 11, that can be helpful when there are files in the Azure file share but not on the server. Such a situation can exist, for instance, if you create a server endpoint to add another branch office server to a sync group or when you disaster-recover a failed server. If cloud tiering is enabled, the default is to only recall the namespace, no file content initially. That is useful if you believe that rather user access requests should decide what file content is recalled to the server. If cloud tiering is disabled, the default is that the namespace will download first and then files will be recalled based on last-modified timestamp until the local capacity has been reached. You can however change the initial download mode to namespace only. A third mode can only be used if cloud tiering is disabled for this server endpoint. This mode avoids recalling the namespace first. Files will only appear on the local server if they had a chance to fully download. This mode is useful if for instance an application requires full files to be present and cannot tolerate tiered files in it's namespace.
 
 To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
 
@@ -424,8 +423,6 @@ Execute the following PowerShell commands to create the server endpoint, and be 
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
-# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
-$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -442,16 +439,14 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
-        -InitialDownloadPolicy $initialDownloadPolicy
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath `
-        -InitialDownloadPolicy $initialDownloadPolicy
+        -ServerLocalPath $serverEndpointPath
 }
 ```
 
@@ -478,7 +473,6 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --cloud-tiering on \
                                                  --volume-free-space-percent 85 \
                                                  --tier-files-older-than-days 15 \
-                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
 
@@ -571,40 +565,6 @@ The default maximum number of VSS snapshots per volume (64) as well as the defau
 
 If max. 64 VSS snapshots per volume is not the correct setting for you, you can [change that value via a registry key](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 For the new limit to take effect, you need to re-run the cmdlet to enable previous version compatibility on every volume it was previously enabled, with the -Force flag to take the new maximum number of VSS snapshots per volume into account. This will result in a newly calculated number of compatible days. Please note that this change will only take effect on newly tiered files and overwrite any customizations on the VSS schedule you might have made.
-
-<a id="proactive-recall"></a>
-## Proactively recall new and changed files from an Azure file share
-
-With agent version 11, a new mode becomes available on a server endpoint. This mode allows globally distributed companies to have the server cache in a remote region pre-populated even before local users are accessing any files. When enabled on a server endpoint, this mode will cause this server to recall files that have been created or changed in the Azure file share.
-
-### Scenario
-
-A globally distributed company has branch offices in the US and in India. In the morning (US time) information workers create a new folder and new files for a brand new project and work all day on it. Azure File Sync will sync folder and files to the Azure file share (cloud endpoint). Information workers in India will continue working on the project in their timezone. When they arrive in the morning, the local Azure File Sync enabled server in India needs to have these new files available locally, such that the India team can efficiently work off of a local cache. Enabling this mode prevents the initial file access to be slower because of on-demand recall and enables the server to proactively recall the files as soon as they were changed or created in the Azure file share.
-
-> [!IMPORTANT]
-> It is important to realize that tracking changes in the Azure file share that closely on the server can increase your egress traffic and bill from Azure. If files recalled to the server are not actually needed locally, then unnecessary recall to the server can have negative consequences. Use this mode when you know pre-populating the cache on a server with recent changes in the cloud will have a positive effect on users or applications using the files on that server.
-
-### Enable a server endpoint to proactively recall what changed in an Azure file share
-
-# [Portal](#tab/proactive-portal)
-
-1. In the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, select the correct sync group and then identify the server endpoint for which you want to closely track changes in the Azure file share (cloud endpoint).
-1. In the cloud tiering section, find the "Azure file share download" topic. You will see the currently selected mode and can change it to track Azure file share changes more closely and proactively recall them to the server.
-
-:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
-
-# [PowerShell](#tab/proactive-powershell)
-
-You can modify server endpoint properties in PowerShell through the [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) cmdlet.
-
-```powershell
-# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
-$recallBehavior = "DownloadNewAndModifiedFiles"
-
-Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
-```
-
----
 
 ## Migrate a DFS Replication (DFS-R) deployment to Azure File Sync
 To migrate a DFS-R deployment to Azure File Sync:

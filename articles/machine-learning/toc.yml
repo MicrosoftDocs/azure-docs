@@ -235,7 +235,7 @@
           displayName: policy
     - name: Create & manage workspaces
       items: 
-        - name: Use Azure portal
+        - name: Use Azure portal or Python SDK
           href: how-to-manage-workspace.md
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
@@ -526,6 +526,8 @@
     - name: Azure Pipelines for CI/CD
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+    - name: GitHub Actions for CI/CD
+      href: how-to-github-actions-machine-learning.md
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md

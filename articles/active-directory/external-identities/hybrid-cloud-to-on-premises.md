@@ -27,7 +27,7 @@ If your on-premises app uses SAML-based authentication, you can easily make thes
 You must do both of the following:
 
 - Integrate the app using SAML as described in [Configure SAML-based single sign-on](../manage-apps/configure-saml-single-sign-on.md). Make sure to note what you use for the **Sign-on URL** value.
--  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
+-  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md). 
 
    When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.
  
@@ -37,7 +37,7 @@ You must do both of the following:
 
 To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
 
-- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Get started with Application Proxy and install the connector](../manage-apps/application-proxy-enable.md) and [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md).
+- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
 - **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    > [!NOTE]
@@ -69,7 +69,7 @@ You can manage the on-premises B2B user objects through lifecycle management pol
 
 ### Create B2B guest user objects through MIM
 
-For information about how to use MIM 2016 Service Pack 1 and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+For information about how to use MIM 2016 Service Pack 1 and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### Create B2B guest user objects through a script (Preview)
 
@@ -88,4 +88,3 @@ Make sure that you have the correct Client Access Licenses (CALs) for external g
 - [Azure Active Directory B2B collaboration for hybrid organizations](hybrid-organizations.md)
 
 - For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
-

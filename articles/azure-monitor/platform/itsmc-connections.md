@@ -41,7 +41,7 @@ Ensure the following prerequisites are met:
 > [!NOTE]
 > 
 > - ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
-> - In order to use custom templates as a part of the actions the parameter "ProjectionType" in the SCSM should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
+> - In order to use custom [templates](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
 
 ### Connection procedure
 
@@ -213,6 +213,8 @@ Ensure the following prerequisites are met:
 > 3. Click on Revoke Access and than on Revoke.
 
 - Install the User App for Microsoft Log Analytics integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> ITSMC supports only the official User App for Microsoft Log Analytics integration that is downloaded from ServiceNow store. ITSMC do not support any code ingestion in ServiceNow side or the application that is not part of the official ServiceNow solution. 
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
 
 ### **Connection procedure**
@@ -348,7 +350,7 @@ Use the following procedure to create a Provance connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-![Provance connection](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Screenshot that highlights the Connection Name and Partner Type lists.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **When successfully connected, and synced**:
 
