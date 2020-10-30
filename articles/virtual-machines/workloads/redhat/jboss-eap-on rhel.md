@@ -87,11 +87,15 @@ JBoss EAP has powerful management capabilities as well as providing functionalit
 
 **Start JBoss EAP as a Stand-alone Server** - the following command is how you start EAP service in stand-alone mode.
 
-```$EAP_HOME/bin/standalone.sh```
+```
+$EAP_HOME/bin/standalone.sh
+```
     
 This startup script uses the EAP_HOME/bin/standalone.conf file to set some default preferences, such as JVM options. Settings can be customized in this file. JBoss EAP uses the standalone.xml configuration file to start on stand-alone mode by default, but can be started using a different mode. For details on the available stand-alone configuration files and how to use them, see the [Stand-alone Server Configuration Files for EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) or [Stand-alone Server Configuration Files for EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) section. To start JBoss EAP with a different configuration, use the --server-config argument. For example:
     
- ```$EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml```
+ ```
+ $EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml
+ ```
     
 For a complete listing of all available startup script arguments and their purposes, use the --help argument or see the [Server Runtime Arguments on EAP 7.2] (https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) or [Server Runtime Arguments on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) section.
     
@@ -132,14 +136,19 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
 
     3.2 Verify the RHEL BYOS images are available in your subscription by running the following CLI command. If you don't get any results here, refer to #2 and ensure that your Azure subscription is activated for RHEL BYOS images.
    
-   ```az vm image list --offer rhel-byos --all```
+   ```
+   az vm image list --offer rhel-byos --all
+   ```
 
     3.3 Run the following command to accept the Marketplace Terms for RHEL 7.7 BYOS and RHEL 8.0 BYOS, respectively.
+   ```
+   az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm77
+   ``` 
 
-   ```az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm77``` - *For RHEL 7.7 BYOS VM*
-
-   ```az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm8``` - *For RHEL 8.0 BYOS VM*
-
+   ```
+   az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm8
+   ``` 
+   
 4. Your subscription is now ready to deploy RHEL 7.7 or 8.0 BYOS on Azure virtual machines.
 
 #### Using JBoss EAP with BYOS Model
@@ -152,15 +161,23 @@ You can deploy the template in three following ways:
 
 - Use PowerShell - Deploy the template by running the following commands: (Check out [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) for information on installing and configuring Azure PowerShell).
 
-  ```New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment```
+  ```
+  New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment
+  ```
 
-  ```New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>```
+  ```
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
+  ```
     
 - Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for details on installing and configuring the Azure CLI).
 
-  ```az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment```
+  ```
+  az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment
+  ```
 
-  ```az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>```
+  ```
+  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  ```
 
 - Use Azure portal - You can deploy to the Azure portal by going to the *Azure Quickstart templates* as noted in the below section. Once you're in the Quickstart, click on **Deploy to Azure** or **Browse on GitHub** button.
 
