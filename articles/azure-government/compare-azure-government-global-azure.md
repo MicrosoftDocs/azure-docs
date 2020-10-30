@@ -235,7 +235,7 @@ This section outlines variations and considerations when using Management and Go
 ### [Application Insights](../azure-monitor/overview.md)
 This section describes the supplemental configuration that is required to use Application Insights (part of Azure Monitor) in Azure Government.
 
-**Enable Application Insights for [ASP.NET](#net-with-applicationinsightsconfig) & [ASP.NET Core](#aspnet-core) with Visual Studio**
+**Enable Application Insights for [ASP.NET](#web) & [ASP.NET Core](#web) with Visual Studio**
 
 Azure Government customers can enable Application Insights with a [codeless agent](../azure-monitor/app/azure-web-apps.md) for their Azure App Services hosted applications or via the traditional **Add Applications Insights Telemetry** button in Visual Studio, which requires a small manual workaround. Customers experiencing the associated issue may see error messages like "There is no Azure subscription associated with this account or "The selected subscription does not support Application Insights even though the microsoft.insights resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
 
@@ -244,7 +244,7 @@ Azure Government customers can enable Application Insights with a [codeless agen
 
     Variable name: AzureGraphApiVersion Variable value: 2014-04-01
 
-1. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](#net-with-applicationinsightsconfig) or [ASP.NET Core](#aspnet-core) depending on your project type.
+1. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](#web) or [ASP.NET Core](#web) depending on your project type.
 
 **Snapshot Debugger** is now available for Azure Government customers. To use Snapshot Debugger the only additional prerequisite is to ensure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then simply follow the standard [Snapshot Debugger documentation](../azure-monitor/app/snapshot-debugger.md).
 
