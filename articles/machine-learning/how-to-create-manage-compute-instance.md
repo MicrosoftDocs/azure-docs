@@ -251,7 +251,9 @@ You can install packages directly in Jupyter Notebook or RStudio:
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 Or you can install from a  terminal window. Install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
-%pip and %conda magic functions automatically install packages into the currently-running kernel in Jupyter notebook session.
+
+> [!NOTE]
+> For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
 
 ## Add new kernels
 

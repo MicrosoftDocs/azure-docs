@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: Converting industry-standard models
+title: Convert industry-standard models
 titleSuffix: Azure Digital Twins
 description: Understand the pattern for converting industry-standard (RDF/OWL) models to DTDL
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/28/2020
-ms.topic: conceptual
+ms.date: 10/28/2020
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.

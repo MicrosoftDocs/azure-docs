@@ -64,10 +64,12 @@ To use the data plane APIs:
    - you can find the SDK source in GitHub: [Azure IoT Digital Twins client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - you can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * You can use the **JavaScript** SDK. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
+   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
    - you can view the [SDK reference documentation](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
+   - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * You can use the **Python** SDK. To use the Python SDK...
    - you can view and install the package: [Azure Azure Digital Twins Core client library for Python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
+   - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).
@@ -305,7 +307,7 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 See how to use the APIs to set up an Azure Digital Twins instance and authentication:
-* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md)
+* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md)
 
 Or, walk through the steps to create a client app like the one used in this how-to:
 * [*Tutorial: Code a client app*](tutorial-code.md)
