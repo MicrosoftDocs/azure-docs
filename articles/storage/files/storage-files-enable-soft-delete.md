@@ -1,6 +1,6 @@
 ---
 title: Enable soft delete - Azure file shares
-description: Learn how to enable soft delete (preview) on Azure file shares for data recovery and preventing accidental deletion.
+description: Learn how to enable soft delete on Azure file shares for data recovery and preventing accidental deletion.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -12,7 +12,7 @@ services: storage
 
 # Enable soft delete on Azure file shares
 
-Azure Storage offers soft delete for file shares (preview) so that you can more easily recover your data when it's mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
+Azure Storage offers soft delete for file shares so that you can more easily recover your data when it's mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
 The following sections show how to enable and use soft delete for Azure file shares on an existing storage account:
 
