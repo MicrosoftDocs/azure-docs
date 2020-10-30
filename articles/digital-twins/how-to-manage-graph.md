@@ -54,7 +54,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -105,13 +105,12 @@ public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync
             try
             {
                 // GetRelationshipsAsync will throw if an error occurs
-                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
                 List<BasicRelationship> results = new List<BasicRelationship>();
-                await foreach (string relJson in relsJson)
+                await foreach (BasicRelationship rel in rels)
                 {
-                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
                     results.Add(rel);
-                    Console.WriteLine(relJson);
+                    Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
                 }
 
                 return results;
@@ -152,7 +151,7 @@ public static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAs
                 await foreach (IncomingRelationship incomingRel in incomingRels)
                 {
                     results.Add(incomingRel);
-                    Console.WriteLine(incomingRel);
+                    Console.WriteLine($"Found incoming relationship-{incomingRel.RelationshipId}");
 
                 }
                 return results;
@@ -349,7 +348,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -376,13 +375,12 @@ namespace minimal
             try
             {
                 // GetRelationshipsAsync will throw if an error occurs
-                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
                 List<BasicRelationship> results = new List<BasicRelationship>();
-                await foreach (string relJson in relsJson)
+                await foreach (BasicRelationship rel in rels)
                 {
-                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
                     results.Add(rel);
-                    Console.WriteLine(relJson);
+                    Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
                 }
 
                 return results;
@@ -407,8 +405,7 @@ namespace minimal
                 await foreach (IncomingRelationship incomingRel in incomingRels)
                 {
                     results.Add(incomingRel);
-                    Console.WriteLine(incomingRel.RelationshipId);
-
+                    Console.WriteLine($"Found incoming relationship-{incomingRel.RelationshipId}");
                 }
                 return results;
             }
@@ -501,7 +498,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     foreach (BasicRelationship rec in RelationshipRecordList)
     { 
         try { 
-            await client.CreateRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), JsonSerializer.Serialize<BasicRelationship>(rec));
+            await client.CreateOrReplaceRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), rec);
         }
         catch (RequestFailedException e)
         {
