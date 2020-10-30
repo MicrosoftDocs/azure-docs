@@ -10,7 +10,7 @@ ms.custom: fasttrack-edit
 ---
 # Supported PostgreSQL major versions
 
-Please see [Azure Database for PostgreSQL versioning policy] for support policy details.
+Please see [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for support policy details.
 
 Azure Database for PostgreSQL currently supports the following major versions:
 

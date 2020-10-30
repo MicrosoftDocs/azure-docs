@@ -10,65 +10,51 @@ ms.date: 10/27/2020
 
 # Upgrade your PostgreSQL database using dump and restore
 
-Azure Database for PostgreSQL - Single Server supports PostgreSQL versions 9.5, 9.6, 10, and 11 versions. You will be able to upgrade to a higher version using two methods:
-* Using PostgreSQL native **dump** and **restore** method.  This is an offline migration method that performs the backup and restore at a point in time. 
-* Using [**Database Migration Service**](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS).  You can use this online migration method to perform upgrades with reduced downtime to your source server.
+In Azure Database for PostgreSQL - Single Server, it is recommended to upgrade your PostgreSQL database engine to a higher version using one of these methods:
+* Offline method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). In this method, you first perform the dump from your source server and then restore that dump in the target server.
+* Online method using [**Database Migration Service**](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). This method keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are some prerequisites and restrictions to be addressed. 
 
-You can choose either online or offline mode of upgrade/migration. To help with the decision, the following chart provides some recommendation. 
+To help with the decision to choose between online and offline method, the following chart provides some recommendation.
 
 | **Database** | **Dump/restore (Offline)** | **DMS (Online)** |
 | ------ | ------ | ----- |
-| You have a small database and can afford downtime to upgrade  |	 X | |	 
+| You have a small database and can afford downtime to upgrade  | X | |
 | Small databases (< 10 GB)	 | X | X | 
 | Small-medium DBs (10 GB – 100 GB)	| X | X |
 | Large databases (> 100 GB) |	| X |
-| Cannot afford any downtime to upgrade (irrespective of size) | | X |
-| Can address DMS [pre-requisites](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) including a reboot? | If cannot be addressed, X  | If can be addressed, X |
-| Can avoid DDLs and unlogged tables during the upgrade process? | If cannot be avoided, X| If can be avoided, X |
+| Can afford downtime to upgrade (irrespective of the database size) | If Yes, X | If No, X |
+| Can address DMS [pre-requisites](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) including a reboot? | If No, X  | If Yes, X |
+| Can avoid DDLs and unlogged tables during the upgrade process? | If No, X| If Yes, X |
 
-PostgreSQL dump and restore can be performed in many ways. For a traditional method where you run the dump and restore from a PostgreSQL client, please see the [documentation](./howto-migrate-using-dump-and-restore.md) for step-by-step procedure details and best practices.
-
-> [!NOTE]
->  You may choose to use different methods than what is referred in this document. For detailed dump and restore syntax with additional parameters, see the articles [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html).
-
-This document provides two example methods on how to upgrade your databases using PostgreSQL pg_dump and pg_restore commands. The process in this document is referred as **upgrade** though the database is  **migrated** from the source server to the target server. 
-
-To help with deciding between online Vs offline upgrade options, here are some sample timelines observed using different sizes of databases that are populated using [pgbench](https://www.postgresql.org/docs/10/pgbench.html). 
+This how-to guide provides two example methods on how to upgrade your databases using PostgreSQL pg_dump and pg_restore commands. The process in this document is referred as **upgrade** though the database is  **migrated** from the source server to the target server. 
 
 > [!NOTE]
-> The timing provided are for representation only. You actual timing may vary. Please test with your databases. 
+> PostgreSQL dump and restore can be performed in many ways. You may choose to use different methods than what is referred in this document. For example, to do a dump followed by restore from a PostgreSQL client, please see the [documentation](./howto-migrate-using-dump-and-restore.md) for step-by-step procedure details and best practices. For detailed dump and restore syntax with additional parameters, see the articles [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). 
 
-| **Database Size** | **Time taken** | 
-| ----- | ------ |
-| 1 GB  | 1-2 minutes |
-| 5 GB | 8-10 minutes |
-| 10 GB | 15-20 minutes |
-| 50 GB | 1-1.5 hours |
-| 100 GB | 2.5-3 hours|
 
 ## Prerequisites for using dump and restore with Azure PostgreSQL
  
 To step through this how-to-guide, you need:
-- Source database (Azure Database for PostgreSQL – Single Server)
-- Target database server with desired PostgreSQL version [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
-- A client system (Linux) with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in [Azure Portal](https://portal.azure.com).
+- A source database running 9.5, 9.6, or 10 (Azure Database for PostgreSQL – Single Server)
+- Target database server with the desired PostgreSQL major version [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md). 
+- A client system (Linux) with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
+- Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure Portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
 - Your PostgreSQL client location such as a VM preferably running in the same region as the source and target servers). 
-- The database you are upgrading should pre-exist in the target server. 
 
 ## Additional details and considerations
 - You can find the connection string to the source and target databases by clicking the “Connection Strings” from the portal. 
 - You may be running more than one database in your server. You can find the list of databases by connecting to your source server and running `\l`.
-- You do not have to migrate or upgrade `azure_maintenance` or template databases.
+- Create corresponding databases in the target database server.
+- You can skip upgrading `azure_maintenance` or template databases.
 - Refer to the tables above to determine the database is suitable for this mode of migration.
 - If you want to use Azure Cloud Shell, the session times out after 20 minutes. If your database size is < 10 GB, you may be complete the upgrade without timing out. Otherwise, you may have to keep the session open by other means, such as pressing <Enter> key once in 10-15 minutes. 
 
 > [!TIP] 
-> If you are using the same password for source and the target database,  you can set the `PGPASSWORD=yourPassword` environment variable.  Then you don’t have to provide password everytime you run commands like psql, pg_dump, and pg_restore.  Similarly you can setup additional variables like `PGUSER`, `PGSSLMODE` etc. see to [PostgreSQL environment variables](https://www.postgresql.org/docs/11/libpq-envars.html).
+> 1. If you are using the same password for source and the target database,  you can set the `PGPASSWORD=yourPassword` environment variable.  Then you don’t have to provide password everytime you run commands like psql, pg_dump, and pg_restore.  Similarly you can setup additional variables like `PGUSER`, `PGSSLMODE` etc. see to [PostgreSQL environment variables](https://www.postgresql.org/docs/11/libpq-envars.html).
 >  
-> If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> 2. If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
-> In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
->
+> 3. In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
 
 ## Example database used in this document
 
@@ -84,7 +70,7 @@ To step through this how-to-guide, you need:
 
 ## Method 1: Upgrade with streaming backups to the target 
 
-In this method, the entire database backup output is streamed directly to the target database server. This method does not store and backups local to the client. Hence, this can even be run from the Azure Cloud Shell. This will 
+In this method, the entire database dump  is streamed directly to the target database server and does not store the dump in the client. Hence, this can be used with a client with limited storage and even can be run from the Azure Cloud Shell. 
 
 1. Make sure the database exists in the target server using `\l` command. If the database does not exist, then create the database.
    ```azurecli-interactive
@@ -92,12 +78,12 @@ In this method, the entire database backup output is streamed directly to the ta
     ```
     ```bash
     postgres> \l   
-    postgresl> create database myDB;
+    postgres> create database myTargetDB;
    ```
 
 2. Run the dump and restore as a single command line using a pipe. 
     ```azurecli-interactive
-    pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mysourceDB | pg_restore -v --no-owner --host=mytargetServer --port=5432 --username=myUser --dbname=mytargetDB
+    pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
     ```
 
     For example,
@@ -107,6 +93,16 @@ In this method, the entire database backup output is streamed directly to the ta
     ```  
 3. Once the upgrade (migration) process completes, you can test your application with the target server. 
 4. Repeat this process for all the databases within the server.
+
+ The following table illustrates time it took to upgrade using this method. The data is populated using [pgbench](https://www.postgresql.org/docs/10/pgbench.html). As your database can have different number of objects with varied sizes than pgbench generated tables and indexes, it is highly recommended to test dump and restore of your database to understand the actual time it takes to upgrade your database. 
+
+| **Database Size** | **Approx. time taken** | 
+| ----- | ------ |
+| 1 GB  | 1-2 minutes |
+| 5 GB | 8-10 minutes |
+| 10 GB | 15-20 minutes |
+| 50 GB | 1-1.5 hours |
+| 100 GB | 2.5-3 hours|
    
 ## Method 2: Upgrade with parallel dump and restore 
 
@@ -150,10 +146,10 @@ This method is useful if you have few larger tables in the database and want to 
     ```
 
 > [!TIP]
-> The process mentioned in this document can also be used to migrate to the Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@dbName`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
+> The process mentioned in this document can also be used to upgrade your Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@dbName`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
 
 ## Next Steps
 
-- Once you are satisfied with the target database function, you may want to drop your old database server. 
-- If you want to use the same database end point as the source, after you had deleted your old surce database server, you can create a read replica with the old server name. Once the steady state is established, you can stop the replica. That step also promotes the replica server to be an independent server. See [Replication](./concepts-read-replicas.md) for more details.
+- Once you are satisfied with the target database function, you can drop your old database server. 
+- If you want to use the same database endpoint as the source server, then after you had deleted your old source database server, you can create a read replica with the old database server name. Once the steady state is established, you can stop the replica, which will promote the replica server to be an independent server. See [Replication](./concepts-read-replicas.md) for more details.
 - Remember to test and validate these commands in a test environment before you use them in production.
