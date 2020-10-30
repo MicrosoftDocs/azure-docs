@@ -990,7 +990,7 @@
     - name: Run a regression experiment using Azure AutoML
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       displayname: machine learning
-    - name: Create an Apache Spark machine learning pipeline
+    - name: Create an Apache Spark machine learning app
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
 - name: Reference
