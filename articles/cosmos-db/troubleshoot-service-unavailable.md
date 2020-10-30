@@ -10,6 +10,8 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB service unavailable exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 The SDK wasn't able to connect to Azure Cosmos DB.
 
 ## Troubleshooting steps

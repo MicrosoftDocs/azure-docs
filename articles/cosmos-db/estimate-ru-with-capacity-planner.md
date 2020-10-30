@@ -10,6 +10,7 @@ ms.author: dech
 ---
 
 # Estimate RU/s using the Azure Cosmos DB capacity planner
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload. 
 

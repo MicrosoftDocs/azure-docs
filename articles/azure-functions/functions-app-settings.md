@@ -222,6 +222,14 @@ For Consumption & Premium plans only. Connection string for storage account wher
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+## WEBSITE\_CONTENTOVERVNET
+
+For Premium plans only. A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
+
 ## WEBSITE\_CONTENTSHARE
 
 For Consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).

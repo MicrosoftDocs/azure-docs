@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the exponential value of the specified numeric expression.  
   
 ## Syntax
