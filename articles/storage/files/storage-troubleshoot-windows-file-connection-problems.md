@@ -178,7 +178,7 @@ When you open a file from a mounted Azure file share over SMB, your application/
 - `None`: you have exclusive access. 
 - `Read`: others may read the file while you have it open.
 - `Write`: others may write to the file while you have it open. 
-- `ReadWrite`: a combination of both the Read and Write sharing modes.
+- `ReadWrite`: a combination of both the `Read` and `Write` sharing modes.
 - `Delete`: others may delete the file while you have it open. 
 
 Although as a stateless protocol, the FileREST protocol does not have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it is treated as equivalent to a file handle with a file sharing mode of `None`. 
