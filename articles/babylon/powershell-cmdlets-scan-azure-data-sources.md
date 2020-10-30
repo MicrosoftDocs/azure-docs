@@ -55,17 +55,17 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession] [[-UserAuthentication]]
 
 **Parameters:**
 
-1. *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
-1. *DataCatalogAccountName*: The data catalog name.
-1. *Environment*: The environment in which the Babylon account is created.
+- *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
+- *DataCatalogAccountName*: The data catalog name.
+- *Environment*: The environment in which the Babylon account is created.
 
     > The possible options are **Dogfood** or **Production**. If the Babylon account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
 
 After you run the cmdlet, you'll be asked to open the page 'https://microsoft.com/devicelogin' in a web browser and enter the code provided to authenticate.
 
-:::image type="content" source="media/scan-azure-data-sources-PowerShell/image1.png" alt-text="alt-text" border="true":::
+:::image type="content" source="media/scan-azure-data-sources-PowerShell/image1.png" alt-text="The message provides an authentication code." border="true":::
 
-Once the code is verified, you'll be asked to sign in using your Azure Active Directory (Azure AD) credentials.:::image type="content" source="media/scan-azure-data-sources-PowerShell/image2.png" alt-text="alt-text" border="true":::
+Once the code is verified, you'll be asked to sign in using your Azure Active Directory (Azure AD) credentials.:::image type="content" source="media/scan-azure-data-sources-PowerShell/image2.png" alt-text="Enter email, phone, or Skype to identify yourself for sign in to the application on a remote device or service. There are 'Back' and 'Next' buttons." border="true":::
 
 **Example:**
 
@@ -88,11 +88,11 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession]
 
 **Parameters:**
 
-1. *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
-1. *ServicePrincipalApplicationId*: The service principal ID that's authorized to access the data source account. Make sure this ID is a catalog administrator.
-1. *ServicePrincipalKey*: The service principal key for the principal ID.
-1. *DataCatalogAccountName*: The data catalog name.
-1. *Environment*: The environment in which the Babylon account is created.
+- *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
+- *ServicePrincipalApplicationId*: The service principal ID that's authorized to access the data source account. Make sure this ID is a catalog administrator.
+- *ServicePrincipalKey*: The service principal key for the principal ID.
+- *DataCatalogAccountName*: The data catalog name.
+- *Environment*: The environment in which the Babylon account is created.
 
     > The possible options are **Dogfood** or **Production**. If the Babylon account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
 
@@ -125,9 +125,9 @@ AzureFileService}
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
-1. *AccountName*: The data source account name.
-1. *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService}```.
+- *Name*: The name of the data source.
+- *AccountName*: The data source account name.
+- *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService}```.
 
 **Example:**
 
@@ -149,9 +149,9 @@ AzureFileService }
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
-1. *AccountUri*: The data source account URI (the complete URI).
-1. *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService }```.
+- *Name*: The name of the data source.
+- *AccountUri*: The data source account URI (the complete URI).
+- *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService }```.
 
 **Example**:
 
@@ -171,9 +171,9 @@ New-AzDataCatalogDataSource -Name <string> -ServerName <string>
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
-1. *ServerName*: The SQL server name.
-1. *AccountType*: The data source account type.
+- *Name*: The name of the data source.
+- *ServerName*: The SQL server name.
+- *AccountType*: The data source account type.
 
 Example: ```New-AzDataCatalogDataSource -Name sqlsource01 -ServerName sql01 -AccountType AzureSqlDatabase```
 
@@ -189,9 +189,9 @@ New-AzDataCatalogDataSource -Name <string> -ServerEndpoint <string>
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
-1. *ServerEndpoint*: The SQL server endpoint.
-1. *AccountType*: The data source account type.
+- *Name*: The name of the data source.
+- *ServerEndpoint*: The SQL server endpoint.
+- *AccountType*: The data source account type.
 
 **Example**:
 
@@ -210,9 +210,9 @@ New-AzDataCatalogDataSource -Name <string> -AccountType {PowerBI} -Tenant <strin
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
-1. *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureSqlDatabase | AzureSqlDataWarehouse | AzureSqlManagedInstance | PowerBI}```.
-1. *Tenant*: The tenant ID for the service principal ID that's authorized to access the data source account.
+- *Name*: The name of the data source.
+- *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureSqlDatabase | AzureSqlDataWarehouse | AzureSqlManagedInstance | PowerBI}```.
+- *Tenant*: The tenant ID for the service principal ID that's authorized to access the data source account.
 
 **Example**:
 
@@ -235,8 +235,8 @@ AzureSqlManagedInstance | PowerBI}
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
-1. *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureSqlDatabase | AzureSqlDataWarehouse | AzureSqlManagedInstance | PowerBI}```.
+- *Name*: The name of the data source.
+- *AccountType*: The data source account type ```{AzureStorageBlob | AdlsGen1 | AdlsGen2 | AzureCosmosDb | AzureDataExplorer | AzureFileService | AzureSqlDatabase | AzureSqlDataWarehouse | AzureSqlManagedInstance | PowerBI}```.
 
 **Example**:
 
@@ -256,7 +256,7 @@ Get-AzDataCatalogDataSource [-Name <string>]
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
+- *Name*: The name of the data source.
 
 **Example**:
 
@@ -276,7 +276,7 @@ Remove-AzDataCatalogDataSource <string> -Name <string>
 
 **Parameters**:
 
-1. *Name*: The name of the data source.
+- *Name*: The name of the data source.
 
 **Example**:
 
@@ -294,7 +294,7 @@ Remove-AzDataCatalogDataSource -InputObject <PSDataSource>
 
 **Parameters**:
 
-1. *InputObject*: The data source object.
+- *InputObject*: The data source object.
 
 **Example**:
 
@@ -325,10 +325,10 @@ AzureSqlDatabase | AzureSqlDatabaseManagedInstance | AzureSqlDataWarehouse | Pow
 
 **Parameters**:
 
-1. *Name*: The name of the scan rule set.
-1. *Description*: The description of the scan rule set.
-1. *IncludedCustomClassificationRuleNames*: The names of the custom classifications to be included.
-1. *AllowedFileExtensions*: The file types for schema extraction and classification.
+- *Name*: The name of the scan rule set.
+- *Description*: The description of the scan rule set.
+- *IncludedCustomClassificationRuleNames*: The names of the custom classifications to be included.
+- *AllowedFileExtensions*: The file types for schema extraction and classification.
 
 **Example:**
 
@@ -349,7 +349,7 @@ Get-AzDataCatalogScanRuleset [-Name <String>]
 
 **Parameters**:
 
-1. *Name*: The name of the scan rule set.
+- *Name*: The name of the scan rule set.
 
 **Example:**
 
@@ -373,9 +373,9 @@ New-AzDataCatalogScan
 
  **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -397,11 +397,11 @@ New-AzDataCatalogScan
 
 **Parameters**:
 
-1. *ServerEndpoint*: The SQL server endpoint.
-1. *DatabaseName*: The SQL database name.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *ServerEndpoint*: The SQL server endpoint.
+- *DatabaseName*: The SQL database name.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -422,10 +422,10 @@ New-AzDataCatalogScan [-AdlsGen2AccessKey|-AzureBlobAccessKey|-AzureCosmosDbAcce
 
  **Parameters**:
 
-1. *AccessKey*: The access key for the data source account.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *AccessKey*: The access key for the data source account.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -445,11 +445,11 @@ New-AzDataCatalogScan [-AzureFileServiceAccessKey] -FileShareName <string>
 
 **Parameters**:
 
-1. *FileShareName*: The name of the Azure file.
-1. *AccessKey*: The access key for the data source account.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *FileShareName*: The name of the Azure file.
+- *AccessKey*: The access key for the data source account.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -469,10 +469,10 @@ New-AzDataCatalogScan [-AzureBlobSas] -SasUri <string> -DataSourceName <string>
 
 **Parameters**:
 
-1. *SasUri*: The shared access signature (SAS) for the data source account.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *SasUri*: The shared access signature (SAS) for the data source account.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -497,11 +497,11 @@ New-AzDataCatalogScan
 
 **Parameters**:
 
-1. *ServicePrincipalId*: The service principal ID that's authorized to access the data source account.
-1. *ServicePrincipalKey*: The service principal key for the principal ID.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *ServicePrincipalId*: The service principal ID that's authorized to access the data source account.
+- *ServicePrincipalKey*: The service principal key for the principal ID.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -528,13 +528,13 @@ New-AzDataCatalogScan
 
 **Parameters**:
 
-1. *ServerEndpoint*: The SQL server endpoint.
-1. *DatabaseName*: The SQL database name.
-1. *ServicePrincipalId*: The service principal ID that's authorized to access the data source account.
-1. *ServicePrincipalKey*: The service principal key for the principal ID.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *ServerEndpoint*: The SQL server endpoint.
+- *DatabaseName*: The SQL database name.
+- *ServicePrincipalId*: The service principal ID that's authorized to access the data source account.
+- *ServicePrincipalKey*: The service principal key for the principal ID.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -560,13 +560,13 @@ New-AzDataCatalogScan
 
 **Parameters**:
 
-1. *ServerEndpoint*: The SQL server endpoint.
-1. *DatabaseName*: The SQL database name.
-1. *UserName*: The database user name credentials.
-1. *Password*: The database password.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *ServerEndpoint*: The SQL server endpoint.
+- *DatabaseName*: The SQL database name.
+- *UserName*: The database user name credentials.
+- *Password*: The database password.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -589,12 +589,12 @@ New-AzDataCatalogScan -PowerBIDelegated -ServicePrincipalId <string>
 
 **Parameters**:
 
-1. *ServicePrincipalId*: The service principal ID that's authorized to access the data source account.
-1. *UserName*: The database user name credentials.
-1. *Password*: The database password.
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *ScanRulesetName*: The name of the scan rule set.
+- *ServicePrincipalId*: The service principal ID that's authorized to access the data source account.
+- *UserName*: The database user name credentials.
+- *Password*: The database password.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *ScanRulesetName*: The name of the scan rule set.
 
 **Example:**
 
@@ -616,8 +616,8 @@ Get-AzDataCatalogScan -DataSourceName <string> [-Name <string>]
 
 Parameters:
 
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
 
 **Example**:
 
@@ -637,8 +637,8 @@ Remove-AzDataCatalogScan -DataSourceName <string> -Name <string>
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
 
 **Example**:
 
@@ -660,8 +660,8 @@ Start-AzDataCatalogScan -DataSourceName <string> -Name <string>
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
 
 Example:
 
@@ -681,9 +681,9 @@ Stop-AzDataCatalogScan -DataSourceName <string> -Name <string> -RunId <string>
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
-1. *RunId*: The scan result ID.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
+- *RunId*: The scan result ID.
 
 **Example**:
 
@@ -704,8 +704,8 @@ Get-AzDataCatalogScanHistory -DataSourceName <string> -Name <string>
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *Name*: The name of the scan.
+- *DataSourceName*: The name of the data source.
+- *Name*: The name of the scan.
 
 **Example**:
 
@@ -728,12 +728,12 @@ New-AzDataCatalogTrigger -DataSourceName <string> -ScanName <string> -Name <stri
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *ScanName*: The name of the scan.
-1. *Name*: The name of the trigger.
-1. *RecurrenceInterval*: The recurrence interval (in the range of 1.00:00:00 and 10675199.02:48*: 05.4775807).
-1. *TimeoutInterval*: The timeout interval.
-1. *ScanLevel*: The scan level, either **Full** or **Incremental**.
+- *DataSourceName*: The name of the data source.
+- *ScanName*: The name of the scan.
+- *Name*: The name of the trigger.
+- *RecurrenceInterval*: The recurrence interval (in the range of 1.00:00:00 and 10675199.02:48*: 05.4775807).
+- *TimeoutInterval*: The timeout interval.
+- *ScanLevel*: The scan level, either **Full** or **Incremental**.
 
 **Example**:
 
@@ -755,9 +755,9 @@ Get-AzDataCatalogTrigger -DataSourceName <string> -ScanName <string> [-Name <str
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *ScanName*: The name of the scan.
-1. *Name*: The name of the trigger.
+- *DataSourceName*: The name of the data source.
+- *ScanName*: The name of the scan.
+- *Name*: The name of the trigger.
 
 **Example**:
 
@@ -778,9 +778,9 @@ Remove-AzDataCatalogTrigger -DataSourceName <string> -ScanName <string> -Name <s
 
 **Parameters**:
 
-1. *DataSourceName*: The name of the data source.
-1. *ScanName*: The name of the scan.
-1. *Name*: The name of the trigger.
+- *DataSourceName*: The name of the data source.
+- *ScanName*: The name of the scan.
+- *Name*: The name of the trigger.
 
 **Example**:
 
@@ -806,14 +806,14 @@ New-AzDataCatalogClassificationRule -Name <string> -ClassificationName <string>
 
 **Parameters**:
 
-1. *Name*: The name of the classification rule. The maximum supported length is 100 characters.
-1. *Classification Name*: The name of the classification. The scanner applies it if a match is found.
-1. *ColumnNamePatterns*: The regular expression used to match against column names. The limit is large.
-1. *DataPatterns*: The regular expression used to match against the data that's stored in the data field. The limit is large.
-1. *RuleStatus*: The value that indicates whether the classification rule is enabled or disabled.
-1. *Description*: The description of the rule.
-1. *MinimumDistinctMatchCount*: The minimum number of distinct data values in a column needed for the scanner to run the data pattern on it. The range of allowed values is 2 to 32. The suggested value is 8. It can be manually adjusted. The value is intended to assure that the column contains enough data for the scanner to accurately classify it.
-1. *MinimumPercentageMatch*: The minimum percentage of value matches in a column for the classification. The suggested value is 60%. Take care with this setting—a value below 60% might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+- *Name*: The name of the classification rule. The maximum supported length is 100 characters.
+- *Classification Name*: The name of the classification. The scanner applies it if a match is found.
+- *ColumnNamePatterns*: The regular expression used to match against column names. The limit is large.
+- *DataPatterns*: The regular expression used to match against the data that's stored in the data field. The limit is large.
+- *RuleStatus*: The value that indicates whether the classification rule is enabled or disabled.
+- *Description*: The description of the rule.
+- *MinimumDistinctMatchCount*: The minimum number of distinct data values in a column needed for the scanner to run the data pattern on it. The range of allowed values is 2 to 32. The suggested value is 8. It can be manually adjusted. The value is intended to assure that the column contains enough data for the scanner to accurately classify it.
+- *MinimumPercentageMatch*: The minimum percentage of value matches in a column for the classification. The suggested value is 60%. Take care with this setting—a value below 60% might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
 **Example**:
 
@@ -840,14 +840,14 @@ New-AzDataCatalogClassificationRule -Name <string> -ClassificationName <string>
 
 **Parameters**:
 
-1. *Name*: The name of the classification rule. The maximum supported length is 100 characters.
-1. *Classification Name*: The name of the classification. The scanner applies it if a match is found.
-1. *ColumnNamePatterns*: The regular expression used to match against column names. The limit is large.
-1. *DataPatterns*: The regular expression used to match against the data that's stored in the data field. The limit is large.
-1. *RuleStatus*: The value that indicates whether the classification rule is enabled or disabled.
-1. *Description*: The description of the rule.
-1. *MinimumDistinctMatchCount*: The minimum number of distinct data values in a column needed for the scanner to run the data pattern on it. The range of allowed values is 2 to 32. The suggested value is 8. It can be manually adjusted. The value is intended to assure that the column contains enough data for the scanner to accurately classify it.
-1. *MinimumPercentageMatch*: The minimum percentage of value matches in a column for the classification. The suggested value is 60%. Take care with this setting—a value below 60% might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+- *Name*: The name of the classification rule. The maximum supported length is 100 characters.
+- *Classification Name*: The name of the classification. The scanner applies it if a match is found.
+- *ColumnNamePatterns*: The regular expression used to match against column names. The limit is large.
+- *DataPatterns*: The regular expression used to match against the data that's stored in the data field. The limit is large.
+- *RuleStatus*: The value that indicates whether the classification rule is enabled or disabled.
+- *Description*: The description of the rule.
+- *MinimumDistinctMatchCount*: The minimum number of distinct data values in a column needed for the scanner to run the data pattern on it. The range of allowed values is 2 to 32. The suggested value is 8. It can be manually adjusted. The value is intended to assure that the column contains enough data for the scanner to accurately classify it.
+- *MinimumPercentageMatch*: The minimum percentage of value matches in a column for the classification. The suggested value is 60%. Take care with this setting—a value below 60% might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
 **Example**:
 
@@ -871,7 +871,7 @@ Remove-AzDataCatalogClassificationRule -Name <string>
 
 **Parameters**:
 
-1. *Name*: The name of the classification rule.
+- *Name*: The name of the classification rule.
 
 **Example**:
 
