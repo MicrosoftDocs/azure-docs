@@ -7,7 +7,7 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 10/29/2020
 ---
 
 # Pricing model for Azure Logic Apps
