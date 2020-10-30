@@ -331,7 +331,7 @@ The preceding code would have to handle exceptions and status codes other than `
 
 - Use the client id and secret to validate that your program should have access
 - Use your tenant id to specify where `login.microsoftonline.com` should be looking
-- Use the Azure resource manager as the source of the authorization token
+- Use Azure Resource Manager as the source of the authorization token
 
 ## Web-service authentication
 
