@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
 description: In this tutorial, you create .NET Core console application and use the Azure.Messaging.ServiceBus package to send messages to and receive messages from a Service Bus queue.
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-csharp
 ---
 
@@ -18,12 +18,7 @@ In this tutorial, you create a .NET Core console application to send messages to
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
-
-  - Read the quick overview of Service Bus queues.
-  - Create a Service Bus namespace.
-  - Get the connection string.
-  - Create a Service Bus queue.
+- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the connection string for your Service Bus namespace and the name of the queue you created.
 
 ## Send messages
 To send messages to the queue, write a C# console application using Visual Studio.
@@ -37,7 +32,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
 
-### Write code to send messages to the queue
+### Send messages to a queue
 
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
@@ -112,7 +107,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
     The next section describes how to retrieve these messages from the queue.
 
-## Receive messages
+## Receive messages from a queue
 In this section, you'll add code to retrieve messages from the queue.
 
 1. Add a method named `ReceiveMessagesAsync` and add the following code.

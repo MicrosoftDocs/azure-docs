@@ -52,7 +52,7 @@ import reactor.core.Disposable;
 import java.util.concurrent.TimeUnit;
 ```
 
-## Send messages to the topic
+## Send messages to a topic
 To send messages to a Service Bus topic, your application instantiates a **ServiceBusSenderAsyncClient** object and sends messages asynchronously. The following code shows how to send a message to a topic that was created using the Azure portal.
 
 ```csharp
@@ -91,7 +91,7 @@ public class TopicAndSubscriptionClients {
 }
 ```
 
-## Receive messages from the subscription
+## Receive messages from a subscription
 Add the following code after the `senderClient.close()` method to receive messages from the subscription for the topic.
 
 ```csharp

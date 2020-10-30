@@ -33,7 +33,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
 
-## Write code to send messages to the topic
+## Send messages to a topic
 
 1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
@@ -111,7 +111,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
     The next section describes how to retrieve these messages from the subscription of the topic.
 
-## Write code to receive messages from the subscription
+## Receive messages from a subscription
 
 1. Add the following method `ReceiveMessagesFromSubscriptionAsync` to the `Program` class.
 
