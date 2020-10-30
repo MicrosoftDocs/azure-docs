@@ -15,7 +15,7 @@ Check Point CloudGuard Connect is a Trusted Security Partner in Azure Firewall M
 
 With a simple configuration in Azure Firewall Manager, you can route branch hub and virtual network connections to the Internet through the CloudGuard Connect security as a service (SECaaS). Traffic is protected in transit from your hub to the Check Point cloud service in IPsec VPN tunnels.
 
-When you enable auto-sync in the Check Point portal, any resource marked as *secured* in the Azure portal is automatically secured. This means that you do not have to manage your assets twice. You simply choose to secure them once in the Azure portal.
+When you enable auto-sync in the Check Point portal, any resource marked as *secured* in the Azure portal is automatically secured. You don't have to manage your assets twice. You simply choose to secure them once in the Azure portal.
 
 Check Point unifies multiple security services under one umbrella. Integrated security traffic is decrypted once and inspected in a single pass. Application Control, URL Filtering, and Content Awareness (DLP) enforce safe web use and protect your data. IPS and Antivirus protect users from known network exploits. Anti-Bot blocks connections to Command and Control servers and alerts you if a host is infected.
 
@@ -24,7 +24,6 @@ Threat Emulation (sandboxing) protects users from unknown and zero-day threats. 
 ## Deployment example
 
 Watch the following video to see how to deploy Check Point CloudGuard Connect as a trusted Azure security partner.
-
 
 > [!VIDEO https://youtu.be/C8AuN76DEmU]
 
