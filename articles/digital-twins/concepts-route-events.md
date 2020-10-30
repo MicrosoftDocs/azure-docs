@@ -74,7 +74,7 @@ The endpoint APIs that are available in control plane are:
  
 To create an event route, you can use the Azure Digital Twins [**data plane APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Here is an example of creating an event route within a client application, using the `CreateEventRoute` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) call: 
+Here is an example of creating an event route within a client application, using the `CreateEventRoute` [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet) call: 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

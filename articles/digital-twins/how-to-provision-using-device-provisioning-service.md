@@ -84,7 +84,7 @@ This function will be used by the Device Provisioning Service in a [Custom Alloc
 
 Inside your function app project, add a new function. Also, add a new NuGet package to the project: `Microsoft.Azure.Devices.Provisioning.Service`.
 
-In the newly created function code file, paste in the following code.
+In the newly created function code file, paste in the following code. It makes use of the latest [C# (.NET) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet).
 
 ```C#
 using System;

@@ -124,7 +124,7 @@ To support the parser code example below, consider several models defined in an 
 ]
 ```
 
-The following code shows an example of how to use the parser library to reflect on these definitions in C#:
+The following code shows an example of how to use the parser library to reflect on these definitions in C#, using the latest [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet).
 
 ```csharp
 async void ParseDemo(DigitalTwinsClient client)

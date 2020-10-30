@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage digital twins
 
-Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [**DigitalTwins APIs**](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md).
+Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [**DigitalTwins APIs**](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md).
 
@@ -26,7 +26,7 @@ This article focuses on managing digital twins; to work with relationships and t
 
 ## Create a digital twin
 
-To create a twin, you use the `CreateDigitalTwin()` method on the service client like this:
+To create a twin with the latest [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet), you use the `CreateDigitalTwin()` method on the service client like this:
 
 ```csharp
 await client.CreateDigitalTwinAsync("myTwinId", initData);
