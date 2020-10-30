@@ -106,11 +106,11 @@ The document can be created via multiple tools. We recommend Microsoft Visio, as
 A helpful starting point for building reference architecture diagrams is to leverage the [Azure Architecture models](https://docs.microsoft.com/azure/architecture/browse/).
 
 ### Typical components of a reference architecture diagram
-1. Cloud services that host and interact with your offer, including those generating Azure consumption
-1. Data connections, data layers, data services being consumed by your offer
-1. Cloud services used to control security, authentication, users of the offer
-1. User interfaces and other services that expose the offer to end users
-1. Hybrid and/or on-premises connectivity and integrations 
+- Cloud services that host and interact with your offer, including those generating Azure consumption
+- Data connections, data layers, data services being consumed by your offer
+- Cloud services used to control security, authentication, users of the offer
+- User interfaces and other services that expose the offer to end users
+- Hybrid and/or on-premises connectivity and integrations 
 
 ### Example reference architecture diagram
 
