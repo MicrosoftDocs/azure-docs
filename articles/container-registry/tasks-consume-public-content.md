@@ -39,9 +39,9 @@ This walkthrough sets up:
    * Team registry (`contoso`) to share private images
    * Company/team shared registry (`baseartifacts`) for imported public content
 1. An **ACR task** in each registry. The tasks:  
-   * Build a simulated public `node` image
-   * Import and validate the `node` image to the company/team shared registry
-   * Build and deploy the `hello-world` image
+   1. Build a simulated public `node` image
+   1. Import and validate the `node` image to the company/team shared registry
+   1. Build and deploy the `hello-world` image
 1. **ACR task definitions**, including configurations for:
 1. A collection of **registry credentials**, which are pointers to a key vault
 1. A collection of **secrets**, available within an `acr-task.yaml`, which are pointers to a key vault
