@@ -22,7 +22,7 @@ High CPU utilization is the most common case. For optimal latency, CPU usage sho
 The client application that uses the SDK should be scaled up or out.
 
 ### Connection throttling
-Connection throttling can happen because of either a Connection limit on a host machine or Azure SNAT (PAT) port exhaustion.
+Connection throttling can happen because of either a connection limit on a host machine or Azure SNAT (PAT) port exhaustion.
 
 ### Connection limit on a host machine
 Some Linux systems, such as Red Hat, have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections, too. Run the following command.
