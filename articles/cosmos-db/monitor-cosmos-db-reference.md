@@ -11,6 +11,7 @@ ms.custom: subject-monitoring
 ---
 
 # Azure Cosmos DB monitoring data reference
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See the [Monitor Azure Cosmos DB](monitor-cosmos-db.md) article for how to collect and analyze monitoring data for Azure Cosmos DB.
 

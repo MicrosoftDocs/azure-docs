@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Transactions and optimistic concurrency control
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Database transactions provide a safe and predictable programming model to deal with concurrent changes to the data. Traditional relational databases, like SQL Server, allow you to write the business logic using stored-procedures and/or triggers, send it to the server for execution directly within the database engine. With traditional relational databases, you are required to deal with two different programming languages the (non-transactional) application programming language such as JavaScript, Python, C#, Java, etc. and the transactional programming language (such as T-SQL) that is natively executed by the database.
 
