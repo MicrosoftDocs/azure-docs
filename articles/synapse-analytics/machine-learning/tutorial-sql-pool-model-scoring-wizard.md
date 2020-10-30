@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Machine learning model scoring wizard for dedicated SQL pools'
-description: Tutorial for how to use the machine learning model scoring wizard to enrich data in dedicated Synapse SQL pools.
+description: Tutorial for how to use the machine learning model scoring wizard to enrich data in dedicated SQL pools.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Machine learning model scoring wizard for dedicated Synapse SQL pools
+# Tutorial: Machine learning model scoring wizard for dedicated SQL pools
 
 Learn how to easily enrich your data in dedicated SQL pools with predictive machine learning models.  The models that your data scientists create are now easily accessible to data professionals for predictive analytics. A data professional in Synapse can simply select a model from the Azure Machine Learning model registry for deployment in Synapse SQL pools and launch predictions to enrich the data.
 
@@ -20,14 +20,14 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > - Train a predictive machine learning model and register the model in Azure Machine Learning model registry
-> - Use the SQL scoring wizard to launch predictions in dedicated Synapse SQL pool
+> - Use the SQL scoring wizard to launch predictions in dedicated SQL pool
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
 - [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Dedicated Synapse SQL pool in your Synapse Analytics workspace. For details, see [Create a dedicated Synapse SQL pool](../quickstart-create-sql-pool-studio.md).
+- Dedicated SQL pool in your Synapse Analytics workspace. For details, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md).
 - Azure Machine Learning linked service in your Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## Sign in to the Azure portal

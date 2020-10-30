@@ -1,6 +1,6 @@
 ---
 title: Table data types in dedicated SQL pool
-description: Recommendations for defining table data types in dedicated Synapse SQL pool. 
+description: Recommendations for defining table data types in dedicated SQL pool. 
 services: synapse-analytics
 author: filippopovic
 manager: craigg

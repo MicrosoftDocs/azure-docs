@@ -31,7 +31,7 @@ Azure Synapse has four components:
 
 ## Dedicated SQL pool in Azure Synapse
 
-Dedicated Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
+Dedicated SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
 Dedicated SQL pool represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
 

@@ -1,6 +1,6 @@
 ---
 title: Partitioning tables
-description: Recommendations and examples for using table partitions in dedicated Synapse SQL pool 
+description: Recommendations and examples for using table partitions in dedicated SQL pool 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Partitioning tables in dedicated Synapse SQL pool
+# Partitioning tables in dedicated SQL pool
 
-Recommendations and examples for using table partitions in dedicated Synapse SQL pool.
+Recommendations and examples for using table partitions in dedicated SQL pool.
 
 ## What are table partitions?
 

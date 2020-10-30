@@ -80,11 +80,11 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## SQLDWOutputInitializationError
 
-* **Cause**: An error occurred when initializing a dedicated Synapse SQL pool output.
+* **Cause**: An error occurred when initializing a dedicated SQL pool output.
 
 ## SQLDWOutputWriteError
 
-* **Cause**: An error occurred when writing output to a dedicated Synapse SQL pool.
+* **Cause**: An error occurred when writing output to a dedicated SQL pool.
 
 ## Next steps
 

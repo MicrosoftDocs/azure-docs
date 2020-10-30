@@ -2245,13 +2245,13 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|No|Adaptive cache hit percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
 |AdaptiveCacheUsedPercent|No|Adaptive cache used percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
-|Connections|Yes|Connections|Count|Total|Count of Total logins to the dedicated Synapse SQL pool|Result|
-|ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your dedicated Synapse SQL pool and monitor these connections if the count is high|No Dimensions|
-|DWULimit|No|DWU limit|Count|Maximum|Service level objective of the dedicated Synapse SQL pool|No Dimensions|
-|DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the dedicated Synapse SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
-|DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the dedicated Synapse SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
+|Connections|Yes|Connections|Count|Total|Count of Total logins to the dedicated SQL pool|Result|
+|ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your dedicated SQL pool and monitor these connections if the count is high|No Dimensions|
+|DWULimit|No|DWU limit|Count|Maximum|Service level objective of the dedicated SQL pool|No Dimensions|
+|DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the dedicated SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
+|DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the dedicated SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
 |LocalTempDBUsedPercent|No|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minute|No Dimensions|
-|MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the dedicated Synapse SQL pool|No Dimensions|
+|MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the dedicated SQL pool|No Dimensions|
 |wlg_effective_min_resource_percent|Yes|Effective min resource percent|Percent|Minimum|The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|No|Workload group active queries|Count|Total|The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|No|Workload group query timeouts|Count|Total|Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits)|IsUserDefined, WorkloadGroup|
