@@ -1,6 +1,6 @@
 ---
 title: Task workflow to manage public registry content
-description: In this ...
+description: Create an automated Azure Container Registry Tasks workflow to track, manage, and consume public image content in a private Azure container registry.
 author: SteveLasker
 ms.topic: article
 ms.author: stevelas
@@ -12,11 +12,11 @@ ms.custom:
 
 This article provides a sample workflow in Azure Container Registry to help you manage consuming and maintaining public content:
 
-* Import local copies of dependent public images.
-* Validate public images through security scanning and functional testing.
-* Promote the images to private registries for internal usage.
-* Trigger base image updates for applications dependent upon public content.
-* Use [Azure Container Registry Tasks](container-registry-tasks-overview.md) to automate this workflow.
+1. Import local copies of dependent public images.
+1. Validate public images through security scanning and functional testing.
+1. Promote the images to private registries for internal usage.
+1. Trigger base image updates for applications dependent upon public content.
+1. Use [Azure Container Registry Tasks](container-registry-tasks-overview.md) to automate this workflow.
 
 The workflow is summarized in the following image:
 
@@ -60,7 +60,7 @@ Configure variables unique to your environment. We follow best practices for pla
 The examples in this article are formatted for the bash shell.
 
 ```bash
-# Set the three registry names, must be unique:
+# Set the three registry names, must be globally unique:
 REGISTRY_PUBLIC=publicregistry
 REGISTRY_BASE_ARTIFACTS=contosobaseartifacts
 REGISTRY=contoso
@@ -79,7 +79,7 @@ REGISTRY_PUBLIC_URL=${REGISTRY_PUBLIC}.azurecr.io
 REGISTRY_BASE_ARTIFACTS_URL=${REGISTRY_BASE_ARTIFACTS}.azurecr.io
 REGISTRY_URL=${REGISTRY}.azurecr.io
 
-# Azure key vault for storing secrets, name must be unique
+# Azure key vault for storing secrets, name must be globally unique
 AKV=acr-task-credentials
 AKV_RG=${AKV}-rg
 
@@ -100,7 +100,7 @@ Then, update the following variables for your forked repositories.
 
 The `:main` appended to the end of the git URLs represents the default repository branch.
 
-```azurecli-interactive
+```bash
 GIT_BASE_IMAGE_NODE=https://github.com/<your-fork>/base-image-node.git#main
 GIT_NODE_IMPORT=https://github.com/<your-fork>/import-baseimage-node.git#main
 GIT_HELLO_WORLD=https://github.com/<your-fork>/hello-world.git#main
@@ -115,7 +115,7 @@ GIT_TOKEN=<set-git-token-here>
 ### Docker Hub credentials  
 To avoid throttling and identity requests when pulling images from Docker Hub, create a [Docker Hub token][docker-hub-tokens]. Then, set the following environment variables:
 
-```azurecli-interactive
+```bash
 REGISTRY_DOCKERHUB_USER=<yourusername>
 REGISTRY_DOCKERHUB_PASSWORD=<yourtoken>
 ```
@@ -353,7 +353,7 @@ az container show \
 
 In your browser, go to the IP address to see the running application.
 
-## Update the base image with a "bad" change
+## Update the base image with a "questionable" change
 
 This section simulates a change to the base image that could cause problems in the environment.
 
@@ -454,7 +454,7 @@ exit ${EXIT_CODE}
 
 Review the `acr-task.yaml` in the `import-baseimage-node` repo, which performs the following steps:
 
-* Build the test base image using the following Dockerfile:
+1. Build the test base image using the following Dockerfile:
     ```dockerfile
     ARG REGISTRY_FROM_URL=
     FROM ${REGISTRY_FROM_URL}node:15-alpine
@@ -462,8 +462,8 @@ Review the `acr-task.yaml` in the `import-baseimage-node` repo, which performs t
     COPY ./test.sh .
     CMD ./test.sh
     ```
-* When completed, validate the image by running the container, which runs `./test.sh`
-* Only if successfully completed, run the import steps, which are gated with `when: ['validate-base-image']`
+1. When completed, validate the image by running the container, which runs `./test.sh`
+1. Only if successfully completed, run the import steps, which are gated with `when: ['validate-base-image']`
 
 ```yaml
 version: v1.1.0
