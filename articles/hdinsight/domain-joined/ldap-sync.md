@@ -59,11 +59,15 @@ The LDAP filter can be found in the Ambari UI, under the Ranger user-sync config
 
 Ranger user sync can happen out of either of the headnodes. The logs are in `/var/log/ranger/usersync/usersync.log`. To increase the verbosity of the logs, do the following steps:
 
-1. Log in to Ambari.
-1. Go to the Ranger configuration section.
-1. Go to the Advanced **usersync-log4j** section.
-1. Change the `log4j.rootLogger` to `DEBUG` level (After change it should look like `log4j.rootLogger = DEBUG,logFile,FilterLog`).
-1. Save the configuration and restart ranger.
+* Log in to Ambari.
+* Go to the Ranger configuration section.
+* Go to the Advanced **usersync-log4j** section.
+* Change the `log4j.rootLogger` to `DEBUG` level (After change it should look like `log4j.rootLogger = DEBUG,logFile,FilterLog`).
+* Save the configuration and restart ranger.
+
+## Known issues with Ranger user sync
+* If the group name has unicode characters, Ranger sync fails to sync that object. If a user belongs to a group that has international characters, Ranger syncs partial group membership
+* User name (sAMAccountName) and group name (name) have to be 20 characters long or less. If the group name is longer, then the user will be treated as if they do not belong to the group, when calculating the permissions.
 
 ## Next steps
 
