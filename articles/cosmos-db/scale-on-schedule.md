@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Scale Azure Cosmos DB throughput by using Azure Functions Timer trigger
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The performance of an Azure Cosmos account is based on the amount of provisioned throughput expressed in Request Units per second (RU/s). The provisioning is at a second granularity and is billed based upon the highest RU/s per hour. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency, and high availability. Most production workloads these features. However, in development and testing environments where Azure Cosmos DB is only used during working hours, you can scale up the throughput in the morning and scale back down in the evening after working hours.
 

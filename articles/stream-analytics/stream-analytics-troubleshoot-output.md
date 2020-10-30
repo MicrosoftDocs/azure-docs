@@ -6,7 +6,7 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
 ---
 
@@ -76,7 +76,29 @@ Note the following observations when configuring IGNORE_DUP_KEY for several type
 
 * You can't set IGNORE_DUP_KEY on a primary key or a unique constraint that uses ALTER INDEX. You need to drop the index and recreate it.  
 * You can set IGNORE_DUP_KEY by using ALTER INDEX for a unique index. This instance is different from a PRIMARY KEY/UNIQUE constraint and is created by using a CREATE INDEX or INDEX definition.  
-* The IGNORE_DUP_KEY option doesn't apply to column store indexes because you can't enforce uniqueness on them.  
+* The IGNORE_DUP_KEY option doesn't apply to column store indexes because you can't enforce uniqueness on them.
+
+## SQL output retry logic
+
+When a Stream Analytics job with SQL output receives the first batch of events, the following steps occur:
+
+1. The job attempts to connect to SQL.
+2. The job fetches the schema of the destination table.
+3. The job validates column names and types against the destination table schema.
+4. The job prepares an in-memory data table from the output records in the batch.
+5. The job writes the data table to SQL using BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1).
+
+During these steps, the SQL output can experience following types of errors:
+
+* Transient [errors](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) that are retried using an exponential backoff retry strategy. The minimum retry interval depends on the individual error code, but the intervals are typically less than 60 seconds. The upper limit can be at most five minutes. 
+
+   [Login failures](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) and [firewall issues](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) are retried at least 5 minutes after the previous try and are retried until they succeed.
+
+* Data errors, such as casting errors and schema constraint violations, are handled with output error policy. These errors are handled by retrying binary split batches until the individual record causing the error is handled by skip or retry. Primary Unique key constraint violation is [always handled](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
+
+* Non-transient errors can happen when there are SQL service issues or internal code defects. For example, when errors like (Code 1132) Elastic Pool hitting its storage limit, retries do not resolve the error. In these scenarios, the Stream Analytics job experiences [degradation](job-states.md).
+* `BulkCopy` timeouts can happen during `BulkCopy` in Step 5. `BulkCopy` can experience operation timeouts occasionally. The default minimum configured  timeout is five minutes and it's doubled when hit consecutively.
+Once the timeout is above 15 minutes, the max batch size hint to `BulkCopy` is reduced to half until 100 events per batch are left.
 
 ## Column names are lowercase in Azure Stream Analytics (1.0)
 
