@@ -108,9 +108,16 @@ Instead of using live data, you can use sample data from a local file to test yo
 5.	Machine learning is not supported.
 
 
-## Troubleshoot
+## Troubleshooting
 
-* If you are unable to see the test query results, you might be behind a firewall. Open [this link](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, please update your proxy settings.
+1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
+
+  * To check the connection to the service, open [this link](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, please update your firewall settings.
+  
+2. If you get this error “"The request size is too big. Please reduce the input data size and try again.”, follow the steps below:
+
+  * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
+  * Reduce query size – Test a selection of query by selecting a piece of query and click “Test selected query”.
 
 
 ## Next steps
