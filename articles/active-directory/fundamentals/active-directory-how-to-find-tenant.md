@@ -39,7 +39,7 @@ You can also find the tenant programmatically. To find the tenant ID with Azure 
 ```azurepowershell-interactive
 Connect-AzAccount
 Get-AzTenant
-   ```
+```
    
 For more information, see this Azure PowerShell cmdlet reference for [Get-AzTenant](/powershell/module/az.accounts/get-aztenant).
 
@@ -53,16 +53,16 @@ For Azure CLI, use one of the commands **az login**, **az account list**, or **a
 az login
 az account list
 az account tenant list
-   ```
+```
 
 For more information, see [az login](/cli/azure/reference-index#az_login) command reference, [az account](/cli/azure/ext/account/account) command reference, or [az account tenant](/cli/azure/ext/account/account/tenant) command reference.
 
 
-For Microsoft 365 CLI, use the cmdlet `tenant id` as shown in the following example:
+For Microsoft 365 CLI, use the cmdlet **tenant id** as shown in the following example:
  
 ```cli
 m365 tenant id get
-   ```
+```
 
 For more information, see the M365 [tenant id get](https://pnp.github.io/cli-microsoft365/cmd/tenant/id/id-get/) command reference.
 
