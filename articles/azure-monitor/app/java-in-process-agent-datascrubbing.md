@@ -8,12 +8,12 @@ ms.date: 10/29/2020
 
 # Data Scrubbing with Java In Process Agent - private preview
 
-Java In Process Agent has now the capabilities to pre-process telemetry data before it is exported.
+Java In Process Agent has now the capabilities to pre-process telemetry data before the data is exported.
 
 ### Some Use Cases:
  * Mask sensitive data.
  * Filter data to control cost.
- * Static attributes for all telemetry, e.g. applying "k8spod=abc" to all telemetry.
+ * Static attributes for all telemetry, e.g. applying "k8spod=abc" to all telemetry data.
 
 ### Supported Processors:
  * Attribute Processor
@@ -52,7 +52,7 @@ Create a configuration file named ApplicationInsights.json, and place it in the 
 
 ### Include/Exclude Spans
 
-The attribute processor and the span processor expose the option to provide a set of properties of a span to match against to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least `matchType` and one of `spanNames` or `attributes` is required. It is supported to have more than one specified, but all of the specified conditions must evaluate to true for a match to occur. 
+The attribute processor and the span processor expose the option to provide a set of properties of a span to match against to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified, but all of the specified conditions must evaluate to true for a match to occur. 
 
 `matchType` controls how items in `spanNames` and `attributes` arrays are interpreted. Possible values are `regexp` or `strict`. This is a required field.
 `spanNames` must match at least one of the items. This is an optional field.
@@ -73,8 +73,9 @@ Note this span is processed because the value type of redact_trace is a string i
 Span1 Name: 'svcB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
 
 Span2 Name: 'svcA' Attributes: {env: staging, test_request: false, redact_trace: true}
-The following span does not match the include properties and the
-processor actions are not applied.
+
+The following spans do not match the include properties and the
+processor actions are not applied:
 
 Span3 Name: 'svcB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
 
