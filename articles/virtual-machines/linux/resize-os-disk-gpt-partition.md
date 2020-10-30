@@ -458,8 +458,12 @@ correct this problem? (Y/N):". You have to press 'Y'
    ```
    partprobe
    ```
+1. Reboot the VM and the root partition size would have been increased
+   ```
+   reboot
+   ```
 
-   ![Delete Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+   ![New Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
   
 ## Next steps
 
