@@ -77,7 +77,7 @@ For example, suppose that you reduce the retention limit from 90 days to 30 days
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
-If you generate an Azure Resource Manager template for your logic app, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/templates/microsoft.logic/workflows):
+If you generate an Azure Resource Manager template for your logic app, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
 
 ```json
 {
