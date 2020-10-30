@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: devx-track-js
 ---
 # Geospatial and GeoJSON location data in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article is an introduction to the geospatial functionality in Azure Cosmos DB. Currently storing and accessing geospatial data is supported by Azure Cosmos DB SQL API accounts only. After reading our documentation on geospatial indexing you will be able to answer the following questions:
 

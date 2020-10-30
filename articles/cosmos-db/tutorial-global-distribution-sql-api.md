@@ -11,6 +11,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In this article, we show how to use the Azure portal to set up Azure Cosmos DB global distribution and then connect using the SQL API.
 
