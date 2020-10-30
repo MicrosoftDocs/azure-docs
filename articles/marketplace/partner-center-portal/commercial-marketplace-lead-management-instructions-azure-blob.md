@@ -46,7 +46,7 @@ ms.date: 05/01/2020
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Screenshot that shows the "Access keys" page with the "Connection string" text box highlighted.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. From your storage account page, select **Blobs**.
 
