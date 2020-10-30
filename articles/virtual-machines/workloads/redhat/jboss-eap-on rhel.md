@@ -12,17 +12,17 @@ ms.date: 10/30/2020
 
 # Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux
 
-These Quickstart templates will show you how to deploy [JBoss EAP](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) on [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) to Azure Virtual Machines (VM) and Virtual Machine Scale Sets. You'll have a sample Java app in the deployment to validate the deployment. JBoss EAP is an open-source application server platform. It delivers enterprise-grade security, scalability, and performance for your Java applications. RHEL is an open-source operating system (OS) platform that allows scaling of existing apps and rolling out emerging technologies across all environments. JBoss EAP and RHEL include everything needed to build, run, deploy, and manage enterprise Java applications in any environment. It's a great open-source solution for on-premises, virtual environments, and in private, public, or hybrid clouds.
+These Quickstart templates will show you how to deploy [JBoss EAP](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) with [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) onto Azure Virtual Machines (VM) and Virtual Machine Scale Sets. You'll have a sample Java app in the deployment to validate the deployment. JBoss EAP is an open-source application server platform. It delivers enterprise-grade security, scalability, and performance for your Java applications. RHEL is an open-source operating system (OS) platform. It allows scaling of existing apps and rolling out of emerging technologies across all environments. JBoss EAP and RHEL include everything needed to build, run, deploy, and manage enterprise Java applications in any environment. It's a great open-source solution for on-premises, virtual environments, and in private, public, or hybrid clouds.
 
-## Prerequisites
+## Prerequisite 
 
 * An Azure account with an active subscription. To get an Azure subscription, activate your [Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or [create an account for free](https://azure.microsoft.com/pricing/free-trial).
 
-* JBoss EAP installation - You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This will allow you to download the Red Hat tested and JBoss EAP certified version.  If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. To create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
-
+* JBoss EAP installation - You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement will let you to download the Red Hat tested and certified JBoss EAP version.  If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. To create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
+F
 * [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/overview).
 
-* RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before you deploy the Quickstart template.
+* RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before deploying the Quickstart template.
 
 ## Java EE / Jakarata EE Application Migration
 
@@ -31,7 +31,7 @@ JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Editi
 
  #### Applications on JBoss EAP
 
-* Web Services Applications - Web services provide a standard means of interoperating among different software applications. Each application can run on different platforms and frameworks. These web services facilitate internal, heterogeneous subsystem communication. To learn more, visit [Developing Web Services Applications on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_web_services_applications/index) or [Developing Web Services Applications on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_web_services_applications/index).
+* Web Services Applications - Web services provide a standard means of interoperating among different software applications. Each application can run on different platforms and frameworks. These web services facilitate internal and heterogeneous subsystem communication. To learn more, visit [Developing Web Services Applications on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_web_services_applications/index) or [Developing Web Services Applications on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_web_services_applications/index).
 
 * Enterprise Java Beans (EJB) Applications - EJB 3.2 is an API for developing distributed, transactional, secure, and portable Java EE and Jakarta EE applications. EJB uses server-side components called Enterprise Beans to implement the business logic of an application in a decoupled manner that encourages reuse. To learn more, visit [Developing EJB Applications on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_ejb_applications/index) or [Developing EJB Applications on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_ejb_applications/index).
 
@@ -48,7 +48,7 @@ JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Editi
 ### Migrate JBoss EAP from on-premises to Azure
 The Azure Marketplace offer of JBoss EAP on RHEL will install and provision on Azure VMs in less than 20 minutes. You can access these offers from [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 
-These Marketplace offer includes various combinations of EAP and RHEL versions to support your requirements. JBoss EAP is always Bring-Your-Own-Subscription (BYOS) but for RHEL OS you can choose between BYOS or Pay-As-You-Go (PAYG). The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone or clustered VMs:
+This Marketplace offer includes various combinations of EAP and RHEL versions to support your requirements. JBoss EAP is always Bring-Your-Own-Subscription (BYOS) but for RHEL OS you can choose between BYOS or Pay-As-You-Go (PAYG). The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone or clustered VMs:
 
 * JBoss EAP 7.2 on RHEL 7.7 VM (PAYG)
 * JBoss EAP 7.2 on RHEL 8.0 VM (PAYG)
@@ -72,32 +72,32 @@ Solution architecture for these templates includes:
 * JBoss EAP clustered using Azure Virtual Machine Scale Set
 
 #### Linux Workload Migration for JBoss EAP
-Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation and migration process for Java apps running JBoss EAP on premises to Azure. It integrates with Azure migrate discovery to identify JBoss EAP servers. Then it will dynamically generate Ansible playbook for JBoss EAP server deployment. It leverages the RH MTA tool to migrate servers from other app servers to JBoss EAP. Steps for simplifying migration includes:
-* JBoss EAP clustered using VMSS (Azure Virtual Machine Scale Set)	* Assessment - scans applications and infrastructure
-* Infrastructure configuration - creates workload profile
-* Deployment and testing - deploy, migrate and test workload
-* Post-deployment configuration - integrates with data, monitoring, security, backup, and more
+Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation, and migration process for on-premises Java apps to Azure. The Workload Builder integrates with Azure Migrate Discovery tool to identify JBoss EAP servers. Then it will dynamically generate Ansible playbook for JBoss EAP server deployment. It leverage the Red Hat MTA tool to migrate servers from other app servers to JBoss EAP. Steps for simplifying migration include:
+* Evaluation - JBoss EAP clusters using Azure VM or Virtual Machine Scale Set
+* Assessment - Scans applications and infrastructure
+* Infrastructure configuration - Creates workload profile
+* Deployment and testing - Deploy, migrate, and test workload
+* Post-deployment configuration - Integrates with data, monitoring, security, backup, and more
 
 ## Server configuration choice
 
-For deployment of RHEL VM, you can either choose between PAYG or BYOS. For VM image from the [Azure Marketplace](https://azuremarketplace.microsoft.com) this offer defaults to a PAYG image. Deploy a BYOS type RHEL VM if you have your own RHEL OS image. Make sure your RHSM account has BYOS entitlement via Red Hat Cloud Access before you deploy the VMs or Virtual Machine Scale Set.
+For deployment of RHEL VM, you can either choose between PAYG or BYOS. Images from the [Azure Marketplace](https://azuremarketplace.microsoft.com) defaults to PAYG. Deploy a BYOS type RHEL VM if you have your own RHEL OS image. Make sure your RHSM account has BYOS entitlement via F Cloud Access before you deploy the VMs or Virtual Machine Scale Set.
 
-JBoss EAP has powerful management capabilities in addition to providing functionality and APIs to its applications. These management capabilities differ depending on which operating mode is used to start JBoss EAP. JBoss EAP is supported on RHEL and Windows Server. JBoss EAP offers a stand-alone server operating mode for managing discrete instances. It also offers a managed domain operating mode for managing groups of instances from a single control point. Note: JBoss EAP-managed domains are not supported in Microsoft Azure since the High Availability (HA) feature is managed by Azure infrastructure services. The environment variable named *EAP_HOME* is used to denote the path to the JBoss EAP installation.
+JBoss EAP has powerful management capabilities as well as providing functionality and APIs to its applications. These management capabilities differ depending on which operating mode is used to start JBoss EAP. It is supported on RHEL and Windows Server. JBoss EAP offers a stand-alone server operating mode for managing discrete instances. It also offers a managed domain operating mode for managing groups of instances from a single control point. Note: JBoss EAP-managed domains aren't supported in Microsoft Azure since the High Availability (HA) feature is managed by Azure infrastructure services. The environment variable named *EAP_HOME* is used to denote the path to the JBoss EAP installation.
 
 - **Start JBoss EAP as a Stand-alone Server** - the following command is how you start EAP service in stand-alone mode.
 
     `$EAP_HOME/bin/standalone.sh`
     
-    This startup script uses the EAP_HOME/bin/standalone.conf file to set some default preferences, such as JVM options. Settings can be customized in this file. JBoss EAP uses the standalone.xml configuration file to start on stand-alone mode by default, but can be started using a different mode. For details on the available stand-alone configuration files and how to use them, see the [Stand-alone Server Configuration Files for EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) or [Stand-alone Server Configuration Files for EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) section. To start JBoss EAP with a different configuration, use the --server-config argument. For example:
+This startup script uses the EAP_HOME/bin/standalone.conf file to set some default preferences, such as JVM options. Settings can be customized in this file. JBoss EAP uses the standalone.xml configuration file to start on stand-alone mode by default, but can be started using a different mode. For details on the available stand-alone configuration files and how to use them, see the [Stand-alone Server Configuration Files for EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) or [Stand-alone Server Configuration Files for EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) section. To start JBoss EAP with a different configuration, use the --server-config argument. For example:
     
     `$EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml`
     
     For a complete listing of all available startup script arguments and their purposes, use the --help argument or see the [Server Runtime Arguments on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) or [Server Runtime Arguments on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) section.
     
-JBoss EAP can also work in cluster mode, check out [Clusters Overview on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) or [ Clusters Overview on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview) to learn more. JBoss EAP cluster messaging allows grouping of JBoss EAP messaging servers to share message processing load. Each active node in the cluster is an active JBoss EAP messaging server, which manages its own messages and handles its own connections.
+JBoss EAP can also work in cluster mode. Check out [Clusters Overview on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) or [ Clusters Overview on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview) to learn more. JBoss EAP cluster messaging allows grouping of JBoss EAP messaging servers to share message processing load. Each active node in the cluster is an active JBoss EAP messaging server, which manages its own messages and handles its own connections.
 
 ## Support and subscription notes
-
 These Quickstart templates are offered as: 
 
 - RHEL OS is offered as PAYG or BYOS via Red Hat Gold Image model
@@ -105,14 +105,14 @@ These Quickstart templates are offered as:
 
 #### Using RHEL OS with PAYG Model
 
-These Quickstart templates use the On-Demand Red Hat Enterprise Linux 7.7 or 8.0 PAYG image, by default, from the Azure Gallery. On-Demand images will have additional hourly RHEL subscription charge for using this image on top of the normal compute, network, and storage costs. At the same time, the instance will be registered to your Red Hat subscription, so you will also be using one of your entitlements. This On-Demand image will lead to "double billing". You can avoid this issue by building your own RHEL image. To learn more, read this Red Hat Knowledge Base (KB) article [How to provision a Red Hat Enterprise Linux virtual machine for Microsoft Azure](https://access.redhat.com/articles/uploading-rhel-image-to-azure) or activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image.
+By default, these Quickstart templates use the On-Demand RHEL 7.7 or 8.0 PAYG image from the Azure Gallery. PAYG images will have additional hourly RHEL subscription charge on top of the normal compute, network, and storage costs. At the same time, the instance will be registered to your Red Hat subscription. This means you'll be using one of your entitlements. This PAYG image will lead to "double billing". You can avoid this issue by building your own RHEL image. To learn more, read this Red Hat Knowledge Base (KB) article on [How to provision a RHEL VM for Microsoft Azure](https://access.redhat.com/articles/uploading-rhel-image-to-azure). Or activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image.
 
 Check out [Red Hat Enterprise Linux pricing](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/) for details on the PAYG VM pricing. To use RHEL in PAYG model, you'll need an Azure Subscription with the specified payment method for [RHEL 7.7 Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM) or [RHEL 8.0 Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM). These offers require a payment method to be specified in the Azure Subscription.
 
 #### Using RHEL OS with BYOS Model
 
 To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy this Quickstart template.
-
+ a
 1. Ensure you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
 2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management (RHSM) documentation](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) to complete the process, which includes these steps:
 
@@ -126,7 +126,7 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
 
     2.5 Wait for Red Hat Gold Images to be available in your Azure subscription. These Gold Images are typically available within 3 hours of submission.
     
-3. Accept the Azure Marketplace Terms and Conditions for RHEL BYOS Images. You can complete this process by running Azure Command-Line Interface (CLI) commands, as given below. For more information, see the [Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos) documentation for more details. It's important that you're running the latest Azure CLI version.
+3. Accept the Azure Marketplace Terms and Conditions for RHEL BYOS Images. You can complete this process by running Azure Command-Line Interface (CLI) commands, as given below. For more information, see the [RHEL BYOS Gold Images in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos) documentation for more details. It's important that you're running the latest Azure CLI version.
 
     3.1 Launch an Azure CLI session and authenticate with your Azure account. Refer to [Signing in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) for assistance. Make sure you are running the latest Azure CLI version before moving on.
 
@@ -168,11 +168,11 @@ You can deploy the template in three following ways:
 
 You can start with one of the Quickstart templates of JBoss EAP on RHEL combination that meets your deployment goal. Following is the list of available Quickstart templates.
 
-* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-standalone-rhel/"> JBoss EAP on RHEL (stand-alone VM)</a> - This Azure template deploys a web application named JBoss-EAP on Azure to JBoss EAP 7.2 or 7.3 running on RHEL 7.7 or 8.0 VM.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-standalone-rhel/"> JBoss EAP on RHEL (stand-alone VM)</a> - This will deploy a web application named JBoss-EAP on Azure to JBoss EAP 7.2 or 7.3 running on RHEL 7.7 or 8.0 VM.
 
-* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP on RHEL (clustered, multi-VMs)</a> - This Azure template deploys a web application called eap-session-replication on JBoss EAP 7.2 or 7.3 cluster running on 'n' number RHEL 7.7 or 8.0 VMs. The 'n' value is decided by the user. All the VMs are added to the backend pool of a Load Balancer.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP on RHEL (clustered, multi-VMs)</a> - This will deploy a web application called eap-session-replication on JBoss EAP 7.2 or 7.3 cluster running on 'n' number RHEL 7.7 or 8.0 VMs. The 'n' value is decided by the user. All the VMs are added to the backend pool of a Load Balancer.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, Virtual Machine Scale Set)</a> - This Azure template deploys a web application called eap-session-replication on JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 Virtual Machine Scale Set instances.
+* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, Virtual Machine Scale Set)</a> - This will deploy a web application called eap-session-replication on JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 Virtual Machine Scale Set instances.
 
 ## Resource Links:
 
