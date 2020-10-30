@@ -3702,7 +3702,7 @@ Access reviews of groups and apps are now generally available as part of Azure A
 **Service category:** Authentications (Logins)
 **Product capability:** User Authentication
 
-Apps created on or after April 25, 2018 will no longer be able to request an **id_token** using the **query** response_mode.  This brings Azure AD inline with the OIDC specifications and helps reduce your apps attack surface.  Apps created before April 25, 2018 are not blocked from using the **query** response_mode with a response_type of **id_token**.  The error returned, when requesting an id_token from AAD, is **AADSTS70007: 'query' is not a supported value of 'response_mode' when requesting a token**.
+Apps created on or after April 25, 2018 will no longer be able to request an **id_token** using the **query** response_mode.  This brings Azure AD inline with the OIDC specifications and helps reduce your apps attack surface.  Apps created before April 25, 2018 are not blocked from using the **query** response_mode with a response_type of **id_token**.  The error returned, when requesting an id_token from Azure AD, is **AADSTS70007: 'query' is not a supported value of 'response_mode' when requesting a token**.
 
 The **fragment** and **form_post** response_modes continue to work - when creating new application objects (for example, for App Proxy usage), ensure use of one of these response_modes before they create a new application.
 
@@ -3771,7 +3771,7 @@ For more information, see [Risky IP Report](../hybrid/how-to-connect-health-adfs
 **Service category:** Enterprise Apps
 **Product capability:** SSO
 
-On the Enterprise applications page, administrators can upload a SAML metadata file to configure SAML based sign-on for AAD Gallery and Non-Gallery application.
+On the Enterprise applications page, administrators can upload a SAML metadata file to configure SAML based sign-on for Azure AD Gallery and Non-Gallery application.
 
 Additionally, you can use Azure AD application federation metadata URL to configure SSO with the targeted application.
 
@@ -4231,9 +4231,9 @@ This release has the following updates and changes:
 
 - Fixed a bug where certificates with SAN wildcards fail pre-req check.
 
-- Fixed a bug that causes miiserver.exe crash during AAD connector export.
+- Fixed a bug that causes miiserver.exe crash during Azure AD connector export.
 
-- Fixed a bug where a bad password attempt logged on DC when running caused the AAD connect wizard to change configuration
+- Fixed a bug where a bad password attempt logged on DC when running caused the Azure AD connect wizard to change configuration
 
 **New features and improvements**
 
