@@ -41,7 +41,7 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
+-   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 
