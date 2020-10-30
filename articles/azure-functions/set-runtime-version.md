@@ -10,7 +10,7 @@ ms.date: 07/22/2020
 
 A function app runs on a specific version of the Azure Functions runtime. There are three major versions: [1.x, 2.x, and 3.x](functions-versions.md). By default, function apps are created in version 3.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
-## Automatic and manual version updates
+## Automatic and manual version updates (Windows)
 
 Azure Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version. If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions shouldn't introduce breaking changes. 
 
@@ -31,7 +31,7 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 
 A change to the runtime version causes a function app to restart.
 
-## View and update the current runtime version
+## View and update the current runtime version (Windows)
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
@@ -116,6 +116,24 @@ As before, replace `<FUNCTION_APP>` with the name of your function app and `<RES
 ---
 
 The function app restarts after the change is made to the application setting.
+
+## Manual version updates (Linux)
+
+To pin a linux function app to a specific host version, you need to directly specifying the image url in 'LinuxFxVersion' field in application settings. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
+
+For **linux app service/elastic premium apps** -
+Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice`.
+
+For **linux consumption apps** -
+Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10`.
+
+Similarly, the function app restarts after the change is made to the application setting.
+
+> [!NOTE]
+> Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations. So apps should only be pinned to an older host version in case of a regression in the latest functions host version.
+
+
+
 
 ## Next steps
 
