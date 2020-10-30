@@ -113,7 +113,7 @@ Then, select *Request Token*.
 :::image type="content" source="media/how-to-configure-postman-apis/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted.":::
 
 This will open the *MANAGE ACCESS TOKENS* window with a token that has been generated based on the information you've provided. Select *Use Token*.
-  
+
 :::image type="content" source="media/how-to-configure-postman-apis/postman-use-token.png" alt-text="The 'MANAGE ACCESS TOKENS' Postman window, showing the details of the token that has been created. The 'Use Token' button is highlighted.":::
 
 ### Finish collection
@@ -143,7 +143,6 @@ After completing the previous steps, configure Postman to make an authenticated 
    > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
    > * You do not need to specify those headers for each part.
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
-
 1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. The appropriate response message will appear in the client interface.
 
 1. Validate your HTTP POST request data by calling the API endpoint: 
