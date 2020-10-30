@@ -8,7 +8,7 @@ ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
 ---
-# Access Azure Storage as a network share from a container in App Service
+# Access Azure Storage (preview) as a network share from a container in App Service
 
 ::: zone pivot="container-windows"
 
