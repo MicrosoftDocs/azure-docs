@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 10/30/2020
 ms.author: apimpm
 
 ---
@@ -44,7 +44,7 @@ The **Allow tracing** setting for the subscription used for your API must be ena
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
-1. Confirm that the HTTP request header includes **Ocp-Admin-Trace: True** and a valid value for **Ocp-Admin-Subscription-Key**. If it isn't, select **+ Header** to add the header.
+1. Confirm that the HTTP request header includes **Ocp-Admin-Trace: True** and a valid value for **Ocp-Admin-Subscription-Key**. If it isn't, select **+ Add Header** to add the header.
 1. Select **Send** to make an API call.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configure API tracing":::
