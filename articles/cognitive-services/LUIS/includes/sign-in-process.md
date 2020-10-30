@@ -7,7 +7,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/05/2020
+ms.date: 10/30/2020
 ms.topic: include
 
 ---
