@@ -531,6 +531,8 @@ We suggest thinking through these scenarios:
 - Are there virtual networks where DDoS Protection Standard should be enabled but isn't?
 - Are my services active/active with failover across multiple regions?
 
+Supporting documentation:
+
 - [Risk evaluation of your Azure resources](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
 **Azure Security Center monitoring**: Not applicable
@@ -580,6 +582,8 @@ Security Center uses machine learning to analyze the applications running on you
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
 
+Supporting documentation:
+
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
@@ -607,6 +611,8 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
+Supporting documentation:
+
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
@@ -632,6 +638,8 @@ Security Center uses machine learning to analyze the applications running on you
 - Prevent specific software tools that are not allowed in your organization.
 
 - Enable IT to control the access to sensitive data through app usage.
+
+Supporting documentation:
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -659,6 +667,8 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
+Supporting documentation:
+
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
@@ -679,6 +689,8 @@ Security Center uses machine learning to analyze the applications running on you
 - Avoid old and unsupported apps to run.
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
+
+Supporting documentation:
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -706,6 +718,8 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
+Supporting documentation:
+
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
@@ -717,6 +731,8 @@ Security Center uses machine learning to analyze the applications running on you
 **Guidance**: For sensitive or high-risk applications with Azure Cloud Services, implement separate subscriptions, or management groups to provide isolation.
 
 Use a network security group, create an Inbound security rule, choose a service such as http, choose a custom port as well, give it a priority and a name. The priority affects the order in which the rules are applied, the lower the numerical value, the earlier the rule is applied. You will need to associate your network security group to a subnet or a specific network interface to isolate or segment the network traffic based on your business needs.
+
+Supporting documentation:
 
 - [Tutorial - Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md)
 
