@@ -1416,7 +1416,7 @@
         href: riva-tutorial.md
       - name: Robin
         href: robin-tutorial.md
-      - name: RStudio Connect
+      - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md

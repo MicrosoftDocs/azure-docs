@@ -41,7 +41,7 @@ The following list contains the fully qualified domain names (FQDN) used by your
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms`.
+* If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with private IP of workspace private endpoint. Please note compute instance can be accessed only from within the virtual network.
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
 
@@ -87,7 +87,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * If you have a compute instance, use `<instance-name>.<region>.instances.azureml.ms`, where `<instance-name>` is the name of your compute instance.
+> * If you have a compute instance, use `<instance-name>.<region>.instances.azureml.ms`, where `<instance-name>` is the name of your compute instance. Please use private IP address of workspace private endpoint. Please note compute instance can be accessed only from within the virtual network.
 >
 > For all of these IP address, use the same address as the `*.api.azureml.ms` entries returned from the previous steps.
 
