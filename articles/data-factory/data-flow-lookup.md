@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date:  05/28/2020
+ms.date:  10/30/2020
 ---
 
 # Lookup transformation in mapping data flow
@@ -63,6 +63,10 @@ When testing the lookup transformation with data preview in debug mode, use a sm
 In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
 
 It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
+
+## Cached lookup
+
+If you're are doing multiple smaller lookups on the same source, a cached sink and lookup maybe a better use case than the lookup transformation. Common examples where a cache sink may be better are looking up a max value on a data store and matching error codes to an error message database. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## Data flow script
 
