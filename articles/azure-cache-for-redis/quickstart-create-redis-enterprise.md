@@ -24,7 +24,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
    
-   ![Select Azure Cache for Redis](media/cache-create/new-cache-menu.png)
+   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Select Azure Cache for Redis":::
    
 1. On the **New Redis Cache** page, configure the settings for your new cache.
    
@@ -36,7 +36,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    | **Location** | Drop down and select a location. | Enterprise tiers are available in limited Azure regions during the preview. |
    | **Cache type** | Drop down and select an *Enterprise* or *Enterprise Flash* tier and a size. |  The tier determines the size, performance, and features that are available for the cache. |
    
-   ![Enterprise tier basics](media/cache-create/enterprise-tier-basics.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier basics":::
 
    > [!NOTE] 
    > Be sure to check the box under "Terms" before proceeding.
@@ -48,11 +48,11 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    > Private link option is getting rolled out and may not be available immediately in your region.
    >
 
-1. Select **Next: Advanced**.
+1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise**.
    
    You can keep the default settings or change them as appropriate. When turning on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
 
-   ![Enterprise tier advanced](media/cache-create/enterprise-tier-advanced.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier advanced":::
 
    > [!NOTE] 
    > Redis Modules aren't supported in Enterprise Flash tier yet. If you plan to use a Redis Module,
@@ -63,7 +63,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. Select **Next: Review + create**.
 
-   ![Enterprise tier summary](media/cache-create/enterprise-tier-summary.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Enterprise tier summary":::
 
 1. Review the settings and click **Create**.
    
