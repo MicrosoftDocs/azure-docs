@@ -138,7 +138,7 @@ The updates that you don't publish are saved as drafts. Continue to use your off
 
 ### Enhanced preview options
 
-Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
+Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
 
 [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
 
