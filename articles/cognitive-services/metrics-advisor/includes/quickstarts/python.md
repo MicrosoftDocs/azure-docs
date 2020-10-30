@@ -179,7 +179,7 @@ sample_get_data_feed_ingestion_progress()
 
 ## Create an anomaly detection configuration 
 
-In a new method, create import statements like the example below. Replace `metric_id` with the ID for the metric you want to configure. Create a client with your keys and endpoint, and use `client.create_metric_anomaly_detection_configuration` to get the ingestion progress. The threshold conditions specify the parameters for anomaly detection.
+In a new method, create import statements like the example below. Replace `metric_id` with the ID for the metric you want to configure. Create a client with your keys and endpoint, and use `client.create_metric_anomaly_detection_configuration` to create a new detection configuration. The threshold conditions specify the parameters for anomaly detection.
 
 ```python
 def sample_create_detection_config():
