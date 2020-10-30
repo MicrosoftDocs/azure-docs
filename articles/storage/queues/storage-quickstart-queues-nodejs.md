@@ -30,12 +30,12 @@ Additional resources:
 * [API reference documentation](/javascript/api/@azure/storage-queue/)
 * [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Samples](/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * Current [Node.js](https://nodejs.org/en/download/) for your operating system.
 
 ## Setting up

@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # StringToNull (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns expression translated to null. If expression cannot be translated, returns undefined.  
   
 ## Syntax

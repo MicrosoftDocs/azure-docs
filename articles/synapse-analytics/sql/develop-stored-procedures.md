@@ -20,6 +20,9 @@ Tips for implementing stored procedures in Synapse SQL pool for developing solut
 
 Synapse SQL supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution.
 
+> [!NOTE]
+> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. In the examples in these articles are used generic features that are available both in serverless and provisioned surface area.
+
 To maintain the scale and performance of SQL pool, there are also some features and functionality that have behavioral differences and others that aren't supported.
 
 ## Stored procedures in Synapse SQL

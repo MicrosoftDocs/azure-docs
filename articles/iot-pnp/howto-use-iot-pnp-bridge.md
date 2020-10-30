@@ -105,9 +105,13 @@ Expect this operation to take several minutes to complete.
 
 After cloning the IoT Plug and Play bridge repo to your machine, navigate to the `pnpbridge/docs/schema` directory of the cloned repository where you can find the [configuration JSON](https://aka.ms/iot-pnp-bridge-env-config) or `config.json` for the environmental sensor sample of the bridge. You can learn more about config files in the [IoT Plug and Play bridge concepts document](concepts-iot-pnp-bridge.md).
 
-For the `root-_interface_model_id` field you will need to copy the IoT Plug and Play model ID that identifies the model for your device. In this example, it is `dtmi:com:example:SampleDevice;1`. Modify the following parameters under **pnp_bridge_parameters** node in the `config.json` file in the ':
+For the `root-_interface_model_id` field you will need to copy the IoT Plug and Play model ID that identifies the model for your device. In this example, it is `dtmi:com:example:SampleDevice;1`. Modify the following parameters under **pnp_bridge_parameters** node in the `config.json` file:
 
-  Using Connection string (Note: the symmetric_key must match the SAS key in the connection string):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> The symmetric_key must match the SAS key in the connection string.
 
   ```JSON
     {
@@ -124,7 +128,7 @@ For the `root-_interface_model_id` field you will need to copy the IoT Plug and 
   }
   ```
 
- Once filled in you the `config.json` file should resemble:
+ Once filled in, the `config.json` file should resemble:
 
    ```JSON
     {

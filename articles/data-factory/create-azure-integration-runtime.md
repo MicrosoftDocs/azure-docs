@@ -48,7 +48,7 @@ Use the following steps to create an Azure IR using Azure Data Factory UI.
 
 1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   ![Screenshot that highlights Integration runtimes in the left pane and the +New button.](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 

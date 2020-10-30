@@ -34,7 +34,7 @@ The tile URL passed into a Tile layer must be an http/https URL to a TileJSON re
 
 ## Prerequisites
 
-To complete the process in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
+To complete the process in this article, you need to install [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) to load a map.
 
 
 ## Add a tile layer to the map
@@ -174,4 +174,4 @@ If you run your application now, you should see a line on the map as seen below:
 See the following article to learn more about ways to set map styles
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Change map styles in Android maps](./set-android-map-styles.md)
