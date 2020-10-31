@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Metrics Advisor what's new
+title: Metrics Advisor what's new
 titleSuffix: Azure Cognitive Services
 description: Learn about what is new with Metrics Advisor
 services: cognitive-services
@@ -33,4 +33,4 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics.](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics))
+* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics.](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics))_

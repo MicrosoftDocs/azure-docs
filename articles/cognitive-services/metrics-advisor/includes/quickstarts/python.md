@@ -72,7 +72,7 @@ The following classes handle some of the major features of the Metrics Advisor P
 
 These code snippets show you how to do the following with the Metrics Advisor client library for Python:
 
-* [Authenticate the client](#authenticate-the-client.md)
+* [Authenticate the client](#authenticate-the-client)
 * [Add a data feed](#add-a-data-feed)
 * [Check ingestion status](#check-the-ingestion-status)
 * [Setup detection configuration and alert configuration](#create-an-anomaly-detection-configuration)

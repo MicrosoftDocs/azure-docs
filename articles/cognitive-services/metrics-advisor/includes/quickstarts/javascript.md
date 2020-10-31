@@ -11,7 +11,7 @@ ms.date: 10/14/2020
 ms.author: mbullwin
 ---
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/ai-metrics-advisor-readme-pre?view=azure-node-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
+[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/ai-metrics-advisor-readme-pre?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
 
 ## Prerequisites
 
