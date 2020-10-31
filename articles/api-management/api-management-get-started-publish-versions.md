@@ -6,7 +6,7 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 10/30/2020
 ms.author: apimpm
 
 ---
@@ -48,7 +48,7 @@ In this tutorial, you learn how to:
 
 ## Choose a versioning scheme
 
-Azure API Management allows you to choose the way callers specify the API version they want. You choose how callers specify the API version by selecting a *versioning scheme*: **path, header**, or **query string**. In the following example, *path* is used as the versioning scheme.
+In Azure API Management, you choose how callers specify the API version by selecting a *versioning scheme*: **path, header**, or **query string**. In the following example, *path* is used as the versioning scheme.
 
 Enter the values from the following table. Then select **Create** to create your version.
 
@@ -67,7 +67,7 @@ After creating the version, it now appears underneath **Demo Conference API** in
 
 ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/version-list.png)
 
-You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
+You can now edit and configure **v1** as an API that is separate from **Original**. Changes to one version do not affect another.
 
 > [!Note]
 > If you add a version to a non-versioned API, an **Original** is also automatically created. This version responds on the default URL. Creating an Original version ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original isn't created.
