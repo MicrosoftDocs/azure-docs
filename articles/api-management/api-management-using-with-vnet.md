@@ -82,7 +82,7 @@ To perform the steps described in this article, you must have:
 
 ## <a name="deploy-apim-external-vnet"> </a>Deploy API Management into External VNET
 
-:::code language="json" source="~/quickstart-templates/201-api-management-create-with-external-vnet/azuredeploy.json":::
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
 
 * **Create an API Management service inside a VNET**: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a VNET.
 
