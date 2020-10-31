@@ -1,5 +1,5 @@
 ---
-title: Metrics Monitor C# quickstart
+title: Metrics Advisor C# quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle

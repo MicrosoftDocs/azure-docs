@@ -1,5 +1,5 @@
 ---
-title: Metrics Monitor Java quickstart
+title: Metrics Advisor Java quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
