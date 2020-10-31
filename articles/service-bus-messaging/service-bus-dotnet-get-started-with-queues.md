@@ -92,16 +92,19 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
                         // send the current batch as it's full
                         await sender.SendMessagesAsync(messageBatch);
+                        Console.WriteLine($"Sent a batch of messages to the queue: {queueName}");
+
+                        // dispose the batch object. create a new batch in the next step.
                         messageBatch.Dispose();
 
                         // create a new batch for the remaining messages
                         messageBatch = await sender.CreateMessageBatchAsync();
 
-                        // add the message failed to be added in the previous batch to the new batch
+                        // add the message failed to be added to the new batch
                         if (!messageBatch.TryAddMessage(listOfMessages[i]))
                         {
                             // if it still fails, the message is probably too big for the batch
-                            Console.WriteLine($"Message {i} is too big to fit in a batch");
+                            Console.WriteLine($"Message {i} is too big to fit in a batch. Skipping");
                             break;
                         }
                     }
@@ -111,7 +114,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 await sender.SendMessagesAsync(messageBatch);
                 messageBatch.Dispose();
 
-                Console.WriteLine($"Sent a batch of {listOfMessages.Count} messages");
+                Console.WriteLine($"Sent a batch of messages to the queue: {queueName}");
             }
         }
     ```
