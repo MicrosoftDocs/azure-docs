@@ -53,7 +53,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.     
-2. Add a method named `CreateMessages` to create a list of messages. Typically, you get these messages from a different parts of your application. Here, we are simply making a list of messages.
+2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from a different parts of your application. Here, we are simply making a list of messages.
 
     ```csharp
         static IList<ServiceBusMessage> CreateMessages()
@@ -66,7 +66,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             return listOfMessages;
         }
     ```
-1. Add a method named `SendMessagesAsync` and add the following code. This method takes a list of messages and prepares one or more batches to send to the Service Bus queue. 
+1. Add a method named `SendMessagesAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus queue. 
 
     ```csharp
         static async Task SendMessagesAsync()
@@ -115,7 +115,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you'll add in the next step to send messages to the queue. 
+1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you added in the previous step to send messages to the topic.
 
     ```csharp
         static async Task Main()
@@ -142,7 +142,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 ## Receive messages from a queue
 In this section, you'll add code to retrieve messages from the queue.
 
-1. Add the following methods to process messages and any errors. 
+1. Add the following methods to the `Program` class that handle messages and any errors. 
 
     ```csharp
         static async Task MessageHandler(ProcessMessageEventArgs args)
@@ -160,7 +160,7 @@ In this section, you'll add code to retrieve messages from the queue.
             return Task.CompletedTask;
         }
     ```
-1. Add a method named `ReceiveMessagesAsync` and add the following code.
+1. Add a method named `ReceiveMessagesAsync` to the `Program` class, and add the following code to receive messages. 
 
     ```csharp
         static async Task ReceiveMessagesAsync()
@@ -179,7 +179,7 @@ In this section, you'll add code to retrieve messages from the queue.
                 // start processing 
                 await processor.StartProcessingAsync();
 
-                // wait (5 seconds) for the message handler to be invokved a few times
+                // wait (5 seconds) for the message handler to be invoked a few times
                 await Task.Delay(5000);
 
                 // stop processing 
