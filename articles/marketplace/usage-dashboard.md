@@ -11,9 +11,9 @@ ms.author: mingshen
 
 # Usage dashboard in Microsoft commercial marketplace analytics
 
-This article provides information on the usage dashboard in Partner Center. This dashboard displays all virtual machine (VM) offers normalized usage, raw usage, and metered billing metrics in three separate tabs: VM Normalized usage, VM Raw usage and metered billing usage.
+This article provides information on the Usage dashboard in Partner Center. This dashboard displays all virtual machine (VM) offers normalized usage, raw usage, and metered billing metrics in three separate tabs: VM Normalized usage, VM Raw usage, and metered billing usage.
 
-To access the **Usage** dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
+To access the Usage dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
@@ -22,10 +22,8 @@ To access the **Usage** dashboard in Partner Center, under **Commercial Marketpl
 
 The **Usage** dashboard in the **Analyze** menu displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
-In the VM usage tab, there are graphical representations of the following items:
-
 - Usage trend
-- Normalized usage by offers.
+- Normalized usage by offers
 - Normalized usage by other dimensions: VM Size, Sales Channels and Offer Types
 - Usage by geography
 - Detailed usage table
@@ -71,7 +69,7 @@ You can select any offer and a maximum of three SKUs of that offer to view the m
 
 ### Orders by Offers and SKUs
 
-The **Orders by Offers and SKU** chart shows the measures and trends of all Offers. Note the following:
+The **Orders by Offers and SKU** chart shows the measures and trends of all offers. Note the following:
 
 - The top offers are displayed in the graph and the rest of the offers are grouped as **Rest All**.
 - You can select specific offers in the legend to display only those offers in the graph.
@@ -84,9 +82,7 @@ You can select any offer and a maximum of three SKUs of that offer to view the m
 
 :::image type="content" source="./media/usage-dashboard/orders-by-offers-and-skus-2.png" alt-text="Illustrates the Orders by offers and SKUs chart on the Usage dashboard. The Offer trend, SKUs trend, and Seats trend are shown.":::
 
-#### Normalized usage by other dimensions: VM Size, sales channels, and offer types
-
-Normalized usage by other dimensions: VM Size, Sales Channels and Offer Types
+#### Normalized usage by other dimensions: VM Size, Sales channels, and Offer type
 
 There are three tabs for the dimensions: VM size, Sales channels, and Offer type. You can see the usage metrics and month-over-month trend against each of these dimensions.
 
@@ -119,20 +115,20 @@ _**Table 1: Dictionary of data terms**_
 | Column name | Attribute name | Definition |
 | ------------ | ------------- | ------------- |
 | Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. |
-| MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. |
+| MonthStartDate | Month Start Date | Month Start Date represents the month of Purchase. |
 | Offer Type | Offer Type | The type of commercial marketplace offering. |
 | Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ui><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> |
 | SKU | SKU | The plan associated with the offer. |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. |
 | Is Preview SKU | Is Preview SKU | The value shows if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". |
-| SKU Billing Type | SKU Billing Type | The Billing type (Free or Paid) associated with each SKU in the offer. The possible values are:<ul><li>Free</li><li>Paid</li></ul> |
+| SKU Billing Type | SKU Billing Type | The Billing type associated with each SKU in the offer. The possible values are:<ul><li>Free</li><li>Paid</li></ul> |
 | IsInternal | Deprecated | Deprecated |
-| VM Size | Virtual Machine Size | The Microsoft Cloud in which a VM deployment occurred. |
+| VM Size | Virtual Machine Size | For VM based offer types, this entity signifies the size of the VM associated with the SKU of the offer. |
 | Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. |
-| ServicePlanName | Deprecated | Deprecated (Same as definition as SKU) |
+| ServicePlanName | Deprecated | Deprecated (Same definition as SKU) |
 | Offer Name | Offer Name | The name of the commercial marketplace offering. |
-| DeploymentMethod | Deprecated | Deprecated (Same definition as offer type)
+| DeploymentMethod | Deprecated | Deprecated (Same definition as Offer type)
  |
 | Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the city in a customer's Azure subscription. |
 | Usage Date | Usage Date | The date of usage event generation for usage-based assets. |
@@ -149,8 +145,7 @@ _**Table 1: Dictionary of data terms**_
 | Usage Unit | Usage Unit | Unit of consumption associated with the SKU. |
 | Customer Id | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. |
 | Billing Account Id | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. |
-| Usage Quantity | Usage Quantity | The total usage units consumed by the asset which is deployed by the customer.<br>This is based on Usage type item. For example, if the Usage Type is Normalized usage, then Usage Quantity is for Normalized Usage.
- |
+| Usage Quantity | Usage Quantity | The total usage units consumed by the asset which is deployed by the customer.<br>This is based on Usage type item. For example, if the Usage Type is Normalized usage, then Usage Quantity is for Normalized Usage. |
 | NormalizedUsage | Normalized Usage | The total normalized usage units consumed by the asset which is deployed by the customer.<br>Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier. |
 | MeteredUsage | Metered Usage | The total usage units consumed by the meters that are configured with the offer which is deployed by the customer. |
 | RawUsage | Raw Usage | The total raw usage units consumed by the asset which is deployed by the customer.<br>Raw usage hours are defined as the amount of time VMs have been running in terms of usage units. |
@@ -188,10 +183,10 @@ If you have multiple offers that use custom meters, the metered billing usage re
 
 ## Next Steps
 
-- For an overview of analytics reports available in the commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](./summary-dashboard.md).
 - For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md)
 - For virtual machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./partner-center-portal/ratings-reviews.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
 - For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).

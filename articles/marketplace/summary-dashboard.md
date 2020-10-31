@@ -11,7 +11,7 @@ ms.author: mingshen
 
 # Summary dashboard in commercial marketplace analytics
 
-This article provides information on the _Summary_ dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
+This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
 To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
 
@@ -20,12 +20,12 @@ To access the Summary dashboard in Partner Center, under **Commercial Marketplac
 
 ## Summary dashboard
 
-The **Summary** dashboard presents an overview of the Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
+The Summary dashboard presents an overview of Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
 
 - Customers' orders
 - Customers
 - Customers' usage of the offers
-- Customers' page visits in Azure Marketplace and Microsoft AppSource
+- Customers' page visits in Azure Marketplace and AppSource
 
 ## Elements of the Summary dashboard
 
@@ -42,15 +42,15 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 ### Orders widget
 
-The **Orders** widget on the **Summary** dashboard displays the current orders for all your SaaS offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value below the Total Orders represents the amount of growth during the selected computation period.
+The Orders widget on the Summary** dashboard displays the current orders for all your software as a service (SaaS) offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value **Orders** represents the amount of growth during the selected computation period.
 
 :::image type="content" source="./media/summary-dashboard/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
 
-You can also go to the Orders report by selecting the **Orders** dashboard link in the lower-left corner of the widget.
+You can also go to the Orders report by selecting the **Orders Dashboard** link in the lower-left corner of the widget.
 
 ### Customers widget
 
-The **Customer** widget of the **Summary** dashboard displays the total number of customers who have acquired your offers for the selected computation period. The Customers widget displays a count and trend of total number of active (including new and existing) customers (excluding churned customers) for the selected computation period. The percentage value below the Total Customers represents the amount of growth during the selected computation period.
+The **Customers** widget of the **Summary** dashboard displays the total number of customers who have acquired your offers for the selected computation period. The Customers widget displays a count and trend of total number of active (including new and existing) customers (excluding churned customers) for the selected computation period. The percentage value under **Customers** represents the amount of growth during the selected computation period.
 
 :::image type="content" source="./media/summary-dashboard/customers-widget.png" alt-text="Illustrates the customers widget on the summary dashboard.":::
 
@@ -97,10 +97,10 @@ Note the following:
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
-- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./partner-center-portal/orders-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./partner-center-portal/usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./partner-center-portal/customer-dashboard.md).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](customer-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./partner-center-portal/ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
