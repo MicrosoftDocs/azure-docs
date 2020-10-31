@@ -27,7 +27,7 @@ SQL server on-premises data source supports:
 
 - every version of SQL from SQL server 2019 back to SQL server 2000
 
-- Authentication methods : SQL authentication
+- Authentication method: SQL authentication
 
 ## Prerequisites
 
@@ -44,31 +44,31 @@ Registration and scanning of a SQL server on-premises data source is available b
 
 1. Navigate to your Babylon catalog.
 
-2. Click on *Manage your data* tile on the home page.
+2. Select **Manage your data** tile on the home page.
 
 :::image type="content" source="media/register-scan-on-prem-sql-server/image1.png" alt-text="Babylon home page.":::
 
-3. Under Sources and scanning in the left navigation, click on *Integration runtimes*. Make sure a self-hosted integration runtime is setup. If it is not setup, follow the steps mentioned [here](https://github.com/Azure/Babylon/blob/master/docs/manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
+3. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](https://github.com/Azure/Babylon/blob/master/docs/manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
-4. Click on *Data sources* under the Sources and scanning section. Click on *New* to register a new data source. Select **SQL server** and click on Continue.
+4. Select **Data sources** under the Sources and scanning section. Select **New** to register a new data source. Select **SQL server**, then **Continue**.
 
     :::image type="content" source="media/register-scan-on-prem-sql-server/image2.png" alt-text="Set up the SQL data source.":::
 
-5. Provide a friendly name and server endpoint and then click on finish to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
+5. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
 
 ## Setting up authentication for a scan
 
 SQL authentication is the only supported authentication method for SQL server on-premises.
 
-The SQL identity must have access to the master database. This is where `sys.databases` is stored. The Babylon scanner needs to enumerate `sys.databases` in order to find all the SQL DB instances in the server.
+The SQL identity must have access to the primary database. This location is where `sys.databases` is stored. The Babylon scanner needs to enumerate `sys.databases` in order to find all the SQL DB instances in the server.
 
-### Using an existing server admin login and user
+### Using an existing server admininistrator
 
 If you plan to use an existing server admin (sa) user to scan your on-premises SQL server, ensure the following:
 
-1. The sa is not Windows authentication type. (we will add support for this over the coming months)
+1. `sa` is not Windows authentication type.
 
-2. The server level login you are planning to use must have server roles of public and sysadmin. You can verify this by navigating to SQL Server Management Studio (SSMS), connecting to the server, navigating to security, selecting the login you are planning to use, right clicking -> properties and then selecting Server roles.
+2. The server level user you are planning to use must have server roles of public and sysadmin. You can verify this by navigating to SQL Server Management Studio (SSMS), connecting to the server, navigating to security, selecting the login you are planning to use, right-clicking **Properties** and then selecting **Server roles**.
 
     :::image type="content" source="media/register-scan-on-prem-sql-server/image3.png" alt-text="Server level login.":::
 
@@ -92,20 +92,17 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 4. Click OK to save.
 
-5. Navigate again to the user you just created, right click -> properties, enter a new password and confirm it. Select the 'Specify old password' and enter the old password.
+5. Navigate again to the user you created, by right clicking and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
 
     :::image type="content" source="media/register-scan-on-prem-sql-server/image6.png" alt-text="change password.":::
 
-**It is required to change your password as soon as you create a new login.**
-
 ## Creating and running a scan
 
-1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the SQL server data source.
+1. Navigate to the management center. Select *Data sources* under the Sources and scanning section select the SQL server data source.
 
-2. Click on + New scan. Select the IR and authentication method as connection string. Database name is optional, if you do not provide a name, the whole server will be scanned. Fill in the user name and password.
+2. Select + New scan. Select the IR and authentication method as connection string. Database name is optional, if you do not provide a name, the whole server will be scanned. Fill in the user name and password.
 
-    ![setup scan](media/register-scan-on-prem-sql-server/image7.png)
-    :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
+    :::image type="content" source="media/register-scan-on-prem-sql-server/image7.png" alt-text="setup scan.":::
 
 3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provided a database name, then you can scope your scan to specific tables.
 
@@ -113,23 +110,23 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
     :::image type="content" source="media/register-scan-on-prem-sql-server/image8.png" alt-text="trigger.":::
 
-5. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
+5. The select a scan rule set for your scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
     :::image type="content" source="media/register-scan-on-prem-sql-server/image9.png" alt-text="SRS.":::
 
-6. Review your scan and click on Save and run.
+6. Review your scan and select on Save and run.
 
 ## Viewing your scans and scan runs
 
-1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the SQL server data source.
+1. Navigate to the management center. Select *Data sources* under the Sources and scanning section select on the SQL server data source.
 
-2. Click on the scan whose results you are interested to view.
+2. Select the scan whose results you are interested to view.
 
 3. You can view all the scan runs along with metrics and status for each scan run.
 
 ## Manage your scans
 
-1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the SQL server data source.
+1. Navigate to the management center. Select *Data sources* under the Sources and scanning section select the SQL server data source.
 
 2. Select the scan you would like to manage. You can edit the scan by clicking on the edit.
 

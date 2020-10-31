@@ -18,9 +18,9 @@ ms.date: 09/11/2020
 
 ### Feature Flag
 
-To create and manage an SHIR, please append the following to your URL: `?feature.ext.datasource={%22sqlServer%22:%22true%22}`
+To create and manage an SHIR, please append the following to your URL: `?feature.ext.datasource={%22sqlServer%22:%22true%22}`. The full URL may look something like this:
 
-E.g. full URL https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServer%22:%22true%22}
+`https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServer%22:%22true%22}`
 
 ## Create a self-hosted integration runtime
 
