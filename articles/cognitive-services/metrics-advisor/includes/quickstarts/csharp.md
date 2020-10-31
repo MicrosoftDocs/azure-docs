@@ -18,7 +18,8 @@ ms.author: mbullwin
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
-  
+* Your own SQL database with time series data.
+   
 > [!TIP]
 > * You can find .NET Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md).
 > * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
@@ -111,7 +112,7 @@ These code snippets show you how to do the following tasks with the Metrics Advi
 In the application's `Program` class, create variables for your resource's keys and endpoint.
 
 > [!IMPORTANT]
-> Go to the Azure portal. In the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
+> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
@@ -141,7 +142,7 @@ Metrics Advisor supports multiple types of data sources. In this sample we'll il
 
 
 ```csharp
-string sqlServerConnectionString = "<connectionString>";
+string sqlServerConnectionString = "<connection_String>";
 string sqlServerQuery = "<query>";
 
 var dataFeedName = "Sample data feed";
@@ -350,7 +351,7 @@ await foreach (AnomalyAlert alert in client.GetAlertsAsync(anomalyAlertConfigura
 }
 ```
 
-## Run the application
+### Run the application
 
 Run the application from your application directory with the `dotnet run` command.
 

@@ -33,4 +33,4 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics.](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics))_
+* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics.](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics)

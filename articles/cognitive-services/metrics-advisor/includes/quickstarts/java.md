@@ -19,6 +19,8 @@ ms.author: mbullwin
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 * Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
+* Your own SQL database with time series data.
+  
   
 > [!TIP]
 > * You can find Java Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples).
@@ -73,7 +75,7 @@ In the application's `MetricsAdvisorQuickstarts` class, create variables for you
 
 
 > [!IMPORTANT]
-> Go to the Azure portal. In the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
+> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
@@ -83,7 +85,7 @@ private static String API_KEY = "<replace-with-your-metrics-advisor-api-key-here
 private static String ENDPOINT = "<replace-with-your-metrics-advisor-endpoint-here>";
 ```
 
-in the application’s `main()` method, add calls for the methods used in this quickstart. You’ll create these later.
+In the application’s `Main()` method, add calls for the methods used in this quickstart. You’ll create these later.
 
 ```java
 static void Main(string[] args){

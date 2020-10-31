@@ -18,6 +18,7 @@ ms.author: mbullwin
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
+* Your own SQL database with time series data.
   
 > [!TIP]
 > * You can find Python Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples).
@@ -47,7 +48,7 @@ import datetime
 Create variables for your resource's Azure endpoint and key.
 
 > [!IMPORTANT]
-> Go to the Azure portal. In the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
+> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
@@ -75,13 +76,13 @@ These code snippets show you how to do the following with the Metrics Advisor cl
 * [Authenticate the client](#authenticate-the-client)
 * [Add a data feed](#add-a-data-feed)
 * [Check ingestion status](#check-the-ingestion-status)
-* [Setup detection configuration and alert configuration](#create-an-anomaly-detection-configuration)
+* [Setup detection configuration and alert configuration](#configure-anomaly-detection)
 * [Create an alert configuration](#create-an-alert-configuration)
 * [Query anomaly detection results](#query-the-alert)
 
 ## Authenticate the client
 
-The client in this example is a `MetricsAdvisorAdministrationClient` object that uses your endpoint a `MetricsAdvisorKeyCredential` object that contains your keys. You don't need to copy this code sample. The methods you create later will instantiate the client. The alternate client is called `MetricsAdvisorClient` more information on this client can be found in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorClient).
+The client in this example is a `MetricsAdvisorAdministrationClient` object that uses your endpoint and a `MetricsAdvisorKeyCredential` object that contains your keys. You don't need to copy this code sample. The methods you create later will instantiate the client. The alternate client is called `MetricsAdvisorClient` more information on this client can be found in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorClient).
 
 ```python
 client = MetricsAdvisorAdministrationClient(service_endpoint,
@@ -174,7 +175,7 @@ def sample_get_data_feed_ingestion_progress():
 sample_get_data_feed_ingestion_progress()
 ```
 
-## Create an anomaly detection configuration 
+## Configure anomaly detection
 
 In a new method, create import statements like the example below. Replace `metric_id` with the ID for the metric you want to configure. Create a client with your keys and endpoint, and use `client.create_metric_anomaly_detection_configuration` to create a new detection configuration. The threshold conditions specify the parameters for anomaly detection.
 
