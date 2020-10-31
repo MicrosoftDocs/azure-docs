@@ -29,14 +29,14 @@ Additional resources:
 * [API reference documentation](/java/api/overview/azure/storage-queue-readme)
 * [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Samples](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 
 ## Setting up
 

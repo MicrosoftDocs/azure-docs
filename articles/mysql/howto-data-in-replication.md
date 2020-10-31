@@ -48,7 +48,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
-   Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
+   Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](../cloud-shell/overview.md) available in the Azure portal.
 
    If your organization has strict security policies and will not allow all IP addresses on the source server to enable communication from Azure to your source server, you can potentially use the below command to determine the IP address of your MySQL server.
 
@@ -184,7 +184,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Set source server
 
-   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench. 
+   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](./reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench. 
 
    To link two servers and start replication, login to the target replica server in the Azure DB for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure DB for MySQL server.
 
@@ -281,4 +281,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## Next steps
-- Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MySQL. 
+- Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MySQL.

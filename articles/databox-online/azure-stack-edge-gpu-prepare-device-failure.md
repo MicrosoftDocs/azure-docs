@@ -62,7 +62,8 @@ The following third-party data protection solutions can provide a backup solutio
 | Third-party software           | Reference to the solution                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> For details, contact Cohesity.          |
-| Veritas                        | For details, contact Veritas.   |
+| Commvault                      | https://www.commvault.com/azure <br> For details, contact Commvault.          |
+| Veritas                        | http://veritas.com/azure <br> For details, contact Veritas.   |
 
 
 ## Protect files and folders on VMs
@@ -74,7 +75,8 @@ Azure Stack Edge works with Azure Backup and other third-party data protection s
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup and Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>For details, contact Cohesity.                          |
-| Veritas                 | Windows, Linux | For details, contact Veritas.                    |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br>For details, contact Commvault.                          |
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> For details, contact Veritas.                    |
 
 
 

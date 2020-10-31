@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu 
 ms.reviewer: 
 ms.custom: devx-track-python
@@ -354,7 +354,7 @@ Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## Orchestrate notebook
+## Integrate a notebook
 
 ### Add a notebook to a pipeline
 

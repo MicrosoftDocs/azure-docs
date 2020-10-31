@@ -79,6 +79,17 @@ The flexible server service is available in three SKU tiers: Burstable, General 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
+## Scale-out your read workload with up to 10 read replicas
+
+MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
+
+On the applications side, the application is typically developed in Java or php and migrated to run on [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview.md) or [Azure App Services](/azure/app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+
+The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale-out your application workload to read replicas without any application refactoring cost. 
+
+See [Read Replica concepts](concepts-read-replicas.md) to learn more. 
+
+
 ## Stop/Start server to optimize cost
 
 The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner. 
@@ -93,7 +104,7 @@ The service encrypts data in-motion with transport layer security enforced by de
 
 See [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl) to learn more.
 
-Flexible servers allows full private access to the servers using [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
+Flexible servers allows full private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
 
 See [Networking concepts](concepts-networking.md) to learn more.
 
@@ -109,16 +120,24 @@ See [Monitoring concepts](concepts-monitoring.md) to learn more.
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on MySQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) can be leveraged. 
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) can be leveraged. 
 
 ## Azure regions
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
+- West Europe
 - North Europe
-- Southeast Asia
+- UK South
 - East US 2
 - West US 2
+- Central US
+- East US
+- Canada Central
+- Southeast Asia
+- Korea Central
+- Japan East
+- Australia East
 
 We are working on adding new servers soon.
 

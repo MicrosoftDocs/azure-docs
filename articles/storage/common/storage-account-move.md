@@ -62,7 +62,7 @@ To export a template by using Azure portal:
 
 To export a template by using PowerShell:
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -162,7 +162,7 @@ To deploy the template by using PowerShell:
          }]          
     ```
 
-    You can obtain region codes by running the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
+    You can obtain region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Deploy the template to create a new storage account in the target region.
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -227,14 +227,14 @@ The following table lists these features along with guidance for adding them to 
 
 ### Move data to the new storage account
 
-AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:. 
 
-  - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copy data to and from Azure Table storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copy data from or to Azure File Storage by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Copy data to and from Azure Table storage by using Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -268,5 +268,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 In this tutorial, you moved an Azure storage account from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)

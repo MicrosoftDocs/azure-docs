@@ -34,6 +34,9 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
 
+### Is any customer data stored outside of the specified region?
+
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
@@ -49,7 +52,7 @@ Which one should I use and what are the limits within each tier?
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
+If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## Development
 
@@ -65,9 +68,9 @@ Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#j
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
-Find metrics in the App Overview tab and the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) tab.
+Find metrics in the App Overview tab and the [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) tab.
 
-Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Cloud support distributed tracing?
 
@@ -101,7 +104,7 @@ You can delete Spring Cloud's diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 build 252 and Java 11 build 7 are supported. See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 and Java 11 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### Who built these Java runtimes?
 
@@ -113,14 +116,14 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 ### How long will Java 8 and Java 11 LTS versions be supported?
 
-See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Java 8 LTS will be supported until December 2030.
 * Java 11 LTS will be supported until September 2027.
 
 ### How can I download a supported Java runtime for local development?
 
-See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### What is the retire policy for older Java runtimes?
 
@@ -131,7 +134,7 @@ Public notice will be sent out at 12 months before any old runtime version is re
 
 ### How can I get support for issues at the Java runtime level?
 
-You can open a support ticket with Azure Support.  See [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+You can open a support ticket with Azure Support.  See [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### What is the operation system to run my apps?
 
@@ -158,7 +161,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-No.
+Yes.  For more information, see [Setup autoscale](spring-cloud-tutorial-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?

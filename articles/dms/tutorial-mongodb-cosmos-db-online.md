@@ -228,7 +228,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. Make changes to your source MongoDB database.
 2. Connect to COSMOS DB to verify if the data is replicated from the source MongoDB server.
 
-    ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
+    ![Screenshot that shows where you can verify that the data was replicated.](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
 ## Complete the migration
 
@@ -236,7 +236,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     This action will finish replaying all the pending changes and complete the migration.
 
-    ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+    ![Screenshot that shows the Finish menu option.](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
 
 ## Post-migration optimization
 

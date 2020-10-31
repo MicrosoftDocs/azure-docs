@@ -47,7 +47,7 @@ Follow these steps to create a blank database.
 
 2. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
 
-    ![create data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![Screenshot shows SQL Data Warehouse selected from Databases in the Azure portal.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Fill out the form with the following information:
 
@@ -58,7 +58,7 @@ Follow these steps to create a blank database.
    | **Resource group** | myResourceGroup       | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
    | **Select source**  | Blank database        | Specifies to create a blank database. Note, a data warehouse is one type of database. |
 
-    ![create data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![Screenshot shows the SQL Data Warehouse pane where you can enter these values.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Select **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information:
 
