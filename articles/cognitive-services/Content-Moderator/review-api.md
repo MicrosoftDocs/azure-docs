@@ -50,7 +50,7 @@ A workflow is a cloud-based customized filter for content. Workflows can connect
 To view your existing workflows, go to the [Review tool](https://contentmoderator.cognitive.microsoft.com/) and select **Admin** > **Workflows**.
 
 > [!div class="mx-imgBorder"]
-> ![Default workflow](images/default-workflow-listed.png)
+> ![Default workflow](images/default-workflow-list.png)
 
 Workflows are defined as JSON strings, which makes them accessible programmatically. If you select the **Edit** option for your workflow and then select the **JSON** tab, you'll see a JSON expression like the following:
 
