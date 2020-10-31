@@ -5,7 +5,7 @@
   items:
   - name: What is Metrics Advisor?
     href: overview.md
-  - name: What's new in docs?
+  - name: What's new?
     href: whats-new.md
 - name: Quickstarts
   items:
