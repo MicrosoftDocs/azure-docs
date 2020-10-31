@@ -108,7 +108,7 @@ The following classes handle some of the major features of the Metrics Advisor J
 These code snippets show you how to do the following tasks with the Metrics Advisor client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Add a data feed](#add-a-datafeed)
+* [Add a data feed](#add-a-data-feed)
 * [Check the ingestion status](#check-the-ingestion-status)
 * [Configure anomaly detection](#configure-anomaly-detection)
 * [Create a hook](#create-a-hook)
@@ -141,7 +141,7 @@ MetricsAdvisorAdministrationClient metricsAdvisorAdministrationClient =
 
 ## Add a data feed
 
-Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp.
+Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `metric` and `dimension` values based on your custom data.
 
 > [!IMPORTANT]
 > The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](../../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 

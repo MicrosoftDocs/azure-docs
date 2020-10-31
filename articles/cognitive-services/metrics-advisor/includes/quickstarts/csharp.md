@@ -99,7 +99,7 @@ The following classes handle some of the major features of the Metrics Advisor C
 These code snippets show you how to do the following tasks with the Metrics Advisor client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Add a data feed](#add-datafeed)
+* [Add a data feed](#add-a-data-feed)
 * [Check the ingestion status](#check-the-ingestion-status)
 * [Configure anomaly detection](#configure-anomaly-detection)
 * [Create a hook](#create-a-hook)
@@ -111,7 +111,7 @@ These code snippets show you how to do the following tasks with the Metrics Advi
 In the application's `Program` class, create variables for your resource's keys and endpoint.
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+> Go to the Azure portal. In the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
@@ -137,7 +137,8 @@ var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), cred
 
 ## Add a data feed
 
-Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server.
+Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. Replace `connection_String` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `metric` and `dimension` values based on your custom data.
+
 
 ```csharp
 string sqlServerConnectionString = "<connectionString>";

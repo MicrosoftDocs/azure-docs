@@ -47,12 +47,9 @@ import datetime
 Create variables for your resource's Azure endpoint and key.
 
 > [!IMPORTANT]
-> You will need two keys to start using the client library:
+> Go to the Azure portal. In the Metrics Advisor resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription keys and endpoint in the resource's **Key and Endpoint** page, under **Resource Management**. <br><br>To retrieve your API key you must go to [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Select the appropriate: **Directory**, **Subscriptions**, and **Workspace** for your resource and choose **Get started**. You will then be able to retrieve your API keys from [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
 >
-> * The key to your Metrics Advisor resource. You can find this in the **Keys and Endpoint** section of your resource in the Azure portal.
-> * The API key for your Metrics Advisor instance. You can find this in the web portal for Metrics Advisor, in **API keys** on the left navigation menu.
->
-> Remember to remove the keys from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
 ```python
 subscription_key = "<paste-your-metrics-advisor-subscription-key-here>"
@@ -93,7 +90,7 @@ client = MetricsAdvisorAdministrationClient(service_endpoint,
 
 ## Add a data feed
 
-In a new method, create import statements like the example below. Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp.
+In a new method, create import statements like the example below. Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `metric` and `dimension` values based on your custom data.
 
 > [!IMPORTANT]
 > The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](../../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
