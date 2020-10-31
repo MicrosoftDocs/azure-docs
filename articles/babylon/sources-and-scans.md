@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ---
 
-# Introduction
+# Supported data sources in Azure Babylon
 This article covers details regarding sources and scanning.
 
 ## Supported sources
@@ -62,3 +62,9 @@ Each file is L3 scanned.
 
 ## Classification
 All 105 system classification rules apply to Structured file formats supported. Only the MCE classification rules apply to document fie types (Not the data scan native regex patterns, bloom filter-based detection)
+
+## Next steps
+
+* [Scan on-premises data sources with PowerShell](scan-onpremises-data-sources-powershell.md)
+* [Scan Azure data sources with PowerShell](scan-azure-data-sources-powershell.md)
+* [Scan Azure data sources with PowerShell](scan-azure-data-sources-portal.md)
