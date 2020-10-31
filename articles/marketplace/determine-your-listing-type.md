@@ -44,7 +44,7 @@ The following table shows the publishing options for offer types in Microsoft Ap
 
 ## Choose a listing option
 
-The listing options that are available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the listing options that correspond with the publishing option:
+The listing options that are available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](./gtm-your-marketplace-benefits.md). Note the listing options that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|
