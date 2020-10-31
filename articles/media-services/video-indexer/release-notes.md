@@ -32,11 +32,11 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
 
-### Planned changes in sign-in to video indexer portal
+### Planned Video Indexer website authenticatication changes
 
-Starting January 1st of 2021, you no longer will be able to sign in or log in to the [Video Indexer](https://www.videoindexer.ai/) website (trial offering) using Facebook or LinkedIn.
+Starting January 1st of 2021, you no longer will be able to sign up and sign in to the [Video Indexer](https://www.videoindexer.ai/) website (trial offering) using Facebook or LinkedIn.
 
-You will be able to sign in using one of these providers: Azure AD, Microsoft, and Google.
+You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
 
 > [!NOTE]
 > You are advised to export your content before January 1st of 2021, since accounts connected to LinkedIn and Facebook will be deleted and the content will no longer be accessible.
