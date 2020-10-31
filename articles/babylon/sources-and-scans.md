@@ -65,6 +65,4 @@ All 105 system classification rules apply to Structured file formats supported. 
 
 ## Next steps
 
-* [Scan on-premises data sources with PowerShell](scan-onpremises-data-sources-powershell.md)
-* [Scan Azure data sources with PowerShell](scan-azure-data-sources-powershell.md)
-* [Scan Azure data sources with PowerShell](scan-azure-data-sources-portal.md)
+* [Data Catalog client overview](catalog-client-overview.md)
