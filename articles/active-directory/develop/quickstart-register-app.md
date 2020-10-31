@@ -17,7 +17,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 # know how to register my application with the Microsoft identity platform so that the security
 # token service can issue ID and/or access tokens to clients that want to access it.
 ---
-![div style="background: black; color: white;"]
+[!div style="background-color: black; color: white;"]
 test foo=bar
 
 # Quickstart: Register an application with the Microsoft identity platform
