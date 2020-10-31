@@ -76,7 +76,7 @@ To write to a cache sink, add a sink transformation and select **Cache** as the 
 
 ![Select cache sink](media/data-flow/select-cache-sink.png "Select cache sink")
 
-In the sink settings, you can optionally specify the key columns of the cache sink. These are used as matching conditions when using the `lookup()` function in a cache lookup. If you specify key columns, you can't use the `outputs()` function in a cache lookup. To learn more about the cache lookup syntax, see [].
+In the sink settings, you can optionally specify the key columns of the cache sink. These are used as matching conditions when using the `lookup()` function in a cache lookup. If you specify key columns, you can't use the `outputs()` function in a cache lookup. To learn more about the cache lookup syntax, see [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ![Cache sink key columns](media/data-flow/cache-sink-key-columns.png "Cache sink key columns")
 

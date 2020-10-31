@@ -26,7 +26,7 @@ Use the surrogate key transformation to add an incrementing key value to each ro
 
 ## Increment keys from existing sources
 
-To start your sequence from a value that exists in a source, its recommended to use a cache sink to save that value and use a derived column transformation to add the two values together. Use a cached lookup to get the output and append it to the generated key. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
+To start your sequence from a value that exists in a source, we recommend to use a cache sink to save that value and use a derived column transformation to add the two values together. Use a cached lookup to get the output and append it to the generated key. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ![Surrogate Key lookup](media/data-flow/cached-lookup-example.png "Surrogate Key lookup")
 
