@@ -79,7 +79,7 @@ These code snippets show you how to do the following with the Metrics Advisor cl
 * [Create an alert configuration](#create-an-alert-configuration)
 * [Query anomaly detection results](#query-the-alert)
 
-### Authenticate the client
+## Authenticate the client
 
 The client in this example is a `MetricsAdvisorAdministrationClient` object that uses your endpoint a `MetricsAdvisorKeyCredential` object that contains your keys. You don't need to copy this code sample. The methods you create later will instantiate the client. The alternate client is called `MetricsAdvisorClient` more information on this client can be found in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorClient).
 
@@ -237,7 +237,7 @@ sample_create_detection_config()
 ```
 
 
-### Create a hook
+## Create a hook
 
 In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
 
@@ -355,7 +355,7 @@ def sample_list_anomalies_for_alert(alert_config_id, alert_id):
         print("Status: {}".format(result.status))
 ```
 
-## Run the application
+### Run the application
 
 Run the application with the `python` command on your quickstart file.
 

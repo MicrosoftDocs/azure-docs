@@ -324,6 +324,7 @@ You can build the app with:
 ```console
 gradle build
 ```
+### Run the application
 
 Run the application with the `run` goal:
 

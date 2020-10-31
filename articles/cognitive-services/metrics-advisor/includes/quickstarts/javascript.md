@@ -435,7 +435,7 @@ async function queryAnomaliesByAlert(client, alertConfigId, alertId) {
 }
 ```
 
-## Run the application
+### Run the application
 
 Run the application with the `node` command on your quickstart file.
 
