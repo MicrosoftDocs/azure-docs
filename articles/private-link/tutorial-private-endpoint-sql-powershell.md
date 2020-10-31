@@ -7,7 +7,7 @@ author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 10/31/2020
 ms.author: allensu
 
 ---
@@ -105,7 +105,7 @@ Create the virtual machine with:
   * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 ```azurepowershell
-## Set credentials for SQL server admin and password. ##
+## Set credentials for server admin and password. ##
 $cred = Get-Credential
 
 ## Command to get virtual network configuration. ##
@@ -163,6 +163,7 @@ New-AzSqlServer @parameters1
 $parameters2 = @{
     ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
     ServerName = '<sql-server-name>'
+    DatabaseName = 'mysqldatabase'
     RequestedServiceObjectiveName = 'S0'
     -SampleName = "AdventureWorksLT"
 }
@@ -251,7 +252,9 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
 
-1. Select **Resource groups** in the left-hand navigation pane.
+1. Sign in to the [Azure Portal](https://portal.azure.com) 
+ 
+2. Select **Resource groups** in the left-hand navigation pane.
 
 2. Select **CreateSQLEndpointTutorial-rg**.
 
@@ -289,7 +292,7 @@ In this section, you'll use the virtual machine you created in the previous step
     | Setting | Value |
     | ------- | ----- |
     | Server type | Select **Database Engine**.|
-    | Server name | Enter **\<sqlserver-name>.database.windows.net** |
+    | Server name | Enter **\<sql-server-name>.database.windows.net** |
     | Authentication | Select **SQL Server Authentication**. |
     | User name | Enter the username you entered during server creation |
     | Password | Enter the password you entered during server creation |
