@@ -8,13 +8,15 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: apimpm
 
 ---
 
-# Tutorial Use revisions to make non-breaking API changes safely
-When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. In Azure API Management, use *revisions* to make non-breaking API changes so you can model and test changes safely. When ready, you can make a revision current and replace your current API. 
+# Tutorial: Use revisions to make non-breaking API changes safely
+When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. 
+
+In Azure API Management, use *revisions* to make non-breaking API changes so you can model and test changes safely. When ready, you can make a revision current and replace your current API. 
 
 For background, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) and [API Versioning with Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
@@ -38,7 +40,7 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
 1. Select **APIs**.
-2. Select **Demo Conference API** from the API list (or other API to which you want to add revisions).
+2. Select **Demo Conference API** from the API list (or another API to which you want to add revisions).
 3. Select the **Revisions** tab.
 4. Select **+ Add revision**.
 
@@ -89,7 +91,7 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 1. Select **Developer portal** from the top menu.
 1. In the developer portal, select **APIs**, and then select **Demo Conference API**.
 1. Notice your new **test** operation is now available.
-1. Click on **Changelog** near the API name.
+1. Select **Changelog** near the API name.
 1. Notice that your change log entry appears in this list.
 
 ## Next steps
