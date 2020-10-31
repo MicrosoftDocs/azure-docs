@@ -24,14 +24,15 @@ The Troubleshooting Report allows you to easily diagnose common problems that ca
 
 |Step | Error message | Possible cause |
 |-----|---------------|----------------|
-| Connection reuse | n/a | Usually dependent on a previously established connection meaning the web test step is dependent. So there would be no DSN connection or SSL step required. |
+| Connection reuse | n/a | Usually dependent on a previously established connection meaning the web test step is dependent. So there would be no DNS, connection or SSL step required. |
+| DNS resolution | The remote name could not be resolved: "your URL" | THe DNS resolution process failed, most likely due to misconfigured DNS records or temporary DNS server failures. |
 | Connection establishment | A connection attempt failed because the connected party did not properly respond after a period of time. | In general, it means your server is not responding to the HTTP request. A common cause is that our test agents are being blocked by a firewall on your server. If you would like to test within an Azure Virtual Network, you should add the Availability service tag to your environment.|
 | SSL handshakes | The client and server cannot communicate because they do not possess a common algorithm.| SSL version is not supported. Only TLS 1.0, 1.1, and 1.2 are supported. SSLv3 is not supported. |
-| Receiving response body | Unable to read data from the transport connection: The connection was closed. | Your server committed a protocol error in the response header or response body. For example, Connection closed by your server when the response is not fully read or the chunk size is wrong in chunked response body. |
-| Receiving response header | Unable to read data from the transport connection. The connection was closed. | Your server committed a protocol error in the response header or response body. For example, Connection closed by your server when the response is not fully read or the chunk size is wrong in chunked response body. |
-| Redirect limit validation | This webpage has too many redirects. This loop will be terminated here since this request exceeded the limit for auto redirects. | There's a limit of 100 requests per test. The test is stopped if it runs longer than the set timeout. |
+| Receiving response header | Unable to read data from the transport connection. The connection was closed. | Your server committed a protocol error in the response header. For example, connection closed by your server when the response is not fully. |
+| Receiving response body | Unable to read data from the transport connection: The connection was closed. | Your server committed a protocol error in response body. For example, Connection closed by your server when the response is not fully read or the chunk size is wrong in chunked response body. |
+| Redirect limit validation | This webpage has too many redirects. This loop will be terminated here since this request exceeded the limit for auto redirects. | There's a limit of 10 redirects per test. |
 | Status code validation | `200 - OK` does not match the expected status `400 - BadRequest`. | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned. |
-| Content validation | The required text 'hello' did not appear in the response. | The string is not an exact case-sensitive match in every response, for example the string "Welcome!". It must be a plain string, without wildcard characters (for example an asterisk). If your page content changes you might have to update the string. Only English characters are supported with content match. |
+| Content validation | The required text 'hello' did not appear in the response. | The string is not an exact case-sensitive match in the response, for example the string "Welcome!". It must be a plain string, without wildcard characters (for example an asterisk). If your page content changes you might have to update the string. Only English characters are supported with content match. |
   
 ## Common troubleshooting questions
 
@@ -41,7 +42,7 @@ The Troubleshooting Report allows you to easily diagnose common problems that ca
 
    * To reduce odds of noise from transient network blips etc., ensure Enable retries for test failures configuration is checked. You can also test from more locations and manage alert rule threshold accordingly to prevent location-specific issues causing undue alerts.
 
-   * Click on any of the red dots from the Availability experience, or any availability failure from the Search explorer to see the details of why we reported the failure. The test result, along with the correlated server-side telemetry (if enabled) should help understand why the test failed. Common causes of transient issues are network or connection issues.
+   * Click on any of the red dots from the Availability scatter plot experience experience, or any availability failure from the Search explorer to see the details of why we reported the failure. The test result, along with the correlated server-side telemetry (if enabled) should help understand why the test failed. Common causes of transient issues are network or connection issues.
 
    * Did the test time-out? We abort tests after 2 minutes. If your ping or multi-step test takes longer than 2 minutes, we will report it as a failure. Consider breaking the test into multiple ones that can complete in shorter durations.
 
