@@ -27,11 +27,17 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Sign in to Azure
+## Create a resource group
 
-Sign in to the Azure portal at https://portal.azure.com.
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+
+```azurepowershell
+New-AzResourceGroup -Name 'CreateSQLEndpointTutorial-rg' -Location 'eastus'
+```
 
 ## Create a virtual network and bastion host
 
@@ -39,155 +45,207 @@ In this section, you'll create a virtual network, subnet, and bastion host.
 
 The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+Create a virtual network and bastion host with:
 
-2. In **Create virtual network**, enter or select this information in the **Basics** tab:
+* [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
+* [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
+* [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **CreateSQLEndpointTutorial-rg** |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US** |
+```azurepowershell
+## Create backend subnet config. ##
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.0.0.0/24
 
-3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+## Create Azure Bastion subnet. ##
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.1.0/24
 
-4. In the **IP Addresses** tab, enter this information:
+## Create the virtual network. ##
+$parameters1 = @{
+    Name = 'MyVNet'
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    Location = 'eastus'
+    AddressPrefix '10.0.0.0/16'
+    Subnet = $subnetConfig, $bastsubnetConfig
+}
+$vnet = New-AzVirtualNetwork @parameters1
 
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
+## Create public IP address for bastion host. ##
+$parameters2 = @{
+    Name = 'myBastionIP'
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+}
+$publicip = New-AzPublicIpAddress @parameters2
 
-5. Under **Subnet name**, select the word **default**.
+## Create bastion host ##
+$parameters3 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    Name = 'myBastion'
+    PublicIpAddress = $publicip
+    VirtualNetwork = $vnet
+}
+New-AzBastion -ResourceGroupName @parameters3
+```
 
-6. In **Edit subnet**, enter this information:
+It can take a few minutes for the Azure Bastion host to deploy.
 
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
-
-7. Select **Save**.
-
-8. Select the **Security** tab.
-
-9. Under **BastionHost**, select **Enable**. Enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
-
-8. Select the **Review + create** tab or select the **Review + create** button.
-
-9. Select **Create**.
-
-## Create a virtual machine
+## Create test virtual machine
 
 In this section, you'll create a virtual machine that will be used to test the private endpoint.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
-   
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+Create the virtual machine with:
 
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **CreateSQLEndpointTutorial** |
-    | **Instance details** |  |
-    | Virtual machine name | Enter **myVM** |
-    | Region | Select **East US** |
-    | Availability Options | Select **No infrastructure redundancy required** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1** |
-    | Azure Spot instance | Select **No** |
-    | Size | Choose VM size or take default setting |
-    | **Administrator account** |  |
-    | Username | Enter a username |
-    | Password | Enter a password |
-    | Confirm password | Reenter password |
+  * [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)
+  * [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) 
+  * [New-AzVM](/powershell/module/az.compute/new-azvm)
+  * [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
+  * [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
+  * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
+  * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
-  
-4. In the Networking tab, select or enter:
+```azurepowershell
+## Set credentials for SQL server admin and password. ##
+$cred = Get-Credential
 
-    | Setting | Value |
-    |-|-|
-    | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **mySubnet** |
-    | Public IP | Select **None**. |
-    | NIC network security group | **Basic**|
-    | Public inbound ports | Select **None**. |
-   
-5. Select **Review + create**. 
-  
-6. Review the settings, and then select **Create**.
+## Command to get virtual network configuration. ##
+$vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName CreateSQLEndpointTutorial-rg
 
-## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
+## Command to create network interface for VM ##
+$parameters1 = @{
+    Name = 'myNicVM'
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    Location = 'eastus'
+    Subnet = $vnet.Subnets[0]
+}
+$nicVM = New-AzNetworkInterface @parameters1
 
-In this section, you'll create a SQL server in Azure. 
+## Create a virtual machine configuration. $cred and $nicVM1 are variables with configuration from the previous steps. ##
+$vmConfig = New-AzVMConfig -VMName 'myVM' -VMSize 'Standard_DS1_v2'
+$vmConfig = Set-AzVMOperatingSystem -Windows -ComputerName 'myVM' -Credential $cred
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL database**.
+$parameters2 = @{
+    PublisherName = 'MicrosoftWindowsServer'
+    Offer = 'WindowsServer'
+    Skus = '2019-Datacenter'
+    Version = 'latest'
+}
+$vmConfig = Set-AzVMSourceImage @parameters2
+$vmConfig = Add-AzVMNetworkInterface -Id $nicVM.Id
 
-1. In the **Basics** tab of **Create SQL database**, enter, or select this information:
+## Create the virtual machine ##
+New-AzVM -ResourceGroupName CreateSQLEndpointTutorial-rg -Location 'eastus' -VM $vmConfig
+```
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** | |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **CreateSQLEndpointTutorial**. You created this resource group in the previous section.|
-    | **Database details** |  |
-    | Database name  | Enter **mysqldatabase**. If this name is taken, create a unique name. |
-    | Server | Select **Create new**. |
+## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server
 
-6. In **New server**, enter or select this information:
+In this section, you'll create a SQL server and database using:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Server name  | Enter **mysqlserver**. If this name is taken, create a unique name.|
-    | Server admin login | Enter an administrator name of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
-    | Location | Select **East US** |
-    
-7. Select **OK**.
+* [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)
+* [New-AzSQlDatabase](/powershell/module/az.sql/new-azsqldatabase)
 
-8. Select the **Networking** tab or select the **Next: Networking** button.
+Create SQL server and database. Replace **\<sql-server-name>** with your unique server name:
 
-9. In the **Networking** tab, enter or select this information:
+```azurepowershell
+## Set and administrator and password for the SQL server. ##
+$cred = Get-Credential
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **Network connectivity** | |
-    | Connectivity method | Select **Private endpoint**. |
-   
-10. Select **+ Add private endpoint** in **Private endpoints**.
+## Create SQL server ##
+$parameters1 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    ServerName = '<sql-server-name>'
+    SqlAdministratorCredentials = $cred
+    Location = 'eastus'
+}
+New-AzSqlServer @parameters1
 
-11. In **Create private endpoint**, enter or select this information:
+## Create database. ##
+$parameters2 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    ServerName = '<sql-server-name>'
+    RequestedServiceObjectiveName = 'S0'
+    -SampleName = "AdventureWorksLT"
+}
+New-AzSqlDatabase @parameters2
+```
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **CreateSQLEndpointTutorial**. |
-    | Location | Select **East US**. |
-    | Name | Enter **myPrivateSQLendpoint**. |
-    | Target sub-resource | Select **SQLServer**. |
-    | **Networking** |  |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **mySubnet**. |
-    | **Private DNS integration** | |
-    | Integrate with private DNS zone | Leave the default **Yes**. |
-    | Private DNS Zone | Leave the default **(New) privatelink.database.windows.net**. |
+## Create private endpoint
 
-12. Select **OK**. 
+In this section you'll create the private endpoint and connection using:
 
-13. Select **Review + create**.
+* [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
+* [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
-14. Select **Create**.
+```azurepowershell
+## Place SQL server into variable. Replace <sql-server-name> with your server name ##
+$server = Get-AzSqlServer -ResourceGroupName CreateSQLEndpointTutorial-rg -ServerName <sql-server-name>
+
+## Create private endpoint connection. ##
+$parameters1 = @{
+    Name = 'myConnection'
+    PrivateLinkServiceId = $server.ResourceID
+    GroupID = 'sqlserver'
+}
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection @parameters1
+
+## Place virtual network into variable. ##
+$vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Name 'myVNet'
+
+## Create private endpoint
+$parameters2 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    Name = 'myPrivateEndpoint'
+    Location = 'eastus'
+    Subnet = $vnet.Subnets[0]
+    PrivateLinkServiceConnection = $privateEndpointConnection
+}
+New-AzPrivateEndpoint @parameters2
+```
+## Configure the private DNS zone
+
+In this section you'll create and configure the private DNS zone using:
+
+* [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
+* [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
+* [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig)
+* [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup)
+
+```azurepowershell
+## Place virtual network into variable. ##
+$vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Name 'myVNet'
+
+## Create private dns zone. ##
+$parameters1 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    Name = 'privatelink.database.windows.net'
+}
+$zone = New-AzPrivateDnsZone @parameters1
+
+## Create dns network link. ##
+$parameters2 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    ZoneName = 'privatelink.database.windows.net'
+    Name = 'myLink'
+    VirtualNetworkId = $vnet.Id
+}
+$link = New-AzPrivateDnsVirtualNetworkLink @parameters2
+
+## Create DNS configuration ##
+$parameters3 = @{
+    Name = 'privatelink.database.windows.net'
+    PrivateDnsZoneId = $zone.ResourceId
+}
+$config = New-AzPrivateDnsZoneConfig @parameters3
+
+## Create DNS zone group. ##
+$parameters4 = @{
+    ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
+    PrivateEndpointName = 'myPrivateEndpoint'
+    Name = 'myZoneGroup'
+    PrivateDnsZoneConfig = $config
+}
+New-AzPrivateDnsZoneGroup @parameters4
+```
 
 ## Test connectivity to private endpoint
 
@@ -195,7 +253,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
-2. Select **CreateSQLEndpointTutorial**.
+2. Select **CreateSQLEndpointTutorial-rg**.
 
 3. Select **myVM**.
 
