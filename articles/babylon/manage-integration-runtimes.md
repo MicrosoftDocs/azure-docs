@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ---
 
-# Create and manage a self-hosted integration runtime for scanning
+# Create and manage a self-hosted integration runtime (SHIR) for scanning
 
 ## Prerequisites
 
-1. **Create a new Babylon account (or create date more recent than 9/15/2020). This capability is currently not available on older Babylon accounts and will be available by 10/9/2020.**
+> [!Note]
+> The features in this article require a Babylon account created after 9/15/2020.
 
 ### Feature Flag
 
-To create and manage an SHIR, please append the following to your URL: ?feature.ext.datasource={%22sqlServer%22:%22true%22}
+To create and manage an SHIR, please append the following to your URL: `?feature.ext.datasource={%22sqlServer%22:%22true%22}`
 
 E.g. full URL https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServer%22:%22true%22}
 
@@ -25,21 +26,21 @@ E.g. full URL https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServe
 
 1. On the home page of Babylon Studio, select Management Center from the leftmost navigation pane.
 
-    ![Navigate to management center](media/manage-integration-runtimes/image1.png)
+    :::image type="content" source="media/manage-integration-runtimes/image1.png" alt-text="Navigate to management center.":::
 
 2. Select Integration runtimes on the left pane, and then select +New.
 
-    ![click on IR](media/manage-integration-runtimes/image2.png)
+    :::image type="content" source="media/manage-integration-runtimes/image2.png" alt-text="click on IR.":::
 
 3. On the Integration runtime setup page, select Self-Hosted to create a Self-Hosted IR, and then select Continue.
 
-    ![create new SHIR](media/manage-integration-runtimes/image3.png)
+    :::image type="content" source="media/manage-integration-runtimes/image3.png" alt-text="create new SHIR.":::
 
 4. Enter a name for your IR, and select Create.
 
-5. On the Integration runtime settings page, follow the steps under Manual setup section. You will have to download the integration runtime from the download site onto a VM or machine where you intend to run it.
+5. On the Integration Runtime settings page, follow the steps under Manual setup section. You will have to download the integration runtime from the download site onto a VM or machine where you intend to run it.
 
-    ![get key](media/manage-integration-runtimes/image4.png)
+    :::image type="content" source="media/manage-integration-runtimes/image4.png" alt-text="get key":::
 
     a. Copy and paste the authentication key.
         
@@ -47,23 +48,24 @@ E.g. full URL https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServe
         
     c. On the Register Integration Runtime (Self-hosted) page, paste one of the 2 keys you saved earlier, and select Register.
 
-    ![input key](media/manage-integration-runtimes/image5.png)
+    :::image type="content" source="media/manage-integration-runtimes/image5.png" alt-text="input key.":::
 
     d. On the New Integration Runtime (Self-hosted) Node page, select Finish.
 
 6. After the self-hosted integration runtime is registered successfully, you see the following window:
 
-    ![successfully registered](media/manage-integration-runtimes/image6.png)
+    :::image type="content" source="media/manage-integration-runtimes/image6.png" alt-text="successfully registered.":::
 
 ## Manage a self-hosted integration runtime
 
 You can edit a self-hosted integration runtime by navigating to 'integration runtimes' in the management center, selecting the IR and then clicking on edit. You can now update the description, copy the key or regenerate new keys.
 
-![edit IR](media/manage-integration-runtimes/image7.png)
+:::image type="content" source="media/manage-integration-runtimes/image7.png" alt-text="edit IR.":::
 
-![edit IR details](media/manage-integration-runtimes/image8.png)
+:::image type="content" source="media/manage-integration-runtimes/image8.png" alt-text="edit IR details.":::
 
-You can delete a self-hosted integration runtime by navigating to 'integration runtimes' in the management center, selecting the IR and then clicking on delete.
+You can delete a self-hosted integration runtime by navigating to 'integration runtimes' in the management center, selecting the IR and then clicking on **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
 
-> [!NOTE]
-> If scans are using this IR, then they will fail.
+## Next steps
+
+* [How scans detect deleted assets](concept-detect-deleted-assets.md)
