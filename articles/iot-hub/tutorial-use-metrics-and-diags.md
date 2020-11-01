@@ -60,7 +60,7 @@ These are the required steps.
 
 3. Create a Log Analytics workspace.
 
-4. Register a device identity for the simulated device that sends messages to your hub. Save the device connection string to use to configure the simulated device.
+4. Register a device identity for the simulated device that sends messages to your IoT hub. Save the device connection string to use to configure the simulated device.
 
 ### Set up resources using Azure CLI
 
@@ -138,19 +138,19 @@ To create a diagnostic setting to send IoT Hub logs to Azure Monitor Logs, follo
 
 1. First, if you're not already on your hub in the portal, select **Resource groups** and select the resource group ContosoResources. Select your IoT hub from the list of resources displayed.
 
-1. Look for the **Monitoring** section in the IoT Hub blade. Select **Diagnostic settings**.
+1. Look for the **Monitoring** section in the IoT Hub blade. Select **Diagnostic settings**. Then select **Add diagnostic setting**.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png" alt-text="Screenshot that highlights Diagnostic settings in the Monitoring section.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/open-diagnostic-settings.png" alt-text="Screenshot that highlights Diagnostic settings in the Monitoring section.":::
 
-1. Now select **Add diagnostic setting**. The **Diagnostics setting** pane is displayed. Give your setting a descriptive name, such as "connections-and-telemetry-to-logs".
+1. On the **Diagnostics setting** pane, give your setting a descriptive name, such as "Send connections and telemetry to logs".
 
-1. Under **log**, select **Connections** and **Device Telemetry**.
+1. Under **Category details**, select **Connections** and **Device Telemetry**.
 
 1. Under **Destination details**, select **Send to Log Analytics**, then use the Log Analytics workspace picker to select the workspace you noted previously. When you're finished, the diagnostic setting should look similar to the following:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Screenshot showing the final diagnostic log settings.":::
 
-1. Select **Save** to save the settings. Close the Diagnostics settings pane.
+1. Select **Save** to save the settings. Close the **Diagnostics setting** pane. You can see your new setting in the list of diagnostic settings.
 
 ## Set up metrics
 
@@ -160,23 +160,23 @@ Now we'll use metrics explorer to create a chart that displays some metrics you 
 
 1. At the top of the screen, select **Last 24 hours (Automatic)**. In the dropdown that appears, select **Last 4 hours** for **Time range**, set **Time granularity** to **1 minute**, and select **Local** for **Show time as**. Select **Apply** to save these settings. The setting should now say **Local Time: Last 4 hours (1 minute)**.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png" alt-text="Screenshot showing the metrics time settings.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Screenshot showing the metrics time settings.":::
 
 1. On the chart, there is a partial metric setting displayed scoped to your IoT hub. Leave the **Scope** and **Metric Namespace** values at their defaults. Select the **Metric** setting and type "Telemetry", then select **Telemetry messages sent** from the dropdown. **Aggregation** will be automatically set to **Sum**. Notice that the title of your chart also changes.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png" alt-text="Screenshot showing adding a metric for telemetry messages sent.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Screenshot showing adding a metric for telemetry messages sent.":::
 
 1. Now select **Add metric** to add another metric to the chart. Under **Metric**, select **Total number of messages used**. **Aggregation** will be automatidally set to **Avg**. Notice again that the title of the chart has changed to include this metric.
 
    Now your screen shows the minimized metric for *Telemetry messages sent*, plus the new metric for *Total number of messages used*.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
 
 1. In the upper-right of the chart, select **Pin to dashboard**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
 
-1. On the **Pin to dashboard** pane, select the **Existing** tab. Select **Private** and then select **Dashboard** from the dropdown to select your default dashboard in Azure portal. Finally, select **Pin** to pin the chart. If you don't pin your chart to a dashboard, your settings are not retained when you exit metric explorer.
+1. On the **Pin to dashboard** pane, select the **Existing** tab. Select **Private** and then select **My Dashboard** from the Dashboard dropdown. Finally, select **Pin** to pin the chart to your default dashboard in Azure portal. If you don't pin your chart to a dashboard, your settings are not retained when you exit metric explorer.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/pin-to-dashboard.png" alt-text="Screenshot that shows settings for Pin to dashboard.":::
 
@@ -196,7 +196,12 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
     :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-pane.png" alt-text="Screenshot showing the Create alert rule pane.":::
 
-    On the **Create alert rule** pane, there are four sections: **Scope** is already set to your IoT hub, so we'll leave this one alone. **Condition** sets the signal and conditions that will trigger the alert. **Actions** will determine what happens when the alert triggers. Finally **Alert rule details** lets you create a name and a description for the alert.
+    On the **Create alert rule** pane, there are four sections:
+
+    * **Scope** is already set to your IoT hub, so we'll leave this one alone.
+    * **Condition** sets the signal and conditions that will trigger the alert.
+    * **Actions** configures what happens when the alert triggers.
+    * **Alert rule details** lets you set a name and a description for the alert.
 
 1. First configure the condition that the alert will trigger on.
 
@@ -244,15 +249,21 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
     1. (Optional) If you select the **Actions** tab, and then select the **Action type** dropdown, you can see the kinds of actions that you can trigger with an alert. For this article we will only use notifications, so you can ignore these.
 
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/action-types.png" alt-text="Screenshot showing action types available on the Actions pane.":::
+
     1. Select the **Review and Create** tab, verify your settings, and select **Create**.
 
-    1. Back on the **Select an action group to attach to this alert rule** pane, select your new action group from the list, then click **Select**.  
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-review-and-create.png" alt-text="Screenshot showing Review and Create pane.":::
+
+    1. Back on the **Select an action group to attach to this alert rule** pane, notice that your new action group has been added.  
 
 1. Finally configure the alert rule details and save the alert.
 
-    1. On the **Select an action group to attach to this alert rule** pane, under Alert rule details, enter a name and a description for your alert. Make sure that **Enable alert rule upon creation** is checked.
+    1. On the **Select an action group to attach to this alert rule** pane, under Alert rule details, enter a name and a description for your alert; for example, "Alert if more than 1000 messages over 5 minutes". Make sure that **Enable alert rule upon creation** is checked.
 
-    1. Select **Create alert rule** to save your new rule. 
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-final.png" alt-text="Screenshot showing completed Create alert rule pane.":::
+
+    1. Select **Create alert rule** to save your new rule.
 
 1. Now set up another alert for the *Total number of messages used*. This metric is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages. Follow the steps you did before, with the following differences.
 
@@ -264,7 +275,7 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
        **Operator**: *Greater than*.
 
-       **Aggregation type**: *Max*.
+       **Aggregation type**: *Maximum*.
 
        **Threshold value**: 4000.
 
@@ -276,13 +287,13 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
     * When you specify the action for your alert rule, just select the action group you created previously.
 
-    * For the alert details, choose a different name and description than you did previously and select **Create alert rule**.
+    * For the alert details, choose a different name and description than you did previously.
 
-1. You should now see two alerts in the alerts pane:
+1. Select **Alerts**, under **Monitoring** on the left pane of your IoT hub. Now select **Manage alert rules** on the menu at the top of the **Alerts** pane. The **Rules** pane opens. You should now see your two alerts:
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/12-alerts-done.png" alt-text="Screenshot showing classic alerts screen with the new alert rules.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/rules-management.png" alt-text="Screenshot showing the Rules pane with the new alert rules.":::
 
-1. Close the alerts pane.
+1. Close the **Rules** pane.
 
 With these settings, an alert will trigger and you'll get an email notification when more than 1000 messages are sent within a 5 minute time span and also when the total number of messages used exceeds 4000 (50% of the daily quota for an IoT hub in the free tier).
 
@@ -322,11 +333,11 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
     ![Run the simulated device](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
-Let the application run for at least 10-15 minutes. Ideally, let it run until it stops sending messages (about 20-30 minutes). This will happen when you've exceeded the daily message quota for your IoT hub, and it has stopped receiving any more messages.
+Let the application run for at least 10-15 minutes. Ideally, let it run until it stops sending messages (about 20-30 minutes). This will happen when you've exceeded the daily message quota for your IoT hub, and it has stopped accepting any more messages.
 
 ## View metrics in the Azure portal dashboard
 
-1. In the upper-left corner of  Azure portal, open the portal menu, and then select **Dashboard**.
+1. In the upper-left corner of Azure portal, open the portal menu, and then select **Dashboard**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/select-dashboard.png" alt-text="Screenshot how to select your dashboard.":::
 
@@ -364,17 +375,17 @@ In [Collect logs for connections and device telemetry](#collect-logs-for-connect
 
 ## Clean up resources
 
-To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**. Be sure to save your changes after doing this. 
+To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove those manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command. 
 
 ```azurecli-interactive
-az group delete --name $resourceGroup
+az group delete --name ContosoResources
 ```
 
 ## Next steps
 
-In this tutorial, you learned how to use metrics and diagnostic logs by performing the following tasks:
+In this tutorial, you learned how to use IoT Hub metrics and logs by performing the following tasks:
 
 > [!div class="checklist"]
 >
