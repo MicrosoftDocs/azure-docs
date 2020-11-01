@@ -286,11 +286,11 @@ In this section, you'll use the virtual machine you created in the previous step
 
     Non-authoritative answer:
     Name:    mysqlserver8675.privatelink.database.windows.net
-    Address:  10.1.0.5
+    Address:  10.0.0.5
     Aliases:  mysqlserver8675.database.windows.net
     ```
 
-    A private IP address of **10.1.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.0.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
 
 
 9. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
@@ -309,9 +309,9 @@ In this section, you'll use the virtual machine you created in the previous step
     | Remember password | Select **Yes**. |
 
 1. Select **Connect**.
-2. Browse databases from left menu.
+2. Browse databases from the left menu.
 3. (Optionally) Create or query information from **mysqldatabase**.
-4. Close the remote desktop connection to **myVM**. 
+4. Close the bastion connection to **myVM**. 
 
 ## Clean up resources 
 When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
