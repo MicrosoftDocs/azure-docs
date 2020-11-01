@@ -28,7 +28,17 @@ Below are some examples of the errors returned by Azure Attestation:
 Unauthorized
 
 ### Message
+User with Reader role trying to edit an attestation policy in PowerShell 
 
+  ```powershell
+  Set-AzAttestationPolicy : Operation returned HTTP Status Code 401
+At line:1 char:1
++ Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Set-AzAttestationPolicy], RestException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
+  ```
+  
 ### Scenarios
 Examples:
   - Attestation failure if the user is not assigned with Attestation Reader role
