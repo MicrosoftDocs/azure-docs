@@ -96,6 +96,37 @@ To verify the roles in PowerShell, please run below:
 
 If you don't find an appropriate role assignment in the list, follow the instructions in [here](/azure/role-based-access-control/role-assignments-powershell)
 
+## HTTP – 400 errors
+
+### HTTP status code
+400
+
+There are different reasons why a request may return 400. Below are some examples of errors returned by Azure Attestation APIs:
+
+**Attestation failure due to policy evaluation errors**
+Attestation policy includes authorization rules and issuance rules. Enclave evidence is evaluated based on the authorization rules. Issuance rules define the claims to be included in attestation token. If claims in enclave evidence do not comply with authorization rules, attest calls will return policy evaluation error. 
+
+2.1.1 Error code
+PolicyEvaluationError
+
+Examples
+Native operation failed with 65518: G:\Az\security\Attestation\src\AttestationServices\Instance\NativePolicyWrapper\NativePolicyEngine.cpp(168)\(null)!00007FF801762308: (caller: 00007FF80143DCC8) Exception(0) 83FFFFEE Policy Evaluation Error has occurred Msg:[Policy Engine Exception: A Deny claim was issued, authorization failed.]
+
+G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)\(null)!00007FF801739FF3: (caller: 00007FF801232801) LogHr(0) 83FFFFEE Policy Evaluation Error has occurred Msg:[Unhandled Enclave Exception: "Policy Evaluation Error has occurred"]
+
+
+
+
+Trouble shooting steps
+Users can evaluate enclave evidence against an SGX attestation policy before configuring the same.
+
+Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. Note that the MAA token generated when this field is present will be unsecured.
+
+See attestation policy examples
+(Note that examples will be updated with GA claims)
+
+
+
 ## Az.Attestation installation issues in PowerShell
 
 Unable to install Az or Az.Attestation modules in PowerShell
