@@ -5,7 +5,7 @@ author: rayne-wiselman
 ms.service: virtual-machines-windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/-1/2020
+ms.date: 11/01/2020
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Windows VMs to another Azure region.
