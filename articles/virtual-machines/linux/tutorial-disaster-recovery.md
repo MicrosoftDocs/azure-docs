@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     **Tag** | **Allow** | **Details**
     --- | --- | ---
     Storage tag | Allows data to be written from the VM to the cache storage account.
-    Azure AD tag | Allows acess to all IP addresses that correspond to Azure AD.
+    Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
     EventsHub tag | Allows access to Site Recovery monitoring.
     AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
     GuestAndHybridManagement | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
@@ -86,7 +86,7 @@ After the replication job finishes, you can check the VM replication status.
 
 1. Open the VM properties page.
 2. In **Operations**, select **Disaster recovery**.
-3. Expand the **Essentials** section to review defailts about the vault, replication policy, and target settings.
+3. Expand the **Essentials** section to review defaults about the vault, replication policy, and target settings.
 4. In **Health and status**, get information about replication state for the VM, the agent version, failover readiness, and the latest recovery points. 
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="Essentials view for VM disaster recovery.":::
