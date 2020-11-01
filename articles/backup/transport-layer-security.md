@@ -19,7 +19,7 @@ If the machine is running earlier versions of Windows, the corresponding updates
 |Windows Server 2008 R2, Windows 7, Windows Server 2012   | <https://support.microsoft.com/help/3140245>         |
 
 >[!NOTE]
->Without the following registry key changes, the update will install the required protocol components, but they won't be properly enabled.
+>The update will install the required protocol components. After installation, you must make the registry key changes mentioned in the KB articles above to properly enable the required protocols.
 
 ## Verify Windows registry
 
@@ -64,7 +64,7 @@ The highest protocol version supported by both the client and server is negotiat
 
 ### What is the impact of not enabling TLS 1.2?
 
-For improved security from protocol downgrade attacks, Azure Backup is switching to accept only TLS 1.2 traffic in a phased manner. This is part of Microsoft's long-term shift to refuse legacy protocol and cipher suite connections. Azure Backup services and components fully support TLS 1.2. However, Windows versions lacking required updates or customized configurations that prevent TLS 1.2 protocols being offered will cause failures including but not limited to one or more of the following:
+For improved security from protocol downgrade attacks, Azure Backup is beginning to disable TLS versions older than 1.2 in a phased manner. This is part of a long-term shift across services to disallow legacy protocol and cipher suite connections. Azure Backup services and components fully support TLS 1.2. However, Windows versions lacking required updates or certain customized configurations can still prevent TLS 1.2 protocols being offered. This can cause failures including but not limited to one or more of the following:
 
 - Backup and restore operations may fail.
 - Backup components connections failures with error 10054 (An existing connection was forcibly closed by the remote host).
