@@ -63,19 +63,19 @@ To verify the roles in PowerShell, please run below:
 
   You should see something like this:
 
-  RoleAssignmentId   :/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentId>
+  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
   
-  Scope              : /subscriptions/<subscriptionId>
+  Scope              : /subscriptions/subscriptionId
   
-  DisplayName        : <displayName>
+  DisplayName        : displayName
   
-  SignInName         : <signInName>
+  SignInName         : signInName
   
   RoleDefinitionName : Reader
   
-  RoleDefinitionId   : <RoleDefinitionId>
+  RoleDefinitionId   : roleDefinitionId
   
-  ObjectId           : <Objectid>
+  ObjectId           : objectid
   
   ObjectType         : User
   
