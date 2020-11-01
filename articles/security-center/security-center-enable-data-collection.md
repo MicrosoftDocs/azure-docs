@@ -24,7 +24,7 @@ Data is collected using:
 > [!TIP]
 > As Security Center has grown, the types of resources that can be monitored has also grown. The number of agents and extensions has also grown. Auto provisioning has expanded to support additional agents and resource types by leveraging the capabilities of Azure Policy.
 
-:::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="":::
+:::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Security Center's auto provisioning settings page":::
 
 
 ## Why use auto provisioning?
