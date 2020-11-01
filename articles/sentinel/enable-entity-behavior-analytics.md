@@ -37,7 +37,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 ## How to enable User and Entity Behavior Analytics
 
-1. From the Azure Sentinel navigation menu, select **Entity behavior (preview)**.
+1. From the Azure Sentinel navigation menu, select **Entity behavior**.
 
 1. Under the heading **Turn it on**, switch the toggle to **On**.
 
