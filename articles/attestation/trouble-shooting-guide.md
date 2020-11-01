@@ -24,10 +24,10 @@ Below are some examples of the errors returned by Azure Attestation:
 ### HTTP status code
 401
 
-### Error code
+#### Error code
 Unauthorized
 
-### Scenarios
+#### Scenarios
 Examples:
   - Attestation failure if the user is not assigned with Attestation Reader role
   - Unable to manage attestation policies as the user is not assigned with appropriate roles
@@ -45,7 +45,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
-### Troubleshooting steps
+#### Troubleshooting steps
 
 In order to view attestation policies/policy signers, an Azure AD user requires the permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
