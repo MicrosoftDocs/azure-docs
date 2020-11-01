@@ -27,6 +27,12 @@ Below are some examples of the errors returned by Azure Attestation:
 ### Error code
 Unauthorized
 
+### Scenarios
+Examples:
+  - Attestation failure if the user is not assigned with Attestation Reader role
+  - Unable to manage attestation policies as the user is not assigned with appropriate roles
+  - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
+  
 ### Message
 User with Reader role trying to edit an attestation policy in PowerShell 
 
@@ -38,12 +44,6 @@ At line:1 char:1
     + CategoryInfo          : CloseError: (:) [Set-AzAttestationPolicy], RestException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
-  
-### Scenarios
-Examples:
-  - Attestation failure if the user is not assigned with Attestation Reader role
-  - Unable to manage attestation policies as the user is not assigned with appropriate roles
-  - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
 
 ### Troubleshooting steps
 
@@ -73,6 +73,7 @@ To verify the roles in PowerShell, please run below:
 
   You should see something like this:
 
+  ```
   RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
   
   Scope              : /subscriptions/subscriptionId
@@ -91,6 +92,8 @@ To verify the roles in PowerShell, please run below:
   
   CanDelegate        : False
  
+  ```
+
 If you don't find an appropriate role assignment in the list, follow the instructions in 
 here
 
