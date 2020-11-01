@@ -21,8 +21,12 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> - The UEBA and Entity Pages features are now in **General Availability** in all Azure Sentinel geographies and regions, with the following exception:
-> - In the **United Kingdom**, **Canada**, **Asia Pacific**, and **Japan** geographies, these features remain for the time being in **public preview**, and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - The UEBA and Entity Pages features are now in **General Availability** in the following Azure Sentinel geographies:
+>    - United States
+>    - Europe (UEBA-generated data resides in the Europe West region)
+>    - Australia
+>
+> - In all other geographies, these features remain for the time being in **public preview**, and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 
