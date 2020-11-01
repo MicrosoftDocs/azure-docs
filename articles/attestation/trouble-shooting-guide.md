@@ -96,4 +96,46 @@ To verify the roles in PowerShell, please run below:
 
 If you don't find an appropriate role assignment in the list, follow the instructions in [here](/azure/role-based-access-control/role-assignments-powershell)
 
-## HTTP – 400
+## Az.Attestation installation issues in PowerShell
+
+Unable to install Az or Az.Attestation modules in PowerShell
+
+### Error
+
+WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2' 
+PackageManagement\Install-Package : No match was found for the specified search criteria and module name
+
+### Troubleshooting steps
+
+PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. 
+
+TLS 1.2 or a later version is recommended. 
+
+To continue to interact with the PowerShell Gallery, run the following command before the Install-Module commands
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+## Policy access/configuration issues in PowerShell
+
+User assigned with appropriate roles. But facing authorization issues while managing attestation policies through PowerShell.
+
+### Error
+The client with object id <object Id>  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/<subscriptionId>resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/<role assignmentId>’ or the scope is invalid. If access was recently granted, please refresh your credentials
+
+### Troubleshooting steps
+
+Minimum version of Az modules required to support attestation operations are the below: 
+
+ Az 4.5.0 
+ 
+ Az.Accounts 1.9.2  Az.Attestation 0.1.8 
+
+Run the below command to verify the installed version of all Az modules 
+
+```powershell
+Get-InstalledModule 
+```
+
+If the versions are not matching with the minimum requirement, run Update-Module commands
+
+e.g. - Update-Module -Name Az.Attestation
