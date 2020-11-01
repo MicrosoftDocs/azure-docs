@@ -12,7 +12,7 @@
     href: quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Authoring and signing an attestation policy
+  - name: Authoring an attestation policy
     href: author-sign-policy.md
   - name: SGX attestation code samples
     href: /samples/browse/?expanded=azure&terms=attestation
