@@ -15,7 +15,9 @@ ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 
 You can use Azure Monitor to collect metrics and logs for your IoT hub that can help you monitor the operation of your solution and troubleshoot problems when they occur. In this article, you'll see how to create charts based on metrics, how to create alerts that trigger on metrics, how to send IoT Hub operations and errors to Azure Monitor Logs, and how to check the logs for errors.
 
-This tutorial uses the Azure sample from the [.NET Send telemetry quickstart](quickstart-send-telemetry-dotnet.md) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.  
+This tutorial uses the Azure sample from the [.NET Send telemetry quickstart](quickstart-send-telemetry-dotnet.md) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
+
+Some familiarity with Azure Monitor concepts might be helpful before you begin this tutorial. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md). To learn more about the metrics and resource logs emitted by IoT Hub, see [Monitoring data reference](monitor-iot-hub-reference.md).
 
 In this tutorial, you perform the following tasks:
 
@@ -50,7 +52,7 @@ In this tutorial, you perform the following tasks:
 
 ## Set up resources
 
-For this tutorial, you need an IoT hub, a Log Analytics workspace, and a simulated IoT device. These resources can be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
+For this tutorial, you need an IoT hub, a Log Analytics workspace, and a simulated IoT device. These resources can be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then, when you've finished the tutorial, you can remove everything in one step by deleting the resource group.
 
 These are the required steps.
 
@@ -64,17 +66,19 @@ These are the required steps.
 
 ### Set up resources using Azure CLI
 
-Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. The new resources are created in the resource group *ContosoResources*. Some of the commands may take some time to execute.
+Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. Some of the commands may take some time to execute. The new resources are created in the resource group *ContosoResources*.
 
 The name for some resources must be unique across Azure. The script generates a random value with the `$RANDOM` function and stores it in a variable. For these resources, the script appends this random value to a base name for the resource, making the resource name unique.
 
-Only a single free IoT hub is permitted per subscription. If you already have a free IoT hub in your subscription, either delete it before running the script or modify the script to use it or a different IoT Hub edition.
+Only one free IoT hub is permitted per subscription. If you already have a free IoT hub in your subscription, either delete it before running the script or modify the script to use your free IoT hub or an IoT Hub that uses the standard or basic tier.
+
+The script prints the name of the IoT hub, the Log Analytics workspace, and the connection string for the device it registers. Be sure to note these down as you'll need them later in this article.
 
 ```azurecli-interactive
 
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
-# You need it to create the device identity. 
+# You need it to create the device identity.
 az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
@@ -134,7 +138,7 @@ az iot hub device-identity show-connection-string --device-id $iotDeviceName \
 
 IoT Hub emits resource logs for several categories of operation; however, for you to view these logs you must create a diagnostic setting to send them to a destination. One such destination is Azure Monitor Logs, which are collected in a Log Analytics workspace. IoT Hub resource logs are grouped into different categories. You can select which categories you want sent to Azure Monitor Logs in the diagnostic setting. In this article we'll collect logs for operations and errors that occur having to do with connections and device telemetry. For a full list of the categories supported for IoT Hub, see [IoT Hub resource logs](monitor-iot-hub-reference.md#resource-logs).
 
-To create a diagnostic setting to send IoT Hub logs to Azure Monitor Logs, follow these steps:
+To create a diagnostic setting to send IoT Hub resource logs to Azure Monitor Logs, follow these steps:
 
 1. First, if you're not already on your hub in the portal, select **Resource groups** and select the resource group ContosoResources. Select your IoT hub from the list of resources displayed.
 
@@ -154,7 +158,7 @@ To create a diagnostic setting to send IoT Hub logs to Azure Monitor Logs, follo
 
 ## Set up metrics
 
-Now we'll use metrics explorer to create a chart that displays some metrics you want to track. You'll pin this chart to your default dashboard in the Azure portal.
+Now we'll use metrics explorer to create a chart that displays metrics you want to track. You'll pin this chart to your default dashboard in the Azure portal.
 
 1. On the left pane of your IoT hub, select **Metrics** in the **Monitoring** section.
 
@@ -164,17 +168,17 @@ Now we'll use metrics explorer to create a chart that displays some metrics you 
 
 1. On the chart, there is a partial metric setting displayed scoped to your IoT hub. Leave the **Scope** and **Metric Namespace** values at their defaults. Select the **Metric** setting and type "Telemetry", then select **Telemetry messages sent** from the dropdown. **Aggregation** will be automatically set to **Sum**. Notice that the title of your chart also changes.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Screenshot showing adding a metric for telemetry messages sent.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Screenshot that shows adding Telemetry messages sent metric to chart.":::
 
 1. Now select **Add metric** to add another metric to the chart. Under **Metric**, select **Total number of messages used**. **Aggregation** will be automatidally set to **Avg**. Notice again that the title of the chart has changed to include this metric.
 
    Now your screen shows the minimized metric for *Telemetry messages sent*, plus the new metric for *Total number of messages used*.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Screenshot that shows adding Total number of messages used metric to chart.":::
 
 1. In the upper-right of the chart, select **Pin to dashboard**.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used-pin.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
 
 1. On the **Pin to dashboard** pane, select the **Existing** tab. Select **Private** and then select **Dashboard** from the Dashboard dropdown. Finally, select **Pin** to pin the chart to your default dashboard in Azure portal. If you don't pin your chart to a dashboard, your settings are not retained when you exit metric explorer.
 
@@ -184,13 +188,15 @@ Now we'll use metrics explorer to create a chart that displays some metrics you 
 
 Now we'll set up alerts to trigger on two metrics *Telemetry messages sent* and *Total number of messages used*.
 
-*Telemetry messages sent* is a good metric to monitor to track message throughput and avoid being throttled. For an IoT Hub in the free SKU, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5 minute period. In production, you could set the signal to a more significant value based on the SKU. tier, and number of units of your IoT hub.
+*Telemetry messages sent* is a good metric to monitor to track message throughput and avoid being throttled. For an IoT Hub in the free SKU, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5 minute period. In production, you could set the signal to a more significant value based on the tier. edition, and number of units of your IoT hub.
 
-*Total number of messages used* tracks the daily number of messages used. This number resets every day at 0:0:0 UTC. If you exceed your daily quota past a certain threshold, your IoT Hub will no longer be able to receive or send messages. For an IoT Hub in the free SKU, the daily message quota is 8000. We'll set up the alert to trigger if the total number of messages exceeds 50% of the quota. In practice, you would probably set this to a higher value. Again, the quota is dependent on the SKU, tier, and units for your IoT hub.
+*Total number of messages used* tracks the daily number of messages used. This metric resets every day at 00:00 UTC. If you exceed your daily quota past a certain threshold, your IoT Hub will no longer accept messages. For an IoT Hub in the free SKU, the daily message quota is 8000. We'll set up the alert to trigger if the total number of messages exceeds 50% of the quota. In practice, you'd probably set this to a higher value. The daily quota is dependent on the tier, edition, and number of units of your IoT hub.
 
-For more information about throttling and quota limits with IoT Hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+For more information about quota and throttling limits with IoT Hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
-1. Go to your IoT hub in the portal.
+To set up metric alerts:
+
+1. Go to your IoT hub in Azure portal.
 
 1. Under **Monitoring**, select **Alerts**. Then select **New alert rule**.  The **Create alert rule** pane opens.
 
@@ -209,7 +215,7 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
 
-    1. On the **Configure signal logic** pane, set or confirm the following fields (you can ignore the chart):
+    1. On the **Configure signal logic** pane, set or confirm the following fields under **Alert logic** (you can ignore the chart):
 
        **Threshold**:  *Static*.
 
@@ -265,7 +271,7 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
     1. Select **Create alert rule** to save your new rule.
 
-1. Now set up another alert for the *Total number of messages used*. This metric is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages. Follow the steps you did before, with the following differences.
+1. Now set up another alert for the *Total number of messages used*. This metric is useful if you want to send an alert when the number of messages used is approaching the daily quota for the IoT hub, at which point, the IoT hub will start rejecting messages. Follow the steps you did before, with the following differences.
 
     * For the signal on the **Configure signal logic** pane,  select **Total number of messages used**.
 
@@ -299,15 +305,19 @@ With these settings, an alert will trigger and you'll get an email notification 
 
 ## Run the simulated device app
 
-Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.  
+In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it. 
+
+> [!IMPORTANT]
+>
+> Alerts can take up to 10 minutes to be fully configured and enabled by IoT Hub. Wait at least 10 minutes between the time you configure your last alert and running the simulated device app.
 
 Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This link downloads a repo with several applications in it; the one you are looking for is in iot-hub/Quickstarts/simulated-device/.
 
-1. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
+1. In a local terminal window, navigate to the root folder of the solution. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 
 1. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    1. Replace the value of the `s_connectionString` variable with the device connection string you made a note of earlier.
+    1. Replace the value of the `s_connectionString` variable with the device connection string you noted when you ran the script to set up resources.
 
     1. In the `SendDeviceToCloudMessagesAsync` method, change the `Task.Delay` from 1000 to 1, which reduces the amount of time between sending messages from 1 second to .001 seconds. Shortening this delay increases the number of messages sent. (You will likely not get a message rate of 100 messages per second.)
 
@@ -363,20 +373,20 @@ Check your inbox for emails from Microsoft Azure. The subject line will describe
 
 ## View Azure Monitor Logs
 
-In [Collect logs for connections and device telemetry](#collect-logs-for-connections-and-device-telemetry), you created a diagnostic setting to send resource logs emitted by your IoT hub for connection and device telemetry operations to Azure Monitor Logs in a Log Analytics workspace. In this section you'll run a Kusto query against Azure Monitor Logs to observe any errors that occurred.
+In the [Collect logs for connections and device telemetry](#collect-logs-for-connections-and-device-telemetry) section, you created a diagnostic setting to send resource logs emitted by your IoT hub for connection and device telemetry operations to Azure Monitor Logs. In this section, you'll run a Kusto query against Azure Monitor Logs to observe any errors that occurred.
 
-1. Under **Monitoring** on your IoT hub in Azure portal, select **Logs**. Close the initial **Queries** window if it opens.
+1. Under **Monitoring** in the left pane of your IoT hub in Azure portal, select **Logs**. Close the initial **Queries** window if it opens.
 
 1. On the New Query pane, select the **Queries** tab and then expand **IoT Hub** to see the list of default queries.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/new-query-pane.png" alt-text="Screenshot of IoT Hub default queries.":::
 
-1. Select the *Error summary* query. The query appears in the Query editor pane. Select **Run** in the editory pane and observe the query results. Expand one of the rows to see details.
+1. Select the *Error summary* query. The query appears in the Query editor pane. Select **Run** in the editor pane and observe the query results. Expand one of the rows to see details.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/logs-errors.png" alt-text="Screenshot of the logs returned by the Errors summary query.":::
 
    > [!NOTE]
-   > If you don't see any errors, try running the *Recently connected devices* query to see log data.
+   > If you don't see any errors, try running the *Recently connected devices* query. This should return a row for the simulated device.
 
 ## Clean up resources
 
