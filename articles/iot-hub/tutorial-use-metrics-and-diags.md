@@ -176,13 +176,13 @@ Now we'll use metrics explorer to create a chart that displays some metrics you 
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
 
-1. On the **Pin to dashboard** pane, select the **Existing** tab. Select **Private** and then select **My Dashboard** from the Dashboard dropdown. Finally, select **Pin** to pin the chart to your default dashboard in Azure portal. If you don't pin your chart to a dashboard, your settings are not retained when you exit metric explorer.
+1. On the **Pin to dashboard** pane, select the **Existing** tab. Select **Private** and then select **Dashboard** from the Dashboard dropdown. Finally, select **Pin** to pin the chart to your default dashboard in Azure portal. If you don't pin your chart to a dashboard, your settings are not retained when you exit metric explorer.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/pin-to-dashboard.png" alt-text="Screenshot that shows settings for Pin to dashboard.":::
 
 ## Set up metric alerts
 
-Now we'll set up alerts to trigger on two metrics *Telemetry messages sent* and *Total number of messages used*. 
+Now we'll set up alerts to trigger on two metrics *Telemetry messages sent* and *Total number of messages used*.
 
 *Telemetry messages sent* is a good metric to monitor to track message throughput and avoid being throttled. For an IoT Hub in the free SKU, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5 minute period. In production, you could set the signal to a more significant value based on the SKU. tier, and number of units of your IoT hub.
 
@@ -255,11 +255,11 @@ For more information about throttling and quota limits with IoT Hub, see [Quotas
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-review-and-create.png" alt-text="Screenshot showing Review and Create pane.":::
 
-    1. Back on the **Select an action group to attach to this alert rule** pane, notice that your new action group has been added.  
+    1. Back on the **Create alert rule** pane, notice that your new action group has been added to the actions for the alert.  
 
-1. Finally configure the alert rule details and save the alert.
+1. Finally configure the alert rule details and save the alert rule.
 
-    1. On the **Select an action group to attach to this alert rule** pane, under Alert rule details, enter a name and a description for your alert; for example, "Alert if more than 1000 messages over 5 minutes". Make sure that **Enable alert rule upon creation** is checked.
+    1. On the **Create alert rule** pane, under Alert rule details, enter a name and a description for your alert; for example, "Alert if more than 1000 messages over 5 minutes". Make sure that **Enable alert rule upon creation** is checked. Your completed alert rule will look similar to this screenshot.
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-final.png" alt-text="Screenshot showing completed Create alert rule pane.":::
 
@@ -331,47 +331,52 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](media/quickstart-send-telemetry-dotnet/simulated-device.png)
+    :::image type="content" source="media/tutorial-use-metrics-and-diags/simulated-device-output.png" alt-text="Screenshot showing simulated device output.":::
 
 Let the application run for at least 10-15 minutes. Ideally, let it run until it stops sending messages (about 20-30 minutes). This will happen when you've exceeded the daily message quota for your IoT hub, and it has stopped accepting any more messages.
 
-## View metrics in the Azure portal dashboard
+## View metrics chart in the Azure portal dashboard
 
 1. In the upper-left corner of Azure portal, open the portal menu, and then select **Dashboard**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/select-dashboard.png" alt-text="Screenshot how to select your dashboard.":::
 
-1. Open your metrics from the Dashboard. Change the time values to *Last 30 minutes* with a time granularity of *1 minute*. It shows the telemetry messages sent and the total number of messages used on the chart, with the most recent numbers at the bottom of the chart.
+1. Find the chart you pinned earlier and click anywhere on the tile outside of the chart data to expand it. It shows the telemetry messages sent and the total number of messages used on the chart. The most recent numbers appear at the bottom of the chart. You can move the cursor in the chart to see the metric values for a specific times. You can also change the time value and granularity at the top of the chart to narrow down or expand the data to a time period of interest.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/13-metrics-populated.png" alt-text="Screenshot showing the metrics.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-on-dashboard-last-hour.png" alt-text="Screenshot showing the metrics chart.":::
 
 ## View the alerts
 
-Go back to alerts. (Select **Resource groups**, select *ContosoResources*, then select the hub *ContosoTestHub*.) In the properties page displayed for the hub, select **Alerts**, then **View classic alerts**.
+When the number of messages sent exceeds the limit, you start getting e-mail alerts. 
 
-When the number of messages sent exceeds the limit, you start getting e-mail alerts. To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings.
+THIS WAS NOT WORKING TODAY. IT WORKED YESTERDAY!!!!
+To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/14-alerts-firing.png" alt-text="Screenshot showing the alerts have fired.":::
 
-Select the alert for telemetry messages. It shows the metric result and a chart with the results. Also, the e-mail sent to warn you of the alert firing looks like this image:
+Select the alert for telemetry messages. It shows the metric result and a chart with the results.
+END OF NOT WORKING SECTION.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/15-alert-email.png" alt-text="Screenshot of the e-mail showing the alerts have fired.":::
+Check your inbox for emails from Microsoft Azure. The subject line will describe the alert that was triggered. For example, *Azure: Activated Severity: 3 Alert if more than 1000 messages over 5 minutes*. The body will look similar to the following image:
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/alert-mail.png" alt-text="Screenshot of the e-mail showing the alerts have fired.":::
 
 ## View Azure Monitor Logs
 
-In [Collect logs for connections and device telemetry](#collect-logs-for-connections-and-device-telemetry), you created a diagnostic setting to send resource logs emitted by your IoT hub for connection and device telemetry operations to Azure Monitor Logs in a Log Analytics workspace. In this section you'll run a of Kusto query against Azure Monitor Logs, to observe any errors that occurred.
+In [Collect logs for connections and device telemetry](#collect-logs-for-connections-and-device-telemetry), you created a diagnostic setting to send resource logs emitted by your IoT hub for connection and device telemetry operations to Azure Monitor Logs in a Log Analytics workspace. In this section you'll run a Kusto query against Azure Monitor Logs to observe any errors that occurred.
 
-1. Under **Monitoring** on your IoT hub in Azure portal, select **Logs**. Close the Queries window if it opens.
+1. Under **Monitoring** on your IoT hub in Azure portal, select **Logs**. Close the initial **Queries** window if it opens.
 
 1. On the New Query pane, select the **Queries** tab and then expand **IoT Hub** to see the list of default queries.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/new-query-pane.png" alt-text="Screenshot of IoT Hub default queries.":::
 
-1. Select the *Recently connected devices* query. The query appears in the pane. Select **Run** and observe the query results.
+1. Select the *Error summary* query. The query appears in the Query editor pane. Select **Run** in the editory pane and observe the query results. Expand one of the rows to see details.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png" alt-text="Screenshot of drilling down into the storage container to see the diagnostic logs.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/logs-errors.png" alt-text="Screenshot of the logs returned by the Errors summary query.":::
 
-1. If you let the simulated device app run until it stopped sending telemetry, you can view errors with the *Error summary* query.
+   > [!NOTE]
+   > If you don't see any errors, try running the *Recently connected devices* query to see log data.
 
 ## Clean up resources
 
