@@ -64,13 +64,21 @@ To verify the roles in PowerShell, please run below:
   You should see something like this:
 
   RoleAssignmentId   :/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentId>
+  
   Scope              : /subscriptions/<subscriptionId>
+  
   DisplayName        : <displayName>
+  
   SignInName         : <signInName>
+  
   RoleDefinitionName : Reader
+  
   RoleDefinitionId   : <RoleDefinitionId>
+  
   ObjectId           : <Objectid>
+  
   ObjectType         : User
+  
   CanDelegate        : False
  
 - If you don't find an appropriate role assignment in the list, follow the instructions in 
