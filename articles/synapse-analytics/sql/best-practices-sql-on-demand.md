@@ -63,7 +63,7 @@ The data types you use in your query affect performance. You can get better perf
 
 ## Check inferred data types
 
-[Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schemas. The cost of this convenience is that inferred data types are larger than the actual data types. This happens when there isn't enough information in the source files to make sure the appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length. So SQL on-demand infers it as varchar(8000).
+[Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schemas. The cost of this convenience is that inferred data types may be larger than the actual data types. This happens when there isn't enough information in the source files to make sure the appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length. So SQL on-demand infers it as varchar(8000).
 
 You can use [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) to check the resulting data types of your query.
 
