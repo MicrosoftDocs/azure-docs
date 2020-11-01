@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Enable disaster recovery for Windows VMs
 
-In this tutorial, you replicate an Azure Windows virtual machine (VM) to a secondary Azure region, using the Azure Site Recovery service. Site Recovery contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of VMs between Azure regions.
+In this tutorial, learn how to set up disaster recovery for an Azure virtual machine (VM) running Windows. You replicate VMs to a secondary Azure region, using the Azure Site Recovery service. Site Recovery contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of VMs between Azure regions.
 
 In this article, learn how to:
 
