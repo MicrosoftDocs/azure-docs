@@ -34,8 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
         - Write to an Azure managed disk.
-        - The  has permissions for these tasks.
-    - The Site Recovery Contributor built-in role, to manage Site Recovery operations in the vault. 
+     - The Site Recovery Contributor built-in role, to manage Site Recovery operations in the vault. 
 3. Check that the Linux VM is running a [supported operating system](../../site-recovery/azure-to-azure-support-matrix.md#linux).
 4. If VM outbound connections use a URL-based proxy, make sure it can access these URLs. Using an authenticated proxy isn't supported.
 
@@ -44,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Write data from the VM to the cache storage account in the source region. 
     Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs. 
     Replication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM communication with the Site Recovery service. 
-    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery monitoring and diagnostic data. 
+    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery for monitoring and diagnostic data. 
 
 4. If you're using network security groups (NSGs) to limit network traffic for VMs, create NSG rules that allow outbound connectivity (HTTPS 443) for the VM using these service tags (groups of IP addresses). Try out the rules on a test NSG first.
 
