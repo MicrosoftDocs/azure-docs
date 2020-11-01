@@ -69,6 +69,8 @@
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
       displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
+    - name: Use PowerShell to register and scan Power BI
+      href: powershell-register-scan-power-bi.md
     - name: Azure SQL DB with a firewall
       href: scan-sqlresource-firewall.md
       displayName: Register and scan Azure SQL DB with a firewall
@@ -78,6 +80,8 @@
     - name: Azure SQL Database Managed Instance
       href: register-scan-azure-sql-database-managed-instance.md
       displayName: Register and scan Azure SQL DB Managed Instance
+    - name: Use PowerShell to register and scan Power BI
+      href: powershell-register-scan-power-bi.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
       displayName: Register and scan Azure Synapse Analytics
