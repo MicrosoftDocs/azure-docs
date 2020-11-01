@@ -317,7 +317,7 @@ In this section, you'll use the virtual machine you created in the previous step
 When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
 1. Enter **CreateSQLEndpointTutorial-rg** in the **Search** box at the top of the portal and select **CreateSQLEndpointTutorial-rg** from the search results. 
 2. Select **Delete resource group**. 
-3. Enter CreateSQLEndpointTutorial for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+3. Enter **CreateSQLEndpointTutorial-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
