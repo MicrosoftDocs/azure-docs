@@ -14,16 +14,15 @@ ms.custom: mvc
 
 # Tutorial: Set up disaster recovery for Linux virtual machines
 
-In this tutorial, you replicate an Azure virtual machine (VM) to a secondary Azure region, using the Azure Site Recovery service. [Site Recovery](../../site-recovery/site-recovery-overview.md) contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of VMs between Azure regions.
 
-In this article, learn how to:
+This tutorial shows you how to set up disaster recovery for Azure VMs running Linux. In this article, learn how to:
 
 > [!div class="checklist"]
 > * Enable disaster recovery for a Linux VM
 > * Run a disaster recovery drill
 > * Stop replicating the VM after the drill
 
-When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. During replication, VM disk writes are send to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
+When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. During replication, VM disk writes are send to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to restore the VM in the target region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
