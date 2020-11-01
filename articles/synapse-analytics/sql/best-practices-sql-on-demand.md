@@ -56,7 +56,7 @@ The data types you use in your query affect performance. You can get better perf
 - Use the smallest data size that will accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
   - If all character column values are of fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
-  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
 - Use integer-based data types if possible. SORT, JOIN, and GROUP BY operations complete faster on integers than on character data.
 - If you're using schema inference, [check inferred data types](#check-inferred-data-types).
@@ -65,7 +65,7 @@ The data types you use in your query affect performance. You can get better perf
 
 [Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schemas. The cost of this convenience is that inferred data types may be larger than the actual data types. This happens when there isn't enough information in the source files to make sure the appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length. So SQL on-demand infers it as varchar(8000).
 
-You can use [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) to check the resulting data types of your query.
+You can use [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) to check the resulting data types of your query.
 
 The following example shows how you can optimize inferred data types. This procedure is used to show the inferred data types: 
 ```sql  
