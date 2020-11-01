@@ -63,7 +63,7 @@ $parameters1 = @{
     Name = 'MyVNet'
     ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
     Location = 'eastus'
-    AddressPrefix '10.0.0.0/16'
+    AddressPrefix = '10.0.0.0/16'
     Subnet = $subnetConfig, $bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @parameters1
@@ -85,7 +85,7 @@ $parameters3 = @{
     PublicIpAddress = $publicip
     VirtualNetwork = $vnet
 }
-New-AzBastion -ResourceGroupName @parameters3
+New-AzBastion @parameters3
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
@@ -120,21 +120,27 @@ $parameters1 = @{
 }
 $nicVM = New-AzNetworkInterface @parameters1
 
-## Create a virtual machine configuration. $cred and $nicVM1 are variables with configuration from the previous steps. ##
-$vmConfig = New-AzVMConfig -VMName 'myVM' -VMSize 'Standard_DS1_v2'
-$vmConfig = Set-AzVMOperatingSystem -Windows -ComputerName 'myVM' -Credential $cred
-
+## Create a virtual machine configuration.##
 $parameters2 = @{
+    VMName = 'myVM'
+    VMSize = 'Standard_DS1_v2'
+}
+$parameters3 = @{
+    ComputerName = 'myVM'
+    Credential = $cred
+}
+$parameters4 = @{
     PublisherName = 'MicrosoftWindowsServer'
     Offer = 'WindowsServer'
     Skus = '2019-Datacenter'
     Version = 'latest'
 }
-$vmConfig = Set-AzVMSourceImage @parameters2
-$vmConfig = Add-AzVMNetworkInterface -Id $nicVM.Id
+
+$vmConfig = 
+New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Set-AzVMSourceImage @parameters4 | Add-AzVMNetworkInterface -Id $nicVM.Id
 
 ## Create the virtual machine ##
-New-AzVM -ResourceGroupName CreateSQLEndpointTutorial-rg -Location 'eastus' -VM $vmConfig
+New-AzVM -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Location 'eastus' -VM $vmConfig
 ```
 
 ## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server
@@ -165,7 +171,7 @@ $parameters2 = @{
     ServerName = '<sql-server-name>'
     DatabaseName = 'mysqldatabase'
     RequestedServiceObjectiveName = 'S0'
-    -SampleName = "AdventureWorksLT"
+    SampleName = 'AdventureWorksLT'
 }
 New-AzSqlDatabase @parameters2
 ```
@@ -191,6 +197,10 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection @parameters1
 
 ## Place virtual network into variable. ##
 $vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Name 'myVNet'
+
+## Disable private endpoint network policy ##
+$vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled"
+$vnet | Set-AzVirtualNetwork
 
 ## Create private endpoint
 $parameters2 = @{
@@ -305,7 +315,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 ## Clean up resources 
 When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter **CreateSQLEndpointTutorial** in the **Search** box at the top of the portal and select **CreateSQLEndpointTutorial** from the search results. 
+1. Enter **CreateSQLEndpointTutorial-rg** in the **Search** box at the top of the portal and select **CreateSQLEndpointTutorial-rg** from the search results. 
 2. Select **Delete resource group**. 
 3. Enter CreateSQLEndpointTutorial for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
