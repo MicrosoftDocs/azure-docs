@@ -1,5 +1,4 @@
 ﻿---
-
 title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
 services: private-link
@@ -9,9 +8,7 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-
 ---
-
 # Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure PowerShell
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
@@ -104,6 +101,7 @@ Create the virtual machine with:
   * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
   * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
+
 ```azurepowershell-interactive
 ## Set credentials for server admin and password. ##
 $cred = Get-Credential
@@ -135,7 +133,6 @@ $parameters4 = @{
     Skus = '2019-Datacenter'
     Version = 'latest'
 }
-
 $vmConfig = 
 New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Set-AzVMSourceImage @parameters4 | Add-AzVMNetworkInterface -Id $nicVM.Id
 
@@ -143,7 +140,7 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 New-AzVM -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Location 'eastus' -VM $vmConfig
 ```
 
-## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server
+## Create an Azure SQL server
 
 In this section, you'll create a SQL server and database using:
 
@@ -266,19 +263,19 @@ In this section, you'll use the virtual machine you created in the previous step
  
 2. Select **Resource groups** in the left-hand navigation pane.
 
-2. Select **CreateSQLEndpointTutorial-rg**.
+3. Select **CreateSQLEndpointTutorial-rg**.
 
-3. Select **myVM**.
+4. Select **myVM**.
 
-4. On the overview page for **myVM**, select **Connect** then **Bastion**.
+5. On the overview page for **myVM**, select **Connect** then **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+6. Select the blue **Use Bastion** button.
 
-6. Enter the username and password that you entered during the virtual machine creation.
+7. Enter the username and password that you entered during the virtual machine creation.
 
-7. Open Windows PowerShell on the server after you connect.
+8. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL server you created in the previous steps.  You'll receive a message similar to what is displayed below:
+9. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL server you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
@@ -293,11 +290,11 @@ In this section, you'll use the virtual machine you created in the previous step
     A private IP address of **10.0.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
 
 
-9. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
+10. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
 
-10. Open **SQL Server Management Studio**.
+11. Open **SQL Server Management Studio**.
 
-4. In **Connect to server**, enter or select this information:
+12. In **Connect to server**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -308,15 +305,21 @@ In this section, you'll use the virtual machine you created in the previous step
     | Password | Enter the password you entered during server creation |
     | Remember password | Select **Yes**. |
 
-1. Select **Connect**.
-2. Browse databases from the left menu.
-3. (Optionally) Create or query information from **mysqldatabase**.
-4. Close the bastion connection to **myVM**. 
+13. Select **Connect**.
+
+14. Browse databases from the left menu.
+
+15. (Optionally) Create or query information from **mysqldatabase**.
+
+16. Close the bastion connection to **myVM**. 
 
 ## Clean up resources 
 When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
+
 1. Enter **CreateSQLEndpointTutorial-rg** in the **Search** box at the top of the portal and select **CreateSQLEndpointTutorial-rg** from the search results. 
+
 2. Select **Delete resource group**. 
+
 3. Enter **CreateSQLEndpointTutorial-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
