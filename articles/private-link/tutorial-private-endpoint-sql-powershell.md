@@ -35,7 +35,7 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name 'CreateSQLEndpointTutorial-rg' -Location 'eastus'
 ```
 
@@ -51,7 +51,7 @@ Create a virtual network and bastion host with:
 * [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 * [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
-```azurepowershell
+```azurepowershell-interactive
 ## Create backend subnet config. ##
 $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.0.0.0/24
 
@@ -104,7 +104,7 @@ Create the virtual machine with:
   * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
   * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-```azurepowershell
+```azurepowershell-interactive
 ## Set credentials for server admin and password. ##
 $cred = Get-Credential
 
@@ -152,7 +152,7 @@ In this section, you'll create a SQL server and database using:
 
 Create SQL server and database. Replace **\<sql-server-name>** with your unique server name:
 
-```azurepowershell
+```azurepowershell-interactive
 ## Set and administrator and password for the SQL server. ##
 $cred = Get-Credential
 
@@ -183,7 +183,7 @@ In this section you'll create the private endpoint and connection using:
 * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
-```azurepowershell
+```azurepowershell-interactive
 ## Place SQL server into variable. Replace <sql-server-name> with your server name ##
 $server = Get-AzSqlServer -ResourceGroupName CreateSQLEndpointTutorial-rg -ServerName <sql-server-name>
 
@@ -221,7 +221,7 @@ In this section you'll create and configure the private DNS zone using:
 * [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig)
 * [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup)
 
-```azurepowershell
+```azurepowershell-interactive
 ## Place virtual network into variable. ##
 $vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Name 'myVNet'
 
