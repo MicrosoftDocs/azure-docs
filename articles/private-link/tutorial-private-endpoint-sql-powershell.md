@@ -1,7 +1,7 @@
 ﻿---
 
 title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
-description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint using Azure PowerShell
+description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -178,7 +178,7 @@ New-AzSqlDatabase @parameters2
 
 ## Create private endpoint
 
-In this section you'll create the private endpoint and connection using:
+In this section, you'll create the private endpoint and connection using:
 
 * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
@@ -262,7 +262,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com) 
  
 2. Select **Resource groups** in the left-hand navigation pane.
 
