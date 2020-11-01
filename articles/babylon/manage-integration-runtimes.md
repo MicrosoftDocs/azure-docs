@@ -9,7 +9,9 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ---
 
-# Create and manage a self-hosted integration runtime (SHIR) for scanning
+# Create and manage a self-hosted integration runtime
+
+This article describes how to create and manage a self-hosted integration runtime (SHIR) to assist in scanning data sources.
 
 ## Prerequisites
 
@@ -44,7 +46,7 @@ To create and manage an SHIR, please append the following to your URL: `?feature
 
     a. Copy and paste the authentication key.
         
-    b. Download the self-hosted integration runtime from [here](https://www.microsoft.com/en-us/download/details.aspx?id=39717) on a local Windows machine. Run the installer.
+    b. Download the self-hosted integration runtime from [here](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine. Run the installer.
         
     c. On the Register Integration Runtime (Self-hosted) page, paste one of the 2 keys you saved earlier, and select Register.
 

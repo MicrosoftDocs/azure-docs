@@ -27,10 +27,10 @@ A typical data estate of a customer would involve systems doing data extraction,
 
 Following example is a typical use case of data moving across desperate systems, where data catalog would connect to each of the systems for lineage.
 
-1. Data Factory copies data from on-prem/raw zone to a landing zone in the cloud. 
-2. Data processing systems like Synapse, Databricks would process and transform data from landing zone to Curated zone using notebooks.
-3. Further processing of data into analytical models for optimal query performance and aggregation. 
-4. Data visualization systems will consume the datasets and process through their meta model to create a BI Dashboard, ML experiments and so on.
+- Data Factory copies data from on-prem/raw zone to a landing zone in the cloud. 
+- Data processing systems like Synapse, Databricks would process and transform data from landing zone to Curated zone using notebooks.
+- Further processing of data into analytical models for optimal query performance and aggregation. 
+- Data visualization systems will consume the datasets and process through their meta model to create a BI Dashboard, ML experiments and so on.
 
 ## Lineage granularity
 
@@ -38,13 +38,13 @@ This section covers the details about the granularity of which the lineage infor
 
 ###	Entity level lineage: Source(s) > Process > Target(s) 
 
-1. Lineage is represented as a graph, typically it contains source and target entities in Data storage systems that are connected by a process invoked by a compute system. 
-2. Data systems connect to the data catalog to generate and report a unique object referencing the physical object of the underlying data system for example: SQL Stored procedure, notebooks, and so on.
-3.	High fidelity lineage with additional metadata like ownership is captured to show the lineage in a human readable format for source & target entities. for example:  lineage at a hive table level instead of partitions or file level.
+- Lineage is represented as a graph, typically it contains source and target entities in Data storage systems that are connected by a process invoked by a compute system. 
+- Data systems connect to the data catalog to generate and report a unique object referencing the physical object of the underlying data system for example: SQL Stored procedure, notebooks, and so on.
+- High fidelity lineage with additional metadata like ownership is captured to show the lineage in a human readable format for source & target entities. for example:  lineage at a hive table level instead of partitions or file level.
 
 ### Column or attribute level lineage
 
-1. Identify attribute(s) of a source entity that is used to create or derive attribute(s) in the target entity. The name of the source attribute could be retained or renamed in a target. Systems like ADF can do a one-one copy from on-prem to cloud. For example: `Table1/ColumnA -> Table2/ColumnA`
+Identify attribute(s) of a source entity that is used to create or derive attribute(s) in the target entity. The name of the source attribute could be retained or renamed in a target. Systems like ADF can do a one-one copy from on-prem to cloud. For example: `Table1/ColumnA -> Table2/ColumnA`.
 
 ###	Process execution status
 
