@@ -570,7 +570,7 @@ Click the **Containers** tile. From there you'll see views organized by:
 
 Each area of the dashboard is a visual representation of a search that is run on collected data.
 
-![Containers dashboard](./media/containers/containers-dash01.png)
+![Screenshot that shows a dashboard to view the collected data. ](./media/containers/containers-dash01.png)
 
 ![Containers dashboard](./media/containers/containers-dash02.png)
 
@@ -595,9 +595,9 @@ Log Analytics marks a container as **Failed** if it has exited with a non-zero e
 2. Log Analytics opens and displays the state of your containers, similar to the following.  
    ![containers state](./media/containers/containers-log-search.png)
 3. Expand the Failed line and click + to add its criteria to the query. Then comment out the Summarize line in the query.
-   ![failed containers](./media/containers/containers-state-failed-select.png)  
+   ![Screenshot that shows the line that should be commented out.](./media/containers/containers-state-failed-select.png)  
 1. Run the query and then expand a line in the results to view the image ID.  
-   ![failed containers](./media/containers/containers-state-failed.png)  
+   ![Screenshot that shows how to view the image ID.](./media/containers/containers-state-failed.png)  
 1. Type the following in the log query. `ContainerImageInventory | where ImageID == <ImageID>` to see details about the image such as image size and number of stopped and failed images.  
    ![failed containers](./media/containers/containers-failed04.png)
 
