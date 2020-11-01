@@ -81,7 +81,7 @@ To verify the roles in PowerShell, please run below:
   
   CanDelegate        : False
  
-- If you don't find an appropriate role assignment in the list, follow the instructions in 
+If you don't find an appropriate role assignment in the list, follow the instructions in 
 here
 
 ## HTTP – 400
