@@ -52,35 +52,69 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     - `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace
     - `<TOPIC NAME>` with the name of the topic
     - `<SUBSCRIPTION NAME>` with the name of the subscription
-2. Add a method named `SendMessagesToTopicAsync` and add the following code.
+2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from a different parts of your application. Here, we are simply making a list of messages.
+
+    ```csharp
+        static IList<ServiceBusMessage> CreateMessages()
+        {
+            // create a list of messages and return it to the caller
+            List<ServiceBusMessage> listOfMessages = new List<ServiceBusMessage>();
+            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("First message")));
+            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Second message")));
+            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Third message")));
+            return listOfMessages;
+        }
+    ```
+1. 1. Add a method named `SendMessagesAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
 
     ```csharp
         static async Task SendMessagesToTopicAsync()
         {
+            // create a Service Bus client 
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
 
-                // create the sender
+                // create a sender for the queue 
                 ServiceBusSender sender = client.CreateSender(topicName);
 
                 // prepare messages
-                ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-                messageBatch.TryAddMessage(new ServiceBusMessage(Encoding.UTF8.GetBytes("First message")));
-                messageBatch.TryAddMessage(new ServiceBusMessage(Encoding.UTF8.GetBytes("Second message")));
-                messageBatch.TryAddMessage(new ServiceBusMessage(Encoding.UTF8.GetBytes("Third message")));
+                IList<ServiceBusMessage> listOfMessages = CreateMessages();
 
-                // send the message batch
+                // create a batch object
+                ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+
+                for (var i = 0; i < listOfMessages.Count; i++)
+                {
+                    // try adding a message to the batch
+                    if (!messageBatch.TryAddMessage(listOfMessages[i]))
+                    {
+                        // if it fails to add the message
+
+                        // send the current batch as it's full
+                        await sender.SendMessagesAsync(messageBatch);
+                        messageBatch.Dispose();
+
+                        // create a new batch for the remaining messages
+                        messageBatch = await sender.CreateMessageBatchAsync();
+
+                        // add the message failed to be added in the previous batch to the new batch
+                        if (!messageBatch.TryAddMessage(listOfMessages[i]))
+                        {
+                            // if it still fails, the message is probably too big for the batch
+                            Console.WriteLine($"Message {i} is too big to fit in a batch");
+                            break;
+                        }
+                    }
+                }
+
+                // send the final batch
                 await sender.SendMessagesAsync(messageBatch);
-                Console.WriteLine($"Sent a batch of three messages to the topic: {topicName}");
+                messageBatch.Dispose();
+
+                Console.WriteLine($"Sent a batch of {listOfMessages.Count} messages");
             }
         }
     ```
-
-    This method does the following operations:
-    1. Create a Service Bus client (`ServiceBusClient`). 
-    1. Use the Service Bus client object to create a topic sender (`ServiceBusSender`). 
-    1. Create a batch (`ServiceBusMessageBatch`) of messages. 
-    1. Then, use the topic sender object to send the batch of messages to the topic.
 1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesToTopicAsync()` method that you added in the previous step to send messages to the topic. 
 
     ```csharp
@@ -109,6 +143,24 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
 ## Receive messages from a subscription
 
+1. Add the following methods to the `Program` class that handle messages and any errors. 
+
+    ```csharp
+        static async Task MessageHandler(ProcessMessageEventArgs args)
+        {
+            string body = args.Message.Body.ToString();
+            Console.WriteLine($"Received: {body}");
+
+            // complete the message. messages is deleted from the queue. 
+            await args.CompleteMessageAsync(args.Message);
+        }
+
+        static Task ErrorHandler(ProcessErrorEventArgs args)
+        {
+            Console.WriteLine(args.Exception.ToString());
+            return Task.CompletedTask;
+        }
+    ```
 1. Add the following method `ReceiveMessagesFromSubscriptionAsync` to the `Program` class.
 
     ```csharp
@@ -116,21 +168,23 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
+                // create a processor that we can use to process the messages
+                ServiceBusProcessor processor = client.CreateProcessor(topicName, subName, new ServiceBusProcessorOptions());
 
-                // create the receiver
-                ServiceBusReceiver receiver = client.CreateReceiver(topicName, subName);
+                // add handler to process messages
+                processor.ProcessMessageAsync += MessageHandler;
 
-                // receive messages 
-                IReadOnlyList<ServiceBusReceivedMessage> receivedMessages = await receiver.ReceiveMessagesAsync(maxMessages: 100);
-            
-                foreach (ServiceBusReceivedMessage receivedMessage in receivedMessages)
-                {
-                    // get the message body as a string
-                    string body = receivedMessage.Body.ToString();
-                    Console.WriteLine($"Received: {body} from subscription: {subName}");
-                    // complete the message, thereby deleting it from the service
-                    await receiver.CompleteMessageAsync(receivedMessage);
-                }
+                // add handler to process any errors
+                processor.ProcessErrorAsync += ErrorHandler;
+
+                // start processing 
+                await processor.StartProcessingAsync();
+
+                // wait (5 seconds) for the message handler to be invokved a few times
+                await Task.Delay(5000);
+
+                // stop processing 
+                await processor.StopProcessingAsync();
             }
         }
     ```
