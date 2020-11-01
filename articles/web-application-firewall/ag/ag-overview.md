@@ -69,6 +69,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Create custom rules to suit the specific needs of your applications.
 - Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
+- Inspect JSON and XML in the request body
 
 ## WAF policy and rules
 

@@ -4,12 +4,12 @@ description: Describes the collection of technologies and services you can use t
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
 ---
 
-# Azure technologies and services for creating IoT solutions
+# What Azure technologies and services can you use to create IoT solutions?
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
@@ -56,7 +56,7 @@ You can further simplify how you create the embedded code for your devices by us
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) lets you offload parts of your IoT workload from your Azure cloud services to your devices. IoT Edge can reduce latency in your solution, reduce the amount of data your devices exchange with the cloud, and enable off-line scenarios. You can manage IoT Edge devices from IoT Central and some solution accelerators.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) is a secured, high-level application platform with built-in communication and security features for internet-connected devices. It includes a secured  microcontroller unit, a custom Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) is a secured, high-level application platform with built-in communication and security features for internet-connected devices. It includes a secured  microcontroller unit, a custom Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
 ### Cloud connectivity
 
@@ -71,7 +71,7 @@ IoT Hub is a core component of the solution accelerators and you can use it to m
 
 ### Bridging the gap between the physical and digital worlds
 
-[Azure Digital Twins](../digital-twins/about-digital-twins.md) is an IoT service that enables you to model a physical environment. It uses a spatial intelligence graph to model the relationships between people, spaces, and devices. By corelating data across the digital and physical worlds you can create contextually aware solutions.
+[Azure Digital Twins](../digital-twins/overview.md) is an IoT service that enables you to model a physical environment. It uses a spatial intelligence graph to model the relationships between people, spaces, and devices. By corelating data across the digital and physical worlds you can create contextually aware solutions.
 
 Iot Central uses digital twins to synchronize devices and data in the real world with the digital models that enable users to monitor and manage those connected devices.
 
@@ -79,7 +79,7 @@ Iot Central uses digital twins to synchronize devices and data in the real world
 
 IoT devices typically generate large amounts of time series data, such as temperature readings from sensors. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) can connect to an IoT hub, read the telemetry stream from your devices, store that data, and enable you to query and visualize it.
 
-[Azure Maps](/azure/azure-maps) is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications. You can use a REST API, a web-based JavaScript control, or an Android SDK to build your applications.
+[Azure Maps](../azure-maps/index.yml) is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications. You can use a REST API, a web-based JavaScript control, or an Android SDK to build your applications.
 
 ## Next steps
 

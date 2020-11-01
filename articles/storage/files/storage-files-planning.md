@@ -112,7 +112,7 @@ For more information, see [Advanced Threat protection for Azure Storage](https:/
 
 In general, Azure Files features and interoperability with other services are the same between premium file shares and standard file shares (including transaction optimized, hot, and cool file shares), however there are a few important differences:
 - **Billing model**
-    - Premium file shares are billed using a provisioned billing model, which means you pay for how much storage you provision rather than how much storage you actually ask for. 
+    - Premium file shares are billed using a provisioned billing model, which means you pay fixed price for how much storage you provision rather than how much storage you use. There are no additional costs for transactions and metadata at-rest.
     - Standard file shares are billed using a pay-as-you-go model, which includes a base cost of storage for how much storage you're actually consuming and then an additional transaction cost based on how you use the share. With standard file shares, your bill will increase if you use (read/write/mount) the Azure file share more.
 - **Redundancy options**
     - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage.
@@ -121,7 +121,7 @@ In general, Azure Files features and interoperability with other services are th
     - Premium file shares can be provisioned for up to 100 TiB without any additional work.
     - By default, standard file shares can span only up to 5 TiB, although the share limit can be increased to 100 TiB by opting into the *large file share* storage account feature flag. Standard file shares may only span up to 100 TiB for locally redundant or zone redundant storage accounts. For more information on increasing file share sizes, see [Enable and create large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Regional availability**
-    - Premium file shares are not available in every region, and zone redundant support is available in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Azure Availability Zone support by region](../../availability-zones/az-region.md). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
+    - Premium file shares are available in most of Azure regions with an exception of a few regions. Zone redundant support is available in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Zone-redundant storage](../common/storage-redundancy.md#zone-redundant-storage). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
     - Standard file shares are available in every Azure region.
 - Azure Kubernetes Service (AKS) supports premium file shares in version 1.13 and later.
 

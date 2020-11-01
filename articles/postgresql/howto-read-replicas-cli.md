@@ -1,8 +1,8 @@
 ---
 title: Manage read replicas - Azure CLI, REST API - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure CLI and REST API
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020 
@@ -29,7 +29,7 @@ You can create and manage read replicas using the Azure CLI.
 
 ### Prerequisites
 
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Install Azure CLI 2.0](/cli/azure/install-azure-cli)
 - An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the primary server.
 
 
@@ -55,7 +55,7 @@ You can create and manage read replicas using the Azure CLI.
 
 ### Create a read replica
 
-The [az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) command requires the following parameters:
+The [az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
@@ -86,14 +86,14 @@ If you haven't set the `azure.replication_support` parameter to **REPLICA** on a
 > Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas
-You can view the list of replicas of a primary server by using [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) command.
+You can view the list of replicas of a primary server by using [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) command.
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### Stop replication to a replica server
-You can stop replication between a primary server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) command.
+You can stop replication between a primary server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) command.
 
 After you stop replication to a primary server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
@@ -102,7 +102,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### Delete a primary or replica server
-To delete a primary or replica server, you use the [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) command.
+To delete a primary or replica server, you use the [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) command.
 
 When you delete a primary server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 

@@ -1,11 +1,11 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - Upgrade a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to upgrade an existing AKS cluster to the latest available Kubernetes version.
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
@@ -141,10 +141,7 @@ In this tutorial, you upgraded Kubernetes in an AKS cluster. You learned how to:
 > * Upgrade the Kubernetes nodes
 > * Validate a successful upgrade
 
-Follow this link to learn more about AKS.
-
-> [!div class="nextstepaction"]
-> [AKS overview][aks-intro]
+For more information on AKS, see [AKS overview][aks-intro]. For guidance on a creating full solutions with AKS, see [AKS solution guidance][aks-solution-guidance].
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -158,3 +155,4 @@ Follow this link to learn more about AKS.
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here

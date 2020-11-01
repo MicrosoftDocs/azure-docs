@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, devx-track-azurecli
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -112,7 +112,7 @@ By default, the newly built Docker image appears in the container registry that'
 
 #### Use a prebuilt Docker image
 
-By default, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), specifically the one defined by `azureml.core.run_config.DEFAULT_CPU_IMAGE`. It then installs any specified Python packages defined by the provided Azure ML environment. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
+By default, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`. It then installs any specified Python packages defined by the provided Azure ML environment. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -177,6 +177,12 @@ For a registered environment, you can retrieve image details using the following
 
 ```python
 details = environment.get_image_details(workspace=ws)
+```
+
+To obtain the image details from an environment autosaved from the execution of a run, use the following code:
+
+```python
+details = run.get_environment().get_image_details(workspace=ws)
 ```
 
 ### Use existing environments

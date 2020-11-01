@@ -372,4 +372,4 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Next Steps
 
-Once you configure Azure AD SAP NetWeaver you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Once you configure Azure AD SAP NetWeaver you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

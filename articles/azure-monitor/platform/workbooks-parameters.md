@@ -2,14 +2,12 @@
 title: Azure Monitor workbooks creating parameters
 description: Learn how parameters allow workbook authors to collect input from the consumers and reference it in other parts of the workbook.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Workbook parameters
@@ -79,5 +77,5 @@ Use the `Previews` section of the _Edit Parameter_ pane to see the expansion opt
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

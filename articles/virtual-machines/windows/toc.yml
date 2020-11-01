@@ -280,7 +280,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Spot VMs
-      displayName: pre-empt, preempt
+      displayName: pre-empt, preempt, spot
       href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
@@ -306,7 +306,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Dedicated hosts
-    href: dedicated-hosts.md
+    href: ../dedicated-hosts.md
   - name: Maintenance and updates
     href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Disk storage
@@ -316,7 +316,7 @@
     - name: Select a disk type for IaaS VMs
       href: ../disks-types.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Encryption
-      href: disk-encryption.md
+      href: ../disk-encryption.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Virtual machine and disk performance
@@ -324,7 +324,7 @@
     - name: Designing for high performance
       href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disk bursting
-      href: disk-bursting.md
+      href: ../disk-bursting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -350,8 +350,6 @@
       href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
-    - name: Built-in security controls
-      href: virtual-machines-windows-security-controls.md
     - name: Bastion
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: States and lifecycle
@@ -382,7 +380,7 @@
     - name: Deploy spot VMs
       items:
       - name: Portal
-        href: spot-portal.md
+        href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: PowerShell
         href: spot-powershell.md
       - name: ARM template
@@ -557,6 +555,8 @@
       href: client-images.md
     - name: Download existing disk
       href: download-vhd.md
+    - name: Managed disk from image version
+      href: ../managed-disk-from-image-version.md
   - name: Secure VMs
     items:
     - name: Recommendations

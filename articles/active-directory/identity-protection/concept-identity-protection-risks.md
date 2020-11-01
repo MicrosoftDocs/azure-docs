@@ -21,7 +21,10 @@ Risk detections in Azure AD Identity Protection include any identified suspiciou
 
 Identity Protection provides organizations access to powerful resources to see and respond quickly to these suspicious actions. 
 
+>**Note:** Identity Protection generates risk detections only when the correct credentials are used. If incorrect credentials are used on a sign-in, it does not represent risk of credential compromise.
+
 ![Security overview showing risky users and sign-ins](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
 
 ## Risk types and detection
 

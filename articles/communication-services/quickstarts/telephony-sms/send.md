@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
@@ -15,7 +15,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]

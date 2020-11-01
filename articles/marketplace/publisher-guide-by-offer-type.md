@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ---
 
 # Publishing guide by offer type
@@ -25,18 +25,17 @@ The following table shows the commercial marketplace offer types in Partner Cent
 
 | **Offer type**    | **Description**  |
 | :------------------- | :-------------------|
-| [Azure Application: **Managed application**](./marketplace-managed-apps.md) | Use the Azure Application: Managed application offer type when the following conditions are required: <br> <ul> <li> You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution. </li> <li>You or your customer require that the solution is managed by a partner. </li> <ul> |
-| [Azure Application: **Solution template**](./marketplace-solution-templates.md) | Use the Azure Application: Solution template offer type when your solution requires additional deployment and configuration automation beyond a single VM. Solution templates can employ many different kinds of Azure resources, including but not limited to VMs.  |
-  | [**Azure Container**](./marketplace-containers.md) | Use the Azure Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |
-| [**Azure virtual machine**](./marketplace-virtual-machines.md) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
-| [**Consulting service**](./consulting-services.md) | Consulting services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps, and Finance and Operations apps.|
-| [**IoT Edge module**](./iot-edge-module.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
-| [**Power BI app<br/>Microsoft 365**](./appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Power BI and Microsoft 365.|
-| [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
-| [**Integrated solutions**](./integrated-solutions-for-publishers.md) | You can publish integrated, industry-aligned solutions that combine technology and services as a single offer.|
+| [Azure Application: **Managed application**](marketplace-managed-apps.md) | Use the Azure Application: Managed application offer type when the following conditions are required: <br> <ul> <li>You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution. </li> <li>You or your customer require that the solution is managed by a partner. </li> <ul> |
+| [Azure Application: **Solution template**](marketplace-solution-templates.md) | Use the Azure Application: Solution template offer type when your solution requires additional deployment and configuration automation beyond a single VM. Solution templates can employ many different kinds of Azure resources, including but not limited to VMs.  |
+  | [**Azure Container**](marketplace-containers.md) | Use the Azure Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |
+| [**Azure virtual machine**](marketplace-virtual-machines.md) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
+| [**Consulting service**](consulting-services.md) | Consulting services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps, and Finance and Operations apps.|
+| [**IoT Edge module**](iot-edge-module.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
+| [**Managed service**](partner-center-portal/create-new-managed-service-offer.md) | You can create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](../lighthouse/overview.md).|
+| [**Power BI app**<br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Power BI and Microsoft 365.|
+| [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. For information on single sign-on requirements for SaaS offers, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md). |
 
-For information on single sign-on requirements by listing options and offer types, see [**Azure AD requirements**](./enable-appsource-marketplace-using-azure-ad.md).
 
 ## Next steps
 

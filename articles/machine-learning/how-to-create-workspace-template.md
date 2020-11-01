@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/21/2020
+ms.date: 09/30/2020
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -159,9 +159,11 @@ New-AzResourceGroupDeployment `
 
 The following example template demonstrates how to create a workspace with three settings:
 
-* Enable high confidentiality settings for the workspace
-* Enable encryption for the workspace
-* Uses an existing Azure Key Vault to retrieve customer-managed keys
+* Enable high confidentiality settings for the workspace. This creates a new Cosmos DB instance.
+* Enable encryption for the workspace.
+* Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Cosmos DB instance for the workspace.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
@@ -277,21 +279,7 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
->
-> * **East US**
-> * **South Central US**
-> * **West US**
-> * **West US 2**
-> * **Central Canada**
-> * **Southeast Asia**
-> * **Japan East**
-> * **North Europe**
-> * **East Australia**
-> * **UK South**
->
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
 
 # [Azure CLI](#tab/azcli)
 

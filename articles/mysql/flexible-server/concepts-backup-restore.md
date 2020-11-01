@@ -19,7 +19,7 @@ Azure Database for MySQL Flexible Server, automatically creates server backups a
 
 Flexible Server takes snapshot backups of the data files and stores them in a local redundant storage. The server also performs transaction logs backup and also stores them in local redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
-These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore) from a MySQL client to copy a database.
+These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) from a MySQL client to copy a database.
 
 ## Backup frequency
 
@@ -37,7 +37,7 @@ The backup retention period governs how far back in time can a point-in-time res
 
 Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of storage available for server backups at no additional charge. If the daily backup usage is 25GB, then you can have up to 10 days of free backup storage. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/).
 
-You can use the [Backup Storage used](https://docs.microsoft.com/azure/mysql/concepts-monitoring) metric in Azure Monitor available in the Azure portal to monitor the backup storage consumed by a server. The **Backup Storage** used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
+You can use the [Backup Storage used](../concepts-monitoring.md) metric in Azure Monitor available in the Azure portal to monitor the backup storage consumed by a server. The **Backup Storage** used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
 
 The primary means of controlling the backup storage cost is by setting the appropriate backup retention period. You can select a retention period between 1 to 35 days.
 
@@ -72,7 +72,7 @@ The estimated time of recovery depends on several factors including the database
 > If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the same region and zone as your primary server, and deployed as a single flexible server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
 
 ## Perform post-restore tasks
 

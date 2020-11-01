@@ -186,7 +186,7 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 Provide logos and images for your offer. All images must be in PNG format.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -266,7 +266,7 @@ In the **URL of your package location** field, enter the URL of an Azure Blob St
 
 Select the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
 
-For detailed information on how to build your package and update its structure, see [Step 3: Create an AppSource package for your app](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
+For detailed information on how to build your package and update its structure, see [Step 3: Create an AppSource package for your app](/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### CRM package availability
 

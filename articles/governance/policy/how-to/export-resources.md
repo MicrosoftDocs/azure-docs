@@ -1,7 +1,7 @@
 ---
 title: Export Azure Policy resources
 description: Learn to export Azure Policy resources to GitHub, such as policy definitions and policy assignments.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -111,7 +111,7 @@ Here is an example of getting the JSON for a policy definition with **Name** of
 _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## Next steps

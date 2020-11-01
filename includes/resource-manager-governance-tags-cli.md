@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 02/20/2018
  ms.author: tomfitz
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 To add two tags to a resource group, use the [az group update](/cli/azure/group) command:

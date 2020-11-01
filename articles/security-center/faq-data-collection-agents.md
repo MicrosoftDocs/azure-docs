@@ -39,7 +39,7 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 
 ## What is the Log Analytics agent?
 
-To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) - this is the same agent used by the Azure Monitor service. 
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
 
 The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
 
@@ -62,7 +62,7 @@ Windows or Linux IaaS VMs qualify if:
 
 - The Log Analytics agent extension is not currently installed on the VM.
 - The VM is in running state.
-- The Windows or Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is installed.
+- The Windows or Linux [Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) is installed.
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
 
@@ -84,7 +84,7 @@ The location of the default workspace depends on your Azure region:
 
 ## What data is collected by the Log Analytics agent?
 
-For a full list of the applications and services monitored by the agent, see [What is monitored by Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+For a full list of the applications and services monitored by the agent, see [What is monitored by Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
 > Note that for some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 

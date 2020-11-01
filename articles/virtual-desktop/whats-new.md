@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -19,6 +19,29 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## September 2020
+
+Here's what changed in September 2020:
+
+- We've optimized performance by reducing connection latency in the following Azure geographies:
+    - Germany
+    - South Africa (for validation environments only)
+
+You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
+
+- We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. In this update, we made the following changes:
+    - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
+    - Fixed an issue that caused the client to disconnect when a user who enabled media optimization for Teams tried to call or join a Teams meeting while another app had an audio stream open in exclusive mode.
+    - Fixed an issue where Teams didn't enumerate audio or video devices when media optimization for Teams was enabled.
+    - Added a "Need help with settings?" link to the desktop settings page.
+    - Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
+    
+- Thanks to the tremendous help from our users, we've fixed two critical issues for the Microsoft Store Remote Desktop client. We'll continue to review feedback and fix issues as we broaden our phased release of the client to more users worldwide.
+    
+- We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
+
+- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## August 2020
 
@@ -138,4 +161,3 @@ Check out these articles to learn about updates for our clients for Windows Virt
 ## Next steps
 
 Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-
