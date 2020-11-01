@@ -22,7 +22,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs running Li
 > * Run a disaster recovery drill
 > * Stop replicating the VM after the drill
 
-When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. During replication, VM disk writes are send to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to restore the VM in the target region.
+When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). During replication, VM disk writes are send to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to restore the VM in the target region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
