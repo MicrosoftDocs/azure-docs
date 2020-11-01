@@ -206,8 +206,6 @@ CSV parser version 1.0 specifics:
 
 - Following options aren't supported: HEADER_ROW.
 
-Following options aren't supported: DATA_COMPRESSION.
-
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
@@ -227,12 +225,12 @@ There are two delimited text parser versions you can use. CSV parser version 1.0
 
 You can easily query both CSV and Parquet files without knowing or specifying schema by omitting WITH clause. Column names and data types will be inferred from files.
 
-Parquet files contain column metadata which will be read, mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
+Parquet files contain column metadata which will be read, type mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
 
 For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
 > [!IMPORTANT]
-> Automatic schema discovery helps you quickly write queries and explore data without knowing file schema. The cost of this convenience is that inferred data types may be larger than the actual data types. This happens when there isn't enough information in the source files to make sure the appropriate data type is used. For optimal performance, please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). In case you have character columns in your files and use schema inference, for optimal performance please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
 
 ### Type mapping for Parquet
 
@@ -335,7 +333,7 @@ WITH (
 
 ### Read specific columns from Parquet file
 
-The following example returns only two columns of the first row from the census data set, in Parquet format, and without specifying column names and data types: 
+The following example returns only two columns of the first row from the census data set, in Parquet format: 
 
 ```sql
 SELECT 
@@ -353,4 +351,4 @@ WITH (
 
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. Check [best practices](best-practices-sql-on-demand.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
