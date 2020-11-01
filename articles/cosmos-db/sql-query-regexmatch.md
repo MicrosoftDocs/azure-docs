@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # REGEXMATCH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Provides regular expression capabilities. Regular expressions are a concise and flexible notation for finding patterns of text. Azure Cosmos DB uses [PERL compatible regular expressions (PCRE)](http://www.pcre.org/). 
 

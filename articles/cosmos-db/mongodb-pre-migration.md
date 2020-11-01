@@ -10,6 +10,7 @@ ms.author: jasonh
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB's API for MongoDB, you should:
 

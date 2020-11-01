@@ -85,7 +85,7 @@ To create an ASE while you create an App Service plan:
 
     b. Enter a new subnet name.
 
-    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 128 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
+    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 256 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
 
     d. Select the subnet IP range.
 

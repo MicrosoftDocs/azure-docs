@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_INTERSECTS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument intersects the GeoJSON (Point, Polygon, or LineString) in the second argument.  
   
 ## Syntax
