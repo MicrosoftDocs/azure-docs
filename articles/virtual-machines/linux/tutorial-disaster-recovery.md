@@ -71,7 +71,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     - **Storage settings-Cache storage account**. Recovery uses a storage account in the source region. Source VM changes are cached in this account, before being replicated to the target location.
     - **Storage settings-Replica disk**. By default, Site Recovery creates replica managed disks in the target region that mirror source VM managed disks with the same storage type (standard or premium).
     - **Replication settings**. Shows the vault details, and indicates that recovery points created by Site Recovery are kept for 24 hours.
-    - **Extension settings** - Indicates that Site Recovery will manage updates to the Site Recovery Mobility Service extension that's installed on VMs you replicate. The indicated Azure automation account manages the update process.
+    - **Extension settings**. Indicates that Site Recovery will manage updates to the Site Recovery Mobility Service extension that's installed on VMs you replicate. The indicated Azure automation account manages the update process.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Page showing summary of target and replication settings.":::
 
@@ -102,7 +102,7 @@ Run a drill to make sure disaster recovery works as expected. When you run a tes
 1. In the VM disaster recovery page, select **Test failover**.
 2. In **Test failover**, leave the default **Latest processed (low RPO)** setting for the recovery point.
 
-   This option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
+   This option provides the lowest recovery point objective (RPO), and generally spins up the VM most quickly in the target region. It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
 
 3. Select the virtual network in which the VM will be located after failover. 
 
