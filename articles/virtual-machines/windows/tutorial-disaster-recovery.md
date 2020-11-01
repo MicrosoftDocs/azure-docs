@@ -5,7 +5,7 @@ author: rayne-wiselman
 ms.service: virtual-machines-windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/-1/2020
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Windows VMs to another Azure region.
@@ -23,7 +23,7 @@ In this article, learn how to:
 > * Run a disaster recovery drill
 > * Stop replicating the VM after the drill
 
-When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. Continuous replication begins. VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
+When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -101,7 +101,7 @@ After the replication job finishes, you can check the VM replication status.
 Run a drill to make sure disaster recovery works as expected. When you run a test failover, it creates a copy of the VM, with no impact on ongoing replication, or on your production environment. 
 
 1. In the VM disaster recovery page, select **Test failover**.
-2. In **Test failover**, leave the default *Latest (lowest RPO)* setting for the recovery point.
+2. In **Test failover**, leave the default **Latest processed (low RPO)* setting for the recovery point.
 
    This option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
 
