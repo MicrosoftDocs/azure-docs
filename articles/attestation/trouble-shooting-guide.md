@@ -113,7 +113,7 @@ TLS 1.2 or a later version is recommended.
 
 To continue to interact with the PowerShell Gallery, run the following command before the Install-Module commands
 
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+**[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12**
 
 ## Policy access/configuration issues in PowerShell
 
@@ -126,9 +126,11 @@ The client with object id <object Id>  does not have authorization to perform ac
 
 Minimum version of Az modules required to support attestation operations are the below: 
 
- Az 4.5.0 
+ **Az 4.5.0** 
  
- Az.Accounts 1.9.2  Az.Attestation 0.1.8 
+ **Az.Accounts 1.9.2**
+ 
+ **Az.Attestation 0.1.8** 
 
 Run the below command to verify the installed version of all Az modules 
 
