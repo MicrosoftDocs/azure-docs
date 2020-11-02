@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Launch Synapse Studio 
 
-From the workspace overview, Select the **Workspace web URL** to open Synapse Studio.
+From the workspace overview, select the **Workspace web URL** to open Synapse Studio.
 
 ![Azure portal Synapse workspace overview with Launch Synapse Studio highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
