@@ -241,7 +241,7 @@ try {
 
 Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output from the model creation code shows this error:
 
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Program output, showing a message that says '409:Service request failed. Status: 409 (Conflict). Content:{"error":{"code":"ModelIdAlreadyExists","message":"Some of the model ids already exist: dtmi:example:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example (http://aka.ms/ModelListSwSmpl)."}}'":::
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Program output, showing a message that says '409:Service request failed. Status: 409 (Conflict).', followed by an error printout indicating that dtmi:example:SampleModel;1 already exists":::
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 
