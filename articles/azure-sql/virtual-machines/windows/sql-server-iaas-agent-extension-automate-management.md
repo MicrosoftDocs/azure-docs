@@ -1,6 +1,6 @@
 ---
 title: What is the SQL Server IaaS Agent extension? 
-description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, and central management of all SQL Server VM instances and storage configuration.
+description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -52,6 +52,11 @@ The SQL Server IaaS Agent extension provides a number of benefits for SQL Server
 
    ---
 
+
+> [!IMPORTANT]
+> The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent.See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
+
 ## Feature benefits 
 
 The SQL Server IaaS Agent extension unlocks a number of feature benefits for managing your SQL Server VM. 
@@ -63,9 +68,9 @@ The following table details these benefits:
 | --- | --- |
 | **Portal management** | Unlocks [management in the portal](manage-sql-vm-portal.md), so that you can view all of your SQL Server VMs in one place, and so that you can enable and disable SQL specific features directly from the portal. 
 | **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](frequently-asked-questions-faq.md#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). |
-| **Automated patching** |Configures a maintenance window during which important Windows updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). |
+| **Automated patching** |Configures a maintenance window during which important Windows and SQL Server security updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). |
 | **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). |
-| **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. You can also [change the ] | 
+| **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. | 
 | **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  | 
 
 
@@ -178,7 +183,7 @@ Registering with the SQL VM resource provider in lightweight mode only copies th
 
 **Will registering with the SQL VM resource provider restart SQL Server on my VM?**
 
-It depends on the mode specified during registration. If lightweight or NoAgent mode is specified, then the SQL Server service will not restart. However, specifying the management mode as full which will cause the SQL Server service to restart. The automatic registration feature registers your SQL Server VMs in lightweight mode, unless the Windows Server version is 2008, in which case the SQL Server VM will be registered in NoAgent mode. 
+It depends on the mode specified during registration. If lightweight or NoAgent mode is specified, then the SQL Server service will not restart. However, specifying the management mode as full will cause the SQL Server service to restart. The automatic registration feature registers your SQL Server VMs in lightweight mode, unless the Windows Server version is 2008, in which case the SQL Server VM will be registered in NoAgent mode. 
 
 **What is the difference between lightweight and NoAgent management modes when registering with the SQL VM resource provider?** 
 
@@ -188,7 +193,7 @@ NoAgent mode requires SQL Server version and edition properties to be set by the
 
 **Can I register with the SQL VM resource provider without specifying the SQL Server license type?**
 
-No. The SQL Server license type is not an optional property when you're registering with the SQL VM resource provider. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL VM resource provider in all manageability modes (NoAgent, lightweight, and full).
+No. The SQL Server license type is not an optional property when you're registering with the SQL VM resource provider. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL VM resource provider in all manageability modes (NoAgent, lightweight, and full). If you have any of the free versions of SQL Server installed such as Developer or Evaluation edition, you must register with pay-as-you-go licensing. Azure Hybrid Benefit is only available for paid versions of SQL Server such as Enterprise and Standard editions.
 
 **Can I upgrade the SQL Server IaaS extension from NoAgent mode to full mode?**
 
@@ -196,13 +201,13 @@ No. Upgrading the manageability mode to full or lightweight is not available for
 
 **Can I upgrade the SQL Server IaaS extension from lightweight mode to full mode?**
 
-Yes. Upgrading the manageability mode from lightweight to full is supported via Azure PowerShell or the Azure portal. It requires restarting SQL Server service.
+Yes. Upgrading the manageability mode from lightweight to full is supported via Azure PowerShell or the Azure portal. This will trigger a restart of the SQL Server service.
 
 **Can I downgrade the SQL Server IaaS extension from full mode to NoAgent or lightweight management mode?**
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or NoAgent mode, and it can't be downgraded from lightweight mode to NoAgent mode. 
 
-To change the manageability mode from full manageability, [unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
+To change the manageability mode from full manageability, [unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider by dropping the SQL virtual machine _resource_ and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 
@@ -210,7 +215,7 @@ No. Registering with the SQL VM resource provider is not available in the Azure 
 
 **Can I register a VM with the SQL VM resource provider before SQL Server is installed?**
 
-No. A VM should have at least one SQL Server (Database Engine) instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
+No. A VM must have at least one SQL Server (Database Engine) instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
 
 **Can I register a VM with the SQL VM resource provider if there are multiple SQL Server instances?**
 

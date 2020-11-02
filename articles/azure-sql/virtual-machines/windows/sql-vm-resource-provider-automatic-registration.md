@@ -25,6 +25,9 @@ When automatic registration is enabled, a job runs daily to detect whether or no
 
 Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL VM resource provider in lightweight mode. You still need to  [manually upgrade to full manageability mode](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set. 
 
+> [!IMPORTANT]
+> The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent.See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need: 

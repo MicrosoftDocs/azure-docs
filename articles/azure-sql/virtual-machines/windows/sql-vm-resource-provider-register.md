@@ -32,6 +32,9 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 To utilize the SQL VM resource provider, you must first [register your subscription with the resource provider](#register-subscription-with-rp), which gives the resource provider the ability to create resources within that specific subscription.
 
+> [!IMPORTANT]
+> The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent.See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need: 
