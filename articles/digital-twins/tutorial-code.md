@@ -126,7 +126,7 @@ dotnet run
 
 This will restore the dependencies on first run, and then execute the program. 
 * If no error occurs, the program will print *Service client created - ready to go*.
-* Since there is not yet any error handling in this project, if anything goes wrong, you will see an exception thrown by the code.
+* Since there is not yet any error handling in this project, if there are any issues, you will see an exception thrown by the code.
 
 ### Upload a model
 
@@ -201,9 +201,9 @@ In your command window, run the program with this command:
 ```cmd/sh
 dotnet run
 ```
-"Upload a model" will be printed in the output, but there is no output yet to indicate whether or not models were uploaded successfully.
+"Upload a model" will be printed in the output, indicating that this code was reached, but there is no output yet to indicate whether the upload was successful.
 
-To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
+To add a print statement showing all models that have been successfully uploaded to the instance, add the following code right after the previous section:
 
 ```csharp
 // Read a list of models back from the service
@@ -213,9 +213,10 @@ await foreach (DigitalTwinsModelData md in modelDataList)
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
 ```
-Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
 
-Now, run the program again with this command in your command window:
+**Before you run the program again to test this new code**, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
+
+With this in mind, run the program again with this command in your command window:
 
 ```cmd/sh
 dotnet run
