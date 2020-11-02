@@ -371,6 +371,21 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
+### PA-8: Choose approval process for Microsoft support  
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41427.).
+
+**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+
+**Responsibility**: Unset. Please provide a value in the work item.
+
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
