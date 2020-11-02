@@ -165,16 +165,14 @@
         items:
         - name: Swagger
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
-        - name: .NET (C#) SDK - Latest package
-          href: https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet          
-        - name: .NET (C#) SDK - (previous) NuGet
+        - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
-        - name: .NET (C#) SDK - (previous) reference
+        - name: .NET (C#) SDK - reference
           href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview
-        - name: .NET (C#) SDK - (previous) source
+        - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
         - name: Java SDK - Maven
-          href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
+          href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar 
         - name: Java SDK - reference
           href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
         - name: Java SDK - source
