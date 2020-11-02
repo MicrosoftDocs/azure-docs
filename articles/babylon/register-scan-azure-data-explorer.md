@@ -13,7 +13,7 @@ ms.date: 10/9/2020
 # Register and Scan Azure Data Explorer    
 This article outlines how to register an Azure Data Explorer account in Babylon and set up a scan.
 
-## Supported Capabilities
+## Supported capabilities
 Azure Data Explorer supports the following:
 * Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
 
@@ -24,7 +24,7 @@ Azure Data Explorer supports the following:
 1. Navigate to your Babylon catalog.
 2. Click on **Management Center** on the left navigation pane.
 
-    ![Screenshot showing how to go to Management Center](./media/register-scan-azure-data-explorer/go-to-management-center.png)
+    :::image type="content" source="./media/register-scan-azure-data-explorer/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center" lightbox="./media/register-scan-azure-data-explorer/go-to-management-center.png":::
 
 3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
 4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Data Explorer** and hit **continue**
@@ -32,7 +32,7 @@ Azure Data Explorer supports the following:
 ## Set up authentication for a scan
 The supported Authentication mechanism for Azure Data Explorer is **Service Principal**
 
-### Service Principal
+### Service principal
 To use a service principal, you must first create one
 
 To do this in the Azure portal: 
@@ -60,11 +60,11 @@ To do this in the Azure portal:
 
 11. Once the service principal is created, add the same to the **AllDatabasesViewer** role in the **Permissions** tab on the Azure portal, as shown in the following screenshot.
 
-![Screenshot to add service principal in permissions](./media/register-scan-azure-data-explorer/permissions-auth.png)
+    :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Screenshot to add service principal in permissions" border="true":::
 
 12. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the following screenshot.
 
-![Screenshot showing service principal authorization](./media/register-scan-azure-data-explorer/service-principal-auth.png)
+:::image type="content" source="./media/register-scan-azure-data-explorer/service-principal-auth.png" alt-text="Screenshot showing service principal authorization" border="true":::
 
 ## Create and run a scan
 After you have set up your authentication type, select **Continue**.
@@ -72,7 +72,7 @@ After you have set up your authentication type, select **Continue**.
 **Scope your scan**
 The next screen here is to scope the scan. Please select the folders you want to scan and select **continue** (by default all the folders will be selected).
 
-![Screenshot scope scans](./media/register-scan-azure-data-explorer/scope-scan.png)
+:::image type="content" source="./media/register-scan-azure-data-explorer/scope-scan.png" alt-text="Screenshot scope scans" border="true":::
 
 The next screen is where you set your scan trigger, which tells the system how often you would like to scan.
 
@@ -86,12 +86,12 @@ You can also set up a trigger on a weekly cadence with an option to choose the d
 **Set scan rule set**
 Select a scan rule set to be used by your scan from the list of available scan rule sets.
 
-![Screenshot showing scan rule set](./media/register-scan-azure-data-explorer/select-scan-rule-set.png)
+:::image type="content" source="./media/register-scan-azure-data-explorer/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set" border="true":::
 
 **Review your scan**
 When you select **Continue**, you will be presented with scan summary page, where you can view all the settings for your scan.
 
-![Screenshot showing review your scan](./media/register-scan-azure-data-explorer/review-save-run.png)
+:::image type="content" source="./media/register-scan-azure-data-explorer/review-save-run.png" alt-text="Screenshot showing review your scan" border="true":::
 
 **Edit a scan**
 Select a scan and select **Edit** to edit the selected scan. You can only edit one scan at a time.
