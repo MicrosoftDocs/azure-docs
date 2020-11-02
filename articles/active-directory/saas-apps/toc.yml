@@ -1328,6 +1328,8 @@
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
+      - name: Procaire
+        href: procaire-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: ProdPad
@@ -1752,6 +1754,8 @@
         href: trello-tutorial.md
       - name: Trend Micro Web Security(TMWS)
         href: trend-micro-tutorial.md
+      - name: TrendMiner
+        href: trendminer-tutorial.md
       - name: TripActions
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
