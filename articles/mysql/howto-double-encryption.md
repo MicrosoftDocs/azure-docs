@@ -1,8 +1,8 @@
 ---
 title: Infrastructure double encryption - Azure portal - Azure Database for MySQL
 description: Learn how to set up and manage Infrastructure double encryption for your Azure Database for MySQL.
-author: JasonWHowell
-ms.author: jasonh
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
