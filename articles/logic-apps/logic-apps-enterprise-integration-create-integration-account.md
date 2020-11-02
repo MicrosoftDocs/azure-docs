@@ -204,7 +204,7 @@ To make this change, you can use either the Azure portal or the Azure CLI.
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
 
-1. In the Azure portal, open the Azure [**Cloud Shell**](../cloud-shell/overview.md) environment.
+1. In the Azure portal, open the [Azure Cloud Shell](../cloud-shell/overview.md) environment.
 
    ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
@@ -230,7 +230,7 @@ To make this change, use the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
 
-1. In the Azure portal, open the Azure [**Cloud Shell**](../cloud-shell/overview.md) environment.
+1. In the Azure portal, open the [Azure Cloud Shell](../cloud-shell/overview.md) environment.
 
    ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
