@@ -20,7 +20,7 @@ Updating a cloud service, including both its roles and guest OS, is a three step
 ## Update an Azure Service
 Azure organizes your role instances into logical groupings called upgrade domains (UD). Upgrade domains (UD) are logical sets of role instances that are updated as a group.  Azure updates a cloud service one UD at a time, which allows instances in other UDs to continue serving traffic.
 
-The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [Azure Cloud Services Definition Schema (.csdef File)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [Azure Cloud Services Definition Schema (.csdef File)](./schema-csdef-file.md).
 
 When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
 
@@ -181,7 +181,4 @@ The following diagram illustrates how a service than contains two roles are dist
 ## Next steps
 [How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)  
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
-[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)  
-
-
-
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)

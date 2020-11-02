@@ -31,7 +31,7 @@ The Face service provides several different facial analysis functions which are 
 The Face service detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes, such as head pose, gender, age, emotion, facial hair, and glasses.
 
 > [!NOTE]
-> The face detection feature is also available through the [Computer Vision service](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). However, if you want to do further operations with face data, you should use this service instead.
+> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further operations with face data, you should use this service instead.
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 

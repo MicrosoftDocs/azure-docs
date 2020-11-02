@@ -56,6 +56,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 2. Click **Create a resource > Compute**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service1](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+
 3. In the new **Cloud Service** pane, enter a value for the **DNS name**.
 4. Create a new **Resource Group** or select an existing one.
 5. Select a **Location**.
@@ -83,13 +84,10 @@ If your deployment package was [configured to use certificates](cloud-services-c
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## Next steps
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
 * Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

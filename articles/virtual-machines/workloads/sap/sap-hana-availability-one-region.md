@@ -76,7 +76,7 @@ One of the most rudimentary setups is to use backups. In particular, you might h
 
 The architecture looks like:
 
-![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagram that shows the architecture of two VMs with storage replication.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 This setup is not well suited to achieving great Recovery Point Objective (RPO) and Recovery Time Objective (RTO) times. RTO times especially would suffer due to the need to fully restore the complete database by using the copied backups. However, this setup is useful for recovering from unintended data deletion on the main instances. With this setup, at any time, you can restore to a certain point in time, extract the data, and import the deleted data into your main instance. Hence, it might make sense to use a backup copy method in combination with other high-availability functionality. 
 

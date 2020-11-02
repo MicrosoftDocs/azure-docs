@@ -63,8 +63,8 @@ namespace WorkerRole1
 ```
 
 ## Next steps
-Read a blog that describes [How to increase the size of the Azure Web Role ASP.NET Temporary Folder](https://docs.microsoft.com/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
+Read a blog that describes [How to increase the size of the Azure Web Role ASP.NET Temporary Folder](/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
 
-View more [troubleshooting articles](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) for cloud services.
+View more [troubleshooting articles](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) for cloud services.
 
-To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

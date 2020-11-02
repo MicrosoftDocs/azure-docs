@@ -34,4 +34,4 @@ Some example uses of Azure Automation to manage Azure Cloud Services include:
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure cloud services, follow these links to learn more about Azure Automation.
 
 * [Azure Automation Overview](../automation/automation-intro.md)
-* [My first runbook](../automation/automation-first-runbook-graphical.md)
+* [My first runbook](../automation/learn/automation-tutorial-runbook-graphical.md)

@@ -47,7 +47,7 @@ landingContent:
       - text: Co-sell partner engagement
         url: ./marketplace-co-sell.md
       - text: Make solutions available in Microsoft AppSource and within Office
-        url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+        url: /office/dev/store/submit-to-appsource-via-partner-center
       - text: Participate in the Azure Marketplace and AppSource community forum
         url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
       - text: Register to join webinars for discussion or watch later on demand
@@ -89,7 +89,7 @@ landingContent:
       - text: Dynamics 365 for Operations offers
         url: ./partner-center-portal/create-new-operations-offer.md
       - text: More offer types
-        url: ./cloud-partner-portal/cpp-marketplace-offers.md
+        url: ./publisher-guide-by-offer-type.md
 
   - title: Get paid
     linkLists:
@@ -104,7 +104,7 @@ landingContent:
       - text: Tax details
         url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
       - text: Commercial marketplace billing
-        url: ./partner-center-portal/billing-details.md
+        url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
 
   - title: API reference
     linkLists:
@@ -132,10 +132,8 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Support options
-        url: ./partner-center-portal/support.md
+        url: ./support.md
       - text: Troubleshoot authentication errors
         url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
         url: ./marketplace-geo-availability-currencies.md
-
-

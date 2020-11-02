@@ -28,7 +28,7 @@ The application is an advertising bulletin board. Users create an ad by entering
 The application uses the [queue-centric work pattern](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
 ## Alternative architecture: App Service and WebJobs
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](/azure/app-service/) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](../app-service/index.yml) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
@@ -59,7 +59,7 @@ The app stores ads in a SQL database, using Entity Framework Code First to creat
 
 When a user uploads an image, the front-end running in a web role stores the image in an [Azure blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and it stores the ad information in the database with a URL that points to the blob. At the same time, it writes a message to an Azure queue. A back-end process running in a worker role periodically polls the queue for new messages. When a new message appears, the worker role creates a thumbnail for that image and updates the thumbnail URL database field for that ad. The following diagram shows how the parts of the application interact.
 
-![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Diagram that shows how the parts of the application interact.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -164,7 +164,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 4. Set the **Replication** drop-down list to **Locally redundant storage**.
 
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 
 5. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 6. Set the **Location** drop-down list to the same region you chose for the cloud service.
@@ -212,7 +212,7 @@ You'll use a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment
 6. Select and copy the connection string (without the surrounding quotation marks) for use in the following steps for configuring the worker role project.
 7. In **Solution Explorer**, under **Roles** in the cloud service project, right-click **ContosoAdsWorker** and then click **Properties**.
 
-    ![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Screenshot that highlights the Properties menu option.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Click the **Settings** tab.
 9. Change **Service Configuration** to **Cloud**.
 10. Select the **Value** field for the `ContosoAdsDbConnectionString` setting, and then paste the connection string that you copied from the previous section of the tutorial.
@@ -285,7 +285,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
+    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
 4. In the **Summary** step, click **Publish**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -375,6 +375,7 @@ In this section, you configure Azure Storage and SQL connection strings for test
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
     ![Role properties image](./media/cloud-services-dotnet-get-started/roleproperties.png)
+
 4. In the **ContosoAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
     Leave **Service Configuration** set to **All Configurations**.
@@ -772,5 +773,5 @@ For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure Storage](../storage/index.yml)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

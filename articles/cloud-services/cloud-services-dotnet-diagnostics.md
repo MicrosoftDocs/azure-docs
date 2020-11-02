@@ -9,7 +9,6 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: 
 ---
-
 # Enabling Azure Diagnostics in Azure Cloud Services (classic)
 
 > [!IMPORTANT]
@@ -184,20 +183,17 @@ In the Visual Studio **Server Explorer**, navigate to the wadexample storage acc
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## Configuration File Schema
-The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](/azure/azure-monitor/platform/diagnostics-extension-schema) for valid values and examples.
+The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](../azure-monitor/platform/diagnostics-extension-versions.md) for valid values and examples.
 
 ## Troubleshooting
-If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) for help with common problems.
+If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) for help with common problems.
 
 ## Next Steps
 [See a list of related Azure virtual-machine diagnostic articles](../azure-monitor/platform/diagnostics-extension-overview.md) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
-[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Collect Logging Data by Using Azure Diagnostics]: /previous-versions/azure/gg433048(v=azure.100)
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
-
-
-

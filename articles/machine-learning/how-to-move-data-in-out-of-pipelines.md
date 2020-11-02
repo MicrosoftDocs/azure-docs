@@ -97,6 +97,10 @@ train_step = PythonScriptStep(
 )
 ```
 
+> [!NOTE]
+> You would need to replace the values for all these arguments (that is, `"train_data"`, `"train.py"`, `cluster`, and `iris_dataset`) with your own data. 
+> The above snippet just shows the form of the call and is not part of a Microsoft sample. 
+
 You can also use methods such as `random_split()` and `take_sample()` to create multiple inputs or reduce the amount of data passed to your pipeline step:
 
 ```python
@@ -146,6 +150,9 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
+> [!NOTE]
+> The preceding snippets show the form of the calls and are not part of a Microsoft sample. You must replace the various arguments with values from your own project.
+
 ## Use `PipelineData` for intermediate data
 
 While `Dataset` objects represent persistent data, [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) objects are used for temporary data that is output from pipeline steps. Because the lifespan of a `PipelineData` object is longer than a single pipeline step, you define them in the pipeline definition script. When you create a `PipelineData` object, you must provide a name and a datastore at which the data will reside. Pass your `PipelineData` object(s) to your `PythonScriptStep` using _both_ the `arguments` and the `outputs` arguments:
@@ -171,6 +178,9 @@ You may choose to create your `PipelineData` object using an access mode that pr
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
+
+> [!NOTE]
+> The preceding snippets show the form of the calls and are not part of a Microsoft sample. You must replace the various arguments with values from your own project.
 
 > [!TIP]
 > An improved experience for passing intermediate data between pipeline steps is available with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). For a code example using `OutputFileDatasetConfig`, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
@@ -222,6 +232,9 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
 The value of a `PipelineData` input is the path to the previous output. 
+
+> [!NOTE]
+> The preceding snippets show the form of the calls and are not part of a Microsoft sample. You must replace the various arguments with values from your own project.
 
 > [!TIP]
 > An improved experience for passing intermediate data between pipeline steps is available with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). For a code example using `OutputFileDatasetConfig`, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).

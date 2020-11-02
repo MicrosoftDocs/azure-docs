@@ -10,6 +10,7 @@ ms.date: 10/07/2020
 ---
 
 # Throughput (RU/s) operations with Azure CLI for a table for Azure Cosmos DB Table API
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

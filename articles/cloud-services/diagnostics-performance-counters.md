@@ -68,7 +68,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-These individual counter paths can be added to the diagnostics framework your cloud service uses. For more information about how a performance counter path is constructed, see [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+These individual counter paths can be added to the diagnostics framework your cloud service uses. For more information about how a performance counter path is constructed, see [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path).
 
 ## Collect a performance counter
 
@@ -288,8 +288,5 @@ As previously stated, the performance counters you want to collect are defined i
 
 - [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md)
-- [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Azure Diagnostics Schema - Performance Counters](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

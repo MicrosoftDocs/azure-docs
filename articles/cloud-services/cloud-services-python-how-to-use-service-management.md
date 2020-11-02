@@ -186,7 +186,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="CreateStorageService"> </a>Create a storage service
-A [storage service](../storage/common/storage-create-storage-account.md) gives you access to Azure [blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tables](../cosmos-db/table-storage-how-to-use-python.md), and [queues](../storage/queues/storage-python-how-to-use-queue-storage.md). To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure). You also need a description, a label (up to 100 characters, automatically encoded to base64), and a location. The following example shows how to create a storage service by specifying a location:
+A [storage service](../storage/common/storage-account-create.md) gives you access to Azure [blobs](../storage/blobs/storage-quickstart-blobs-python.md), [tables](../cosmos-db/table-storage-how-to-use-python.md), and [queues](../storage/queues/storage-python-how-to-use-queue-storage.md). To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure). You also need a description, a label (up to 100 characters, automatically encoded to base64), and a location. The following example shows how to create a storage service by specifying a location:
 
 ```python
 from azure import *
@@ -438,9 +438,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-To learn more about how to capture a Linux virtual machine in the classic deployment model, see [Capture a Linux virtual machine](../virtual-machines/linux/classic/capture-image-classic.md).
+To learn more about how to capture a Linux virtual machine in the classic deployment model, see [Capture a Linux virtual machine](/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic).
 
-To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine](../virtual-machines/windows/classic/capture-image-classic.md).
+To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic).
 
 ## <a name="What's Next"> </a>Next steps
 Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
@@ -466,7 +466,7 @@ For more information, see the [Python Developer Center](https://azure.microsoft.
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: /previous-versions/azure/ee460799(v=azure.100)
 
 
 [cloud service]:/azure/cloud-services/
