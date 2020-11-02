@@ -33,9 +33,6 @@ Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the 
 
 **Dismiss all events** in classic Identity Protection sets the status of the risk detections to **Closed (resolved)**.
 
-## Risky sign-ins report known issues
-
-**Resolve** on a risk detection sets the status to **Users passed MFA driven by risk-based policy**.
 
 ## Frequently asked questions
 
