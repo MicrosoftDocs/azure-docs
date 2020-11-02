@@ -262,11 +262,11 @@ The App Service Environment can be used to host QnA Maker app service. If the Ap
 
 QnA Maker Cognitive Service uses the Service Tag: "CognitiveServicesManagement". Please follow these steps to whitelist the IP Address:
 
-* Download IP Ranges for all service tags: https://www.microsoft.com/en-us/download/details.aspx?id=56519
+* Download IP Ranges for all service tags [here](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 * Select the IPs of "CognitiveServicesManagement".
 * Navigate to the networking section of your app service resource, and click on "Configure Access Restrcition" option to whitelist the IPs.
 
- We also have an automated script to do the same for App Service. YOu can find the powershell script on github [here].(https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1). You need to input subscription id, resource group and actual app service name as script parameteres. Running the script will automatically add the IPs to app service whitelist.
+ We also have an automated script to do the same for App Service. You can find the powershell script on github [here](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1). You need to input subscription id, resource group and actual app service name as script parameteres. Running the script will automatically add the IPs to app service whitelist.
 
 ## Business continuity with traffic manager
 
