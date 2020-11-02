@@ -25,7 +25,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 
 *For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
-### NS-1:    
+### NS-1: Implement security for internal traffic  
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40024.).
@@ -58,7 +58,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 
 **Responsibility**: Not applicable
 
-### NS-4: 
+### NS-4: Protect applications and services from external network attacks  
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40027.).
@@ -312,6 +312,17 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### PA-8: Choose approval process for Microsoft support  
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40079.).
+
+**Guidance**: Not applicable; Firewall manager doesn't support customer lockbox.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Data Protection
 
