@@ -72,7 +72,7 @@ The following Azure CLI code blocks are commands that prepare the input data req
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -119,7 +119,7 @@ The following Azure CLI code blocks create a blob storage account that's used fo
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. You use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](/azure/storage/common/authorize-data-operations-cli).
+3. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. You use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../storage/common/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \

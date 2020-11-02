@@ -29,8 +29,6 @@ landingContent:
           url: quickstarts/explore-demo.md     
         - text: Monitor your first metric on web
           url: quickstarts/web-portal.md
-        - text: Use the REST APIs to customize your solution
-          url: quickstarts/rest-api.md
 
 - title: How-to articles
   linkLists:
