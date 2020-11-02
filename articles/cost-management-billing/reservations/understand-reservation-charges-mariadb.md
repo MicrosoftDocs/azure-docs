@@ -1,8 +1,8 @@
 ---
 title: Understand reservation discount - Azure Database for MariaDB
 description: Learn how a reservation discount is applied to your Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: JasonWHowell
+ms.author: jasonh
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

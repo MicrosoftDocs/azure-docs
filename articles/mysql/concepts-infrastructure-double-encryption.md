@@ -1,8 +1,8 @@
 ---
 title: Infrastructure double encryption - Azure Database for MySQL
 description: Learn about using Infrastructure double encryption to add a second layer of encryption with a service managed keys.
-author: kummanish
-ms.author: manishku
+author: JasonWHowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020

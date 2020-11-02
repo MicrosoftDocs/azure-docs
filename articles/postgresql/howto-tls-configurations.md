@@ -1,8 +1,8 @@
 ---
 title: TLS configuration - Azure portal - Azure Database for PostgreSQL - Single server
 description: Learn how to set TLS configuration using Azure portal for your Azure Database for PostgreSQL Single server 
-author: kummanish
-ms.author: manishku
+author: JasonWHowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020

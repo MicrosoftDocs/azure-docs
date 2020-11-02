@@ -1,8 +1,8 @@
 ---
 title: Private Link - Azure CLI - Azure Database for PostgreSQL - Single server
 description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure CLI
-author: kummanish
-ms.author: manishku
+author: JasonWHowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020 

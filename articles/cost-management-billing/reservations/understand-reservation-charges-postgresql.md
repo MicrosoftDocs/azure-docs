@@ -1,8 +1,8 @@
 ---
 title: Understand reservation discount - Azure Database for PostgreSQL Single server
 description: Learn how a reservation discount is applied to Azure Database for PostgreSQL Single servers.
-author: kummanish
-ms.author: manishku
+author: JasonWHowell
+ms.author: jasonh
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
