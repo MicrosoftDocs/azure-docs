@@ -42,7 +42,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 ### Orders widget
 
-The Orders widget on the Summary** dashboard displays the current orders for all your software as a service (SaaS) offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value **Orders** represents the amount of growth during the selected computation period.
+The Orders widget on the Summary** dashboard displays the current orders for all your transact-based offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value **Orders** represents the amount of growth during the selected computation period.
 
 :::image type="content" source="./media/summary-dashboard/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
 
@@ -71,9 +71,9 @@ The percentage value below the total usage hours represents the amount of growth
 
 You can also go to the Usage report by selecting the **Usage dashboard** link in the lower-left corner of the widget.
 
-### Page visit count widget
+### Marketplace insights
 
-This **Page visit count** widget of the **Summary** dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. The Page visits widget displays a count and trend of total page visits during the selected computation period.
+Marketplace Insights show the number of users who have visited your offers’ pages in Azure marketplace and AppSource. **Page visit count** shows a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. This widget displays a count and trend of total page visits during the selected computation period.
 
 :::image type="content" source="./media/summary-dashboard/page-visit-count.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
 
