@@ -1608,6 +1608,8 @@
         href: snowflake-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
+      - name: Software AG Cloud
+        href: software-ag-cloud-tutorial.md
       - name: SolarWinds Orion
         href: solarwinds-orion-tutorial.md
       - name: Soloinsight-CloudGate SSO
