@@ -5,7 +5,7 @@ description: Learn how to use the Azure CLI to create an Azure Kubernetes Servic
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
@@ -226,7 +226,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:

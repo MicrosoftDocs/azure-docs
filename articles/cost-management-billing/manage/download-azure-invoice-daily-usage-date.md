@@ -7,8 +7,8 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
 ---
 
@@ -131,9 +131,7 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.
-
-    ![Screenshot that shows Azure portal search](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. If you have access to multiple billing accounts, select the billing scope for your EA billing account.
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.
 
@@ -160,10 +158,6 @@ You can also download month-to-date usage for the current billing period, meanin
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## Need help? Contact us
-
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
