@@ -89,8 +89,7 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 
     :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Opening the SQL information protection policy from Azure SQL":::
 
-
----
+--- 
 
 
 ## View Azure's recommendations for database columns to classify
@@ -125,7 +124,6 @@ If the classification mechanism has identified columns in your tables that can b
 1. After making any changes, select **Save**.
  
  
-
 
 ## Customize your information types
 
