@@ -34,7 +34,7 @@ The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC
 Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
 
 For Windows Server 2019, Windows Server 2016, and Windows 10(up to build 2004):
-- [GRID 11 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 11.1 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 - [GRID 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 
 For Windows Server 2012 R2: 
