@@ -80,14 +80,22 @@ Use this command in Azure PowerShell to get the certificate named **TestCert01**
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$kvSecret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $Cert.Name
-$kvSecretBytes = [System.Convert]::FromBase64String($kvSecret.SecretValueText)
-$certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$password = '******'
-$protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-$pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secretValueText = '';
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+$secretByte = [Convert]::FromBase64String($secretValueText)
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
+$pfxFileByte = $x509Cert.Export($type, $password)
+
+# Write to a file
+[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
 This command exports the entire chain of certificates with private key. The certificate is password protected.
