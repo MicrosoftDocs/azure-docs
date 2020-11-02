@@ -19,7 +19,7 @@ Azure Queue Storage is a service for storing large numbers of messages. You acce
 
 The Queue service contains the following components:
 
-![Diagram showing the relationship between a storage account, queues, and messages](./media/storage-queues-introduction/queue1.png)
+![Diagram showing the relationship between a storage account, queues, and messages.](./media/storage-queues-introduction/queue1.png)
 
 - **URL format:** Queues are addressable using the following URL format:
 
