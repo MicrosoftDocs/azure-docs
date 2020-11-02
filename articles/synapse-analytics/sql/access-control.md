@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace (preview).
 
 > [!NOTE]
-> For GA, RBAC will be more developed through the introduction of Synapse-specific Azure roles
+> For GA, Azure RBAC will be more developed through the introduction of Synapse-specific Azure roles
 
 ## Access Control for Workspace
 

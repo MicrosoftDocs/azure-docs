@@ -134,7 +134,7 @@ Configure IoT Edge to register and connect to your IoT Central application:
 
 If the IoT Edge modules don't start correctly, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
-## Collect the RSTP stream from your camera
+## Collect the RTSP stream from your camera
 
 Identify the RTSP stream URLs for the cameras connected to your IoT Edge device, for example:
 

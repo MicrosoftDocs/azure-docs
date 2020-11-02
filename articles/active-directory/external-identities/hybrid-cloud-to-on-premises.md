@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 
 ms.author: mimart
 author: msmimart
@@ -37,7 +37,7 @@ You must do both of the following:
 
 To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
 
-- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Get started with Application Proxy and install the connector](../manage-apps/application-proxy-add-on-premises-application.md) and [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
 - **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    > [!NOTE]
@@ -75,7 +75,7 @@ For information about how to use MIM 2016 Service Pack 1 and the MIM management 
 
 There’s a PowerShell sample script available that you can use as a starting point to create the guest user objects in your on-premises Active Directory.
 
-You can download the script and the Readme file from the [Download Center](https://www.microsoft.com/download/details.aspx?id=51495). Choose the **Script and Readme to pull Azure AD B2B users on-prem.zip** file.
+You can download the script and the Readme file from [Connectors for Microsoft Identity Manager 2016 and Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). In the download package, choose the **Script and Readme to pull Azure AD B2B users on-prem.zip** file.
 
 Before you use the script, make sure that you review the prerequisites and important considerations in the associated Readme file. Also, understand that the script is made available only as a sample. Your development team or a partner must customize and review the script before you run it.
 

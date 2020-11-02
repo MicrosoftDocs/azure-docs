@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperfq
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -36,7 +37,7 @@ Once in the portal, start by selecting _Create a resource_ in the Azure services
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
-Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins (Preview)** service from the results. Select the _Create_ button to create a new instance of the service.
+Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the _Create_ button to create a new instance of the service.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 

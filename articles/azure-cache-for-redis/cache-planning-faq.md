@@ -78,7 +78,7 @@ Yes, Azure Cache for Redis is available in Azure Government Cloud, Azure China 2
 
 For more information on considerations when using Azure Cache for Redis with other clouds, see the following links.
 
-- [Azure Government Databases - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure Government Databases - Azure Cache for Redis](../azure-government/compare-azure-government-global-azure.md)
 - [Azure China 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 

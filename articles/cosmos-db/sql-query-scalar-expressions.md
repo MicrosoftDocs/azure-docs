@@ -9,6 +9,7 @@ ms.author: mjbrown
 
 ---
 # Scalar expressions in Azure Cosmos DB SQL queries
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Examples of scalar expressions include: constants, property references, array element references, alias references, or function calls. Scalar expressions can be combined into complex expressions using operators.
 

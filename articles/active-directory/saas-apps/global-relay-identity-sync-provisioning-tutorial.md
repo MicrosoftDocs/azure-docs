@@ -14,21 +14,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
 ---
 
 # Tutorial: Configure Global Relay Identity Sync for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Global Relay Identity Sync and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Global Relay Identity Sync](https://portalalpha1.globalrelay.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Global Relay Identity Sync and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to Global Relay Identity Sync using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Global Relay Identity Sync
 > * Remove users in Global Relay Identity Sync when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Global Relay Identity Sync
 > * Provision groups and group memberships in Global Relay Identity Sync
+
+
+> [!NOTE]
+> Global Relay Identity Sync provisioning connector utilizes a SCIM authorization method that is no longer supported due to security concerns. Efforts are underway with Global Relay to switch to a more secure authorization method.
 
 ## Prerequisites
 
@@ -48,7 +52,7 @@ Contact your Global Relay Identity Sync representative to receive the Tenant url
 
 ## Step 3. Add Global Relay Identity Sync from the Azure AD application gallery
 
-Add Global Relay Identity Sync from the Azure AD application gallery to start managing provisioning to Global Relay Identity Sync. If you have previously setup Global Relay Identity Sync for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Add Global Relay Identity Sync from the Azure AD application gallery to start managing provisioning to Global Relay Identity Sync. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -59,7 +63,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Global Relay Identity Sync 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Global Relay Identity Sync app based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Global Relay Identity Sync in Azure AD:
 
@@ -99,7 +103,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |active|Boolean|
    |displayName|String|
    |title|String|
-   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |name.givenName|String|
    |name.familyName|String|

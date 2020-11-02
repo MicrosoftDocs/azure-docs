@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ---
 
 # How to customize the Immersive Reader button
@@ -37,7 +37,7 @@ Use the `data-button-style` attribute to set the style of the button. The allowe
 
 This renders the following:
 
-![Icon button](./media/button-icon.png)
+![This is the rendered Text button](./media/button-icon.png)
 
 ### Text button
 
@@ -47,7 +47,7 @@ This renders the following:
 
 This renders the following:
 
-![Icon button](./media/button-text.png)
+![This is the rendered Immersive Reader button.](./media/button-text.png)
 
 ### Icon and text button
 

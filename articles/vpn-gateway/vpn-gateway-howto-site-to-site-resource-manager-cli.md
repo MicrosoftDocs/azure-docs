@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/23/2020
 ms.author: cherylmc
 
 ---
@@ -182,7 +182,7 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 
 ## <a name="connectVM"></a>To connect to a virtual machine
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 ## <a name="tasks"></a>Common tasks
 

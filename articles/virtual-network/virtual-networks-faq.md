@@ -223,6 +223,9 @@ Yes. You can deploy a [firewall network virtual appliance](https://azure.microso
 ### Is there information available about securing VNets?
 Yes. For details, see [Azure Network Security Overview](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### Do Virtual Networks store customer data?
+No. Virtual Networks doesn't store any customer data. 
+
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
@@ -321,7 +324,7 @@ There are two steps to secure an Azure service resource through service endpoint
 1. Turn on service endpoints for the Azure service.
 2. Set up VNet ACLs on the Azure service.
 
-The first step is a network side operation and the second step is a service resource side operation. Both steps can be performed either by the same administrator or different administrators based on the RBAC permissions granted to the administrator role. We recommend that you first turn on service endpoints for your virtual network prior to setting up VNet ACLs on Azure service side. Hence, the steps must be performed in the sequence listed above to set up VNet service endpoints.
+The first step is a network side operation and the second step is a service resource side operation. Both steps can be performed either by the same administrator or different administrators based on the Azure RBAC permissions granted to the administrator role. We recommend that you first turn on service endpoints for your virtual network prior to setting up VNet ACLs on Azure service side. Hence, the steps must be performed in the sequence listed above to set up VNet service endpoints.
 
 >[!NOTE]
 > Both the operations described above must be completed before you can limit the Azure service access to the allowed VNet and subnet. Only turning on service endpoints for the Azure service on the network side does not provide you the limited access. In addition, you must also set up VNet ACLs on the Azure service side.
