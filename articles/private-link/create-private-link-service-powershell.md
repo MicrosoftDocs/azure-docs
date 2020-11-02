@@ -76,7 +76,7 @@ $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $fronte
 $NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 ## Create a private link service
-Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer).  This example creates a private link service named *myPLS* using Standard Load Balancer in resource group named *myResourceGroup*.
+Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice).  This example creates a private link service named *myPLS* using Standard Load Balancer in resource group named *myResourceGroup*.
 ```azurepowershell
 
 $plsIpConfigName = "PLS-ipconfig"
