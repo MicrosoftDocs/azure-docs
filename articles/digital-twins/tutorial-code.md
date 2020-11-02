@@ -229,7 +229,7 @@ The next section talks about exceptions like this and how to handle them in your
 
 ### Catch errors
 
-To keep the program from crashing, you can add exception code around the model upload code. Wrap the existing client call `client.CreateModelsAsync` in a try/catch handler, like this:
+To keep the program from crashing, you can add exception code around the model upload code. Wrap the existing client call `await client.CreateModelsAsync(typeList)` in a try/catch handler, like this:
 
 ```csharp
 try {
@@ -238,7 +238,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-If you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
+
+Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
 
 ```cmd/sh
 Hello World!
