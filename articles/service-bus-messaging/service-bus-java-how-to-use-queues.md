@@ -54,38 +54,67 @@ To send messages to a Service Bus Queue, your application instantiates a **Servi
 
 ```java
 public class QueueClient {
-
-    public static void main(String[] args) throws InterruptedException {
-
-        String connectionString = "<NAMESPACE CONNECTION STRING>";
-        String queueName = "<QUEUE NAME>";
-
-        // create a Service Bus Sender client for the queue 
-        ServiceBusSenderAsyncClient senderClient = new ServiceBusClientBuilder()
-            .connectionString(connectionString)
-            .sender()
-            .queueName(queueName)
-            .buildAsyncClient();
 	
-        // Creates a batch of Service Bus messages
-        ServiceBusMessageBatch currentBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024)).block();
-        currentBatch.tryAdd(new ServiceBusMessage("First message"));
-        currentBatch.tryAdd(new ServiceBusMessage("Second message"));
-        currentBatch.tryAdd(new ServiceBusMessage("Third message"));
-       
-        // send the batch of messages
-        senderClient.sendMessages(currentBatch).subscribe(
-                unused -> System.out.println("Sent a batc    h of three messages to the queue:" + queueName),
-                error -> System.err.println("Error occurred while publishing message: " + error),
-                () -> System.out.println("Send complete."));        
-      
-        // subscribe() is not a blocking call. We sleep here so the program does not end before the send is complete.
-        TimeUnit.SECONDS.sleep(5);
+	static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
+    static String queueName = "<QUEUE NAME>";
+    
+    static List<ServiceBusMessage> createMessages()
+    {
+        // create a list of messages and return it to the caller
+        ServiceBusMessage[] messages = {
+            new ServiceBusMessage("First message"),
+            new ServiceBusMessage("Second message"),
+            new ServiceBusMessage("Three message")
+        };
+        return Arrays.asList(messages);
+    }
+    
+    static void sendMessages()
+    {
+        // create a Service Bus Sender client for the queue 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .queueName(queueName)
+                .buildClient();
+
+        // Creates an ServiceBusMessageBatch where the ServiceBus.
+        ServiceBusMessageBatch messageBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024));        
+        
+        // create a list of messages
+        List<ServiceBusMessage> listOfMessages = createMessages();
+        
+        // We try to add as many messages as a batch can fit based on the maximum size and send to Service Bus when
+        // the batch can hold no more messages. Create a new batch for next set of messages and repeat until all
+        // messages are sent.        
+        for (ServiceBusMessage message : listOfMessages) {
+            if (messageBatch.tryAdd(message)) {
+                continue;
+            }
+
+            // The batch is full, so we create a new batch and send the batch.
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the queue: " + queueName);
+            
+            // create a new batch
+            messageBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024));
+
+            // Add that message that we couldn't before.
+            if (!messageBatch.tryAdd(message)) {
+                System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
+            }
+        }
+
+        System.out.println("Sent a batch of messages to the queue: " + queueName);
+        senderClient.sendMessages(messageBatch);
 
         //close the client
-        senderClient.close();        
-	}
-}
+        senderClient.close();
+    }
+
+    public static void main(String[] args) {
+        sendMessages();
+    }
 ```
 
 ## Receive messages from a queue

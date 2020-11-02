@@ -52,39 +52,67 @@ import java.util.concurrent.TimeUnit;
 To send messages to a Service Bus topic, your application instantiates a **ServiceBusSenderAsyncClient** object and sends messages asynchronously. The following code shows how to send a message to a topic that was created using the Azure portal.
 
 ```csharp
-public class TopicAndSubscriptionClients {
+public class TopicClient {	
+	static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
+    static String topicName = "<TOPIC NAME>";
+    
+    static List<ServiceBusMessage> createMessages()
+    {
+        // create a list of messages and return it to the caller
+        ServiceBusMessage[] messages = {
+            new ServiceBusMessage("First message"),
+            new ServiceBusMessage("Second message"),
+            new ServiceBusMessage("Three message")
+        };
+        return Arrays.asList(messages);
+    }
+    
+    static void sendMessages()
+    {
+        // create a Service Bus Sender client for the topic 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .topicName(topicName)
+                .buildClient();
 
-    public static void main(String[] args) throws InterruptedException {
+        // Creates an ServiceBusMessageBatch where the ServiceBus.
+        ServiceBusMessageBatch messageBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024));        
+        
+        // create a list of messages
+        List<ServiceBusMessage> listOfMessages = createMessages();
+        
+        // We try to add as many messages as a batch can fit based on the maximum size and send to Service Bus when
+        // the batch can hold no more messages. Create a new batch for next set of messages and repeat until all
+        // messages are sent.        
+        for (ServiceBusMessage message : listOfMessages) {
+            if (messageBatch.tryAdd(message)) {
+                continue;
+            }
 
-        String connectionString = "<SERVICE BUS NAMESPACE - CONNECTION STRING>";
-        String topicName = "<TOPIC NAME>";
+            // The batch is full, so we create a new batch and send the batch.
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the topic: " + topicName);
+            
+            // create a new batch
+            messageBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024));
 
-        // create a sender client for the topic
-        ServiceBusSenderAsyncClient senderClient = new ServiceBusClientBuilder()
-            .connectionString(connectionString)
-            .sender()
-            .topicName(topicName)
-            .buildAsyncClient();
-	
-        // creates a batch of Service Bus messages
-        ServiceBusMessageBatch currentBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024)).block();
-        currentBatch.tryAdd(new ServiceBusMessage("First message"));
-        currentBatch.tryAdd(new ServiceBusMessage("Second message"));
-        currentBatch.tryAdd(new ServiceBusMessage("Third message"));
-       
-        // send the batch of messages
-        senderClient.sendMessages(currentBatch).subscribe(
-                unused -> System.out.println("Sent."),
-                error -> System.err.println("Error occurred while publishing message: " + error),
-                () -> System.out.println("Send complete."));        
-      
-        // subscribe() is not a blocking call. sleep here so that the program doesn't end before the send is complete.
-        TimeUnit.SECONDS.sleep(5);
+            // Add that message that we couldn't before.
+            if (!messageBatch.tryAdd(message)) {
+                System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
+            }
+        }
+
+        System.out.println("Sent a batch of messages to the topic: " + topicName);
+        senderClient.sendMessages(messageBatch);
 
         //close the client
         senderClient.close();
     }
-}
+
+    public static void main(String[] args) {
+        sendMessages();
+    }
 ```
 
 ## Receive messages from a subscription
@@ -121,7 +149,7 @@ Add the following code after the `senderClient.close()` method to receive messag
                     error -> System.err.println("Error occurred while receiving message: " + error),
                     () -> System.out.println("Receiving complete."));
 
-            // Receiving messages from the queue for a duration of 20 seconds.
+            // Receiving messages from the subscription for a duration of 20 seconds.
             // Subscribe is not a blocking call so we sleep here so the program does not end.
             TimeUnit.SECONDS.sleep(20);
 
