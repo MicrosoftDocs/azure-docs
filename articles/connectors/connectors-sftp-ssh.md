@@ -70,6 +70,8 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 <a name="comparison"></a>
 
+* SFTP-SSH connector does not support multiple-level authentication.
+
 ## Compare SFTP-SSH versus SFTP
 
 Here are other key differences between the SFTP-SSH connector and the SFTP connector where the SFTP-SSH connector has these capabilities:
