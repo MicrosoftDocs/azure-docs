@@ -43,7 +43,7 @@ Visual Studio tools for Azure Stream Analytics enhance the local testing feature
 
 ### Visual Studio Code for Azure Stream Analytics
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
+Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](./quick-create-visual-studio-code.md).
 
 ### Local testing with live data in Visual Studio Code
 

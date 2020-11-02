@@ -610,7 +610,7 @@ You may want to extend your data pipeline to ensure that statistics are updated 
 The following guiding principles are provided for updating your statistics:
 
 - Ensure that the dataset has at least one statistics object updated. This updates size (row count and page count) information as part of the statistics update.
-- Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
+- Focus on columns participating in WHERE, JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
 - Update "ascending key" columns such as transaction dates more frequently because these values won't be included in the statistics histogram.
 - Update static distribution columns less frequently.
 
@@ -623,12 +623,12 @@ The following examples show you how to use various options for creating statisti
 > [!NOTE]
 > You can create single-column statistics only at this moment.
 >
-> Procedure sp_create_file_statistics will be renamed to sp_create_openrowset_statistics. Public server role has ADMINISTER BULK OPERATIONS permission granted while public database role has EXECUTE permissions on sp_create_file_statistics and sp_drop_file_statistics. This might be changed in the future.
+> Following permissions are required to execute sp_create_openrowset_statistics and sp_drop_openrowset_statistics: ADMINISTER BULK OPERATIONS or ADMINISTER DATABASE BULK OPERATIONS.
 
 The following stored procedure is used to create statistics:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Arguments:
@@ -662,7 +662,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -694,7 +694,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -708,11 +708,11 @@ FROM OPENROWSET(
 To update statistics, you need to drop and create statistics. The following stored procedure is used to drop statistics:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> Procedure sp_drop_file_statistics will be renamed to sp_drop_openrowset_statistics. Public server role has ADMINISTER BULK OPERATIONS permission granted while public database role has EXECUTE permissions on sp_create_file_statistics and sp_drop_file_statistics. This might be changed in the future.
+> Following permissions are required to execute sp_create_openrowset_statistics and sp_drop_openrowset_statistics: ADMINISTER BULK OPERATIONS or ADMINISTER DATABASE BULK OPERATIONS.
 
 Arguments:
 [ @stmt = ] N'statement_text' -
@@ -721,7 +721,7 @@ Specifies the same Transact-SQL statement used when the statistics were created.
 To update the statistics for the year column in the dataset, which is based on the population.csv file, you need to drop and create statistics:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -741,7 +741,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

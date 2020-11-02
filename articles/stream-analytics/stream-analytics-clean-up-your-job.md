@@ -48,12 +48,12 @@ When you stop a job, the resources are deprovisioned and it stops processing eve
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To stop a job using PowerShell, use the [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet. To delete a job using PowerShell, use the [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet.
+To stop a job using PowerShell, use the [Stop-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet. To delete a job using PowerShell, use the [Remove-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet.
 
 ## Stop or delete a job using Azure SDK for .NET
 
-To stop a job using Azure SDK for .NET, use the [StreamingJobsOperationsExtensions.BeginStop](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) method. To delete a job using Azure SDK for .NET, [StreamingJobsOperationsExtensions.BeginDelete](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) method.
+To stop a job using Azure SDK for .NET, use the [StreamingJobsOperationsExtensions.BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) method. To delete a job using Azure SDK for .NET, [StreamingJobsOperationsExtensions.BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) method.
 
 ## Stop or delete a job using REST API
 
-To stop a job using REST API, refer to the [Stop](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) method. To delete a job using REST API, refer to the [Delete](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) method.
+To stop a job using REST API, refer to the [Stop](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) method. To delete a job using REST API, refer to the [Delete](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) method.
