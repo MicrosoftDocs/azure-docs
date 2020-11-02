@@ -271,7 +271,7 @@ To update the proxy configuration dynamically, use the following steps:
 1. Copy the text of the configuration file and convert it to base64.
 1. Paste the encoded configuration file as the value of the `proxy_config` desired property in the module twin.
 
-   ![Paste encoded config file as value of proxy_config property](./media/how-to-configure-api-module/change-config.png)
+   ![Paste encoded config file as value of proxy_config property](./media/how-to-configure-api-proxy-module/change-config.png)
 
 ## Next steps
 
