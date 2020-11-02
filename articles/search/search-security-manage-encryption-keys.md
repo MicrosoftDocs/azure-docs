@@ -41,7 +41,7 @@ If you are using a different region, or a service created prior to August 1, the
 
 The following tools and services are used in this scenario.
 
-+ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region, using indexes or synonym maps created after January 2019)
++ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region, using indexes or synonym maps created after January 2019).
 
 + [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
