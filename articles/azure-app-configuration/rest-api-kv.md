@@ -82,7 +82,7 @@ HTTP/1.1 404 Not Found
 
 ## Get (Conditionally)
 
-To improve client caching, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation. See [Section 14.24](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
+To improve client caching, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation. See [Section 14.24 and 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 The following request retrieves the key-value only if the current representation doesn't match the specified `etag`:
 
