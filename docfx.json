@@ -737,7 +737,7 @@
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/azure-relay/*.md": "Azure Relay",
-        "articles/azure-vmware/**/*.md" : "Azure VMWare Solution",
+        "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/event-grid/**/*.md": "Azure Event Grid",
         "articles/event-hubs/*.md": "Azure Event Hubs",

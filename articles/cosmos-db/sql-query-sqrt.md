@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # SQRT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the square root of the specified numeric value.  
   
 ## Syntax

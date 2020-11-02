@@ -249,4 +249,4 @@ Follow these links for end-to-end instructions or code demonstrating both search
 
 + [Tutorial: Create your first app in C# (lesson 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# and JavaScript with REST side-by-side code sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [C# and JavaScript with REST side-by-side code sample](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
