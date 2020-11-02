@@ -28,7 +28,7 @@ The following table defines and summarizes the benefits of datastores and datase
 
 To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) to:
+For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) to:
 * [Connect to Azure storage services with datastores](how-to-access-data.md). 
 * [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
 
@@ -52,7 +52,7 @@ You can create datastores from [these Azure storage solutions](how-to-access-dat
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
 > [!IMPORTANT]
-> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied.
+> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy](./how-to-network-security-overview.md#machine-learning-studio) to ensure the appropriate configuration steps are applied.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.
@@ -84,7 +84,7 @@ To create a dataset in the studio:
 1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs, or [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
-    1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](./how-to-network-security-overview.md#machine-learning-studio).
     1. For Tabular datasets, you can specify a 'timeseries' trait to enable time related operations on your dataset. Learn how to [add the timeseries trait to your dataset](how-to-monitor-datasets.md#studio-dataset).
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
@@ -134,7 +134,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network
 
-If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
+If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Network isolation & privacy](./how-to-network-security-overview.md#machine-learning-studio) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
 
 ### Access validation
 
@@ -151,7 +151,7 @@ You can find account key, SAS token, and service principal information on your [
       1. For account keys, go to **Access keys** on the **Settings** pane.
       1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
-* If you plan to use a [service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) for authentication, go to your **App registrations** and select which app you want to use.
+* If you plan to use a [service principal](../active-directory/develop/howto-create-service-principal-portal.md) for authentication, go to your **App registrations** and select which app you want to use.
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
@@ -159,7 +159,7 @@ You can find account key, SAS token, and service principal information on your [
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
 
 ## Train with datasets
 
