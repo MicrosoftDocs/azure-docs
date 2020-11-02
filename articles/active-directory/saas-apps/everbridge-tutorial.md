@@ -20,7 +20,7 @@ When you integrate Everbridge with Azure AD, you can:
 * Control in Azure AD who has access to Everbridge.
 * Allow your users to be automatically signed in to Everbridge with their Azure AD accounts. This access control is called single sign-on (SSO).
 * Manage your accounts in one central location by using the Azure portal.
-For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -224,11 +224,10 @@ In this section, you create the test user Britta Simon in Everbridge. To add use
 
 Test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the Everbridge tile in the Access Panel, you should be automatically signed in to the Everbridge account for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Everbridge tile in the Access Panel, you should be automatically signed in to the Everbridge account for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

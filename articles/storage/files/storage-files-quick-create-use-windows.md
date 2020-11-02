@@ -94,7 +94,7 @@ At this point, you've created a new virtual machine and attached a data disk. No
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
 1. Copy the contents of the second box and paste it in **Notepad**.
 
-   ![The UNC path from the Azure Files Connect pane](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Screenshot that shows the contents of the seconds box that you should copy and paste in Notepad.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. In the VM, open **File Explorer** and select **This PC** in the window. This selection will change the menus available on the ribbon. On the **Computer** menu, select **Map network drive**.
 1. Select the drive letter and enter the UNC path. If you've followed the naming suggestions in this quickstart, copy *\\qsstorageacct.file.core.windows.net\qsfileshare* from **Notepad**.

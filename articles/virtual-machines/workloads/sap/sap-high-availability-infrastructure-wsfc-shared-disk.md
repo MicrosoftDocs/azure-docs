@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -200,6 +200,9 @@ The host names and the IP addresses for the presented scenario are:
 
 SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
 We strongly recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.    
 
 
 The following list shows the configuration of the (A)SCS/ERS load balancer. The configuration for both SAP ASCS and ERS2 in performed in the same Azure load balancer.  

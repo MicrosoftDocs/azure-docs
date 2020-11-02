@@ -17,7 +17,7 @@ ms.author: trbye
 The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/), or [REST APIs](rest-apis.md).
 
 > [!IMPORTANT]
-> The Speech service has replaced Bing Speech API and Translator Speech. See _How-to guides > Migration_ for migration instructions.
+> The Speech service has replaced Bing Speech API and Translator Speech. See the _Migration_ section for migration instructions.
 
 The following features are part of the Speech service. Use the links in this table to learn more about common use-cases for each feature, or browse the API reference.
 
@@ -76,7 +76,21 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-It takes a few moments to deploy your new Speech resource. Once deployment is complete, select **Go to resource** and in the left navigation pane select **Keys** to display your Speech service subscription keys. Each subscription has two keys; you can use either key in your application. To quickly copy/paste a key to your code editor or other location, select the copy button next to each key, switch windows to paste the clipboard contents to the desired location.
+It takes a few moments to deploy your new Speech resource. 
+
+### Find keys and region
+
+To find the keys and region of a completed deployment, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
+
+2. Select **All resources**, and select the name of your Cognitive Services resource.
+
+3. On the left pane, under **RESOURCE MANAGEMENT**, select **Keys and Endpoint**.
+
+Each subscription has two keys; you can use either key in your application. To copy/paste a key to your code editor or other location, select the copy button next to each key, switch windows to paste the clipboard contents to the desired location.
+
+Additionally, copy the `LOCATION` value, which is your region ID (ex. `westus`, `westeurope`) for SDK calls.
 
 > [!IMPORTANT]
 > These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely– for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.

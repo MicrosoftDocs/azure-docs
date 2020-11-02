@@ -51,7 +51,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
-   Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
+   Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](../cloud-shell/overview.md) available in the Azure portal.
 
    If your organization has strict security policies and will not allow all IP addresses on the source server to enable communication from Azure to your source server, you can potentially use the below command to determine the IP address of your Azure Database for MariaDB server.
     
@@ -207,7 +207,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 1. Set the source server.
 
-   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). Stored procedures can be run in the MySQL shell or MySQL Workbench.
+   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-stored-procedures.md). Stored procedures can be run in the MySQL shell or MySQL Workbench.
 
    To link two servers and start replication, sign in to the target replica server in the Azure DB for MariaDB service. Next, set the external instance as the source server by using the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure on the Azure DB for MariaDB server.
 

@@ -11,7 +11,7 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, devx-track-azurecli
 ---
 
 # Start, monitor, and cancel training runs in Python

@@ -96,3 +96,10 @@ landingContent:
             url: https://aka.ms/TranslatorGitHub
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context

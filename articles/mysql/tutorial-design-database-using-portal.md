@@ -32,7 +32,7 @@ Open your favorite web browser, and visit the [Microsoft Azure portal](https://p
 
 ## Create an Azure Database for MySQL server
 
-An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 

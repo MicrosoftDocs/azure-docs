@@ -11,6 +11,7 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperfq2
 ---
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps

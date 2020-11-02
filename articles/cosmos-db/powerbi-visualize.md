@@ -9,6 +9,7 @@ ms.author: sngun
 ---
 
 # Visualize Azure Cosmos DB data by using the Power BI connector
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Power BI](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports. Power BI Desktop is a report authoring tool that enables you to retrieve data from various data sources. Azure Cosmos DB is one of the data source that you can use with Power BI Desktop. You can connect Power BI Desktop to Azure Cosmos DB account with the Azure Cosmos DB connector for Power BI.  After you import Azure Cosmos DB data to Power BI, you can transform it, create reports, and publish the reports to Power BI.   
 
@@ -27,7 +28,7 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 * Download the [sample volcano data](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) from GitHub.
 
-* [Create an Azure Cosmos database account](https://azure.microsoft.com/documentation/articles/create-account/) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
+* [Create an Azure Cosmos database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
 
    * **Source parameters** 
 
@@ -130,7 +131,7 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
 
 1. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Click **OK**.
    
-   For more information on Data Analysis Expressions (DAX) including DAX functions, please visit [DAX Basics in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+   For more information on Data Analysis Expressions (DAX) including DAX functions, please visit [DAX Basics in Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Add Custom Column":::
 
@@ -221,4 +222,3 @@ For a scheduled refresh, do the following.
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](https://azure.microsoft.com/documentation/services/cosmos-db/).
-

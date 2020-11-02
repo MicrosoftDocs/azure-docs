@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate RingCentral with Azure Active Di
 * Enable your users to be automatically signed-in to RingCentral with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -145,19 +145,19 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. On the top, click on **Tools**.
 
-	![image](./media/ringcentral-tutorial/ringcentral1.png)
+	![Screenshot shows Tools selected from the RingCentral company site.](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. Navigate to **Single Sign-on**.
 
-	![image](./media/ringcentral-tutorial/ringcentral2.png)
+	![Screenshot shows Single Sign-On selected from the Tools menu.](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. On the **Single Sign-on** page, under **SSO Configuration** section, from **Step 1** click **Edit** and perform the following steps:
 
-	![image](./media/ringcentral-tutorial/ringcentral3.png)
+	![Screenshot shows the S S O Configuration page where you can select Edit.](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. On the **Set up Single Sign-on** page, perform the following steps:
 
-	![image](./media/ringcentral-tutorial/ringcentral4.png)
+	![Screenshot shows the Set up Single Sign-On page where you can upload I D P metadata.](./media/ringcentral-tutorial/ringcentral4.png)
 
 	a. Click **Browse** to upload the metadata file which you have downloaded from Azure portal.
 
@@ -169,11 +169,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
 
-	![image](./media/ringcentral-tutorial/ringcentral6.png) 
+	![Screenshot shows the S S O Configuration page where you can select Download.](./media/ringcentral-tutorial/ringcentral6.png) 
 
 	f. On the same page, navigate to **Enable SSO** section and perform the following steps:
 
-	![image](./media/ringcentral-tutorial/ringcentral5.png)
+	![Screenshot shows the Enable S S O section where you can finish the configuration.](./media/ringcentral-tutorial/ringcentral5.png)
 
 	* Select **Enable SSO Service**.
 
@@ -187,14 +187,14 @@ In this section, you create a user called Britta Simon in RingCentral. Work with
 
 ### Test SSO
 
-When you select the RingCentral tile in the Access Panel, you should be automatically signed in to the RingCentral for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the RingCentral tile in the Access Panel, you should be automatically signed in to the RingCentral for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try RingCentral with Azure AD](https://aad.portal.azure.com/)

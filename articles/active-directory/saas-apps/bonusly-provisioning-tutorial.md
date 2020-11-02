@@ -59,7 +59,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Bonusly. Once decided, you can assign these users and/or groups to Bonusly by following the instructions here:
 
-* [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Bonusly
 
