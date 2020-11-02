@@ -10,6 +10,8 @@ ms.date: 08/17/2020
 
 # Headers
 
+This article provides links to reference pages for headers used with the Azure App Configuration REST API.
+
 ## Request Headers
 
 The following table describes common request headers used in Azure App Configuration.

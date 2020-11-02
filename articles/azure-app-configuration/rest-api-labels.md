@@ -24,7 +24,7 @@ Supports the following operations:
 
 - List
 
-For all operations ``name`` is an optional filter parameter. If ommited it implies **any** label.
+For all operations ``name`` is an optional filter parameter. If omitted it implies **any** label.
 
 ## Prerequisites
 

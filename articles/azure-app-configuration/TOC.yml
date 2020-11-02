@@ -162,7 +162,7 @@
           items:
           - name: Keys
             href: ./rest-api-keys.md
-          - name: Key-Values
+          - name: Key-values
             href: ./rest-api-kv.md
           - name: Labels
             href: ./rest-api-labels.md
@@ -175,20 +175,20 @@
           - name: Authentication
             href: ./rest-api-authentication-index.md
             items:
-              - name: Azure Active Directory Authentication
-                href: rest-api-authentication-aad.md
+              - name: Azure Active Directory authentication
+                href: rest-api-authentication-azure-ad.md
               - name: HMAC Authentication
                 href: rest-api-authentication-hmac.md   
           - name: Authorization
             href: ./rest-api-authorization-index.md
             items:
-              - name: Azure Active Directory Authorization
+              - name: Azure Active Directory authorization
                 href: rest-api-authorization-aad.md
-              - name: HMAC Authorization
+              - name: HMAC authorization
                 href: rest-api-authorization-hmac.md
-          - name: Consistency Model
+          - name: Consistency model
             href: ./rest-api-consistency.md
-          - name: Common Headers
+          - name: Common headers
             href: ./rest-api-headers.md
           - name: Throttling
             href: ./rest-api-throttling.md

@@ -29,7 +29,7 @@ Host: {myconfig}.azconfig.io
 Authorization: Bearer {{AadToken}}
 ```
 
-## Azure Active Directory Token Acquisition
+## Azure Active Directory token acquisition
 
 Before acquiring an Azure AD token one must identify what user they want to authenticate as, what audience they are requesting the token for, and what Azure AD endpoint (authority) they should use.
 
@@ -43,11 +43,11 @@ The Azure AD token must be requested with a proper audience. For Azure App Confi
 > [!IMPORTANT]
 > When the audience requested is {configurationStoreName}.azconfig.io, it must exactly match the "Host" request header (case sensitive) used to send the request.
 
-### Azure AD Authority
+### Azure AD authority
 
-The Azure AD authority is the endpoint that is used for acquiring an Azure AD token. It is in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Azure Active Directory tenant id to which the user/application who is trying to authenticate belongs.
+The Azure AD authority is the endpoint that is used for acquiring an Azure AD token. It is in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Azure Active Directory tenant ID to which the user/application who is trying to authenticate belongs.
 
-### Authentication Libraries
+### Authentication libraries
 
 Azure provides a set of libraries called Azure Active Directory Authentication Libraries (ADAL) to simplify the process of acquiring an Azure AD token. These libraries are built for multiple languages. Documentation can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
 

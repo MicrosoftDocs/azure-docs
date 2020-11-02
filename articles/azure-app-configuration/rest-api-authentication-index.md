@@ -18,4 +18,4 @@ All HTTP requests must be authenticated. The following authentication schemes ar
 
 ## Azure Active Directory
 
-[Azure Active Directory (AAD) authentication](./rest-api-authentication-aad.md) utilizes a bearer token that is obtained from Azure Active Directory to authenticate requests. Details on how requests using this authentication method are authorized can be found in the [AAD authorization](./rest-api-authorization-aad.md) section.
+[Azure Active Directory (Azure AD) authentication](./rest-api-authentication-aad.md) utilizes a bearer token that is obtained from Azure Active Directory to authenticate requests. Details on how requests using this authentication method are authorized can be found in the [Azure AD authorization](./rest-api-authorization-aad.md) section.
