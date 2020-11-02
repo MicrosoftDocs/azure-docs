@@ -24,11 +24,11 @@ Application gateway provides a capability which allows users to override the HTT
 
 ## Override host header in the request
 
-The ability to specify a host override is defined in the [HTTP settings](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) and can be applied to any back-end pool during rule creation. The following two ways of overriding host header and SNI extension for multi-tenant back ends is supported:
+The ability to specify a host override is defined in the [HTTP settings](./configuration-overview.md#http-settings) and can be applied to any back-end pool during rule creation. The following two ways of overriding host header and SNI extension for multi-tenant back ends is supported:
 
 - The ability to set the host name to a fixed value explicitly entered in the HTTP settings. This capability ensures that the host header is overridden to this value for all traffic to the back-end pool where the particular HTTP settings are applied. When using end to end TLS, this overridden host name is used in the SNI extension. This capability enables scenarios where a back-end pool farm expects a host header that is different from the incoming customer host header.
 
-- The ability to derive the host name from the IP or FQDN of the back-end pool members. HTTP settings also provide an option to dynamically pick the host name from a back-end pool member's FQDN if configured with the option to derive host name from an individual back-end pool member. When using end to end TLS, this host name is derived from the FQDN and is used in the SNI extension. This capability enables scenarios where a back-end pool can have two or more multi-tenant PaaS services like Azure web apps and the request's host header to each member contains the host name derived from its FQDN. For implementing this scenario, we use a switch in the HTTP Settings called [Pick hostname from backend address](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) which will dynamically override the host header in the original request to the one mentioned in the backend pool.  For example, if your backend pool FQDN contains “contoso11.azurewebsites.net” and “contoso22.azurewebsites.net”, the original request’s host header which is contoso.com will be overridden to contoso11.azurewebsites.net or contoso22.azurewebsites.net when the request is sent to the appropriate backend server. 
+- The ability to derive the host name from the IP or FQDN of the back-end pool members. HTTP settings also provide an option to dynamically pick the host name from a back-end pool member's FQDN if configured with the option to derive host name from an individual back-end pool member. When using end to end TLS, this host name is derived from the FQDN and is used in the SNI extension. This capability enables scenarios where a back-end pool can have two or more multi-tenant PaaS services like Azure web apps and the request's host header to each member contains the host name derived from its FQDN. For implementing this scenario, we use a switch in the HTTP Settings called [Pick hostname from backend address](./configuration-overview.md#pick-host-name-from-back-end-address) which will dynamically override the host header in the original request to the one mentioned in the backend pool.  For example, if your backend pool FQDN contains “contoso11.azurewebsites.net” and “contoso22.azurewebsites.net”, the original request’s host header which is contoso.com will be overridden to contoso11.azurewebsites.net or contoso22.azurewebsites.net when the request is sent to the appropriate backend server. 
 
   ![web app scenario](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -55,8 +55,8 @@ There can be scenarios where the hostname in the response from the App service m
 - You have redirection configured on your App Service. Redirection can be as simple as adding a trailing slash to the request.
 - You have Azure AD authentication which causes the redirection.
 
-To resolve such cases, see [Troubleshoot redirection to App service’s URL issue](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+To resolve such cases, see [Troubleshoot redirection to App service’s URL issue](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## Next steps
 
-Learn how to set up an application gateway with a multi-tenant app such as Azure App service web app as a back-end pool member by visiting [Configure App Service web apps with Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Learn how to set up an application gateway with a multi-tenant app such as Azure App service web app as a back-end pool member by visiting [Configure App Service web apps with Application Gateway](./configure-web-app-portal.md)
