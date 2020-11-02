@@ -304,13 +304,13 @@ Azure Machine Learning has varying support across different compute resources an
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: You can use the Identity and Access Management tab for a resource in the Azure portal to configure role-based access control (RBAC) and maintain inventory on Azure Machine Learning resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
+**Guidance**: You can use the Identity and Access Management tab for a resource in the Azure portal to configure Azure role-based access control (Azure RBAC) and maintain inventory on Azure Machine Learning resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
-Azure Machine Learning provides built-in RBAC for common management scenarios in Azure Machine Learning. An individual who has a profile in Azure Active Directory (Azure AD) can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Machine Learning resources.
+Azure Machine Learning provides built-in roles for common management scenarios in Azure Machine Learning. An individual who has a profile in Azure Active Directory (Azure AD) can assign these roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Machine Learning resources.
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups.
 
-- [Understand role-based access control in Azure Machine Learning](how-to-assign-roles.md)
+- [Understand Azure role-based access control in Azure Machine Learning](how-to-assign-roles.md)
 
 - [How to get a directory role in Azure Active Directory with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -595,7 +595,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Automation Update Management to ensure that the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.
 
-- [How to configure Update Management for virtual machines in Azure](/azure/automation/automation-update-management)
+- [How to configure Update Management for virtual machines in Azure](/azure/automation/update-management/overview)
 
 - [Understand Azure security policies monitored by Security Center](../security-center/security-center-policy-definitions.md)
 
@@ -724,7 +724,7 @@ Remove Azure resources when they are no longer needed.
 
 - [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking.md)
+- [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking/overview.md)
 
 - [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
@@ -905,13 +905,13 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure role-based access control (RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Azure AD groups within your organization. Store container images in Azure Container Registry and use RBAC to ensure that only authorized users have access.
+**Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure role-based access control (Azure RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Azure AD groups within your organization. Store container images in Azure Container Registry and use Azure RBAC to ensure that only authorized users have access.
 
-- [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
+- [Understand Azure RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1102,7 +1102,7 @@ customer-managed keys.
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. Use role-based access control to protect backups and customer-managed keys. 
+**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. Use Azure role-based access control to protect backups and customer-managed keys. 
 
 Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  

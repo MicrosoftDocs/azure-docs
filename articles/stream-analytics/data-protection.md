@@ -68,10 +68,27 @@ Use the following steps to configure your storage account for private data asset
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
+## Private data assets that are stored
 
+Any private data that is required to be persisted by Stream Analytics is stored in your storage account. Examples of private data assets include: 
 
-### Known issues
-Currently, there is a known limitation where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs.
+* Queries that you have authored and their related configurations  
+
+* User-defined functions 
+
+* Checkpoints needed by the Stream Analytics runtime
+
+* Snapshots of reference data 
+
+Connection details of your resources, which are used by your Stream Analytics job, are also stored. Encrypt your storage account to secure all of your data. 
+
+To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## Enables Data Residency 
+You may use this feature to enforce any data residency requirements you may have by providing a storage account accordingly.
+
+## Known issues
+There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. 
 
 ## Next steps
 

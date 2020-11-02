@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you create a key vault, then use it to store a secret. For more information on Key Vault, review the [Overview](../general/overview.md).
 
-For more information about secrets, see (about-secrets.md).
+For more information about secrets, see [About secrets](about-secrets.md).
 
 ## Prerequisites
 
@@ -48,8 +48,8 @@ Take note of the two properties listed below:
 * **Vault URI**: In the example, this is https://contoso-vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 You can also create Key Vault with Azure CLI and PowerShell:
-[Create Key Vault using PowerShell](../general/quick-create-powershell.md)
-[Create Key Vault using Azure CLI](../general/quick-create-cli.md)
+- [Create Key Vault using PowerShell](../general/quick-create-powershell.md)
+- [Create Key Vault using Azure CLI](../general/quick-create-cli.md)
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 

@@ -141,11 +141,10 @@ Get the connection information you need to connect to the database. You'll need 
 - Learn how to [connect and query a database in Azure SQL Database by using .NET Core](connect-query-dotnet-core.md) on Windows/Linux/macOS.  
 - Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [Design your first database in Azure SQL Database by using SSMS](design-first-database-tutorial.md) or [Design your first database in Azure SQL Database by using .NET](design-first-database-csharp-tutorial.md).
-- For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
+- For more information about .NET, see [.NET documentation](/dotnet/).
 - Retry logic example: [Connect resiliently to Azure SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

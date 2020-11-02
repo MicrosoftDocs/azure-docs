@@ -80,7 +80,7 @@ To add Azure Stack VMs, you need the information on the **Agents management** pa
 1. Log into your **Azure Stack** portal and open the **Virtual machines** page.
 1. Select the virtual machine that you want to protect with Security Center.
     >[!TIP]
-    > For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 1. Select the **Add** tab. The **New Resource** menu shows the list of available virtual machine extensions.
 1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration page opens.

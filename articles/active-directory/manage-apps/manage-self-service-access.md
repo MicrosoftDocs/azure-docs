@@ -77,4 +77,4 @@ To enable self-service application access to an application, follow the steps be
 Once you complete Self-service application configuration, users can navigate to their [My Apps](https://myapps.microsoft.com/) and click the **Add self-service apps** button to find the apps that are enable with self-service access. Business approvers also see a notification in their [My Apps](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)
+[Setting up Azure Active Directory for self-service group management](../enterprise-users/groups-self-service-management.md)

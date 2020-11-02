@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/22/2020
 ---
 
 # Use Managed identities with Azure Machine Learning (preview)
@@ -24,7 +24,6 @@ In this article, you'll learn how to use managed identities to:
 
  * Configure and use ACR for your Azure Machine Learning workspace without having to enable admin user access to ACR.
  * Access a private ACR external to your workspace, to pull base images for training or inference.
- * Access data sets for training by using managed identities instead of storage access keys.
 
 > [!IMPORTANT]
 > Using managed identities to control access to resources with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -217,31 +216,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## Access training data
-
-Once you've created a machine learning compute cluster with managed identity as described earlier, you can use that identity to access training data without storage account keys. You can use either system- or user-assigned managed identity for this scenario.
-
-### Grant compute managed identity access to storage account
-
-[Grant the managed identity a reader role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) on the storage account in which you store your training data.
-
-### Register data store with workspace
-
-After you've assigned the managed identity, you can create a data store without having to specify storage credentials.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### Submit training run
-
-When you submit a training run using the data store, the machine learning compute uses its managed identity to access data.
 
 ## Use Docker images for inference
 

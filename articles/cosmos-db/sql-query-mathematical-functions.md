@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Mathematical functions (Azure Cosmos DB)  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 

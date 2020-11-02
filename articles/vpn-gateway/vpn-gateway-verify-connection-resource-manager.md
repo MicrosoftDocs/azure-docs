@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.author: cherylmc 
 ms.custom: devx-track-azurecli
 
@@ -30,7 +30,6 @@ To verify a VPN gateway connection for the Resource Manager deployment model usi
 To verify a VPN gateway connection for the Resource Manager deployment model using Azure CLI, install the latest version of the [CLI commands](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 or later).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
-
 
 ## Azure portal (classic)
 

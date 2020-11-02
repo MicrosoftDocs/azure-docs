@@ -39,6 +39,8 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
+        - name: Assess pronunciation
+          href: how-to-pronunciation-assessment.md
     - name: Tutorials
       items:
         - name: Recognize speech stored in blob storage
@@ -229,6 +231,8 @@
   items:
     - name: Intent recognition documentation
       href: index-intent-recognition.yml
+    - name: Intent recognition overview
+      href: intent-recognition.md
     - name: Intent recognition quickstart
       href: quickstarts/intent-recognition.md
     - name: How-to guides
@@ -295,17 +299,15 @@
           href: index-conversation-scenarios.yml
         - name: Conversation transcription
           items:
-            - name: Overview
-              items:
-                - name: What is conversation transcription?
-                  href: conversation-transcription.md
+            - name: Conversation Transcription overview
+              href: conversation-transcription.md
+            - name: Real-time Conversation Transcription quickstart
+              href: how-to-use-conversation-transcription.md
             - name: How-to guides
               items:
                 - name: Handle call center scenarios
                   displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
                   href: call-center-transcription.md
-                - name: Real-time Conversation transcription
-                  href: how-to-use-conversation-transcription.md
                 - name: Asynchronous Conversation transcription
                   href: how-to-async-conversation-transcription.md
             - name: Reference
@@ -339,14 +341,10 @@
                       href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
         - name: Multi-device conversation
           items:
-            - name: Overview
-              items:
-                - name: What is multi-device conversation?
-                  href: multi-device-conversation.md
-            - name: Quickstart
-              items:
-                - name: Start and join a conversation
-                  href: quickstarts/multi-device-conversation.md
+            - name: Multi-device conversation overview
+              href: multi-device-conversation.md
+            - name: Multi-device conversation quickstart
+              href: quickstarts/multi-device-conversation.md
             - name: Reference
               items:
                 - name: Speech SDK
@@ -361,12 +359,8 @@
       items:
         - name: Voice assistants documentation
           href: index-voice-assistants.yml
-        - name: Overview
-          items:
-            - name: What is a voice assistant?
-              href: voice-assistants.md
-            - name: Voice Assistant samples (GitHub)
-              href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
+        - name: Voice assistants overview
+          href: voice-assistants.md
         - name: Custom Commands
           items:
             - name: What is Custom Commands?
@@ -399,6 +393,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Set up web endpoints
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Export your Custom Commands app as a skill
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Deploy
                   items:
                     - name: Continuous Deployment with Azure DevOps
@@ -578,21 +574,20 @@
     href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
   items:
-    - name: Support
-      displayName: support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice
-      href: support.md
-    - name: Swagger documentation
-      href: swagger-documentation.md
-    - name: Sovereign Clouds
-      displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
-      href: sovereign-clouds.md
-    - name: Pricing calculator
-      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
-    - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-    - name: Encryption
-      href: speech-encryption-of-data-at-rest.md
-    - name: Azure roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Privacy and cookies
-      href: 'https://privacy.microsoft.com/privacystatement'
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+  - name: Swagger documentation
+    href: swagger-documentation.md
+  - name: Sovereign Clouds
+    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    href: sovereign-clouds.md
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: speech-encryption-of-data-at-rest.md
+  - name: Azure roadmap
+    href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+  - name: Privacy and cookies
+    href: 'https://privacy.microsoft.com/privacystatement'

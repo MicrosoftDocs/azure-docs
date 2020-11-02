@@ -27,8 +27,8 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip Tickets SaaS database-per-tenant app is deployed. To deploy it in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS database-per-tenant application](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell is installed. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The Wingtip Tickets SaaS database-per-tenant app is deployed. To deploy it in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS database-per-tenant application](./saas-dbpertenant-get-started-deploy.md).
+* Azure PowerShell is installed. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## Introduction to the SaaS catalog pattern
 
@@ -60,7 +60,7 @@ Database provisioning needs to be part of your schema management strategy. You m
 
 The Wingtip Tickets database-per-tenant app provisions new tenants by copying a template database named _basetenantdb_, which is deployed on the catalog server. Provisioning can be integrated into the application as part of a sign-up experience. It also can be supported offline by using scripts. This tutorial explores provisioning by using PowerShell.
 
-Provisioning scripts copy the _basetenantdb_ database to create a new tenant database in an elastic pool. The tenant database is created in the tenant server mapped to the _newtenant_ DNS alias. This alias maintains a reference to the server used to provision new tenants and is updated to point to a recovery tenant server in the disaster recovery tutorials ([DR using georestore](../../sql-database/saas-dbpertenant-dr-geo-restore.md), [DR using georeplication](../../sql-database/saas-dbpertenant-dr-geo-replication.md)). The scripts then initialize the database with tenant-specific information and register it in the catalog shard map. Tenant databases are given names based on the tenant name. This naming scheme isn't a critical part of the pattern. The catalog maps the tenant key to the database name, so any naming convention can be used.
+Provisioning scripts copy the _basetenantdb_ database to create a new tenant database in an elastic pool. The tenant database is created in the tenant server mapped to the _newtenant_ DNS alias. This alias maintains a reference to the server used to provision new tenants and is updated to point to a recovery tenant server in the disaster recovery tutorials ([DR using georestore](./saas-dbpertenant-dr-geo-restore.md), [DR using georeplication](./saas-dbpertenant-dr-geo-replication.md)). The scripts then initialize the database with tenant-specific information and register it in the catalog shard map. Tenant databases are given names based on the tenant name. This naming scheme isn't a critical part of the pattern. The catalog maps the tenant key to the database name, so any naming convention can be used.
 
 
 ## Get the Wingtip Tickets SaaS database-per-tenant application scripts
@@ -90,7 +90,7 @@ To understand how the Wingtip Tickets application implements new tenant provisio
 
 
 
-Trace the script's execution by using the **Debug** menu options. Press F10 and F11 to step over or into the called functions. For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Trace the script's execution by using the **Debug** menu options. Press F10 and F11 to step over or into the called functions. For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 You don't need to explicitly follow this workflow. It explains how to debug the script.
@@ -166,10 +166,10 @@ In this tutorial you learned how to:
 > * Provision a batch of additional tenants.
 > * Step into the details of provisioning tenants and registering them into the catalog.
 
-Try the [Performance monitoring tutorial](../../sql-database/saas-dbpertenant-performance-monitoring.md).
+Try the [Performance monitoring tutorial](./saas-dbpertenant-performance-monitoring.md).
 
 ## Additional resources
 
 * Additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic database client library](elastic-database-client-library.md)
-* [Debug scripts in the Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Debug scripts in the Windows PowerShell ISE](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

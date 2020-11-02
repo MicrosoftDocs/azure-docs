@@ -59,6 +59,8 @@
       href: container-registry-geo-replication.md
     - name: Registry best practices
       href: container-registry-best-practices.md
+    - name: Manage public images
+      href: buffer-gate-public-content.md
   - name: How-to guides
     expanded: false
     items:
@@ -120,6 +122,7 @@
           href: container-registry-repository-scoped-permissions.md
       - name: Azure role-based access control
         href: container-registry-roles.md
+        displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
       - name: Image scanning with Security Center
@@ -209,6 +212,8 @@
         href: container-registry-task-run-template.md
       - name: Run task on dedicated agent pool (preview)
         href: tasks-agent-pools.md
+      - name: Consume and maintain public content
+        href: tasks-consume-public-content.md
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
       - name: View task logs

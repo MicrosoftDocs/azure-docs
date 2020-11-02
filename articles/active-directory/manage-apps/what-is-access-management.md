@@ -89,4 +89,4 @@ As with enterprise apps, you can [assign users](assign-user-or-group-access-port
 
 ## Next steps
 * [Protecting apps with Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Self-service group management/SSAA](../enterprise-users/groups-self-service-management.md)
