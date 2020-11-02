@@ -4,6 +4,7 @@ ms.date: 09/10/2020
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
+ms.custom: devx-track-azurecli
 ---
 
 ## Prerequisites
