@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 # Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
@@ -32,6 +32,8 @@ Before getting started with Babylon insights, make sure that you've completed th
 
 - Set up and completed a scan on the test data in each data source.
  
+For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md).
+
 After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
 
 ## Babylon insights
