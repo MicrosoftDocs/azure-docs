@@ -7,7 +7,7 @@ ms.author: crtreasu
 ---
 ### Upload your model
 
-If you don't already have an Object Understanding model, follow the instructions in [Create a model](/object-understanding/quickstarts/get-started-model-ingestion.md) to create one. Then, return here.
+If you don't already have an Object Anchors model, follow the instructions in [Create a model](/object-understanding/quickstarts/get-started-model-ingestion.md) to create one. Then, return here.
 
 With your HoloLens connected to the Windows Device Portal, follow these steps to upload a model for the app to use:
 

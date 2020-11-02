@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a HoloLens app with DirectX'
-description: In this quickstart, you learn how to build a HoloLens app using Object Understanding.
+description: In this quickstart, you learn how to build a HoloLens app using Object Anchors.
 author: craigktreasure
 manager: virivera
 
@@ -9,10 +9,10 @@ ms.date: 04/01/2020
 ms.topic: quickstart
 ms.service: azure-object-understanding
 ---
-# Quickstart: Create a HoloLens app with Azure Object Understanding, in C++/WinRT and DirectX
+# Quickstart: Create a HoloLens app with Azure Object Anchors, in C++/WinRT and DirectX
 
-This quickstart covers how to create a HoloLens app using [Azure Object Understanding](../overview.md) in C++/WinRT and
-DirectX. Azure Object Understanding is a managed cloud service that converts 3D assets into AI models that enable
+This quickstart covers how to create a HoloLens app using [Azure Object Anchors](../overview.md) in C++/WinRT and
+DirectX. Azure Object Anchors is a managed cloud service that converts 3D assets into AI models that enable
 object-aware mixed reality experiences for the HoloLens. When you're finished, you'll have a HoloLens app that can detect
 an object and its pose in a Holographic DirectX 11 (Universal Windows) application.
 
@@ -90,9 +90,9 @@ The next time the app runs, it will capture diagnostics and write data to the ap
 
 :::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="Portal Upload Diagnostics":::
 
-#### Upload diagnostics to Object Understanding Azure Blob Storage
+#### Upload diagnostics to Object Anchors Azure Blob Storage
 
-The captured diagnostics can be uploaded to the Object Understanding Azure service when a user provides their subscription account information to the app.
+The captured diagnostics can be uploaded to the Object Anchors Azure service when a user provides their subscription account information to the app.
 
 Create a new file called `subscription.json`. Fill in the account information below and save the contents to `subscription.json`. Upload the `subscription.json` you created to the `LocalState` folder. The next time the app starts, it will load the account information and upload a diagnostics archive to the service.
 
