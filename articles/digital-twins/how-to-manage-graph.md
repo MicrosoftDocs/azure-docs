@@ -444,72 +444,132 @@ Here is the console output of the above program:
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
-### Create a twin graph from a spreadsheet
+### Create a twin graph from a spreadsheet
+In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a csv file. This section illustrates how to read data from a csv file and create a twin graph out of it.
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet. This section illustrates how a spreadsheet can be parsed.
+Consider the following data table, describing a set of digital twins and relationships to create a csv file in your local machine.
 
-Consider the following data table, describing a set of digital twins and relationships to be created.
+| Model ID| Twin ID (must be unique) | Relationship name | Target twin ID | Twin init data |
+| --- | --- | --- | --- | --- |
+| dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80}
+| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70}
+| dtmi:example:Room;1  | Room1 | 
+| dtmi:example:Room;1  | Room0 |
 
-| Model ID| Twin ID (must be unique) | Relationship name | Target twin ID | Twin init data |
-| --- | --- | --- | --- | --- |
-| dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80, "Humidity": 60}
-| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70, "Humidity": 30}
-| dtmi:example:Room;1  | Room1 | 
-| dtmi:example:Room;1  | Room0 |
+* The following code sample reads data from the csv file and creates a twin graph. Save your csv file as data.csv and upload it to your project directory. You can also save your csv file elsewhere and specify the path in the code like this: `string path = @"<path-to-the-csv-file>";`.
+* Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
 
-The following code uses the [Microsoft Graph API](/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
+You can now run the sample and see the twins and its relationships created.
 
 ```csharp
-var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
-JsonDocument data = JsonDocument.Parse(range.values);
-List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
-foreach (JsonElement row in data.RootElement.EnumerateArray())
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using Azure;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using Nancy.Json;
+
+namespace creating_twin_graph_from_csv
 {
-    string modelId = row[0].GetString();
-    string sourceId = row[1].GetString();
-    string relName = row[2].GetString();
-    string targetId = row[3].GetString();
-    string initData = row[4].GetString();
-    
-    // Parse spreadsheet extra data into a JSON string to initialize the digital twin
-    // Left out for compactness
-    Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
-
-    if (sourceId != null)
-    {
-        BasicRelationship br = new BasicRelationship()
-        {
-            SourceId = sourceId,
-            TargetId = targetId,
-            Name = relName
-        };
-        RelationshipRecordList.Add(br);
-    }
-
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Contents = initData;
-    // Set the type of twin to be created
-    twin.Metadata = new DigitalTwinMetadata() { ModelId = modelId };
-    
-    try
-    {
-        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(sourceId, twin);
-    }
-    catch (RequestFailedException e)
-    {
-       Console.WriteLine($"Error {e.Status}: {e.Message}");
-    }
-    foreach (BasicRelationship rec in RelationshipRecordList)
-    { 
-        try { 
-            await client.CreateOrReplaceRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), rec);
-        }
-        catch (RequestFailedException e)
-        {
-            Console.WriteLine($"Error {e.Status}: {e.Message}");
-        }
-    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
+            List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
+            List<List<string>> data = ReadData();
+            DigitalTwinsClient client = createDTClient();
+            
+            // Reading the csv file by each row
+            foreach (List<string> row in data)
+            {
+                string modelID = row.Count > 0 ? row[0].Trim() : null;
+                string srcID = row.Count > 1 ? row[1].Trim() : null;
+                string relName = row.Count > 2 ? row[2].Trim() : null;
+                string targetID = row.Count > 3 ? row[3].Trim() : null;
+                string initproperty = row.Count > 4 ? row[4].Trim() : null;
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initproperty}");
+                var jss = new JavaScriptSerializer();
+                var dict = jss.Deserialize<Dictionary<string, dynamic>>(initproperty);
+                               
+                // Null check for source and target ID's
+                if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
+                {
+                    BasicRelationship br = new BasicRelationship()
+                    {
+                        SourceId = srcID,
+                        TargetId = targetID,
+                        Name = relName
+                    };
+                    RelationshipRecordList.Add(br);
+                }
+                BasicDigitalTwin srcTwin = new BasicDigitalTwin();
+                srcTwin.Id = srcID;
+                srcTwin.Metadata = new DigitalTwinMetadata();
+                srcTwin.Metadata.ModelId = modelID;
+                srcTwin.Contents = dict;
+                TwinList.Add(srcTwin);                                              
+            }
+            // create digital twins 
+            foreach (BasicDigitalTwin twin in TwinList)
+            {
+                try
+                {
+                    client.CreateOrReplaceDigitalTwinAsync(twin.Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
+            // Create relationship between the twins
+            foreach (BasicRelationship rec in RelationshipRecordList)
+            {
+                try
+                {
+                    client.CreateOrReplaceRelationshipAsync(rec.SourceId, Guid.NewGuid().ToString(), rec.TargetId);
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
+        }
+        // Read data from the csv file
+        public static List<List<string>> ReadData()
+        {
+            string path = "data.csv";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            List<List<string>> data = new List<List<string>>();
+            int count = 0;
+            foreach (string line in lines)
+            {
+                if (count++ == 0)
+                    continue;
+                List<string> cols = new List<string>();
+                data.Add(cols);
+                string[] columns = line.Split(',');
+                foreach (string column in columns)
+                {
+                    cols.Add(column);
+                }
+            }
+            return data;
+        }
+        // Create digital twins client
+        private static DigitalTwinsClient createDTClient()
+        {
+            
+            string adtInstanceUrl = "https://<your-digital-twins-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            return client;
+        }
+        
+    }
 }
+
 ```
 ## Manage relationships with CLI
 
