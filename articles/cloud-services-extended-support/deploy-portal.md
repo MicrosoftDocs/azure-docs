@@ -139,23 +139,21 @@ In method 2, customers need to use multiple Power Shell commands to manually per
 
 12.	Create Cloud Service deployment using profile objects & SAS URLs
 
-```PowerShell
-$cloudService = New-AzCloudService `
--Name “ContosoCSApp” `
--ResourceGroupName “ContosoResourceGroup” `
--Location “East US” `
--PackageUrl $cspkgUrl `
--Configuration $cscfgUrl `
--UpgradeMode 'Auto' `
--RoleProfileRole $roles `
--NetworkProfileLoadBalancerConfiguration $loadBalancerConfig `
--ExtensionProfileExtension $extension `
--Tag $tag
-```
+    ```PowerShell
+    $cloudService = New-AzCloudService `
+    -Name “ContosoCSApp” `
+    -ResourceGroupName “ContosoResourceGroup” `
+    -Location “East US” `
+    -PackageUrl $cspkgUrl `
+    -Configuration $cscfgUrl `
+    -UpgradeMode 'Auto' `
+    -RoleProfileRole $roles `
+    -NetworkProfileLoadBalancerConfiguration $loadBalancerConfig `
+    -ExtensionProfileExtension $extension `
+    -Tag $tag
+    ```
 
 > [!NOTE]
- -Configuration $cscfgBase64 is also supported
+ The command `-Configuration $cscfgBase64` is also supported
 
-For more information, see <Add link to CS Powershell reference documents> 
-
-For examples script, see <link>
+For more information, see [Cloud Services (extended support) Reference Documentation]() 

@@ -12,23 +12,21 @@ ms.custom:
 
 # Cloud Services (extended support) Frequently Asked Questions 
 
-This article is broken down into various high level FAQ topics for simpler navigation. 
+This article is broken down into various high level FAQ topics. 
 
 ## General FAQ
 
 ### How has cloud services changed? 
 
-Cloud Services (extended support) is now using Azure Resource Manager (ARM) to handle all control plane operation requests (create, update, read, delete). The underlying logic to make infrastructure changes based on these requests haven’t changed.  
+- Cloud Services (extended support) is now using Azure Resource Manager (ARM) to handle all control plane operation requests (create, update, read, delete). The underlying logic to make infrastructure changes based on these requests haven’t changed.  Therefore, customers immediately get ARM features and the existing deployment files (Cscfg, Csdef) can be reused with minimal changes.  
 
-Therefore, customers immediately get ARM features and the existing deployment files (Cscfg, Csdef) can be reused with minimal changes.  
+- As part of migration, customer needs to start using the new Rest APIs, PS commands, new Portal experience for control plane operations.  
 
-As part of migration, customer needs to start using the new Rest APIs, PS commands, new Portal experience for control plane operations.  
+- Since Azure Resource Manager & Azure Service Manager (ASM) are inherently different, few features are no longer supported and few features have changed in the way they are used.  
 
-Since the e on Azure Resource Manager & Azure Service Manager (ASM) are inherently different, few features are no longer supported and few features have changed in the way they are used.  
+- Features like Load Balancer, Public IP, Virtual Network, Network Security Groups are exposed to customers as a resource on ARM unlike in ASM. However, the way to define these resources in Cscfg, Csdef remain the same.  
 
-Features like Load Balancer, Public IP, Virtual Network, Network Security Groups are exposed to customers as a resource on ARM unlike in ASM. However, the way to define these resources in Cscfg, Csdef remain the same.  
-
-Customers now need to use Key Vault to store and manager their certificates. ASM handled certificate management on behalf of customer. Key Vault provides customers a better control over their certificates and secrets.  
+- Customers now need to use Key Vault to store and manager their certificates. ASM handled certificate management on behalf of customer. Key Vault provides customers a better control over their certificates and secrets.  
 
  
 
@@ -40,11 +38,9 @@ List of all supported and unsupported features/scenarios is listed in the Cloud 
 
 ### What resources are available from microsoft for technical assistance and troubleshooting? 
 
-Microsoft actively monitors Microsoft Q&A, Github, Stack Overflow, Azure Docs & Support channels dedicated for Cloud Services.  
+- Microsoft actively monitors Microsoft Q&A, Github, Stack Overflow, Azure Docs & Support channels dedicated for Cloud Services.  
 
-It aims to assist customers with general & technical questions, build a developer community and empower customers to provide feedback & report bugs.  
-
-You can report bug in the product using <link> (Get the link from dev team) and in the documents using Github or Feedback section of the documents.  
+- You can report bug in the product using <link> (Get the link from dev team) and in the documents using Github or Feedback section of the documents.  
 
  
 
@@ -66,33 +62,33 @@ Cloud Services (extended support) is now in beta stage and available for custome
 
 We recommend following steps: 
 
-Read docs and understand what cloud services (extended support) has to offer. 
+1. Read docs and understand what cloud services (extended support) has to offer. 
 
-Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or Power shell.  
+2. Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or Power shell.  
 
-Understand the set of features used and blockers for migration.  
+3. Understand the set of features used and blockers for migration.  
 
-Build a catalog of custom tools, automations, dashboards and that needs to be updated to start using newer APIs, PS commands & SDKs. 
+4. Build a catalog of custom tools, automations, dashboards and that needs to be updated to start using newer APIs, PS commands & SDKs. 
 
-Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A) 
+5. Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A) 
 
-Build a detailed migration plan and execution timeline.  
+6. Build a detailed migration plan and execution timeline.  
 
-Start and complete migration. Customers can either do a lift & shift migration (create parallel deployment on ARM, thoroughly test the deployment, migrate traffic from old to new deployment) or migrate within microsoft provided migration tool (will be soon released).  
+7. Start and complete migration. Customers can either do a lift & shift migration (create parallel deployment on ARM, thoroughly test the deployment, migrate traffic from old to new deployment) or migrate within microsoft provided migration tool (will be soon released).  
 
  
 
 ### What does extended support mean? 
 
-Cloud services (extended support) was built with the goal to provide an easy migration path to ARM since ARM immediately provides a much better value for money, greatly improved performance & security and scope for future growth.  
+- Cloud services (extended support) was built with the goal to provide an easy migration path to ARM since ARM immediately provides a much better value for money, greatly improved performance & security and scope for future growth.  
 
-Cloud services (classic) will soon support a migration tool to facilitate migration from cloud services (classic) to cloud services (extended support) with minimal to downtime.  
+- Cloud services (classic) will soon support a migration tool to facilitate migration from cloud services (classic) to cloud services (extended support) with minimal to downtime.  
 
  
 
 ### What is Azure Resource Manager? 
 
-Azure Resource Manager (ARM) is the new regional deployment and management service for Azure.  
+- Azure Resource Manager (ARM) is the new regional deployment and management service for Azure.  
 
  
 
@@ -106,13 +102,13 @@ Classic vs resource manager document explains the difference between these two d
 
 ### What are resources? What is the difference between classic & ARM resources? 
 
-Resource is a manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources. Resource groups, subscriptions, management groups, and tags are all examples of resources. 
+- Resource is a manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources. Resource groups, subscriptions, management groups, and tags are all examples of resources. 
 
-Resources managed by ASM are called classic resources while resources managed by ARM are called ARM resources.  
+- Resources managed by ASM are called classic resources while resources managed by ARM are called ARM resources.  
 
-Each resource has a resource name to uniquely identify it. Template resource declaration uses these names to tell azure which resource to manage.  
+- Each resource has a resource name to uniquely identify it. Template resource declaration uses these names to tell azure which resource to manage.  
 
-Cloud Services (classic): microsoft.classiccompute/domainnames, Cloud Services (extended support): microsoft.compute/cloudservices 
+- Cloud Services (classic): microsoft.classiccompute/domainnames, Cloud Services (extended support): microsoft.compute/cloudservices 
 
  
 
