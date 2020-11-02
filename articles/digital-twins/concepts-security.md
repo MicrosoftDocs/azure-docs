@@ -114,7 +114,7 @@ Here are the steps to access [event route](concepts-route-events.md) endpoints u
 
 4. Set IP filters on the external resource(s) using the IP ranges from *Step 2*.  
 
-5. Update the IP ranges periodically as required. The ranges may change over time, so it's a good idea to check these regularly and refresh them when needed.
+5. Update the IP ranges periodically as required. The ranges may change over time, so it's a good idea to check these regularly and refresh them when needed. The frequency of these updates can vary, but it's a good idea to check them once a week.
 
 ## Encryption of data at rest
 
