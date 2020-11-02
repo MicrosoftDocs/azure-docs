@@ -66,7 +66,7 @@ You can choose compute and storage resources during deployment and then change t
 
 ## Migration options
 
-The following table describes data migration options and corresponding recommendations: 
+The following table describes data migration options and considerations: 
 
 
 |Migration option  |When to use  |Description  |Considerations  |
