@@ -62,7 +62,7 @@ First, you need to create an account with the Object Anchors service.
    Go to **Keys** and take note of the **Primary Key**. You'll need it later.
 
    :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy Account Key":::
-   
+
    Go to **Properties** and take note of the **Location ID**. You'll need it later.
 
    :::image type="content" source="./media/copy-ou-account-region.png" alt-text="Copy Account Region":::
@@ -79,11 +79,11 @@ Now, you can go ahead and ingest your 3D model.
 
 2. Open the `Configuration.cs` file located in the root of the project and replace the `set-me` values on following fields:
 
-    | Field                          | Description                                                           |
-    | ---                            | ---                                                                   |
-    | AccountId                      | The **Account ID** of the Object Anchors Account created above. |
-    | AccountKey                     | The **Primary key** of the Object Anchors Account created above |
-    | Account Region                 | The **Location ID** of the Object Anchors Account created above.     |
+   | Field          | Description                                                      |
+   |----------------|------------------------------------------------------------------|
+   | AccountId      | The **Account ID** of the Object Anchors Account created above.  |
+   | AccountKey     | The **Primary key** of the Object Anchors Account created above  |
+   | Account Region | The **Location ID** of the Object Anchors Account created above. |
 
    There are four additional fields that need to be verified:
 
