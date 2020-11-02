@@ -168,7 +168,7 @@ forecasting_parameters = ForecastingParameters(
 )
 ```
 
-These `time_series_settings` are then passed into your standard `AutoMLConfig` object along with the `forecasting` task type, primary metric, exit criteria and training data. 
+These `forecasting_parameters` are then passed into your standard `AutoMLConfig` object along with the `forecasting` task type, primary metric, exit criteria and training data. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -348,4 +348,3 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
 * Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 * Follow the [tutorial](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
-
