@@ -33,7 +33,7 @@ In this tutorial, the following network layers are defined:
 
 * **Top layer**: IoT Edge devices at this layer can connect directly to the cloud.
 
-* **Lower layer**: IoT Edge devices at this layer cannot connect directly to the cloud. They need to go through one more intermediary IoT Edge devices to send and receive data.
+* **Lower layer**: IoT Edge devices at this layer cannot connect directly to the cloud. They need to go through one or more intermediary IoT Edge devices to send and receive data.
 
 This tutorial uses a two device hierarchy for simplicity. One device, **topLayerDevice**, represents a device at the top layer of the hierarchy, which can connect directly to the cloud. This device will also be referred to as the **parent device**. The other device, **lowerLayerDevice**, represents a device at the lower layer of the hierarchy, which cannot connect directly to the cloud. This device will also be referred to as the **child device**. You can add additional lower layer devices to represent your production environment. The configuration of any additional lower layer devices will follow **lowerLayerDevice**'s configuration.
 
@@ -160,7 +160,7 @@ To create demo certificates on a Linux device, you need to clone the generation 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Each device needs a copy of the root CA certificate and a copy of its own device CA certificate and private key. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move these to each device.
+Each device needs a copy of the root CA certificate and a copy of its own device CA certificate and private key. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the certificates to each device.
 
 1. After the certificates are transferred, install the root CA for each device.
 
@@ -169,7 +169,7 @@ Each device needs a copy of the root CA certificate and a copy of its own device
    sudo update-ca-certificates
    ```
 
-   This command should output that 1 certificate has been added in /etc/ssl/certs.
+   This command should output that one certificate has been added in /etc/ssl/certs.
 
 ### Install IoT Edge on the devices
 
@@ -208,7 +208,7 @@ Configure the IoT Edge runtime by following these steps on both your devices. Co
 
 1. Bootstrap the system using the Edge Agent.
 
-1. Setup up your devices hostname to point to the **top layer** device.
+1. Set up up your devices hostname to point to the **top layer** device.
 
 Complete these three steps and restart the IoT Edge service to configure your devices.
 
@@ -354,7 +354,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
    }
    ```
 
-1. Next, add the API proxy module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your API proxy module and enter `mcr.microsoft.com/azureiotedge-api-proxy:latest` for the image URI. Next, add environment variables and create options that direct container image requests made to your device on your IoT Edege API Proxy port (8000) to your local registry module on its open port (5000). <!-- Change once Marketplace flow incident is fixed -->
+1. Next, add the API proxy module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your API proxy module and enter `mcr.microsoft.com/azureiotedge-api-proxy:latest` for the image URI. Next, add environment variables and create options that direct container image requests made to your device on your IoT Edge API Proxy port (8000) to your local registry module on its open port (5000). <!-- Change once Marketplace flow incident is fixed -->
 
 1. Under the environment variables tab, enter the following environment variables name-value pairs:
 
@@ -633,7 +633,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 ---
 
-Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. Since this device is in a lower layer, it can't have direct connections to the cloud. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module which handles the image pull.
+Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. Since this device is in a lower layer, it can't have direct connections to the cloud. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module, which handles the image pull.
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
@@ -641,7 +641,7 @@ You can also watch the messages arrive at your IoT hub by using the [Azure IoT H
 
 ## Clean up resources
 
-You can delete the local configurations and the Azure resources that your created in this article to avoid charges.
+You can delete the local configurations and the Azure resources that you created in this article to avoid charges.
 
 To delete the resources:
 
