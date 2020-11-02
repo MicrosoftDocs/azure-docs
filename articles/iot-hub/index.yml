@@ -81,7 +81,7 @@ landingContent:
         - text: Overview for Operators
           url: /azure-stack/operator/iot-hub-rp-overview
         - text: Overview for Users
-          url: azure-stack/user/iot-hub-overview
+          url: /azure-stack/user/iot-hub-overview
      -  linkListType: how-to-guide
         links:
         - text: Prerequisites for installing
