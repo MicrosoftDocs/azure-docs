@@ -40,7 +40,7 @@
   - name: Java Spring
     items:
     - name: Use Spring Boot Initializer
-      href: cache-java-spring-boot-initializer-with-redis-cache.md
+      href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - name: Create leaderboards
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
@@ -59,13 +59,15 @@
       href: cache-best-practices.md
     - name: Security
       items:
+      - name: Network isolation options
+        href: cache-network-isolation.md
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Caching architecture
-      href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
 - name: How-to guides
   items:
   - name: Plan
@@ -167,7 +169,7 @@
   - name: Azure CLI
     href: /cli/azure/redis
   - name: REST
-    href: https://docs.microsoft.com/rest/api/redis/
+    href: /rest/api/redis/
   - name: Resource Manager template
     href: /azure/templates/microsoft.cache/allversions
   - name: Azure Policy built-ins
@@ -182,7 +184,7 @@
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-cache-redis.html
+    href: /answers/topics/azure-cache-redis.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cache/
   - name: Build your skills with Microsoft Learn

@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LOG (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the natural logarithm of the specified numeric expression.  
   
 ## Syntax

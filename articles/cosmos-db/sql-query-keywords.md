@@ -9,6 +9,7 @@ ms.author: tisande
 
 ---
 # Keywords in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article details keywords which may be used in Azure Cosmos DB SQL queries.
 

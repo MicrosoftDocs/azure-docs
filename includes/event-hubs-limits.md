@@ -43,6 +43,8 @@ The following table shows limits that may be different for basic and standard ti
 ### Dedicated tier
 The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
 
+Refer to this [document](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) on how to create dedicated Event Hubs cluster using Azure portal.
+
 | Feature | Limits |
 | --- | ---|
 | Bandwidth |  20 CUs |
@@ -67,7 +69,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Size in bytes per schema | 1 MB |   
 | Number of properties per schema group | 1024 |
 | Size in bytes per group property key | 256 | 
-| Size in bytes per group property key | 1024 | 
+| Size in bytes per group property value | 1024 | 
 
 
 #### Limits that are different for **standard** and **dedicated** tiers 

@@ -3,7 +3,7 @@ title: Tutorial - Deploy multi-container group - template
 description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using an Azure Resource Manager template with the Azure CLI.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a multi-container group using a Resource Manager template
@@ -26,9 +26,9 @@ A Resource Manager template can be readily adapted for scenarios when you need t
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Configure a template
 
@@ -164,7 +164,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 If you'd like to view the running application, navigate to its IP address in your browser. For example, the IP is `52.168.26.124` in this example output:
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
@@ -180,7 +180,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 Output:
 
-```bash
+```console
 listening on port 80
 ::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
@@ -195,7 +195,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 Output:
 
-```bash
+```console
 Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current

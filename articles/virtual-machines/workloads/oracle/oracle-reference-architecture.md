@@ -67,7 +67,7 @@ With Oracle Database version 12.2 and above, it is also possible to configure mu
 
 The following diagram is a recommended architecture for using Oracle Data Guard on Azure with availability zones. This architecture allows you to get a VM uptime SLA of 99.99%.
 
-![Oracle Database using availability zones with Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagram that shows a recommended architecture for using Oracle Data Guard on Azure with availability zones.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 In the preceding diagram, the client system accesses a custom application with Oracle backend via the web. The web frontend is configured in a load balancer. The web frontend makes a call to the appropriate application server to handle the work. The application server queries the primary Oracle database. The Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (Managed Disks) are used for performance and high availability.
 

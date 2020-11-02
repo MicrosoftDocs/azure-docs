@@ -62,3 +62,9 @@ landingContent:
             url: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
           - text: SAP SuccessFactors provisioning
             url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+  - title: New in docs
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new in docs
+            url: whats-new-docs.md            

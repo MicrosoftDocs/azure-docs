@@ -125,7 +125,7 @@ resource group:
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-You can chose not to wait for the asynchronous process to complete before continuing with the
+You can choose not to wait for the asynchronous process to complete before continuing with the
 **no-wait** parameter.
 
 #### On-demand evaluation scan - Azure PowerShell
@@ -214,6 +214,13 @@ with the status:
     "status": "Succeeded"
 }
 ```
+
+#### On-demand evaluation scan - Visual Studio Code
+
+The Azure Policy extension for Visual Studio code is capable of running an evaluation scan for a
+specific resource. This scan is a synchronous process, unlike the Azure PowerShell and REST methods.
+For details and steps, see
+[On-demand evaluation with the VS Code extension](./extension-for-vscode.md#on-demand-evaluation-scan).
 
 ## How compliance works
 

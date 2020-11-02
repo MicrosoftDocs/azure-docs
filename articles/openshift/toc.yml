@@ -18,6 +18,8 @@
   items:
     - name: Create a private Azure Red Hat OpenShift 4 cluster
       href: howto-create-private-cluster-4x.md
+    - name: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
+      href: howto-create-a-storageclass.md
     - name: Update pull secret for an Azure Red Hat OpenShift 4 cluster
       href: howto-add-update-pull-secret.md
     - name: Configure DNS forwarding for an Azure Red Hat OpenShift 4 cluster

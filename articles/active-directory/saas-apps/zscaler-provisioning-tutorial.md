@@ -18,7 +18,7 @@ ms.author: jeedes
 The objective of this tutorial is to demonstrate the steps to be performed in Zscaler and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Zscaler.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 
 ## Prerequisites
@@ -60,7 +60,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler. Once decided, you can assign these users and/or groups to Zscaler by following the instructions here:
 
-* [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Zscaler
 
@@ -131,7 +131,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Attribute Mappings section with three mappings displayed.](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
 
-14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for Zscaler, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -147,7 +147,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zscaler.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
@@ -156,7 +156,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-provisioning-tutorial/tutorial-general-01.png

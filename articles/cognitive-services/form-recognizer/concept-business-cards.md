@@ -382,7 +382,7 @@ The data extracted with the Business Card API can be used to perform a variety o
 * Keep track of sales leads.  
 * Extract contact info in bulk from existing business card images. 
 
-The Business Card API also powers the [AIBuilder Business Card Processing feature](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+The Business Card API also powers the [AIBuilder Business Card Processing feature](/ai-builder/prebuilt-business-card).
 
 ## Next steps
 

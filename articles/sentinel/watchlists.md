@@ -42,6 +42,9 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
+    > [!NOTE]
+    >
+    > File uploads are currently limited to files of up to 3.8 MB in size.
 
 1. Review the information, verify that it is correct, and then select **Create**.
 
@@ -52,13 +55,11 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="watchlist successful creation notification" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
-
 ## Use watchlists in queries
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Watchlist**, select the watchlist you want to use, and then select **View in Log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="use watchlists in queries" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
-
 
 1. The items in your watchlist are automatically extracted for your query, and will appear on the **Results** tab. The example below shows the results of the extraction of the **ServerName** and **IpAddress** fields.
 
@@ -72,7 +73,6 @@ Common scenarios for using watchlists include:
 To use watchlists in analytics rules, from the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Analytics**, and create a rule using the `_GetWatchlist('<watchlist>')` function in the query.
 
 :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="use watchlists in analytics rules" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
-
 
 ## View list of watchlists aliases
 

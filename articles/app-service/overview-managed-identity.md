@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 
 ---
 
@@ -36,7 +36,7 @@ To set up a managed identity in the portal, you will first create an application
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-    ![Managed identity in App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![Screenshot that shows where to switch Status to On and then select Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -522,4 +522,4 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!div class="nextstepaction"]
 > [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
 
-[Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Microsoft.Azure.Services.AppAuthentication reference]: ../key-vault/general/service-to-service-authentication.md
