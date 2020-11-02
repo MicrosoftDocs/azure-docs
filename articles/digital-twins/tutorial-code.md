@@ -207,10 +207,11 @@ To add a print statement showing all models that have been successfully uploaded
 
 ```csharp
 // Read a list of models back from the service
+Console.WriteLine("Models uploaded to the instance:");
 AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
 await foreach (DigitalTwinsModelData md in modelDataList)
 {
-    Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
+    Console.WriteLine($"{md.Id}");
 }
 ```
 
@@ -448,10 +449,11 @@ namespace minimal
                 Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
             }
             // Read a list of models back from the service
+            Console.WriteLine("Models uploaded to the instance:");
             AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
             await foreach (DigitalTwinsModelData md in modelDataList)
             {
-                Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
+                Console.WriteLine($"{md.Id}");
             }
 
             // Initialize twin data
