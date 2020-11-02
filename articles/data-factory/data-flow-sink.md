@@ -97,6 +97,11 @@ By default, data is written to multiple sinks in a nondeterministic order. The e
 
 ![Screenshot that shows Custom sink ordering.](media/data-flow/custom-sink-ordering.png "Screenshot that shows Custom sink ordering.")
 
+> [!NOTE]
+> When utilizing [cached lookups](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), make sure that your sink ordering has the cached sinks higher in order.
+
+![Custom sink ordering](media/data-flow/cache2.png "Custom sink ordering")
+
 ## Data preview in sink
 
 When fetching a data preview on a debug cluster, no data will be written to your sink. A snapshot of what the data looks like will be returned, but nothing will be written to your destination. To test writing data into your sink, run a pipeline debug from the pipeline canvas.
