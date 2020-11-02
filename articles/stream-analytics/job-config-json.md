@@ -53,4 +53,4 @@ The following fields are supported in the *JobConfig.json* file used to [create 
 * [Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
-*[Deploy an Azure Stream Analytics job using CI/CD npm package](setup-cicd-vs-code.md)
+*[Deploy an Azure Stream Analytics job using CI/CD npm package](./cicd-overview.md)
