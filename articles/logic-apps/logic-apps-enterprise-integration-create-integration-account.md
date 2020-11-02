@@ -180,9 +180,9 @@ To increase the [limits](../logic-apps/logic-apps-limits-and-config.md#integrati
 
 ### Upgrade pricing tier
 
-To make this change, you can use either the Azure portal by following the steps in this section or the [Azure CLI](#upgrade-tier-azure-cli).
+To make this change, you can use either the Azure portal or the Azure CLI.
 
-#### Azure portal
+#### [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
@@ -200,7 +200,7 @@ To make this change, you can use either the Azure portal by following the steps 
 
 <a name="upgrade-tier-azure-cli"></a>
 
-#### Azure CLI
+#### [Azure CLI](#tab/azure-cli)
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](/cli/azure/get-started-with-azure-cli).
 
@@ -219,6 +219,8 @@ To make this change, you can use either the Azure portal by following the steps 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
    ```
+
+---
 
 <a name="downgrade-pricing-tier"></a>
 
