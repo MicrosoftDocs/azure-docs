@@ -79,7 +79,7 @@ This section should provide you with the basics of how to use the SDK, at which 
 
 ### Initialization
 
-Applications need to check the **Object Anchors** capability before using it. If the capability is not supported, check that the application has enabled the **spatialPerception** capability and\or upgrade to the latest HoloLens OS.
+Applications need to call the `ObjectObserver.IsSupported()` API to determine if **Object Anchors** is supported on the device before using it. If the `ObjectObserver.IsSupported()` API returns `false`, check that the application has enabled the **spatialPerception** capability and\or upgrade to the latest HoloLens OS.
 
 ```cs
 if (!ObjectObserver.IsSupported())
