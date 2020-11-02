@@ -6,16 +6,13 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
 ---
 
 # Premium tier for Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions. 
-
-> [!NOTE]
-> Premium tier for Azure Data Lake Storage is in public preview. See [Regional availability](#regional-availability).
+Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions.
 
 ## Workloads that can benefit from the premium performance tier
 
@@ -101,8 +98,3 @@ Premium tier for Azure Data Lake Storage is available in the following regions.
 |Australia East|LRS, ZRS|
 |Australia South East|LRS|
 |Brazil South|LRS|
-
-
-## Next steps
-
-See the premium tier for Azure Data Lake Storage [blog announcement](https://www.microsoft.com).
