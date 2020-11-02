@@ -29,6 +29,9 @@ The information protection policy options within Security Center provide a prede
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="The page showing your SQL information protection policy":::
  
+
+
+
 ## How do I access the SQL information protection policy?
 
 There are three ways to access the information protection policy:
@@ -39,9 +42,11 @@ There are three ways to access the information protection policy:
 
 Each of these is shown in the relevant tab below.
 
+
+
 ### [**For a whole tenant**](#tab/sqlip-tenant)
 
-### Customize the policy for your whole tenant <a name="sqlip-tenant"></a>
+### Access the policy for your whole tenant <a name="sqlip-tenant"></a>
 
 To customize the information protection policy for your Azure tenant, you need to have [administrative privileges on the tenant's root management group](security-center-management-groups.md). 
 
@@ -53,7 +58,7 @@ From Security Center's **pricing and settings** page, select **SQL information p
 
 ### [**For one database from Security Center**](#tab/sqlip-db)
 
-### Customize the policy for a single database from Security Center <a name="sqlip-asc"></a>
+### Access the policy for a single database from Security Center <a name="sqlip-asc"></a>
 
 Use Security Center's recommendation, "Sensitive data in your SQL databases should be classified", to view the data discovery and classification page for your database. There, you'll also see the columns discovered to contain information that we recommend you classify.
 
@@ -71,7 +76,7 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 
 ### [**For one database from Azure SQL**](#tab/sqlip-azuresql)
 
-### Customize the policy for a single database from Azure SQL <a name="sqlip-azuresql"></a>
+### Access the policy for a single database from Azure SQL <a name="sqlip-azuresql"></a>
 
 1. From the Azure portal, open Azure SQL.
 
@@ -87,60 +92,19 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 ---
 
 
+## View Azure's recommendations for database columns to classify
 
+If the classification mechanism has identified columns in your tables that can be classified, there will be a notification on the data discovery and classification page.
 
-
-
-1. From Security Center's **pricing and settings** page, select the **SQL Sensitive data in your SQL databases should be classified**.
-
-    :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Azure Security Center":::
-
-
-
-
-1. Select a database. The **Data Discovery & Classification** page opens listing any defined classifications. In addition, the banner on the page shows columns that have been identified as candidates for classification. 
+1. From the **Data Discovery & Classification** page for your database, select the notification. 
 
     :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-columns-recommended.png" alt-text="Prompt to classify newly identified columns ":::
 
-1. 
+1. Data discovery and classification lists the specific columns and the recommendations for each. To quickly accept all recommendations, (1) select all the recommendations, (2) select **Accept selected recommendations**, (3) select **Save**.
 
+    :::image type="content" source="./media/security-center-info-protection-policy/follow-classification-recommendations.png" alt-text="Prompt to classify newly identified columns ":::
 
-### [**For one database from Azure SQL**](#tab/sqlip-azuresql)
-
-### Customize the policy for a single database from Azure SQL <a name="sqlip-azuresql"></a>
-
-
-
-
-
-1. 
-1. 
-1.  to view and modify the policy for this database. If Azure has recommendations for columns to classify, you can select the message (2) to review them.
-
-    :::image type="content" source="./media/security-center-info-protection-policy/sql-db-data-discovery-page.png" alt-text="Opening the policy for a single database from Azure SQL":::
---- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-1. In the Security Center main menu, under **RESOURCE SECURITY HYGIENE** go to **Data & storage** and click on the **SQL Information Protection** button.
-
-   ![Configure Information protection policy](./media/security-center-info-protection-policy/security-policy.png) 
- 
-2. In the **SQL Information Protection** page, you can view your current set of labels. These are the main classification attributes that are used to categorize the sensitivity level of your data. From here, you can configure the **Information protection labels** and **Information types** for the tenant. 
- 
-
-
-### Customize labels
+## Customize your labels
 
 1. You can edit or delete any existing label, or add a new label:
     - To edit an existing label, select that label and then click **Configure**, either at the top or from the context menu on the right. 
@@ -160,7 +124,9 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 1. After making any changes, select **Save**.
  
  
-## Add and customize information types
+
+
+## Customize your information types
 
 To manage and customize information types:
 
@@ -179,11 +145,13 @@ To manage and customize information types:
 1. To apply your changes, select **Save** in the main **Labels** page.
  
 
+
 ## Manage SQL information protection using Azure PowerShell
 
 - [Get-AzSqlInformationProtectionPolicy](/powershell/module/az.security/get-azsqlinformationprotectionpolicy): Retrieves the effective tenant SQL information protection policy.
 - [Set-AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy): Sets the effective tenant SQL information protection policy.
  
+
 ## Next steps
  
 In this article, you learned about defining a SQL Information Protection policy in Azure Security Center. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md). 
