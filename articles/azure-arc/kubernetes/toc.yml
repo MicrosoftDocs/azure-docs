@@ -30,9 +30,11 @@
     href: Troubleshooting.md
 - name: Reference
   items:
-  - name: Azure Policy built-ins 
+  - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: Azure PowerShell
+    href: /powershell/module/Az.ConnectedKubernetes/
 - name: Resources
   items:
     - name: Azure Arc jumpstart

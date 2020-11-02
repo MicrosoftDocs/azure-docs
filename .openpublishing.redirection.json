@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/concepts-convert-models.md",
+      "redirect_url": "/azure/digital-twins/how-to-convert-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
       "redirect_document_id": false
@@ -1053,6 +1058,16 @@
     {
       "source_path": "articles/virtual-machines/linux/disks-ade-sse-conversion-cli.md",
       "redirect_url": "/azure/virtual-machines/disk-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disk-bursting.md",
+      "redirect_url": "/azure/virtual-machines/disk-bursting",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disk-bursting.md",
+      "redirect_url": "/azure/virtual-machines/disk-bursting",
       "redirect_document_id": false
     },
     {
@@ -5600,7 +5615,12 @@
     },
     {
       "source_path": "articles/key-vault/vs-secure-secret-appsettings.md",
-      "redirect_url": "/azure/key-vault/general/vs-secure-secret-appsettings",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/vs-secure-secret-appsettings.md",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
       "redirect_document_id": false
     },
     {
@@ -6963,6 +6983,11 @@
       "redirect_url": "/azure/event-grid/template-samples",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-grid/partner-topics-overview.md",
+      "redirect_url": "/azure/event-grid/partner-events-overview",
+      "redirect_document_id": false
+    },      
     {
       "source_path": "articles/event-grid/premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
@@ -22143,6 +22168,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/enable-appsource-marketplace-using-azure-ad.md",
+      "redirect_url": "/azure/marketplace/azure-ad-saas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/create-new-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
@@ -27895,6 +27925,11 @@
     {
       "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
       "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
+      "redirect_url": "/azure/storage/blobs/sas-service-create",
       "redirect_document_id": true
     },
     {
@@ -37803,6 +37838,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/external-identities/licensing-guidance.md",
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-b2b-mfa-instructions.md",
       "redirect_url": "/azure/active-directory/b2b/conditional-access",
       "redirect_document_id": true
@@ -43999,6 +44039,16 @@
     {
       "source_path": "articles/azure-monitor/platform/activity-log-collect-tenants.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
+      "redirect_url": "/azure/azure-monitor/log-query/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
       "redirect_document_id": false
     },
     {
@@ -57648,6 +57698,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/get-started-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/get-started-nodejs.md",
       "redirect_url": "/azure/dev-spaces/",
       "redirect_document_id": false
@@ -58544,11 +58599,6 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-to/collaborate-knowledge-base.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnAMaker/How-to/use-active-learning.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
     },

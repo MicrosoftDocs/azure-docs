@@ -134,7 +134,7 @@ For /hana/shared, we also recommend the usage of [Azure NetApp Files](https://az
 
 A typical basic design for a single node in a scale-out configuration is going to look like:
 
-![Scale-out basics of a single node](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagram that shows a typical basic design for a single node in a scale-out configuration.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 The basic configuration of a VM node for SAP HANA scale-out looks like:
 

@@ -1,10 +1,10 @@
 ---
-title: How to use the public IP functionality in Virtual WAN
+title: How to use the public IP functionality in Azure VMware Solution
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/28/2020
 ---
-# How to use the public IP functionality in Azure Virtual WAN
+# How to use the public IP functionality in Azure VMware Solution
 
 Public IP is a new feature in Azure VMware Solution connectivity. It makes resources, such as web servers, virtual machines (VMs), and hosts accessible through a public network. 
 
