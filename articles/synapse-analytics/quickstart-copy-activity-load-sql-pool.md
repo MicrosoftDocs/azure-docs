@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 ---
 
 # Quickstart: Load data into SQL pool using Copy activity
@@ -23,7 +23,7 @@ In this quickstart, you learn how to _load data from Azure SQL Database into Azu
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Synapse workspace: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
 * Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database. You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Or you can use other data stores by following similar steps.
-* Azure storage account: Azure Storage is used as the _staging_ blob in the copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
+* Azure storage account: Azure Storage is used as the _staging_ area in the copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Synapse Analytics: You use a SQL pool as a sink data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](quickstart-create-sql-pool-portal.md) for steps to create one.
 
 ### Navigate to the Synapse Studio
@@ -85,9 +85,9 @@ A pipeline contains the logical flow for an execution of a set of activities. In
 
    ![Enable auto create](media/quickstart-copy-activity-load-sql-pool/auto-create-table.png)
 
-1. In the **Settings** page, select the checkbox for **Enable staging**. This option applies if your source data is not compatible with PolyBase. In **Staging settings** section, select the Azure Blob Storage Gen2 linked service you created in earlier step as the staging storage. 
+1. In the **Settings** page, select the checkbox for **Enable staging**. This option applies if your source data is not compatible with PolyBase. In **Staging settings** section, select the Azure Data Lake Storage Gen2 linked service you created in earlier step as the staging storage. 
 
-    The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Blob Storage Gen2 is automatically cleaned up.
+    The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Data Lake Storage Gen2 is automatically cleaned up.
 
    ![Enable staging](media/quickstart-copy-activity-load-sql-pool/staging-linked-service.png)
 
@@ -125,4 +125,6 @@ In this section, you manually trigger the pipeline published in the previous ste
 Advance to the following article to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics connector](../data-factory/connector-azure-sql-data-warehouse.md)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md)
+> [Connector overview](../data-factory/connector-overview.md)
+> [Copy activity](../data-factory/copy-activity-overview.md)
