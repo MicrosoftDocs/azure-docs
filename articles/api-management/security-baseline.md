@@ -476,7 +476,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Whenever possible, use Azure AD as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: Whenever possible, use Azure AD as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
 Configure your Azure API Management Developer Portal to authenticate developer accounts by using Azure Active Directory.
 
@@ -486,7 +486,7 @@ Configure your Azure API Management instance to protect your APIs by using the O
 
 * [How to protect an API by using OAuth 2.0 with Azure Active Directory and API Management](./api-management-howto-protect-backend-with-aad.md)
 
-* [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not applicable
 
