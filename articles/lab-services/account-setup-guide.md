@@ -65,14 +65,14 @@ Also, you may want to create your images in your physical environment and then i
 - [Import Custom Image to Shared Image Gallery](https://techcommunity.microsoft.com/t5/azure-lab-services/import-custom-image-to-shared-image-gallery/ba-p/1777353)
 
 If you decide you need to use a Shared Image Gallery, you will need to create or attach a Shared Image Gallery to your lab account. Also, you can postpone this decision until later since it can be attached to a lab account at any time.  For more information about Shared Image Gallery, read:
-- [Adminstrator Guide - Shared image gallery](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery)
+- [Administrator Guide - Shared image gallery](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery)
 - [Administrator Guide - Shared image gallery pricing](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery-2)
 
 #### Which images in Azure Marketplace will your labs use?
 Azure Marketplace provides hundreds of images that you can enable so that lab creators can use the image for creating their lab. Some images might include everything that a lab already needs. In other cases, you might use an image as a starting point, and then the lab creator can customize it by installing additional applications or tools.
 
 If you don't know which images you will need to use, you can always come back later to enable them. Also, the best way to see which images are available is to first create a lab account. This gives you access so that you can review the list of available images and their contents.  For more information about marketplace images, read:
-- [Specify Marketplace images avialable to lab creators](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images)
+- [Specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images)
   
 #### Do the lab's VMs need to have access to other Azure or on-premises resources?
 When you set up a lab account, you also have the option to peer your lab account with a virtual network (VNet).  Keep in mind that both your VNet and lab account must be located in the same region.  To decide whether you need to peer with a VNet, consider the following scenarios:

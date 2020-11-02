@@ -7,7 +7,7 @@ ms.date: 10/28/2020
 
 # Set up labs for Project Lead the Way classes
 
-[Project Lead the Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK-12 curriculums across the United States in computer science, engineering, and biomedical science.  In each PLTW class, students use a variety of software applications as part of their hands-on learning experience.  Many of the software applications require either a fast CPU, or in some cases, a GPU.  This article shows you how to set up labs for teaching the following PLTW classes that are typically offered to students in grades 9-12:
+[Project Lead the Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK-12 curriculum across the United States in computer science, engineering, and biomedical science.  In each PLTW class, students use a variety of software applications as part of their hands-on learning experience.  Many of the software applications require either a fast CPU, or in some cases, a GPU.  This article shows you how to set up labs for teaching the following PLTW classes that are typically offered to students in grades 9-12:
 
 - **Introduction to Engineering Design**
 
@@ -125,11 +125,11 @@ Let’s cover a possible cost estimate for the above PLTW classes.  This estimat
 
     25 students x (20 scheduled hours + 10 quota hours) x 160 Lab Unites x 0.01 USD per hour = 1200.00 USD
 
-> [!IMPORTANT] The cost estimate is for example purposes only.  For current details on pricing, see
-> Azure Lab Services pricing.    
+> [!IMPORTANT] 
+> The cost estimate is for example purposes only.  For current details on pricing, see Azure Lab Services pricing.    
 
-> [!NOTE] Many of the PLTW classes use applications that are accessed via a browser, such as MIT App 
-> Inventor.  These browser-based applications don’t require a fast CPU or GPU and can be accessed from any device that has an internet connection.  When students are using these types of applications, we recommend they use the browser on their physical device instead of using the browser on their lab VMs.  This will help to keep costs down by only using the lab VMs for applications that do require a fast CPU or GPU.
+> [!NOTE] 
+> Many of the PLTW classes use applications that are accessed via a browser, such as MIT App Inventor.  These browser-based applications don’t require a fast CPU or GPU and can be accessed from any device that has an internet connection.  When students are using these types of applications, we recommend they use the browser on their physical device instead of using the browser on their lab VMs.  This will help to keep costs down by only using the lab VMs for applications that do require a fast CPU or GPU.
 
 ## Next steps
 Next steps are common to setting up any lab:

@@ -37,7 +37,7 @@ For detailed information on how to set up this type of lab, see [Set up a lab to
 For detailed information on how to set up this type of lab, see [Setup a lab to teach MATLAB](class-type-matlab.md).
 
 ## Project Lead the Way (PLTW)
-[Project Lead the Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK-12 curriculums across the United States in computer science, engineering, and biomedical science.  In each PLTW class, students use a variety of software applications as part of their hands-on learning experience.
+[Project Lead the Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK-12 curriculum across the United States in computer science, engineering, and biomedical science.  In each PLTW class, students use a variety of software applications as part of their hands-on learning experience.
 
 For detailed information on how to set up these types of labs, see [Set up labs for Project Lead the Way classes](class-type-pltw.md).
 
