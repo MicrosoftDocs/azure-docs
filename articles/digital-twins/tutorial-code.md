@@ -476,7 +476,7 @@ namespace minimal
             try {
                 AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
                 Console.WriteLine($"Twin {srcId} is connected to:");
-                await foreach (string rel in results)
+                await foreach (BasicRelationship rel in results)
                 {
                     Console.WriteLine($" -{rel.Name}->{rel.TargetId}");
                 }
