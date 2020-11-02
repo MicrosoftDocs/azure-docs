@@ -275,4 +275,15 @@ Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force
 ```
 
 ## Next steps
-- Learn more about [Azure Private Link](private-link-overview.md)
+
+In this quickstart, you created a:
+
+* Virtual network and bastion host.
+* Virtual machine.
+* Private endpoint for an Azure Web App.
+
+You used the virtual machine to test connectivity securely to the web app across the private endpoint.
+
+For more information on the services that support a private endpoint, see:
+> [!div class="nextstepaction"]
+> [Private Link availability](private-link-overview.md#availability)
