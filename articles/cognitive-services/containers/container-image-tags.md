@@ -188,7 +188,7 @@ The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.mi
 Release note for `1.8.0-amd64`:
 
 **Features**
-* Fully migrated to DotNet 3.1
+* Fully migrated to .NET 3.1
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -201,7 +201,7 @@ Release note for `1.8.0-amd64`:
 Release note for `1.7.0-amd64`:
 
 **Feature**
-* Partially migrated to DotNet 3.1
+* Partially migrated to .NET 3.1
 
 | Image Tags                    | Notes               |
 |-------------------------------|:--------------------|
@@ -220,7 +220,7 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 Release note for `2.6.0-amd64-<locale>`:
 
 **Features**
-* Upgraded to latest models and fully migrated to DotNet 3.1
+* Upgraded to latest models and fully migrated to .NET 3.1
 * Support for phraselist v2
 * Support for new locale `cs-CZ` 
     * Capitalization and punctuation are currently not supported.
@@ -352,7 +352,7 @@ This container image has the following tags available. You can also find a full 
 Release note for `1.8.0-amd64-<locale-and-voice>`:
 
 **Feature**
-* Fully migrated to DotNet 3.1
+* Fully migrated to .NET 3.1
 
 | Image Tags                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
@@ -450,7 +450,7 @@ Release note for `1.8.0-amd64-<locale-and-voice>`:
 Release note for `1.7.0-amd64-<locale-and-voice>`:
 
 **Feature**
-* Upgraded components to DotNet 3.1
+* Upgraded components to .NET 3.1
 
 | Image Tags                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
