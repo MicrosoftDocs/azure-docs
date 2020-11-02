@@ -16,11 +16,11 @@ ms.author: mbullwin
 
 Welcome! This page covers what's new in the Metrics Advisor docs. Check back every month for information on service changes, doc additions and updates this month.
 
-### SDK updates
+## SDK updates
 
 If you want to learn about the latest updates to Metrics Advisor client SDKs see: 
 
-* [.NET SDK change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md).
+* [.NET SDK change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md)
 * [Java SDK change log ](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
 * [Python SDK change log](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
 * [JavaScript SDK change log](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
@@ -33,4 +33,4 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics.](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics)
+* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics)

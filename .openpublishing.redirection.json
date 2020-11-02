@@ -59055,7 +59055,7 @@
     },
     {
       "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/rest-api.md",
-      "redirect_url": "/azure/cognitive-services/metrics-advisor/rest-api-and-client-library",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library",
       "redirect_document_id": false
     }      
   ]
