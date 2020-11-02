@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
 
 ---
@@ -34,6 +34,8 @@ Before you begin, have the following tools and services:
 
 + [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
 
+Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.0 as minimum requirements.
+
 ## Set up your project
 
 Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
@@ -52,17 +54,11 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-### Install the NuGet package
-
-After the project is created, add the client library. The [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) consists of one client library that provides all of the APIs used to work with a search service in .NET.
-
-## Create a .NET Core console app
+### Install the Nuget package
 
 1. In Visual Studio, create a new project using the Console App (.NET Core) template for C#.
 
 1. Search for `Azure.Search.Documents` and select version 11.0 or later.
-
-1. Browse for **Azure.Search.Documents** with **pre-release** selected to install the newest SDK.
 
 ### Create a search client
 
@@ -130,9 +126,20 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
     }
     ```
 
-1. In **Program.cs**, create a [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) object, and then call the [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) method to express the index in your search service.
+1. In **Program.cs**, create a [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) object by calling  [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) method on `SearchIndexClient`.
 
-   ```csharp
+    ```csharp
+    private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+    {
+        FieldBuilder fieldBuilder = new FieldBuilder();
+        var searchFields = fieldBuilder.Build(typeof(Hotel));
+        var definition = new SearchIndex(indexName, searchFields);
+
+        indexClient.CreateOrUpdateIndex(definition);
+    }
+    ```
+
+   <!-- ```csharp
     // Define an index schema using SearchIndex
     // Create the index using SearchIndexClient
     SearchIndex index = new SearchIndex(indexName)
@@ -149,7 +156,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
     Console.WriteLine("{0}", "Creating index...\n");
     idxclient.CreateIndex(index);
-   ```
+   ``` -->
 
 Attributes on the field determine how it is used in an application. For example, the `IsFilterable` attribute must be assigned to every field that supports a filter expression.
 
@@ -190,7 +197,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
 
     Once you initialize the [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](/dotnet/api/azure.search.documents.searchclient) object.
 
-1. Because this is a console app that runs all commands sequentially, add a 2-second wait time between indexing and queries.
+1. Because this is a console app that runs all commands sequentially, add a 2-second delay.
 
     ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
@@ -202,7 +209,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
 
 ## 3 - Search an index
 
-You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed.
+You can get query results as soon as the first document is indexed, but for proper testing, wait until all documents are indexed.
 
 This section adds two pieces of functionality: query logic, and results. For queries, use the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. This method takes search text (the query string) as well as other [options](/dotnet/api/azure.search.documents.searchoptions).
 
