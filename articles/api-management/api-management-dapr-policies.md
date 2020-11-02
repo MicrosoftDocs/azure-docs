@@ -3,7 +3,7 @@ title: Azure API Management Dapr integration policies | Microsoft Docs
 description: Learn about Azure API Management policies for interacting with Dapr microservices extensions.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
 ---
@@ -99,14 +99,14 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="pubsub"></a> Send message to Pub/Sub topic
 
-This policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` replacing template parameters and adding content specified in the policy statement.
+This policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` replacing template parameters and adding content specified in the policy statement.
 
 The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics.
 
 ### Policy statement
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -126,7 +126,8 @@ The "backend" section is empty and the request is not forwarded to the backend.
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+	       pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -153,7 +154,8 @@ The "backend" section is empty and the request is not forwarded to the backend.
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| topic            | Target topic name               | Yes      | N/A     |
+| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) parameter in Dapr. If not present, the __topic__ attribute value must be in the form of `pubsub-name/topic-name`.    | No       | None    |
+| topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) parameter in Dapr.               | Yes      | N/A     |
 | ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime | No | `false` |
 | response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |

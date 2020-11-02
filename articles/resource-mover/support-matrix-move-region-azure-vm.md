@@ -103,7 +103,7 @@ Azure gallery images (published by Microsoft) | Supported | Supported if the VM 
 Azure Gallery images (published by third party)  | Supported | Supported if the VM runs on a supported operating system.
 Custom images (published by third party)| Supported | Supported if the VM runs on a supported operating system.
 VMs using Site Recovery | Not supported | Move resources across regions for VMs, using Site Recovery on the backend. If you're already using Site Recovery, disable replication, and then start the Prepare process.
-RBAC policies | Not supported | Role-based access control (RBAC) policies on VMs aren't copied over to the VM in target region.
+Azure RBAC policies | Not supported | Azure role-based access control (Azure RBAC) policies on VMs aren't copied over to the VM in target region.
 Extensions | Not supported | Extensions aren't copied over to the  VM in target region. Install them manually after the move is complete.
 
 

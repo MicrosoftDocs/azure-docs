@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeDiff (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns the count (as a signed integer value) of the specified DateTimePart boundaries crossed between the specified *StartDate* and *EndDate*.
   

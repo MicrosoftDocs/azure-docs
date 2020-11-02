@@ -33,18 +33,23 @@ Sign in to the [Azure portal](https://portal.azure.com) with this account.
 
 You also need to complete the following items as part of prerequisite setup. The remainder of this section will walk you through these steps:
 - Set up an Azure Digital Twins instance
-- Get app registration client secret
 - Add a digital twin
 
 ### Set up Azure Digital Twins instance
 
-To connect an Azure Digital Twins instance to Logic Apps in this article, you'll need to have the **Azure Digital Twins instance** already set up. 
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-First, **set up an Azure Digital Twins instance** and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
-* After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+### Add a digital twin
 
-To authenticate the ADT Explorer application, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
-* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find in the Azure portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
+This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
+
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
+
+You will need the **_Twin ID_** of a twin in your instance that you've created.
+
+## Set up app registration
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
 ### Get app registration client secret
 
@@ -54,7 +59,7 @@ Hit *Certificates and secrets* from the registration's menu, and select *+ New c
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
 
-Enter whatever values you would like for Description and Expires, and hit *Add*.
+Enter whatever values you would like for *Description* and *Expires*, and hit *Add*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Add client secret":::
 
@@ -62,17 +67,9 @@ Now, verify that the client secret is visible on the _Certificates & secrets_ pa
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copy client secret value":::
 
-### Add a digital twin
-
-This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
-
-You can add twins using the [DigitalTwins APIs](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). For detailed steps on how to create twins using these methods, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
-
-You will need the **_Twin ID_** of a twin in your instance that you've created.
-
 ## Create custom Logic Apps connector
 
-In this step, you will create a [custom Logic Apps connector](../logic-apps/custom-connector-overview.md) for the Azure Digital Twins APIs. After doing this, you'll be able to hook up Azure Digital Twins when creating a logic app in the next section.
+Now, you're ready to create a [custom Logic Apps connector](../logic-apps/custom-connector-overview.md) for the Azure Digital Twins APIs. After doing this, you'll be able to hook up Azure Digital Twins when creating a logic app in the next section.
 
 Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) page in the Azure portal (you can use this link or search for it in the portal search bar). Hit *+ Add*.
 

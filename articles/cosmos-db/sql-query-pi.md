@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # PI (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the constant value of PI.  
   
 ## Syntax

@@ -6,11 +6,11 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
 
 ---
-# Continuously export security alerts and recommendations
+# Continuously export Security Center data
 
 Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You may also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
@@ -23,7 +23,7 @@ Azure Security Center generates detailed security alerts and recommendations. Yo
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
 > [!NOTE]
-> If you need to integrate Security Center with a SIEM, review [Stream alerts to a SIEM](export-to-siem.md) for your options.
+> If you need to integrate Security Center with a SIEM, see [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 > [!TIP]
 > Security Center also offers the option to perform a one-time, manual export to CSV. Learn more in [Manual one-time export of alerts and recommendations](#manual-one-time-export-of-alerts-and-recommendations).
@@ -200,6 +200,29 @@ Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/p
 
 Learn more about [Azure Event Hub pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
+
+### Does the export include data about the current state of all resources?
+
+No. Continuous export is built for streaming of **events**:
+
+- **Alerts** received before you enabled export won't be exported.
+- **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
+
+
+### Why are recommendations sent at different intervals?
+
+Different recommendations have different compliance evaluation intervals, which can vary from a few minutes to every few days. Consequently, recommendations will differ in the amount of time it takes for them to appear in your exports.
+
+### Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
+
+When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
+
+Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+
+
+### Is continuous export available with Azure Security Center free?
+
+Yes! Note that many Security Center alerts are only provided when you've enabled Azure Defender. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Security Center's pages in the Azure portal.
 
 
 

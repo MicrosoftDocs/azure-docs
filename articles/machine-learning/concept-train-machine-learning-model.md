@@ -48,7 +48,7 @@ You may start with a run configuration for your local computer, and then switch 
 
 * [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
-* [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
+* [Examples: Jupyter Notebook and Python examples of training models](https://github.com/Azure/azureml-examples)
 * [How to: Configure a training run](how-to-set-up-training-targets.md)
 
 ### Automated Machine Learning

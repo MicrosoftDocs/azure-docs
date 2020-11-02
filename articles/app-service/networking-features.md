@@ -24,7 +24,8 @@ The Azure App Service is a distributed system. The roles that handle incoming HT
 |---------------------|-------------------|
 | App assigned address | Hybrid Connections |
 | Access Restrictions | Gateway required VNet Integration |
-| Service Endpoints | VNet Integration |
+| Service endpoints | VNet Integration |
+| Private endpoints ||
 
 Unless otherwise stated, all of the features can be used together. You can mix the features to solve your various problems.
 
@@ -37,9 +38,9 @@ For any given use case, there can be a few ways to solve the problem.  The right
 | Support IP-based SSL needs for your app | app assigned address |
 | Not shared, dedicated inbound address for your app | app assigned address |
 | Restrict access to your app from a set of well-defined addresses | Access Restrictions |
-| Restrict access to my app from resources in a VNet | Service Endpoints </br> ILB ASE </br> Private endpoints |
-| Expose my app on a private IP in my VNet | ILB ASE </br> Private endpoints </br> private IP for inbound on an Application Gateway with Service endpoints |
-| Protect my app with a Web Application Firewall (WAF) | Application Gateway + ILB ASE </br> Application Gateway with Private endpoints </br> Application Gateway with Service endpoints </br> Azure Front Door with Access Restrictions |
+| Restrict access to my app from resources in a VNet | Service endpoints </br> ILB ASE </br> Private endpoints |
+| Expose my app on a private IP in my VNet | ILB ASE </br> Private endpoints </br> Private IP for inbound on an Application Gateway with service endpoints |
+| Protect my app with a Web Application Firewall (WAF) | Application Gateway + ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with Access Restrictions |
 | Load balance traffic to my apps in different regions | Azure Front Door with Access Restrictions | 
 | Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
 
@@ -85,22 +86,25 @@ You can learn how to set an address on your app with the tutorial on [Add a TLS/
 
 ### Access Restrictions 
 
-The Access Restrictions capability lets you filter **inbound** requests based on the originating IP address. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny address blocks that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE, you can restrict access from private address blocks.
+The Access Restrictions capability lets you filter **inbound** requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny rules that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE or private endpoint, you can restrict access from private address blocks.
+> [!NOTE]
+> Up to 512 Access Restriction rules can be configured per app. 
 
 ![Access Restrictions](media/networking-features/access-restrictions.png)
+#### IP based Access Restriction rules
 
-The Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Among the use cases for this feature are:
+The IP based Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Among the use cases for this feature are:
 
 * Restrict access to your app from a set of well-defined addresses 
-* Restrict access to coming through a load-balancing service, such as Azure Front Door. If you wanted to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
+* Restrict access coming through a load-balancing service, such as Azure Front Door
 
 ![Access Restrictions with Front Door](media/networking-features/access-restrictions-afd.png)
 
-If you wish to lock down access to your app so that it can only be reached from resources in your Azure Virtual Network (VNet), you need a static public address on whatever your source is in your VNet. If the resources do not have a public address, you should use the Service Endpoints feature instead. Learn how to enable this feature with the tutorial on [Configuring Access Restrictions][iprestrictions].
+Learn how to enable this feature with the tutorial on [Configuring Access Restrictions][iprestrictions].
 
-### Service endpoints
+#### Service endpoint based Access Restriction rules
 
-Service endpoints allow you to lock down **inbound** access to your app such that the source address must come from a set of subnets that you select. This feature works in conjunction with the IP Access Restrictions. Service endpoints are not compatible with remote debugging. To use remote debugging with your app, your client cannot be in a subnet with Service endpoints enabled. Service endpoints are set in the same user experience as the IP Access Restrictions. You can build an allow/deny list of access rules that includes public addresses as well as subnets in your VNets. This feature supports scenarios such as:
+Service endpoints allow you to lock down **inbound** access to your app such that the source address must come from a set of subnets that you select. This feature works in conjunction with the IP Access Restrictions. Service endpoints are not compatible with remote debugging. To use remote debugging with your app, your client cannot be in a subnet with service endpoints enabled. Service endpoints are set in the same user experience as the IP Access Restrictions. You can build an allow/deny list of access rules that includes public addresses as well as subnets in your VNets. This feature supports scenarios such as:
 
 ![service endpoints](media/networking-features/service-endpoints.png)
 
@@ -109,12 +113,12 @@ Service endpoints allow you to lock down **inbound** access to your app such tha
 
 ![service endpoints with application gateway](media/networking-features/service-endpoints-appgw.png)
 
-You can learn more about configuring service endpoints with your app in the tutorial on [Configuring Service Endpoint Access Restrictions][serviceendpoints]
+You can learn more about configuring service endpoints with your app in the tutorial on [Configuring service endpoint Access Restrictions][serviceendpoints]
 
-### Private Endpoints
+### Private endpoints
 
-Private Endpoint is a network interface that connects you privately and securely to your Web App by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the Web App into your VNet. This feature is only for **inbound** flows to your Web App.
-[Using Private Endpoints for Azure Web App][privateendpoints]
+Private endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private endpoint uses a private IP address from your VNet, effectively bringing the Web App into your VNet. This feature is only for **inbound** flows to your Web App.
+[Using private endpoints for Azure Web App][privateendpoints]
 
 Private endpoints enable scenarios such as:
 
@@ -239,19 +243,19 @@ Use service endpoints to secure inbound traffic to your API app to only coming f
 
 The tradeoffs between the two techniques are:
 
-* with Service endpoints, you have only have to secure traffic to your API app to the integration subnet. This secures the API app but you still could have a data exfiltration possibility from your front-end app to other apps in the App Service.
-* with Private endpoints you have two subnets at play. This adds to complexity. Also, the private endpoint is a top-level resource and adds more to manage. The benefit of using private endpoints is that you do not have a data exfiltration possibility. 
+* with service endpoints, you have only have to secure traffic to your API app to the integration subnet. This secures the API app but you still could have a data exfiltration possibility from your front-end app to other apps in the App Service.
+* with private endpoints you have two subnets at play. This adds to complexity. Also, the private endpoint is a top-level resource and adds more to manage. The benefit of using private endpoints is that you do not have a data exfiltration possibility. 
 
-Either technique will work with multiple front-ends. At small scale, service endpoints is a lot easier to use because you simply enable service endpoints for the API app on the front-end integration subnet. As you add more front-end apps, you have to adjust every API app to have service endpoints with the integration subnet. With Private endpoints, you have more complexity but you don't have to change anything on your API apps after setting a private endpoint. 
+Either technique will work with multiple front-ends. At small scale, service endpoints is a lot easier to use because you simply enable service endpoints for the API app on the front-end integration subnet. As you add more front-end apps, you have to adjust every API app to have service endpoints with the integration subnet. With private endpoints, you have more complexity but you don't have to change anything on your API apps after setting a private endpoint. 
 
 ### Line-of-business applications
 
-Line-of-business (LOB) applications are internal applications that are not normally exposed for access from the internet. These applications are called from inside corporate networks where access can be strictly controlled. If you use an ILB ASE, it is easy to host your line-of-business applications. If you use the multi-tenant service, you can either use Private endpoints or Service endpoints combined with an Application Gateway. There are two reasons to use an Application Gateway with Service endpoints instead of Private endpoints:
+Line-of-business (LOB) applications are internal applications that are not normally exposed for access from the internet. These applications are called from inside corporate networks where access can be strictly controlled. If you use an ILB ASE, it is easy to host your line-of-business applications. If you use the multi-tenant service, you can either use private endpoints or service endpoints combined with an Application Gateway. There are two reasons to use an Application Gateway with service endpoints instead of private endpoints:
 
 * you need WAF protection on your LOB apps
 * you want to load balance to multiple instances of your LOB apps
 
-If neither is the case, you are better off using Private endpoints. With Private endpoints available in App Service, you can expose your apps on private addresses in your VNet. The private endpoint you place in your VNet can be reached across ExpressRoute and VPN connections. Configuring Private endpoints will expose your apps on a private address but you will need to configure DNS to reach that address from on-premises. To make this work, you will need to forward the Azure DNS private zone containing your private endpoints to your on-premises DNS servers. Azure DNS private zones do not support zone forwarding but, you can support that using a DNS server for that purpose. This template, [DNS Forwarder](https://azure.microsoft.com/resources/templates/301-dns-forwarder/), makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
+If neither is the case, you are better off using private endpoints. With private endpoints available in App Service, you can expose your apps on private addresses in your VNet. The private endpoint you place in your VNet can be reached across ExpressRoute and VPN connections. Configuring private endpoints will expose your apps on a private address but you will need to configure DNS to reach that address from on-premises. To make this work, you will need to forward the Azure DNS private zone containing your private endpoints to your on-premises DNS servers. Azure DNS private zones do not support zone forwarding but, you can support that using a DNS server for that purpose. This template, [DNS Forwarder](https://azure.microsoft.com/resources/templates/301-dns-forwarder/), makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
 
 ## App Service ports
 

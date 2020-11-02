@@ -62,7 +62,7 @@ Now, continue with these steps:
 
 ### Connect to Azure SQL Database or Managed Instance
 
-To access a Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
+To access an Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
@@ -91,11 +91,14 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    ||||
 
    > [!TIP]
-   > You can find this information in your database's connection string. For example, 
-   > in the Azure portal, find and open your database. On the database menu, 
-   > select either **Connection strings** or **Properties** where you can find this string:
+   > To provide your database and table information, you have these options:
+   > 
+   > * Find this information in your database's connection string. For example, in the Azure portal, find and open your database. On the database menu, select either **Connection strings** or **Properties**, where you can find this string:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * By default, tables in system databases are filtered out, so they might not automatically appear when you select a system database. As an alternative, you can manually enter the table name after you select **Enter custom value** from the database list.
+   >
 
    This example shows how these values might look:
 
@@ -207,6 +210,8 @@ In this example, the logic app starts with the [Recurrence trigger](../connector
 
    This step automatically enables and publishes your logic app live in Azure.
 
+<a name="handle-bulk-data"></a>
+
 ## Handle bulk data
 
 Sometimes, you have to work with result sets so large that the connector doesn't return all the results at the same time, or you want better control over the size and structure for your result sets. Here's some ways that you can handle such large result sets:
@@ -220,11 +225,16 @@ Sometimes, you have to work with result sets so large that the connector doesn't
   To organize the results in the way that you want, you can create a stored procedure that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. This solution gives you more control over the size and structure of your results. Your logic app calls the stored procedure by using the SQL Server connector's **Execute stored procedure** action. For more information, see [SELECT - ORDER BY Clause](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
   > [!NOTE]
-  > With this connector, a stored procedure execution is limited to a [less than 2-minute timeout limit](/connectors/sql/#known-issues-and-limitations). 
-  > Some stored procedures might take longer than this limit to process and completely finish, which generates a `504 TIMEOUT` error. Actually, some 
-  > long-running processes are coded as stored procedures explicitly for this purpose. Calling these procedures from Azure Logic Apps might create 
-  > problems due to this timeout limit. Although the SQL connector doesn't natively support an asynchronous mode, you can simulate this mode by using a SQL 
-  > completion trigger, native SQL pass-through query, a state table, and server-side jobs by using the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md).
+  > The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). 
+  > Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. You can work around this problem 
+  > by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs.
+  > 
+  > For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
+  > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For 
+  > [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
+  > and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), 
+  > you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent). To learn more, see 
+  > [Handle long-running stored procedure timeouts in the SQL connector for Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### Handle dynamic bulk data
 

@@ -10,6 +10,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision standard (manual) throughput on a database in Azure Cosmos DB - SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to provision standard (manual) throughput on a database in Azure Cosmos DB SQL API. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 
@@ -67,7 +68,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 See the following articles to learn about provisioned throughput in Azure Cosmos DB:
 
-* [Globally scale provisioned throughput](scaling-throughput.md)
+* [Globally scale provisioned throughput](./request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [How to provision standard (manual) throughput for a container](how-to-provision-container-throughput.md)
 * [How to provision autoscale throughput for a container](how-to-provision-autoscale-throughput.md)

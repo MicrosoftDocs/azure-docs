@@ -39,7 +39,7 @@ You can configure and get information about alert rules using
 * [The Azure portal](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [A command-line interface (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Monitor REST API](/rest/api/monitor/alertrules)
 
 ## Create an alert rule on a metric with the Azure portal
 

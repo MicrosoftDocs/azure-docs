@@ -121,7 +121,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/postgresql/sample-scripts-azure-cli
+            url: ../sample-scripts-azure-cli.md
       - linkListType: reference
         links:
           - text: Azure CLI developer reference

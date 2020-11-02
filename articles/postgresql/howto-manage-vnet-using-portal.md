@@ -38,7 +38,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
     
     To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
     
-    Learn more about [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+    Learn more about [built-in roles](../role-based-access-control/built-in-roles.md) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md).
     
     VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant. Ensure that both the subscriptions have the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
