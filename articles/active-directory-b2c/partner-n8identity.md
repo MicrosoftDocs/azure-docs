@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -212,8 +212,7 @@ To customize the notification:
 
 4. Select **Edit**
 
-5. Alter the Message and Template fields as necessary.
-   - The Template field is HTML aware and can send HTML formatted notifications to customer emails.
+5. Alter the Message and Template fields as necessary. The Template field is HTML aware and can send HTML formatted notifications to customer emails.
 
 6. Select **Save** when finished.
 
@@ -233,11 +232,11 @@ Using TheAccessHub Admin Tool, you can import data from various databases, LDAPs
 
 5. Fill in the form data, depending on your data source type:
 
-   **For Databases**
+   **For databases**
 
    a. **Type** – Database
 
-   b. **Database Type** – Select a database from one of the supported database types.
+   b. **Database type** – Select a database from one of the supported database types.
 
    c. **Connection URL** – Enter a well-formatted JDBC connection string. Such as: ``jdbc:postgresql://myhost.com:5432/databasename``
 
@@ -303,7 +302,7 @@ Using TheAccessHub Admin Tool, you can import data from various databases, LDAPs
 
 9. In the **Search-Mapping configuration**, we identify how to correlate load records with customers already loaded into TheAccessHub Admin Tool. Choose one or more identifying attributes in the source. Match the attributes with an attribute in TheAccessHub Admin Tool that holds the same values. If a match is found, then the existing record will be overridden; otherwise, a new customer will be created. You can sequence a number of these checks. For example, you could check email first, and then first and last name.
 
-10. On the left-hand side, select **Data Mapping**.
+10. On the left-hand side menu, select **Data Mapping**.
 
 11. In the Data-Mapping configuration, assign which TheAccessHub Admin Tool attributes should be populated from your source attributes. No need to map all the attributes. Unmapped attributes will remain unchanged for existing customers.
 
@@ -321,7 +320,7 @@ Using TheAccessHub Admin Tool, you can import data from various databases, LDAPs
 
 18. When the **Data Synchronization** record becomes 100% on the load phase, all the changes resulting from the load will have been initiated. Customers should begin appearing or receiving changes in Azure AD B2C.
 
-## Synchronize Azure AD B2C Customer Data into TheAccessHub Admin Tool
+## Synchronize Azure AD B2C customer data into TheAccessHub Admin Tool
 
 As a one-time or ongoing operation, TheAccessHub Admin Tool can synchronize all the customer information from Azure AD B2C into TheAccessHub Admin Tool. This ensures that CSR/Helpdesk administrators are seeing up-to-date customer information.
 
