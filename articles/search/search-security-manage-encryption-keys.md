@@ -42,9 +42,7 @@ If you are using a different region, or a service created prior to August 1, the
 The following tools and services are used in this scenario.
 
 + [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region).
-
 + [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
-
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 You should have a search application that can create the encrypted object. Into this code, you'll reference a key vault key and Active Directory registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
