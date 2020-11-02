@@ -107,6 +107,8 @@ Attestation policy includes authorization rules and issuance rules. Enclave evid
 PolicyEvaluationError
 
 #### Scenario examples
+**When claims in tthe enclave quote do not match with the authorization rules of attestation policy**
+
 ```
 Native operation failed with 65518: G:\Az\security\Attestation\src\AttestationServices\Instance\NativePolicyWrapper\NativePolicyEngine.cpp(168)\(null)!00007FF801762308: (caller: 00007FF80143DCC8) Exception(0) 83FFFFEE Policy Evaluation Error has occurred Msg:[Policy Engine Exception: A Deny claim was issued, authorization failed.]
 
@@ -117,7 +119,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 #### Troubleshooting steps
 Users can evaluate enclave evidence against an SGX attestation policy before configuring the same.
 
-Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. Note that the MAA token generated when this field is present will be unsecured.
+Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. Note that the attestation token generated when this field is present will be unsecured.
 
 See [attestation policy examples ](/azure/attestation/policy-examples)
 
