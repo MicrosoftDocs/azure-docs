@@ -239,27 +239,9 @@ try {
 }
 ```
 
-Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
+Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output from the model creation code shows this error:
 
-```cmd/sh
-Hello World!
-Service client created - ready to go
-
-Upload a model
-Load model: 409:Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
-
-Headers:
-api-supported-versions: REDACTED
-Date: Thu, 10 Sep 2020 01:57:51 GMT
-Content-Length: 115
-Content-Type: application/json; charset=utf-8
-
-Type name: : dtmi:com:contoso:SampleModel;1
-```
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Program output, showing a message that says '409:Service request failed. Status: 409 (Conflict). Content:{"error":{"code":"ModelIdAlreadyExists","message":"Some of the model ids already exist: dtmi:com:contoso:SampleModel;6. Use Model_List API to view models that already exist. See the Swagger example (http://aka.ms/ModelListSwSmpl)."}}'":::
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 
