@@ -269,15 +269,17 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-In your command window, run the program with `dotnet run`. Then, repeat to run the program again. 
+In your command window, run the program with `dotnet run`. In the output, look for the print messages that *sampleTwin-0*, *sampleTwin-1*, and *sampleTwin-2* were created. 
 
-Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, trying to create it again will just replace it. No error required.
+Then, run the program again. 
+
+Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, an attempt to create the same twin again will just replace the original twin. No error is thrown.
 
 ### Create relationships
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-Add a new static method to the `Program` class, underneath the `Main` method:
+Add a **new static method** to the `Program` class, underneath the `Main` method (the code now has two methods):
 
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
@@ -308,15 +310,15 @@ await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
 ```
 
-In your command window, run the program with `dotnet run`.
+In your command window, run the program with `dotnet run`. In the output, look for print statements saying that the two relationships were created successfully.
 
-Note that Azure Digital Twins will not let you create a relationship if one with the same ID already exists—so if you run the program multiple times, you will see exceptions on relationship creation. This code catches the exceptions and ignores them. 
+Note that Azure Digital Twins will not let you create a relationship if another relationship with the same ID already exists—so if you run the program multiple times, you will see exceptions on relationship creation. This code catches the exceptions and ignores them. 
 
 ### List relationships
 
 The next code you'll add allows you to see the list of relationships you've created.
 
-Add the following new method to the `Program` class:
+Add the following **new method** to the `Program` class:
 
 ```csharp
 public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
