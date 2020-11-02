@@ -25,7 +25,7 @@ Threat Emulation (sandboxing) protects users from unknown and zero-day threats. 
 
 Watch the following video to see how to deploy Check Point CloudGuard Connect as a trusted Azure security partner.
 
-> [!VIDEO https://youtu.be/C8AuN76DEmU]
+> [!VIDEO https://www.youtube.com/embed/C8AuN76DEmU]
 
 ## Next steps
 
