@@ -117,7 +117,7 @@ After the pipeline run is finished, you can preview the image in the right panel
 
 ## Access to registered dataset
 
-You can refer to the following sample code to [access to the registered datasets](../how-to-create-register-datasets.md#access-datasets-in-your-script) in your workspace:
+You can refer to the following sample code to [access to the registered datasets](../how-to-create-register-datasets.md) in your workspace:
 
 ```R
 		azureml_main <- function(dataframe1, dataframe2){
