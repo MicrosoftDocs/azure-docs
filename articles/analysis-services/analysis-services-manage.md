@@ -15,7 +15,7 @@ Once you've created an Analysis Services server in Azure, there may be some admi
 ## Azure portal
 [Azure portal](https://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
 
-![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Screenshot that shows the Azure portal where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## SQL Server Management Studio
 Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.

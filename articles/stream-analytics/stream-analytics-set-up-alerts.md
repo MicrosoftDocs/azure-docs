@@ -62,5 +62,4 @@ The following alerts are recommended for monitoring the performance of your Stre
 ## Next steps
 
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
