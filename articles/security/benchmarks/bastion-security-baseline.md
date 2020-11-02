@@ -410,6 +410,22 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Customer
 
+### PA-8: Choose approval process for Microsoft support  
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39799.).
+
+**Guidance**: Not applicable; Azure Bastion doesn't store customer data.
+Not applicable; Azure Bastion doesn't support customer lockbox.
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
