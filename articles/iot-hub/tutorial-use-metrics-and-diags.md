@@ -54,7 +54,7 @@ In this tutorial, you perform the following tasks:
 
 For this tutorial, you need an IoT hub, a Log Analytics workspace, and a simulated IoT device. These resources can be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then, when you've finished the tutorial, you can remove everything in one step by deleting the resource group.
 
-These are the required steps.
+Here are the required steps.
 
 1. Create a [resource group](../azure-resource-manager/management/overview.md).
 
@@ -72,7 +72,7 @@ The name for some resources must be unique across Azure. The script generates a 
 
 Only one free IoT hub is permitted per subscription. If you already have a free IoT hub in your subscription, either delete it before running the script or modify the script to use your free IoT hub or an IoT Hub that uses the standard or basic tier.
 
-The script prints the name of the IoT hub, the Log Analytics workspace, and the connection string for the device it registers. Be sure to note these down as you'll need them later in this article.
+The script prints the name of the IoT hub, the name of the Log Analytics workspace, and the connection string for the device it registers. Be sure to note these down as you'll need them later in this article.
 
 ```azurecli-interactive
 
@@ -136,7 +136,7 @@ az iot hub device-identity show-connection-string --device-id $iotDeviceName \
 
 ## Collect logs for connections and device telemetry
 
-IoT Hub emits resource logs for several categories of operation; however, for you to view these logs you must create a diagnostic setting to send them to a destination. One such destination is Azure Monitor Logs, which are collected in a Log Analytics workspace. IoT Hub resource logs are grouped into different categories. You can select which categories you want sent to Azure Monitor Logs in the diagnostic setting. In this article we'll collect logs for operations and errors that occur having to do with connections and device telemetry. For a full list of the categories supported for IoT Hub, see [IoT Hub resource logs](monitor-iot-hub-reference.md#resource-logs).
+IoT Hub emits resource logs for several categories of operation; however, for you to view these logs you must create a diagnostic setting to send them to a destination. One such destination is Azure Monitor Logs, which are collected in a Log Analytics workspace. IoT Hub resource logs are grouped into different categories. You can select which categories you want sent to Azure Monitor Logs in the diagnostic setting. In this article, we'll collect logs for operations and errors that occur having to do with connections and device telemetry. For a full list of the categories supported for IoT Hub, see [IoT Hub resource logs](monitor-iot-hub-reference.md#resource-logs).
 
 To create a diagnostic setting to send IoT Hub resource logs to Azure Monitor Logs, follow these steps:
 
@@ -150,7 +150,7 @@ To create a diagnostic setting to send IoT Hub resource logs to Azure Monitor Lo
 
 1. Under **Category details**, select **Connections** and **Device Telemetry**.
 
-1. Under **Destination details**, select **Send to Log Analytics**, then use the Log Analytics workspace picker to select the workspace you noted previously. When you're finished, the diagnostic setting should look similar to the following:
+1. Under **Destination details**, select **Send to Log Analytics**, then use the Log Analytics workspace picker to select the workspace you noted previously. When you're finished, the diagnostic setting should look similar to the following screenshot:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Screenshot showing the final diagnostic log settings.":::
 
@@ -170,13 +170,13 @@ Now we'll use metrics explorer to create a chart that displays metrics you want 
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Screenshot that shows adding Telemetry messages sent metric to chart.":::
 
-1. Now select **Add metric** to add another metric to the chart. Under **Metric**, select **Total number of messages used**. **Aggregation** will be automatidally set to **Avg**. Notice again that the title of the chart has changed to include this metric.
+1. Now select **Add metric** to add another metric to the chart. Under **Metric**, select **Total number of messages used**. **Aggregation** will be automatically set to **Avg**. Notice again that the title of the chart has changed to include this metric.
 
    Now your screen shows the minimized metric for *Telemetry messages sent*, plus the new metric for *Total number of messages used*.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Screenshot that shows adding Total number of messages used metric to chart.":::
 
-1. In the upper-right of the chart, select **Pin to dashboard**.
+1. In the upper right of the chart, select **Pin to dashboard**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used-pin.png" alt-text="Screenshot that highlights the Pin to dashboard button.":::
 
@@ -188,9 +188,9 @@ Now we'll use metrics explorer to create a chart that displays metrics you want 
 
 Now we'll set up alerts to trigger on two metrics *Telemetry messages sent* and *Total number of messages used*.
 
-*Telemetry messages sent* is a good metric to monitor to track message throughput and avoid being throttled. For an IoT Hub in the free SKU, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5 minute period. In production, you could set the signal to a more significant value based on the tier, edition, and number of units of your IoT hub.
+*Telemetry messages sent* is a good metric to monitor to track message throughput and avoid being throttled. For an IoT Hub in the free SKU, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5-minute period. In production, you can set the signal to a more significant value based on the tier, edition, and number of units of your IoT hub.
 
-*Total number of messages used* tracks the daily number of messages used. This metric resets every day at 00:00 UTC. If you exceed your daily quota past a certain threshold, your IoT Hub will no longer accept messages. For an IoT Hub in the free SKU, the daily message quota is 8000. We'll set up the alert to trigger if the total number of messages exceeds 50% of the quota. In practice, you'd probably set this to a higher value. The daily quota is dependent on the tier, edition, and number of units of your IoT hub.
+*Total number of messages used* tracks the daily number of messages used. This metric resets every day at 00:00 UTC. If you exceed your daily quota past a certain threshold, your IoT Hub will no longer accept messages. For an IoT Hub in the free tier, the daily message quota is 8000. We'll set up the alert to trigger if the total number of messages exceeds 4000, 50% of the quota. In practice, you'd probably set this percentage to a higher value. The daily quota value is dependent on the tier, edition, and number of units of your IoT hub.
 
 For more information about quota and throttling limits with IoT Hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
@@ -204,7 +204,7 @@ To set up metric alerts:
 
     On the **Create alert rule** pane, there are four sections:
 
-    * **Scope** is already set to your IoT hub, so we'll leave this one alone.
+    * **Scope** is already set to your IoT hub, so we'll leave this section alone.
     * **Condition** sets the signal and conditions that will trigger the alert.
     * **Actions** configures what happens when the alert triggers.
     * **Alert rule details** lets you set a name and a description for the alert.
@@ -253,7 +253,7 @@ To set up metric alerts:
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-notification-complete.png" alt-text="Screenshot showing completed notifications pane.":::
 
-    1. (Optional) If you select the **Actions** tab, and then select the **Action type** dropdown, you can see the kinds of actions that you can trigger with an alert. For this article we will only use notifications, so you can ignore these.
+    1. (Optional) If you select the **Actions** tab, and then select the **Action type** dropdown, you can see the kinds of actions that you can trigger with an alert. For this article, we'll only use notifications, so you can ignore the settings under this tab.
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/action-types.png" alt-text="Screenshot showing action types available on the Actions pane.":::
 
@@ -301,7 +301,7 @@ To set up metric alerts:
 
 1. Close the **Rules** pane.
 
-With these settings, an alert will trigger and you'll get an email notification when more than 1000 messages are sent within a 5 minute time span and also when the total number of messages used exceeds 4000 (50% of the daily quota for an IoT hub in the free tier).
+With these settings, an alert will trigger and you'll get an email notification when more than 1000 messages are sent within a 5-minute time span and also when the total number of messages used exceeds 4000 (50% of the daily quota for an IoT hub in the free tier).
 
 ## Run the simulated device app
 
@@ -319,7 +319,7 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
     1. Replace the value of the `s_connectionString` variable with the device connection string you noted when you ran the script to set up resources.
 
-    1. In the `SendDeviceToCloudMessagesAsync` method, change the `Task.Delay` from 1000 to 1, which reduces the amount of time between sending messages from 1 second to .001 seconds. Shortening this delay increases the number of messages sent. (You will likely not get a message rate of 100 messages per second.)
+    1. In the `SendDeviceToCloudMessagesAsync` method, change the `Task.Delay` from 1000 to 1, which reduces the amount of time between sending messages from 1 second to 0.001 seconds. Shortening this delay increases the number of messages sent. (You will likely not get a message rate of 100 messages per second.)
 
         ```csharp
         await Task.Delay(1);
@@ -351,7 +351,7 @@ Let the application run for at least 10-15 minutes. Ideally, let it run until it
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/select-dashboard.png" alt-text="Screenshot how to select your dashboard.":::
 
-1. Find the chart you pinned earlier and click anywhere on the tile outside of the chart data to expand it. It shows the telemetry messages sent and the total number of messages used on the chart. The most recent numbers appear at the bottom of the chart. You can move the cursor in the chart to see the metric values for a specific times. You can also change the time value and granularity at the top of the chart to narrow down or expand the data to a time period of interest.
+1. Find the chart you pinned earlier and click anywhere on the tile outside of the chart data to expand it. It shows the telemetry messages sent and the total number of messages used on the chart. The most recent numbers appear at the bottom of the chart. You can move the cursor in the chart to see the metric values for specific times. You can also change the time value and granularity at the top of the chart to narrow down or expand the data to a time period of interest.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-on-dashboard-last-hour.png" alt-text="Screenshot showing the metrics chart.":::
 
@@ -390,7 +390,7 @@ In the [Collect logs for connections and device telemetry](#collect-logs-for-con
 
 ## Clean up resources
 
-To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove those manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
+To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove them manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
 
 To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
