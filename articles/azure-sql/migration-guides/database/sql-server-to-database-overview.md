@@ -147,7 +147,10 @@ For additional assistance, see the following resources which were developed for 
 |---------|---------|
 |[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
 |[DBLoader Utility](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|The DBLoader can be used to load data from delimited text files into SQL Server. This Windows console utility uses the SQL Server native client bulk load interface, which works on all versions of SQL Server, including Azure SQL DB.|
-|[Convert SQL Server Agent Jobs into Elastic Database Jobs](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|This script migrates your source SQL Server Agent Jobs to Elastic Database Jobs.|
+|[Bulk Database Creation with PowerShell](https://github.com/Microsoft/DataMigrationTeam/tree/master/Bulk%20Database%20Creation%20with%20PowerShell)|This includes a set of three PowerShell scripts that create a resource group (create_rg.ps1), create a SQL Server to host Azure SQL|databases (create_sqlserver.ps1), and create Azure SQL Databases (create_sqldb.ps1). The scripts include loop capabilities so you can iterate and create as many databases and SQL Servers as necessary.|
+|[Bulk Schema Deployment with MSSQL-Scripter & PowerShell](https://github.com/Microsoft/DataMigrationTeam/tree/master/Bulk%20Schema%20Deployment%20with%20MSSQL-Scripter%20&%20PowerShell)|This asset creates a resource group, one or multiple SQL Servers to host one or multiple Azure SQL Databases, exports every schema from an on-premises SQL Server (or multiple SQL Servers (2005+) and imports it to Azure SQL Database.|
+|[Convert SQL Server Agent Jobs into Elastic Database Jobs](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Convert%20SQL%20Server%20Agent%20Jobs%20into%20Elastic%20Database%20Jobs)|This script migrates your source SQL Server Agent Jobs to Elastic Database Jobs.|
+|[Send mails from Azure SQL Database](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)|This provides a solution as an alternative to SendMail capability that is available in on-premises SQL Server. The solution uses Azure Functions and the Azure SendGrid service to send emails from Azure SQL Database.|
 |[Utility to move On-Premises SQL Server Logins to Azure SQL DB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|A PowerShell script that creates a T-SQL command script to re-create logins and select database users from on-premises SQL Server to Azure SQL Database. The tool allows automatic mapping of Windows AD accounts to Azure AD accounts as well as optionally migrating SQL Server native logins.|
 |[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command which will create, start, stop and delete performance counters set on a remote SQL Server|
 |[Whitepaper - Database migration to Azure SQL DB using BACPAC](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|This whitepaper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Database using BACPAC files.|
@@ -155,65 +158,7 @@ For additional assistance, see the following resources which were developed for 
 These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
 
 
-## Partners
 
-The following partners can provide alternative methods for migration as well: 
-
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)
-   :::column-end:::   
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/dbbest-logo.png" alt-text="DBBTest":::](https://www.dbbest.com/)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-database-overview/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/nayatech_migVisor_logo_small.png" alt-text="MigVisor":::](https://www.migvisor.com/)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-database-overview/querysurge_logo-84.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-database-overview/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-database-overview/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-database-overview/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-database-overview/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-database-overview/Zen3-logo-220.png" alt-text="Zen":::](https://www.zen3.com/cloud-migration/)
-   :::column-end:::
-:::row-end:::
 
 
 ## Next steps

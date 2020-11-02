@@ -71,10 +71,15 @@ The following table describes data migration options and corresponding recommend
 
 |Migration option  |When to use  |Description  |Considerations  |
 |---------|---------|---------|---------|
-|[Azure Database Migration Service - online](/azure/dms/tutorial-sql-server-managed-instance-online) </br>  (Recommended) | - Migrating single databases or multiple databases at scale.  </br> - Require minimal downtime. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM  | First party Azure service that supports online migrations at scale. Downtime only required during cutover (which is just the time taken to restore the final transaction log). | - Migrations at scale can be automated via [PowerShell](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell). </br> - Application connection strings changes may be required.  </br> - Monitoring and cutover status is available in the online migration mode.  |
-|[Azure Database Migration Service - offline](/azure/dms/tutorial-sql-server-to-managed-instance) </br>  (Recommended) | - Migrating single databases or multiple databases at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | First party Azure service that supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. |  - Migrations at scale can be automated via [PowerShell](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell). </br> - Time to complete migration is dependent on database size and impacted by backup and restore time. </br> - Sufficient downtime may be required. |
-|[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) </br>  (Recommended) | - Migrating individual line-of-business application database(s).  </br> - Quick and easy migration without a separate migration service or tool.  </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | SQL Managed Instance supports RESTORE of native SQL Server database backups (.bak files), making it the easiest migration option for customers who can provide full database backups to Azure storage. Full and differential backups are also supported and documented in the [migration assets section](#migration-assets) below.| - Database backup uses multiple threads to optimize data transfer to Azure Blob storage but ISV bandwidth and database size can impact transfer rate. </br> - Downtime should accommodate the time required to perform a full backup and restore (which is a size of data operation).| 
-|[Transactional replication](../../managed-instance/replication-transactional-overview.md) </br>  (Recommended) | - Migrating by continuously publishing changes from source database tables to target SQL Managed Instance database tables. </br> - Full or partial database migrations of selected tables (subset of database).  </br> </br> Supported sources: </br> - SQL Server (2012 - 2019) with some limitations </br> - AWS EC2  </br> - GCP Compute SQL Server VM | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. | </br> - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).  </br> - Capability to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication) is available.    |
+|[Azure Database Migration Service](/azure/dms/tutorial-sql-server-to-managed-instance) | - Migrating single databases or multiple databases at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | First party Azure service that supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. |  - Migrations at scale can be automated via [PowerShell](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell). </br> - Time to complete migration is dependent on database size and impacted by backup and restore time. </br> - Sufficient downtime may be required. |
+|[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | - Migrating individual line-of-business application database(s).  </br> - Quick and easy migration without a separate migration service or tool.  </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | SQL Managed Instance supports RESTORE of native SQL Server database backups (.bak files), making it the easiest migration option for customers who can provide full database backups to Azure storage. Full and differential backups are also supported and documented in the [migration assets section](#migration-assets) below.| - Database backup uses multiple threads to optimize data transfer to Azure Blob storage but ISV bandwidth and database size can impact transfer rate. </br> - Downtime should accommodate the time required to perform a full backup and restore (which is a size of data operation).| 
+
+## Other methods for migration
+
+The following table describes other methods leveraging tools or technologies that can be used for migration as described: 
+|Method / technology |When to use  |Description  |Considerations  |
+|---------|---------|---------|---------|
+|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | - Migrating by continuously publishing changes from source database tables to target SQL Managed Instance database tables. </br> - Full or partial database migrations of selected tables (subset of database).  </br> </br> Supported sources: </br> - SQL Server (2012 - 2019) with some limitations </br> - AWS EC2  </br> - GCP Compute SQL Server VM | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. | </br> - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).  </br> - Capability to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication) is available.    |
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Migrating full or partial data migrations. </br> - Can accommodate downtime. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Managed Instance.</br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximise transfer speed by leverging parallel copy tasks. | - Requires downtime for exporting data from source and importing into target. </br> - The file formats and data types used in the export / import need to be consistent with table schemas. |
 |[Import Export Wizard / BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| - Migrating individual Line-of-business application’s database(s). </br>- Suited for smaller databases.  </br>  Does not require a separate migration service or tool. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM  | [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the file back into Azure SQL Managed Instance.  |   </br> - Requires downtime as data needs to be exported at the source and imported at the destination.   </br> - The file formats and data types used in the export / import need to be consistent with table schemas to avoid truncation / data type mismatch errors. </br> - Time taken to export a database with a large number of objects can be significantly higher. |
 |[Azure Data Factory (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| - Migrating and/or transforming data from source SQL Server database(s).</br> - Merging data from multiple sources of data to Azure SQL Managed Instance typically for Business Intelligence (BI) workloads.  | The [Copy activity](/azure/data-factory/copy-activity-overview) in Azure Data Factory  migrates data from source SQL Server database(s) to SQL Managed Instance using built-in connectors and an [Integration Runtime](/azure/data-factory/concepts-integration-runtime).</br> </br> ADF supports a wide range of [connectors](/azure/data-factory/connector-overview) to move data from SQL Server sources to SQL Managed Instance. |   </br> - Requires creating data movement pipelines in ADF to move data from source to destination.   </br> - [Cost](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) is an important consideration and is based on the pipeline triggers, activity runs, duration of data movement, etc. |
@@ -173,66 +178,6 @@ For additional assistance, see the following resources which were developed for 
 |[Whitepaper - Database migration to Azure SQL Managed Instance by restoring full and differential backups](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|This whitepaper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Managed Instance if you only have full and differential backups (and no log backup capability).|
 
 These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
-
-## Partners
-
-The following partners can provide alternative methods for migration as well: 
-
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)
-   :::column-end:::   
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/dbbest-logo.png" alt-text="DBBTest":::](https://www.dbbest.com/)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/nayatech_migVisor_logo_small.png" alt-text="MigVisor":::](https://www.migvisor.com/)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/querysurge_logo-84.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/Zen3-logo-220.png" alt-text="Zen":::](https://www.zen3.com/cloud-migration/)
-   :::column-end:::
-:::row-end:::
 
 
 ## Next steps
