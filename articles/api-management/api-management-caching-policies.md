@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.custom: fasttrack-edit
 ---
 # API Management caching policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
