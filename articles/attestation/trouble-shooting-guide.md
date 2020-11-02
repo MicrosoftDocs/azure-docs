@@ -27,12 +27,11 @@ Below are some examples of the errors returned by Azure Attestation:
 #### Error code
 Unauthorized
 
-#### Examples
+#### Scenario examples
   - Attestation failure if the user is not assigned with Attestation Reader role
   - Unable to manage attestation policies as the user is not assigned with appropriate roles
   - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
-  
-#### Message
+
 User with Reader role trying to edit an attestation policy in PowerShell 
 
   ```powershell
@@ -58,8 +57,6 @@ In order to add/delete policy signers or to configure policies, an Azure AD user
   These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor"         (specific permissions for Azure Attestation only).
 
 Customers can choose to use the default provider for attestation, or create their own providers with custom policies. "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required to send attestation requests to custom providers. The default providers are accessible by any Azure AD user.
-
-##### PowerShell
 
 To verify the roles in PowerShell, please run below:
 - Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
