@@ -250,12 +250,6 @@ The App Service Environment can be used to host QnA Maker app service. If the Ap
     * Publicly available - default
     * DNS service tag:
         * `CognitiveServicesManagement`
-    * IPs associated with QnA Maker are:
-        * 13.91.138.229
-        * 40.88.22.25
-        * 13.86.184.142
-        * 20.185.105.28
-        * 13.86.178.10
 1. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
 ## Network Isolation for App Service
