@@ -1,6 +1,6 @@
 ---
-title: Set up and use metrics and diagnostic logs with an Azure IoT hub
-description: Learn how to set up and use metrics and diagnostic logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
+title: Set up and use metrics and logs with an Azure IoT hub
+description: Learn how to set up and use metrics and logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: robinsh
 ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
-#Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
+#Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 ---
 
-# Tutorial: Set up and use metrics and diagnostic logs with an IoT hub
+# Tutorial: Set up and use metrics and logs with an IoT hub
 
 You can use Azure Monitor to collect metrics and logs for your IoT hub that can help you monitor the operation of your solution and troubleshoot problems when they occur. In this article, you'll see how to create charts based on metrics, how to create alerts that trigger on metrics, how to send IoT Hub operations and errors to Azure Monitor Logs, and how to check the logs for errors.
 
