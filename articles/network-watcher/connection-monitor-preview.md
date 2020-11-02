@@ -139,9 +139,7 @@ Connection monitors have the following scale limits:
 * Maximum connection monitors per subscription per region: 100
 * Maximum test groups per connection monitor: 20
 * Maximum sources and destinations per connection monitor: 100
-* Maximum test configurations per connection monitor: 
-    * 20 via ARMClient
-    * 2 via the Azure portal
+* Maximum test configurations per connection monitor: 20
 
 ## Analyze monitoring data and set alerts
 

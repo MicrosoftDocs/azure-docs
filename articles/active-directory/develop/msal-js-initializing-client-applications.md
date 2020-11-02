@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 # Customer intent: As an application developer, I want to learn about initializing a client application in MSAL.js to
 # enable support for authentication and authorization in a JavaScript single-page application (SPA).
 ---

@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for cleaning up a basic Azure Digital Twins instance and app registration
+description: include file for cleaning up a basic Azure Digital Twins instance
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
@@ -16,12 +16,6 @@ Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure
 
 Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```

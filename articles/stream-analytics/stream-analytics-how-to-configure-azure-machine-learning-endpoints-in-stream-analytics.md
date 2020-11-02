@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ---
 # Azure Machine Learning Studio (classic) integration in Stream Analytics (Preview)
-Stream Analytics supports user-defined functions that call out to Azure Machine Learning Studio (classic) endpoints. REST API support for this feature is detailed in the [Stream Analytics REST API library](https://msdn.microsoft.com/library/azure/dn835031.aspx). This article provides supplemental information needed for successful implementation of this capability in Stream Analytics. A tutorial has also been posted and is available [here](stream-analytics-machine-learning-integration-tutorial.md).
+Stream Analytics supports user-defined functions that call out to Azure Machine Learning Studio (classic) endpoints. REST API support for this feature is detailed in the [Stream Analytics REST API library](/rest/api/streamanalytics/). This article provides supplemental information needed for successful implementation of this capability in Stream Analytics. A tutorial has also been posted and is available [here](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## Overview: Azure Machine Learning Studio (classic) terminology
 Microsoft Azure Machine Learning Studio (classic) provides a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. This tool is called *Azure Machine Learning Studio (classic)*. Studio (classic) is used to interact with the machine learning resources and easily build, test, and iterate on your design. These resources and their definitions are below.
@@ -22,7 +22,7 @@ Microsoft Azure Machine Learning Studio (classic) provides a collaborative, drag
 Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is named a [Request/Response Service](../machine-learning/classic/consume-web-services.md) in Azure Machine Learning Studio (classic).
 
 ## Studio (classic) resources needed for Stream Analytics jobs
-For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services), and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
+For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](../machine-learning/classic/consume-web-services.md), and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
 
 ## Configure a Stream Analytics and Studio (classic) UDF via REST API
 By using REST APIs you may configure your job to call Studio (classic) functions. The steps are as follows:
@@ -182,11 +182,11 @@ Now query the UDF (here named scoreTweet) for every input event and write a resp
 
 
 ## Get help
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

@@ -27,8 +27,6 @@ Get started with [GitHub Actions](https://help.github.com/en/articles/about-gith
 
 ## Workflow file overview
 
-Azure App Service workflow files have three sections:
-
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
 The file has three sections:
@@ -72,6 +70,9 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 1. On the **Overview** page, select **Get Publish profile**.
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
+
+> [!NOTE]
+> As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
 
 # [Service principal](#tab/userlevel)
 
@@ -121,7 +122,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 

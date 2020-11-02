@@ -7,7 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
-ms.subservice: overview
+ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020 
 ---
@@ -58,7 +58,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 
 A SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
 
-## Create an Apache Spark pool
+## Create a serverless Apache Spark pool
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
 1. Select **New** and enter these settings:
@@ -71,11 +71,6 @@ A SQL pool consumes billable resources as long as it's active. You can pause the
 
 1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
 
-> [!NOTE]
-> Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to tell the Azure Synapse workspace how to interact with Spark.
-
-Because they're metadata, Spark pools can't be started or stopped.
-
 When you perform Spark activity in Azure Synapse, you specify a Spark pool to use. The pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
 
 > [!NOTE]
@@ -85,10 +80,7 @@ When you perform Spark activity in Azure Synapse, you specify a Spark pool to us
 
 Every workspace comes with a pre-built pool called **SQL on-demand**. This pool can't be deleted. The SQL on-demand pool allows you to work with SQL without having to create or think about managing a SQL pool in Azure Synapse.
 
-Unlike the other kinds of pools, billing for SQL on-demand is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
-
-* SQL on-demand has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
-* A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
+Unlike dedicated SQL pools, billing for SQL on-demand is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
 
 ## Preparing a ADLSGEN2 storage account
 

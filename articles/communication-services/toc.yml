@@ -74,22 +74,32 @@
     href: concepts/sdk-options.md 
   - name: Pricing model
     href: concepts/pricing.md
+  - name: Privacy
+    href: concepts/privacy.md
   - name: Authentication
     href: concepts/authentication.md
   - name: Event handling
     href: concepts/event-handling.md
   - name: Notifications
     href: concepts/notifications.md
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
 - name: Samples
   items:
   - name: Group calling hero sample
     href: samples/calling-hero-sample.md
   - name: Group chat hero sample
     href: samples/chat-hero-sample.md
+  - name: Web calling sample
+    href: samples/web-calling-sample.md
 - name: References
   items:
   - name: REST API documentation
-    href: https://docs.microsoft.com/rest/api/azure/
+    href: https://docs.microsoft.com/rest/api/communication/
   - name: Calling library (Android/Java)
     href: https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android
   - name: Calling library (JS)
@@ -99,4 +109,4 @@
 - name: Resources
   items:
   - name: Release notes
-    href: https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md
+    href: https://github.com/Azure/Communication/blob/master/releasenotes

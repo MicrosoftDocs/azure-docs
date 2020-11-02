@@ -18,6 +18,7 @@
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
     - name: Create a public zone - ARM Template
+      displayName: Resource Manager
       href: dns-get-started-template.md
   - name: Private DNS
     items:
@@ -79,7 +80,7 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: FAQ
       href: dns-faq-private.md
-- name: How to
+- name: How-to guides
   items:
   - name: Public DNS
     items:
