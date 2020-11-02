@@ -110,6 +110,12 @@ Each Azure subscription has default quota limits in place to prevent service abu
 
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
+## IoT Hub on Azure Stack Hub (preview)
+
+IoT Hub on Azure Stack Hub (preview) allows you to create hybrid IoT solutions. IoT Hub is a managed service, acting as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use IoT Hub on Azure Stack Hub to build IoT solutions with reliable and secure communications between IoT devices and an on-premises solutions.
+
+IoT Hub on Azure Stack Hub is free during public preview. For more information, see the [IoT Hub on Azure Stack Hub overview](/azure-stack/operator/iot-hub-rp-overview).
+
 ## Next steps
 
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:

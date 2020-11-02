@@ -74,6 +74,20 @@ landingContent:
           url: tutorial-routing-config-message-routing-rm-template.md
         - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
+ -   title: IoT Hub on Azure Stack Hub (preview)
+     linkLists:
+     -  linkListType: overview
+        links:
+        - text: Overview for Operators
+          url: /azure-stack/operator/iot-hub-rp-overview
+        - text: Overview for Users
+          url: azure-stack/user/iot-hub-overview
+     -  linkListType: how-to-guide
+        links:
+        - text: Prerequisites for installing
+          url: /azure-stack/operator/iot-hub-rp-prerequisites
+        - text: How to install IoT Hub on Azure Stack Hub
+          url: /azure-stack/operator/iot-hub-rp-install
  -   title: Use IoT Hub Tools
      linkLists:
      -  linkListType: how-to-guide
