@@ -353,7 +353,13 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 The last section of code to add in this tutorial runs a query against the Azure Digital Twins instance. The query used in this example returns all the digital twins in the instance.
 
-Add the following code to the end of the `Main` method:
+Add this `using` statement to enable use of the `JsonSerializer` class to help present the digital twin information:
+
+```csharp
+using System.Text.Json;
+```
+
+Then, add the following code to the end of the `Main` method:
 
 ```csharp
 // Run a query    
@@ -381,7 +387,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
 namespace minimal
