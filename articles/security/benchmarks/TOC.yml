@@ -114,6 +114,8 @@
     href: ../../virtual-network/public-ip-security-baseline.md
   - name: Azure Resource Graph security baseline
     href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Resource Manager security baseline
+    href: ../../azure-resource-manager/management/security-baseline.md
   - name: Azure Sentinel security baseline
     href: ../../sentinel/security-baseline.md
   - name: Azure SQL Database security baseline
@@ -178,3 +180,4 @@
     href: ../../virtual-network/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
+ 

@@ -11,6 +11,7 @@ ms.custom: subject-security-benchmark
 ---
 
 # Azure Security Baseline for Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Security Baseline for Cosmos DB contains recommendations that will help you improve the security posture of your deployment.
 

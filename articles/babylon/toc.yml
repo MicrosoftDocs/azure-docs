@@ -31,6 +31,8 @@
       href: starter-kit-tutorial-5.md
     - name: 6 - Catalog Insights
       href: starter-kit-tutorial-6.md    
+  - name: Use the portal to scan Azure data sources
+    href: portal-scan-azure-data-sources.md
   - name: Use the REST APIs
     href: tutorial-using-rest-apis.md
 #- name: Samples
@@ -46,10 +48,14 @@
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
+  - name: Supported data sources
+    href: sources-and-scans.md    
 - name: How-to guides
   items:
   - name: Register & scan
     items:
+    - name: Bring new data sources under management
+      href: bring-new-data-sources-under-management.md
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
       displayName: Register and scan Azure files
@@ -65,6 +71,8 @@
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
       displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
+    - name: Use PowerShell to register and scan Power BI
+      href: powershell-register-scan-power-bi.md
     - name: Azure SQL DB with a firewall
       href: scan-sqlresource-firewall.md
       displayName: Register and scan Azure SQL DB with a firewall
@@ -76,6 +84,8 @@
       displayName: Register and scan Azure SQL DB Managed Instance
     - name: Use PowerShell cmdlets to scan on-premises data sources
       href: powershell-cmdlets-scan-on-premises-data-sources.md
+    - name: Use PowerShell to register and scan Power BI
+      href: powershell-register-scan-power-bi.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
       displayName: Register and scan Azure Synapse Analytics
