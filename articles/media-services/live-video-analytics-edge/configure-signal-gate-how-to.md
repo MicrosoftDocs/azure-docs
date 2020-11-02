@@ -149,7 +149,7 @@ Example Diagram:
 
 [Event-based video recording tutorial](event-based-video-recording-tutorial.md)
 
-Using the event-based video recording tutorial, edit the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), modify the parameters for the signalgateProcessor node, then follow the remainder of the tutorial. Review the video recordings to see how the parameters affect the recordings.
+Using the event-based video recording tutorial, edit the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), modify the parameters for the signalgateProcessor node, then follow the remainder of the tutorial. Review the video recordings to analyze the effect of the parameters.
 
 
 
