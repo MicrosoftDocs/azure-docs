@@ -74,8 +74,6 @@
      href: How-tos/text-analytics-for-health.md
    - name: Use containers
      items:
-      - name: Cognitive Services containers documentation
-        href: ../containers/index.yml
       - name: Install and run containers
         href: how-tos/text-analytics-how-to-install-containers.md
       - name: Configure containers
@@ -84,6 +82,8 @@
         href: how-tos/text-analytics-how-to-use-container-instances.md
       - name: Use kubernetes service (AKS)
         href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
    - name: Migrate to version 3 of the API
      href: migration-guide.md
 - name: Reference

@@ -63,14 +63,14 @@
     href: Face-API-How-to-Topics/how-to-migrate-face-data.md
   - name: Use containers
     items:
-    - name: Cognitive Services containers documentation
-      href: ../containers/index.yml
     - name: Install and run containers
       href: face-how-to-install-containers.md
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
       href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
 - name: Reference
   items:
   - name: Face API

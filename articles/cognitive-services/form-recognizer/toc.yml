@@ -62,8 +62,6 @@
     href: deploy-label-tool.md
   - name: Use containers
     items:
-    - name: Cognitive Services containers documentation
-      href: ../containers/index.yml
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: form-recognizer-container-howto.md
@@ -72,6 +70,8 @@
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       href: deploy-form-recognizer-on-container-instances.md
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
   - name: Back up and recover models
     href: disaster-recovery.md
 - name: Reference

@@ -131,8 +131,6 @@
       href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context
 - name: Containers
   items:
-  - name: Vision containers documentation
-    href: ../containers/vision-landing-page.yml
   - name: Read API container
     items: 
     - name: Install and run containers
@@ -163,6 +161,8 @@
       href: spatial-analysis-zone-line-placement.md
     - name: Camera placement
       href: spatial-analysis-camera-placement.md
+  - name: Cognitive Services containers documentation
+    href: ../containers/index.yml
 
 - name: How-to guides
   items:
