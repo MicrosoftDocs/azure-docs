@@ -32,10 +32,10 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 This example assumes that you have already uploaded your files to Azure Blob Storage and have encrypted them in the process. If you need help with getting your files initially uploaded and encrypted, check out [this tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) for how to do so.
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region)
 + [Azure Function](https://azure.microsoft.com/services/functions/)
 + [Postman desktop app](https://www.getpostman.com/)
-+ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region)
 
 ## 1 - Create services and collect credentials
 
