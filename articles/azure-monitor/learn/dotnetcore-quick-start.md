@@ -69,7 +69,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 5. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
 
-    ![Application Insights Overview Menu](./media/dotnetcore-quick-start/3debug.png)
+    ![Screenshot that shows the Start Without Debugging menu option.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > It takes 3-5 minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations.

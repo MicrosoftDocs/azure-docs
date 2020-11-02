@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # How does Azure Cosmos DB provide high availability
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB provides high availability in two primary ways. First, Azure Cosmos DB replicates data across regions configured within a Cosmos account. Second, Azure Cosmos DB maintains 4 replicas of data within a region.
 
@@ -54,7 +55,7 @@ As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs 
 
 For the rare cases of regional outage, Azure Cosmos DB makes sure your database is always highly available. The following details capture Azure Cosmos DB behavior during an outage, depending on your Azure Cosmos account configuration:
 
-* With Azure Cosmos DB, before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. For more details, see [Consistency levels and throughput](consistency-levels-tradeoffs.md#consistency-levels-and-throughput)
+* With Azure Cosmos DB, before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. For more details, see [Consistency levels and throughput](./consistency-levels.md#consistency-levels-and-throughput)
 
 * Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are detected and handled in the Azure Cosmos DB client. They are also instantaneous and don't require any changes from the application.
 
@@ -85,7 +86,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 * Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read consistency guarantees continue to be honored by Azure Cosmos DB.
 
-* Even in a rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Azure Cosmos account is configured with *Strong* consistency. In the event of a permanently irrecoverable write region, a multi-region Azure Cosmos account configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*) where K=100,000 updates and T=5 minutes. For session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of 15 minutes. For more information on RTO and RPO targets for Azure Cosmos DB, see [Consistency levels and data durability](consistency-levels-tradeoffs.md#rto)
+* Even in a rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Azure Cosmos account is configured with *Strong* consistency. In the event of a permanently irrecoverable write region, a multi-region Azure Cosmos account configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*) where K=100,000 updates and T=5 minutes. For session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of 15 minutes. For more information on RTO and RPO targets for Azure Cosmos DB, see [Consistency levels and data durability](./consistency-levels.md#rto)
 
 ## Availability Zone support
 
@@ -127,7 +128,7 @@ Availability Zones can be enabled via:
 
 * [Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
-* [Azure Resource Manager templates](manage-sql-with-resource-manager.md)
+* [Azure Resource Manager templates](./manage-with-templates.md)
 
 ## Building highly available applications
 
@@ -139,15 +140,15 @@ Availability Zones can be enabled via:
 
 * Even if your Azure Cosmos account is highly available, your application may not be correctly designed to remain highly available. To test the end-to-end high availability of your application, as a part of your application testing or disaster recovery (DR) drills, temporarily disable automatic-failover for the account, invoke the [manual failover by using PowerShell, Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover), then monitor your application's failover. Once complete, you can fail back over to the primary region and restore automatic-failover for the account.
 
-* Within a globally distributed database environment, there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO). To see the RPO and RTO for Azure Cosmos DB, see [Consistency levels and data durability](consistency-levels-tradeoffs.md#rto)
+* Within a globally distributed database environment, there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO). To see the RPO and RTO for Azure Cosmos DB, see [Consistency levels and data durability](./consistency-levels.md#rto)
 
 ## Next steps
 
 Next you can read the following articles:
 
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md)
 
-* [Globally scaling provisioned throughput](scaling-throughput.md)
+* [Globally scaling provisioned throughput](./request-units.md)
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 

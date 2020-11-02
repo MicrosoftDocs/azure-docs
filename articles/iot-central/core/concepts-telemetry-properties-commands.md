@@ -7,6 +7,7 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: device-developer
 ---
 
 # Telemetry, property, and command payloads

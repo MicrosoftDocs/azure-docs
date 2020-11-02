@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 ---
 # Authentication and authorization to Azure Spatial Anchors
 
-In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use role-based access control in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
+In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use Azure role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
 
 ## Overview
 
@@ -98,12 +98,12 @@ For applications that target Azure Active Directory users, we recommend that you
     3.  Select **mixedreality.signin** under **mixedreality**.
     4.  Select **Add permissions**.
 3.  Select **Grant admin consent**.
-    
+
 2. Grant your application or users access to your resource:
    1.    Go to your Spatial Anchors resource in the Azure portal.
    2.    Go to the **Access control (IAM)** tab.
    3.    Select **Add role assignment**.
-   1.    [Select a role](#role-based-access-control).
+   1.    [Select a role](#azure-role-based-access-control).
    2.    In the **Select** box, enter the names of the users, groups, and/or applications to which you want to assign access.
    3.    Select **Save**.
 
@@ -113,7 +113,7 @@ For applications that target Azure Active Directory users, we recommend that you
         1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
         2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
         3.    If your application supports **All Microsoft account users**, replace this value with **Common**.
-3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
+3.    On your token request, set the **scope** to **"`https://sts.<account-domain>//.default`"**, where `<account-domain>` is replaced with the **Account Domain** for your Azure Spatial Anchors account. An example scope for an Azure Spatial Anchors account in the East US 2 account domain is **"`https://sts.mixedreality.azure.com//.default`"**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
 After you complete these steps, your application should be able to obtain from MSAL an Azure AD token. You can set that Azure AD token as the `authenticationToken` on your cloud session configuration object:
 
@@ -172,27 +172,27 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
         1.    In the Azure portal, select **Azure Active Directory**, and then select **App registrations**.
         2.    Select **New registration**.
         3.    Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Select **Create**.
-4.    On the application, select **Settings**, and then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and then select **Add**. Be sure to save the secret value. You'll need to include it in your web service's code.
-2.    Grant your application and/or users access to your resource:
+2.    On the application, select **Settings**, and then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and then select **Add**. Be sure to save the secret value. You'll need to include it in your web service's code.
+3.    Grant your application and/or users access to your resource:
         1.    Go to your Spatial Anchors resource in the Azure portal.
         2.    Go to the **Access control (IAM)** tab.
         3.    Select **Add role assignment**.
-        1.    [Select a role](#role-based-access-control).
-        2.    In the **Select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
-        
-              > [!NOTE] 
-              > In the **Add role assignment** pane, in **Assign access to**, select **Azure AD user, group, or service principal**.
-    
-      3.    Select **Save**.
-    
-**In your code** 
+        4.    [Select a role](#azure-role-based-access-control).
+        5.    In the **Select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
 
->[!NOTE] 
+              > [!NOTE]
+              > In the **Add role assignment** pane, in **Assign access to**, select **Azure AD user, group, or service principal**.
+
+        6.    Select **Save**.
+
+**In your code**
+
+>[!NOTE]
 > You can use the service sample that's available on GitHub.
 
 1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
-3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**.
+3.    On your token request, set the **scope** to **"`https://sts.<account-domain>//.default`"**, where `<account-domain>` is replaced with the **Account Domain** for your Azure Spatial Anchors account. An example scope for an Azure Spatial Anchors account in the East US 2 account domain is **"`https://sts.mixedreality.azure.com//.default`"**.
 
 After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here's a sample call:
 
@@ -257,7 +257,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## Role-based access control
+## Azure role-based access control
 
 To help you control the level of access granted to applications, services, or Azure AD users of your service, you can assign these pre-existing roles as needed against your Azure Spatial Anchors accounts:
 

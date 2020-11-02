@@ -9,6 +9,7 @@ ms.author: viviali
 ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
+ms.custom: device-developer
 ---
 
 # Build the IoT Central device bridge to connect other IoT clouds to IoT Central

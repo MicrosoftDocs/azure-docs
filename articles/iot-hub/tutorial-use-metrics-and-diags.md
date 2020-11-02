@@ -127,7 +127,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 2. Look for the **Monitoring** section in the IoT Hub blade. Click **Diagnostic settings**. 
 
-   ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![Screenshot that highlights Diagnostic settings in the Monitoring section.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
 3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All**, then look for and check **IoT Hub**. (It puts the checkmark next to *Select All* again, just ignore it.) Under **Resource**, select the hub name. Your screen should look like this image: 
@@ -171,7 +171,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
    Now your screen shows the minimized metric for *Telemetry messages sent*, plus the new metric for *Total number of messages used*.
 
-   ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![Screenshot that highlights the Pin to dashboard button.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    Click **Pin to dashboard**. It will pin it to the dashboard of your Azure portal so you can access it again. If you don't pin it to the dashboard, your settings are not retained.
 

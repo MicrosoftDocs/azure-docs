@@ -173,7 +173,7 @@ When administrators or lab creators create a classroom lab, they can choose from
 
 ## Manage identity
 
-Using [Azure's role based access control](https://docs.microsoft.com/azure/role-based-access-control/overview), the following roles can be assigned to give access to lab accounts and classroom labs:
+Using [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), the following roles can be assigned to give access to lab accounts and classroom labs:
 
 - **Lab account owner**
 

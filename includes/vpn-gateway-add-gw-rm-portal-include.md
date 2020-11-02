@@ -10,17 +10,18 @@
  ms.custom: include file
 ---
 
-1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**.
+1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type **virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
 
-   ![Create a resource in the Azure portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
-1. In the **Search the Marketplace** field, type 'Virtual Network Gateway'. Locate **Virtual network gateway** in the search return and select the entry. On the **Virtual network gateway** page, select **Create**. This opens the **Create virtual network gateway** page.
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Search field" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+
+1. On the **Virtual network gateway** page, select **+ Add**. This opens the **Create virtual network gateway** page.
+
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="virtual network gateways page":::
 1. On the **Basics** tab, fill in the values for your virtual network gateway.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Gateway fields":::
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Additional gateway fields":::
-
-   **Project details**
 
    * **Subscription**: Select the subscription you want to use from the dropdown.
    * **Resource Group**: This setting is autofilled when you select your virtual network on this page.
@@ -43,10 +44,8 @@
      * **Public IP address**: Leave **Create new** selected.
      * **Public IP address name**: In the text box, type a name for your public IP address instance.
      * **Assignment**: VPN gateway supports only Dynamic.
-
-   **Active-Active mode**: Only select **Enable active-active mode** if you are creating an active-active gateway configuration. Otherwise, leave this setting **Disabled**.
-
-   Leave **Configure BGP ASN** as **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
+     * **Enable active-active mode**: Only select **Enable active-active mode** if you are creating an active-active gateway configuration. Otherwise, leave this setting **Disabled**.
+     * Leave **Configure BGP** as **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
 1. Select **Review + create** to run validation.
 1. Once validation passes, select **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
 

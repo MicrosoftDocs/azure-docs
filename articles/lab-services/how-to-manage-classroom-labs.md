@@ -98,22 +98,26 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 > [!NOTE]
 > You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab account creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available. 
 
-
 ## View all classroom labs
+
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
-2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
-3. Confirm that you see all the labs in the selected lab account. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user (outside the scheduled time).
+1. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
+
+    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+1. Confirm that you see all the labs in the selected lab account. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user (outside the scheduled time).
 
     ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
-3. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account. 
+1. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account. 
 
 ## Delete a classroom lab
+
 1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**. 
 
     ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
-3. On the **Delete lab** dialog box, select **Delete** to continue with the deletion. 
+1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion. 
 
 ## Switch to another classroom lab
+
 To switch to another classroom lab from the current, select the drop-down list of labs in the lab account at the top.
 
 ![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs/switch-lab.png)

@@ -91,7 +91,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 1. Select the certificate you want to update. In this case, you'll work on a certificate called **ExampleCertificate**.
 1. Select **Issuance Policy** from the top menu bar.
 
-   ![Certificate properties](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Screenshot that highlights the Issuance Policy button.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. On the **Issuance Policy** screen, update the following values:
 

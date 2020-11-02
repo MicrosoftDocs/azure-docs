@@ -14,14 +14,14 @@ services: active-directory
 
 # Azure Active Directory application management: What's new
 
-Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
 ## September 2020
 
 ### New articles
 - [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Assign users to an app that is using Azure AD as an identity provider](add-application-portal-assign-users.md)
-- [What's new?](whats-new-docs.md)
+- [What's new in docs?](whats-new-docs.md)
 
 
 ### Updated articles
