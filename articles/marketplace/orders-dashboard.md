@@ -75,7 +75,7 @@ For more details on seat, site and metered based billing, see [How to plan a Saa
 The Orders by Offers and SKU chart shows the measures and trends of all Offers:
 
 - The top offers are displayed in the graph and the rest of the offers are grouped as **Rest All**.
-- You can select specific offers in the legend to display only those offers in the graph.
+- You can select specific offers in the legend to display only that offer and the associated SKUs in the graph.
 - Hovering over a slice in the graph displays the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - The **orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
 
@@ -85,7 +85,7 @@ You can select any offer and a maximum of three SKUs of that offer to view the m
 
 ### Orders by geography
 
-For the selected computation period, the heatmap displays the total number of orders, and the percentage of newly added orders against a geography dimension.  The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a specific country or region.
+For the selected computation period, the heatmap displays the total number of orders, and the growth percentage of newly added orders against a geography.  The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a specific country or region.
 
 :::image type="content" source="./media/orders-dashboard/geographical-spread.png" alt-text="Illustrates the Geographical spread chart on the Orders dashboard.":::
 
