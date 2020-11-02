@@ -140,7 +140,7 @@
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/
         - name: .NET (C#) SDK - reference
-          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
+          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
         - name: Java SDK
