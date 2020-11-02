@@ -13,7 +13,7 @@ ms.date: 10/9/2020
 # Register and Scan Azure Cosmos Database (SQL API)    
 This article outlines how to register an Azure Cosmos Database (SQL API) account in Babylon and set up a scan.
 
-## Supported Capabilities
+## Supported capabilities
 Azure Cosmos Database (SQL API) supports the following:
 * Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
 
@@ -24,7 +24,7 @@ Azure Cosmos Database (SQL API) supports the following:
 1. Navigate to your Babylon catalog.
 2. Click on **Management Center** on the left navigation pane.
 
-    ![Screenshot showing how to go to Management Center](./media/register-scan-azure-cosmos-database/go-to-management-center.png)
+    :::image type="content" source="./media/register-scan-azure-cosmos-database/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center" lightbox="./media/register-scan-azure-cosmos-database/go-to-management-center.png":::
 
 3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
 4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Cosmos Database (SQL API)** and hit **continue**
@@ -32,7 +32,7 @@ Azure Cosmos Database (SQL API) supports the following:
 ## Set up authentication for a scan
 The supported Authentication mechanism for Azure Cosmos Database (SQL API) is **Account Key**
 
-### Account Key
+### Account key
 Enter the storage account key manually as shown in screenshot below. The account key can be found at Settings--> Keys on Cosmos DB account on Azure portal. Click on "Test connection" to verify if the connection is successful.
 
 
