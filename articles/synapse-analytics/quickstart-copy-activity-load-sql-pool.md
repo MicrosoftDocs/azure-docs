@@ -16,7 +16,7 @@ ms.date: 11/02/2020
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, and analyze your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse workspace, data can be loaded, modeled, processed, and delivered for faster analytic insight.
 
-In this quickstart, you learn how to _load data from Azure SQL Database into Azure Synapse Analytics_. You can follow similar steps to copy data from other types of data stores. And the similar flow applies to data copy between other source and sink as well.
+In this quickstart, you learn how to *load data from Azure SQL Database into Azure Synapse Analytics*. You can follow similar steps to copy data from other types of data stores. And the similar flow applies to data copy between other source and sink as well.
 
 ## Prerequisites
 
