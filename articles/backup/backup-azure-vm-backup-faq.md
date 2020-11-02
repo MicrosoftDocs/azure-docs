@@ -71,6 +71,10 @@ If you lock the resource group created by the Azure Backup Service, backups will
 
 Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
+### I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
+
+Azure Backup creates a separate resource group in the format `AzureBackupRG_<geo>_<number>` to store ResourcePointCollections objects. Since this resource group is service owned, locking it will cause backups to fail. Locks can be only applied to customer-created resource groups.
+
 ### Does Azure Backup support standard SSD-managed disks?
 
 Yes, Azure Backup supports [standard SSD managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
