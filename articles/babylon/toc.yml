@@ -48,6 +48,8 @@
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
+  - name: Supported data sources
+    href: sources-and-scans.md    
 - name: How-to guides
   items:
   - name: Register & scan

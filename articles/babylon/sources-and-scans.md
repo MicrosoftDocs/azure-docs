@@ -1,6 +1,6 @@
 ---
 title: Sources and scans
-description: This article provides conceptual details about sources and scans in Babylon.
+description: This article provides conceptual details about supported data sources and file types in Babylon.
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
@@ -10,7 +10,8 @@ ms.date: 10/30/2020
 ---
 
 # Supported data sources in Azure Babylon
-This article covers details regarding sources and scanning.
+
+This article discusses supported data sources and file types in Babylon.
 
 ## Supported sources
 
@@ -48,7 +49,7 @@ If we detect a folder or partition file group to be considered a resource set (i
 ### Delimited files (CSV, PSV, SSV, TSV)
 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 
-### Data lake file types (Parquet, Avro, Orc)
+### Data Lake file types (Parquet, Avro, Orc)
 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 
 ### Other structured file types (JSON, XML, TXT)
@@ -61,7 +62,7 @@ Each file is L3 scanned.
  Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
 ## Classification
-All 105 system classification rules apply to Structured file formats supported. Only the MCE classification rules apply to document fie types (Not the data scan native regex patterns, bloom filter-based detection)
+All 105 system classification rules apply to Structured file formats supported. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection)
 
 ## Next steps
 
