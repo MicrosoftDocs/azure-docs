@@ -24,15 +24,15 @@ You may occasionally see replication cycles failing for a VM. These failures can
 Use the following steps to monitor the replication status for your virtual machines:
 
   1. Go to the Servers page in Azure Migrate on the Azure portal.
-  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/Slide1.png)
+  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/slide-1.png)
   1. Navigate to the "Replicating machines" page by clicking on "Replicating servers" in the Server Migration tile.
-  ![Image 2](./media/troubleshoot-changed-block-tracking-replication/Slide2.png)
+  ![Image 2](./media/troubleshoot-changed-block-tracking-replication/slide-2.png)
   1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select "Error Details." The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
-  ![Image 3](./media/troubleshoot-changed-block-tracking-replication/Slide3.png)
+  ![Image 3](./media/troubleshoot-changed-block-tracking-replication/slide-3.png)
   1. Click "Recent Events" to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type "Replication cycle failed" or "Replication cycle failed for disk" for the VM.
-  ![Image 4](./media/troubleshoot-changed-block-tracking-replication/Slide4.png)
+  ![Image 4](./media/troubleshoot-changed-block-tracking-replication/slide-4.png)
   1. Click on the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
- ![Image 5](./media/troubleshoot-changed-block-tracking-replication/Slide5.png)
+ ![Image 5](./media/troubleshoot-changed-block-tracking-replication/slide-5.png)
 
 ## Common Replication Errors
 
