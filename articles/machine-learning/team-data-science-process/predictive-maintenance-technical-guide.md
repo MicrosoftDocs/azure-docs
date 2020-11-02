@@ -269,7 +269,7 @@ specific to the data brought in.
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
 * One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
-* The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES ![SQL icon](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE.
+* The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-SQL-databases.png" border="false"::: and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE.
    
     ![Manage icon](./media/predictive-maintenance-technical-guide/icon-manage.png)
    
@@ -310,7 +310,7 @@ containing data (for example, prediction results) for visualization.
      portal page. Click **'Resource groups'** on the left panel.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
-   * In the new pop out panel, click the  ![SQL icon](./media/predictive-maintenance-technical-guide/icon-sql.png) icon to access your
+   * In the new pop out panel, click the  :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-sql.png" border="false"::: icon to access your
      database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSolutionName.database.windows.net**.
    * Your database **username** and **password** are the same as
      the username and password previously recorded during deployment of the solution.

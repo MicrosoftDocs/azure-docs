@@ -277,6 +277,62 @@ The variable `token_response` is a dictionary that includes the token and associ
 
 Use `token_response["accessToken"]` to fetch the auth token. See the [REST API documentation](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) for examples on how to use the token to make API calls.
 
+#### Java
+
+In Java, retrieve the bearer token using a standard REST call:
+
+```java
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+if (response.statusCode == 200)
+{
+     body = gson.fromJson(body, AuthenticationBody.class);
+
+    // ... etc ... 
+}
+// ... etc ...
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(authUrl))
+            .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+            .build();
+    return request;
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
+The preceding code would have to handle exceptions and status codes other than `200 OK`, but shows the pattern: 
+
+- Use the client id and secret to validate that your program should have access
+- Use your tenant id to specify where `login.microsoftonline.com` should be looking
+- Use Azure Resource Manager as the source of the authorization token
+
 ## Web-service authentication
 
 The model deployments created by Azure Machine Learning provide two authentication methods:

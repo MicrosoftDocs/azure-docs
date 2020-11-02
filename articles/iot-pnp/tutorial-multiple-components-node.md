@@ -7,7 +7,7 @@ ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js, devx-track-azurecli
+ms.custom: devx-track-js
 
 # As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
