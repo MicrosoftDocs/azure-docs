@@ -1,6 +1,6 @@
 ---
 title: A quickstart to ingest data into SQL pool using Copy activity
-description: Use Azure Data Factory to ingest data into SQL pool
+description: Use Azure Synapse Analytics to ingest data into SQL pool
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/29/2020
+ms.date: 10/30/2020
 ---
 
 # Quickstart: Ingest data into SQL pool using Copy activity
@@ -24,108 +24,103 @@ In this quickstart, you learn how to _load data from Azure SQL Database into Azu
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Synapse workspace: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
-* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database . You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
-* Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
+* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database. You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure storage account: Azure Storage is used as the _staging_ blob in the copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Synapse Analytics: You use a SQL pool as a sink data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](quickstart-create-sql-pool-portal.md) for steps to create one.
 
 
-### Navigate to the Synapse workspace
+### Navigate to the Synapse Studio
 
-1. Open [Azure Synapse Analytics](https://web.azuresynapse.net/).
+After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-1. Specify your Azure Active Directory and Subscription, under Workspace name, select your Azure Synapse workspace from the dropdown list. 
+* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). On the top of the Overview section, select **Launch Synapse Studio**.
+* Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
-1. On the Synapse Studio home page, navigate to the Management Hub in the left navigation by selecting the Manage icon. 
+In this quickstart, we use the workspace named "adftest2020" as an example. It will automatically navigate you to the Synapse Studio home page.
 
-    ![Synapse Studio home page](media/doc-common-process/synapse-studio-home.png)
+![Synapse Studio home page](media/doc-common-process/synapse-studio-home.png)
 
-## Load data into Azure Synapse Analytics
+## Create linked services
 
-1. In the **Get started** page, select the **Copy Data** tile to launch the Copy Data tool.
+In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll create following three kinds of linked services: Azure SQL Database, Azure Synapse Analytics, and Azure Data Lake Storage Gen2 linked services.
 
-2. In the **Properties** page, specify **CopyFromSQLToSQLDW** for the **Task name** field, and select **Next**.
+1. On the Synapse Studio home page, select the **Manage** tab in the left navigation.
+1. Under External connections, select Linked services.
+  
+   ![Create new linked service](media/doc-common-process/new-linked-service.png)
+1. To add a linked service, select **New**.
+1. Select **Azure SQL Database** from the gallery, and then select **Continue**. You can type "sql" in the search box to filter the connectors.
 
-    ![Properties page](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
+   ![Create new Azure SQL Database linked service](media/quickstart-copy-activity-load-sql-pool/new-azure-sql-linked-service.png)
+1. In the New Linked Service page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Create**.
 
-3. In the **Source data store** page, complete the following steps:
+   ![Configure Azure SQL Database linked service](media/quickstart-copy-activity-load-sql-pool/azure-sql-linked-service-configuration.png)
+
     >[!TIP]
-    >In this tutorial, you use *SQL authentication* as the authentication type for your source data store, but you can choose other supported authentication methods:*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-sql-database.md#linked-service-properties) for details.
+    >In this quickstart, you use *SQL authentication* as the authentication type for your source data store, but you can choose other supported authentication methods:*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-sql-database.md#linked-service-properties) for details.
     >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
+1. Repeat steps 3-5, but select **Azure Synapse Analytics (formerly SQL DW)** instead from the gallery and specify corresponding connection credentials for the configuration.
+1. Repeat steps 3-4, but select **Azure Data Lake Storage Gen2** instead from the gallery. In the New Linked Service page, select your storage account name from the dropdown list. Click **Test connection** to validate the settings, then select **Create**. 
 
-    a. click **+ Create new connection**.
+   ![Configure Azure Data Lake Storage Gen2](media/quickstart-copy-activity-load-sql-pool/adls-gen2-linked-service-configuration.png)
+ 
+## Create a pipeline
 
-    b. Select **Azure SQL Database** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from Azure SQL Database into a SQL pool.
 
-    ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
+1. Go to the **Integrate** tab. Select on the plus icon next to the pipelines header and select Pipeline.
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Create**.
+   ![Create a new pipeline](media/doc-common-process/new-pipeline.png)
+1. Under *Move and Transform* in the *Activities* pane, drag **Copy data** onto the pipeline canvas.
+1. Select on the copy activity and go to the Source tab. Select **New** to create a new source dataset.
 
-    ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
+   ![Create a source dataset](media/quickstart-copy-activity-load-sql-pool/new-source-dataset.png)
+1. Select **Azure SQL Database** as your data store and select **Continue**.
+1. In the *Set properties* pane, select the Azure SQL Database linked service you created in earlier step. 
+1. Under Table name, select a sample table to use in following copy activity. In this quickstart, we use "SalesLT.Customer" table as an example. 
 
-    d. Select the newly created linked service as source, then click **Next**.
+   ![Set up source dataset properties](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
+1. Select **OK** when finished.
+1. Select on the copy activity and go to the Sink tab. Select **New** to create a new sink dataset.
+1. Select **Azure Synapse Analytics (formerly SQL DW)** as your data store and select **Continue**.
+1. In the  *Set properties* pane, select the Azure Synapse Analytics linked service you created in earlier step. If you're writing to an existing table, select it from the dropdown. Otherwise, check Edit and enter in your new table name. Select **OK** when finished.
+1. For Sink dataset settings, enable **Auto create table** in the Table option field.
 
-4. In the **Select tables from which to copy the data or use a custom query** page, enter **SalesLT** to filter the tables. Choose the **(Select all)** box to use all of the tables for the copy, and then select **Next**.
-
-    ![Select source tables](./media/load-azure-sql-data-warehouse/select-source-tables.png)
-
-5. In the **Apply filter** page, specify your settings or select **Next**.
-
-6. In the **Destination data store** page, complete the following steps:
-    >[!TIP]
-    >In this tutorial, you use *SQL authentication* as the authentication type for your destination data store, but you can choose other supported authentication methods:*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-sql-data-warehouse.md#linked-service-properties) for details.
-    >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
-
-    a. Click **+ Create new connection** to add a connection
-
-    b. Select **Azure Synapse Analytics (formerly SQL Data Warehouse)** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
-
-    ![Select Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
-
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Create**.
-
-    ![Configure Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
-
-    d. Select the newly created linked service as sink, then click **Next**.
-
-7. In the **Table mapping** page, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
+   ![Enable auto create](media/quickstart-copy-activity-load-sql-pool/auto-create-table.png)
 
    > [!NOTE]
    > Automatic table creation for the Azure Synapse Analytics sink applies when SQL Server or Azure SQL Database is the source. If you copy data from another source data store, you need to pre-create the schema in the sink Azure Synapse Analytics before executing the data copy.
+1. In the **Settings** page, select the checkbox for **Enable staging**. In **Staging settings** section, select the Azure Blob Storage Gen2 linked service you created in earlier step as the staging storage. 
 
-   ![Table mapping page](./media/load-azure-sql-data-warehouse/table-mapping.png)
+    The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Blob Storage Gen2 is automatically cleaned up.
 
-8. In the **Column mapping** page, review the content, and select **Next**. The intelligent table mapping is based on the column name. If you let Data Factory automatically create the tables, data type conversion can occur when there are incompatibilities between the source and destination stores. If there's an unsupported data type conversion between the source and destination column, you see an error message next to the corresponding table.
+   ![Enable staging](media/quickstart-copy-activity-load-sql-pool/staging-linked-service.png)
+1. To validate the pipeline, select **Validate** on the toolbar. You see the result of the Pipeline validation output on the right side of the page. 
 
-    ![Column mapping page](./media/load-azure-sql-data-warehouse/schema-mapping.png)
+## Debug and publish the pipeline
 
-9. In the **Settings** page, complete the following steps:
+Once you've finished configuring your pipeline, you can execute a debug run before you publish your artifacts to verify everything is correct.
 
-    a. In **Staging settings** section, click **+ New** to new a staging storage. The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Blob Storage is automatically cleaned up.
+1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 
-    b. In the **New Linked Service** page, select your storage account, and select **Create** to deploy the linked service.
+   ![Enable staging](media/quickstart-copy-activity-load-sql-pool/debugging-result.png)
+1. Once the pipeline run succeeds, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to the Synapse Analytics service.
+1. Wait until you see the **Successfully published** message. To see notification messages, select the bell button on the top-right. 
 
-    c. In the **Advanced settings** section, deselect the **Use type default** option, then select **Next**.
 
-    ![Configure PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
+## Trigger and monitor the pipeline
 
-10. In the **Summary** page, review the settings, and select **Next**.
+In this section, you manually trigger the pipeline published in the previous step. 
 
-    ![Summary page](./media/load-azure-sql-data-warehouse/summary-page.png)
+1. Select **Add Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **OK**.  
+1. Go to the **Monitor** tab located in the left sidebar. You see a pipeline run that is triggered by a manual trigger. 
+1. When the pipeline run completes successfully, select the link under the **Pipeline name** column to view activity run details or to rerun the pipeline. In this example, there's only one activity, so you see only one entry in the list. 
+1. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **Activity name** column. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
 
-11. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
- 
-12. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **PIPELINE NAME** column to view activity run details or to rerun the pipeline.
+   ![Enable staging](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
+1. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
+1. Verify your data is correctly written in the SQL pool.
 
-    [![Monitor pipeline runs](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
-
-13. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
-
-    ![Monitor activity runs](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
-
-14. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses icon) under **ACTIVITY NAME** in the activity runs view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
-    ![Monitor activity run details first](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
-
-    ![Monitor activity run details second](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
 ## Next steps
 
