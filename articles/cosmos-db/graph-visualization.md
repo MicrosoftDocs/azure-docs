@@ -34,11 +34,11 @@ The interactive interface of Linkurious Enterprise offers an easy way to investi
 
 - [Re-Graph for React developers](https://cambridge-intelligence.com/regraph/)
 
-:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Cambridge Intelligence Demo" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Animation shows a KeyLines visualization example at various levels of detail." border="false":::
 
 These toolkits let you design high-performance graph visualization and analysis applications for your use case. They harness powerful Web Graphics Library(WebGL) rendering and carefully crafted code to give users a fast and insightful visualization experience. These tools are compatible with any browser, device, server or database, and come with step-by-step tutorials, fully documented APIs, and interactive demos.
 
-:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Cambridge Intelligence Demo" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Animation shows a Re-Graph visualization example at various levels of detail." border="false":::
 
 
 ## Next steps

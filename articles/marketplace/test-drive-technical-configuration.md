@@ -45,7 +45,7 @@ This type of test drive is not hosted by Microsoft. Use it to connect with a Dyn
 
 - **Test drive duration** (required) – Enter the length of time that the Test Drive will stay active, in # of hours. The test drive terminates automatically after this time period ends.
 
-- **Azure resource group name** (required) – Enter the [Azure resource group](../azure-resource-manager/resource-group-overview.md#resource-groups)) name where your Logic App test drive is saved.
+- **Azure resource group name** (required) – Enter the [Azure resource group](../azure-resource-manager/management/overview.md#resource-groups)) name where your Logic App test drive is saved.
 
 - **Azure logic app name** (required) – Enter the name of the Logic app that assigns the test drive to the user. This Logic app must be saved in the Azure resources group above.
 
@@ -55,7 +55,7 @@ This type of test drive is not hosted by Microsoft. Use it to connect with a Dyn
 
 Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. All you need to do here is upload your embedded Power BI URL.
 
-For more information on setting up Power BI apps, see [What are Power BI apps?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+For more information on setting up Power BI apps, see [What are Power BI apps?](/power-bi/service-template-apps-overview)
 
 ## Deployment subscription details
 
