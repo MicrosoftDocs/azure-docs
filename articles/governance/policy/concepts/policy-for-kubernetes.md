@@ -43,7 +43,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
    > [!NOTE]
    > For common issues with installation, see
-   > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-installation-errors).
+   > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Understand the Azure Policy language for Kubernetes](#policy-language)
 

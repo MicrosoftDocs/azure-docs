@@ -9,6 +9,7 @@ ms.author: tisande
 
 ---
 # ORDER BY clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
 
