@@ -242,7 +242,7 @@ At line:1 char:1
 InvalidOperation
 
 #### Scenario examples
-Invalid content provided (e.g.select JWT format and provide valid text policy/ unsigned policy when policy signing is required)
+Invalid content provided (e.g.upload policy/ unsigned policy when policy signing is required)
 
 ```
 Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad message    Msg:[Unknown base64 character: 41 (')')]
