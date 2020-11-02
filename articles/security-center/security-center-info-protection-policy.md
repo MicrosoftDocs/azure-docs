@@ -20,6 +20,7 @@ ms.author: memildin
 Data Discovery & Classification is built into Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
 The classification mechanism is based on two primary constructs that make up the classification taxonomy:
+
 - **Labels** – The main classification attributes, used to define the sensitivity level of the data stored in the column. 
 - **Information Types** – Provides additional granularity into the type of data stored in the column.
 
@@ -58,7 +59,7 @@ From Security Center's **pricing and settings** page, select **SQL information p
 
 ### [**For one database from Security Center**](#tab/sqlip-db)
 
-### Access the policy for a single database from Security Center <a name="sqlip-asc"></a>
+### Access the policy for a single database from Security Center <a name="sqlip-db"></a>
 
 Use Security Center's recommendation, "Sensitive data in your SQL databases should be classified", to view the data discovery and classification page for your database. There, you'll also see the columns discovered to contain information that we recommend you classify.
 
