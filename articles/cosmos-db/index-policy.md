@@ -243,7 +243,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 The following considerations are used when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
 
 * If the query filters on properties, these should be included first in the `ORDER BY` clause.
-* If the query filters on multiple properties, the equality filters must be the first properites in the `ORDER BY` clause
+* If the query filters on multiple properties, the equality filters must be the first properties in the `ORDER BY` clause
 * If you do not define a composite index on a query with a filter on one property and a separate `ORDER BY` clause using a different property, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the property in the `ORDER BY` clause has a high cardinality.
 * All considerations for creating composite indexes for `ORDER BY` queries with multiple properties as well as queries with filters on multiple properties still apply.
 
