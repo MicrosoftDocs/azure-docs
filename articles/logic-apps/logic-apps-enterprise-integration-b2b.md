@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 10/02/2020
 ---
 
 # Receive and confirm  B2B AS2 messages by using Azure Logic Apps and Enterprise Integration Pack
