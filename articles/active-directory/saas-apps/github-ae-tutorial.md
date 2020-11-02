@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate GitHub AE with Azure Active Dire
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* GitHub AE single sign-on (SSO) enabled subscription.
+* [GitHub AE](https://docs.github.com/github-ae@latest/admin/overview/about-github-ae), ready for [initialization](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae).
 
 ## Scenario description
 
@@ -73,15 +73,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://github.com/enterprises/<ENTERPRISE-SLUG>`
+    `https://<YOUR-GITHUB-AE-HOSTNAME>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume`
+    `https://<YOUR-GITHUB-AE-HOSTNAME>/saml/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
+    `https://<YOUR-GITHUB-AE-HOSTNAME>/sso`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [GitHub AE Client support team](mailto:support@github.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -120,7 +120,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure GitHub AE SSO
 
-To configure single sign-on on **GitHub AE** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [GitHub AE support team](mailto:support@github.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure SSO on GitHub AE side, you need to follow the instructions mentioned [here](https://docs.github.com/github-ae@latest/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#enabling-saml-sso).
 
 ### Create GitHub AE test user
 
@@ -144,4 +144,6 @@ You can also use Microsoft Access Panel to test the application in any mode. Whe
 
 ## Next steps
 
-Once you configure GitHub AE you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* [Configuring user provisioning for your enterprise](https://docs.github.com/github-ae@latest/admin/authentication/configuring-user-provisioning-for-your-enterprise).
+
+* Once you configure GitHub AE you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
