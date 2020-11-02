@@ -24,4 +24,3 @@ AzureMigration.ps1
 .gitignore
 **/.vscode/settings.json
 !/.vscode/settings.json
-*.bak
