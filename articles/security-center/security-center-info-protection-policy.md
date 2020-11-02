@@ -151,7 +151,7 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
     - Select an existing label and use **Configure** to edit the label's name, description, or status (active or disabled), and modify the information types associated with the label. Any data discovered that matches that information type will automatically include the associated sensitivity label in the classification recommendations.
 
         In this example, the information type "Other" is associated with the label "Confidential":
-        :::image type="content" source="./media/security-center-info-protection-policy/associate-data-type-with-label.gif" alt-text="":::    
+        :::image type="content" source="./media/security-center-info-protection-policy/associate-data-type-with-label.gif" alt-text="Demonstration of associating an information type with a label":::    
 
 1. Labels are listed in order of ascending sensitivity. To change the ranking between labels, drag the labels to reorder them in the table, or use the **Move up** and **Move down** buttons to change the order. 
 
