@@ -50,6 +50,8 @@
     displayName: azure, resource, key, upgrade, pricing, tier,
   - name: Manage QnA Maker App
     href: How-To/manage-qna-maker-app.md
+  - name: Turn on active learning
+    href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base

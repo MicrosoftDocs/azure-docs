@@ -9,7 +9,7 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -155,18 +155,17 @@ By default, metrics and metadata for the workspace is stored in an Azure Cosmos 
 
 Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
 
-> [!IMPORTANT]
-> Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
->
-> 1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.
-> 1. Follow the steps in [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk) to:
->     * Register the Azure Cosmos DB provider
->     * Create and configure an Azure Key Vault
->     * Generate a key
->
->     You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-resource-group-name>_<GUID>`.
->
-> You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.
+Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
+
+1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.
+1. Follow the steps in [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk) to:
+    * Register the Azure Cosmos DB provider
+    * Create and configure an Azure Key Vault
+    * Generate a key
+
+You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-resource-group-name>_<GUID>`.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 To limit the data that Microsoft collects on your workspace, use the `--hbi-workspace` parameter. 
 
@@ -354,7 +353,7 @@ To share a workspace with another user on your subscription, use the following c
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
+For more information on Azure role-based access control (Azure RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
 For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 

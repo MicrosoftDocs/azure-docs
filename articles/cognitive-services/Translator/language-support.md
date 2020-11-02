@@ -159,8 +159,7 @@ Translator detects the following languages for translation and transliteration.
 |Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
-|Portuguese (Brazil)|	`pt-br`	|
-|Portuguese (Portugal)| `pt-pt` |
+|Portuguese|	`pt`	|
 |Romanian|	`ro`	|
 |Russian|	`ru`	|
 |Serbian (Cyrillic)|	`sr-Cyrl`|

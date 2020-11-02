@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Create an Azure Cosmos account with IP firewall using Azure CLI
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

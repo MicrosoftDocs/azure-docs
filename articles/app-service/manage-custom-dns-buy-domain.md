@@ -20,6 +20,7 @@ To complete this tutorial:
 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial.
 * [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
+* An App Service in an Azure Public Region. Please note at this time, Azure National Clouds are not supported.
 
 ## Prepare the app
 
