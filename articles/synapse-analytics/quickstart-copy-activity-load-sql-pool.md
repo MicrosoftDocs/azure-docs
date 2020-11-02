@@ -1,6 +1,6 @@
 ---
-title: A quickstart to ingest data into SQL pool using Copy activity
-description: Use Azure Synapse Analytics to ingest data into SQL pool
+title: A quickstart to load data into SQL pool using Copy activity
+description: Use Azure Synapse Analytics to load data into SQL pool
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -12,21 +12,19 @@ ms.custom: seo-lt-2019
 ms.date: 10/30/2020
 ---
 
-# Quickstart: Ingest data into SQL pool using Copy activity
-
+# Quickstart: Load data into SQL pool using Copy activity
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, and analyze your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse workspace, data can be loaded, modeled, processed, and delivered for faster analytic insight.
 
-In this quickstart, you learn how to _load data from Azure SQL Database into Azure Synapse Analytics_. You can follow similar steps to copy data from other types of data stores.
+In this quickstart, you learn how to _load data from Azure SQL Database into Azure Synapse Analytics_. You can follow similar steps to copy data from other types of data stores. And the similar flow applies to data copy between other source and sink as well.
 
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Synapse workspace: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
-* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database. You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database. You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Or you can use other data stores by following similar steps.
 * Azure storage account: Azure Storage is used as the _staging_ blob in the copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Synapse Analytics: You use a SQL pool as a sink data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL pool](quickstart-create-sql-pool-portal.md) for steps to create one.
-
 
 ### Navigate to the Synapse Studio
 
@@ -41,7 +39,7 @@ In this quickstart, we use the workspace named "adftest2020" as an example. It w
 
 ## Create linked services
 
-In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll create following three kinds of linked services: Azure SQL Database, Azure Synapse Analytics, and Azure Data Lake Storage Gen2 linked services.
+In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll create following two kinds of linked services: Azure SQL Database and Azure Data Lake Storage Gen2 linked services.
 
 1. On the Synapse Studio home page, select the **Manage** tab in the left navigation.
 1. Under External connections, select Linked services.
@@ -57,7 +55,6 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
    ![Configure Azure SQL Database linked service](media/quickstart-copy-activity-load-sql-pool/azure-sql-linked-service-configuration.png)
 
-1. Repeat steps 3-5, but select **Azure Synapse Analytics (formerly SQL DW)** instead from the gallery and specify corresponding connection credentials for the configuration.
 1. Repeat steps 3-4, but select **Azure Data Lake Storage Gen2** instead from the gallery. In the New Linked Service page, select your storage account name from the dropdown list. Click **Test connection** to validate the settings, then select **Create**. 
 
    ![Configure Azure Data Lake Storage Gen2](media/quickstart-copy-activity-load-sql-pool/adls-gen2-linked-service-configuration.png)
@@ -80,22 +77,20 @@ A pipeline contains the logical flow for an execution of a set of activities. In
 1. Under Table name, select a sample table to use in following copy activity. In this quickstart, we use "SalesLT.Customer" table as an example. 
 
    ![Set up source dataset properties](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
-
 1. Select **OK** when finished.
 1. Select on the copy activity and go to the Sink tab. Select **New** to create a new sink dataset.
-1. Select **Azure Synapse Analytics (formerly SQL DW)** as your data store and select **Continue**.
-1. In the  *Set properties* pane, select the Azure Synapse Analytics linked service you created in earlier step. If you're writing to an existing table, select it from the dropdown. Otherwise, check Edit and enter in your new table name. Select **OK** when finished.
+1. Select **SQL Analytics pool** as your data store and select **Continue**.
+1. In the  **Set properties** pane, select the SQL Analytics pool you created in earlier step. If you're writing to an existing table, under *Table name* select it from the dropdown. Otherwise, check "Edit" and enter in your new table name. Select **OK** when finished.
 1. For Sink dataset settings, enable **Auto create table** in the Table option field.
 
    ![Enable auto create](media/quickstart-copy-activity-load-sql-pool/auto-create-table.png)
 
-   > [!NOTE]
-   > Automatic table creation for the Azure Synapse Analytics sink applies when SQL Server or Azure SQL Database is the source. If you copy data from another source data store, you need to pre-create the schema in the sink Azure Synapse Analytics before executing the data copy.
-1. In the **Settings** page, select the checkbox for **Enable staging**. In **Staging settings** section, select the Azure Blob Storage Gen2 linked service you created in earlier step as the staging storage. 
+1. In the **Settings** page, select the checkbox for **Enable staging**. This option applies if your source data is not compatible with PolyBase. In **Staging settings** section, select the Azure Blob Storage Gen2 linked service you created in earlier step as the staging storage. 
 
     The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Blob Storage Gen2 is automatically cleaned up.
 
    ![Enable staging](media/quickstart-copy-activity-load-sql-pool/staging-linked-service.png)
+
 1. To validate the pipeline, select **Validate** on the toolbar. You see the result of the Pipeline validation output on the right side of the page. 
 
 ## Debug and publish the pipeline
