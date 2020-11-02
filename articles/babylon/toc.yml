@@ -36,7 +36,7 @@
   - name: Use the REST APIs
     href: tutorial-using-rest-apis.md
   - name: Register and scan an on-prem SQL server
-    href: register-scan-on-prem-sql-server.md
+    href: register-scan-on-premises-sql-server.md
 #- name: Samples
 - name: Concepts
   items:
