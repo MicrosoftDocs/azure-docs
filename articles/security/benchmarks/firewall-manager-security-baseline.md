@@ -25,14 +25,12 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 
 *For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
-### NS-1:   
+### NS-1:    
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40024.).
 
-**Guidance**: 
-
-Not applicable; Azure firewall is a portal extension and is not a service. 
+**Guidance**: Not applicable; Azure firewall is a portal extension and is not a service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -43,9 +41,7 @@ Not applicable; Azure firewall is a portal extension and is not a service.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40025.).
 
-**Guidance**: 
-
-Not applicable; Firewall manager is a portal extension. Cannot be deployed to or accessed from a private network
+**Guidance**: Not applicable; Firewall manager is a portal extension. Cannot be deployed to or accessed from a private network
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -56,9 +52,7 @@ Not applicable; Firewall manager is a portal extension. Cannot be deployed to or
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40026.).
 
-**Guidance**: 
-
-Not applicable;  Azure Firewall Manager does not allow for its resources to be secured to a private network via the Private Link service or Service Endpoints.
+**Guidance**: Not applicable;  Azure Firewall Manager does not allow for its resources to be secured to a private network via the Private Link service or Service Endpoints.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -69,9 +63,7 @@ Not applicable;  Azure Firewall Manager does not allow for its resources to be s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40027.).
 
-**Guidance**: 
-
-Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
+**Guidance**: Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -82,9 +74,7 @@ Not applicable: Azure Firewall manager is a portal extension and leverages under
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40028.).
 
-**Guidance**: 
-
-Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesn't get deployed in VNET on it;s own.
+**Guidance**: Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesn't get deployed in VNET on it;s own.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -95,9 +85,7 @@ Not applicable: Azure Firewall manager is a portal extension and leverages under
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40029.).
 
-**Guidance**: 
-
-Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
+**Guidance**: Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -108,9 +96,7 @@ Not applicable: Azure Firewall manager is a portal extension and leverages under
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40030.).
 
-**Guidance**: 
-
-Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
+**Guidance**: Not applicable: Azure Firewall manager is a portal extension and leverages underlying RP's like NRP/NFVRP.  It doesnt get deployed in VNET on it;s own.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -125,9 +111,7 @@ Not applicable: Azure Firewall manager is a portal extension and leverages under
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40010.).
 
-**Guidance**: 
-
-Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -138,9 +122,7 @@ Use Azure Active Directory (Azure AD) as the central authentication and authoriz
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40011.).
 
-**Guidance**: 
-
-Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication to Azure Resource Manager and can be used with API/Azure Portal/CLI/PowerShell.
+**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication to Azure Resource Manager and can be used with API/Azure Portal/CLI/PowerShell.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -151,9 +133,7 @@ Use Managed Identities to provide Azure services with an automatically managed i
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40012.).
 
-**Guidance**: 
-
-Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -164,9 +144,7 @@ Wherever possible, use Azure Active Directory SSO instead of configuring individ
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40013.).
 
-**Guidance**: 
-
-Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
 **Azure Security Center monitoring**: Yes
 
@@ -177,11 +155,9 @@ Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40014.).
 
-**Guidance**: 
+**Guidance**: Azure Security Center can  alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. 
 
-Azure Security Center can  alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. 
-
-Use custom RBAC policy to control access and view changes in activity logs. 
+Use custom RBAC policy to control access and view changes in activity logs.
 
 **Azure Security Center monitoring**: Yes
 
@@ -192,9 +168,7 @@ Use custom RBAC policy to control access and view changes in activity logs.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40015.).
 
-**Guidance**: 
-
- Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -205,9 +179,7 @@ Use custom RBAC policy to control access and view changes in activity logs.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40016.).
 
-**Guidance**: 
-
-Not applicable; Azure Firewall Manager doesn't allow customer to deploy any persisted data into the running environment.
+**Guidance**: Not applicable; Azure Firewall Manager doesn't allow customer to deploy any persisted data into the running environment.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -218,9 +190,7 @@ Not applicable; Azure Firewall Manager doesn't allow customer to deploy any pers
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40052.).
 
-**Guidance**: 
-
-Not applicable; Azure Firewall Manager doesn't access any legacy applications.
+**Guidance**: Not applicable; Azure Firewall Manager doesn't access any legacy applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -235,9 +205,7 @@ Not applicable; Azure Firewall Manager doesn't access any legacy applications.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40017.).
 
-**Guidance**: 
-
-Azure firewall manager can be accessed by AD built-in accounts and custom RBAC accounts. 
+**Guidance**: Azure firewall manager can be accessed by AD built-in accounts and custom RBAC accounts.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -248,9 +216,7 @@ Azure firewall manager can be accessed by AD built-in accounts and custom RBAC a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40018.).
 
-**Guidance**: 
-
-Azure Firewall Manager uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
+**Guidance**: Azure Firewall Manager uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
 Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
@@ -260,7 +226,7 @@ Azure Components and Reference model /security/compass/microsoft-security-compas
 
 Management Group Access ../../governance/management-groups/overview.md#management-group-access 
 
-Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md 
+Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -271,9 +237,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40019.).
 
-**Guidance**: 
-
-Azure Firewall Manager uses Azure Active Directory (AAD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
+**Guidance**: Azure Firewall Manager uses Azure Active Directory (AAD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
@@ -292,10 +256,10 @@ Note: Some Azure services support local users and roles which not managed throug
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40020.).
 
-**Guidance**: 
+**Guidance**: Azure Firewall Manager uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
-Azure Firewall Manager uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
+
 - [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 **Azure Security Center monitoring**: Currently not available
@@ -307,10 +271,10 @@ You should ensure that the credentials (such as password, certificate, or smart 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40021.).
 
-**Guidance**: 
+**Guidance**: Azure Firewall Manager is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
-Azure Firewall Manager is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 - [What are Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) 
+
 - [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
@@ -322,9 +286,7 @@ Azure Firewall Manager is integrated with Azure Active Directory to manage its r
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40022.).
 
-**Guidance**: 
-
-Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
+**Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
 - [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
 
@@ -339,15 +301,13 @@ Secured, isolated workstations are critically important for the security of sens
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40023.).
 
-**Guidance**: 
-
-Azure Firewall Manager is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
+**Guidance**: Azure Firewall Manager is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
 Use built-in roles to allocate permission and only create custom role when required.
 
 What is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
 
-- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
+- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -362,85 +322,63 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40031.).
 
-**Guidance**: 
+**Guidance**: Use tags to assist in tracking Azure Firewall and related resources that store or process sensitive information.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### DP-2: Protect sensitive data
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40032.).
 
-**Guidance**: 
+**Guidance**: Restrict access using Azure role-based access control (Azure RBAC)
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Currently not available
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40033.).
 
-**Guidance**: 
+**Guidance**: Leverage a third-party solution from Azure Marketplace on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ### DP-4: Encrypt sensitive information in transit
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40034.).
 
-**Guidance**: 
+**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure Firewall and related resources are able to negotiate TLS 1.2 or greater.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ### DP-5: Encrypt sensitive data at rest
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40035.).
 
-**Guidance**: 
+**Guidance**: Use encryption at rest on all Azure resources using Azure Firewall and related resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Understand encryption at rest in Azure
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+How to configure customer managed encryption keys
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Asset Management
 
@@ -451,100 +389,95 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40053.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Depending on how security team responsibilities are structured, monitoring for security risks could be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions.
 
-**Responsibility**: Not applicable
+Note: Additional permissions might be required to get visibility into workloads and services.
+
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader) 
+
+- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40054.).
 
-**Guidance**: 
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Depending on how security team responsibilities are structured, monitoring for security risks could be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Note: Additional permissions might be required to get visibility into workloads and services.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader) 
+
+- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### AM-3: Use only approved Azure services
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40055.).
 
-**Guidance**: 
+**Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### AM-4: Ensure security of asset lifecycle management
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40056.).
 
-**Guidance**: 
+**Guidance**: Establish or update security policies that address asset lifecycle management processes for potentially high impact modifications. These modifications include changes, but are not limited to: identity providers and access, data sensitivity, network configuration, and administrative privilege assignment. Outline any high-impact configurations that the customer should be aware of.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Remove Azure resources when they are no longer needed.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40057.).
 
-**Guidance**: 
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+How to configure Conditional Access to block access to Azure Resources Manager
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-6: Use only approved applications in compute resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40058.).
 
-**Guidance**: 
+**Guidance**: Not applicable; Azure Firewall manager is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Logging and Threat Detection
 
@@ -555,119 +488,126 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40036.).
 
-**Guidance**: 
+**Guidance**: Enable Threat intelligence-based filtering to alert and deny traffic from/to known malicious IP addresses and domains. Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to-known malicious IP addresses and domains.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Firewall threat intelligence-based filtering
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Understand Azure Security Center Integrated Threat Intelligence
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40037.).
 
-**Guidance**: 
+**Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+
+Audit activity reports in the Azure Active Directory
+
+../../active-directory/reports-monitoring/concept-audit-logs.md 
+
+- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
+
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### LT-3: Enable logging for Azure network activities
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40038.).
 
-**Guidance**: 
+**Guidance**: Customer can review Azure firewall logs with Azure Workbooks. THis also allows customers to setup alerts.  
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+../../firewall/firewall-workbook.md
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-4: Enable logging for Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40039.).
 
-**Guidance**: 
+**Guidance**: Customers can configure log analytics or event monitors to log Azure firewall events.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40040.).
 
-**Guidance**: 
+**Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### LT-6: Configure log storage retention
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40041.).
 
-**Guidance**: 
+**Guidance**: Log Analytics Workspace retention period can be set according to an organization's compliance regulations within Azure Monitor. Data retention can be configured from 30 to 730 days (2 years) for all workspaces depending upon the chosen pricing tier.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+There are 3 options for storing log storage retention:
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Azure Monitor logs is best used for general real-time monitoring of your application or looking at trends.
+
+Azure Firewall logs and metrics
+
+Change the data retention period in Log Analytics
+
+How to configure retention policy for Azure Storage account logs
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### LT-7: Use approved time synchronization sources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40042.).
 
-**Guidance**: 
+**Guidance**: Microsoft maintains time sources for Azure resources for Azure Firewall. Customers need to create a network rule to allow this access, or for a time server that you use in their environment.
+NTP server access
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Incident Response
 
@@ -678,102 +618,135 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40043.).
 
-**Guidance**: 
+**Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Guidance on building your own security incident response process
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Microsoft Security Response Center's Anatomy of an Incident
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### IR-2: Preparation – setup incident notification
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40044.).
 
-**Guidance**: 
+**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Yes
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40045.).
 
-**Guidance**: 
+**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [How to configure export](../../security-center/continuous-export.md) 
+
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IR-4: Detection and analysis – investigate an incident
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40046.).
 
-**Guidance**: 
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots. You should also ensure insights and learnings are captured for other analysts and for future historical reference.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Snapshots of running systems:
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk.
+
+Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
+
+Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
+
+Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes.
+
+- [Snapshot a Windows machine’s disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 
+
+- [Snapshot a Linux machine’s disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md) 
+
+- [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IR-5: Detection and analysis – prioritize incidents
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40047.).
 
-**Guidance**: 
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots. You should also ensure insights and learnings are captured for other analysts and for future historical reference.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Snapshots of running systems:
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk.
+
+Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
+
+Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
+
+Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes.
+
+- [Snapshot a Windows machine’s disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 
+
+- [Snapshot a Linux machine’s disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md) 
+
+- [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40048.).
 
-**Guidance**: 
+**Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
+Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ## Posture and Vulnerability Management
 
@@ -784,98 +757,82 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40063.).
 
-**Guidance**: 
+**Guidance**: Customer can use Firewall Policy to manage Azure Firewall security configuration. 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+You can use Azure Blueprints to automate deployment and configuration of services and application environments, including Azure Resource Manager  templates, Azure RBAC controls, and policies, in a single blueprint definition.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Illustration of guardrails implementation in enterprise-scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Working with Firewall Policy](../../firewall-manager/policy-overview.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Working with security policies in Azure Security Center](../../security-center/tutorial-security-policy.md)
+
+- [Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
+
+- [Azure Blueprints](../../governance/blueprints/overview.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### PV-2: Sustain secure configurations for Azure services
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40064.).
 
-**Guidance**: 
+**Guidance**: Azure firewall has limited integration with Azure Policy. 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Use Azure Security Center to monitor your configuration baseline and use Azure Policy [deny] and [deploy if not exist]   rule to enforce secure configuration across Azure compute resources, including VMs, containers, and others.  
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Understand Azure Policy effects](../../governance/policy/concepts/effects.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### PV-3: Establish secure configurations for compute resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40065.).
 
-**Guidance**: 
+**Guidance**: Customer can use Firewall Policy to manage Azure Firewall security configuration. 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+- [Working with Firewall Policy](../../firewall-manager/policy-overview.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PV-4: Sustain secure configurations for compute resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40066.).
 
-**Guidance**: 
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-5: Securely store custom operating system and container images
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40067.).
 
-**Guidance**: 
+**Guidance**: Not applicable; this guideline is intended for compute resources.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-6: Perform software vulnerability assessments
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40068.).
 
-**Guidance**: 
-
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Firewall Manager.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -886,13 +843,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40069.).
 
-**Guidance**: 
-
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: You are complete for this control.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -903,17 +854,19 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40070.).
 
-**Guidance**: 
+**Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Penetration testing in Azure](../fundamentals/pen-testing.md)  Penetration
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ## Endpoint Security
 
@@ -924,51 +877,34 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40049.).
 
-**Guidance**: 
+**Guidance**: Firewall manager is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40050.).
 
-**Guidance**: 
+**Guidance**: Firewall manager or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40051.).
 
-**Guidance**: 
+**Guidance**: Firewall Manager is not comprised of any virtual machines or containers which would require anti-malware protection.
+Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Azure Security Center monitoring**: Not applicable
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Backup and Recovery
 
@@ -979,70 +915,64 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40059.).
 
-**Guidance**: 
+**Guidance**: Use Azure Resource Manager to export the Azure Firewall and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Firewall and related configurations. You can also export Azure Firewall configuration using Export template feature of Azure Firewall from Azure portal. Use Azure Automation to run the backup scripts automatically.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Single and multi-resource export to a template in Azure portal
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Deploy Azure Firewall using a template
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Microsoft Network Azure Firewalls template reference
 
-**Responsibility**: Unset. Please provide a value in the work item.
+About Azure Automation
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### BR-2: Encrypt backup data
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40060.).
 
-**Guidance**: 
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+How to store code in Azure DevOps
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+About permissions and groups in Azure DevOps
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40061.).
 
-**Guidance**: 
+**Guidance**: Guidance: Ensure ability to periodically perform restoration using Azure Resource Manager template backed files.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Deploy Azure Firewall using a template
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+Microsoft Network Azure Firewalls template reference
 
- 
+**Azure Security Center monitoring**: Not applicable
 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### BR-4: Mitigate risk of lost keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40062.).
 
-**Guidance**: 
+**Guidance**: Use Azure Resource Manager to export the Azure Firewall and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Firewall and related configurations. You can also export Azure Firewall configuration using Export template feature of Azure Firewall from Azure portal.
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Deploy Azure Firewall using a template
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Microsoft Network Azure Firewalls template reference
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Governance and Strategy
 
@@ -1053,9 +983,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40071.).
 
-**Guidance**: 
-
-Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
+**Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
@@ -1096,9 +1024,7 @@ For more information, see the following references:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40078.).
 
-**Guidance**: 
-
-Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
+**Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
 Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
 
@@ -1119,9 +1045,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40072.).
 
-**Guidance**: 
-
-Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
+**Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
@@ -1134,9 +1058,7 @@ Continuously measure and mitigate risks to your individual assets and the enviro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40073.).
 
-**Guidance**: 
-
-Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
+**Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
 - [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://aka.ms/AzSec1)
 
@@ -1153,9 +1075,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40074.).
 
-**Guidance**: 
-
-Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
+**Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
@@ -1190,9 +1110,7 @@ For more information, see the following references:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40075.).
 
-**Guidance**: 
-
-Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
+**Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
@@ -1214,7 +1132,7 @@ For more information, see the following references:
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-- [Azure identity management security overview](../fundamentals/identity-management-overview.md) 
+- [Azure identity management security overview](../fundamentals/identity-management-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1225,9 +1143,7 @@ For more information, see the following references:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40076.).
 
-**Guidance**: 
-
-Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
+**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
