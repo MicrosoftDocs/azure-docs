@@ -146,7 +146,7 @@ Refer to [code samples](https://docs.microsoft.com/en-us/samples/browse/?expande
 InvalidParameter
 
 #### Scenario examples
-Upload policy/policy signer signed with an invalid certificate chain
+Upload policy/policy signer signed with an invalid certificate chain (e.g. when the Basic Constraints extension of the root certificate is not set to Subject Type = CA)
 
 ```
 Native operation failed with 65529: C:\source\src\AttestationServices\Instance\SgxPal\sgxcert.cpp(1074)\(null)!00007FFA285CDAED: (caller: 00007FFA285C36E8) Exception(0) 83FFFFF9 The requested item is not found    Msg:[Unable to find issuer certificate CN=attestationsigningcert]
@@ -164,7 +164,9 @@ The root certificate must be flagged as being issued by a CA (the X.509 basic co
 
 Ensure that the Basic Constraints extension of the root certificate is set to indicate that Subject Type = CA
 
-Else the certificate chain is considered to be invalid. See [policy signer](/azure/attestation/policy-signer-examples) and [policy](/azure/attestation/policy-examples) examples 
+Else the certificate chain is considered to be invalid.
+
+See [policy signer](/azure/attestation/policy-signer-examples) and [policy](/azure/attestation/policy-examples) examples 
 
 ### 2.4. Add/Delete policy signer failure
 
