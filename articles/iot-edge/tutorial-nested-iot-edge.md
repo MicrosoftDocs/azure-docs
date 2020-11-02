@@ -77,6 +77,8 @@ The first step, creating your IoT Edge devices, can be done through the Azure po
 
 5. Choose **Set a parent device**, choose your top layer device from the list of devices, and select **Ok**. Select **Save**.
 
+   ![Setting parent for lower layer device](./media/tutorial-nested-iot-edge/set-parent-device.png)
+
 # [Azure CLI](#tab/azure-cli)
 
 1. In the [Azure Cloud Shell](https://shell.azure.com/), enter the following command to create an edge device in your hub. This device will be the edge top layer device, so enter an appropriate unique device ID:
@@ -233,7 +235,7 @@ Complete these three steps and restart the IoT Edge service to configure your de
    >[!TIP]
    >To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
-1. Find the **certificates** section. Update the three certificate fields to point to the certificates that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>`.
+1. Find the **certificates** section. Uncomment and update the three certificate fields to point to the certificates that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>`.
 
    ```yml
    certificates:
@@ -318,12 +320,16 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. Under **Edge Hub**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-hub:public-preview`. <!-- BUG BASH STEPS - Update for release -->
 
+   ![Edit the Edge Hub's image](./media/tutorial-nested-iot-edge/edge-hub-image.png)
+
 1. Add the following environment variables to your Edge Hub module: <!-- BUG BASH STEPS - Update for release -->
 
     | Name | Value |
     | - | - |
     | `experimentalFeatures:enabled` | `true` |
     | `experimentalFeatures:nestedEdgeEnabled` | `true` |
+
+   ![Edit the Edge Hub's environment variables](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
 1. Under **Edge Agent**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview`. Select **Save**. <!-- BUG BASH STEPS - Update for release -->
 
@@ -380,6 +386,8 @@ In the [Azure portal](https://ms.portal.azure.com/):
    ```
 
 1. Select **Review + create**, then **Create** to complete the deployment. Your top layer device's IoT Edge runtime, which has access to the internet, will pull and run the **public preview** configs for IoT Edge hub and IoT Edge agent.
+
+   ![Complete deployment containing Edge Hub, Edge Agent, Registry Module, and API Proxy Module](./media/tutorial-nested-iot-edge/complete-top-layer-deployment.png)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -541,6 +549,8 @@ In the [Azure portal](https://ms.portal.azure.com/):
 1. Add the temperature sensor module. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your temperature sensor module and enter `$upstream:8000/azureiotedge-simulated-temperature-sensor:latest` for the image URI. <!-- Change once Marketplace flow incident is fixed -->
 
 1. Select **Save**, **Review + create**, and **Create** to complete the deployment.
+
+   ![Complete deployment containing Edge Hub, Edge Agent, and Simulated Temperature Sensor](./media/tutorial-nested-iot-edge/complete-lower-layer-deployment.png)
 
 # [Azure CLI](#tab/azure-cli)
 
