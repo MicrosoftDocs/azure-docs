@@ -146,7 +146,7 @@ Refer to [code samples](https://docs.microsoft.com/en-us/samples/browse/?expande
 InvalidParameter
 
 #### Scenario examples
-Upload policy/policy signer signed with an invalid certificate chain (e.g. when the Basic Constraints extension of the root certificate is not set to Subject Type = CA)
+Configure signed policy or add/delete policy signer which is signed with an invalid certificate chain (e.g. when the Basic Constraints extension of the root certificate is not set to Subject Type = CA)
 
 ```
 Native operation failed with 65529: C:\source\src\AttestationServices\Instance\SgxPal\sgxcert.cpp(1074)\(null)!00007FFA285CDAED: (caller: 00007FFA285C36E8) Exception(0) 83FFFFF9 The requested item is not found    Msg:[Unable to find issuer certificate CN=attestationsigningcert]
@@ -174,22 +174,6 @@ See [policy signer](/azure/attestation/policy-signer-examples) and [policy](/azu
 InvalidOperation
 
 #### Scenario examples
-When user uploads invalid signer
-
-```
-Add-AzAttestationPolicySigner : Operation returned HTTP Status Code 400
-Code: InvalidOperation
-Message: Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad
-message    Msg:[Unknown base64 character: 41 (')')]
-..\Enclave\api.cpp(496)\(null)!: (caller: ) LogHr(0) 83FF004A Bad message    Msg:[Unhandled Enclave Exception: "Bad
-message"]
-At line:1 char:1
-+ Add-AzAttestationPolicySigner -Name $attestationProvider -ResourceGro ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Add-AzAttestationPolicySigner], RestException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
-
-```
 
 When user uploads JWS without "maa-policyCertificate" claim
 
