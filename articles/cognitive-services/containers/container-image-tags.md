@@ -140,81 +140,199 @@ This container image has the following tags available. You can also find a full 
 
 The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list).
 
-This container image has the following tags available:
 
-| Image Tags            | Notes |
-|-----------------------|:------|
-| `latest`              |       |
-| `2.5.0-amd64`         |       |
+# [Latest version](#tab/current)
+
+Release note for `2.6.0-amd64`:
+
+[Feature]
+* Support phraselist v2
+* Supoort custom base model download (use option `BaseModelLocale=<locale>` with `docker run` command)
+* Fully migrate to DotNet 3.1
+
+[Fix]
+* Fix the issue that confidence score was always 1 on Diarization mode
+* Migrate to the TextAnalytics 3.0 api
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `2.6.0-amd64`                 |       |
+
+
+# [Previous version](#tab/previous)
+
+Release note for `2.5.0-amd64`:
+
+[Feature]
+* Support custom pronunciation on custom models
+* Support Azure and Azure US Government Cloud
+
+[Fix]
+* Fix run as non-root user issue on Diarization mode
+
+| Image Tags                    | Notes               |
+|-------------------------------|:--------------------|
+| `2.5.0-amd64`                 |   1st GA version    |
 
 
 ## Custom Text-to-speech
 
 The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list).
 
-This container image has the following tags available:
 
-| Image Tags            | Notes |
-|-----------------------|:------|
-| `latest`              |       |
-| `1.7.0-amd64`         |       |
+# [Latest version](#tab/current)
+
+Release note for `1.8.0-amd64`:
+
+[Feature]
+* Fully migrate to DotNet 3.1
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `1.8.0-amd64`                 |       |
+
+
+# [Previous version](#tab/previous)
+
+Release note for `1.7.0-amd64`:
+
+[Feature]
+* Partially migrate to DotNet 3.1
+
+| Image Tags                    | Notes               |
+|-------------------------------|:--------------------|
+| `1.7.0-amd64`                 |   1st GA version    |
+
 
 ## Speech-to-text
 
 The [Speech-to-text][sp-stt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`. You can find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).
 
-Speech-to-text v2.5.0 images are supported in the *US Government Virginia* region. Please use the *US Government Virginia* billing endpoint and API keys when using this region.
+Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia* region. Please use the *US Government Virginia* billing endpoint and API keys when using this region.
 
-This container image has the following tags available. 
+# [Latest version](#tab/current)
 
-| Image Tags                  | Notes                                    |
-|-----------------------------|:-----------------------------------------|
-| `latest`                    | Container image with the `en-US` locale. |
-| `2.5.0-amd64-<locale>`         | Replace `<locale>` with one of the available locales, listed below. For example `2.5.0-amd64-en-us`.  |
+Release note for `2.6.0-amd64-<locale>`:
+
+[Feature]
+* Upgrade to latest models and fully migrate to DotNet 3.1
+* Support phraselist v2
+* Support new locale `cs-CZ` (Capitalization and punctuation are currently not supported and will be supported in future)
+
+[Fix]
+* Fix the issue that confidence score was always 1 on Diarization mode
+* Migrate to the TextAnalytics 3.0 api
+
+| Image Tags                    | Notes                                                                                                | 
+|-------------------------------|:-----------------------------------------------------------------------------------------------------|
+| `latest`                      | Container image with the `en-US` locale.                                                             |
+| `2.6.0-amd64-<locale>`        | Replace `<locale>` with one of the available locales, listed below. For example `2.6.0-amd64-en-us`. |
 
 This container has the following locales available.
 
-| Locale for v2.5.0                | Notes                                    |
+| Locale for v2.6.0           | Notes                                    |
 |-----------------------------|:-----------------------------------------|
-| `ar-ae`         | Container image with the `ar-AE` locale. |
-| `ar-eg`         | Container image with the `ar-EG` locale. |
-| `ar-kw`         | Container image with the `ar-KW` locale. |
-| `ar-qa`         | Container image with the `ar-QA` locale. |
-| `ar-sa`         | Container image with the `ar-SA` locale. |
-| `ca-es`         | Container image with the `ca-ES` locale. |
-| `da-dk`         | Container image with the `da-DK` locale. |
-| `de-de`         | Container image with the `de-DE` locale. |
-| `en-au`         | Container image with the `en-AU` locale. |
-| `en-ca`         | Container image with the `en-CA` locale. |
-| `en-gb`         | Container image with the `en-GB` locale. |
-| `en-in`         | Container image with the `en-IN` locale. |
-| `en-nz`         | Container image with the `en-NZ` locale. |
-| `en-us`         | Container image with the `en-US` locale. |
-| `es-es`         | Container image with the `es-ES` locale. |
-| `es-mx`         | Container image with the `es-MX` locale. |
-| `fi-fi`         | Container image with the `fi-FI` locale. |
-| `fr-ca`         | Container image with the `fr-CA` locale. |
-| `fr-fr`         | Container image with the `fr-FR` locale. |
-| `gu-in`         | Container image with the `gu-IN` locale. |
-| `hi-in`         | Container image with the `hi-IN` locale. |
-| `it-it`         | Container image with the `it-IT` locale. |
-| `ja-jp`         | Container image with the `ja-JP` locale. |
-| `ko-kr`         | Container image with the `ko-KR` locale. |
-| `mr-in`         | Container image with the `mr-IN` locale. |
-| `nb-no`         | Container image with the `nb-NO` locale. |
-| `nl-nl`         | Container image with the `nl-NL` locale. |
-| `pl-pl`         | Container image with the `pl-PL` locale. |
-| `pt-br`         | Container image with the `pt-BR` locale. |
-| `pt-pt`         | Container image with the `pt-PT` locale. |
-| `ru-ru`         | Container image with the `ru-RU` locale. |
-| `sv-se`         | Container image with the `sv-SE` locale. |
-| `ta-in`         | Container image with the `ta-IN` locale. |
-| `te-in`         | Container image with the `te-IN` locale. |
-| `th-th`         | Container image with the `th-TH` locale. |
-| `tr-tr`         | Container image with the `tr-TR` locale. |
-| `zh-cn`         | Container image with the `zh-CN` locale. |
-| `zh-hk`         | Container image with the `zh-HK` locale. |
-| `zh-tw`         | Container image with the `zh-TW` locale. |
+| `ar-ae`                     | Container image with the `ar-AE` locale. |
+| `ar-eg`                     | Container image with the `ar-EG` locale. |
+| `ar-kw`                     | Container image with the `ar-KW` locale. |
+| `ar-qa`                     | Container image with the `ar-QA` locale. |
+| `ar-sa`                     | Container image with the `ar-SA` locale. |
+| `ca-es`                     | Container image with the `ca-ES` locale. |
+| `cs-cz`                     | Container image with the `cs-CZ` locale. |
+| `da-dk`                     | Container image with the `da-DK` locale. |
+| `de-de`                     | Container image with the `de-DE` locale. |
+| `en-au`                     | Container image with the `en-AU` locale. |
+| `en-ca`                     | Container image with the `en-CA` locale. |
+| `en-gb`                     | Container image with the `en-GB` locale. |
+| `en-in`                     | Container image with the `en-IN` locale. |
+| `en-nz`                     | Container image with the `en-NZ` locale. |
+| `en-us`                     | Container image with the `en-US` locale. |
+| `es-es`                     | Container image with the `es-ES` locale. |
+| `es-mx`                     | Container image with the `es-MX` locale. |
+| `fi-fi`                     | Container image with the `fi-FI` locale. |
+| `fr-ca`                     | Container image with the `fr-CA` locale. |
+| `fr-fr`                     | Container image with the `fr-FR` locale. |
+| `gu-in`                     | Container image with the `gu-IN` locale. |
+| `hi-in`                     | Container image with the `hi-IN` locale. |
+| `it-it`                     | Container image with the `it-IT` locale. |
+| `ja-jp`                     | Container image with the `ja-JP` locale. |
+| `ko-kr`                     | Container image with the `ko-KR` locale. |
+| `mr-in`                     | Container image with the `mr-IN` locale. |
+| `nb-no`                     | Container image with the `nb-NO` locale. |
+| `nl-nl`                     | Container image with the `nl-NL` locale. |
+| `pl-pl`                     | Container image with the `pl-PL` locale. |
+| `pt-br`                     | Container image with the `pt-BR` locale. |
+| `pt-pt`                     | Container image with the `pt-PT` locale. |
+| `ru-ru`                     | Container image with the `ru-RU` locale. |
+| `sv-se`                     | Container image with the `sv-SE` locale. |
+| `ta-in`                     | Container image with the `ta-IN` locale. |
+| `te-in`                     | Container image with the `te-IN` locale. |
+| `th-th`                     | Container image with the `th-TH` locale. |
+| `tr-tr`                     | Container image with the `tr-TR` locale. |
+| `zh-cn`                     | Container image with the `zh-CN` locale. |
+| `zh-hk`                     | Container image with the `zh-HK` locale. |
+| `zh-tw`                     | Container image with the `zh-TW` locale. |
+
+
+# [Previous version](#tab/previous)
+
+Release note for `2.5.0-amd64-<locale>`:
+
+[Feature]
+* Support Azure and Azure US Government Cloud
+
+[Fix]
+* Fix run as non-root user issue on Diarization mode
+
+| Image Tags                  | Notes                                    |
+|-----------------------------|:-----------------------------------------|
+| `2.5.0-amd64-<locale>`      | Replace `<locale>` with one of the available locales, listed below. For example `2.5.0-amd64-en-us`.  |
+
+This container has the following locales available.
+
+| Locale for v2.5.0           | Notes                                    |
+|-----------------------------|:-----------------------------------------|
+| `ar-ae`                     | Container image with the `ar-AE` locale. |
+| `ar-eg`                     | Container image with the `ar-EG` locale. |
+| `ar-kw`                     | Container image with the `ar-KW` locale. |
+| `ar-qa`                     | Container image with the `ar-QA` locale. |
+| `ar-sa`                     | Container image with the `ar-SA` locale. |
+| `ca-es`                     | Container image with the `ca-ES` locale. |
+| `da-dk`                     | Container image with the `da-DK` locale. |
+| `de-de`                     | Container image with the `de-DE` locale. |
+| `en-au`                     | Container image with the `en-AU` locale. |
+| `en-ca`                     | Container image with the `en-CA` locale. |
+| `en-gb`                     | Container image with the `en-GB` locale. |
+| `en-in`                     | Container image with the `en-IN` locale. |
+| `en-nz`                     | Container image with the `en-NZ` locale. |
+| `en-us`                     | Container image with the `en-US` locale. |
+| `es-es`                     | Container image with the `es-ES` locale. |
+| `es-mx`                     | Container image with the `es-MX` locale. |
+| `fi-fi`                     | Container image with the `fi-FI` locale. |
+| `fr-ca`                     | Container image with the `fr-CA` locale. |
+| `fr-fr`                     | Container image with the `fr-FR` locale. |
+| `gu-in`                     | Container image with the `gu-IN` locale. |
+| `hi-in`                     | Container image with the `hi-IN` locale. |
+| `it-it`                     | Container image with the `it-IT` locale. |
+| `ja-jp`                     | Container image with the `ja-JP` locale. |
+| `ko-kr`                     | Container image with the `ko-KR` locale. |
+| `mr-in`                     | Container image with the `mr-IN` locale. |
+| `nb-no`                     | Container image with the `nb-NO` locale. |
+| `nl-nl`                     | Container image with the `nl-NL` locale. |
+| `pl-pl`                     | Container image with the `pl-PL` locale. |
+| `pt-br`                     | Container image with the `pt-BR` locale. |
+| `pt-pt`                     | Container image with the `pt-PT` locale. |
+| `ru-ru`                     | Container image with the `ru-RU` locale. |
+| `sv-se`                     | Container image with the `sv-SE` locale. |
+| `ta-in`                     | Container image with the `ta-IN` locale. |
+| `te-in`                     | Container image with the `te-IN` locale. |
+| `th-th`                     | Container image with the `th-TH` locale. |
+| `tr-tr`                     | Container image with the `tr-TR` locale. |
+| `zh-cn`                     | Container image with the `zh-CN` locale. |
+| `zh-hk`                     | Container image with the `zh-HK` locale. |
+| `zh-tw`                     | Container image with the `zh-TW` locale. |
 
 
 ## Text-to-speech
@@ -223,95 +341,200 @@ The [Text-to-speech][sp-tts] container image can be found on the `mcr.microsoft.
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/text-to-speech/tags/list).
 
-| Image Tags                                  | Notes                                                                      |
-|---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
-| `1.7.0-amd64-<locale-and-voice>`      | Replace `<locale>` with one of the available locales, listed below. For example `2.5.0-amd64-en-us-ariarus`.     |
+
+# [Latest version](#tab/current)
+
+Release note for `1.8.0-amd64-<locale-and-voice>`:
+
+[Feature]
+* Fully migrate to DotNet 3.1
+
+| Image Tags                                  | Notes                                                                                                         |
+|---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
+| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaRUS` voice.                                            | 
+| `1.8.0-amd64-<locale-and-voice>`            | Replace `<locale>` with one of the available locales, listed below. For example `1.8.0-amd64-en-us-ariarus`.  |
 
 
-| Locales for v1.7.0                                 | Notes                                                                      |
+| Locales for v1.8.0                          | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `ar-eg-hoda`                    | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
-| `ar-sa-naayf`                   | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
-| `bg-bg-ivan`                    | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
-| `ca-es-herenarus`               | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
-| `cs-cz-jakub`                   | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
-| `da-dk-hellerus`                | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
-| `de-at-michael`                 | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
-| `de-ch-karsten`                 | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
-| `de-de-hedda`                   | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
-| `de-de-heddarus`                | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
-| `de-de-stefan-apollo`           | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
-| `el-gr-stefanos`                | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
-| `en-au-catherine`               | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
-| `en-au-hayleyrus`               | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
-| `en-ca-heatherrus`              | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
-| `en-ca-linda`                   | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
-| `en-gb-george-apollo`           | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
-| `en-gb-hazelrus`                | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
-| `en-gb-susan-apollo`            | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
-| `en-ie-sean`                    | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
-| `en-in-heera-apollo`            | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
-| `en-in-priyarus`                | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
-| `en-in-ravi-apollo`             | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
-| `en-us-benjaminrus`             | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
-| `en-us-guy24krus`               | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
-| `en-us-aria24krus`              | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.      |
-| `en-us-ariarus`                 | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
-| `en-us-zirarus`                 | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
-| `es-es-helenarus`               | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
-| `es-es-laura-apollo`            | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
-| `es-es-pablo-apollo`            | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
-| `es-mx-hildarus`                | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
-| `es-mx-raul-apollo`             | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
-| `fi-fi-heidirus`                | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
-| `fr-ca-caroline`                | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
-| `fr-ca-harmonierus`             | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
-| `fr-ch-guillaume`               | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
-| `fr-fr-hortenserus`             | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
-| `fr-fr-julie-apollo`            | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
-| `fr-fr-paul-apollo`             | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
-| `he-il-asaf`                    | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
-| `hi-in-hemant`                  | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
-| `hi-in-kalpana-apollo`          | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
-| `hi-in-kalpana`                 | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
-| `hr-hr-matej`                   | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
-| `hu-hu-szabolcs`                | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
-| `id-id-andika`                  | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
-| `it-it-cosimo-apollo`           | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
-| `it-it-luciarus`                | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
-| `ja-jp-ayumi-apollo`            | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
-| `ja-jp-harukarus`               | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
-| `ja-jp-ichiro-apollo`           | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
-| `ko-kr-heamirus`                | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
-| `ms-my-rizwan`                  | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
-| `nb-no-huldarus`                | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
-| `nl-nl-hannarus`                | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
-| `pl-pl-paulinarus`              | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
-| `pt-br-daniel-apollo`           | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
-| `pt-br-heloisarus`              | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
-| `pt-pt-heliarus`                | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
-| `ro-ro-andrei`                  | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
-| `ru-ru-ekaterinarus`            | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
-| `ru-ru-irina-apollo`            | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
-| `ru-ru-pavel-apollo`            | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
-| `sk-sk-filip`                   | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
-| `sl-si-lado`                    | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
-| `sv-se-hedvigrus`               | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
-| `ta-in-valluvar`                | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
-| `te-in-chitra`                  | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
-| `th-th-pattara`                 | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
-| `tr-tr-sedarus`                 | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
-| `vi-vn-an`                      | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
-| `zh-cn-huihuirus`               | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
-| `zh-cn-kangkang-apollo`         | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
-| `zh-cn-yaoyao-apollo`           | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
-| `zh-hk-danny-apollo`            | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
-| `zh-hk-tracy-apollo`            | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
-| `zh-hk-tracyrus`                | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
-| `zh-tw-hanhanrus`               | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
-| `zh-tw-yating-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
-| `zh-tw-zhiwei-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
+| `ar-eg-hoda`                                | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `ar-sa-naayf`                               | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `bg-bg-ivan`                                | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| `ca-es-herenarus`                           | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
+| `cs-cz-jakub`                               | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
+| `da-dk-hellerus`                            | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
+| `de-at-michael`                             | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
+| `de-ch-karsten`                             | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
+| `de-de-hedda`                               | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `de-de-heddarus`                            | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `de-de-stefan-apollo`                       | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
+| `el-gr-stefanos`                            | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
+| `en-au-catherine`                           | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
+| `en-au-hayleyrus`                           | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
+| `en-ca-heatherrus`                          | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
+| `en-ca-linda`                               | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
+| `en-gb-george-apollo`                       | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
+| `en-gb-hazelrus`                            | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
+| `en-gb-susan-apollo`                        | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
+| `en-ie-sean`                                | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
+| `en-in-heera-apollo`                        | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
+| `en-in-priyarus`                            | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
+| `en-in-ravi-apollo`                         | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
+| `en-us-benjaminrus`                         | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
+| `en-us-guy24krus`                           | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
+| `en-us-aria24krus`                          | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.      |
+| `en-us-ariarus`                             | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
+| `en-us-zirarus`                             | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
+| `es-es-helenarus`                           | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
+| `es-es-laura-apollo`                        | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
+| `es-es-pablo-apollo`                        | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
+| `es-mx-hildarus`                            | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
+| `es-mx-raul-apollo`                         | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
+| `fi-fi-heidirus`                            | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
+| `fr-ca-caroline`                            | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
+| `fr-ca-harmonierus`                         | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
+| `fr-ch-guillaume`                           | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
+| `fr-fr-hortenserus`                         | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
+| `fr-fr-julie-apollo`                        | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
+| `fr-fr-paul-apollo`                         | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
+| `he-il-asaf`                                | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
+| `hi-in-hemant`                              | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
+| `hi-in-kalpana-apollo`                      | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
+| `hi-in-kalpana`                             | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `hr-hr-matej`                               | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
+| `hu-hu-szabolcs`                            | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
+| `id-id-andika`                              | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
+| `it-it-cosimo-apollo`                       | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
+| `it-it-luciarus`                            | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
+| `ja-jp-ayumi-apollo`                        | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
+| `ja-jp-harukarus`                           | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
+| `ja-jp-ichiro-apollo`                       | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
+| `ko-kr-heamirus`                            | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
+| `ms-my-rizwan`                              | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
+| `nb-no-huldarus`                            | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
+| `nl-nl-hannarus`                            | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
+| `pl-pl-paulinarus`                          | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
+| `pt-br-daniel-apollo`                       | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
+| `pt-br-heloisarus`                          | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
+| `pt-pt-heliarus`                            | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
+| `ro-ro-andrei`                              | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
+| `ru-ru-ekaterinarus`                        | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
+| `ru-ru-irina-apollo`                        | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
+| `ru-ru-pavel-apollo`                        | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
+| `sk-sk-filip`                               | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
+| `sl-si-lado`                                | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
+| `sv-se-hedvigrus`                           | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
+| `ta-in-valluvar`                            | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
+| `te-in-chitra`                              | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
+| `th-th-pattara`                             | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
+| `tr-tr-sedarus`                             | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
+| `vi-vn-an`                                  | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
+| `zh-cn-huihuirus`                           | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
+| `zh-cn-kangkang-apollo`                     | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
+| `zh-cn-yaoyao-apollo`                       | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+| `zh-hk-danny-apollo`                        | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
+| `zh-hk-tracy-apollo`                        | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
+| `zh-hk-tracyrus`                            | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
+| `zh-tw-hanhanrus`                           | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
+| `zh-tw-yating-apollo`                       | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
+| `zh-tw-zhiwei-apollo`                       | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
+
+
+# [Previous version](#tab/previous)
+
+Release note for `1.7.0-amd64-<locale-and-voice>`:
+
+[Feature]
+* Upgrade components to DotNet 3.1
+
+| Image Tags                                  | Notes                                                                                                         |
+|---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
+| `1.7.0-amd64-<locale-and-voice>`            | 1st GA version. Replace `<locale>` with one of the available locales, listed below. For example `1.7.0-amd64-en-us-ariarus`.  |
+
+
+| Locales for v1.7.0                          | Notes                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `ar-eg-hoda`                                | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `ar-sa-naayf`                               | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `bg-bg-ivan`                                | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| `ca-es-herenarus`                           | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
+| `cs-cz-jakub`                               | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
+| `da-dk-hellerus`                            | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
+| `de-at-michael`                             | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
+| `de-ch-karsten`                             | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
+| `de-de-hedda`                               | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `de-de-heddarus`                            | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `de-de-stefan-apollo`                       | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
+| `el-gr-stefanos`                            | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
+| `en-au-catherine`                           | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
+| `en-au-hayleyrus`                           | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
+| `en-ca-heatherrus`                          | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
+| `en-ca-linda`                               | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
+| `en-gb-george-apollo`                       | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
+| `en-gb-hazelrus`                            | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
+| `en-gb-susan-apollo`                        | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
+| `en-ie-sean`                                | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
+| `en-in-heera-apollo`                        | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
+| `en-in-priyarus`                            | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
+| `en-in-ravi-apollo`                         | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
+| `en-us-benjaminrus`                         | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
+| `en-us-guy24krus`                           | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
+| `en-us-aria24krus`                          | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.      |
+| `en-us-ariarus`                             | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
+| `en-us-zirarus`                             | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
+| `es-es-helenarus`                           | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
+| `es-es-laura-apollo`                        | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
+| `es-es-pablo-apollo`                        | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
+| `es-mx-hildarus`                            | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
+| `es-mx-raul-apollo`                         | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
+| `fi-fi-heidirus`                            | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
+| `fr-ca-caroline`                            | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
+| `fr-ca-harmonierus`                         | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
+| `fr-ch-guillaume`                           | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
+| `fr-fr-hortenserus`                         | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
+| `fr-fr-julie-apollo`                        | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
+| `fr-fr-paul-apollo`                         | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
+| `he-il-asaf`                                | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
+| `hi-in-hemant`                              | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
+| `hi-in-kalpana-apollo`                      | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
+| `hi-in-kalpana`                             | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `hr-hr-matej`                               | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
+| `hu-hu-szabolcs`                            | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
+| `id-id-andika`                              | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
+| `it-it-cosimo-apollo`                       | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
+| `it-it-luciarus`                            | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
+| `ja-jp-ayumi-apollo`                        | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
+| `ja-jp-harukarus`                           | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
+| `ja-jp-ichiro-apollo`                       | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
+| `ko-kr-heamirus`                            | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
+| `ms-my-rizwan`                              | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
+| `nb-no-huldarus`                            | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
+| `nl-nl-hannarus`                            | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
+| `pl-pl-paulinarus`                          | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
+| `pt-br-daniel-apollo`                       | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
+| `pt-br-heloisarus`                          | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
+| `pt-pt-heliarus`                            | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
+| `ro-ro-andrei`                              | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
+| `ru-ru-ekaterinarus`                        | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
+| `ru-ru-irina-apollo`                        | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
+| `ru-ru-pavel-apollo`                        | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
+| `sk-sk-filip`                               | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
+| `sl-si-lado`                                | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
+| `sv-se-hedvigrus`                           | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
+| `ta-in-valluvar`                            | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
+| `te-in-chitra`                              | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
+| `th-th-pattara`                             | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
+| `tr-tr-sedarus`                             | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
+| `vi-vn-an`                                  | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
+| `zh-cn-huihuirus`                           | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
+| `zh-cn-kangkang-apollo`                     | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
+| `zh-cn-yaoyao-apollo`                       | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+| `zh-hk-danny-apollo`                        | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
+| `zh-hk-tracy-apollo`                        | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
+| `zh-hk-tracyrus`                            | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
+| `zh-tw-hanhanrus`                           | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
+| `zh-tw-yating-apollo`                       | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
+| `zh-tw-zhiwei-apollo`                       | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
 
 
 ## Neural Text-to-speech
@@ -323,28 +546,28 @@ This container image has the following tags available. You can also find a full 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
-| `1.7.0-amd64-<locale-and-voice>`      | Replace `<locale>` with one of the available locales, listed below. For example `1.2.0-amd64-en-us-arianeural-preview`.     |
+| `1.2.0-amd64-<locale-and-voice>-preview`    | Replace `<locale>` with one of the available locales, listed below. For example `1.2.0-amd64-en-us-arianeural-preview`. |
 
 
-| v1.7.0 Locales and voices                                  | Notes                                                                      |
+| v1.2.0 Preview Locales and voices           | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
-| `de-de-katjaneural-preview`     | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
-| `en-au-natashaneural-preview`   | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
-| `en-ca-claraneural-preview`     | Container image with the `en-CA` locale and `en-CA-ClaraNeural` voice.     |
-| `en-gb-libbyneural-preview`     | Container image with the `en-GB` locale and `en-GB-LibbyNeural` voice.     |
-| `en-gb-mianeural-preview`       | Container image with the `en-GB` locale and `en-GB-MiaNeural` voice.       |
-| `en-us-arianeural-preview`      | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
-| `en-us-guyneural-preview`       | Container image with the `en-US` locale and `en-US-GuyNeural` voice.       |
-| `es-es-elviraneural-preview`    | Container image with the `es-ES` locale and `es-ES-ElviraNeural` voice.    |
-| `es-mx-dalianeural-preview`     | Container image with the `es-MX` locale and `es-MX-DaliaNeural` voice.     |
-| `fr-ca-sylvieneural-preview`    | Container image with the `fr-CA` locale and `fr-CA-SylvieNeural` voice.    |
-| `fr-fr-deniseneural-preview`    | Container image with the `fr-FR` locale and `fr-FR-DeniseNeural` voice.    |
-| `it-it-elsaneural-preview`      | Container image with the `it-IT` locale and `it-IT-ElsaNeural` voice.      |
-| `ja-jp-nanamineural-preview`    | Container image with the `ja-JP` locale and `ja-JP-NanamiNeural` voice.    |
-| `ko-kr-sunhineural-preview`     | Container image with the `ko-KR` locale and `ko-KR-SunHiNeural` voice.     |
-| `pt-br-franciscaneural-preview` | Container image with the `pt-BR` locale and `pt-BR-FranciscaNeural` voice. |
-| `zh-cn-xiaoxiaoneural-preview`  | Container image with the `zh-CN` locale and `zh-CN-XiaoxiaoNeural` voice.  |
+| `de-de-katjaneural-preview`                 | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
+| `en-au-natashaneural-preview`               | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
+| `en-ca-claraneural-preview`                 | Container image with the `en-CA` locale and `en-CA-ClaraNeural` voice.     |
+| `en-gb-libbyneural-preview`                 | Container image with the `en-GB` locale and `en-GB-LibbyNeural` voice.     |
+| `en-gb-mianeural-preview`                   | Container image with the `en-GB` locale and `en-GB-MiaNeural` voice.       |
+| `en-us-arianeural-preview`                  | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
+| `en-us-guyneural-preview`                   | Container image with the `en-US` locale and `en-US-GuyNeural` voice.       |
+| `es-es-elviraneural-preview`                | Container image with the `es-ES` locale and `es-ES-ElviraNeural` voice.    |
+| `es-mx-dalianeural-preview`                 | Container image with the `es-MX` locale and `es-MX-DaliaNeural` voice.     |
+| `fr-ca-sylvieneural-preview`                | Container image with the `fr-CA` locale and `fr-CA-SylvieNeural` voice.    |
+| `fr-fr-deniseneural-preview`                | Container image with the `fr-FR` locale and `fr-FR-DeniseNeural` voice.    |
+| `it-it-elsaneural-preview`                  | Container image with the `it-IT` locale and `it-IT-ElsaNeural` voice.      |
+| `ja-jp-nanamineural-preview`                | Container image with the `ja-JP` locale and `ja-JP-NanamiNeural` voice.    |
+| `ko-kr-sunhineural-preview`                 | Container image with the `ko-KR` locale and `ko-KR-SunHiNeural` voice.     |
+| `pt-br-franciscaneural-preview`             | Container image with the `pt-BR` locale and `pt-BR-FranciscaNeural` voice. |
+| `zh-cn-xiaoxiaoneural-preview`              | Container image with the `zh-CN` locale and `zh-CN-XiaoxiaoNeural` voice.  |
 
 ## Speech language detection
 
