@@ -208,7 +208,7 @@ Configure the IoT Edge runtime by following these steps on both your devices. Co
 
 1. Bootstrap the system using the Edge Agent.
 
-1. Set up up your devices hostname to point to the **top layer** device.
+1. Set up your devices hostname to point to the **top layer** device.
 
 Complete these three steps and restart the IoT Edge service to configure your devices.
 
