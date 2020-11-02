@@ -21,7 +21,7 @@ This article teaches you to enable the automatic registration feature. Alternati
 
 Registering your SQL Server VM with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md). 
 
-When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md) in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
+When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the unregistered VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md) in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
 
 Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL VM resource provider in lightweight mode. You still need to  [manually upgrade to full manageability mode](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set. 
 
