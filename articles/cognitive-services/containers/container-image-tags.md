@@ -145,12 +145,13 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 
 Release note for `2.6.0-amd64`:
 
-[Feature]
-* Support phraselist v2
-* Supoort custom base model download (use option `BaseModelLocale=<locale>` with `docker run` command)
-* Fully migrate to DotNet 3.1
+**Features**
+* Support for phraselist v2
+* Support for custom base model download. 
+    * Use `BaseModelLocale=<locale>` with the `docker run` command
+* Fully migrated to .NET 3.1
 
-[Fix]
+**Fixes**
 * Fix the issue that confidence score was always 1 on Diarization mode
 * Migrate to the TextAnalytics 3.0 api
 
@@ -164,17 +165,18 @@ Release note for `2.6.0-amd64`:
 
 Release note for `2.5.0-amd64`:
 
-[Feature]
+**Features**
 * Support custom pronunciation on custom models
 * Support Azure and Azure US Government Cloud
 
-[Fix]
+**Fixes**
 * Fix run as non-root user issue on Diarization mode
 
 | Image Tags                    | Notes               |
 |-------------------------------|:--------------------|
 | `2.5.0-amd64`                 |   1st GA version    |
 
+---
 
 ## Custom Text-to-speech
 
@@ -185,8 +187,8 @@ The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.mi
 
 Release note for `1.8.0-amd64`:
 
-[Feature]
-* Fully migrate to DotNet 3.1
+**Features**
+* Fully migrated to DotNet 3.1
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -198,13 +200,14 @@ Release note for `1.8.0-amd64`:
 
 Release note for `1.7.0-amd64`:
 
-[Feature]
-* Partially migrate to DotNet 3.1
+**Feature**
+* Partially migrated to DotNet 3.1
 
 | Image Tags                    | Notes               |
 |-------------------------------|:--------------------|
 | `1.7.0-amd64`                 |   1st GA version    |
 
+---
 
 ## Speech-to-text
 
@@ -216,14 +219,15 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 
 Release note for `2.6.0-amd64-<locale>`:
 
-[Feature]
-* Upgrade to latest models and fully migrate to DotNet 3.1
-* Support phraselist v2
-* Support new locale `cs-CZ` (Capitalization and punctuation are currently not supported and will be supported in future)
+**Features**
+* Upgraded to latest models and fully migrated to DotNet 3.1
+* Support for phraselist v2
+* Support for new locale `cs-CZ` 
+    * Capitalization and punctuation are currently not supported.
 
-[Fix]
-* Fix the issue that confidence score was always 1 on Diarization mode
-* Migrate to the TextAnalytics 3.0 api
+**Fixes**
+* Fixes an issue where confidence scores were always 1 in Diarization mode
+* Migrated use the TextAnalytics 3.0 API
 
 | Image Tags                    | Notes                                                                                                | 
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
@@ -280,11 +284,11 @@ This container has the following locales available.
 
 Release note for `2.5.0-amd64-<locale>`:
 
-[Feature]
-* Support Azure and Azure US Government Cloud
+**Features**
+* Support for Azure US Government Cloud
 
-[Fix]
-* Fix run as non-root user issue on Diarization mode
+**Fixes**
+* Fixes an issue with running as a non-root user in Diarization mode
 
 | Image Tags                  | Notes                                    |
 |-----------------------------|:-----------------------------------------|
@@ -334,6 +338,7 @@ This container has the following locales available.
 | `zh-hk`                     | Container image with the `zh-HK` locale. |
 | `zh-tw`                     | Container image with the `zh-TW` locale. |
 
+---
 
 ## Text-to-speech
 
@@ -346,8 +351,8 @@ This container image has the following tags available. You can also find a full 
 
 Release note for `1.8.0-amd64-<locale-and-voice>`:
 
-[Feature]
-* Fully migrate to DotNet 3.1
+**Feature**
+* Fully migrated to DotNet 3.1
 
 | Image Tags                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
@@ -444,8 +449,8 @@ Release note for `1.8.0-amd64-<locale-and-voice>`:
 
 Release note for `1.7.0-amd64-<locale-and-voice>`:
 
-[Feature]
-* Upgrade components to DotNet 3.1
+**Feature**
+* Upgraded components to DotNet 3.1
 
 | Image Tags                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
@@ -536,6 +541,7 @@ Release note for `1.7.0-amd64-<locale-and-voice>`:
 | `zh-tw-yating-apollo`                       | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
 | `zh-tw-zhiwei-apollo`                       | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
 
+---
 
 ## Neural Text-to-speech
 
