@@ -14,15 +14,23 @@ ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technica
 ---
 # Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Application logic, physical networks, protocols, hardware, IoT Hub, and other cloud services can all cause problems. The ability to detect and pinpoint the source of an issue is critical. However, an IoT solution at scale could have thousands of devices, so it's not practical to check individual devices manually. To help you detect, diagnose, and troubleshoot these issues at scale, use the monitoring capabilities IoT Hub provides through Azure Monitor. These capabilities are limited to what IoT Hub can observe, so we also recommend that you follow monitoring best practices for your devices and other Azure services.
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Application logic, physical networks, protocols, hardware, IoT Hub, and other cloud services can all cause problems. The ability to detect and pinpoint the source of an issue is critical. However, an IoT solution at scale could have thousands of devices, so it's not practical to check individual devices manually. IoT Hub integrates with two Azure services to help you:
+
+* To help you detect, diagnose, and troubleshoot these issues at scale, use the monitoring capabilities IoT Hub provides through Azure Monitor. This includes setting up alerts to trigger notifications and actions when disconnects occur and configuring logs that you can use to discover the conditions that caused disconnects.
+
+* For critical infrastructure and to help you detect disconnects on a per-device basis, use Azure Event Grid to subscribe to events emitted by IoT Hub for device connect and disconnect.
+
+These capabilities are limited to what IoT Hub can observe, so we also recommend that you follow monitoring best practices for your devices and other Azure services.
 
 ## Get alerts and error logs
 
 Use Azure Monitor to get alerts and write logs when devices disconnect.
 
-### Turn on logs
+## Route events to logs
 
-To log device connection events and errors, create a diagnostic setting for [IoT Hub connections resource logs](monitor-iot-hub-reference.md#connections). We recommend creating this setting as early as possible, because these logs aren't collected by default, and, without them, you won't have any information to troubleshoot device disconnects with when they occur.
+To log device connection events and errors, create a diagnostic setting for the [IoT Hub resource logs connections category](monitor-iot-hub-reference.md#connections). We recommend creating this setting as early as possible, because although IoT Hub always emits log data, it isn't collected until you route it to a destination. To send logs to Azure Monitor Logs, route the Connections logs to a Log Analytics workspace ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)), where you can analyze them using Kusto queries.
+
+The following screenshot shows a diagnostic setting that routes IoT Hub resource logs for the Connections category to a Log Analytics workspace. To learn more about routing metrics and logs, see []For detailed instructions to create a diagnostic setting, see the [Use metrics and logs](totorial-use-metrics-and-diags.md) tutorial.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -90,6 +98,45 @@ When you turn on logs and alerts for connected devices, you get alerts when erro
     - **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
     - **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
     - **[500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+
+## Device disconnect behavior over MQTT with Azure IoT SDKs
+
+With the MQTT or MQTT over Web Sockets protocols, on SAS token renewal, Azure IoT SDKs disconnect from IoT Hub and then reconnect. In logs this shows up by informational device disconnect and connect events sometimes accompanied by error events. By default, the token lifespan is 60 minutes, for all SDKs.
+
+The following table shows the token lifespan, renewal, and renewal behavior for each of the SDKs:
+
+| SDK | Token lifespan | Token renewal | Renewal behavior |
+|-----|----------|---------------------|---------|
+| .NET | 60 minutes, configurable | 85% of lifespan, configurable | SDK connects and disconnects at token lifespan plus a 10 minute grace period. Informational events and errors generated in logs. |
+| Java | 60 minutes, configurable | 85% of lifespan, not configurable | SDK connects and disconnects at token lifespan plus a 10 minute grace period. Informational events and errors generated in logs. |
+| Node.js | 60 minutes, configurable | configurable | SDK connects and disconnects at token renewal. Only informational events are generated in logs. |
+| Python | 60 minutes, not configurable | -- | SDK connects and disconnects at token lifespan. |
+
+The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from default as noted for each screenshot. The following query was used:
+
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s)
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId) , Protocol =  tostring(parsed_json.protocol)
+| distinct TimeGenerated, OperationName, Level, ResultType, ResultDescription, DeviceId, Protocol, SDKVersion
+
+```
+
+* .NET device SDK with a 1200 sec (20 min) token lifespan and renewal set to happen at 90% of lifespan. disconnects happen every 30 minutes:
+
+    :::image type="content" source="media/iot-hub-troubleshoot-connectivity/net-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with .NET SDK.":::
+
+* Java SDK with a 300 second (5 min) token lifespan and default 85% of lifespan renewal. Disconnects happen every 15 minutes:
+
+    :::image type="content" source="media/iot-hub-troubleshoot-connectivity/java-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Java SDK.":::
+
+* Node SDK with a 300 sec (5 min) token lifespan and token renewal set to happen at 3 minutes. Disconnects happen on token renewal. Also, there are no errors, only informational connect/disconnect events are emitted:
+
+    :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Node SDK.":::
+
+As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether a device implements a device twin setting or a device method that makes this possible. If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out disconnects due to SAS token renewal; for example, by not not triggering actions based on disconnects as long as the disconnect is followed by a connect within a certain time span.
 
 ## I tried the steps, but they didn't work
 
