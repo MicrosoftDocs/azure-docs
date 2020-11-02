@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Cloud Services
-description: The Cloud Services security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
+title: Azure security baseline for Azure Cloud Services
+description: The Azure Cloud Services security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: cloud-services
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -12,11 +12,11 @@ ms.custom: subject-security-benchmark
 
 ---
 
-# Azure security baseline for Cloud Services
+# Azure security baseline for Azure Cloud Services
 
 This security
 baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Cloud Services. The Azure Security Benchmark
+1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Cloud Services. The Azure Security Benchmark
 provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Cloud Services. **Controls** not applicable to Cloud Services have been excluded.
@@ -50,11 +50,9 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 **Guidance**: Document your Azure Cloud Services configuration and monitor it for changes. Use the service's configuration file to specify the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. 
 
-If the service is part of a virtual network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg. Note that Azure Policy is not supported for Cloud service (Classic) for configuration enforcement.
+If the service is part of a virtual network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg. Note that Azure Policy is not supported for Classic deployments for configuration enforcement.
 
-Set a cloud service's configuration values in the service configuration file (.cscfg) and the definition in an service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a cloud service and also specify the service endpoints. 
-
-Log the configuration for Azure Cloud Services with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
+Set a cloud service's configuration values in the service configuration file (.cscfg) and the definition in an service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a cloud service and also specify the service endpoints. Log the configuration for Azure Cloud Services with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
 
 Monitor the optional NetworkTrafficRules element service definition which restricts which roles can communicate to specified internal endpoints. Configure the NetworkTrafficRules node, an optional element in the service definition file, to specify how roles should communicate with each other. Place limits on which roles can access the internal endpoints of the specific role.  Note that the service definition cannot be altered. 
 
@@ -435,8 +433,6 @@ For additional reference, the Azure Service Management API provides programmatic
 
 **Guidance**: It is recommended to use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and then update the organization's sensitive information inventory.
 
-/azure/information-protection/deploy-aip-scanner-configure-install-classic
-
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
@@ -459,11 +455,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.8: Encrypt sensitive information at rest
 
-**Guidance**: Azure Cloud Services does not support encryption-at-rest. This is because Azure Cloud Services are designed to be stateless. 
-
-Azure Cloud Services do support external storage, for example, Azure Storage, which is by-default, encrypted at rest.  
+**Guidance**: Azure Cloud Services does not support encryption-at-rest. This is because Azure Cloud Services are designed to be stateless. Azure Cloud Services do support external storage, for example, Azure Storage, which is by-default, encrypted at rest.  
 
 The application data stored in temporary disks is not encrypted. The customer is responsible to manage and encrypt this data, as required.  
+
+- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -574,15 +570,15 @@ Supporting documentation:
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
 Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
-
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
+
 - Comply with your organization's security policy that dictates the use of only licensed software.
 - Avoid unwanted software to be used in your environment.
 - Avoid old and unsupported apps to run.
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -611,7 +607,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -639,7 +635,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -667,7 +663,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -682,15 +678,15 @@ Supporting documentation:
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
 Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
-
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
+
 - Comply with your organization's security policy that dictates the use of only licensed software.
 - Avoid unwanted software to be used in your environment.
 - Avoid old and unsupported apps to run.
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -718,7 +714,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -732,7 +728,7 @@ Supporting documentation:
 
 Use a network security group, create an Inbound security rule, choose a service such as http, choose a custom port as well, give it a priority and a name. The priority affects the order in which the rules are applied, the lower the numerical value, the earlier the rule is applied. You will need to associate your network security group to a subnet or a specific network interface to isolate or segment the network traffic based on your business needs.
 
-Supporting documentation:
+More details are available at the referenced links.
 
 - [Tutorial - Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -758,9 +754,7 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Not applicable to Azure Cloud Services. It is based on the classic deployment model.
-
-It is recommended to use a third-party solution to maintain secure Azure resource configurations
+**Guidance**: Not applicable to Azure Cloud Services. It is based on the classic deployment model. It is recommended to use a third-party solution to maintain secure Azure resource configurations
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -768,7 +762,7 @@ It is recommended to use a third-party solution to maintain secure Azure resourc
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: Azure Cloud Services classic configuration file stores the operating attributes for a resource. You can store a copy of the configuration files to a secure storage account.
+**Guidance**: Azure Cloud Service's configuration file stores the operating attributes for a resource. You can store a copy of the configuration files to a secure storage account.
 
 **Azure Security Center monitoring**: Not applicable
 
