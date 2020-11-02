@@ -51,8 +51,6 @@ To allow or disallow public access for a storage account, configure the account'
 
 > [!NOTE]
 > The **AllowBlobPublicAccess** property is not set by default and does not return a value until you explicitly set it. The storage account permits public access when the property value is **null** or when it is **true**.
->
-> The **AllowBlobPublicAccess** property is available for all storage accounts in the Azure public cloud and in Azure Government clouds.
 
 # [Azure portal](#tab/portal)
 
