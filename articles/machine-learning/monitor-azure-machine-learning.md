@@ -26,9 +26,9 @@ When you have critical applications and business processes relying on Azure reso
 
 ## What is Azure Monitor?
 
-Azure Machine Learning creates monitoring data using [Azure Monitor](/azure/azure-monitor/overview), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources. It can also monitor resources in other clouds and on-premises.
+Azure Machine Learning creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources. It can also monitor resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -39,11 +39,11 @@ Start with the article [Monitoring Azure resources with Azure Monitor](/azure/az
 The following sections build on this article by describing the specific data gathered for Azure Machine Learning. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](/azure/azure-monitor/platform/usage-estimated-costs). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](/azure/azure-monitor/platform/data-ingestion-time).
+> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor/platform/usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/platform/data-ingestion-time.md).
 
 ## Monitoring data from Azure Machine Learning
 
-Azure Machine Learning collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). 
 
 See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
@@ -55,7 +55,7 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in [Azure Machine Learning monitoring data reference](monitor-resource-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in [Azure Machine Learning monitoring data reference](monitor-resource-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -75,7 +75,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
+You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Machine Learning data reference metrics](monitor-resource-reference.md#metrics).
 
@@ -83,7 +83,7 @@ All metrics for Azure Machine Learning are in the namespace **Machine Learning S
 
 ![Metrics Explorer with Machine Learning Service Workspace selected](./media/monitor-azure-machine-learning/metrics.png)
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### Filtering and splitting
 
@@ -91,7 +91,7 @@ For metrics that support dimensions, you can apply filters using a dimension val
 
 You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For example, splitting out the **Pipeline Step Type** to see a count of the types of steps used in the pipeline.
 
-For more information of filtering and splitting, see [Advanced features of Azure Monitor](/azure/azure-monitor/platform/metrics-charts).
+For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/platform/metrics-charts.md).
 
 <a id="analyzing-log-data"></a>
 ## Analyzing logs
@@ -107,14 +107,14 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) for details.
 
 For a detailed reference of the logs and metrics, see [Azure Machine Learning monitoring data reference](monitor-resource-reference.md).
 
 ### Sample Kusto queries
 
 > [!IMPORTANT]
-> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current Azure Machine Learning workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other workspaces or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current Azure Machine Learning workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other workspaces or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) for details.
 
 Following are queries that you can use to help you monitor your Azure Machine Learning resources: 
 
@@ -152,7 +152,7 @@ Following are queries that you can use to help you monitor your Azure Machine Le
 
 ## Alerts
 
-You can access alerts for Azure Machine Learning by opening **Alerts** from the **Azure Monitor** menu. See [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/platform/alerts-metric) for details on creating alerts.
+You can access alerts for Azure Machine Learning by opening **Alerts** from the **Azure Monitor** menu. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md) for details on creating alerts.
 
 The following table lists common and recommended metric alert rules for Azure Machine Learning:
 
@@ -166,4 +166,4 @@ The following table lists common and recommended metric alert rules for Azure Ma
 
 - For a reference of the logs and metrics, see [Monitoring Azure Machine Learning data reference](monitor-resource-reference.md).
 - For information on working with quotas related to Azure Machine Learning, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
-- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).
+- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).
