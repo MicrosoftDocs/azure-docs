@@ -96,7 +96,7 @@ The Azure training lifecycle consists of:
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
 1. Scaling down compute, including removing temporary storage 
 
-If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](./how-to-debug-pipelines.md#configure-ml-pipeline ) for an example).
+If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](./how-to-debug-pipelines.md) for an example).
 
 ## R SDK (preview)
 
