@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
 
 # Add non-Microsoft accounts to the Microsoft Authenticator app
 
-Add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+If you have non-Microsoft accounts, such as for Google, Facebook, or GitHub, you can add them to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the Time-based One-time Password (TOTP) standards.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
@@ -126,7 +126,7 @@ Add your GitHub account by turning on two-factor verification and then adding th
 
 1. On the **Two-factor authentication** page on your computer, select **Set up using an app**.
 
-2. Save your recovery codes so you can get back into your account if you lose access, and then select **Next**. 
+2. Save your recovery codes so you can get back into your account if you lose access, and then select **Next**.
 
     You can save your codes by downloading them to your device, by printing a hard copy, or by copying them into a password manager tool.
 
@@ -188,6 +188,25 @@ Add your Amazon account by turning on two-factor verification and then adding th
 
     >[!NOTE]
     >For more information about two-factor verification and your Amazon account, see [About Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) and [Signing in with Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
+
+## Add a Phone Sign-in account
+
+Add your Phone Sign-in credentials to the Authenticator app without needing a password or a pre-existing two factor authentication account in the app.​
+
+1. Open the Microsoft Authenticator app, select the **+** icon on the **Accounts** page, and then select **Work or school account**.
+
+    :::image type="content" source="media/user-help-auth-app-add-non-ms-account/add-account.png" alt-text="The Add account icon is a plus sign":::
+
+1. Select **Sign in with your email** if it is available. Contact the administrator for your work or school account if it isn't available but you think it should be. If you have a QR code, you can select **Scan QR code**.
+1. Sign in with the username for the account you want to use. You should have a temporary access passcode that you can use to sign in. Contact the administrator for your work or school account if you don't.
+
+    :::image type="content" source="media/user-help-auth-app-add-non-ms-account/temporary-access-pass.png" alt-text="Your account administrator should give you a temporary access pass":::
+
+1. Meet any requirements for your work or school account's IT department, such as enabling screen lock on your device.
+
+    :::image type="content" source="media/user-help-auth-app-add-non-ms-account/requirements-page.png" alt-text="Fulfill any further requirements, such as screen lock, and you're done.":::
+
+1. Your credentials should be set up and ready to use.
 
 ## Next steps
 
