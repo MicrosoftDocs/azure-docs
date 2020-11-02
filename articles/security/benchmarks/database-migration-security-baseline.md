@@ -397,6 +397,17 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 **Responsibility**: Customer
 
+### PA-8: Choose approval process for Microsoft support  
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40009.).
+
+**Guidance**: Not applicable; Azure Database Migration Service doesn't store customer data.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
@@ -685,9 +696,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Azure Database Migration Service does not support configuring your own time synchronization sources. The Azure Database Migration service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Incident Response
 
@@ -698,90 +709,120 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39973.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness. Check that your service offering is included in the incident response process, as applicable.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Implement security across the enterprise environment](https://aka.ms/AzSec4) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### IR-2: Preparation – setup incident notification
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39974.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39975.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
+
+- [How to configure export](../../security-center/continuous-export.md) 
+
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### IR-4: Detection and analysis – investigate an incident
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39976.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots. You should also ensure insights and learnings are captured for other analysts and for future historical reference.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Snapshots of running systems:
+
+Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk.
+
+Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
+
+Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
+
+Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes.
+
+- [Snapshot a Windows machine’s disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 
+
+- [Snapshot a Linux machine’s disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md) 
+
+- [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### IR-5: Detection and analysis – prioritize incidents
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39977.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md) 
+
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39978.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md) 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts) 
+
+- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ## Posture and Vulnerability Management
 
@@ -792,30 +833,22 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39993.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't have any security configurations.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-2: Sustain secure configurations for Azure services
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39994.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't have any security configurations.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-3: Establish secure configurations for compute resources
 
@@ -833,75 +866,63 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39996.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-5: Securely store custom operating system and container images
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39997.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; this guideline is intended for compute resources.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-6: Perform software vulnerability assessments
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39998.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't support any vulnerability assessments.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39999.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure Database Migration Service does not offer any compute resources that the customer can deploy. Hence this is not applicable.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-8: Conduct regular attack simulation
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40000.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Penetration testing in Azure](../fundamentals/pen-testing.md)  Penetration
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ## Endpoint Security
 
@@ -912,45 +933,34 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39979.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure Database Migration Service is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39980.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure Database Migration Service or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39981.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure Database Migration Service is not comprised of any virtual machines or containers which would require anti-malware protection.
+Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Backup and Recovery
 
@@ -961,62 +971,44 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39989.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't support any data backup or have no needs for data backup.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-2: Encrypt backup data
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39990.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't support any data backup encryption.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39991.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't support any data backup.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+**Azure Security Center monitoring**: Currently not available
 
- 
-
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-4: Mitigate risk of lost keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39992.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't manage any keys.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Governance and Strategy
 
