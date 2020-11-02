@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-jav
+ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Sync Java SDK v2
