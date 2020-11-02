@@ -133,7 +133,7 @@ Example Diagram:
 
 **N Events from 1 Source (*Maximum Activation*)**
 
-A signal gate processor receiving N events would result in a recording that starts “activation signal offset” (5) seconds before the 1st event arrived at the gate. As each event arrives before the “minimum activation time” (20) seconds from the previous event, the gate would continuously be retriggered and open until “maximum activation time” seconds after the 1st event, in which the gate would close and no longer accept any new events.
+A signal gate processor receiving N events would result in a recording that starts “activation signal offset” (5) seconds before the 1st event arrived at the gate. As each event arrives before the completion of the “minimum activation time” (20) seconds from the previous event, the gate would continuously be retriggered and remain open until “maximum activation time” (40) seconds after the 1st event, in which the gate would close and no longer accept any new events.
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
@@ -149,7 +149,7 @@ Example Diagram:
 
 [Event-based video recording tutorial](event-based-video-recording-tutorial.md)
 
-Using the event-based video recording tutorial, edit the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json) and modify the parameters for the signalgateProcessor node, then follow the remainder of the tutorial. Review the video recordings to see how the parameters affect the recordings.
+Using the event-based video recording tutorial, edit the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), modify the parameters for the signalgateProcessor node, then follow the remainder of the tutorial. Review the video recordings to see how the parameters affect the recordings.
 
 
 
