@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ---
 
@@ -33,9 +33,9 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## July 2020
 
-### Role-based access control
+### Azure role-based access control
 
-* Custom Vision supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. To learn how to manage access to your Custom Vision projects, see [Role-based access control](./role-based-access-control.md).
+* Custom Vision supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. To learn how to manage access to your Custom Vision projects, see [Azure role-based access control](./role-based-access-control.md).
 
 ### Subset training
 

@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. This is done by modeling individual elements as **digital twins**, then connecting them into a knowledge **graph** that can respond to live events and be queried for information.
 
-In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a scenario, view visual representations of your twins and graph, and perform other management activities through a browser-based, visual experience.
+In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a digital representation of an environment, view visual images of the twins and graph that are created to represent the environment in Azure Digital Twins, and perform other management activities through a browser-based, visual experience.
 
 The quickstart contains the following major steps:
 
@@ -38,28 +38,23 @@ You'll need an Azure subscription to complete this quickstart. If you don't have
 
 You'll also need **Node.js** on your machine. You can get the latest version at this link: [Node.js](https://nodejs.org/).
 
-Finally, you will also need to download two samples to use during the quickstart:
-* The **ADT Explorer** sample application. This sample contains the main app you use in the quickstart to load and explore an Azure Digital Twins scenario. To get the app, navigate here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine. This will download a .ZIP folder to your machine as _**Azure_Digital_Twins__ADT__explorer.zip**_. Unzip the folder and extract the files.
-* The **example Azure Digital Twins scenario**. This includes a pre-built Azure Digital Twins graph that you will be loading into ADT Explorer to work with. To get the scenario, navigate here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine. This will download a .ZIP folder to your machine as _**Azure_Digital_Twins_samples.zip**_. Unzip the folder and extract the files.
+Finally, you will also need to download the sample to use during the quickstart: the **ADT Explorer** sample application. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario, as well as the sample scenario files. To get the sample, navigate here: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine. This will download a .ZIP folder to your machine as _**Azure_Digital_Twins__ADT__explorer.zip**_. Unzip the folder and extract the files.
 
 ## Set up Azure Digital Twins and ADT Explorer
 
 The first step in working with Azure Digital Twins is to set up an **Azure Digital Twins instance**. After you create an instance of the service, you'll be able to populate it with the example data later in the quickstart.
 
-You'll also set up permissions for ADT Explorer to run on your computer and access your Azure Digital Twins instance. This will allow you to use the sample app to explore your instance and its data.
+You'll also set up permissions for ADT Explorer to run on your computer and access your Azure Digital Twins instance, including setting up an Azure Active Directory (Azure AD) **app registration** for it to use. After this, you can use the sample app to explore your instance and its data.
 
-### Set up Azure Digital Twins instance
+### Set up Azure Digital Twins instance and app registration
 
-First, set up an Azure Digital Twins instance and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-In this quickstart, you will need the following values from when you set up your instance. If you need to gather these values again, use the links below to the corresponding sections in the setup article for finding them in the [Azure portal](https://portal.azure.com).
-* Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure AD app registration **_Application (client) ID_** ([find in portal](how-to-set-up-instance-portal.md#collect-important-values))
-* Azure AD app registration **_Directory (tenant) ID_** ([find in portal](how-to-set-up-instance-portal.md#collect-important-values))
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
 ### Set ADT Explorer permissions
 
-Next, prepare the Azure Digital Twins instance you created to work with ADT Explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your app registration from the list.
+Next, prepare the Azure Digital Twins instance you created to work with ADT Explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your **app registration** that you created in the previous section from the list.
 
 Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
 
@@ -118,9 +113,7 @@ If you see a *Permissions requested* pop-up window from Microsoft, grant consent
 
 ## Add the sample data
 
-Next, you will import the sample scenario and graph into ADT Explorer.
-
-The sample scenario is located in your downloaded and unzipped  _**Azure_Digital_Twins_samples**_ folder, so you should navigate to the folder now.
+Next, you will import the sample scenario and graph into ADT Explorer. The sample scenario is also located in the **Azure_Digital_Twins__ADT__explorer** folder you downloaded earlier.
 
 ### Models
 
@@ -144,8 +137,8 @@ In the *MODEL VIEW* box, hit the *Upload a Model* icon.
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. In the file selector box that appears, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* folder in the downloaded repository.
-2. Select *Room.json* and *Floor.json*, and hit OK. (You can upload the other models if you'd like, but they won't be used in this quickstart.)
+1. In the file selector box that appears, navigate to the *Azure_Digital_Twins__ADT__explorer/client/examples* folder in the downloaded repository.
+2. Select *Room.json* and *Floor.json*, and hit OK. (You can upload additional models if you'd like, but they won't be used in this quickstart.)
 3. Follow the popup dialog asking you to sign into your Azure account.
 
 >[!NOTE]
@@ -183,7 +176,7 @@ In the *GRAPH VIEW* box, hit the *Import Graph* icon.
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-In the file selector box, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
+In the file selector box, navigate to the*Azure_Digital_Twins__ADT__explorer/client/examples* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
 
 After a few seconds, ADT Explorer will open an *Import* view displaying a preview of the graph that is going to be loaded.
 
@@ -201,7 +194,7 @@ ADT Explorer will now use the uploaded file to create the requested twins and re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 49 twins imported. 50 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 4 twins imported. 2 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -209,7 +202,7 @@ ADT Explorer will now use the uploaded file to create the requested twins and re
     :::column-end:::
 :::row-end:::
 
-The graph has now been uploaded to ADT Explorer. To see see the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box, near the top of the ADT Explorer window. 
+The graph has now been uploaded to ADT Explorer. To see the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box, near the top of the ADT Explorer window. 
 
 :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="A button reading 'Run Query' near the top of the window is highlighted" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -311,7 +304,7 @@ In this quickstart, you created an Azure Digital Twins instance, connected it to
 You then explored the graph, by...
 1. Using a query to answer a question about the scenario.
 2. Editing a property on a digital twin.
-    * Running the query again to see how the answer changed as a result of your update.
+3. Running the query again to see how the answer changed as a result of your update.
 
 The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, even as the environment continues to change. 
 
@@ -325,7 +318,13 @@ If you plan to continue to the Azure Digital Twins tutorials, the instance used 
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project sample folders you downloaded to your local machine (_**Azure_Digital_Twins__ADT__explorer**_ and _**Azure_Digital_Twins_samples**_). You may have to delete both the zipped and unzipped versions.
+Next, delete the Azure Active Directory app registration you created for your client app with this command:
+
+```azurecli-interactive
+az ad app delete --id <your-application-ID>
+```
+
+Finally, delete the project sample folder you downloaded to your local machine (_**Azure_Digital_Twins__ADT__explorer**_). You may have to delete both the zipped and unzipped versions.
 
 ## Next steps 
 

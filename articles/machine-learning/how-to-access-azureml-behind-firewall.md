@@ -58,6 +58,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 | **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
 | **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
+| **\*.file.core.windows.net** | Needed by the file explorer in Azure Machine Learning studio. |
+| **\*.dfs.core.windows.net** | Needed by the file explorer in Azure Machine Learning studio. |
 | **graph.windows.net** | Needed for notebooks |
 
 > [!TIP]

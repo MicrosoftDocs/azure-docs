@@ -11,7 +11,7 @@ ms.author: rogarana
 
 # Convert a Windows virtual machine from unmanaged disks to managed disks
 
-If you have existing Windows virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
+If you have existing Windows virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
 
  
 

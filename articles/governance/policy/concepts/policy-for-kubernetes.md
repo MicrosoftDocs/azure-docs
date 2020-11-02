@@ -43,7 +43,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
    > [!NOTE]
    > For common issues with installation, see
-   > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-installation-errors).
+   > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Understand the Azure Policy language for Kubernetes](#policy-language)
 
@@ -67,6 +67,8 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   available for the `Microsoft.Kubernetes.Data`
   [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use
   [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Exemptions](./exemption-structure.md) aren't supported for
+  [Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
@@ -109,7 +111,7 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
   CRD should be proxied without any processing in NMI. The system pods with
   `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
   `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   To configure an exception, install the
   [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
@@ -206,7 +208,7 @@ kubectl get pods -n gatekeeper-system
 
 Lastly, verify that the latest add-on is installed by running this Azure CLI command, replacing
 `<rg>` with your resource group name and `<cluster-name>` with the name of your AKS cluster:
-`az aks show -g <rg> -n <cluster-name>`. The result should look similar to the following output and
+`az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. The result should look similar to the following output and
 **config.version** should be `v2`:
 
 ```output

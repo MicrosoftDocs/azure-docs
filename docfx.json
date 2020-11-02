@@ -92,6 +92,8 @@
         "deneha",
         "atookey",
         "chbain",
+        "Court72",
+        "denrea",
         "garycentric",
         "GitHubber17",
         "itechedit",
@@ -110,15 +112,19 @@
         "rmca14",
         "ShannonLeavitt",
         "ShawnJackson",
+        "shawnmariejones",
         "TedA-M",
         "tfosmark",
         "tiburd",
         "trishamc",
         "ttorble",
         "v-albemi",
+        "v-ccolin",
         "v-dansch",
+        "v-dihans",
         "v-rihow",
         "v-shils",
+        "v-shmck",
         "v-thepet",
         "sdwheeler",
         "meganbradley"
@@ -358,6 +364,7 @@
         "articles/marketplace-publishing/**/*.md": "https://feedback.azure.com/forums/216369-azure-marketplace",
         "articles/marketplace/**/*.md": "https://feedback.azure.com/forums/216369-azure-marketplace",
         "articles/media-services/**/*.md": "https://feedback.azure.com/forums/169396-azure-media-services",
+	"articles/media-services/video-indexer/*.md": "https://cognitive.uservoice.com/forums/598144-video-indexer",
         "articles/migrate/**/*.md": "https://feedback.azure.com/forums/907195-azure-migrate",
         "articles/mobile-engagement/**/*.md": "https://feedback.azure.com/forums/285737-mobile-engagement",
         "articles/monitoring-and-diagnostics/**/*.md": "https://feedback.azure.com/forums/231545-diagnostics-and-monitoring",
@@ -485,7 +492,7 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/azure-functions/**/*.md": "glenga",
-        "articles/azure-monitor/app/*.md": "mbullwin",
+        "articles/azure-monitor/app/*.md": "lagayhar",
         "articles/azure-monitor/log-query/*.md": "robb",
         "articles/azure-monitor/platform/*.md": "robb",
         "articles/azure-monitor/insights/container-insights*.md": "magoedte",
@@ -700,8 +707,8 @@
         "articles/iot-fundamentals/**/*.yml": ["Azure","IoT"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
         "articles/mariadb/**/*.yml": ["Azure","Azure Database for MariaDB"],
-        "articles/marketplace/**/*.md": ["Azure","Microsoft commercial marketplace"],
-        "articles/marketplace/**/*.yml": ["Azure","Microsoft commercial marketplace"],
+        "articles/marketplace/**/*.md": ["Azure","Partner Center","Microsoft commercial marketplace"],
+        "articles/marketplace/**/*.yml": ["Azure","Partner Center","Microsoft commercial marketplace"],
         "articles/mysql/**/*.md": ["Azure","Azure Database for MySQL"],
         "articles/mysql/**/*.yml": ["Azure","Azure Database for MySQL"],
         "articles/notebooks/**/*.yml": ["Azure","Azure Notebooks"],
@@ -730,7 +737,7 @@
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/azure-relay/*.md": "Azure Relay",
-        "articles/azure-vmware/**/*.md" : "Azure VMWare Solution",
+        "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/event-grid/**/*.md": "Azure Event Grid",
         "articles/event-hubs/*.md": "Azure Event Hubs",
@@ -834,6 +841,14 @@
     "template": [
       "docs.html"
     ],
-    "dest": "azure"
+    "dest": "azure",
+    "rules": {
+      "sensitive-language": {
+        "exclude": [
+          "articles/governance/policy/**/*.md",
+	  "articles/governance/blueprints/**/*.md"
+        ]
+      }
+    }
   }
 }
