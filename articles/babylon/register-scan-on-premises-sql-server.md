@@ -31,9 +31,9 @@ SQL server on-premises data source supports:
 
 ## Prerequisites
 
-1. The features in this article require a Babylon account created after September 15, 2020.
+- The features in this article require a Babylon account created after September 15, 2020.
 
-2. Set up a [self-hosted integration
+- Set up a [self-hosted integration
     runtime](https://github.com/Azure/Babylon/blob/master/docs/manage-integration-runtimes.md) to scan the data source.
 
 ### Feature Flag
