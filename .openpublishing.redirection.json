@@ -22283,6 +22283,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/enable-appsource-marketplace-using-azure-ad.md",
+      "redirect_url": "/azure/marketplace/azure-ad-saas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/create-new-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
@@ -28035,6 +28040,11 @@
     {
       "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
       "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
+      "redirect_url": "/azure/storage/blobs/sas-service-create",
       "redirect_document_id": true
     },
     {
@@ -59172,6 +59182,11 @@
       "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
       "redirect_url": "/azure/cognitive-services/metrics-advisor/overview",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/rest-api.md",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library",
+      "redirect_document_id": false
+    }      
   ]
 }

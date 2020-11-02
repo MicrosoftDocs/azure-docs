@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 Management operations include upload, validation, retrieval, and deletion of models. 
 
@@ -76,7 +76,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 ## Manage models with APIs
 
-The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). Specifically, they use the latest [.NET (C#) SDK](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201030.1&protocolType=NuGet).
+The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
 
 > [!NOTE]
 > The examples below do not include error handling for brevity. However, it's strongly recommended within your projects to wrap service calls in try/catch blocks.

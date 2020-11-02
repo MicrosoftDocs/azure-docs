@@ -37,6 +37,12 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## Deploy the application
+
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
+> 
+> These templates makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+
 Create your application in the resource group using the `az mesh deployment create` command.  Run the following:
 
 ```azurecli-interactive
