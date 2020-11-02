@@ -24,7 +24,7 @@ You may occasionally see replication cycles failing for a VM. These failures can
 Use the following steps to monitor the replication status for your virtual machines:
 
   1. Go to the Servers page in Azure Migrate on the Azure portal.
-  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/slide-1.png)
+  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/slide-0.png)
   1. Navigate to the "Replicating machines" page by clicking on "Replicating servers" in the Server Migration tile.
   ![Image 2](./media/troubleshoot-changed-block-tracking-replication/slide-2.png)
   1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select "Error Details." The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
