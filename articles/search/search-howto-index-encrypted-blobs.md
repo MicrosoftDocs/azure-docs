@@ -9,7 +9,7 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/02/2020
 ---
 
 # How to index encrypted blobs using blob indexers and skillsets in Azure Cognitive Search
@@ -35,10 +35,7 @@ This example assumes that you have already uploaded your files to Azure Blob Sto
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 + [Azure Function](https://azure.microsoft.com/services/functions/)
 + [Postman desktop app](https://www.getpostman.com/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> You can use the free service for this guide. A free search service limits you to three indexes, three indexers, three data sources and three skillsets. This guide creates one of each. Before starting, make sure you have room on your service to accept the new resources.
++ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region)
 
 ## 1 - Create services and collect credentials
 
