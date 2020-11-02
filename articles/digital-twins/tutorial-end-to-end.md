@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
