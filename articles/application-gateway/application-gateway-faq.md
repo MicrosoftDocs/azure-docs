@@ -36,7 +36,7 @@ Application Gateway supports HTTP, HTTPS, HTTP/2, and WebSocket.
 
 ### How does Application Gateway support HTTP/2?
 
-See [HTTP/2 support](./configuration-overview.md#http2-support).
+See [HTTP/2 support](./configuration-listeners.md#http2-support).
 
 ### What resources are supported as part of a backend pool?
 
@@ -58,7 +58,7 @@ Redirection is supported. See [Application Gateway redirect overview](./redirect
 
 ### In what order are listeners processed?
 
-See the [order of listener processing](./configuration-overview.md#order-of-processing-listeners).
+See the [order of listener processing](./configuration-listeners.md#order-of-processing-listeners).
 
 ### Where do I find the Application Gateway IP and DNS?
 
@@ -92,7 +92,7 @@ An application gateway supports only one public IP address.
 
 ### How large should I make my subnet for Application Gateway?
 
-See [Application Gateway subnet size considerations](./configuration-overview.md#size-of-the-subnet).
+See [Application Gateway subnet size considerations](./configuration-infrastructure.md#size-of-the-subnet).
 
 ### Can I deploy more than one Application Gateway resource to a single subnet?
 
@@ -167,7 +167,7 @@ Yes.
 
 ### Is Application Gateway always deployed in a virtual network?
 
-Yes. Application Gateway is always deployed in a virtual network subnet. This subnet can contain only application gateways. For more information, see [virtual network and subnet requirements](./configuration-overview.md#azure-virtual-network-and-dedicated-subnet).
+Yes. Application Gateway is always deployed in a virtual network subnet. This subnet can contain only application gateways. For more information, see [virtual network and subnet requirements](./configuration-infrastructure.md#virtual-network-and-dedicated-subnet).
 
 ### Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
 
@@ -215,7 +215,7 @@ No.
 
 ### How are routing rules processed in Application Gateway?
 
-See [Order of processing rules](./configuration-overview.md#order-of-processing-rules).
+See [Order of processing rules](./configuration-request-routing-rules.md#order-of-processing-rules).
 
 ### For custom probes, what does the Host field signify?
 
