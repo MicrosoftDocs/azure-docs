@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ---
 
 # Copy data from Amazon Simple Storage Service by using Azure Data Factory
@@ -61,17 +61,17 @@ The following properties are supported for an Amazon S3 linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AmazonS3**. | Yes |
+| authenticationType | Specify the authentication type used to connect to Amazon S3. You can choose to use access keys for an AWS Identity and Access Management (IAM) account, or [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Allowed values are: `AccessKey` (default) and `TemporarySecurityCredentials`. |No |
 | accessKeyId | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it perioadically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | serviceUrl | Specify the custom S3 endpoint if you're copying data from an S3-compatible storage provider other than the official Amazon S3 service. For example, to copy data from Google Cloud Storage, specify `https://storage.googleapis.com`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
-
-This connector requires access keys for an AWS Identity and Access Management (IAM) account to copy data from Amazon S3. [Temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported now.
 
 >[!TIP]
 >Specify the custom S3 service URL if you're copying data from an S3-compatible storage other than the official Amazon S3 service.
 
-Here's an example:
+**Example: using access key authentication**
 
 ```json
 {
@@ -83,6 +83,33 @@ Here's an example:
             "secretAccessKey": {
                 "type": "SecureString",
                 "value": "<secret access key>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: using temporary security credentials authentication**
+
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AmazonS3",
+        "typeProperties": {
+            "authenticationType": "TemporarySecurityCredentials",
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": {
+                "type": "SecureString",
+                "value": "<secret access key>"
+            },
+            "sessionToken": {
+                "type": "SecureString",
+                "value": "<session token>"
             }
         },
         "connectVia": {
