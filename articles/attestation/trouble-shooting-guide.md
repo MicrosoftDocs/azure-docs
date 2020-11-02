@@ -164,7 +164,7 @@ The root certificate must be flagged as being issued by a CA (the X.509 basic co
 
 Ensure that the Basic Constraints extension of the root certificate is set to indicate that Subject Type = CA
 
-Else the certificate chain is considered to be invalid. See [policy signer](https://docs.microsoft.com/en-us/azure/attestation/policy-signer-examples) and [policy](https://docs.microsoft.com/en-us/azure/attestation/policy-examples) examples 
+Else the certificate chain is considered to be invalid. See [policy signer](/azure/attestation/policy-signer-examples) and [policy](/azure/attestation/policy-examples) examples 
 
 ### 2.4. Add/Delete policy signer failure
 
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 #### Trouble shooting steps
-To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is a RFC7517 JSON Web Key which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See policy signer examples
+To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is a RFC7517 JSON Web Key which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](/azure/attestation/policy-signer-examples).
 
 ### 2.5. Attestation policy configuration failure
 
