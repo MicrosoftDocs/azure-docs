@@ -716,7 +716,13 @@ Use Azure AD's Identity's Protection and risk detection features to configure au
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4472).
 
-**Guidance**: Implement separate subscriptions and management groups for development, test, and production. Deploy your App Service Web App into a Virtual Network. Use network security groups and subnets for further application isolation. 
+**Guidance**: For an App Service Environment, implement separate subscriptions and management groups for development, test, and production. Deploy your App Service Web App into a Virtual Network. Use network security groups and subnets for further application isolation. 
+
+There are two deployment types for an App Service environment (ASE):
+
+External ASE: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see Create an External ASE.
+
+ILB ASE: Exposes the ASE-hosted apps on an IP address inside your VNet. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see Create and use an ILB ASE.
 
 For the multi-tenant App Service, use Virtual Network Integration for your app's access to resources in your Virtual network. Note that this does not grant inbound private access to your app from the Virtual network. Use private site access to make an app accessible only from a private network, such as one from within an Azure Virtual network. 
 
