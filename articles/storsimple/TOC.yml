@@ -352,19 +352,19 @@
       - name: Update 1
         href: storsimple-update1-release-notes.md
       - name: Update 0.3
-        href: storsimple-february-2015-release-notes.md
+        href: ./index.yml
       - name: Update 0.2
-        href: storsimple-january-2015-release-notes.md
+        href: ./index.yml
       - name: Update 0.1
-        href: storsimple-october-2014-release-notes.md
+        href: ./index.yml
       - name: Release - GA
-        href: storsimple-july-2014-release-notes.md
+        href: ./index.yml
   - name: Reference
     items:
     - name: REST API
-      href: https://docs.microsoft.com/rest/api/storsimple
+      href: /rest/api/storsimple
     - name: Windows PowerShell for StorSimple cmdlets
-      href: https://technet.microsoft.com/library/dn688168.aspx
+      href: /powershell/module/hcs/?viewFallbackFrom=winserverr2-ps
     - name: Resource Manager template
       href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
@@ -398,7 +398,7 @@
   - name: Release notes
     items:
     - name: StorSimple release notes
-      href: https://aka.ms/storsimple-virtual-array-latest-relnote
+      href: ./storsimple-virtual-array-update-04-release-notes.md
     - name: CSP release notes
       href: https://partner.microsoft.com/Support/whats-new
     - name: "StorSimple for CSP: FAQ"
@@ -412,13 +412,13 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Marketing blog
-    href: https://blogs.technet.com/b/cis/
+    href: /archive/blogs/cis/
   - name: Marketing
     href: https://azure.microsoft.com/services/storsimple/
   - name: StorSimple Support options
     href: storsimple-8000-support-options.md
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-storsimple.html
+    href: /answers/topics/azure-storsimple.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storsimple/
   - name: Pricing calculator
@@ -426,7 +426,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=storsimple
   - name: Support blog
-    href: https://docs.microsoft.com/archive/blogs/storsimple/
+    href: /archive/blogs/storsimple/
   - name: Third-party notices
     href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
   - name: Videos

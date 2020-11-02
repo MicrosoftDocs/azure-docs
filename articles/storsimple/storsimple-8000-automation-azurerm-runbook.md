@@ -182,7 +182,7 @@ To create an automation module for the StorSimple 8000 series device management,
 
        ![Screenshot shows the Add Automation Account pane with values for Subscription, Create Azure Run as account, and Create 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-      After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](../automation/manage-runas-account.md).
 
 3. To ensure that the automation account created can access the StorSimple Device Manager service, you need to assign appropriate permissions to the automation account. Go to **Access control** in your StorSimple Device Manager service. Click **+ Add** and provide the name of your Azure Automation Account. **Save** the settings.
 
@@ -202,7 +202,7 @@ To create an automation module for the StorSimple 8000 series device management,
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Screenshot shows the Test pan where you canenter parameter values and start a test](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
