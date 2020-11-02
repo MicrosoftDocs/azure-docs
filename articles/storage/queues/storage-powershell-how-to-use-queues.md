@@ -125,7 +125,6 @@ If you use the [Azure Storage Explorer](https://storageexplorer.com), you can co
 
 Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
 
-
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds.
 
 Your code reads a message from the queue in two steps. When you call the [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) method, you get the next message in the queue. A message returned from **GetMessage** becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) method.

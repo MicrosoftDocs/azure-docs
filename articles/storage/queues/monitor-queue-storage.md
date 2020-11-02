@@ -335,7 +335,6 @@ The following example shows how to list a metric definition at the account level
         var applicationId = "<application-ID>";
         var accessKey = "<AccessKey>";
 
-
         MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
