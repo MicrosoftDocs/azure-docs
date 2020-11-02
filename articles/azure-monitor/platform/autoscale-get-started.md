@@ -104,6 +104,22 @@ You can now set the number of instances that you want to scale to manually.
 
 You can always return to Autoscale by clicking **Enable autoscale** and then **Save**.
 
+## Moving Autoscale to a different region
+This section describes how to move Azure autoscale to another region under the same Subscription, and Resource Group. You can use REST API to move autoscale settings.
+## Prerequisite
+1. Ensure that the subscription and Resource Group are available and the details in both the source and destination regions are identical.
+1. Ensure that Azure autoscale is available in the [Azure region you want to move to](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+## Move
+Use [REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
+
+[Diagnostic settings](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed. 
+
+## Learn more about moving resources across Azure regions
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
