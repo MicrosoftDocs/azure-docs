@@ -1422,6 +1422,8 @@
         href: riskware-tutorial.md
       - name: Riva
         href: riva-tutorial.md
+      - name: Roadmunk
+        href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
       - name: RStudio Connect SAML Authentication
