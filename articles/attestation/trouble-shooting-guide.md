@@ -107,7 +107,7 @@ Attestation policy includes authorization rules and issuance rules. Enclave evid
 PolicyEvaluationError
 
 #### Scenario examples
-##### When claims in the enclave quote do not match with the authorization rules of attestation policy
+When claims in the enclave quote do not match with the authorization rules of attestation policy
 
 ```
 Native operation failed with 65518: G:\Az\security\Attestation\src\AttestationServices\Instance\NativePolicyWrapper\NativePolicyEngine.cpp(168)\(null)!00007FF801762308: (caller: 00007FF80143DCC8) Exception(0) 83FFFFEE Policy Evaluation Error has occurred Msg:[Policy Engine Exception: A Deny claim was issued, authorization failed.]
@@ -129,9 +129,7 @@ See [attestation policy examples ](/azure/attestation/policy-examples)
 InvalidParameter
 
 #### Scenario examples
-##### SGX attestation failure due to invalid input
-
-Below are some of the examples for error messages:
+SGX attestation failure due to invalid input. Below are some of the examples for error messages:
 - The specified quote was invalid due to an error in the quote collateral 
 - The specified quote was invalid because the device on which the quote was generated does not meet the azure baseline requirements
 - The specified quote was invalid because the TCBInfo or QEID provided by the PCK Cache Service was invalid
@@ -148,7 +146,7 @@ Refer to [code samples](https://docs.microsoft.com/en-us/samples/browse/?expande
 InvalidParameter
 
 #### Scenario examples
-##### Upload policy/policy signer signed with an invalid certificate chain
+Upload policy/policy signer signed with an invalid certificate chain
 
 ```
 Native operation failed with 65529: C:\source\src\AttestationServices\Instance\SgxPal\sgxcert.cpp(1074)\(null)!00007FFA285CDAED: (caller: 00007FFA285C36E8) Exception(0) 83FFFFF9 The requested item is not found    Msg:[Unable to find issuer certificate CN=attestationsigningcert]
@@ -174,7 +172,7 @@ Else the certificate chain is considered to be invalid. See [policy signer](http
 InvalidOperation
 
 #### Scenario examples
-##### when user uploads invalid signer
+When user uploads invalid signer
 
 ```
 Add-AzAttestationPolicySigner : Operation returned HTTP Status Code 400
@@ -191,7 +189,7 @@ At line:1 char:1
 
 ```
 
-##### when user uploads JWS without "maa-policyCertificate" claim
+When user uploads JWS without "maa-policyCertificate" claim
 
 ```
 Add-AzAttestationPolicySigner : Operation returned HTTP Status Code 400
@@ -208,7 +206,7 @@ At line:1 char:1
 
 ```
 
-##### when user does not upload a certificate in JWS format
+When user does not upload a certificate in JWS format
 
 ```
 Add-AzAttestationPolicySigner : Operation returned HTTP Status Code 400
@@ -238,7 +236,7 @@ To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) 
 PolicyParsingError
 
 #### Scenario examples
-##### policy provided with incorrect syntax (e.g. missing semicolon)/valid JWT policy)
+Policy provided with incorrect syntax (e.g. missing semicolon)/valid JWT policy)
 
 ```
 Native operation failed with 65526: ..\NativePolicyWrapper\NativePolicyEngine.cpp(31)\(null)!: (caller: ) Exception(0) 83FFFFF6 Invalid policy was specified    Msg:[Policy Parser Exception Thrown: Offending
@@ -258,7 +256,7 @@ At line:1 char:1
 InvalidOperation
 
 #### Scenario examples
-##### invalid content provided (e.g.select JWT format and provide valid text policy/ unsigned policy when policy signing is required)
+Invalid content provided (e.g.select JWT format and provide valid text policy/ unsigned policy when policy signing is required)
 
 ```
 Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad message    Msg:[Unknown base64 character: 41 (')')]
