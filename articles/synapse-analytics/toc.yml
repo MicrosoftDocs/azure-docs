@@ -193,8 +193,6 @@
       - name: Synapse Studio
         href: quickstart-load-studio-sql-pool.md
         displayname: sql pool
-    - name: Load data into SQL pools using copy activity
-      href: quickstart-copy-activity-load-sql-pool.md
     - name: Use SQL on-demand
       href: quickstart-sql-on-demand.md
   - name: Tutorials
@@ -553,6 +551,10 @@
   #   items:
   # - name: Tutorials
   #   items:  
+  - name: Quickstarts
+    items:
+    - name: Load data into SQL pools using copy activity
+      href: quickstart-copy-activity-load-sql-pool.md
   - name: Concepts
     items:
     - name: Pipeline and activity
