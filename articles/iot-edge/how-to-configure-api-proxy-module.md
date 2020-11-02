@@ -48,7 +48,6 @@ Currently, the default environment variables include:
 | `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, make sure the port you select is also exposed in the module dockerfile.<br><br>Default is 443. |
 | `DOCKER_REQUEST_ROUTE_ADDRESS` | Address to route docker requests. Modify this variable on the top layer device to point to the registry module.<br><br>Default is the parent hostname. |
 | `BLOB_UPLOAD_ROUTE_ADDRESS` | Address to route blob registry requests. Modify this variable on the top layer device to point to the blob storage module.<br><br>Default is the parent hostname. |
-| `ROUTE_EDGEHUB_TRAFFIC` | A binary flag that determines whether traffic to the edgeHub module is routed through the API proxy module.<br><br>Default is `false`.|
 
 ## Enable container image download
 
@@ -184,65 +183,6 @@ Use the following steps to upload the support bundle or log file to the blob sto
       "edgeRuntimeOnly": false
    }
    ```
-
-## Minimize open ports
-
-By default, the edgeHub module uses port 443 and the API proxy module uses port 8000. If you want to minimize the number of open ports, configure the API proxy module to relay all HTTPS traffic (port 443) including traffic targeting the edgeHub module.
-
-Configure the following modules for this scenario:
-
-* The edgeHub module
-
-  * To avoid port binding conflicts, modify the edgeHub settings to bind on a port other than 443:
-
-    ```json
-    {
-      "HostConfig": {
-        "PortBindings": {
-          "7000/tcp": [
-            {
-              "HostPort": "7000"
-            }
-          ],
-          "5671/tcp": [
-            {
-              "HostPort": "5671"
-            }
-          ],
-          "8883/tcp": [
-            {
-              "HostPort": "8883"
-            }
-          ]
-        }
-      }
-    }
-    ```
-
-* An API proxy module
-
-  * Configure the following environment variables:
-
-    | Name | Value |
-    | ---- | ----- |
-    | `NGINX_DEFAULT_PORT` | The port that the nginx proxy listens on for requests from downstream devices. Set to `443` to handle HTTPS traffic. |
-    | `ROUTE_EDGEHUB_TRAFFIC` | `true` |
-
-  * Configure the following createOptions:
-
-    ```json
-    {
-       "HostConfig": {
-          "PortBindings": {
-             "443/tcp": [
-                {
-                   "HostPort": "443"
-                }
-             ]
-          }
-       }
-    }
-    ```
 
 ## Edit the proxy configuration
 
