@@ -15,26 +15,53 @@ ms.custom: how-to, devx-track-python
 
 # Use workspace behind a Firewall for Azure Machine Learning
 
-In this article, learn how to configure Azure Firewall to  control access to your Azure Machine Learning workspace and the public internet.   To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md)
+In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md)
 
-While the information in this document is based on using [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), you should be able to use it with other firewall products. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
+## Azure Firewall
 
-## Application rules
+When using Azure Firewall, use the following steps:
 
-On your firewall, create an _application rule_ allowing traffic to and from the addresses in this article.
+1. Add __Network rules__, allowing traffic __to__ and __from__ the following service tags:
 
-> [!TIP]
-> When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
->
-> For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+    * AzureActiveDirectory
+    * AzureMachineLearning
+    * AzureResourceManager
+    * Storage.region
+    * KeyVault.region
+    * ContainerRegistry.region
+    * MCR.region
+    * AzureFrontDoor.FirstParty
 
-## Routes
+    For entries that contain `region`, replace with the Azure region that you are using. For example, `keyvault.westus`.
 
-When configuring the outbound route for the subnet that contains Azure Machine Learning resources, use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
+    For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
 
-## Microsoft hosts
+2. Add __Application rules__ for the following hosts:
 
-If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace.
+    | **Host name** | **Purpose** |
+    | ---- | ---- |
+    | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
+    | **\*.anaconda.org** | Used to get repo data. |
+    | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
+    | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
+    | **\*pytorch.org** | Used by some examples based on PyTorch. |
+    | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
+    | **usgovarizona.api.ml.azure.us** | Required if your workspace is in the US-Arizona (Azure Government) region. |
+    | **usgovvirginia.api.ml.azure.us** | Required if your workspace is in the US-Virginia (Azure Government) region |
+
+    For more information on configuring application rules, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+
+3. Configure an outbound route for the subnet that contains Azure Machine Learning resources. Use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
+
+4. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic).
+
+## Other firewalls
+
+The guidance in this section is generic, as each firewall has it's own terminology and specific configurations. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
+
+If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
+
+### Microsoft hosts
 
 The hosts in this section are owned by Microsoft, and provide services required for the proper functioning of your workspace.
 
@@ -65,7 +92,11 @@ The hosts in this section are owned by Microsoft, and provide services required 
 > [!TIP]
 > If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
 
-## Python hosts
+Also, use the information in [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) to add IP addresses for `BatchNodeManagement` and `AzureMachineLearning`.
+
+For information on restricting access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic).
+
+### Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
 
@@ -74,8 +105,10 @@ The hosts in this section are used to install Python packages. They are required
 | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
 | **\*.anaconda.org** | Used to get repo data. |
 | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
+| **\*pytorch.org** | Used by some examples based on PyTorch. |
+| **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
 
-## R hosts
+### R hosts
 
 The hosts in this section are used to install R packages. They are required during development, training, and deployment.
 
@@ -86,7 +119,7 @@ The hosts in this section are used to install R packages. They are required duri
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
-## Azure Government region
+### Azure Government region
 
 Required URLs for the Azure Government regions.
 
