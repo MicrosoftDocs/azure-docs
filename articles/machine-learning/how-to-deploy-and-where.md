@@ -81,6 +81,9 @@ A registered model is a logical container for one or more files that make up you
 > [!TIP]
 > When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](./how-to-deploy-advanced-entry-script.md#load-registered-models).
 
+> [!IMPORTANT]
+> When using Filter by `Tags` option on the Models UI page, instead of using `TagName : TagValue` customers should use `TagName=TagValue` (without space).
+
 The following examples demonstrate how to register a model.
 
 # [Azure CLI](#tab/azcli)
