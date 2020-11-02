@@ -19,7 +19,7 @@ Changing the port is a standard edit operation of the server group. In order to 
  azdata arc postgres server edit -n <server group name> --port <desired port number>
 ```
 
-For example, let's assume the name of your server group is _postgres01_ and you would like it to listen on port _866_, you would run the following command:
+For example, let's assume the name of your server group is _postgres01_ and you would like it to listen on port _866_. You would run the following command:
 ```console
  azdata arc postgres server edit -n postgres01 --port 866
 ```
@@ -34,7 +34,7 @@ azdata arc postgres server show -n <server group name>
 In the output of that command, look at the port number displayed for the item "port" in the "service" section of the specifications of your server group.
 Alternatively, you can verify in the item externalEndpoint of the status section of the specifications of your server group that the IP address is followed by the port number you configured.
 
-As an illustration if we continue the example above you would run the command:
+As an illustration, if we continue the example above, you would run the command:
 ```console
 azdata arc postgres server show -n postgres01
 ```
