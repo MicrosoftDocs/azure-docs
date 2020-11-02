@@ -145,6 +145,8 @@ myenv.docker.base_dockerfile = dockerfile
 myenv.docker.base_image = None
 myenv.docker.base_dockerfile = "./Dockerfile"
 ```
+> [!IMPORTANT]
+> When using custom Docker images, it is recommended that you pin package versions in order to better ensure reproducibility.
 
 #### Specify your own Python interpreter
 
