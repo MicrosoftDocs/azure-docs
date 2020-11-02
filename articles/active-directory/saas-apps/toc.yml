@@ -113,6 +113,8 @@
         href: appneta-tutorial.md
       - name: Appraisd
         href: appraisd-tutorial.md
+      - name: AppSec Flow SSO
+        href: appsec-flow-sso-tutorial.md
       - name: Apptio
         href: apptio-tutorial.md
       - name: Aravo
@@ -726,6 +728,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: Hirebridge ATS
+        href: hirebridge-ats-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
       - name: Hive
@@ -1004,6 +1008,8 @@
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
+      - name: Luum
+        href: luum-tutorial.md
       - name: Lynda.com
         href: lynda-tutorial.md
       - name: M-Files
@@ -1108,6 +1114,8 @@
         href: n2f-expensereports-tutorial.md
       - name: Namely
         href: namely-tutorial.md
+      - name: Nature Research
+        href: nature-research-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
@@ -1242,6 +1250,8 @@
         href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: PerimeterX
+        href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
       - name: Phraseanet
@@ -1280,14 +1290,20 @@
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
+      - name: Procaire
+        href: procaire-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: ProdPad
+        href: prodpad-tutorial.md
       - name: productboard
         href: productboard-tutorial.md
       - name: Profit.co
         href: profitco-saml-app-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
+      - name: Prolorus
+        href: prolorus-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
       - name: ProNovos Ops Manager
@@ -1336,6 +1352,8 @@
         href: redvector-tutorial.md
       - name: Reflektive
         href: reflektive-tutorial.md
+      - name: RemotePC
+        href: remotepc-tutorial.md
       - name: RENRAKU
         href: renraku-tutorial.md
       - name: Replicon
@@ -1360,7 +1378,7 @@
         href: riva-tutorial.md
       - name: Robin
         href: robin-tutorial.md
-      - name: RStudio Connect
+      - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
         href: rstudio-server-pro-tutorial.md
@@ -1622,6 +1640,8 @@
         href: teamwork-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
+      - name: Terraform Cloud
+        href: terraform-cloud-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
       - name: TextExpander

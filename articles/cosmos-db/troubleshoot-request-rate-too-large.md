@@ -10,6 +10,8 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB request rate too large exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 A "Request rate too large" message or error code 429 indicates that your requests are being throttled.
 
 ## Troubleshooting steps

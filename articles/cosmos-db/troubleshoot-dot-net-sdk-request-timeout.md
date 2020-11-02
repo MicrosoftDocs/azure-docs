@@ -11,6 +11,8 @@ ms.custom: devx-track-dotnet
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB .NET SDK request timeout exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 The HTTP 408 error occurs if the SDK was unable to complete the request before the timeout limit occurred.
 
 ## Customize the timeout on the Azure Cosmos DB .NET SDK

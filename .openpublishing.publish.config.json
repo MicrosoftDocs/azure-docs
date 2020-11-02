@@ -8,6 +8,9 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
+      "xref_query_tags": [
+        "/dotnet"
+      ],
       "open_to_public_contributors": true,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
