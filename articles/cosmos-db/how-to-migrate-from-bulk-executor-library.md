@@ -11,6 +11,7 @@ ms.custom: devx-track-dotnet
 ---
 
 # Migrate from the bulk executor library to the bulk support in Azure Cosmos DB .NET V3 SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes the required steps to migrate an existing application's code that uses the [.NET bulk executor library](bulk-executor-dot-net.md) to the [bulk support](tutorial-sql-api-dotnet-bulk-import.md) feature in the latest version of the .NET SDK.
 

@@ -146,7 +146,9 @@
         href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Resource Graph
         href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Azure role-based access control (Azure RBAC)
+      - name: Role-based access control - custom roles
+        href: ../../role-based-access-control/custom-roles-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Role-based access control - role assignment
         href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Service Health
         href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json

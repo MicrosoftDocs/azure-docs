@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
 # Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to
 # know how to register my application with the Microsoft identity platform so that the security
