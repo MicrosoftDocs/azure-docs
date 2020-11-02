@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started create a Synapse workspace' 
-description: In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool.
+title: 'Quickstart: Get started - create a Synapse workspace' 
+description: In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -14,13 +14,13 @@ ms.date: 10/07/2020
 
 # Creating a Synapse workspace
 
-In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
+In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool. 
 
 ## Prerequisites
 
 To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
 
-## Create a Synapse workspace in the Azure Portal
+## Create a Synapse workspace in the Azure portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
@@ -43,7 +43,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
-## Create a SQL pool
+## Create a dedicated SQL pool
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **SQL pools**.
 1. Select **New** and enter these settings:
@@ -54,9 +54,9 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
     |**Performance level**|**DW100C**|
     |||
 
-1. Select **Review + create** > **Create**. Your SQL pool will be ready in a few minutes. Your SQL pool is associated with a SQL pool database that's also called **SQLDB1**.
+1. Select **Review + create** > **Create**. Your dedicated SQL pool will be ready in a few minutes. Your dedicated SQL pool is associated with a dedicated SQL pool database that's also called **SQLDB1**.
 
-A SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
+A dedicated SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
 
 ## Create a serverless Apache Spark pool
 
@@ -71,16 +71,24 @@ A SQL pool consumes billable resources as long as it's active. You can pause the
 
 1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
 
+> [!NOTE]
+> Despite the name, an serverless Apache Spark pool is not like a dedicated SQL pool. It's just some basic metadata that you use to tell the Azure Synapse workspace how to interact with Spark.
+
+Because they're metadata, Spark pools can't be started or stopped.
+
 When you perform Spark activity in Azure Synapse, you specify a Spark pool to use. The pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
 
 > [!NOTE]
 > Spark databases are independently created from Spark pools. A workspace always has a Spark database called **default**. You can create additional Spark databases.
 
-## The SQL on-demand pool
+## The serverless SQL pool
 
-Every workspace comes with a pre-built pool called **SQL on-demand**. This pool can't be deleted. The SQL on-demand pool allows you to work with SQL without having to create or think about managing a SQL pool in Azure Synapse.
+Every workspace comes with a pre-built pool called **Built-in**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a serverless SQL pool in Azure Synapse.
 
-Unlike dedicated SQL pools, billing for SQL on-demand is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
+Unlike the other kinds of pools, billing for serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
+
+* Serverless SQL pool has its own databases that exist independently from other serverless SQL pools.
+* A workspace always has exactly one serverless SQL pool named **Built-in**.
 
 ## Preparing a ADLSGEN2 storage account
 
@@ -111,4 +119,4 @@ Configure access to the storage account from your workspace. Managed identities 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using a SQL pool](get-started-analyze-sql-pool.md)
+> [Analyze using a dedicated SQL pool](get-started-analyze-sql-pool.md)
