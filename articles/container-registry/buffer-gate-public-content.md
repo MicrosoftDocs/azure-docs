@@ -16,7 +16,7 @@ This article is an overview of practices and workflows to use a local registry s
 
 Your environment may have dependencies on public content such as public container images, [Helm charts](https://helm.sh/), [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) policies, or other artifacts. For example, you might run [nginx](https://hub.docker.com/_/nginx) for service routing or `docker build FROM alpine` by pulling images directly from Docker Hub or another public registry. 
 
-Without proper controls, having dependencies on public registry content can introduce risks to your image development and deployment workflows. To mitigate the risks, keep local copies of public content when possible. For details, see the [Open Container Initiative blog](https://opencontainers.org/posts/blog). 
+Without proper controls, having dependencies on public registry content can introduce risks to your image development and deployment workflows. To mitigate the risks, keep local copies of public content when possible. For details, see the [Open Container Initiative blog](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
 
 ## Authenticate with Docker Hub
 
@@ -28,8 +28,6 @@ As a first step, if you currently pull public images from Docker Hub as part of 
 > When estimating your number of pull requests, take into account that when using cloud provider services or working behind a corporate NAT, multiple users will be presented to Docker Hub in aggregate as a subset of IP addresses.  Adding Docker paid account authentication to requests made to Docker Hub will avoid potential service disruptions due to rate-limit throttling.
 >
 > For details, see [Docker pricing and subscriptions](https://www.docker.com/pricing) and the [Docker Terms of Service](https://www.docker.com/legal/docker-terms-service).
-
-
 
 For authentication examples and scenarios, see [Download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/).
 
@@ -67,7 +65,7 @@ To begin managing copies of public images, you can create an Azure container reg
 
 As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az_acr_import) command in the Azure CLI supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
 
-`az acr import` doesn't require a local Docker installation. You can run it with a local installation of the Azure CLI or directly in Azure Cloud Shell supporting any OS type of images, multi-architecture images, or OCI artifacts such as Helm charts.
+`az acr import` doesn't require a local Docker installation. You can run it with a local installation of the Azure CLI or directly in Azure Cloud Shell. It supports images of any OS type, multi-architecture images, or OCI artifacts such as Helm charts.
 
 Example:
 
@@ -77,7 +75,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
@@ -88,7 +86,7 @@ Developers of application images should ensure that their code references local 
 
 Expanding on image import, set up an [Azure Container Registry task](container-registry-tasks-overview.md) to automate application image builds when base images are updated. An automated build task can track both [base image updates](container-registry-tasks-base-images.md) and [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
-For a detailed example, see [How to consume and maintain public content with Azure Container Registry Tasks](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
+For a detailed example, see [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md). 
 
 > [!NOTE]
 > A single preconfigured task can automatically rebuild every application image that references a dependent base image. 
@@ -96,4 +94,5 @@ For a detailed example, see [How to consume and maintain public content with Azu
 ## Next steps
  
 * Learn more about [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
+* See [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md) for an automated gating workflow to update base images to your environment. 
 * See the [ACR Tasks tutorials](container-registry-tutorial-quick-task.md) for more examples to automate image builds and updates.
