@@ -162,7 +162,7 @@ client = authenticate_client()
 
 # [Version 3.0](#tab/version-3)
 
-Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. Note that `api_version=TextAnalyticsApiVersion.V3_0` should be defined for using version 3.0.
+Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client.
 
 ```python
 from azure.ai.textanalytics import TextAnalyticsClient
@@ -172,8 +172,7 @@ def authenticate_client():
     ta_credential = AzureKeyCredential(key)
     text_analytics_client = TextAnalyticsClient(
             endpoint=endpoint, 
-            credential=ta_credential, 
-            api_version=TextAnalyticsApiVersion.V3_0)
+            credential=ta_credential)
     return text_analytics_client
 
 client = authenticate_client()
