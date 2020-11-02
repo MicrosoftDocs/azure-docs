@@ -12,9 +12,9 @@ ms.reviewer: yzheng
 ms.subservice: blobs
 ---
 
-# Use Azure Storage inventory to manage blob data (preview)
+# Use Azure Storage blob inventory to manage blob data (preview)
 
-Azure Storage inventory provides an overview of your blob data within a storage account. Use the inventory report to understand your total data size, age, encryption status, and so on. The inventory report provides an overview of your data for business and compliance requirements. Once enabled, an inventory report is automatically created daily.
+The Azure Storage blob inventory feature provides an overview of your blob data within a storage account. Use the inventory report to understand your total data size, age, encryption status, and so on. The report provides an overview of your data for business and compliance requirements. Once enabled, an inventory report is automatically created daily.
 
 ## Availability
 
@@ -30,7 +30,7 @@ The blob inventory preview is available on storage accounts in the following reg
 
 ### Pricing and billing
 
-The fee for inventory reports isn't charged during the preview period. The inventory reporting fee will be determined when this feature is generally available.
+The fee for inventory reports isn't charged during the preview period. Pricing will be determined when this feature is generally available.
 
 ## Enable inventory reports
 
@@ -50,8 +50,8 @@ Enable blob inventory reports by adding a policy to your storage account. Add, e
 
 Inventory policies are read or written in full. Partial updates aren't supported.
 
-> [!NOTE]
-> If you enable firewall rules for your storage account, inventory requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. > For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+> [!IMPORTANT]
+> If you enable firewall rules for your storage account, inventory requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. An inventory report is configured by adding an inventory policy with one or more rules.
 
@@ -77,6 +77,8 @@ An inventory policy is a collection of rules in a JSON document.
 }
 ```
 
+View the JSON for an inventory policy by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal.
+
 | Parameter name | Parameter type        | Notes | Required? |
 |----------------|-----------------------|-------|-----------|
 | destination    | String                | The destination container where all inventory files will be generated. The destination container must already exist. | Yes |
@@ -95,7 +97,9 @@ Each rule within the policy has several parameters:
 | enabled        | Boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
 | definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
 
-## Rule filters
+### Rule filters
+
+Several filters are available for customizing a blob inventory report:
 
 | Filter name         | Filter type                     | Notes | Required? |
 |---------------------|---------------------------------|-------|-----------|
@@ -103,6 +107,8 @@ Each rule within the policy has several parameters:
 | prefixMatch         | Array of up to 10 strings for prefixes to be matched. A prefix must start with a container name, for example, "container1/foo" | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. | No |
 | includeSnapshots    | Boolean                         | Specifies whether the inventory should include snapshots. Default is **false**. | No |
 | includeBlobVersions | Boolean                         | Specifies whether the inventory should include blob versions. Default is **false**. | No |
+
+View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
 ```json
 {
@@ -140,24 +146,26 @@ Each rule within the policy has several parameters:
 
 ## Inventory output
 
-Each inventory run generates a set of CSV formatted files in the destination container specified by the user. The inventory output is generated under the following path:
+Each inventory run generates a set of CSV formatted files in the specified inventory destination container. The inventory output is generated under the following path:
 `https://<accountName>.blob.core.windows.net/<inventory-destination-container>/YYYY/MM/DD/HH-MM-SS/` where:
 
-- *accountName* is your account name
+- *accountName* is your Azure Blob Storage account name
 - *inventory-destination-container* is the destination container you specified in the inventory policy
 - *YYYY/MM/DD/HH-MM-SS* is the time when the inventory began to run
 
 ### Inventory files
 
-- **Inventory CSV file**: An inventory run generates a CSV formatted file for each inventory rule. Each file contains matched objects and their metadata. The first row in every CSV formatted file is always the schema row.
+Each inventory run generates the following files:
 
-- **Manifest file**: Each inventory run generates a manifest.json file. The manifest file contains the details of the inventory files generated for every rule in that run. The manifest file also captures the rule definition provided by the user and the path to the inventory for that rule.
+- **Inventory CSV file**: A CSV formatted file for each inventory rule. Each file contains matched objects and their metadata. The first row in every CSV formatted file is always the schema row.
 
-- **Checksum file**: A manifest.checksum file contains the MD5 of the contents of manifest.json file. Generation of the manifest.checksum file marks the completion of an inventory run.
+- **Manifest file**: A manifest.json file containing the details of the inventory files generated for every rule in that run. The manifest file also captures the rule definition provided by the user and the path to the inventory for that rule.
+
+- **Checksum file**: A manifest.checksum file containing the MD5 checksum of the contents of manifest.json file. Generation of the manifest.checksum file marks the completion of an inventory run.
 
 ## Inventory completed event
 
-You can subscribe to the inventory completed event to get notified when the inventory run completes. This event is generated when the manifest checksum file is created. The event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic.
+You can subscribe to the inventory completed event to get notified when the inventory run completes. This event is generated when the manifest checksum file is created. The inventory completed event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic.
 
 Sample event:
 
