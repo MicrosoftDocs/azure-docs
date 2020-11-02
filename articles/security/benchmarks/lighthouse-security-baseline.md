@@ -326,6 +326,17 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 **Responsibility**: Customer
 
+### PA-8: Choose approval process for Microsoft support  
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40289.).
+
+**Guidance**: Not applicable; Azure Lighthouse doesn't store customer data.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
