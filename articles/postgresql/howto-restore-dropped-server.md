@@ -1,7 +1,7 @@
 ---
 title: Restore a dropped Azure Database for PostgreSQL server
 description: This article describes how to restore a dropped server in Azure Database for PostgreSQL using the Azure portal.
-author: Bashar
+author: Bashar-MSFT
 ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
