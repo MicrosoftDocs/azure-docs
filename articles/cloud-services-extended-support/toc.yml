@@ -28,6 +28,20 @@
     href: enable-diagnostics.md
   - name: Enable Antimalware
     href: enable-antimalware.md
+  - name: Swap Cloud Service Deployments
+    href: cloud-services-swap.md
+  - name: Update a Cloud Service - PowerShell
+    href: update-powershell.md
+  - name: Manage Certificates
+    href: manage-certificates.md
+- name: samples
+  items:
+  - name: Sample1
+    href: 
+  - name: Sample2
+    href: 
+  - name: Sample3
+    href: 
 - name: Reference
   items:
   - name: Code samples
