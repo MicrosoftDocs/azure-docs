@@ -9,15 +9,16 @@ ms.date: 01/15/2020
 
 The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md). You can also perform these steps with the [Azure portal](https://portal.azure.com/).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
- - This tutorial requires version 2.0.18 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
-
- - This article assumes you already have an Azure file share backed up by [Azure Backup](./backup-overview.md). If you don't have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file shares. For this article, you use the following resources:
-     -  **Resource group**: *azurefiles*
-     -  **RecoveryServicesVault**: *azurefilesvault*
-     -  **Storage Account**: *afsaccount*
-     -  **File Share**: *azurefiles*
+This article assumes you already have an Azure file share backed up by [Azure Backup](./backup-overview.md). If you don't have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file shares. For this article, you use the following resources:
+   -  **Resource group**: *azurefiles*
+   -  **RecoveryServicesVault**: *azurefilesvault*
+   -  **Storage Account**: *afsaccount*
+   -  **File Share**: *azurefiles*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Monitor jobs
 

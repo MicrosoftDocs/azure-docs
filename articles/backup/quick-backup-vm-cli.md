@@ -7,7 +7,7 @@ ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Back up a virtual machine in Azure with the CLI
+# Back up a virtual machine in Azure with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
@@ -15,7 +15,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This quickstart requires version 2.0.18 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+ - This quickstart requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a Recovery Services vault
 

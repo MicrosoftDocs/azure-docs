@@ -1,6 +1,6 @@
 ---
 title: Create a serverless function app using the Azure CLI
-description: Create a function app for serverless execution in Azure using the Azure CLI
+description: Create a function app for serverless execution in Azure using the Azure CLI.
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
@@ -16,7 +16,7 @@ This Azure Functions sample script creates a function app, which is a container 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). 
+ - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 ## Sample script
 

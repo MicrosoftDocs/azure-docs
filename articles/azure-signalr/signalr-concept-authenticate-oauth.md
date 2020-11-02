@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
 To complete this tutorial, you must have the following prerequisites:
 
@@ -377,6 +377,8 @@ In this section, you will turn on real authentication by adding the `Authorize` 
     ![Account identified](media/signalr-concept-authenticate-oauth/signalr-oauth-account-identified.png)
 
     Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, you should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy the app to Azure
 
