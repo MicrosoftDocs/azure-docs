@@ -1037,7 +1037,7 @@
           href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Management
         items:
-        - name: SQL IaaS Extension
+        - name: SQL IaaS Agent extension
           href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
@@ -1074,7 +1074,7 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Install SQL IaaS extension
+        - name: Install SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration

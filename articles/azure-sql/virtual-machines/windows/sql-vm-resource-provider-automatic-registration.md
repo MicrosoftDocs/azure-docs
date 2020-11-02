@@ -13,24 +13,24 @@ ms.date: 09/21/2020
 # Automatic registration with SQL VM resource provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure VMs with the SQL VM resource provider in lightweight mode. Registering with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md).
+Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure Virtual Machines (VMs) with the SQL VM resource provider in lightweight mode. Registering with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md).
 
 This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-vm-resource-provider-register.md), or [register your VMs in bulk](sql-vm-resource-provider-bulk-register.md) with the SQL VM resource provider. 
 
 ## Overview
 
-Registering your SQL Server VM with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md), allowing you to manage your SQL Server VM from the Azure portal and unlocking a number of feature benefits. . 
+Registering your SQL Server VM with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md). 
 
-The automatic registration feature allows customers to automatically register all current and future SQL Server VMs in your Azure subscription with the SQL VM resource provider. Conversely, manual registration will only register current VMs, and will not automatically register SQL Server VMs that are added in the future. 
+When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md) in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
 
-Automatic registration registers your SQL Server VMs in lightweight mode. You still need to [manually upgrade to full manageability mode](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set. 
+Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL VM resource provider in lightweight mode. You still need to  [manually upgrade to full manageability mode](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set. 
 
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- An Azure Resource Model [Windows virtual machine](../../../virtual-machines/windows/quick-create-portal.md) with [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) deployed to the public or Azure Government cloud. 
+- An Azure Resource Model [Windows Server 2008 R2 (or later) virtual machine](../../../virtual-machines/windows/quick-create-portal.md) with [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) deployed to the public or Azure Government cloud. 
 
 
 ## Enable
@@ -49,7 +49,7 @@ To enable automatic registration of your SQL Server VMs in the Azure portal, fol
 
 ## Disable
 
-Use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure Powershell](/powershell/azure/install-az-ps) to disable the automatic registration feature. When the automatic registration feature is disabled, SQL Server VMs added to the subscription need to be manually registered with the SQL VM resource provider. This will not unregister existing SQL Server VMs that have already been registered.
+Use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) to disable the automatic registration feature. When the automatic registration feature is disabled, SQL Server VMs added to the subscription need to be manually registered with the SQL VM resource provider. This will not unregister existing SQL Server VMs that have already been registered.
 
 
 
