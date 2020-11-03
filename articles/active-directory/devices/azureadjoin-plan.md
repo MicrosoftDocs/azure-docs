@@ -248,7 +248,7 @@ Before you can configure your mobility settings, you may have to add an MDM prov
 1. Click **Add application**.
 1. Select your MDM provider from the list.
 
-   ![Add an application](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot of the Azure Active Directory Add an application page. Several M D M providers are listed." border="false":::
 
 Select your MDM provider to configure the related settings. 
 
@@ -271,7 +271,7 @@ There are three URLs that are related to your MDM configuration:
 - MDM discovery URL 
 - MDM compliance URL
 
-![Add an application](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot of part of the Azure Active Directory M D M configuration section, with U R L fields for M D M terms of use, discovery, and compliance." border="false":::
 
 Each URL has a predefined default value. If these fields are empty, please contact your MDM provider for more information.
 

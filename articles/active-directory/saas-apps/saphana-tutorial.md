@@ -117,13 +117,13 @@ To configure Azure AD single sign-on with SAP HANA, perform the following steps:
 
 5. SAP HANA application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" section with the "Edit" icon selected.](common/edit-attribute.png)
 
 6. In the **User attributes** section on the **User Attributes & Claims** dialog, perform the following steps:
  
 	a. Click **Edit icon** to open the **Manage user claims** dialog.
 
-	![image](./media/saphana-tutorial/tutorial_usermail.png)
+	![Screenshot that shows the "User Attributes & Claims" dialog with the "Edit" icon selected.](./media/saphana-tutorial/tutorial_usermail.png)
 
 	![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
@@ -150,7 +150,7 @@ To configure Azure AD single sign-on with SAP HANA, perform the following steps:
 
 	a. In the **Add Identity Provider Info** pane, paste the contents of the Metadata XML (which you downloaded from the Azure portal) into the **Metadata** box.
 
-	![Add Identity Provider settings](./media/saphana-tutorial/sap2.png)
+	![Screenshot that shows the "Add Identity Provider Info" pane with the "Metadata" and "Name" boxes highlighted.](./media/saphana-tutorial/sap2.png)
 
 	b. If the contents of the XML document are valid, the parsing process extracts the information that's required for the **Subject, Entity ID, and Issuer** fields in the **General data** screen area. It also extracts the information that's necessary for the URL fields in the **Destination** screen area, for example, the **Base URL and SingleSignOn URL (*)** fields.
 

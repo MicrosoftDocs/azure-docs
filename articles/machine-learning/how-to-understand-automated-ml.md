@@ -154,7 +154,7 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 
 ### What does a good model look like?
 
-A higher lift curve, that is the higher your model is above the baseline, indicates a better performing model. 
+A better performing model will have a lift curve that is higher on the graph and further from the baseline. 
 
 #### Example 1: A classification model that performs poorly compared to a random selection model
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -230,12 +230,12 @@ Predicted vs. True shows the relationship between a predicted value and its corr
 After each run, you can see a predicted vs. true graph for each regression model. To protect data privacy, values are binned together and the size of each bin is shown as a bar graph on the bottom portion of the chart area. You can compare the predictive model, with the lighter shade area showing error margins, against the ideal value of where the model should be.
 
 ### What does a good model look like?
-This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the accuracy of a predictive model.
+This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the performance of a predictive model.
 
-#### Example 1: A classification model with low accuracy
+#### Example 1: A regression model with low performance
 ![A regression model with low accuracy in predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### Example 2: A regression model with high accuracy 
+#### Example 2: A regression model with high performance
 ![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -250,7 +250,7 @@ To show a margin of error with low bias, the histogram of residuals should be sh
 #### Example 1: A regression model with bias in its errors
 ![SA regression model with bias in its errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### Example 2: A regression model with more even distribution of errors
+#### Example 2: A regression model with a more even distribution of errors
 ![A regression model with more even distribution of errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

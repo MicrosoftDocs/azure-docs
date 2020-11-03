@@ -112,6 +112,11 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -344,6 +349,28 @@ Managed dependency is a feature that is currently only supported with PowerShell
 ## queues
 
 Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
+
+## retry
+
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies) options for all executions in the app.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|strategy|null|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
+|maxRetryCount|null|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|delayInterval|null|The delay that's used between retries with a `fixedDelay` strategy.|
+|minimumInterval|null|The minimum retry delay when using `exponentialBackoff` strategy.|
+|maximumInterval|null|The maximum retry delay when using `exponentialBackoff` strategy.| 
 
 ## sendGrid
 
