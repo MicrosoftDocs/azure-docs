@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Update an Azure Cosmos account's regions using PowerShell
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

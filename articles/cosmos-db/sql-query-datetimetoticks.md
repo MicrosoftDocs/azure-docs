@@ -9,6 +9,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converts the specified DateTime to ticks. A single tick represents one hundred nanoseconds or one ten-millionth of a second. 
 

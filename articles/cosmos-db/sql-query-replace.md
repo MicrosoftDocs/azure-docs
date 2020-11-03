@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # REPLACE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Replaces all occurrences of a specified string value with another string value.  
   
 ## Syntax

@@ -29,35 +29,35 @@ Each additional zoom level quad-divides the tiles of the previous one, creating 
 
 The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
 
-The following table provides the full list of values for zoom levels where the tile size is 512 pixels square:
+The following table provides the full list of values for zoom levels where the tile size is 512 pixels square at latitude 0:
 
 |Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |
-|0|156543|40075008|
-|1|78271.5|20037504|
-|2|39135.8|10018764.8|
-|3|19567.9|5009382.4|
-|4|9783.9|2504678.4|
-|5|4892|1252352|
-|6|2446|626176|
-|7|1223|313088|
-|8|611.5|156544|
-|9|305.7|78259.2|
-|10|152.9|39142.4|
-|11|76.4|19558.4|
-|12|38.2|9779.2|
-|13|19.1|4889.6|
-|14|9.6|2457.6|
-|15|4.8|1228.8|
-|16|2.4|614.4|
-|17|1.2|307.2|
-|18|0.6|152.8|
-|19|0.3|76.4|
-|20|0.15|38.2|
-|21|0.075|19.1|
-|22|0.0375|9.55|
-|23|0.01875|4.775|
-|24|0.009375|2.3875|
+| 0 | 156543 | 40075017 |
+| 1 | 78271.5 | 20037508 |
+| 2 | 39135.8 | 10018754 |
+| 3 | 19567.88 | 5009377.1 |
+| 4 | 9783.94 | 2504688.5 |
+| 5 | 4891.97 | 1252344.3 |
+| 6 | 2445.98 | 626172.1 |
+| 7 | 1222.99 | 313086.1 |
+| 8 | 611.5 | 156543 |
+| 9 | 305.75 | 78271.5 |
+| 10 | 152.87 | 39135.8 |
+| 11 | 76.44 | 19567.9 |
+| 12 | 38.219 | 9783.94 |
+| 13 | 19.109 | 4891.97 |
+| 14 | 9.555 | 2445.98 |
+| 15 | 4.777 | 1222.99 |
+| 16 | 2.3887 | 611.496 |
+| 17 | 1.1943 | 305.748 |
+| 18 | 0.5972 | 152.874 |
+| 19 | 0.14929 | 76.437 |
+| 20 | 0.14929 | 38.2185 |
+| 21 | 0.074646 | 19.10926 |
+| 22 | 0.037323 | 9.55463 |
+| 23 | 0.0186615 | 4.777315 |
+| 24 | 0.00933075 | 2.3886575 |
 
 ## Pixel coordinates
 

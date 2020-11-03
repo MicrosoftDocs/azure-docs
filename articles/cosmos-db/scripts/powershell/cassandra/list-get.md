@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # List and get keyspaces and tables for Azure Cosmos DB - Cassandra API
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
