@@ -54,7 +54,7 @@ The SQL Server IaaS Agent extension provides a number of benefits for SQL Server
 
 
 > [!IMPORTANT]
-> The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent.See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+> The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent. See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
 
 
 ## Feature benefits 

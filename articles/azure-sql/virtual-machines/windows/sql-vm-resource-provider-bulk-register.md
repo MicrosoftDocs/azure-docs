@@ -28,7 +28,7 @@ The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a g
 
 The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
-For more information about the resource provider, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
+For more information, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
 
 ## Prerequisites
 
