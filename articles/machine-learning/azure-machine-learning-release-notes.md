@@ -17,6 +17,57 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-11-09
+
+### Azure Machine Learning SDK for Python v1.18.0
++ **new examples**
+  + A new community-driven repository of examples is available at https://github.com/Azure/azureml-examples
++ **Bug fixes and improvements**
+  + **automl-client-core-nativeclient**
+    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+  + **azureml-automl-core**
+    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+  + **azureml-automl-runtime**
+    + Throw ConfigException if a DateTime column has OutOfBoundsDatetime value
+    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+    + Making sure that each text col can leverage char-gram transform with the n-gram range based on the length of the strings in that text col
+    + Based on a recent customer issue we discovered that then a text column has fewer than 3 characters across all the rows, then current char-gram featurizer breaks because it is configured to use (3,3) char-grams. With this change we'll check the max len in the input text column and only apply the char-gram featurizer if it satisfies the required condition.
+    +  Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
+  + **azureml-core**
+    + Pin packages en_core_web_sm and pyjwt
+    + Users cannot rename an experiment while reactivating it.
+    +  Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (e.g. ScriptRunConfig). - Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
+    +  Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
+    + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
+    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
+    + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
+    + This change allows an empty string to be used as a value for a script_param
+  + **azureml-dataprep**
+    +  Fixed the issue where if the AzureResourceManager outbound traffic is blocked then it will cause Dataset mount to timeout.
+    +  Remove misleading NotFound error message when using `OutputFileDatasetConfig` and `OutputTabularDatasetConfig`
+  + **azureml-parallel-run**
+    + Fix bug: start_time is empty in processed_mini-batches.csv
+    + Allow users to change default store of workspace.
+  + **azureml-pipeline-core**
+    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
+  + **azureml-pipeline-steps**
+    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
+  + **azureml-synapse**
+    + Add Synapse magic and SparkMonitor to enable user submit Syanpse job and view the job progress in notebook.
+  + **azureml-train-automl-client**
+    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+  + **azureml-train-automl-runtime**
+    + Throw ConfigException if a DateTime column has OutOfBoundsDatetime value
+    +  Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
+    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+  + **azureml-train-core**
+    + This change allows an empty string to be used as a value for a script_param
+  + **azureml-train-restclients-hyperdrive**
+    + README has been changed to offer more context
+  + **azureml-widgets**
+    + Add string support to charts/parallel-coordinates library for widget.
+
+
 ## 2020-10-26
 
 ### Azure Machine Learning SDK for Python v1.17.0
