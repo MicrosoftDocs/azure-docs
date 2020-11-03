@@ -66,7 +66,7 @@ To see the output details, select the streaming job in the Azure portal, and the
 
 ## Key violation warning with Azure SQL Database output
 
-When you configure an Azure SQL database as output to a Stream Analytics job, it bulk inserts records into the destination table. In general, Azure Stream Analytics guarantees [at-least-once delivery](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) to the output sink. You can still [achieve exactly-once delivery]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) to a SQL output when a SQL table has a unique constraint defined.
+When you configure an Azure SQL database as output to a Stream Analytics job, it bulk inserts records into the destination table. In general, Azure Stream Analytics guarantees [at-least-once delivery](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) to the output sink. You can still [achieve exactly-once delivery]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) to a SQL output when a SQL table has a unique constraint defined.
 
 When you set up unique key constraints on the SQL table, Azure Stream Analytics removes duplicate records. It splits the data into batches and recursively inserts the batches until a single duplicate record is found. The split and insert process ignores the duplicates one at a time. For a streaming job that has many duplicate rows, the process is inefficient and time-consuming. If you see multiple key violation warning messages in your Activity log for the previous hour, it's likely that your SQL output is slowing down the entire job.
 
@@ -90,9 +90,9 @@ When a Stream Analytics job with SQL output receives the first batch of events, 
 
 During these steps, the SQL output can experience following types of errors:
 
-* Transient [errors](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) that are retried using an exponential backoff retry strategy. The minimum retry interval depends on the individual error code, but the intervals are typically less than 60 seconds. The upper limit can be at most five minutes. 
+* Transient [errors](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) that are retried using an exponential backoff retry strategy. The minimum retry interval depends on the individual error code, but the intervals are typically less than 60 seconds. The upper limit can be at most five minutes. 
 
-   [Login failures](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) and [firewall issues](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) are retried at least 5 minutes after the previous try and are retried until they succeed.
+   [Login failures](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) and [firewall issues](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) are retried at least 5 minutes after the previous try and are retried until they succeed.
 
 * Data errors, such as casting errors and schema constraint violations, are handled with output error policy. These errors are handled by retrying binary split batches until the individual record causing the error is handled by skip or retry. Primary Unique key constraint violation is [always handled](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
 
@@ -102,16 +102,16 @@ Once the timeout is above 15 minutes, the max batch size hint to `BulkCopy` is r
 
 ## Column names are lowercase in Azure Stream Analytics (1.0)
 
-When using the original compatibility level (1.0), Azure Stream Analytics changes column names to lowercase. This behavior was fixed in later compatibility levels. To preserve the case, move to compatibility level 1.1 or later. For more information, see [Compatibility level for Stream Analytics jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+When using the original compatibility level (1.0), Azure Stream Analytics changes column names to lowercase. This behavior was fixed in later compatibility levels. To preserve the case, move to compatibility level 1.1 or later. For more information, see [Compatibility level for Stream Analytics jobs](./stream-analytics-compatibility-level.md).
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics management REST API reference](/rest/api/streamanalytics/)

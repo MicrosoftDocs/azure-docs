@@ -39,6 +39,8 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
+        # - name: Assess pronunciation
+        #   href: how-to-pronunciation-assessment.md
     - name: Tutorials
       items:
         - name: Recognize speech stored in blob storage

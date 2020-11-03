@@ -10,6 +10,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Secure access to data in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
@@ -113,6 +114,12 @@ A permission resource is associated with a user and assigned at the container as
 
 > [!NOTE]
 > In order to run stored procedures the user must have the All permission on the container in which the stored procedure will be run.
+
+If you enable the [diagnostic logs on data-plane requests](cosmosdb-monitor-resource-logs.md), the following two properties corresponding to the permission are logged:
+
+* **resourceTokenPermissionId** - This property indicates the resource token permission Id that you have specified. 
+
+* **resourceTokenPermissionMode** - This property indicates the permission mode that you have set when creating the resource token. The permission mode can have values such as "all" or "read".
 
 ### Code sample to create permission
 

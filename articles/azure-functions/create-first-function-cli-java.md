@@ -44,7 +44,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to run your functions in Azure on Java 11 instead of Java 8. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
