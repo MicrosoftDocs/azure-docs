@@ -216,7 +216,7 @@ For pipelines created in the designer, you can find the **70_driver_log** file i
 
 ### Enable logging for real-time endpoints
 
-In order to troubleshoot and debug real-time endpoints in the designer, you must enable Application Insight logging using the SDK. Logging lets you troubleshoot and debug model deployment and usage issues. For more information, see [Logging for deployed models](./how-to-track-experiments.md#logging-for-deployed-models). 
+In order to troubleshoot and debug real-time endpoints in the designer, you must enable Application Insight logging using the SDK. Logging lets you troubleshoot and debug model deployment and usage issues. For more information, see [Logging for deployed models](./how-to-enable-app-insights.md). 
 
 ### Get logs from the authoring page
 
