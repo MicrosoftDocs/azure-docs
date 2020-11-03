@@ -26,7 +26,7 @@ To provide a better authoring experience, Azure Data Factory allows you to confi
 > [!NOTE]
 > Azure data factory git integration is not available in the Azure Government Cloud.
 
-To learn more about how Azure Data Factory integrates with Git, view the 15 minute tutorial video below:
+To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
 
@@ -37,7 +37,7 @@ Below is a list of some of the advantages git integration provides to the author
 -   **Source control:** As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
     -   Ability to track/audit changes.
     -   Ability to revert changes that introduced bugs.
--   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes in case of a computer crash, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
+-   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
 -   **Collaboration and control:** If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members may only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
 -   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-deployment.md), git integration makes certain actions easier. Some of these actions include:
     -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
@@ -71,7 +71,7 @@ Go to the management hub in the ADF UX. Select **Git configuration** in the **So
 
 ### Configuration method 4: During factory creation
 
-When creating a new data factory in the Azure Portal, you can configure Git repository information in the **Git configuration** tab.
+When creating a new data factory in the Azure portal, you can configure Git repository information in the **Git configuration** tab.
 
 > [!NOTE]
 > When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead being part of a dropdown.
@@ -169,7 +169,7 @@ Once you follow these steps, your factory will be able to connect to both public
 
 #### Already connected to GitHub using a personal account
 
-If you have already connected to GitHub and only granted permission to access a personal account, follow the below steps to grant permissions to an organizatino. 
+If you have already connected to GitHub and only granted permission to access a personal account, follow the below steps to grant permissions to an organization. 
 
 1. Go to GitHub and open **Settings**.
 
@@ -181,7 +181,7 @@ If you have already connected to GitHub and only granted permission to access a 
 
 1. Select the application and grant the application access to your organization.
 
-    ![Select OAuth apps](media/author-visually/github-organization-grant.png)
+    ![Grant access](media/author-visually/github-organization-grant.png)
 
 Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. 
 
@@ -245,7 +245,7 @@ A side pane will open where you confirm that the publish branch and pending chan
 Typically you don't want every team member to have permissions to update the Data Factory. The following permissions settings are recommended:
 
 *   All team members should have read permissions to the Data Factory.
-*   Only a select set of people should be allowed to publish to the Data Factory. To do so, they must have the **Data Factory contributor** role on the **Resource Group** which contains the Data Factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
+*   Only a select set of people should be allowed to publish to the Data Factory. To do so, they must have the **Data Factory contributor** role on the **Resource Group** that contains the Data Factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
 
 It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
@@ -266,7 +266,7 @@ If the publish branch is out of sync with the master branch and contains out-of-
 1. Create a pull request to merge the changes to the collaboration branch 
 
 Below are some examples of situations that can cause a stale publish branch:
-- A user has multiple branches. In one feature branch, they deleted a linked service which is not AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
+- A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
 - A user modified the data factory using the SDK or PowerShell
 - A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
 - A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
