@@ -24,8 +24,8 @@ The high-level summary of the deployment workflow is as follows:
 
 1. Enable a network interface for compute on your Azure Stack Edge device. This creates a virtual switch on the specified network interface.
 1. Enable cloud management of virtual machines from Azure portal.
-1. Upload a VHD to a storage account using Azure Storage Explorer. 
-1. Use the uploaded VHD to create a VM image and download the VM image to the device. 
+1. Upload a VHD to an Azure Storage account using Storage Explorer. 
+1. Use the uploaded VHD to download the VHD onto the device and create a VM image from the VHD. 
 1. Use the resources created in the previous steps:
     1. VM image that you created.
     1. VSwitch associated with the network interface on which you enabled compute.
@@ -38,7 +38,7 @@ The high-level summary of the deployment workflow is as follows:
 
     Use the resources from above to create a virtual machine.
 
- 
+
 ## Prerequisites
 
 Before you begin to create and manage VMs on your device via the Azure portal, make sure that:
@@ -60,7 +60,7 @@ Follow these steps to create a virtual machine on your Azure Stack Edge device.
 
 ### Add a VM image
 
-1. Upload a VHD to the storage account that you are using for your Azure Stack Edge device. Follow the steps in [Upload a VHD using Azure Storage Explorer](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
+1. Upload a VHD to an Azure Storage account. Follow the steps in [Upload a VHD using Azure Storage Explorer](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
 
 1. In the Azure portal, go to the Azure Stack Edge resource for your Azure Stack Edge device. Go to **Edge compute > Virtual Machines**.
 
@@ -69,9 +69,9 @@ Follow these steps to create a virtual machine on your Azure Stack Edge device.
 1. Select **Virtual Machines** to go to the **Overview** page. **Enable** virtual machine cloud management.
     ![Add VM image 2](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
 
-1. The first step is to add a VM image. Use Storage Explorer to upload a VHD into the storage account that you intend to use to store a VM image. 
+1. The first step is to add a VM image. You have already uploaded a VHD into the storage account in the earlier step. You will use this VHD to create a VM image.
 
-    Select **Add image** to download the VHD from the storage account. The download process takes several minutes depending upon the size of the VHD and the internet bandwidth available for the download. 
+    Select **Add image** to download the VHD from the storage account and add to the device. The download process takes several minutes depending upon the size of the VHD and the internet bandwidth available for the download. 
 
     ![Add VM image 3](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
@@ -81,7 +81,7 @@ Follow these steps to create a virtual machine on your Azure Stack Edge device.
     |Parameter  |Description  |
     |---------|---------|
     |Download from storage blob    |Browse to the location of the storage blob in the storage account where you uploaded the VHD.         |
-    |Download to    | Automatically set to the current VM that you are creating.        |
+    |Download to    | Automatically set to the current device where you are deploying the virtual machine.        |
     |Save image as      | The name for the VM image that you are creating from the VHD you uploaded to the storage account.        |
     |OS type     |Choose from Windows or Linux as the operating system of the VHD you will use to create the VM image.         |
    
