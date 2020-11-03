@@ -37,8 +37,8 @@ specific tuning.
 | hive.tez.container.size | 4096 (MB) | Specified Tez container size in MB |
 | hive.llap.daemon.num.executors | 19 | Number of executors per LLAP daemon | 
 | hive.llap.io.threadpool.size | 19 | Thread pool size for executors |
-| hive.llap.daemon.yarn.container.mb | 77824 (MB) | Total memory in MB used by individual LLAP daemons (Memory per daemon)
-| hive.llap.io.memory.size | 235520 (MB) | Cache size in MB per LLAP daemon provided SSD cache is enabled |
+| hive.llap.daemon.yarn.container.mb | 82944 (MB) | Total memory in MB used by individual LLAP daemons (Memory per daemon)
+| hive.llap.io.memory.size | 242688 (MB) | Cache size in MB per LLAP daemon provided SSD cache is enabled |
 | hive.auto.convert.join.noconditionaltask.size | 2048 (MB) | memory size in MB to do Map Join |
 
 ### **LLAP Architecture/Components:**  
@@ -119,10 +119,10 @@ For D14 v2, this value is (100 GB x 0.85) = 85 GB.
 
 The LLAP daemon container size is calculated as follows;
 
-**LLAP daemon container size =  [ Total memory available for LLAP queue ] – [ Tez AM memory per node ]**  
+**LLAP daemon container size =  (Total memory available for LLAP queue) – (Tez AM memory per node)**  
     
 For D14 v2 worker node, HDI 4.0 -  the recommended value is (85 GB - 4 GB)) = **81 GB**   
-(For HDI 3.6, recommended value is **74 GB** because you should reserve additional ~2 GB for slider AM.)  
+(For HDI 3.6, recommended value is **79 GB** because you should reserve additional ~2 GB for slider AM.)  
 
 #### **8. Determining number of executors per LLAP daemon**  
 Configuration: ***hive.llap.daemon.num.executors***, ***hive.llap.io.threadpool.size***
@@ -183,7 +183,7 @@ Make sure you have *hive.auto.convert.join.noconditionaltask* enabled for this p
 This configuration allows the user to specify the size of the tables that can fit in memory to do Map join. If the sum of the size of n-1 tables or partitions for n-way join is less than the configured value, the Map join will be chosen. The LLAP executor memory size should be used to calculate the threshold for autoconvert to Map Join.
 Each executor is assumed to have 4 GB of heap size, but not all of it will be available for Map join. Some heap memory will be used for sort buffers, shuffle buffers, hash tables, etc. by other operations as well. So, you can give 50% of 4 GB heap memory for Map join.  
 Note: This value may need adjustments that are suitable for your workload. Setting this value too low may not use autoconvert feature. And setting it too high may result into out of memory exceptions or GC pauses that can result into adverse performance.  
-For D14 v2, with 4 GB memory per executor, it's recommended to set this value to **2048 MB**.
+For D14 v2, with 3 GB to 4 GB memory per executor, it's recommended to set this value to **2048 MB**.
 
 #### **11. Number of LLAP daemons**
 Ambari environment variables: ***num_llap_nodes, num_llap_nodes_for_llap_daemons***  
