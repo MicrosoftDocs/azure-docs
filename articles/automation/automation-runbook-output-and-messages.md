@@ -1,6 +1,6 @@
 ---
-title: Configure runbook output and message streams in runbooks
-description: This article tells how to implement error handling logic in Azure Automation runbooks.
+title: Configure runbook output and message streams
+description: This article tells how to implement error handling logic and describes output and message streams in Azure Automation runbooks.
 services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
