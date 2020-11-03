@@ -28,7 +28,7 @@ In this tutorial, you perform the following tasks:
 > * Set up alerts for those metrics. 
 > * Download and run an app that simulates an IoT device sending messages to the hub. 
 > * Run the app until the alerts begin to fire. 
-> * View the metrics results and check the diagnostic logs.
+> * View the metrics results and check the diagnostic logs. 
 
 ## Prerequisites
 
