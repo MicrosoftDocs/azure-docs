@@ -435,8 +435,8 @@
         href: security/how-to-connect-to-workspace-with-private-links.md
       - name: Provision and secure a linked service with Managed Vnet
         href: ./data-integration/linked-service.md
-    - name: Connect to Synapse workspace from restricted network
-      href: security/how-to-connect-to-workspace-from-restricted-network.md
+      - name: Connect to Synapse workspace from restricted network
+        href: security/how-to-connect-to-workspace-from-restricted-network.md
   - name: Manage and monitor
     items:
     - name: Pipeline runs

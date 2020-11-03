@@ -32,7 +32,7 @@ You'll need to add four network outbound security rules with four service tags. 
 * AzureActiveDirectory
 * AzureMonitor (Optional. Add this type of rule only when you want to share the data to Microsoft.)
 
-**Azure Resource Manager** outbound rule details as below. When creating the other three rules, replace the value of "**Destination service tag**" with choosing the service tag name "**AzureFrontDoor.Frontend**", "**AzureActiveDirectory**", "**AzureMonitor**" from the drop-down selection list.
+**Azure Resource Manager** outbound rule details as below. When you're creating the other three rules, replace the value of "**Destination service tag**" with choosing the service tag name "**AzureFrontDoor.Frontend**", "**AzureActiveDirectory**", "**AzureMonitor**" from the drop-down selection list.
 
 ![AzureResourceManager](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
@@ -62,7 +62,7 @@ In the next tab of "**Configuration**",
 
 ![Creating private endpoint for Synapse studio 3](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
 
-After the private link endpoint is created, you can access the login page of Synapse studio web tool. However you are not able to access the resources inside your Synapse workspace yet until you will need to complete the next step.
+After the private link endpoint is created, you can access the sign-in page of Synapse studio web tool. However you are not able to access the resources inside your Synapse workspace yet until you will need to complete the next step.
 
 ## Step 4: Create private link endpoints for Synapse Studio workspace resource
 
@@ -73,12 +73,12 @@ Pay attention to below areas in tab of "**Resource**":
 * Select "**YourWorkSpaceName**" to "**Resource**" which you've created before.
 * Select the endpoint type in "**Target sub-resource**":
   * **Sql**: is for SQL query execution in SQL pool.
-  * **SqlOnDemand**: is for SQL OnDemand query execution.
+  * **SqlOnDemand**: is for SQL built-in query execution.
   * **Dev**: is for accessing everything else inside Synapse Studio workspaces. You need to create at least the private link endpoint of with this type.
 
 ![Creating private endpoint for Synapse studio workspace](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
 
-
+Now, all set. You can access your Synapse studio workspace resource.
 
 ## Next steps
 
