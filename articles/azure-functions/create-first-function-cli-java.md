@@ -43,7 +43,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
 
-    # [bash](#tab/bash)
+    # [Bash](#tab/bash)
     
     ```bash
     mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8

@@ -244,6 +244,7 @@
       displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
       href: export-to-siem.md
     - name: Export to a Log Analytics workspace or Azure Event Hub
+      displayName: continuous
       href: continuous-export.md
     - name: Download a CSV report of all alerts
       href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations

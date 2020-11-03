@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot issues when using Azure Functions trigger for Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article covers common issues, workarounds, and diagnostic steps, when you use the [Azure Functions trigger for Cosmos DB](change-feed-functions.md).
 

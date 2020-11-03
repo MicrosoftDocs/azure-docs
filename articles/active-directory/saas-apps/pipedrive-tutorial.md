@@ -142,15 +142,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **User Profile** and select **Settings**.
 
-    ![Pipedrive Configuration](./media/pipedrive-tutorial/configure1.png)
+    ![Screenshot that shows "Settings" selected from the "User Profile" menu.](./media/pipedrive-tutorial/configure1.png)
 
 1. Scroll down to security center and select **Single sign-on**.
 
-    ![Pipedrive Configuration](./media/pipedrive-tutorial/configure2.png)
+    ![Screenshot that shows "Single sign-on" selected in the "Security Center".](./media/pipedrive-tutorial/configure2.png)
 
 1. On the **SAML configuration for pipedrive** section, perform the following steps:
 
-    ![Pipedrive Configuration](./media/pipedrive-tutorial/configure3.png)
+    ![Screenshot that shows the "S A M L configuration for Pipedrive" section with all text boxes highlighted.](./media/pipedrive-tutorial/configure3.png)
 
     a. In the **Issuer** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
 
@@ -166,11 +166,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Scroll down to company and select **manage users**.
 
-    ![Pipedrive Configuration](./media/pipedrive-tutorial/user1.png)
+    ![Screenshot that shows "Manage users" selected from the "Company" menu.](./media/pipedrive-tutorial/user1.png)
 
 1. Click on **Add users**.
     
-    ![Pipedrive Configuration](./media/pipedrive-tutorial/user2.png)
+    ![Screenshot that shows the "Manage users" page with the "Add users" button selected on the right side.](./media/pipedrive-tutorial/user2.png)
 
 1. On the **Manage users** section, perform the following steps:
 

@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # STARTSWITH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Returns a Boolean indicating whether the first string expression starts with the second.  
   

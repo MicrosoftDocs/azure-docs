@@ -46,9 +46,10 @@ Specifically, this SAP table connector supports:
 - Retrieving data via default or custom RFC.
 
 The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
-1.	Use SAP GUI to connect to the SAP System. 
-2.	Go to **System** -> **Status**. 
-3.	Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
+
+1. Use SAP GUI to connect to the SAP System. 
+2. Go to **System** -> **Status**. 
+3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
       ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## Prerequisites
