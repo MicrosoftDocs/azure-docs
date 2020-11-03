@@ -55,7 +55,7 @@ To restore a dropped Azure Database for PostgreSQL server, you need following:
     
 7. If you see Response Code 201 or 202, the restore request is successfully submitted. 
 
-8. The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
+    The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
    - **Subscription** = Your Subscription
    - **Resource Type** = Azure Database for PostgreSQL servers (Microsoft.DBforPostgreSQL/servers) 
    - **Operation** =  Update PostgreSQL Server Create
