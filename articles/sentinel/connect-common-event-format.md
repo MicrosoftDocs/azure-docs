@@ -57,7 +57,7 @@ Make sure the Linux machine you use as a log forwarder is running one of the fol
   - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
   - Debian GNU/Linux 8, 9, and 10
   - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
-  - SUSE Linux Enterprise Server 12 - 15
+  - SUSE Linux Enterprise Server 12, 15
 
 - 32-bit
   - CentOS 7 and 8, including sub-versions (not 6)
