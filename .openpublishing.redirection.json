@@ -5615,7 +5615,12 @@
     },
     {
       "source_path": "articles/key-vault/vs-secure-secret-appsettings.md",
-      "redirect_url": "/azure/key-vault/general/vs-secure-secret-appsettings",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/vs-secure-secret-appsettings.md",
+      "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
       "redirect_document_id": false
     },
     {
@@ -22163,6 +22168,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/enable-appsource-marketplace-using-azure-ad.md",
+      "redirect_url": "/azure/marketplace/azure-ad-saas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/create-new-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
@@ -27915,6 +27925,11 @@
     {
       "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
       "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
+      "redirect_url": "/azure/storage/blobs/sas-service-create",
       "redirect_document_id": true
     },
     {
@@ -49944,6 +49959,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-use-data-lake-store.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
       "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
@@ -59052,6 +59072,11 @@
       "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
       "redirect_url": "/azure/cognitive-services/metrics-advisor/overview",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/rest-api.md",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library",
+      "redirect_document_id": false
+    }      
   ]
 }

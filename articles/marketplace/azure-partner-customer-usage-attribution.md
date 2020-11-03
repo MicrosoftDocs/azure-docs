@@ -35,10 +35,11 @@ Customer usage attribution supports three deployment options:
 
 ## Create GUIDs
 
-A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell.
 
-> [!NOTE]
-> It is highly recommended that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
+```powershell
+[guid]::NewGuid()]
+```
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
@@ -64,7 +65,7 @@ After you add a GUID to your template or in the user agent, and register the GUI
 
 1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
 
-   * Partners are required to [have a profile in Partner Center](become-publisher.md). You're encouraged to list the offer in Azure Marketplace or AppSource.
+   * Partners are required to [have a profile in Partner Center](./partner-center-portal/create-account.md). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.
    * Partners can register GUIDs for non-marketplace solution templates and offers.
 
@@ -94,7 +95,7 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 1. Open the Resource Manager template.
 
-1. Add a new resource of type [Microsoft.Resources/deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+1. Add a new resource of type [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments) in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
 1. Enter the GUID value after the `pid-` prefix as the name of the resource. For example, if the GUID is eb7927c8-dd66-43e1-b0cf-c346a422063, the resource name will be _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
@@ -129,7 +130,7 @@ The resource needs to be added in the **mainTemplate.json** or **azuredeploy.jso
 
 ## Use the Resource Manager APIs
 
-In some cases, you might prefer to make calls directly against the Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/azure/?pivot=sdkstools) to enable these calls. You can use one of the SDKs, or call the REST APIs directly to deploy resources.
+In some cases, you might prefer to make calls directly against the Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](../index.yml?pivot=sdkstools) to enable these calls. You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
 If you're using a Resource Manager template, you should tag your solution by following the instructions described earlier. If you aren't using a Resource Manager template and making direct API calls, you can still tag your deployment to associate usage of Azure resources.
 
@@ -153,7 +154,7 @@ For Python, use the **config** attribute. You can only add the attribute to a Us
 
 #### Example: The .NET SDK
 
-For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) library can be used to set the user agent with the following code (example in C#):
+For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) library can be used to set the user agent with the following code (example in C#):
 
 ```csharp
 
@@ -180,7 +181,7 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/).
+For more information, see [Azure SDK for Go](/azure/developer/go/).
 
 ## Use Terraform
 
