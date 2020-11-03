@@ -109,7 +109,7 @@ The SQL Server IaaS extension will work with a named instance of SQL Server if t
 
 To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL VM resource provider](sql-vm-resource-provider-register.md) to install the extension.
 
-Alternatively, to use a named instance with an Azure marketplace SQL Server image, follow these steps: 
+Alternatively, to use a named instance with an Azure Marketplace SQL Server image, follow these steps: 
 
    1. Deploy a SQL Server VM from Azure Marketplace. 
    1. [Unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider. 
