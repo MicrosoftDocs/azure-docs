@@ -172,10 +172,24 @@ def authenticate_client():
     ta_credential = AzureKeyCredential(key)
     text_analytics_client = TextAnalyticsClient(
             endpoint=endpoint, 
-            credential=ta_credential)
+            credential=ta_credential) # use this code if your SDK version is 5.0.0
     return text_analytics_client
 
 client = authenticate_client()
+```
+
+```python
+# Uncomment the following code to initialize a client if your SDK version is a 5.1.0 beta version, 
+# and are looking to specify a service version of 3.0 for your client
+
+# from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiVersion
+# from azure.core.credentials import AzureKeyCredential
+
+# text_analytics_client = TextAnalyticsClient(
+#   endpoint=endpoint,
+#   credential=ta_credential,
+#   api_version=TextAnalyticsApiVersion.V3_0
+# )
 ```
 
 # [Version 2.1](#tab/version-2)
