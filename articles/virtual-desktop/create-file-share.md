@@ -62,7 +62,7 @@ Next, you'll need to enable Active Directory (AD) authentication. To enable this
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
-2. Follow the instructions in [Enable Azure AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
+2. Follow the instructions in [Enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
 
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 

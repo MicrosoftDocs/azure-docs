@@ -238,14 +238,6 @@ It is important to note that **key vault names are globally unique**, so you won
     Get-AzKeyVault -VaultName "ContosoVault"
     ```
 
-* Enable soft-delete on key-vault
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
-    ```
-
 * Delete key vault
 
     ```powershell

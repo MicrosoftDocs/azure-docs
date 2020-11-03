@@ -10,6 +10,7 @@ ms.date: 06/12/2020
 ---
 
 # Create a resource lock for Azure Cosmos SQL API database and container using Azure PowerShell
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

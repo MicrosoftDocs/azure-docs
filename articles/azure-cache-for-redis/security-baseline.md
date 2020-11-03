@@ -14,13 +14,13 @@ ms.custom: subject-security-benchmark
 
 The Azure Security Baseline for Azure Cache for Redis contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security Control: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -198,7 +198,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -305,7 +305,7 @@ https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#aler
 
 ## Identity and Access Control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security Control: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -496,7 +496,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 ## Data Protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security Control: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -638,7 +638,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Vulnerability Management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security Control: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -687,7 +687,7 @@ https://docs.microsoft.com/azure/security-center/recommendations-reference
 
 ## Inventory and Asset Management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security Control: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -852,7 +852,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## Secure Configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security Control: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1013,7 +1013,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## Malware Defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security Control: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1047,7 +1047,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 ## Data Recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security Control: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1122,7 +1122,7 @@ https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
 ## Incident Response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security Control: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1212,7 +1212,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1230,5 +1230,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../security/benchmarks/security-baselines-overview.md)
