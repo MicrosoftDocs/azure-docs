@@ -18,14 +18,60 @@ Customers using [operations monitoring](iot-hub-operations-monitoring.md) to tra
 
 ## Update IoT Hub
 
-To update your IoT Hub in the Azure portal, first turn on diagnostics settings, then turn off operations monitoring.  
+To update your IoT Hub in the Azure portal, first create a diagnostic setting, then turn off operations monitoring.  
 
-[!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
+### Create a  diagnostic setting
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+
+1. On the left pane, under **Monitoring**, select **Diagnostics settings**. Then select **Add diagnostic setting**.
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="Screenshot that highlights Diagnostic settings in the Monitoring section.":::
+
+1. On the **Diagnostic setting** pane, give the diagnostic setting a name.
+
+1. Under **Category details**, select the categories for the operations you want to monitor. The operations that diagnostic settings can report on are:
+
+   * Connections
+   * Device telemetry
+   * Cloud-to-device messages
+   * Device identity operations
+   * File uploads
+   * Message routing
+   * Cloud-to-device twin operations
+   * Device-to-cloud twin operations
+   * Twin operations
+   * Job operations
+   * Direct methods  
+   * Distributed tracing (preview)
+   * Configurations
+   * Device streams
+   * Device metrics
+
+   You can also select AllMetrics to send IoT Hub platform metrics to a destination.
+
+   For more information about the categories of operations available with IoT Hub, see [Resource logs](monitor-iot-hub-reference.md#resource-logs).
+
+1. Choose where you want to send the logs. You can select any combination of these destinations:
+
+   * Archive to a storage account
+   * Stream to an event hub
+   * Send to Azure Monitor Logs via a Log Analytics workspace
+
+   The following screenshot shows a diagnostic setting that routes operations in the Connections and Device telemetry categories to a Log Analytics workspace:
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/add-diagnostic-setting.png" alt-text="Screenshot showing a completed diagnostic setting.":::
+
+1. Select **Save** to save the settings.
+
+New settings take effect in about 10 minutes. After that, logs appear in the configured destination. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/platform/platform-logs-overview.md).
+
+For more detailed information about how to create diagnostic settings, including with PowerShell and the Azure CLI, see [Diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) in the Azure Monitor documentation.
 
 ### Turn off operations monitoring
 
 > [!NOTE]
-> As of March 11, 2019, the operations monitoring feature is removed from IoT Hub's Azure portal interface. The steps below no longer apply. To migrate, make sure that the correct categories are routed to a destination with an Azure Monitor diagnostic settings above.
+> As of March 11, 2019, the operations monitoring feature is removed from IoT Hub's Azure portal interface. The steps below no longer apply. To migrate, make sure that the correct categories are routed to a destination with an Azure Monitor diagnostic setting above.
 
 Once you test the new diagnostics settings in your workflow, you can turn off the operations monitoring feature. 
 
@@ -39,7 +85,7 @@ Once you test the new diagnostics settings in your workflow, you can turn off th
 
 The schemas for operations monitoring and resource logs vary slightly. It's important that you update the applications that use operations monitoring today to map to the schema used by resource logs.
 
-Also, diagnostics settings offers five new categories for tracking. After you update applications for the existing schema, add the new categories as well:
+Also, IoT Hub resource logs offers five new categories for tracking. After you update applications for the existing schema, add the new categories as well:
 
 * Cloud-to-device twin operations
 * Device-to-cloud twin operations
