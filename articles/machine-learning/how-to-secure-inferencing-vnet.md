@@ -43,7 +43,7 @@ In this article you learn how to secure the following inferencing resources in a
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 
 <a id="aksvnet"></a>
 
@@ -82,7 +82,7 @@ To add AKS in a virtual network to your workspace, use the following steps:
     To find the IP address of the scoring endpoint, look at the scoring URI for the deployed service. For information on viewing the scoring URI, see [Consume a model deployed as a web service](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
-   > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+   > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
    [![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -166,7 +166,7 @@ A private load balancer is enabled by configuring AKS to use an _internal load b
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
+For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](../aks/internal-lb.md).
 
 #### Enable private load balancer
 
@@ -216,7 +216,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > Using the CLI, you can only create an AKS cluster with an internal load balancer. There is no az ml command to upgrade an existing cluster to use an internal load balancer.
 
-For more information, see the [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
 ---
 
@@ -257,7 +257,7 @@ To use ACI in a virtual network to your workspace, use the following steps:
     > [!IMPORTANT]
     > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
 
-2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+2. Deploy the model using [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
 
 ## Limit outbound connectivity from the virtual network
 

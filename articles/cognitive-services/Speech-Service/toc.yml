@@ -530,6 +530,8 @@
           href: deploy-speech-on-container-instances.md
         - name: Containers FAQ
           href: speech-container-faq.md
+        - name: Cognitive Services containers documentation
+          href: ../containers/index.yml
 - name: Devices
   items:
     - name: Speech devices documentation
