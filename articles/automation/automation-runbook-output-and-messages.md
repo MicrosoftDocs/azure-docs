@@ -230,7 +230,7 @@ You can view the details of a runbook job in the Azure portal using the **Jobs**
 
 ### Retrieve runbook output and messages in Windows PowerShell
 
-In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) cmdlet. This cmdlet requires the ID of the job and has a parameter called `Stream` in which to specify the stream to retrieve. You can specify a value of Any for this parameter to retrieve all streams for the job.
+In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet. This cmdlet requires the ID of the job and has a parameter called `Stream` in which to specify the stream to retrieve. You can specify a value of Any for this parameter to retrieve all streams for the job.
 
 The following example starts a sample runbook and then waits for it to complete. Once the runbook completes execution, the script collects the runbook output stream from the job.
 
