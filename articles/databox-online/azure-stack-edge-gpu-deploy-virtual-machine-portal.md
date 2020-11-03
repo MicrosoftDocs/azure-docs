@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge device using the Azure portal.This article describes how to create and manage a VM on your Azure Stack Edge device using the Azure portal. 
+You can create and manage virtual machines (VMs) on an Azure Stack Edge device using the Azure portal. This article describes how to create and manage a VM on your Azure Stack Edge device using the Azure portal. 
 
 This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. 
 
@@ -118,12 +118,12 @@ Follow these steps to create a VM after you have created a VM image.
     |Parameter |Description  |
     |---------|---------|
     |Virtual machine name     |         |
-    |Image     |         |
-    |Size     |         |
-    |Username     | The default username is *azureuser*.        |
-    |Authentication type    | Choose from         |
-    |Password     | The password to sign into the virtual machine must be at least 12 characters long and meet the defined complexity requirements.        |
-    |Confirm password    |         |
+    |Image     | Select from the VM images available on the device.        |
+    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Username     | Use the default username *azureuser*.        |
+    |Authentication type    | Choose from SSH public key or a user-defined password.       |
+    |Password     | Enter a password to sign into the virtual machine. The password must be at least 12 characters long and meet the defined [Complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
+    |Confirm password    | Enter the password again.        |
 
 
     ![Add VM 2](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-12.png)
