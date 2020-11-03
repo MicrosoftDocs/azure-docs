@@ -53,7 +53,7 @@ If you are restoring a geo-backup, simply select the Workspace located in the so
 
 4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
 
-If the SQL pool doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
+If the SQL pool doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. 
 
 If you want to perform a geo-restore, select the Workspace and SQL pool that you want to recover. 
 
