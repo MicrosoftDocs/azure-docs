@@ -25,7 +25,7 @@ The Troubleshooting Report allows you to easily diagnose common problems that ca
 |Step | Error message | Possible cause |
 |-----|---------------|----------------|
 | Connection reuse | n/a | Usually dependent on a previously established connection meaning the web test step is dependent. So there would be no DNS, connection or SSL step required. |
-| DNS resolution | The remote name could not be resolved: "your URL" | THe DNS resolution process failed, most likely due to misconfigured DNS records or temporary DNS server failures. |
+| DNS resolution | The remote name could not be resolved: "your URL" | The DNS resolution process failed, most likely due to misconfigured DNS records or temporary DNS server failures. |
 | Connection establishment | A connection attempt failed because the connected party did not properly respond after a period of time. | In general, it means your server is not responding to the HTTP request. A common cause is that our test agents are being blocked by a firewall on your server. If you would like to test within an Azure Virtual Network, you should add the Availability service tag to your environment.|
 | SSL handshakes | The client and server cannot communicate because they do not possess a common algorithm.| SSL version is not supported. Only TLS 1.0, 1.1, and 1.2 are supported. SSLv3 is not supported. |
 | Receiving response header | Unable to read data from the transport connection. The connection was closed. | Your server committed a protocol error in the response header. For example, connection closed by your server when the response is not fully. |
