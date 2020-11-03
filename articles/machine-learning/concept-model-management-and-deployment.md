@@ -67,7 +67,7 @@ You can't delete a registered model that is being used in an active deployment.
 For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
 
 > [!IMPORTANT]
-> When using Filter by `Tags` option on the Models UI page, instead of using `TagName : TagValue` customers should use `TagName=TagValue` (without space)
+> When using Filter by `Tags` option on the Models page of Azure Machine Learning Studio, instead of using `TagName : TagValue` customers should use `TagName=TagValue` (without space)
 
 ### Profile models
 
