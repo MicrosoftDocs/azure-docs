@@ -1,7 +1,7 @@
 ---
 title: What is a server in Azure SQL Database and Azure Synapse Analytics? 
 titleSuffix: ""
-description: Learn about logical SQL servers used by Azure SQL Database and Azure Synapse Analytics, and how to manage them. 
+description: Learn about logical SQL Servers used by Azure SQL Database and Azure Synapse Analytics, and how to manage them. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# What is a logical SQL server in Azure SQL Database and Azure Synapse?
+# What is a logical SQL Server in Azure SQL Database and Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 In Azure SQL Database and Azure Synapse Analytics, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../azure-sql/database/auditing-overview.md), [threat detection policies](threat-detection-configure.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse Analytics. All databases managed by a single server are created within the same region as the server.
@@ -43,11 +43,11 @@ A server in SQL Database and Azure Synapse:
 
 ## Manage servers, databases, and firewalls using the Azure portal
 
-You can create the resource group for a server ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form, either by creating a new SQL server or as part of creating a new database.
+You can create the resource group for a server ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL Server form, either by creating a new SQL Server or as part of creating a new database.
 
 ### Create a blank server
 
-To create a server (without a database, elastic pool, or data warehouse database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical SQL server) form.
+To create a server (without a database, elastic pool, or data warehouse database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Server (logical SQL Server) form.
 
 ### Create a blank or sample database in Azure SQL Database
 
@@ -62,7 +62,7 @@ To create a managed instance, see [Create a managed instance](../managed-instanc
 
 ### Manage an existing server
 
-To manage an existing server, navigate to the server using a number of methods - such as from specific database page, the **SQL servers** page, or the **All resources** page.
+To manage an existing server, navigate to the server using a number of methods - such as from specific database page, the **SQL Servers** page, or the **All resources** page.
 
 To manage an existing database, navigate to the **SQL databases** page and click the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database.
 
