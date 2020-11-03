@@ -131,7 +131,7 @@ InvalidParameter
 #### Scenario examples
 SGX attestation failure due to invalid input. Below are some of the examples for error messages:
 - The specified quote was invalid due to an error in the quote collateral 
-- The specified quote was invalid because the device on which the quote was generated does not meet the azure baseline requirements
+- The specified quote was invalid because the device on which the quote was generated does not meet the Azure baseline requirements
 - The specified quote was invalid because the TCBInfo or QEID provided by the PCK Cache Service was invalid
 
 #### Troubleshooting steps
