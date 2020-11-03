@@ -75,7 +75,7 @@ This number represents the count of **Call to Action** button clicks completed o
 
 :::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Illustrates the campaign chart on the Marketplace Insights dashboard.":::
 
-### Orders by geography
+### Marketplace Insights by geography
 
 For the selected computation period, the heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the unique visitors. Select a record in the table to zoom in on a country/region.
 
@@ -90,7 +90,7 @@ Note the following:
 
 ### Marketplace Insights details table
 
-This table provides a list view of the page visits and the calls to action of your selected offers sorted by date.
+This table provides a list view of the page visits and the calls to action of your selected offers' pages sorted by date.
 
 - The data can be extracted to a .TSV or .CSV file if the count of records is less than 1,000.
 - If the count of records is over 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
