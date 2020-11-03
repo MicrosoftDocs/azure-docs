@@ -69,11 +69,11 @@ To assess your environment using the Database Migration Assessment, follow these
 1. Select the type(s) of assessment reports that you want to generate. For example, database compatibility and feature parity. 
     - The **feature parity** category provides a comprehensive set of recommendations, alternatives available in Azure, and mitigating steps to help you plan your migration project. 
     - The **compatibility issues** category identifies partially supported or unsupported feature compatibility issues that might block migration as well as recommendations to address them. 
-    > [!IMPORTANT]
-    >Based on the type of assessment, the permissions required on the source SQL Server can be different. 
-    > - For the **feature parity** advisor, the credentials provided to connect to source SQL Server database must be a member of the *sysadmin* server role.
-    > - For the compatibility issues advisor, the credentials provided must have at least `CONNECT SQL`, `VIEW SERVER STATE` and `VIEW ANY DEFINITION` permissions.
-    > - DMA will highlight the permissions required for the chosen advisor before running the assessment.
+        > [!IMPORTANT]
+        >Based on the type of assessment, the permissions required on the source SQL Server can be different. 
+        > - For the **feature parity** advisor, the credentials provided to connect to source SQL Server database must be a member of the *sysadmin* server role.
+        > - For the compatibility issues advisor, the credentials provided must have at least `CONNECT SQL`, `VIEW SERVER STATE` and `VIEW ANY DEFINITION` permissions.
+        > - DMA will highlight the permissions required for the chosen advisor before running the assessment.
 1. Specify the source connection details for your SQL Server and connect to the source database.
 1. Select **Start assessment**. 
 1. When the process is complete, select and review the assessment reports for migration blocking and feature parity issues. The assessment report can also be exported to a file that can be shared with other teams or personnel in your organization. 
@@ -91,7 +91,7 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 - [Analyzing assessment reports using Power BI](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=sqlallproducts-allversions#dma-reports)
 
 > [!IMPORTANT]
->Running assessments at scale for multiple databases especially large ones can also be automated using [DMA's Command Line Utility](https://docs.microsoft.com/sql/dma/dma-commandline?view=sqlallproducts-allversions) which also allows the results to be uploaded to [Azure Migrate](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sqlallproducts-allversions#view-target-readiness-assessment-results) for further analysis and target readiness.
+>Running assessments at scale for multiple databases can also be automated using [DMA's Command Line Utility](https://docs.microsoft.com/sql/dma/dma-commandline?view=sqlallproducts-allversions) which also allows the results to be uploaded to [Azure Migrate](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sqlallproducts-allversions#view-target-readiness-assessment-results) for further analysis and target readiness.
 
 ### Create a performance baseline
 
@@ -99,12 +99,12 @@ If you need to compare the performance of your workload on a SQL Managed Instanc
 
 ### Create SQL Managed Instance 
 
-Based on the information in the discover and assess phase, create your target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [ARM Template](/../../managed-instance/create-template-quickstart.md). 
+Based on the information in the discover and assess phase, create a right sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [ARM Template](/../../managed-instance/create-template-quickstart.md). 
 
 
 ## Migrate
 
-After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. You can migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options) based on your workload and scenario. While there are tools / utilities based migration options that can be leveraged to migrate your SQL Server databases to Azure SQL Managed Instance with minimal downtime, you can also take advantage of natively backing up your source SQL Server databases and restoring them on Azure SQL Managed Instance which is a unique capability in Azure SQL MI compared to other Azure SQL PaaS deployment models. The two most recommended options for migrating to Azure SQL Managed Instance are described below.
+After you have completed tasks associated with the pre-migration stage, you are ready to perform the schema and data migration. You can migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options) based on your workload and scenario. While there are tools / utilities based migration options that can be leveraged to migrate your SQL Server databases to Azure SQL Managed Instance with minimal downtime, you can also take advantage of natively backing up your source SQL Server databases and restoring them on Azure SQL Managed Instance which is a unique capability in Azure SQL MI compared to other Azure SQL PaaS deployment models. The two most recommended options for migrating to Azure SQL Managed Instance are described below.
 
 #### Migration with minimal downtime (Online sync and cutover)
 To perform migrations using DMS with minimal downtime via an online sync and cutover approach, follow the steps below:
