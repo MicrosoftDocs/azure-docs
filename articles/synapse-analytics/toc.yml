@@ -551,6 +551,10 @@
   #   items:
   # - name: Tutorials
   #   items:  
+  - name: Quickstarts
+    items:
+    - name: Load data into SQL pools using copy activity
+      href: quickstart-copy-activity-load-sql-pool.md
   - name: Concepts
     items:
     - name: Pipeline and activity

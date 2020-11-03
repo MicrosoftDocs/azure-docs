@@ -71,11 +71,6 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 
 1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
 
-> [!NOTE]
-> Despite the name, an serverless Apache Spark pool is not like a dedicated SQL pool. It's just some basic metadata that you use to tell the Azure Synapse workspace how to interact with Spark.
-
-Because they're metadata, Spark pools can't be started or stopped.
-
 When you perform Spark activity in Azure Synapse, you specify a Spark pool to use. The pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
 
 > [!NOTE]
