@@ -34,6 +34,7 @@ To migrate your SQL Server to Azure SQL Database, make sure you check the follow
 
 - Choose a [migration method](sql-server-to-database-overview.md#migration-options) and the corresponding tools that are required for the chosen method
 - Install [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
+- - Create [Azure Database Migration Service (DMS)](/azure/dms/quickstart-create-data-migration-service-portal)
 - Create a target [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
 
 
@@ -101,42 +102,41 @@ After you have completed tasks associated with the Pre-migration stage, you 
 
 Migrate your data using your chosen [migration method](sql-server-to-database-overview.md#migration-options). The popular options for migrating to Azure SQL Database are described below.
 
-#### Import a BACPAC file to migrate a database (requires downtime during the migration)
-To import from a BACPAC file to Azure SQL Database using the Azure portal , follow the steps below:
-1. Open the Azure portal and navigate to the desired SQL Server page. On the toolbar, select **Import database**.
-	 ![Database import1](./media/sql-server-to-database-overview/sql-server-import-database.png)
-2. Specify the storage account details that contains the BACPAC file.
-3. Specify the new database size and enter credentials for the new database.
-	 ![Database import2](./media/sql-server-to-database-overview/sql-server-import-database-settings.png)
-4. Click OK on the Import Database blade to start the import process.
-5. After the BACPAC file is imported (which can be verified under **Settings** -> **Import/Export history**), select **SQL databases** and verify the new database is **Online**.
+#### Migrate using Data Migration Assistant (DMA)
+To migrate a database from SQL Server to Azure SQL Database using DMA, follow the steps below:
+1. Download and install the DMA tool from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
+1. Create a new project and select **Migration** as the project type.
+1. Set the source server type to **SQL Server** and the target server type to **Azure SQL Database**, select the migration scope as **Schema and data** and click **Create**.
+1. In the migration project, specify the source server details: Server name, credentials to connect to the server and the source database to migrate.
+1. Subsequently in the target server details, specify the Azure SQL Database server name, credentials to connect to the server and the target database to migrate to.
+1. Then select the schema objects and deploy them to the target Azure SQL Database.
+1. Finally, select **Start data migration** and monitor the progress of migration.
+
 	> [!NOTE]
 	>- To maximize import speed by providing more and faster resources, scale your database to a higher service tier and compute size during the import process. You can then scale down after the import is successful.</br>
 	>- The imported database's compatibility level is based on the source database's compatibility level.
 
-For a detailed tutorial of this migration option, see [Import a BACPAC file to a database in Azure SQL Database](/azure/azure-sql/database/database-import). 
+For a detailed tutorial of this migration option, see [Migrate on-premises SQL Server or SQL Server on Azure VMs to Azure SQL Database using the Data Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb). 
 
-#### Migration with native backup and restore (Offline size of data operation)
-RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of the key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
+#### Migrate using Azure Database Migration Service (DMS)
+To migrate databases from SQL Server to Azure SQL Database using DMS, follow the steps below:
+1. Register the **Microsoft.DataMigration** resource provider in your subscription if you are performing this for the first time.
+1. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
+1. After creating your DMS instance, create a new migration project and specify the source server type as **SQL Server** and the target server type as **Azure SQL Database**. Also, choose the type of activity (offline data migration) in the migration project creation blade.
+1. Specify the source SQL Server details in the Migration source detail screen and the target Azure SQL Database details in the Migration target details screen.
+1. In the next steps, map the source and the target databases for migration and then select the tables you want to migrate.
+1. Subsequently, review the migration summary based on the details you provided and click on **Run migration**. You can then monitor the migration activity and check the progress of your database migration.
 
-The following diagram provides a high-level overview of the process:
-
-1. You can backup database(s) to Azure Blob storage service natively with SQL Server 2012 SP1 CU2 and above. Manage your backups to Azure Blob storage (also referred to as SQL Server Backup to URL) by following the instructions to [Backup with SSMS](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sqlallproducts-allversions#BackupTaskSSMS).
-	> [!NOTE]
-	> For SQL Server versions previous to SQL Server 2012 SP1 CU2, you can use the add-in SQL Server Backup to Microsoft Azure Tool to quickly and easily create backups to Microsoft Azure storage. For more information, see [download center](https://go.microsoft.com/fwlink/?LinkID=324399).
-
-To learn more about this migration option, see [Restore a database to Azure SQL Managed Instance with SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+For a detailed step-by-step tutorial of this migration option, see [Migrate SQL Server to an Azure SQL Database using DMS](/azure/dms/tutorial-sql-server-to-azure-sql). 
 
 ## Data sync and cutover
 
-During offline migrations, the data on the source and target is static so skip data sync for these scenarios. 
+When using migration options that continuously replicate / sync data changes from source to the target, the source data and schema can change and drift from the target. During data sync, ensure that all changes on the source are captured and applied to the target during the migration process. 
 
-However, when using online migration options (DMS, transactional replication, etc.), the source data and schema continues to change and drift from the target. During data sync, ensure that all changes on the source are captured and applied to the target during the online migration process. 
-
-After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure there is minimal interruption during cutover and that it does not affect your business continuity. 
+After you verify that data is same on both the source and the target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see [Performing migration cutover](/azure/dms/tutorial-sql-server-azure-sql-online#perform-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](/azure/dms/tutorial-sql-server-azure-sql-online#perform-migration-cutover).
 
 
 ## Post-migration
