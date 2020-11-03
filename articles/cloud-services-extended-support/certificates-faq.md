@@ -1,6 +1,6 @@
 ---
 title: Cloud Services (extended support) Certificates
-description: Frequently asked questions for Cloud Services (extended support)
+description: Frequently asked questions for Cloud Services (extended support) Certificates
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 
-# Certificates 
+# Cloud Services (extended support) Certificates 
 
 Frequently asked questions related to Cloud Services (extended support) certificates.
 

@@ -20,8 +20,9 @@
     href: available-sizes.md
   - name: Extensions Overview
     href: extensions.md
+  - name: ASM to ARM PowerShell Commands
+    href: asm-to-arm-powershell.md
   - name: Frequently Asked Questions
-    href: faq.md
     items: 
     - name: General FAQ
       href: general-faq.md
@@ -32,15 +33,13 @@
     - name: Certificates
       href: certificates-faq.md
     - name: Guest OS Changes
-      href: guest-os-updates-faq.md
+      href: guest-os-changes-faq.md
     - name: Networking
       href: networking-faq.md
     - name: Migration
       href: migration-faq.md
     - name: Troubleshooting
       href: troubleshooting-faq.md
-  - name: ASM to ARM PowerShell Commands
-    href: asm-to-arm-powershell.md
 - name: How To
   items:
   - name: Enable Remote Desktop

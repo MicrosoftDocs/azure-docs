@@ -1,6 +1,6 @@
 ---
 title: Cloud Services (extended support) Networking Components
-description: Frequently asked questions for Cloud Services (extended support)
+description: Frequently asked questions for Cloud Services (extended support) Networking Components
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Networking Components 
+# Cloud Services (extended support) Networking Components 
 
 Frequently asked questions related to Cloud Services (extended support) networking components.
 

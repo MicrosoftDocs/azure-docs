@@ -1,6 +1,6 @@
 ---
 title: Cloud Services (extended support) Guest OS Changes
-description: Frequently asked questions for Cloud Services (extended support)
+description: Frequently asked questions for Cloud Services (extended support) Guest OS Changes
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Guest OS Changes
+# Cloud Services (extended support) Guest OS Changes
 
 Frequently asked questions related to Cloud Services (extended support) Guest OS changes.
 

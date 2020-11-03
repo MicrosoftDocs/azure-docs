@@ -1,6 +1,6 @@
 ---
 title: Cloud Services (extended support) Deployment Files
-description: Frequently asked questions for Cloud Services (extended support)
+description: Frequently asked questions for Cloud Services (extended support) Deployment Files
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
