@@ -102,7 +102,7 @@ By default, data is written to multiple sinks in a nondeterministic order. The e
 > [!NOTE]
 > When utilizing [cached lookups](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), make sure that your sink ordering has the cached sinks set to 0.
 
-![Custom sink ordering](media/data-flow/cache2.png "Custom sink ordering")
+![Custom sink ordering](media/data-flow/cache-2.png "Custom sink ordering")
 
 ## Data preview in sink
 
