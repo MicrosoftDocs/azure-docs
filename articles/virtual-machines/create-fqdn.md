@@ -30,5 +30,5 @@ This article assumes that you have already created a VM. If needed, you can crea
 ## Next steps
 Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, and Docker.
 
-You can also read more about [using Resource Manager](../../azure-resource-manager/management/overview.md) for tips on building your Azure deployments.
+You can also read more about [using Resource Manager](../azure-resource-manager/management/overview.md) for tips on building your Azure deployments.
 
