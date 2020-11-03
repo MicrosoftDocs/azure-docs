@@ -78,54 +78,56 @@ You can create an integration account by using the Azure CLI commands in this se
 
 ### Create an integration account
 
-To add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension, use the [az extension add](/cli/azure/extension#az_extension_add) command:
+Use these commands to create an integration account.
 
-```azurecli
-az extension add –-name logic
-```
+1. To add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension, use the [az extension add](/cli/azure/extension#az_extension_add) command:
 
-To create a resource group or use an existing resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+   ```azurecli
+   az extension add –-name logic
+   ```
 
-```azurecli
-az group create --name myresourcegroup --location westus
-```
+1. To create a resource group or use an existing resource group, run the [az group create](/cli/azure/group#az_group_create) command:
 
-To list the integration accounts for a resource group, use the [az logic integration-account list](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list) command:
+   ```azurecli
+   az group create --name myresourcegroup --location westus
+   ```
 
-```azurecli
-az logic integration-account list --resource-group myresourcegroup
-```
+   To list the integration accounts for a resource group, use the [az logic integration-account list](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list) command:
 
-To create an integration account, run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command:
+   ```azurecli
+   az logic integration-account list --resource-group myresourcegroup
+   ```
 
-```azurecli
-az logic integration-account create --resource-group myresourcegroup \
-    --name integration_account_01 --location westus --sku name=Standard
-```
+1. To create an integration account, run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command:
 
-Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
+   ```azurecli
+   az logic integration-account create --resource-group myresourcegroup \
+       --name integration_account_01 --location westus --sku name=Standard
+   ```
 
-> [!TIP]
-> To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
 
-To view a specific integration account, use the [az logic integration-account show](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show) command:
+   > [!TIP]
+   > To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
 
-```azurecli
-az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
-```
+   To view a specific integration account, use the [az logic integration-account show](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show) command:
 
-You can change your SKU, or pricing tier, by using the [az logic integration-account update](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update) command:
+   ```azurecli
+   az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
+   ```
 
-```azurecli
-az logic integration-account update --sku name=Basic --name integration_account_01 \
-    --resource-group myresourcegroup
-```
+   You can change your SKU, or pricing tier, by using the [az logic integration-account update](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update) command:
 
-For more information about pricing, see these resources:
+   ```azurecli
+   az logic integration-account update --sku name=Basic --name integration_account_01 \
+       --resource-group myresourcegroup
+   ```
 
-* [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts)
-* [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
-* [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+   For more information about pricing, see these resources:
+
+   * [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts)
+   * [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
+   * [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 To import an integration account by using a JSON file, use the [az logic integration-account import](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import) command:
 
