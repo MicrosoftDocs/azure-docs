@@ -3,7 +3,7 @@ title: Network Security Options
 description: Review Azure CycleCloud network security options. See options for network interfaces, network security groups, and input endpoints in node arrays.
 author: adriankjohnson
 ms.date: 03/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Node Networking Configuration

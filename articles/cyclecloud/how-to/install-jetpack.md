@@ -2,7 +2,6 @@
 title: Install Jetpack
 description: How to Install Jetpack on a VM.
 author: mvrequa
-ms.technology: jetpack
 ms.date: 03/01/2020
 ms.author: mirequa
 ---
