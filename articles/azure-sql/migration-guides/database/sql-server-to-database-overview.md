@@ -122,7 +122,7 @@ Alternatively, you can use the [PowerShell utility tool](https://github.com/micr
 
 
 ### System databases
-For Azure SQL Database single databases and elastic pools, only [master Database](/sql/relational-databases/databases/master-database?view=sqlallproducts-allversions) and tempdb Database apply. For a discussion of tempdb in the context of Azure SQL Database, see [tempdb Database in Azure SQL Database](/sql/relational-databases/databases/tempdb-database?view=sqlallproducts-allversions#tempdb-database-in-sql-database).
+For Azure SQL Database single databases and elastic pools, only [master Database](/sql/relational-databases/databases/master-database) and tempdb Database apply. For a discussion of tempdb in the context of Azure SQL Database, see [tempdb Database in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
 ## Leverage advanced features 
 
