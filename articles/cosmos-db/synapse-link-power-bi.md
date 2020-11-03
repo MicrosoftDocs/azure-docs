@@ -38,7 +38,7 @@ From the Synapse workspace go the **Develop** tab, select the **+** icon, and se
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Add a SQL script to the Synapse Analytics workspace":::
 
-Every workspace comes with a serverless SQL endpoint. After creating a SQL script, from the tool bar on the top connect to **SQL on-demand**.
+Every workspace comes with a serverless SQL endpoint. After creating a SQL script, from the tool bar on the top connect to **Serverless SQL pool: Built-in**.
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Enable the SQL script to use the serverless SQL endpoint in the workspace":::
 
