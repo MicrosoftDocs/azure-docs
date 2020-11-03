@@ -1,3 +1,11 @@
+---
+author: hrasheed-msft
+ms.service: hdinsight
+ms.topic: include
+ms.date: 11/02/2020
+ms.author: hrasheed
+---
+
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
