@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Metrics Advisor REST API"
+title: Metrics Advisor client libraries REST API
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure Cognitive Services.
 services: cognitive-services
@@ -8,13 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/23/2020
+ms.date: 10/14/2020
 ms.author: mbullwin
+zone_pivot_groups: programming-languages-metrics-monitor
 ---
 
-# Quickstart: Use the REST APIs to customize your solution
+# Quickstart: Use the client libraries or REST APIs to customize your solution
 
-Get started with the the Metrics Advisor REST API. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
 
 Use Metrics Advisor to perform:
 
@@ -24,7 +25,36 @@ Use Metrics Advisor to perform:
 * Query the anomaly detection results
 * Diagnose anomalies
 
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/csharp.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/javascript.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/python.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
+
+::: zone-end
 
 ## Clean up resources
 
