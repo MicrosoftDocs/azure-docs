@@ -31,7 +31,7 @@ To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) installed. [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for free if you don't already have it.
-* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+* The fully qualified SQL Server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
 
 ## 1. Connect to your SQL pool
 
@@ -47,7 +47,7 @@ To use this tutorial, you need:
    * **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
    * **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
    * Click **Connect**.
-4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+4. To explore, expand your Azure SQL Server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
 
    ![Explore AdventureWorksDW](./media/sql-data-warehouse-query-ssms/explore-tables.png)
 
