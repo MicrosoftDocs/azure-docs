@@ -27,7 +27,7 @@ Basic vs Standard:
 
 ## Create a URL ping test
 
-In order to create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](#create-new-resource).
+In order to create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](create-new-resource.md).
 
 To create your first availability request, open the Availability pane and select Create Test & choose your test SKU.
 
