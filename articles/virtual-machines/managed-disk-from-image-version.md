@@ -91,7 +91,7 @@ New-AzDisk -Disk $diskConfig `
    -DiskName myManagedOSDisk
 ```
 
-If you want to export a data disk on the image version, add a LUN id to the disk configuration to specify the LUN location of the data disk to export. 
+If you want to export a data disk on the image version, add a LUN ID to the disk configuration to specify the LUN location of the data disk to export. 
 
 In this example, we export the data disk located at LUN 0 of the image version to create a managed disk named *myManagedDataDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 
