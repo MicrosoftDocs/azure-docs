@@ -38,7 +38,9 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 * In the **eastus** location.
 
 ```azurecli-interactive
-az group create --name CreateSQLEndpointTutorial-rg --location eastus
+az group create \
+    --name CreateSQLEndpointTutorial-rg \
+    --location eastus
 ```
 
 ## Create a virtual network and bastion host
@@ -66,7 +68,7 @@ Create a virtual network with [az network vnet create](/cli/azure/network/vnet#a
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Update the subnet to disable private endpoint network policies for the private endpoint with [[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Update the subnet to disable private endpoint network policies for the private endpoint with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -141,7 +143,8 @@ Create a VM with [az vm create](/cli/azure/vm#az_vm_create). When prompted, pr
     --image Win2019Datacenter \
     --public-ip-address "" \
     --vnet-name myVNet \
-    --subnet myBackendSubnet
+    --subnet myBackendSubnet \
+    --admin-username azureuser
 ```
 
 ## Create an Azure SQL server
@@ -151,6 +154,7 @@ In this section, you'll create a SQL server and database.
 Use [az sql server create](/cli/azure/sql/server#az_sql_server_create) to create a SQL server:
 
 * Replace **\<sql-server-name>** with your unique server name.
+* Replace **\<your-password> with your password.
 * In **CreateSQLEndpointTutorial-rg**.
 * In **eastus** region.
 
@@ -159,7 +163,8 @@ az sql server create \
     --name <sql-server-name> \
     --resource-group CreateSQLEndpointTutorial-rg \
     --location eastus \
-    --admin-user "sqladmin"
+    --admin-user sqladmin \
+    --admin-password <your-password>
 ```
 
 Use [az sql db create](/cli/azure/sql/db#az_sql_db_create) to create a database:
@@ -168,16 +173,12 @@ Use [az sql db create](/cli/azure/sql/db#az_sql_db_create) to create a database:
 * In **CreateSQLEndpointTutorial-rg**.
 * Replace **\<sql-server-name>** with your unique server name.
 
-
 ```azurecli-interactive
 az sql db create \
     --resource-group CreateSQLEndpointTutorial-rg  \
     --server <sql-server-name> \
     --name myDataBase \
-    --sample-name AdventureWorksLT \
-    --edition GeneralPurpose \
-    --family Gen4 \
-    --capacity 1
+    --sample-name AdventureWorksLT
 ```
 
 ## Create private endpoint
@@ -200,13 +201,12 @@ id=$(az sql server list \
     --query '[].[id]' \
     --output tsv)
 
-az network private-endpoint create \  
-    --name myPrivateEndpoint \  
-    --resource-group CreateSQLEndpointTutorial-rg \  
-    --vnet-name myVNet  \  
-    --subnet myBackendSubnet \  
-    --private-connection-resource-id $id \  
-    --group-ids sqlServer \  
+az network private-endpoint create \
+    --name myPrivateEndpoint \
+    --resource-group CreateSQLEndpointTutorial-rg \
+    --vnet-name myVNet --subnet myBackendSubnet \
+    --private-connection-resource-id $id \
+    --group-ids sqlServer \
     --connection-name myConnection  
 ```
 
@@ -230,12 +230,12 @@ az network private-dns zone create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name "privatelink.database.windows.net"
 
-az network private-dns link vnet create 
-   --resource-group CreateSQLEndpointTutorial-rg \
-   --zone-name  "privatelink.database.windows.net" \
-   --name MyDNSLink \
-   --virtual-network myVNet \
-   --registration-enabled false
+az network private-dns link vnet create \
+    --resource-group CreateSQLEndpointTutorial-rg \
+    --zone-name "privatelink.database.windows.net" \
+    --name MyDNSLink \
+    --virtual-network myVNet \
+    --registration-enabled false
 
 az network private-endpoint dns-zone-group create \
    --resource-group CreateSQLEndpointTutorial-rg \
