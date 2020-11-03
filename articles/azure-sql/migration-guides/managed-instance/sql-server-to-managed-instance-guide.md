@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: mokabiru
-ms.date: 08/25/2020
+ms.date: 11/03/2020
 ---
 # Migration guide: SQL Server to SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -33,8 +33,8 @@ For more migration information, see the [migration overview](sql-server-to-manag
 To migrate your SQL Server to Azure SQL Managed Instance, make sure to go through the following pre-requisites: 
 
 - Choose a [migration method](sql-server-to-managed-instance-overview.md#migration-options) and the corresponding tools that are required for the chosen method
-- Create a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary
 - Install [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
+- Create [Azure Database Migration Service (DMS)](/azure/dms/quickstart-create-data-migration-service-portal)
 - Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart)
 
 
@@ -65,10 +65,15 @@ To assess your environment using the Database Migration Assessment, follow these
 
 1. Open the [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595). 
 1. Select **File** and then choose **New assessment**. 
-1. Specify a project name, select SQL Server as the source server type, and then select Azure SQL Managed Instance as the target server type. 
+1. Specify a project name, select SQL Server as the source server type, and then select Azure SQL Managed Instance as the target server type. 
 1. Select the type(s) of assessment reports that you want to generate. For example, database compatibility and feature parity. 
     - The **feature parity** category provides a comprehensive set of recommendations, alternatives available in Azure, and mitigating steps to help you plan your migration project. 
     - The **compatibility issues** category identifies partially supported or unsupported feature compatibility issues that might block migration as well as recommendations to address them. 
+    > [!IMPORTANT]
+    >Based on the type of assessment, the permissions required on the source SQL Server can be different. 
+    > - For the **feature parity** advisor, the credentials provided to connect to source SQL Server database must be a member of the *sysadmin* server role.
+    > - For the compatibility issues advisor, the credentials provided must have at least `CONNECT SQL`, `VIEW SERVER STATE` and `VIEW ANY DEFINITION` permissions.
+    > - DMA will highlight the permissions required for the chosen advisor before running the assessment.
 1. Specify the source connection details for your SQL Server and connect to the source database.
 1. Select **Start assessment**. 
 1. When the process is complete, select and review the assessment reports for migration blocking and feature parity issues. The assessment report can also be exported to a file that can be shared with other teams or personnel in your organization. 
