@@ -82,7 +82,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-For information on naming conventions for Azure Queue Service, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+For information on naming conventions for Azure Queue Service, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 ## Retrieve a queue
 

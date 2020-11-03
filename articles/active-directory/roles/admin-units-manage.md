@@ -18,32 +18,38 @@ ms.collection: M365-identity-device-management
 
 # Manage administrative units in Azure Active Directory
 
-For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units (AUs).
+For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units.
 
 ## Get started
 
 1. To run queries from the following instructions via [Graph Explorer](https://aka.ms/ge), do the following:
 
-    a. In the Azure portal, go to Azure AD. In the applications list, select **Graph Explorer**, and then select **Grant admin consent to Graph Explorer**.
+    a. In the Azure portal, go to Azure AD. 
+    
+    b. In the applications list, select **Graph explorer**.
+    
+    c. On the **Permissions** pane, select **Grant admin consent for Graph explorer**.
 
-    ![Screenshot showing link to "Grant admin consent"](./media/admin-units-manage/select-graph-explorer.png)
+    ![Screenshot showing the "Grant admin consent for Graph explorer" link.](./media/admin-units-manage/select-graph-explorer.png)
 
 
 1. Use the preview version of Azure AD PowerShell.
 
 ## Add an administrative unit
 
+You can add an administrative unit by using either the Azure portal or PowerShell.
+
 ### Use the Azure portal
 
-1. In the Azure portal, go to Azure AD, and then, in the left pane, select **Administrative units**.
+1. In the Azure portal, go to Azure AD. Then, on the left pane, select **Administrative units**.
 
-    ![Screenshot of the Administrative unitslink in Azure AD](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot of the "Administrative units" link in Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. Select **Add** and then enter the name of the administrative unit. Optionally, add a description of the administrative unit.
+1. Select the **Add** button at the upper part of the pane, and then, in the **Name** box, enter the name of the administrative unit. Optionally, add a description of the administrative unit.
 
-    ![Screenshot of the Add button and the text box for entering the name of the administrative unit](./media/admin-units-manage/add-new-admin-unit.png)
+    ![Screenshot showing the Add button and the Name box for entering the name of the administrative unit.](./media/admin-units-manage/add-new-admin-unit.png)
 
-1. Select **Add** to finalize the administrative unit.
+1. Select the blue **Add** button to finalize the administrative unit.
 
 ### Use PowerShell
 
@@ -74,11 +80,11 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 
 ### Use the Azure portal
 
-1. In the Azure portal, go to **Azure AD** > **Administrative units**. 
+1. In the Azure portal, go to **Azure AD**, and then select **Administrative units**. 
 1. Select the administrative unit to be deleted, and then select **Delete**. 
 1. To confirm that you want to delete the administrative unit, select **Yes**. The administrative unit is deleted.
 
-![Screenshot of the administrative unit Delete button and confirmation window](./media/admin-units-manage/select-admin-unit-to-delete.png)
+![Screenshot of the administrative unit Delete button and confirmation window.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### Use PowerShell
 

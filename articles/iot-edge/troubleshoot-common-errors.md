@@ -4,7 +4,7 @@ description: Use this article to resolve common issues encountered when deployin
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -324,6 +324,24 @@ If an automatic deployment targets a device, it takes priority over manually set
 Only use one type of deployment mechanism per device, either an automatic deployment or individual device deployments. If you have multiple automatic deployments targeting a device, you can change priority or target descriptions to make sure the correct one applies to a given device. You can also update the device twin to no longer match the target description of the automatic deployment.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
+
+<!--:::moniker range="{range}"-->
+
+## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
+
+**Observed behavior:**
+
+The IoT Edge daemon is active with a valid configuration file, but it cannot start the edgeAgent module. The command `iotedge list` returns an empty list. The IoT Edge daemon logs report `Could not perform HTTP request`.
+
+**Root cause:**
+
+IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config.yaml file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
+
+**Resolution:**
+
+Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
+
+<!--:::moniker-end-->
 
 ## Next steps
 

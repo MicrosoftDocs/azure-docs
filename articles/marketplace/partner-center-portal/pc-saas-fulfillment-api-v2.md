@@ -46,7 +46,7 @@ On the landing page, the customer should be logged on to the new or existing Saa
 The publisher should implement SSO log in to provide the user experience required by Microsoft for this flow.  Make sure to use multi-tenant Azure AD application, allow both work and school accounts or personal Microsoft accounts, when configuring the SSO.  This requirement only applies to the landing page, and for users who are redirected to the SaaS service when already logged in with Microsoft credentials. It doesn't apply to all logins to the SaaS service.
 
 > [!NOTE]
->If SSO log in requires that an admin grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This is to comply with [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>If SSO log in requires that an admin grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This is to comply with [commercial marketplace certification policies](/legal/marketplace/certification-policies#10003-authentication-options).
 
 Once logged in, the customer should complete the SaaS configuration on the publisher side. Then the publisher must call [Activate Subscription API](#activate-a-subscription) to send a signal to Marketplace that the provisioning of the SaaS account is complete.
 This will start the customer's billing cycle. If the Activate Subscription API call is not successful, the customer is not billed for the purchase.
