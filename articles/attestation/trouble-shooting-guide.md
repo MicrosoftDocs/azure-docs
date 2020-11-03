@@ -313,5 +313,3 @@ If the versions are not matching with the minimum requirement, run Update-Module
 
 e.g. - Update-Module -Name Az.Attestation
 
-## Next steps
-- If your issue is not addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/)
