@@ -88,6 +88,8 @@
       href: powershell-cmdlets-scan-on-premises-data-sources.md
     - name: Use PowerShell to register and scan Power BI
       href: powershell-register-scan-power-bi.md
+    - name: Use PowerShell cmdlets to scan Azure data sources
+      href: powershell-cmdlets-scan-azure-data-sources.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
       displayName: Register and scan Azure Synapse Analytics
