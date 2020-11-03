@@ -8,7 +8,7 @@ ms.date: 09/22/2020
 ms.author: rosouz
 ---
 
-# What is Azure Cosmos DB Analytical Store (Preview)?
+# What is Azure Cosmos DB analytical store (Preview)?
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
