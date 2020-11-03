@@ -84,6 +84,8 @@
       displayName: Register and scan Azure SQL DB Managed Instance
     - name: Register and scan a Power BI tenant
       href: register-scan-power-bi-tenant.md
+    - name: Use PowerShell cmdlets to scan on-premises data sources
+      href: powershell-cmdlets-scan-on-premises-data-sources.md
     - name: Use PowerShell to register and scan Power BI
       href: powershell-register-scan-power-bi.md
     - name: Create a scan rule set
