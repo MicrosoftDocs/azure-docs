@@ -42,11 +42,11 @@ On the IoT Edge device:
 
 This tutorial uses a Linux virtual machine as an IoT Edge device. You also install an edge module to simulate the oil pump jack device.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Add an IoT Edge device
 
@@ -107,7 +107,7 @@ You IoT Edge device is now in the **OilPumps** group.
 
 ### Install the Edge runtime
 
-An Edge device requires the Edge runtime to be installed. In this tutorial, you install the Edge runtime in an Azure Linux VM to test the scenario. The following steps use the Azure Cloud Shell in install and configure the VM:
+An Edge device requires the Edge runtime to be installed. In this tutorial, you install the Edge runtime in an Azure Linux VM to test the scenario. The following steps use the Azure cloud shell in install and configure the VM:
 
 1. To create a Linux VM in Azure, run the following commands. You can use a location close to where you are:
 
