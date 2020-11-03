@@ -30,10 +30,10 @@ npm install @azure/service-bus@next
 The following sample code shows you how to send a message to a queue.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `send.ts` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
+2. Create a file called `send.qs` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
 
     ```typescript
-    import { ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
+    const { ServiceBusClient } = require("@azure/service-bus");
     
     // connection string to your Service Bus namespace
     const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
@@ -41,42 +41,73 @@ The following sample code shows you how to send a message to a queue.
     // name of the queue
     const queueName = "<QUEUE NAME>"
     
-    export async function main() {
-        
-        // create Service Bus client using the Service Bus namespace
-        const sbClient = new ServiceBusClient(connectionString);
+    const messages = [
+    	{ body: "Albert Einstein" },
+    	{ body: "Werner Heisenberg" },
+    	{ body: "Marie Curie" },
+    	{ body: "Steven Hawking" },
+    	{ body: "Isaac Newton" },
+    	{ body: "Niels Bohr" },
+    	{ body: "Michael Faraday" },
+    	{ body: "Galileo Galilei" },
+    	{ body: "Johannes Kepler" },
+    	{ body: "Nikolaus Kopernikus" }
+     ];
     
-        // create a sender for the queue to send messages to the queue
-        const sender = sbClient.createSender(queueName);
+     async function main() {
+    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	const sbClient = new ServiceBusClient(connectionString);
+     
+    	// createSender() can also be used to create a sender for a topic.
+    	const sender = sbClient.createSender(queueName);
+     
+    	try {
+    		// Tries to send all messages in a single batch.
+    		// Will fail if the messages cannot fit in a batch.
+    		// await sender.sendMessages(messages);
+     
+    		// create a batch object
+    		let batch = await sender.createBatch(); 
+    		for (let i = 0; i < messages.length; i++) {
+    			// for each message in the array			
     
-        // prepare a message to send to the queue
-        const message: ServiceBusMessage = {
-            body: `Einstein`,
-            label: "Scientist"
-        };
+    			// try to add the message to the batch
+    			if (!batch.tryAdd(messages[i])) {			
+    				// if it fails to add the message to the current batch
+    				// send the current batch as it is full
+    				await sender.sendMessages(batch);
     
-        // send the message to the queue
-        console.log(`Sending message: ${message.body} - ${message.label}`);
-        await sender.sendMessages(message);
+    				// then, create a new batch 
+    				batch = await sender.createBatch();
+     
+    				// now, add the message failed to be added to the previous batch to this batch
+    				if (!batch.tryAdd(messages[i])) {
+    					// if it still can't be added to the batch, the message is probably too big to fit in a batch
+    					throw new Error("Message too big to fit in a batch");
+    				}
+    			}
+    		}
+    
+    		// Send the last created batch of messages to the queue
+    		await sender.sendMessages(batch);
 
-        // dispose sender    
-        await sender.close();	
-   
-        // dispose Service Bus client
-        await sbClient.close();    
+            console.log(`Sent a batch of messages to the queue: ${queueName}`);
+
+    		// Close the sender
+    		await sender.close();
+    	} finally {
+    		await sbClient.close();
+    	}
     }
     
+    // call the main function
     main().catch((err) => {
-      console.log("Error occurred: ", err);
-    });
+    	console.log("Error occurred: ", err);
+    	process.exit(1);
+     });
     ```
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue. 
-1. Compile the TypeScript file to generate a JavaScript file. 
-
-    ```console
-    tsc send.ts
-    ```
 1. Then run the command in a command prompt to execute this file.
 
     ```console
@@ -85,7 +116,7 @@ The following sample code shows you how to send a message to a queue.
 1. You should see the following output.
 
     ```console
-    Sending message: Einstein - Scientist
+    Sent a batch of messages to the queue: myqueue
     ```
 
 ## Receive messages from a queue
@@ -94,53 +125,54 @@ The following sample code shows you how to send a message to a queue.
 2. Create a file called `receive.ts` and paste the following code into it.
 
     ```typescript
-    import { delay, ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
-    
+    const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
+
     // connection string to your Service Bus namespace
     const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
 
     // name of the queue
     const queueName = "<QUEUE NAME>"
-        
-    export async function main() {
-        // create a Service Bus client using the connection string to the Service Bus namespace
-        const sbClient = new ServiceBusClient(connectionString);  
-   
-        // create a receiver for your queue
-        const receiver = sbClient.createReceiver(queueName);
+
+    async function main() {
+    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	const sbClient = new ServiceBusClient(connectionString);
+     
+    	// createSender() can also be used to create a sender for a topic.
+    	const receiver = sbClient.createReceiver(queueName);
     
-        // create a handler to handle the received message
-        const myMessageHandler = async (messageReceived) => {
-            console.log(`Received message: ${messageReceived.body}`);
-            await messageReceived.complete();
-        };
-        
-        // create a handler to handle any error messages
-        const myErrorHandler = async (error) => {
-            console.log(error);
-        };
+    	// function to handle messages
+    	const myMessageHandler = async (messageReceived) => {
+    		console.log(`Received message: ${messageReceived.body}`);
+    		await messageReceived.complete();
+    	};
     
-        // subscribe for messages using the handlers
-        receiver.subscribe({
-            processMessage: myMessageHandler,
-            processError: myErrorHandler
-        });
+    	// function to handle any errors
+    	const myErrorHandler = async (error) => {
+    		console.log(error);
+    	};
     
-        // Waiting long enough before closing the sender to send messages
-        await delay(5000);
+    	// subscribe and specify the message and error handlers
+    	receiver.subscribe({
+    		processMessage: myMessageHandler,
+    		processError: myErrorHandler
+    	});
     
-        await receiver.close();	
-        await sbClient.close();    
+    	// Waiting long enough before closing the sender to send messages
+    	await delay(5000);
+    
+    	await receiver.close();	
+    	await sbClient.close();
     }
+    
+    // call the main function
+    main().catch((err) => {
+    	console.log("Error occurred: ", err);
+    	process.exit(1);
+     });
     ```
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue. 
-1. Compile the TypeScript file to generate a JavaScript file. 
-
-    ```console
-    tsc receive.ts
-    ```
-1. Then run the command in a command prompt to execute this file.
+1. Then, run the command in a command prompt to execute this file.
 
     ```console
     node receive.js
@@ -148,7 +180,16 @@ The following sample code shows you how to send a message to a queue.
 1. You should see the following output.
 
     ```console
-    Received message: Einstein
+    Received message: Albert Einstein
+    Received message: Werner Heisenberg
+    Received message: Marie Curie
+    Received message: Steven Hawking
+    Received message: Isaac Newton
+    Received message: Niels Bohr
+    Received message: Michael Faraday
+    Received message: Galileo Galilei
+    Received message: Johannes Kepler
+    Received message: Nikolaus Kopernikus
     ```
 
 ## Next steps

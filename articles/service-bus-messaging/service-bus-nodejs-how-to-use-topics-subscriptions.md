@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 ---
 
 # Quickstart: Service Bus topics and subscriptions with Node.js and the preview azure/service-bus package
-In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package in a JavaScript program to send messages to and receive messages from a Service Bus queue.
+In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package in a JavaScript program to send messages to a Service Bus topic and receive messages from a Service Bus subscription to that topic.
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -28,58 +28,87 @@ npm install @azure/service-bus
 ```
 
 ## Send messages to a topic
-The following sample code shows you how to send a batch of messages to a queue. See code comments for details. 
+The following sample code shows you how to send a batch of messages to a Service Bus topic. See code comments for details. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `sendtotopic.ts` and paste the below code into it. This code will send a message to your topic.
+2. Create a file called `sendtotopic.js` and paste the below code into it. This code will send a message to your topic.
 
     ```javascript
-    import { ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
+    const { ServiceBusClient } = require("@azure/service-bus");
     
     // connection string to the Service Bus namespace
     const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
     
     // name of the topic
     const topicName = "<TOPIC NAME>"
+
+    const messages = [
+    	{ body: "Albert Einstein" },
+    	{ body: "Werner Heisenberg" },
+    	{ body: "Marie Curie" },
+    	{ body: "Steven Hawking" },
+    	{ body: "Isaac Newton" },
+    	{ body: "Niels Bohr" },
+    	{ body: "Michael Faraday" },
+    	{ body: "Galileo Galilei" },
+    	{ body: "Johannes Kepler" },
+    	{ body: "Nikolaus Kopernikus" }
+     ];
     
-    export async function main() {
-    	// create a Service Bus client using the connection string to the namespace
+     async function main() {
+    	// create a Service Bus client using the connection string to the Service Bus namespace
     	const sbClient = new ServiceBusClient(connectionString);
+     
+    	// createSender() can also be used to create a sender for a topic.
+    	const sender = sbClient.createSender(topicName);
+     
+    	try {
+    		// Tries to send all messages in a single batch.
+    		// Will fail if the messages cannot fit in a batch.
+    		// await sender.sendMessages(messages);
+     
+    		// create a batch object
+    		let batch = await sender.createBatch(); 
+    		for (let i = 0; i < messages.length; i++) {
+    			// for each message in the array			
     
-    	// createSender() to create a sender for a topic.
-    	const sender = sbClient.createSender(topicName)
+    			// try to add the message to the batch
+    			if (!batch.tryAdd(messages[i])) {			
+    				// if it fails to add the message to the current batch
+    				// send the current batch as it is full
+    				await sender.sendMessages(batch);
     
-    	// prepare a message with a label (Scientist) and body (Einstein)
-    	const message: ServiceBusMessage = {
-    		body: `Einstein`,
-    		label: "Scientist"
-    	};
+    				// then, create a new batch 
+    				batch = await sender.createBatch();
+     
+    				// now, add the message failed to be added to the previous batch to this batch
+    				if (!batch.tryAdd(messages[i])) {
+    					// if it still can't be added to the batch, the message is probably too big to fit in a batch
+    					throw new Error("Message too big to fit in a batch");
+    				}
+    			}
+    		}
     
-    	// print the message to the console
-    	console.log(`Sending message: ${message.body} - ${message.label}`);
-    
-    	// send the message to the topic
-    	await sender.sendMessages(message);
-    
-    	// close the sender
-    	await sender.close();	
-    
-    	// close the Service Bus client
-    	await sbClient.close();
+    		// Send the last created batch of messages to the topic
+    		await sender.sendMessages(batch);
+
+            console.log(`Sent a batch of messages to the topic: ${topicName}`);
+
+    		// Close the sender
+    		await sender.close();
+    	} finally {
+    		await sbClient.close();
+    	}
     }
     
     // call the main function
     main().catch((err) => {
-      console.log("Error occurred: ", err);
-    });
+    	console.log("Error occurred: ", err);
+    	process.exit(1);
+     });    
     ```
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
 1. Replace `<TOPIC NAME>` with the name of the topic. 
-1. Compile the TypeScript file to generate a JavaScript file. 
-
-    ```console
-    tsc sendtotopic.ts
-    ```
 1. Then run the command in a command prompt to execute this file.
 
     ```console
@@ -88,7 +117,7 @@ The following sample code shows you how to send a batch of messages to a queue. 
 1. You should see the following output.
 
     ```console
-    Sending message: Einstein - Scientist
+    Sent a batch of messages to the topic: mytopic
     ```
 
 ## Receive messages from a subscription
@@ -96,7 +125,7 @@ The following sample code shows you how to send a batch of messages to a queue. 
 2. Create a file called **receivefromsubscription.ts** and paste the following code into it. See code comments for details. 
 
     ```typescript
-    import { delay, ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
+    const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
     
     // connection string to the Service Bus namespace
     const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
@@ -106,53 +135,46 @@ The following sample code shows you how to send a batch of messages to a queue. 
     
     // name of the subscription to the topic
     const subName = "<SUBSCRIPTION NAME>"
+    async function main() {
+    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	const sbClient = new ServiceBusClient(connectionString);
+     
+    	// createSender() can also be used to create a sender for a topic.
+    	const receiver = sbClient.createReceiver(queueName);
     
-    export async function main() {
-        // create a ServiceBusClient using the connection string to the namespace
-        const sbClient = new ServiceBusClient(connectionString);
+    	// function to handle messages
+    	const myMessageHandler = async (messageReceived) => {
+    		console.log(`Received message: ${messageReceived.body}`);
+    		await messageReceived.complete();
+    	};
     
-        // create a receiver for the subscription to the topic
-        const receiver = sbClient.createReceiver(topicName, subName);
+    	// function to handle any errors
+    	const myErrorHandler = async (error) => {
+    		console.log(error);
+    	};
     
-        // create a handler to handle messages received from the subscription
-        const myMessageHandler = async (messageReceived) => {
-            console.log(`Received message: ${messageReceived.body}`);
-            await messageReceived.complete();
-        };
+    	// subscribe and specify the message and error handlers
+    	receiver.subscribe({
+    		processMessage: myMessageHandler,
+    		processError: myErrorHandler
+    	});
     
-        // create a handler to handle any error messages while receiving messages from the subscription
-        const myErrorHandler = async (error) => {
-            console.log(error);
-        };
+    	// Waiting long enough before closing the sender to send messages
+    	await delay(5000);
     
-        // subscribe for messages specifying the message handler and error handler
-        receiver.subscribe({
-            processMessage: myMessageHandler,
-            processError: myErrorHandler
-        });
-    
-        // waiting long enough to receive the message
-        await delay(5000);
-    
-        // close the receiver
-        await receiver.close();	
-    
-        // close the Service Bus client
-        await sbClient.close();
+    	await receiver.close();	
+    	await sbClient.close();
     }
     
+    // call the main function
     main().catch((err) => {
-      console.log("Error occurred: ", err);
-    });
+    	console.log("Error occurred: ", err);
+    	process.exit(1);
+     });    
     ```
 3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to the namespace. 
 1. Replace `<TOPIC NAME>` with the name of the topic. 
 1. Replace `<SUBSCRIPTION NAME>` with the name of the subscription to the topic. 
-1. Compile the TypeScript file to generate a JavaScript file. 
-
-    ```console
-    tsc receivefromsubscription.ts
-    ```
 1. Then run the command in a command prompt to execute this file.
 
     ```console
@@ -161,7 +183,16 @@ The following sample code shows you how to send a batch of messages to a queue. 
 1. You should see the following output.
 
     ```console
-    Received message: Einstein
+    Received message: Albert Einstein
+    Received message: Werner Heisenberg
+    Received message: Marie Curie
+    Received message: Steven Hawking
+    Received message: Isaac Newton
+    Received message: Niels Bohr
+    Received message: Michael Faraday
+    Received message: Galileo Galilei
+    Received message: Johannes Kepler
+    Received message: Nikolaus Kopernikus
     ```
 
 ## Next steps
