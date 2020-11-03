@@ -70,7 +70,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
 
 ### Where to install the agents 
 
@@ -86,9 +86,15 @@ Use the basic processes to install agents at [Connect Windows computers to Azure
 
 Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Connectivity Monitor capabilities. Only TCP is available as the monitoring protocol for ExpressRoute Monitor. Make sure that the firewall allows communication between the Log Analytics agents used for monitoring on the protocol you choose. 
 
-* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+For Linux machines, portNumbers to be used needs to be changed manually. 
+* Navigate to path: /var/opt/microsoft/omsagent/npm_state . 
+* Open file: npmdregistry
+* Change the value for Port Number ```“PortNumber:<port of your choice>”```
 
-    The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
+ Do note that port numbers being used should be same across all the agents used in a workspace. 
+
+The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
 
     >[!NOTE]
     > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
