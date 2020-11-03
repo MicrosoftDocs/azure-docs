@@ -7,35 +7,37 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/03/2020
 ---
 
 # Partner solutions
 
-Get expert help building an end-to-end solution that include Azure Cognitive Search as a key component. The following partners have expertise in leveraging the full-text search and AI enrichment capabilities of Azure Cognitive Search in solutions that address a range of business and technical scenarios.
+Get expert help building an end-to-end solution that includes Azure Cognitive Search as a key component. The following partners have expertise in leveraging the full-text search and AI enrichment capabilities of Azure Cognitive Search in solutions that address a range of business and technical scenarios.
 
-## General
+The following partners have built proprietary machine learning modules that can be attached to an enrichment pipeline. Leveraging their technology and enrichment expertise can help you maximize the latent value of your existing content more quickly.
 
-| Partner | Description and web site |
-|---------|--------------------------|
-| BIG LOGO | [**PriceWaterhouseCoopers (PwC)**](https://www.pwc.com/us/en/services/managed-services.html) is a multinational professional services network of firms headquartered in London, United Kingdom, operating as partnerships under the PwC brand. |
+## Agolo
 
-## Content research and insights
+[**Agolo**](https://www.agolo.com/) specializes in summarizing text in arbitrary files so that you can ascertain file contents without having to open and read them individually. Agolo's summarization technology is used by large news aggregators. 
 
-| Partner | Description and web site |
-|---------|--------------------------|
-| BIG LOGO | [**Anzys**](https://www.anzyz.com/) uses proprietary skills and Cognitive Search's AI enrichment pipeline to analyze content for information and structure.  |
-| BIG LOGO | [**Agolo**](https://www.agolo.com/) specializes in summarizing the contents of arbitrary files so that you can get an idea of what files contain without having to open and read them individually. |
-| BIG LOGO | [**OrangeNXT**](https://orangenxt.com/solutions/digitalnxt-search/) specializes in solutions for IoT scenarios. If your solution includes machine-generated data, OrangeNXT can help you use knowledge mining to identify, extract, and shape information from that data. |
+## Anzys
 
-## Contract analysis
+[**Anzys**](https://www.anzyz.com/) uses proprietary skills and Cognitive Search's AI enrichment pipeline to analyze content for information and structure. 
 
-| Partner | Description and web site |
-|---------|--------------------------|
-| BIG LOGO | [**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements. GDPR risk analysis.|
+## icertis
 
-## Catalog search
+[**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements. GDPR risk analysis.
 
-| Partner | Description and web site |
-|---------|--------------------------|
-| BIG LOGO | TBD | 
+## OrangeNXT
+
+ [**OrangeNXT's**](https://orangenxt.com/solutions/digitalnxt-search/) digital **NXT Search** provides you with the tools to ingest unstructured data and gain key insights that enable your customer support teams to respond to customer issues.
+
+An OrangeNXT solution enables rapid development of a customer support knowledge base. By leveraging this solution, you can get relevant information from existing content in front of customer support agents so that customer questions can be answered quickly. 
+
+## PriceWaterhouseCoopers (PwC)
+
+[**PriceWaterhouseCoopers (PwC)**](https://www.pwc.com/us/en/services/managed-services.html) is a global network of firms delivering world-class assurance, tax, and consulting services for your business. The PwC regulatory risk classification skill scores each clause in every document to provide you with a risk profile that allows you easily find the most relevant documents.
+
+## Next steps
+
+Review case studies on the Azure web site for an in-depth look at specific solutions.
