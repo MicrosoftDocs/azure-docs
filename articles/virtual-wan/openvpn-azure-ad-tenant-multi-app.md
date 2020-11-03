@@ -55,7 +55,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
 
-    ![new site](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
+    ![new site 2](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
 5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
 
@@ -101,19 +101,19 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 2. Browse to the profile xml file and select it. With the file selected, select **Open**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![import 2](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
 3. Specify the name of the profile and select **Save**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![import 3](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
 4. Select **Connect** to connect to the VPN.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![import 4](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
 5. Once connected, the icon will turn green and say **Connected**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![import 5](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="delete"></a>To delete a client profile
 
@@ -123,7 +123,7 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 2. Select **Remove** to delete.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![delete 2](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="diagnose"></a>To diagnose connection issues
 
@@ -133,15 +133,15 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 2. On the **Connection Properties** page, select **Run Diagnosis**.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![diagnose 2](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Sign in with your credentials.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![diagnose 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. View the diagnosis results.
 
-    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![diagnose 4](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
 ## <a name="viewwan"></a>10. View your virtual WAN
 
