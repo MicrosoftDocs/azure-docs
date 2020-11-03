@@ -15,7 +15,7 @@ By default, the catalog provides a large set of default classifications
 that represent typical personal data types that you might have in your
 data estate.
 
-:::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="Classification" border="true":::
+:::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
 ## Steps to create a custom classification
 
@@ -27,7 +27,7 @@ To create a custom classification:
 
 2. Select **Classifications** under Metadata management from the left navigation
 
-    :::image type="content" source="media/create-a-custom-classification-and-classifictaion-rule/select-classifications.png" alt-text="Select classifications" border="true":::
+    :::image type="content" source="media/create-a-custom-classification-and-classifictaion-rule/select-classification.png" alt-text="Select classifications" border="true":::
 
 3. Select **New**
 
@@ -75,7 +75,7 @@ name.
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-classification.png" alt-text="Select classification" border="true":::
 
-# Custom classification rules
+## Custom classification rules
 
 The catalog service provides a set of default classification rules,
 which are used by the scanner to automatically detect certain data
