@@ -193,6 +193,8 @@
       href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
     - name: CLI package
       href: https://github.com/Azure/azure-iot-cli-extension/releases
+  - name: Digital Twins Azure PowerShell module
+    href: https://www.powershellgallery.com/packages/Az.DigitalTwins/
   - name: DTDL
     items: 
     - name: DTDL v2 spec

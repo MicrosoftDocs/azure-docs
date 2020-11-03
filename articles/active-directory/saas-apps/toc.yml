@@ -1376,6 +1376,8 @@
         href: riskware-tutorial.md
       - name: Riva
         href: riva-tutorial.md
+      - name: Roadmunk
+        href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
       - name: RStudio Connect SAML Authentication
@@ -1698,6 +1700,8 @@
         href: trello-tutorial.md
       - name: Trend Micro Web Security(TMWS)
         href: trend-micro-tutorial.md
+      - name: TrendMiner
+        href: trendminer-tutorial.md
       - name: TripActions
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
