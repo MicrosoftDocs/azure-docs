@@ -14,7 +14,7 @@ ms.date: 11/03/2020
 
 Get expert help building an end-to-end solution that includes Azure Cognitive Search as a key component. The following partners have expertise in leveraging the full-text search and AI enrichment capabilities of Azure Cognitive Search in solutions that address a range of business and technical scenarios.
 
-The following partners have built proprietary machine learning modules that can be attached to an enrichment pipeline. Leveraging their technology and enrichment expertise can help you maximize the latent value of your existing content more quickly.
+The following partners have built proprietary machine learning modules that can be attached to an enrichment pipeline. Leveraging their technology and know-how can help you maximize the latent value of your existing content more efficiently.
 
 ## Agolo
 
@@ -24,9 +24,9 @@ The following partners have built proprietary machine learning modules that can 
 
 [**Anzys**](https://www.anzyz.com/) uses proprietary skills and Cognitive Search's AI enrichment pipeline to analyze content for information and structure. 
 
-## icertis
+<!-- ## icertis
 
-[**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements. GDPR risk analysis.
+[**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements. GDPR risk analysis. -->
 
 ## OrangeNXT
 
