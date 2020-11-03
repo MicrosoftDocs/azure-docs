@@ -153,6 +153,8 @@
           displayname: links
         - name: Provision and secure a linked service with Managed Vnet
           href: ./data-integration/linked-service.md
+        - name: Connect to Synapse workspace from restricted network
+          href: security/how-to-connect-to-workspace-from-restricted-network.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -541,7 +543,7 @@
       href: ./synapse-link/how-to-query-analytical-store-spark.md
     - name: Copy data from Synapse Link into a dedicated SQL pool using Apache Spark
       href: ./synapse-link/how-to-copy-to-sql-pool.md  
-    - name: Query Azure Cosmos DB analytical store with severless SQL pool
+    - name: Query Azure Cosmos DB analytical store with serverless SQL pool
       href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Pipeline and data flow
   items:
