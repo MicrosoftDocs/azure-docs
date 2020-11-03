@@ -17,7 +17,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This article requires version 2.0.31 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+- This article requires version 2.0.31 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a scale set
 
@@ -134,7 +134,7 @@ az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 
 When VM instances are encrypted, the status code reports *EncryptionState/encrypted*, as shown in the following example output:
 
-```bash
+```console
 [
   {
     "disks": [
