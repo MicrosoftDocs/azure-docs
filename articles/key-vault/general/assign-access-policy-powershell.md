@@ -27,7 +27,7 @@ For more information on creating groups in Azure Active Directory using Azure Po
 
 1. To run commands locally, install [Azure PowerShell](/powershell/azure/) if you haven't already.
 
-    To run commands directly in the cloud, use the [Azure Cloud Shell](/azure/cloud-shell/overview).
+    To run commands directly in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 1. Local PowerShell only:
 
