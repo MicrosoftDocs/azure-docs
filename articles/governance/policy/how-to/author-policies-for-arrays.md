@@ -298,7 +298,7 @@ When using the `field()` function on the example resource content, the results a
 
 ## Count expressions
 
-[Count](../concepts/definition-structure.md#count) expressions count how many array members meet a condition and compare the count to a target value. They are more intuitive and versatile tool for evaluating arrays compared to field conditions. The syntax is:
+[Count](../concepts/definition-structure.md#count) expressions count how many array members meet a condition and compare the count to a target value. `Count` is more intuitive and versatile for evaluating arrays compared to `field` conditions. The syntax is:
 
 ```json
 {
@@ -381,8 +381,8 @@ Here's a more complex expression:
 
 | Iteration | Selected values | `where` Evaluation result |
 |:---|:---|:---|
-1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false` |
-2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true` |
+| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true` |
 
 And thus the `count` returns `1`.
 
