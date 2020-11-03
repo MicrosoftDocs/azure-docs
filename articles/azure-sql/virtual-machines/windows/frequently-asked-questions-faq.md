@@ -170,9 +170,9 @@ This article provides answers to some of the most common questions about running
 
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) as well. 
 
-1. **Can I use a named instance of SQL Server with the IaaS extension**?
+1. **Can I use a named instance of SQL Server with the IaaS extension?**
    
-   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install. 
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install.  
 
 1. **Can I remove SQL Server and the associated license billing from a SQL Server VM?**
 
