@@ -56,7 +56,7 @@ In order to add/delete policy signers or to configure policies, an Azure AD user
 
   These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor"         (specific permissions for Azure Attestation only).
 
-Customers can choose to use the default provider for attestation, or create their own providers with custom policies. "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required to send attestation requests to custom providers. The default providers are accessible by any Azure AD user.
+Customers can choose to use the default provider for attestation, or create their own providers with custom policies. To send attestation requests to custom attestation providers, "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required for the user. The default providers are accessible by any Azure AD user.
 
 To verify the roles in PowerShell, run below:
 - Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
