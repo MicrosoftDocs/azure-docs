@@ -4,7 +4,6 @@ description: Learn about SQL system function DateTimeAdd in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
