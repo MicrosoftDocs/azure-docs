@@ -95,12 +95,14 @@ Configuration parameters are provided as JSON.
 }
 ```
 
-**Use a custom trained model in a batch transcription:**
+**Use a custom trained model in a batch transcription.** The example is using three files:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
