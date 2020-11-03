@@ -129,13 +129,13 @@ If the status is "Failure", there will be an additional "error" field with a "me
 
 ## List Conversions
 
-To get a list of conversions run from a given account use the interface:
+To get a list of conversions run from a given account, use the interface:
 
 | Endpoint | Method |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions | GET |
 
-This will return a json document that contains a list of conversions and their details up to a maximum of 50 conversions at a time. In the where there are more conversions the response will contain a **nextLink** property which can be queried to 
+Returns a json document that contains a list of conversions and their details. This query returns a maximum of 50 conversions at a time. In the situation where there are more conversions to retrieve, the response will contain a **nextLink** property that can be queried to retrieve the next set of results.
 
 ## Next steps
 
