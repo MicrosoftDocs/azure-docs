@@ -63,7 +63,9 @@ To create an ordered final transcript, use the timestamps generated per utteranc
 
 ### Configuration
 
-Configuration parameters are provided as JSON (one or more individual files). If you have more, than one file to transcribe, we recommend sending multiple files in one request. The example below is using three files:
+Configuration parameters are provided as JSON.
+
+**Transcribing one or more individual files.** If you have more than one file to transcribe, we recommend sending multiple files in one request. The example below is using three files:
 
 ```json
 {
@@ -80,7 +82,7 @@ Configuration parameters are provided as JSON (one or more individual files). If
 }
 ```
 
-Configuration parameters are provided as JSON (processing a whole storage container):
+**Processing a whole storage container:**
 
 ```json
 {
@@ -93,7 +95,7 @@ Configuration parameters are provided as JSON (processing a whole storage contai
 }
 ```
 
-The following JSON specifies a custom trained model to use in a batch transcription:
+**Use a custom trained model in a batch transcription:**
 
 ```json
 {
