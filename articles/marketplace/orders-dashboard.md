@@ -70,7 +70,7 @@ SaaS offers can use one of two pricing models with each plan: either flat rate (
 
 For more details on seat, site and metered based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md).
 
-### Orders by Offers and SKUs
+### Orders by offers and SKUs
 
 The Orders by Offers and SKU chart shows the measures and trends of all Offers:
 

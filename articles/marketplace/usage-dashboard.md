@@ -67,7 +67,7 @@ You can select any offer and a maximum of three SKUs of that offer to view the m
 
 :::image type="content" source="./media/usage-dashboard/normalized-usage-offers-sku.png" alt-text="Illustrates the normalized usage offers and sku data on the Usage dashboard.":::
 
-### Orders by Offers and SKUs
+### Orders by offers and SKUs
 
 The **Orders by Offers and SKU** chart shows the measures and trends of all offers. Note the following:
 
@@ -82,7 +82,7 @@ You can select any offer and a maximum of three SKUs of that offer to view the m
 
 :::image type="content" source="./media/usage-dashboard/orders-by-offers-and-skus-2.png" alt-text="Illustrates the Orders by offers and SKUs chart on the Usage dashboard. The Offer trend, SKUs trend, and Seats trend are shown.":::
 
-#### Normalized usage by other dimensions: VM Size, Sales channels, and Offer type
+#### Normalized usage by other dimensions: VM size, Sales channels, and Offer type
 
 There are three tabs for the dimensions: VM size, Sales channels, and Offer type. You can see the usage metrics and month-over-month trend against each of these dimensions.
 
@@ -162,7 +162,7 @@ The widgets and export report for VM Raw usage are similar to VM Normalized usag
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
 - Raw usage hours are defined as the amount of time VMs have been running in terms of usage units.
 
-### Metered Billing Usage
+### Metered billing usage
 
 The **Metered Usage** tab shows usage information for offer types where usage is measured by the per meter dimension. SaaS offer type overage is presented currently. The tab presents graphical representations of overage trends for SaaS metered billing usage:
 
@@ -181,7 +181,7 @@ If you have multiple offers that use custom meters, the metered billing usage re
 > [!TIP]
 > You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by clicking on the “thumbs up” or “thumbs down” icon.
 
-## Next Steps
+## Next steps
 
 - For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](./summary-dashboard.md).

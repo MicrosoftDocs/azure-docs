@@ -61,7 +61,7 @@ This number represents the count of **Call to Action** button clicks completed o
 
 :::image type="content" source="./media/insights-dashboard/call-to-actions-trend.png" alt-text="Illustrates the Call to action chart on the Marketplace Insights dashboard.":::
 
-### Page visits and Call to actions against Offers, Referral domains and Campaign IDs
+### Page visits and Call to actions against offers, Referral domains, and Campaign IDs
 
 **Referral Domains**: Selecting a specific referral domain shows the monthly trend of page visits and calls to action on the chart to the right.
 

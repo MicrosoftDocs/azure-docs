@@ -71,7 +71,7 @@ In this section, you will find trend and count of all customers, including new, 
 
 :::image type="content" source="./media/customer-dashboard/customers-trend.png" alt-text="Illustrates the Customers trend widget on the Customers page.":::
 
-### Customers by Orders/Usage
+### Customers by orders/usage
 
 The **Customers by orders/usage** chart has three tabs: Orders, Normalized usage, and Raw usage. Select the **Orders** tab to show order details.
 

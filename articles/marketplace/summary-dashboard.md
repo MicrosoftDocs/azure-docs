@@ -79,7 +79,7 @@ Marketplace Insights show the number of users who have visited your offers’ pa
 
 You can also go to the Marketplace Insights report by selecting the **Marketplace insights dashboard** link in the lower-left corner of the widget.
 
-### Geographical Spread
+### Geographical spread
 
 For the selected computation period, the heatmap displays the total number of customers, orders, and normalized usage hours against geography dimension.
 
