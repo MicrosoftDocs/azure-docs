@@ -82,7 +82,7 @@ In this section, you explore the metrics available for each part of the diagram.
   
 #### Output sinks (Live output)
 
-![Job diagram local output sinks](./media/debug-locally-using-job-diagram/live-output.png)
+![Job diagram that shows the local output sinks.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Metric|Description|
 |-|-|
@@ -114,7 +114,7 @@ Other job level metrics shows up in the pop up console. Press **Ctrl+C** in the 
 
 * Power BI and Azure Data Lake Storage Gen1 output sinks are not supported due to authentication model limitations.
 
-* Only cloud input options have [time policies](stream-analytics-out-of-order-and-late-events.md) support, while local input options do not.
+* Only cloud input options have [time policies](./stream-analytics-time-handling.md) support, while local input options do not.
 
 ## Next steps
 

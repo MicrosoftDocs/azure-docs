@@ -47,6 +47,8 @@
     href: basic-concepts.md
   - name: Security
     items:
+    - name: Key Vault Authentication Fundamentals
+      href: authentication-fundamentals.md
     - name: Azure Key Vault security
       href: overview-security.md
     - name: Best Practices to use Key Vault - Azure Key Vault
@@ -64,6 +66,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: Azure Key Vault logging
+    href: logging.md
   - name: Notifications
     items:
     - name: Monitor with Azure Event Grid
@@ -103,12 +107,18 @@
       href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
+  - name: Enable soft delete and purge protection
+    href: key-vault-recovery.md
+  - name: Enable logging
+    href: howto-logging.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide
       href: developers-guide.md
+    - name: Use Azure Resource Manager to deploy Key Vault
+      href: vault-create-template.md
     - name: Save Web App secrets
-      href: vs-secure-secret-appsettings.md
+      href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
     - name: Service-to-service authentication with .NET
       href: service-to-service-authentication.md
     - name: Use Key Vault Connected Service
@@ -119,8 +129,6 @@
       href: alert.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
-    - name: Azure Key Vault logging
-      href: logging.md
     - name: Receive notifications via Azure Event Grid and Logic Apps
       href: event-grid-logicapps.md
     - name: Receive notifications via Azure Event Grid and Azure Automation
@@ -133,12 +141,6 @@
       href: private-link-service.md
     - name: Access Key Vault behind a firewall - Azure Key Vault
       href: access-behind-firewall.md
-  - name: Soft-delete
-    items:
-    - name: Use soft-delete with CLI
-      href: soft-delete-cli.md
-    - name: Use soft-delete with PowerShell
-      href: soft-delete-powershell.md
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
@@ -147,6 +149,10 @@
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: move-region.md
+  - name: Networking
+    items:
+    - name: Diagnose Private Links Configuration Issues
+      href: private-link-diagnostics.md
 
 - name: Reference
   items:
@@ -156,6 +162,8 @@
     href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
+  - name: Common error codes - Azure Key Vault
+    href: common-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
   - name: Key vault versions 

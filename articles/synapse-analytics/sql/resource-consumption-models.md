@@ -4,6 +4,7 @@ description: Learn about Synapse SQL consumption models in Azure Synapse Analyti
 services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
@@ -24,7 +25,7 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs) to o
 
 ### Data Warehouse Units
 
-A Synapse SQL pool represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
+A Synapse SQL pool represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system. In turn, this change adjusts the performance and cost of your system.
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
@@ -68,7 +69,7 @@ Each performance tier uses a slightly different unit of measure for their data w
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
-As you increase data warehouse units, you are linearly increasing computing resources. Gen2 provides the best query performance and highest scale. Gen2 systems also make the most use of the cache.
+As you increase data warehouse units, you're linearly increasing computing resources. Gen2 provides the best query performance and highest scale. Gen2 systems also make the most use of the cache.
 
 #### Capacity limits
 
@@ -76,7 +77,7 @@ Each SQL server (for example, myserver.database.windows.net) has a [Database Tra
 
 ### Assess the number of data warehouse units you need
 
-The ideal number of data warehouse units depends very much on your workload and the amount of data you have loaded into the system.
+The ideal number of data warehouse units depends very much on your workload and the amount of data you've loaded into the system.
 
 Steps for finding the best DWU for your workload:
 
@@ -119,11 +120,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 To change DWUs:
 
-1. Open the [Azure portal](https://portal.azure.com), open your database, and click **Scale**.
+1. Open the [Azure portal](https://portal.azure.com), open your database, and select **Scale**.
 
 2. Under **Scale**, move the slider left or right to change the DWU setting.
 
-3. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
+3. Select **Save**. A confirmation message appears. Select **yes** to confirm or **no** to cancel.
 
 #### PowerShell
 
@@ -171,11 +172,11 @@ For more REST API examples, see [REST APIs for Azure Synapse Analytics](../sql-d
 
 ### Check status of DWU changes
 
-DWU changes may take several minutes to complete. If you are scaling automatically, consider implementing logic to ensure that certain operations have been completed before proceeding with another action.
+DWU changes may take several minutes to complete. If you're scaling automatically, consider implementing logic to ensure that certain operations have been completed before proceeding with another action.
 
-Checking the database state through various endpoints allows you to correctly implement automation. The portal provides notification upon completion of an operation and the databases current state but does not allow for programmatic checking of state.
+Checking the database state through various endpoints allows you to correctly implement automation. The portal provides notification upon completion of an operation and the databases current state but doesn't allow for programmatic checking of state.
 
-You cannot check the database state for scale-out operations with the Azure portal.
+You can't check the database state for scale-out operations with the Azure portal.
 
 To check the status of DWU changes:
 

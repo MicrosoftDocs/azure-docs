@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
@@ -32,7 +32,7 @@ The following steps show how to configure Azure SQL Database, SQL Managed Instan
 > [!NOTE]
 > The below example uses Azure SQL Database, but you should select the appropriate product that you want to configure conditional access.
 
-1. Sign in to the Azure portal, select **Azure Active Directory**, and then select **Conditional Access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1. Sign in to the Azure portal, select **Azure Active Directory**, and then select **Conditional Access**. For more information, see [Azure Active Directory Conditional Access technical reference](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
    ![Conditional Access blade](./media/conditional-access-configure/conditional-access-blade.png)
 
 2. In the **Conditional Access-Policies** blade, click **New policy**, provide a name, and then click **Configure rules**.  

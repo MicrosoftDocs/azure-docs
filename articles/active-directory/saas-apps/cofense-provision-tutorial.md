@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Cofense for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cofense.
+title: 'Tutorial: Configure Cofense Recipient Sync for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -18,66 +18,66 @@ ms.date: 09/11/2020
 ms.author: Zhchia
 ---
 
-# Tutorial: Configure Cofense for automatic user provisioning
+# Tutorial: Configure Cofense Recipient Sync for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Cofense and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Cofense](https://cofense.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Cofense Recipient Sync and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Cofense Recipient Sync](https://cofense.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
 > [!div class="checklist"]
-> * Create users in Cofense
-> * Remove users in Cofense when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and Cofense
+> * Create users in Cofense Recipient Sync
+> * Remove users in Cofense Recipient Sync when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and Cofense Recipient Sync
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A standard operator account in Cofense PhishMe.
 
 ## Step 1. Plan your provisioning deployment
-1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine what data to [map between Azure AD and Cofense](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Azure AD and Cofense Recipient Sync](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure Cofense to support provisioning with Azure AD
+## Step 2. Configure Cofense Recipient Sync to support provisioning with Azure AD
 
-1. Login to Cofense PhishMe. Navigate to Recipients > Recipient Sync. 
-2. Accept the terms and conditions and then click Get Started.
+1. Login to Cofense PhishMe. Navigate to **Recipients > Recipient Sync**. 
+2. Accept the terms and conditions and then click **Get Started**.
 
 	![Recepient Sync tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copy the values from the URL and Token fields.
+3. Copy the values from the **URL** and **Token** fields.
 
 	![Recepient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
-## Step 3. Add Cofense from the Azure AD application gallery
+## Step 3. Add Cofense Recipient Sync from the Azure AD application gallery
 
-Add Cofense from the Azure AD application gallery to start managing provisioning to Cofense. If you have previously setup Cofense for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Add Cofense Recipient Sync from the Azure AD application gallery to start managing provisioning to Cofense Recipient Sync. If you have previously setup Cofense Recipient Sync for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Cofense, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
+* When assigning users and groups to Cofense Recipient Sync, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## Step 5. Configure automatic user provisioning to Cofense 
+## Step 5. Configure automatic user provisioning to Cofense Recipient Sync 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Cofense based on user in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Cofense Recipient Sync based on user in Azure AD.
 
-### To configure automatic user provisioning for Cofense in Azure AD:
+### To configure automatic user provisioning for Cofense Recipient Sync in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cofense**.
+2. In the applications list, select **Cofense Recipient Sync**.
 
 	![The Cofense link in the Applications list](common/all-applications.png)
 
@@ -89,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM 2.0 base url and SCIM Authentication Token** value retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Cofense. If the connection fails, ensure your Cofense account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM 2.0 base url and SCIM Authentication Token** value retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Cofense Recipient Sync. If the connection fails, ensure your Cofense Recipient Sync account has Admin permissions and try again.
 
 	![Tenant URL Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -99,9 +99,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cofense**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cofense Recipient Sync**.
 
-9. Review the user attributes that are synchronized from Azure AD to Cofense in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cofense for update operations.  Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Cofense Recipient Sync in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cofense Recipient Sync for update operations.  Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -142,13 +142,13 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Cofense, change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Azure AD provisioning service for Cofense Recipient Sync, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Cofense by choosing the desired values in **Scope** in the **Settings** section.
+12. Define the users and/or groups that you would like to provision to Cofense Recipient Sync by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -161,15 +161,15 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

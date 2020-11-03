@@ -86,7 +86,7 @@ This article explains the requirements and guidelines for listing new offers and
 ## Next steps
 
 * Learn about the various offer types in Azure Marketplace:
-  * [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Determine your publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [SaaS apps](./plan-saas-offer.md)
+  * [Containers](./marketplace-containers.md)
+  * [Consulting services](./consulting-services.md)
+* [Determine your publishing option](./determine-your-listing-type.md)

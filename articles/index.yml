@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/10/2020
+  ms.date: 09/25/2020
   featureFlags:
   - clicktale
 
@@ -34,13 +34,13 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
+      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Anomaly Detector (Preview)
+    - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
       azureCategories:
@@ -165,6 +165,14 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
     # Card
+    - title: Azure Communication Services (Preview)
+      summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
+      imageSrc: ./media/index/communication-services.svg
+      azureCategories:
+        - web
+        - mobile
+      url: communication-services/overview.md
+    # Card
     - title: Computer Vision
       summary: Distill actionable information from images
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -243,6 +251,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: genomics/index.yml
+    # Card
+    - title: Metrics Advisor (Preview)
+      summary: An AI service that monitors metrics and diagnoses issues
+      imageSrc: ./media/index/metrics-advisor.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/metrics-advisor/index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
@@ -510,7 +525,7 @@ productDirectory:
         - web
       url: spring-cloud/index.yml
     # Card
-    - title: Azure VMware Solution (Preview)
+    - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
       imageSrc: ./media/index/azure-vmware.svg
       azureCategories:
@@ -701,7 +716,7 @@ productDirectory:
         - databases
       url: azure-sql/managed-instance/index.yml
     # Card
-    - title: Azure SQL Edge (Preview)
+    - title: Azure SQL Edge
       summary: Small-footprint, edge-optimized data engine with built-in AI
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
       azureCategories:
@@ -1027,14 +1042,6 @@ productDirectory:
         - iot
       url: https://docs.microsoft.com/windows/iot-core/
     # Card
-    - title: Security Center for IoT
-      summary: Unify security management and enable threat protection across your Azure IoT solution
-      imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-      azureCategories:
-        - iot
-        - security
-      url: asc-for-iot/index.yml
-    # Card
     - title: Automation
       summary: Simplify cloud management with process automation
       imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg
@@ -1100,8 +1107,8 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
-    - title: Azure Resource Mover
-      summary: Move resources across Azure regions.
+    - title: Azure Resource Mover (Preview)
+      summary: Simplify how you move multiple resources between Azure regions
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
         - management-and-governance
@@ -1269,6 +1276,21 @@ productDirectory:
       azureCategories:
         - networking
       url: bastion/index.yml
+    # Card
+    - title: Azure Defender
+      summary: Protect hybrid cloud workloads
+      imageSrc: ./media/index/defender.svg
+      azureCategories:
+        - security
+      url: security-center/azure-defender.md
+    # Card
+    - title: Azure Defender for IoT (Preview)
+      summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
+      imageSrc: ./media/index/defender-iot.svg
+      azureCategories:
+        - security
+        - iot
+      url: security-center/defender-for-iot-introduction.md
     # Card
     - title: Azure DDoS Protection
       summary: Protect your applications from Distributed Denial of Service (DDoS) attacks

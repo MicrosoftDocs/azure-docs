@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/09/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -12,12 +12,10 @@ ms.custom: fasttrack-edit, references_regions
 
 ---
 
-# Using Private Endpoints for Azure Web App (Preview)
+# Using Private Endpoints for Azure Web App
 
-> [!Note]
-> With the preview refresh, we released the data exfiltration protection feature.
->
-> The preview is available in all public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
+> [!IMPORTANT]
+> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **Isolated**, **PremiumV2**, **PremiumV3**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -90,14 +88,14 @@ For example, the name resolution will be:
 
 |Name |Type |Value |Remark |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this entry in Azure Public DNS to point the app service to the privatelink and this is managed by us|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your Private Endpoint IP address|
 
-After this DNS configuration you can reach your Web App privately with the default name mywebappname.azurewebsites.net.
+After this DNS configuration you can reach your Web App privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
 
 
 If you need to use a custom DNS name, you must add the custom name in your Web App. 
-During the preview, the custom name must be validated like any custom name, using public DNS resolution. 
+The custom name must be validated like any custom name, using public DNS resolution. 
 For more information, see [custom DNS validation][dnsvalidation].
 
 For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records in your Azure DNS private zone or your custom DNS server. 
@@ -117,7 +115,11 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
 
-During the preview, only the production slot is exposed behind the Private Endpoint, other slots must be reach by Public Endpoint.
+You can connect up to 100 Private Endpoint to a particular Web App.
+
+Slots cannot use Private Endpoint.
+
+Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 

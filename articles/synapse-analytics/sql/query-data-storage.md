@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 # Query storage files using SQL on-demand (preview) resources within Synapse SQL
 
@@ -225,7 +225,7 @@ The tools you need to issue queries:
 
 ### Demo setup
 
-Your first step is to **create a database** where you will execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
+Your first step is to **create a database** where you'll execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
 
 This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
 

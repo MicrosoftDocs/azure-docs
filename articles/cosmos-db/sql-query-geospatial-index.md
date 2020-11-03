@@ -9,6 +9,7 @@ ms.author: tisande
 
 ---
 # Index geospatial data with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 We designed Azure Cosmos DB's database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data represented in the GeoJSON standard.
 
@@ -72,15 +73,15 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
 **Container indexing policy JSON with geography spatial indexing**
 
 ```json
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-        "includedPaths": [
+{
+    "automatic": true,
+    "indexingMode": "Consistent",
+    "includedPaths": [
         {
             "path": "/*"
         }
-        ],
-        "spatialIndexes": [
+    ],
+    "spatialIndexes": [
         {
             "path": "/*",
             "types": [
@@ -91,8 +92,8 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
             ]
         }
     ],
-       "excludedPaths":[]
-    }
+    "excludedPaths": []
+}
 ```
 
 > [!NOTE]
@@ -118,7 +119,7 @@ Create a bounding box that contains all (or most) of your data. Only operations 
 Here is an example indexing policy that indexes **geometry** data with **geospatialConfig** set to `geometry`:
 
 ```json
- {
+{
     "indexingMode": "consistent",
     "automatic": true,
     "includedPaths": [

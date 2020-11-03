@@ -43,7 +43,7 @@ If your project has designated branches for testing, QA, and staging, then each 
 
 Continuous deployment should never be enabled for your production slot. Instead, your production branch (often master) should be deployed onto a non-production slot. When you are ready to release the base branch, swap it into the production slot. Swapping into production—instead of deploying to production—prevents downtime and allows you to roll back the changes by swapping again. 
 
-![Slot usage visual](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagram that shows the flow between the Dev, Staging, and Master branches and the slots they are deployed to.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### Continuously deploy containers
 

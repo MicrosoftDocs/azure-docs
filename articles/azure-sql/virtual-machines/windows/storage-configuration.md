@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
@@ -41,15 +41,15 @@ The following sections describe how to configure storage for new SQL Server virt
 
 When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** on the **SQL Server Settings** tab to open the Performance Optimized Storage Configuration page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on your workload. 
 
-![SQL Server VM Storage Configuration During Provisioning](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Screenshot that highlights the SQL Server settings tab and the Change configuration option.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *ReadOnly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](performance-guidelines-best-practices.md). 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](../../../virtual-machines/disks-enable-ultra-ssd.md).  
 
-Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) when used with [Premium Disks](/azure/virtual-machines/windows/disks-types#premium-ssd). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching. 
+Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching. 
 
 Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*. 
 
@@ -100,7 +100,7 @@ For existing SQL Server VMs, you can modify some storage settings in the Azure p
 
 To modify the storage settings, select **Configure** under **Settings**. 
 
-![Configure Storage for Existing SQL Server VM](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Screenshot that highlights the Configure option and the Storage Usage section.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 You can modify the disk settings for the drives that were configured during the SQL Server VM creation process. Selecting **Extend drive** opens the drive modification page, allowing you to change the disk type, as well as add additional disks. 
 

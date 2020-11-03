@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create a store locator application using Azure Maps | Microsoft Azure Maps'
-description: Learn how to create store locator web applications. Use the Azure Maps Web SDK to create a webpage, query the search service, and display results on a map.
+description: Tutorial on how to create store locator web applications. Use the Azure Maps Web SDK to create a webpage, query the search service, and display results on a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ---
 
 # Tutorial: Create a store locator by using Azure Maps
 
 This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Offering a store locator to customers is a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
-    
+
 > [!div class="checklist"]
 > * Create a new webpage by using the Azure Map Control API.
 > * Load custom data from a file and display it on a map.
@@ -380,7 +380,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Add code to *index.js*. The following code initializes the map. We added an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) to wait until the page is finished loading. Then, we wired up events to monitor the loading of the map, and give functionality to the search button and the My location button.
+1. Add code to *index.js*. The following code initializes the map. We added an [event listener](/javascript/api/azure-maps-control/atlas.map#events) to wait until the page is finished loading. Then, we wired up events to monitor the loading of the map, and give functionality to the search button and the My location button.
 
    When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is initiated. Pass in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
   
@@ -919,34 +919,21 @@ If you resize the browser window to less than 700 pixels wide or open the applic
 
 ![Screenshot of the small-screen version of the store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+In this tutorial, you learned how to create a basic store locator by using Azure Maps. The store locator you create in this tutorial might have all the functionality you need. You can add features to your store locator or use more advance features for a more custom user experience: 
+
+ * Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
+ * Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+ * Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+ * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+ * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
+ * Deploy your store locator as an [Azure App Service Web App](../app-service/quickstart-html.md). 
+ * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) and [Query spatial data for the nearest neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
+
+You can [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [View live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) and learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid](zoom-levels-and-tile-grid.md). You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.
+
 ## Next steps
-
-In this tutorial, you learn how to create a basic store locator by using Azure Maps. The store locator you create in this tutorial might have all the functionality you need. You can add features to your store locator or use more advance features for a more custom user experience: 
-
-> [!div class="checklist"]
-> * Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
-> * Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
-> * Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
-
-> [!div class="nextstepaction"]
-> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [View live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-To learn more about the coverage and capabilities of Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Zoom levels and tile grid](zoom-levels-and-tile-grid.md)
 
 To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
 > [How to use the map control](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

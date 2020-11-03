@@ -4,9 +4,10 @@ description: Troubleshooting guide for Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Troubleshoot common Azure Spring Cloud issues
@@ -15,6 +16,7 @@ This article provides instructions for troubleshooting Azure Spring Cloud develo
 
 ## Availability, performance, and application issues
 
+::: zone pivot="programming-language-java"
 ### My application can't start (for example, the endpoint can't be connected, or it returns a 502 after a few retries)
 
 Export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
@@ -64,7 +66,8 @@ When you're debugging application crashes, start by checking the running status 
 
 
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+::: zone-end
 
 ### My application experiences high CPU usage or high memory usage
 
@@ -86,8 +89,9 @@ For more information, see [Metrics for Azure Spring Cloud](spring-cloud-concept-
 
 If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This will help you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Query the logs by using the [Kusto query language](https://docs.microsoft.com/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
+::: zone pivot="programming-language-java"
 ### Checklist for deploying your Spring application to Azure Spring Cloud
 
 Before you onboard your application, ensure that it meets the following criteria:
@@ -99,6 +103,7 @@ Before you onboard your application, ensure that it meets the following criteria
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded _Config Server_ and _Spring Service Registry_ services from the application package.
 * If any Azure resources are to be bound via _Service Binding_, make sure the target resources are up and running.
+::: zone-end
 
 ## Configuration and management
 
@@ -106,22 +111,33 @@ Before you onboard your application, ensure that it meets the following criteria
 
 When you set up an Azure Spring Cloud service instance by using the Azure portal, Azure Spring Cloud performs the validation for you.
 
-But if you try to set up the Azure Spring Cloud service instance by using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/), verify that:
+But if you try to set up the Azure Spring Cloud service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that:
 
 * The subscription is active.
 * The location is [supported](spring-cloud-faq.md) by Azure Spring Cloud.
 * The resource group for the instance is already created.
 * The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 The name of the Azure Spring Cloud service instance will be used for requesting a subdomain name under `azureapps.io`, so the setup will fail if the name conflicts with an existing one. You might find more details in the activity logs.
 
+::: zone pivot="programming-language-java"
+### I can't deploy a .NET Core app
+
+You can't upload a *.zip* file for a .NET Core Steeltoe app by using the Azure portal or the Resource Manager template.
+
+When you deploy your application package by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
+
+Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process will stop responding or you will receive an error message.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 ### I can't deploy a JAR package
 
 You can't upload Java Archive file (JAR)/source package by using the Azure portal or the Resource Manager template.
 
-When you deploy your application package by using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
+When you deploy your application package by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
 
 If the polling is interrupted, you can still use the following command to fetch the deployment logs:
 
@@ -135,7 +151,7 @@ Ensure that your application is packaged in the correct [executable JAR format](
 
 You can't upload JAR/source package by using the Azure portal or the Resource Manager template.
 
-When you deploy your application package by using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
+When you deploy your application package by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
 
 If the polling is interrupted, you can still use the following command to fetch the build and deployment logs:
 
@@ -153,7 +169,7 @@ If you're migrating an existing Spring Cloud-based solution to Azure, ensure tha
 
 You can also check the _Service Registry_ client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Query the logs by using the [Kusto query language](https://docs.microsoft.com/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### I want to inspect my application's environment variables
 
@@ -213,4 +229,9 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/learn/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+::: zone-end
+
+## Next steps
+
+* [How to self-diagnose and solve problems in Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)

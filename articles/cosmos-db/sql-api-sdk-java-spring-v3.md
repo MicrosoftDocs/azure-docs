@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 ---
 
 # Spring Data Azure Cosmos DB v3 for Core (SQL) API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -27,7 +29,7 @@ ms.custom: devx-track-java
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -45,9 +47,9 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 > Spring Data Azure Cosmos DB supports only the SQL API.
 >
 > See these articles for information about Spring Data on other Azure Cosmos DB APIs:
-> * [Spring Data for Apache Cassandra with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Spring Data MongoDB with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Spring Data for Apache Cassandra with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## Start here
@@ -91,17 +93,6 @@ cosmos.queryMetricsEnabled=true
 
 ### Document operations
 
-Create:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
-
-Delete:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
-
-# [Query](#tab/queries)
-
-Query:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
-
 ---
 
 ## Resources
@@ -110,58 +101,7 @@ Query:
 
 * **Tutorial**: [Spring Data Azure Cosmos DB tutorial on GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
-## Release history
-
-### 3.0.0-beta.2 (September 17, 2020)
-
-#### New features
-
-* Updated artifact id to `azure-spring-data-cosmos`.
-* Updated azure-cosmos dependency to `4.5.0`.
-* `Query Annotation` support for native queries.
-* Support for Java 11.
-* Added support for Nested Partition Key by exposing `partitionKeyPath` field in `@Container` annotation.
-* Added support for `limit` query type allowing `top` and `first` to be used when defining repository APIs.
-
-#### Key bug fixes
-
-* Fixed nested partition key bug when used with `@GeneratedValue` annotation.
-
-### 3.0.0-beta.1 (August 17, 2020)
-
-#### New features
-
-* Updates group ID to `com.azure`.
-* Updates artifact ID to `azure-spring-data-2-3-cosmos`.
-* Updates azure-cosmos SDK dependency to `4.3.2-beta.2`.
-* Adds support for auditing entities: automatic management of `createdBy`, `createdDate`, `lastModifiedBy`, and `lastModifiedDate` annotated fields.
-* Adds `@GeneratedValue` annotation support for automatic ID generation for ID fields of `String` type.
-* Adds multi-database configuration support for single Azure Cosmos DB accounts with multiple databases and multiple Azure Cosmos DB accounts with multiple databases.
-* Adds support for `@Version` annotation on any string field.
-* Updates sync API return types to `Iterable` types instead of `List`.
-* Exposes `CosmosClientBuilder` from the Azure Cosmos DB SDK as Spring bean to the `@Configuration` class.
-* Updates `CosmosConfig` to contain query metrics and response diagnostics processor implementation.
-* Adds support for returning the `Optional` data type for single result queries.
-
-#### Renames
-
-* `CosmosDbFactory` to `CosmosFactory`.
-* `CosmosDBConfig` to `CosmosConfig`.
-* `CosmosDBAccessException` to `CosmosAccessException`.
-* `Document` annotation to `Container` annotation.
-* `DocumentIndexingPolicy` annotation to `CosmosIndexingPolicy` annotation.
-* `DocumentQuery` to `CosmosQuery`.
-* application.properties flag `populateQueryMetrics` to `queryMetricsEnabled`.
-
-#### Key bug fixes
-
-* Scheduling of diagnostics logging task to `Parallel` threads to avoid blocking Netty I/O threads.
-* Fixes optimistic locking on delete operation.
-* Fixes issue with escaping queries for `IN` clause.
-* Fixes issue by allowing `long` data type for `@Id`.
-* Fixes issue by allowing `boolean`, `long`, `int`, and `double` as data types for the `@PartitionKey` annotation.
-* Fixes `IgnoreCase` and `AllIgnoreCase` keywords for ignore case queries.
-* Removes default request unit value of 4,000 when containers are created automatically.
+[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## FAQ
 

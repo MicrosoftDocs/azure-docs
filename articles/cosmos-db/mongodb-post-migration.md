@@ -1,16 +1,17 @@
 ---
 title: Post-migration optimization steps with Azure Cosmos DB's API for MongoDB 
 description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for Mongo DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: lbosq
+ms.author: jasonh
 
 ---
 
 # Post-migration optimization steps when using Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 After you migrate the data stored in MongoDB database to Azure Cosmos DB's API for MongoDB, you can connect to Azure Cosmos DB and manage the data. This guide provides the steps you should consider after the migration. See the [Migrate MongoDB to Azure Cosmos DB's API for MongoDB tutorial](../dms/tutorial-mongodb-cosmos-db.md) for the migration steps.
 
@@ -31,7 +32,7 @@ In this guide, you will learn how to:
 2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
 3. Open the **Connection String** blade. The right pane contains all the information that you need to successfully connect to your account.
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
-:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Connection-String":::
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
 For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) page.
 
@@ -49,12 +50,12 @@ To globally distribute your data, please see [Distribute data globally on Azure 
 
 ## Set consistency level
 
-Azure Cosmos DB offers 5 well-defined [consistency levels](consistency-levels.md). To read about the mapping between MongoDB and Azure Cosmos DB consistency levels, read [Consistency levels and Azure Cosmos DB APIs](consistency-levels-across-apis.md). The default consistency level is the session consistency level. Changing the consistency level is optional and you can optimize it for your app. To change consistency level using Azure portal:
+Azure Cosmos DB offers 5 well-defined [consistency levels](consistency-levels.md). To read about the mapping between MongoDB and Azure Cosmos DB consistency levels, read [Consistency levels and Azure Cosmos DB APIs](./consistency-levels.md). The default consistency level is the session consistency level. Changing the consistency level is optional and you can optimize it for your app. To change consistency level using Azure portal:
 
 1. Go to the **Default Consistency** blade under Settings.
 2. Select your [consistency level](consistency-levels.md)
 
-Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md).
+Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](./consistency-levels.md).
 
 ## Next steps
 

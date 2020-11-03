@@ -29,9 +29,10 @@ Publisher verification provides the following benefits:
 
 - **Improved branding**- a “verified” badge appears on the Azure AD [consent prompt](application-consent-experience.md), Enterprise Apps page, and additional UX surfaces used by end users and admins. 
 
-- **Smoother enterprise adoption**- admins can configure [user consent policies](../manage-apps/configure-user-consent.md), with publisher verification status as one of the primary policy criteria. 
+- **Smoother enterprise adoption**- admins can configure [user consent policies](../manage-apps/configure-user-consent.md), with publisher verification status as one of the primary policy criteria.
 
-- **Improved risk evaluation**- Microsoft’s detections for “risky” consent requests will include publisher verification as a signal. 
+> [!NOTE]
+> Starting in November 2020, end-users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers. This will apply to apps that are registered after November 8th 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
 
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
@@ -44,7 +45,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
 -  The user performing verification must be authorized to make changes to both the app registration in Azure AD and the MPN account in Partner Center. 
 
-    -  In Azure AD this user must be a member of one of the following [roles](../users-groups-roles/directory-assign-admin-roles.md): Application Admin, Cloud Application Admin, or Global Admin. 
+    -  In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin. 
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
@@ -65,7 +66,7 @@ Below are some frequently asked questions regarding the publisher verification p
 
   Developers who are also integrating with Microsoft 365 can receive additional benefits from these programs. For more information, refer to [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) and [Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
 
-- **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate program to the [Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md). Developers who fit the above criteria should complete the publisher verification process independently of participation in that program. 
+- **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate program to the [Azure Active Directory application gallery](v2-howto-app-gallery-listing.md). Developers who fit the above criteria should complete the publisher verification process independently of participation in that program. 
 
 ## Next steps
 * Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md).
