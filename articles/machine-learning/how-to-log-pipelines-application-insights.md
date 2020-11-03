@@ -160,4 +160,4 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 
 Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) based on query results.
 
-You can also add results from queries to an [Azure Dashboard](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-analytics-query) for additional insights.
+You can also add results from queries to an [Azure Dashboard](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) for additional insights.

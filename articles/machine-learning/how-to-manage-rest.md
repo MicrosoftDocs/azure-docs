@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree)
 - An [Azure Machine Learning Workspace](./how-to-manage-workspace.md)
-- Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#set-up-service-principal-authentication) to create a service principal in your workspace
+- Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#service-principal-authentication) to create a service principal in your workspace
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
 ## Retrieve a service principal authentication token
@@ -43,7 +43,7 @@ Administrative REST requests are authenticated with an OAuth2 implicit flow. Thi
 - Your client ID (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
-You should have these values from the response to the creation of your service principal. Getting these values is discussed in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
+You should have these values from the response to the creation of your service principal. Getting these values is discussed in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
 
 To retrieve a token:
 
