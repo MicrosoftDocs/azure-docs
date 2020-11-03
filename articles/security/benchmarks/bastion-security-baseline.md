@@ -78,7 +78,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines directly through the Azure Portal
 
-Azure Bastion does not not allow for its management endpoints to be secure to a private network with the Private Link service.
+Azure Bastion does not not allow for its management endpoints to be secured to a private network with the Private Link service.
 
 Azure Bastion does not not provide the capability to configure Service Endpoints.
 
@@ -1035,9 +1035,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ## Endpoint Security
 
