@@ -6,7 +6,7 @@ author: djpmsft
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ---
@@ -36,7 +36,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS Gen2 into a dedicated SQL pool.
 
-1. Go to the **Orchestrate** tab. Select on the plus icon 
+1. Go to the **Integrate** tab. Select on the plus icon 
 next to the pipelines header and select **Pipeline**.
 1. Under **Move and Transform** in the activities pane, drag **Copy data** onto the pipeline canvas.
 1. Select on the copy activity and go to the **Source** tab. Select **New** to create a new source dataset.

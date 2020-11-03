@@ -49959,6 +49959,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-use-data-lake-store.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
       "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
@@ -59067,6 +59072,11 @@
       "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
       "redirect_url": "/azure/cognitive-services/metrics-advisor/overview",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/rest-api.md",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library",
+      "redirect_document_id": false
+    }      
   ]
 }
