@@ -38,8 +38,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Creating an experiment will return the active or last archived experiment with that same given name if such experiment exists or a new experiment.
     + Calling get_experiment by name will return the active or last archived experiment with that given name.
     + Users cannot rename an experiment while reactivating it.
-    +  Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (e.g. ScriptRunConfig). - Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
-    +  Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
+    + Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (e.g. ScriptRunConfig). - Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
+    + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
