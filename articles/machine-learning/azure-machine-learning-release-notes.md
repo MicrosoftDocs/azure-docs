@@ -35,6 +35,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     +  Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
   + **azureml-core**
     + Pin packages en_core_web_sm and pyjwt
+    + Creating an experiment will return the active or last archived experiment with that same given name if such experiment exists or a new experiment.
+    + Calling get_experiment by name will return the active or last archived experiment with that given name.
     + Users cannot rename an experiment while reactivating it.
     +  Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (e.g. ScriptRunConfig). - Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     +  Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
