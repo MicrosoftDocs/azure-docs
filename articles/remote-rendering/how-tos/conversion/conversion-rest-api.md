@@ -133,7 +133,12 @@ To get a list of conversions run from a given account, use the interface:
 
 | Endpoint | Method |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions | GET |
+| /v1/accounts/**accountID**/conversions?skiptoken=**skipToken** | GET |
+
+| Parameter | Required |
+|-----------|:-----------|
+| accountID | Yes |
+| skiptoken | No |
 
 Returns a json document that contains a list of conversions and their details. This query returns a maximum of 50 conversions at a time. In the situation where there are more conversions to retrieve, the response will contain a **nextLink** property that can be queried to retrieve the next set of results.
 
