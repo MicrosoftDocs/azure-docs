@@ -27,7 +27,7 @@ The user might have revoked permissions of service principal(SP) on files/folder
 
 ### Resolution
 
-1. Check that the SP has 'x' permissions to traverse along the path. For more information, see [Permissions](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Sample dfs command to check access to files/folders in Data Lake storage account:
+1. Check that the SP has 'x' permissions to traverse along the path. For more information, see [Permissions](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Sample `dfs` command to check access to files/folders in Data Lake storage account:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -49,13 +49,13 @@ Token Refresh failed - Received invalid http response: 500
 
 The certificate provided for Service principal access might have expired.
 
-1. SSH into headnode. Check access to storage account using following dfs command:
+1. SSH into headnode. Check access to storage account using following `dfs` command:
 
     ```
     hdfs dfs -ls /
     ```
 
-1. Confirm that the error message is similar to the following:
+1. Confirm that the error message is similar to the following output:
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
@@ -156,7 +156,7 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-For assigning existing certificate, create a certificate, have the .pfx file and password ready. Associate the certificate with the service principal that the cluster was created with and have the AppId ready.
+For assigning existing certificate, create a certificate, have the .pfx file and password ready. Associate the certificate with the service principal that the cluster was created with, using the AppId ready.
 
 Execute the PowerShell command after you substitute the parameters with the actual values.
 
