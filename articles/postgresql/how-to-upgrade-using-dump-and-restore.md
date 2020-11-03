@@ -38,7 +38,7 @@ To step through this how-to-guide, you need:
 - A source database running 9.5, 9.6, or 10 (Azure Database for PostgreSQL – Single Server)
 - Target database server with the desired PostgreSQL major version [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md). 
 - A client system (Linux) with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
-- Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure Portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
+- Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
 - Your PostgreSQL client location such as a VM preferably running in the same region as the source and target servers). 
 
 ## Additional details and considerations
@@ -50,11 +50,11 @@ To step through this how-to-guide, you need:
 - If you want to use Azure Cloud Shell, the session times out after 20 minutes. If your database size is < 10 GB, you may be complete the upgrade without timing out. Otherwise, you may have to keep the session open by other means, such as pressing <Enter> key once in 10-15 minutes. 
 
 > [!TIP] 
-> 1. If you are using the same password for source and the target database,  you can set the `PGPASSWORD=yourPassword` environment variable.  Then you don’t have to provide password everytime you run commands like psql, pg_dump, and pg_restore.  Similarly you can setup additional variables like `PGUSER`, `PGSSLMODE` etc. see to [PostgreSQL environment variables](https://www.postgresql.org/docs/11/libpq-envars.html).
+> - If you are using the same password for source and the target database,  you can set the `PGPASSWORD=yourPassword` environment variable.  Then you don’t have to provide password everytime you run commands like psql, pg_dump, and pg_restore.  Similarly you can setup additional variables like `PGUSER`, `PGSSLMODE` etc. see to [PostgreSQL environment variables](https://www.postgresql.org/docs/11/libpq-envars.html).
 >  
-> 2. If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> - If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
-> 3. In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
+> - In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
 
 ## Example database used in this guide
 
