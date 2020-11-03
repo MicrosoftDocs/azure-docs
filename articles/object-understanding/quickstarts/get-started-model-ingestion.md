@@ -37,15 +37,15 @@ First, you need to create an account with the Object Anchors service.
 
 2. Search for the **Object Anchors** resource.
 
-   :::image type="content" source="./media/search-ou-resource.png" alt-text="Search Object Anchors Resource":::
+   :::image type="content" source="./media/search-ou-resource.png" alt-text="Search for Object Anchors Resource":::
 
    Select **Object Anchors** on the results page.
 
-   :::image type="content" source="./media/select-ou-resource.png" alt-text="Select Object Anchors Resource":::
+   :::image type="content" source="./media/select-ou-resource.png" alt-text="Select the Object Anchors Resource":::
 
    Select **Create** to begin creating the resource.
 
-   :::image type="content" source="./media/create-ou-resource-1.png" alt-text="Select Object Anchors Resource":::
+   :::image type="content" source="./media/create-ou-resource-1.png" alt-text="Create an Object Anchors Resource":::
 
 3. In the **Object Anchors Account** dialog box:
     * Enter a unique, alphanumeric resource name.
@@ -53,19 +53,19 @@ First, you need to create an account with the Object Anchors service.
     * Create or use an existing resource group.
     * Select the region you'd like your resource to exist in.
 
-    :::image type="content" source="./media/create-ou-resource-2.png" alt-text="Create Object Anchors Resource":::
+    :::image type="content" source="./media/create-ou-resource-2.png" alt-text="Enter Object Anchors Resource account details":::
 
 4. Once your resource has been created, navigate to the overview page and take note of the **Account ID**. You'll need it later.
 
-   :::image type="content" source="./media/copy-ou-account-id.png" alt-text="Copy Account ID":::
+   :::image type="content" source="./media/copy-ou-account-id.png" alt-text="Copy the account ID for your Object Anchors resource":::
 
    Go to **Keys** and take note of the **Primary Key**. You'll need it later.
 
-   :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy Account Key":::
+   :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy the account key for your Object Anchors resource":::
 
    Go to **Properties** and take note of the **Location ID**. You'll need it later.
 
-   :::image type="content" source="./media/copy-ou-account-region.png" alt-text="Copy Account Region":::
+   :::image type="content" source="./media/copy-ou-account-region.png" alt-text="Copy the account region for your Object Anchors resource":::
 
 ## Get the sample project
 
