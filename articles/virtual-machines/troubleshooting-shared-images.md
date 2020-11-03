@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot issues with shared images in Azure 
 description: Learn how to troubleshoot issues with shared image galleries.
-author: cynthn
+author: olayemio
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 10/27/2020
-ms.author: cynthn
+ms.author: olayemio
 ms.reviewer: cynthn
 
 ---
@@ -19,17 +19,17 @@ If you run into issues while performing any operations on shared image galleries
 
 ## Issues with creating or modifying a gallery ##
 
-*Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
+*Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
 **Cause**: The given name for the gallery does not meet the naming requirements.  
-**Workaround**: Choose a name that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, underscores and periods, 3) starts and ends with English letters or numbers.
+**Workaround**: Choose a name that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, underscores, and periods, 3) starts and ends with English letters or numbers.
 
 *The entity name 'galleryName' is invalid according to its validation rule: ^[^\_\W][\w-.\_]{0,79}(?<![-.])$.*  
 **Cause**: The gallery name does not meet the naming requirements.  
-**Workaround**: Choose a name for the gallery that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, underscores and periods, 3) starts and ends with English letters or numbers.
+**Workaround**: Choose a name for the gallery that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, underscores, and periods, 3) starts and ends with English letters or numbers.
 
 *The provided resource name <galleryName\> has these invalid trailing characters: <character\>. The name can not end with characters: <character\>*  
 **Cause**: The name for the gallery ends with a period or underscore.  
-**Workaround**: Choose a name for the gallery that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, underscores and periods, 3) starts and ends with English letters or numbers.
+**Workaround**: Choose a name for the gallery that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, underscores, and periods, 3) starts and ends with English letters or numbers.
 
 *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 **Cause**: The region specified for the gallery is incorrect or requires an access request.  
@@ -55,19 +55,19 @@ If you run into issues while performing any operations on shared image galleries
 
 *The provided resource name <galleryName\>/<imageDefinitionName\> has these invalid trailing characters: <character\>. The name can not end with characters: <character\>*  
 **Cause**: The given <imageDefinitionName\> ends with a period or underscore.  
-**Workaround**: Choose a name for the image definition that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, hyphens, underscores and periods, 3) starts and ends with English letters or numbers.
+**Workaround**: Choose a name for the image definition that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, hyphens, underscores, and periods, 3) starts and ends with English letters or numbers.
 
 *The entity name <imageDefinitionName\> is invalid according to its validation rule: ^[^\_\\W][\\w-.\_]{0,79}(?<![-.])$"*  
 **Cause**: The given <imageDefinitionName\> ends with a period or underscore.  
-**Workaround**: Choose a name for the image definition that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, hyphens, underscores and periods, 3) starts and ends with English letters or numbers.
+**Workaround**: Choose a name for the image definition that meets the following conditions: 1) 80-character limit, 2) contains only English letters, numbers, hyphens, underscores, and periods, 3) starts and ends with English letters or numbers.
 
 *Asset name galleryImage.properties.identifier.<property\> is not valid. It cannot be empty. Allowed characters are uppercase or lowercase letters, digits, hyphen(-), period (.), underscore (\_). Names are not allowed to end with period(.). The length of the name cannot exceed <number\> characters.*  
 **Cause**: The given publisher, offer or SKU value does not meet the naming requirements.  
-**Workaround**: Choose a value that meets the following conditions: 1) 128-character limit for publisher or 64-character limit for offer and SKU, 2) contains only English letters, numbers, hyphens, underscores and periods and 3) does not end with a period.
+**Workaround**: Choose a value that meets the following conditions: 1) 128-character limit for publisher or 64-character limit for offer and SKU, 2) contains only English letters, numbers, hyphens, underscores, and periods and 3) does not end with a period.
 
 *Can not perform requested operation on nested resource. Parent resource <galleryName\> not found.*  
 **Cause**: There is no gallery with the name <galleryName\> in the current subscription and resource group.  
-**Workaround**: Check that the name of the gallery, the subscription and resource group are correct. Otherwise, create a new gallery named <galleryName\>.
+**Workaround**: Check that the name of the gallery, the subscription, and resource group are correct. Otherwise, create a new gallery named <galleryName\>.
 
 *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 **Cause**: The <region\> is incorrect or requires an access request  
@@ -118,8 +118,8 @@ If you run into issues while performing any operations on shared image galleries
 **Workaround**: Choose an integer value.
 
 *ZRS storage account type is not supported in this region.*  
-**Cause**: ZRS storage account type is used in a region that does not yet support this.  
-**Workaround**: Change the storage account type to 'Premium\_LRS' or 'Standard\_LRS'. Please check our documentation for the latest [list of regions](/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
+**Cause**: You have chosen a Standard ZRS in a region that does not yet support it. 
+**Workaround**: Change the storage account type to 'Premium\_LRS' or 'Standard\_LRS'. Check our documentation for the latest [list of regions](/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
 
 ## Issues with creating or updating image versions ##
 
@@ -129,7 +129,7 @@ If you run into issues while performing any operations on shared image galleries
 
 *Can not perform requested operation on nested resource. Parent resource <galleryName/imageDefinitionName\> not found.*  
 **Cause**: There is no gallery with the name <galleryName/imageDefinitionName\> in the current subscription and resource group.  
-**Workaround**: Check that the name of the gallery, the subscription and resource group are correct. Otherwise, create a new gallery with the name <galleryName\> and/or image definition named <imageDefinitionName\> in the indicated resource group.
+**Workaround**: Check that the name of the gallery, the subscription, and resource group are correct. Otherwise, create a new gallery with the name <galleryName\> and/or image definition named <imageDefinitionName\> in the indicated resource group.
 
 *Cannot bind parameter <property\>. Cannot convert value <value\> to type &quot;System.DateTime&quot;*  
 **Cause**: The value provided to property is not properly formatted as a date.  
@@ -152,8 +152,8 @@ If you run into issues while performing any operations on shared image galleries
 **Workaround**: Check that the <resourceID\> is correct and that the source region of the gallery image version is the same as the region of the <resourceID\>
 
 *Changing property 'galleryImageVersion.properties.storageProfile.<diskImage\>.source.id' is not allowed.*  
-**Cause**: The source id of a gallery image version cannot be changed after creation.  
-**Workaround**: Ensure that the source id is the same as the already existing source id or change the version number of the image version.
+**Cause**: The source ID of a gallery image version cannot be changed after creation.  
+**Workaround**: Ensure that the source ID is the same as the already existing source ID or change the version number of the image version.
 
 *Duplicated lun numbers have been detected in the input data disks. Lun number must be unique for each data disk.*  
 **Cause**: When creating an image version using a list of disks and/or disk snapshots, two or more disks or disk snapshots have the same lun numbers.  
@@ -193,18 +193,18 @@ If you run into issues while performing any operations on shared image galleries
 
 *Source virtual machine <resourceID\> cannot contain disk ['<diskID\>'] stored in an UltraSSD account type.*  
 **Cause**: The disk '<diskID\> is an UltraSSD disk. Shared Image Gallery does not currently support Ultra SSD disks.  
-**Workaround**: Use a source that contains only Premium SSD, Standard SSD and/or Standard HDD managed disks.
+**Workaround**: Use a source that contains only Premium SSD, Standard SSD and/or Standard HDD-managed disks.
 
 *Source virtual machine <resourceID\> must be created from Managed Disks.*  
 **Cause**: The virtual machine in <resourceID\> uses unmanaged disks.  
-**Workaround**: Use a source based on a VM that contains only Premium SSD, Standard SSD and/or Standard HDD managed disks.
+**Workaround**: Use a source based on a VM that contains only Premium SSD, Standard SSD and/or Standard HDD-managed disks.
 
 *Too many requests on source '<resourceID\>'. Please reduce the number of requests on the source or wait some time before retrying.*
 **Cause**:  The source for this image version is currently being throttled due to too many requests.
 **Workaround**: Try the image version creation later.
 
 *The disk encryption set '<diskEncryptionSetID\>' must be in the same subscription '<subscriptionID\>' as the gallery resource.*  
-**Cause**: Disk encryption sets can only be used in in the same subscription and region in which they were created.  
+**Cause**: Disk encryption sets can only be used in the same subscription and region in which they were created.  
 **Workaround**: Create or use an encryption set in the same subscription and region as the image version
 
 *Encrypted source: '<resourceID\>' is in a different subscription ID than the current gallery image version subscription '<subscriptionID\_1\>'. Please retry with an unencrypted source(s) or use the source's subscription '<subcriptionID\_2\>' to create the gallery image version.*  
@@ -217,7 +217,7 @@ If you run into issues while performing any operations on shared image galleries
 
 *The image version name is invalid. The image version name should follow Major(int).Minor(int).Patch(int) format, for e.g: 1.0.0, 2018.12.1 etc.*  
 **Cause**: The valid format for an image version is 3 integers separated by a period. The image version name did not meet the valid format.  
-**Workaround**: Use an image version name that follows the format Major(int).Minor(int).Patch(int), for e.g.: 1.0.0. or 2018.12.1.
+**Workaround**: Use an image version name that follows the format Major(int).Minor(int).Patch(int), for exammple: 1.0.0. or 2018.12.1.
 
 *The value of parameter galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.dataDiskImages.diskEncryptionSetId is invalid*  
 **Cause**: The resource ID of the disk encryption set used on a data disk image uses an invalid format.  
@@ -272,10 +272,10 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: Shared Image Gallery does not currently support using a disk encryption set in a different subscription.  
 **Workaround**: Create the image version and disk encryption set in the same subscription.
 
-## Issues creating virtual machines and scalesets from image version ##
+## Issues creating or updating a VM or scale sets from image version ##
 
 *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantId1\> is not authorized to access linked subscription <subscriptionId2\>.*  
-**Cause**: The virtual machine or scaleset was created using a SIG image in another tenant. You have attempted to add a disk to the virtual machine or in the case of a scaleset, make a change to the scaleset model. The logged-in user account or app registration does not have access to the subscription  
+**Cause**: The virtual machine or scale set was created using a SIG image in another tenant. You have attempted to make a change to the virtual machine or scale set, but do not have access to the subscription that owns the image.
 **Workaround**: Contact the owner of the subscription of the image version to grant read access to the image version.
 
 *The gallery image <resourceID\> is not available in <region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
@@ -283,12 +283,12 @@ If you run into issues while performing any operations on shared image galleries
 **Workaround**: Either replicate the image to the region or create a VM in one of the regions in the gallery image's publishing regions.
 
 *Parameter 'osProfile' is not allowed.*  
-**Cause**: Admin username, password or ssh keys were provided for a VM that was created from a specialized image version.  
-**Workaround**: Do not include the admin username, password, or ssh keys if you intend to create a VM from that image. Otherwise, use a generalized image version and supply the admin username, password or ssh keys.
+**Cause**: Admin username, password, or ssh keys were provided for a VM that was created from a specialized image version.  
+**Workaround**: Do not include the admin username, password, or ssh keys if you intend to create a VM from that image. Otherwise, use a generalized image version and supply the admin username, password, or ssh keys.
 
 *Required parameter 'osProfile' is missing (null).*  
 **Cause**: VM is created from a generalized image and it is missing admin username, password, or ssh keys. Since generalized images do not retain admin username, password, or ssh keys, these fields must be specified during creation of a VM or scaleset.  
-**Workaround**: Specify the admin username, password or ssh keys or use a specialized image version.
+**Workaround**: Specify the admin username, password, or ssh keys or use a specialized image version.
 
 *Cannot create Gallery Image Version from: <resourceID\> since the OS State in the parent gallery image ('Specialized') is not 'Generalized'.*  
 **Cause**: The image version is created from a generalized source but its parent definition is specialized.  
@@ -305,13 +305,19 @@ If you run into issues while performing any operations on shared image galleries
 *The VM or virtual machine scale set creation takes a long time.*  
 **Workaround**: Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
 
+## Issues creating a disk from an image version ##
+
+*The value of parameter imageReference is invalid.*  
+**Cause**: You have tried to export from a SIG Image version to a disk but used a LUN position that does not exist on the image.    
+**Workaround**: Check the image version to see what LUN positions are in use.
+
 ## Unable to share resources
 
 The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## Replication is slow
 
-Use the **--expand ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. If not, wait for up to 6 hours for the job to complete. If it fails, trigger the command again to create and replicate the image version. If there are a lot of target regions the image version is being replicated to, consider doing the replication in phases.
+Use the **--expand ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. If not, wait for up to 6 hours for the job to complete. If it fails, trigger the command again to create and replicate the image version. If there are many target regions the image version is being replicated to, consider doing the replication in phases.
 
 ## Azure limits and quotas 
 
