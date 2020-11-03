@@ -3,7 +3,7 @@ title: Troubleshooting client response timeouts and errors with API Management
 description: Troubleshoot intermittent connection errors and related latency issues in API Management
 author: vladvino
 ms.topic: troubleshooting
-ms.date: 10/30/2020
+ms.date: 11/03/2020
 ms.author: apimpm
 ms.service: api-management
 ---
@@ -14,7 +14,7 @@ This article helps you troubleshoot intermittent connection errors and related l
 
 ## Symptoms
 
-Clients using your API Management (APIM) product may exhibit one or more of the following symptoms:
+Client applications calling APIs through your API Management (APIM) service may exhibit one or more of the following symptoms:
 
 * Slow response times when calling your APIs
 * Intermittent HTTP 500 errors
@@ -24,13 +24,13 @@ These symptoms manifest as instances of `BackendConnectionFailure` in your [Azur
 
 ## Cause
 
-This pattern of symptoms often occurs when a large volume of concurrent client connections results in slow response times from your backend API due to source network address translation (SNAT) port limits.
+This pattern of symptoms often occurs due to network address translation (SNAT) port limits with your APIM service.
 
 Whenever a client calls one of your APIM APIs, Azure API Management service opens a SNAT port to access your backend API. As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that arn't using [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 Each instance of API Management service is initially given a pre-allocated number of SNAT ports. That limit affects opening connections to the same host and port combination. SNAT ports are used up when you have repeated calls to the same address and port combination. Once a SNAT port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT ports from closed connections only after waiting four minutes.
 
-A rapid succession of client requests to your APIM APIs can quickly exhaust the pre-allocated quota of SNAT ports from your API Management instance to your backend services, preventing your APIM product from processing client requests in a timely manner.
+A rapid succession of client requests to your APIs may exhaust the pre-allocated quota of SNAT ports if these ports are not closed and recycled fast enough, preventing your APIM service from processing client requests in a timely manner.
 
 ## Mitigations and solutions
 
@@ -40,7 +40,7 @@ General strategies for mitigating SNAT port exhaustion are discussed in [Trouble
 
 ### Scale your APIM instance
 
-Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. If you're already using the maximum units available, consider upgrading to a higher service tier. For more info, see [Upgrade and scale an Azure API Management instance](upgrade-and-scale.md)
+Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-service)
 
 > [!NOTE]
 > SNAT port usage is currently not available as a metric for autoscaling API Management units.
@@ -49,7 +49,7 @@ Each API Management instance is allocated a number of SNAT ports, based on APIM 
 
 Each connection from your APIM instance to the same destination IP and destination port of your backend service will use a SNAT port, in order to maintain a distinct traffic flow. Without different SNAT ports for the return traffic from your background service, APIM would have no way to separate one response from another.
 
-Because SNAT ports can be reused if the destination IP or destination port are different, another way to avoid SNAT port exhaustion is by using multiple IPs for your different backend service URLs.
+Because SNAT ports can be reused if the destination IP or destination port are different, another way to avoid SNAT port exhaustion is by using multiple IPs for your backend service URLs.
 
 For more, see [Outbound proxy Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md).
 
@@ -59,9 +59,11 @@ If your backend API is hosted on an Azure service that supports *service endpoin
 
 For details, see [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md) and [Integrate App Service with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
-### Place your APIM in a virtual network and route outbound calls to Azure firewall
+### Place your APIM in a virtual network and route outbound calls to Azure Firewall
 
-TODO more details
+Similar to placing your APIM and backend services in a virtual network, you can employ Azure Firewall in a VNet with your APIM service, then route outbound APIM calls to Azure Firewall. Between APIM and Azure Firewall (being in the same VNet), no SNAT ports are required. For SNAT connections to your backend services, [Azure Firewall has 64,000 available ports](../firewall/overview.md#:~:text=Azure%20Firewall%20allows%20any%20port,in%20the%201-63999%20range), a significantly higher amount than is allocated to APIM instances.
+
+Refer to [Azure Firewall](../firewall/overview.md) documentation for more.
 
 ### Consider implementing access restriction policies
 
@@ -70,6 +72,7 @@ If it makes sense for your business scenario, you can implement access restricti
 See [API Management access restriction policies](api-management-access-restriction-policies.md) for more info.
 
 ## See also
+
 
 * [Azure Load Balancer: Troubleshooting outbound connections failures](../load-balancer/troubleshoot-outbound-connection.md)
 * [Azure App Service: Troubleshooting intermittent outbound connection errors](../app-service/troubleshoot-intermittent-outbound-connection-errors.md)
