@@ -7,7 +7,7 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 10/29/2020
 ---
 
 # Pricing model for Azure Logic Apps
@@ -132,6 +132,7 @@ Except for logic apps that run in an integration service environment (ISE), all 
 To help you monitor your logic app's storage consumption, you can:
 
 * View the number of storage units in GB that your logic app uses monthly.
+
 * View the sizes for a specific action's inputs and outputs in your logic app's run history.
 
 <a name="storage-consumption"></a>
@@ -145,6 +146,9 @@ To help you monitor your logic app's storage consumption, you can:
 1. In the right-hand pane, under **Chart Title**, from the **Metric** list, select **Billing Usage for Storage Consumption Executions**.
 
    This metric gives you the number of storage consumption units in GB per month that are getting billed.
+
+   > [!NOTE]
+   > Runs that consume less than 500 MB in storage might not appear in the monitoring view, but they are still billed.
 
 <a name="input-output-sizes"></a>
 
@@ -160,7 +164,11 @@ To help you monitor your logic app's storage consumption, you can:
 
 1. In the **Logic app run details** pane, in the actions table, which lists each action's status and duration, select the action you want to view.
 
-1. In the **Logic app action** pane, find the sizes for that action's inputs and outputs appear respectively under **Inputs link** and **Outputs link**.
+1. In the **Logic app action** pane, find the sizes for that action's inputs and outputs. Under **Inputs link** and **Outputs link**, find the links to those inputs and outputs.
+
+   > [!NOTE]
+   > For loops, only the top-level actions show sizes for their inputs and outputs. 
+   > For actions inside nested loops, inputs and outputs show zero size and no links.
 
 ## Next steps
 

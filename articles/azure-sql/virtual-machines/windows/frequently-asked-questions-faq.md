@@ -59,7 +59,7 @@ This article provides answers to some of the most common questions about running
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > SQL Server on Azure VMs, including those deployed from custom generalized images, should be [registered with the SQL VM resource provider](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) to meet compliance requirements and to utilize optional features such as automated patching and automatic backups. The resource provider also allows you to [specify the license type](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) for each SQL Server VM.
+   > SQL Server on Azure VMs, including those deployed from custom generalized images, should be [registered with the SQL VM resource provider](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) to meet compliance requirements and to utilize optional features such as automated patching and automatic backups. The resource provider also allows you to [specify the license type](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) for each SQL Server VM.
 
 1. **Can I use my own VHD to deploy a SQL Server VM?**
 
@@ -250,4 +250,4 @@ This article provides answers to some of the most common questions about running
 * [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision SQL Server on a Linux VM](../linux/sql-vm-create-portal-quickstart.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server on Linux documentation](/sql/linux/sql-server-linux-overview)

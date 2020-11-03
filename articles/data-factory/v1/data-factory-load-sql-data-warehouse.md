@@ -55,7 +55,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
     Now copy the generated files to Azure Blob.  Refer to [Move data to and from an on-premises file system by using Azure Data Factory](data-factory-onprem-file-system-connector.md) for how to do that using ADF Copy.    
 * Azure Synapse Analytics: this experiment loads data into Azure Synapse Analytics created with 6,000 DWUs
 
-    Refer to [Create an Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) for detailed instructions on how to create an Azure Synapse Analytics database.  To get the best possible load performance into Azure Synapse Analytics using Polybase, we choose maximum number of Data Warehouse Units (DWUs) allowed in the Performance setting, which is 6,000 DWUs.
+    Refer to [Create an Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) for detailed instructions on how to create an Azure Synapse Analytics database.  To get the best possible load performance into Azure Synapse Analytics using Polybase, we choose maximum number of Data Warehouse Units (DWUs) allowed in the Performance setting, which is 6,000 DWUs.
 
   > [!NOTE]
   > When loading from Azure Blob, the data loading performance is directly proportional to the number of DWUs you configure for Azure Synapse Analytics:
@@ -80,7 +80,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
 
     This experiment loads data into Azure Synapse Analytics using `xlargerc` resource class.
 
-    To achieve best possible throughput, copy needs to be performed using an Azure Synapse Analytics user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+    To achieve best possible throughput, copy needs to be performed using an Azure Synapse Analytics user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).  
 * Create destination table schema in Azure Synapse Analytics database, by running the following DDL statement:
 
     ```SQL  

@@ -11,6 +11,7 @@ ms.date: 10/21/2020
 ms.custom: devx-track-dotnet
 ---
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -161,7 +162,7 @@ Before you start building the application, let's look into the hierarchy of reso
 
 To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
 
-* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet&preserve-view=true) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+* [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient?preserve-view=true&view=azure-dotnet) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
 
 * [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet&preserve-view=true) - This method creates (if doesn't exist) or gets (if already exists) a database resource as an asynchronous operation. 
 

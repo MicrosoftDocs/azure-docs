@@ -13,13 +13,26 @@ ms.custom:
 
 # Tutorial - Migrate an Android app from Google Maps
 
-The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply.
+The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply. In this tutorial, you will learn how to:
+
+> [!div class="checklist"]
+> * Load a map
+> * Localize a map
+> * Add markers, polylines, and polygons.
+> * Overlay a tile layer
+> * Show traffic data
 
 The Azure Maps Android SDK supports a minimum Android version of API 21: Android 5.0.0 (Lollipop).
 
 All examples are provided in Java; however, you can use Kotlin with the Azure Maps Android SDK.
 
 For more information on developing with the Android SDK by Azure Maps, see the [How-to guides for the Azure Maps Android SDK](how-to-use-android-map-control-library.md).
+
+## Prerequisites 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Load a map
 
@@ -743,6 +756,18 @@ mapControl.onReady(map -> {
 
 ![Azure Maps traffic](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
-Learn more about the Azure Maps Android SDK.
+## Next steps
 
-[How to use the Android map control](how-to-use-android-map-control-library.md)
+Learn more about Azure Maps Android SDK:
+
+> [!div class="nextstepaction"]
+> [How to use the Android map control](how-to-use-android-map-control-library.md)
+
+> [!div class="nextstepaction"]
+> [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

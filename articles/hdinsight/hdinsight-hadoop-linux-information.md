@@ -20,7 +20,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services.
 * **jq**, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - used to remotely manage Azure services.
+* [Azure CLI](/cli/azure/install-azure-cli) - used to remotely manage Azure services.
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Users
@@ -76,7 +76,7 @@ This command returns a JSON document describing the service, and then [jq](https
     >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
-* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md).
 
     > [!NOTE]  
     > You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from a headnode.
@@ -186,7 +186,7 @@ There are a various ways to access data from outside the HDInsight cluster. The 
 
 If using __Azure Blob storage__, see the following links for ways that you can access your data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
+* [Azure CLI](/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/blobxfer): A python script for working with blobs in Azure Storage.
 * Various SDKs:
 
@@ -196,7 +196,7 @@ If using __Azure Blob storage__, see the following links for ways that you can a
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Storage REST API](/rest/api/storageservices/Blob-Service-REST-API)
 
 If using __Azure Data Lake Storage Gen1__, see the following links for ways that you can access your data:
 
@@ -240,7 +240,7 @@ To use a different version of a component, upload the version you need and use i
 > [!IMPORTANT]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [Microsoft Q&A question page for HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [Microsoft Q&A question page for HDInsight](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## Next steps
 

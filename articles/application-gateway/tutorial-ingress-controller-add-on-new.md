@@ -82,7 +82,7 @@ In the following example, you'll deploy a new AKS cluster named *myCluster* by u
 Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing Application Gateway instance will mean an automatic creation of a Standard_v2 SKU Application Gateway instance. So, you'll also specify the name and subnet address space of the Application Gateway instance. The name of the Application Gateway instance will be *myApplicationGateway*, and the subnet address space we're using is 10.2.0.0/16. Make sure that you added or updated the aks-preview extension at the beginning of this tutorial. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 To configure additional parameters for the `az aks create` command, see [these references](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 

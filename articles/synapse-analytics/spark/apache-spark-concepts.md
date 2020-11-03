@@ -55,7 +55,40 @@ When you submit a second job, if there is capacity in the pool, the existing Spa
 - Another user, U2, submits a Job, J3, that uses 10 nodes, a new Spark instance, SI2, is created to process the job.
 - You now submit another job, J2, that uses 10 nodes because there's still capacity in the pool and the instance, J2, is processed by SI1.
 
+## Quotas and resource constraints in Apache Spark for Azure Synapse
+
+### Workspace level
+
+Every Azure Synapse workspace comes with a default quota of vCores that can be used for Spark. The quota is split between the user quota and the dataflow quota so that neither usage pattern uses up all the vCores in the workspace. The quota is different depending on the type of your subscription but is symmetrical between user and dataflow. However if you request more vCores than are remaining in the workspace, then you will get the following error:
+
+```console
+Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
+Your Spark job requested 480 vcores.
+However, the workspace only has xxx vcores available out of quota of yyy vcores.
+Try reducing the numbers of vcores requested or increasing your vcore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
+```
+
+The link in the message points to this article.
+
+The following article describes how to request an increase in workspace vCore quota.
+
+- Select "Azure Synapse Analytics" as the service type.
+- In the Quota details window, select Apache Spark (vCore) per workspace
+
+[Request a capacity increase via the Azure portal](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+
+### Spark pool level
+
+When you define a Spark pool you are effectively defining a quota per user for that pool, if you run multiple notebooks or jobs or a mix of the 2 it is possible to exhaust the pool quota. If you do, then an error message like the following will be generated
+
+```console
+Failed to start session: Your Spark job requested xx vcores.
+However, the pool is consuming yy vcores out of available zz vcores.Try ending the running job(s) in the pool, reducing the numbers of vcores requested, increasing the pool maximum size or using another pool
+```
+
+To solve this problem you have to reduce your usage of the pool resources before submitting a new resource request by running a notebook or a job.
+
 ## Next steps
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.5/)

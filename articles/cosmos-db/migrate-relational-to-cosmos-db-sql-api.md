@@ -11,6 +11,7 @@ ms.author: thvankra
 ---
 
 # Migrate one-to-few relational data into Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In order to migrate from a relational database to Azure Cosmos DB SQL API, it can be necessary to make changes to the data model for optimization.
 
@@ -336,5 +337,5 @@ In either approach, at the end, we should get properly saved embedded OrderDetai
 :::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Databricks":::
 
 ## Next steps
-* Learn about [data modeling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
-* Learn [how to model and partition data on Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)
+* Learn about [data modeling in Azure Cosmos DB](./modeling-data.md)
+* Learn [how to model and partition data on Azure Cosmos DB](./how-to-model-partition-example.md)
