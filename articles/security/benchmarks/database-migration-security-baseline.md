@@ -40,9 +40,15 @@ To see how Azure Database Migration Service completely maps to the Azure Securit
 
 - [Follow pre-requisite documentation for ports to be open for Azure Database Migration Service here](../../dms/pre-reqs.md#prerequisites-common-across-migration-scenarios)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and weak ciphers in Kerberos.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Azure Sentinel insecure protocols workbook](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks) 
+
+Azure Database Migration Service uses TLS 1.2 by default. If needed for backward compatibility for the data source being migrated, support for TLS 1.0 or TLS 1.1 can be enabled in the service configuration blade of your Azure Database Migration Service.
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### NS-2: Connect private networks together
 
@@ -66,14 +72,25 @@ To see how Azure Database Migration Service completely maps to the Azure Securit
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39956.).
 
-**Guidance**: Use Azure Private Link to enable private access to Azure Database Migration Service from your virtual networks without crossing the internet.
+**Guidance**: Use Azure Private Link to enable private access to Azure services from your virtual networks, without crossing the internet. In situations where Azure Private Link is not yet available, use Azure Virtual Network service endpoints.  Azure Virtual Network service endpoints provide secure access to services via an optimized route over the Azure backbone network.  
 
 Private access is an additional defense in depth measure in addition to authentication and traffic security offered by Azure services.
 
-- [Understand Azure Private Link](../../private-link/private-link-overview.md) 
+Where Private Link is available, use private endpoints to secure any resources being linked to your Azure Database Migration Service, such as Azure SQL Server. With Private Link, traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
+
+- [Make sure the prerequisites listed here are fulfilled before provisioning Azure Database Migration Service on your VNET, including the communication ports that need to be allowed](../../dms/pre-reqs.md)
+
+   
+
+- [Understand Azure Private Link](../../private-link/private-link-overview.md)
+
+- [Understand Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
+
 Azure Database Migration Service does not not provide the capability to configure Service Endpoints.
 
-**Azure Security Center monitoring**: Yes
+Azure Database Migration Service does not allow for its management endpoints to be secure to a private network with the Private Link service.
+
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -82,11 +99,19 @@ Azure Database Migration Service does not not provide the capability to configur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39957.).
 
-**Guidance**: Not applicable; Azure Database migration service does not expose any endpoints to external networks which need to be secured by conventional network protections.
+**Guidance**: Protect your Azure Database Migration Service resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
-**Azure Security Center monitoring**: Not applicable
+- [Azure Firewall Documentation](/azure/firewall/) 
 
-**Responsibility**: Not applicable
+- [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
+
+- [Azure Security Center recommendations](../../security-center/recommendations-reference.md#recs-network) 
+
+Azure Database Migration Service is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -109,7 +134,7 @@ high quality alerts to your SIEM solution.
 
 - [Microsoft Defender ATP EDR capability](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -118,7 +143,7 @@ high quality alerts to your SIEM solution.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39959.).
 
-**Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Database Migration Service does not currently support service tags, or it is not designed to deploy into Azure virtual networks.
+**Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Private Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Database Migration Service does not currently support service tags, or it is not designed to deploy into Azure private virtual networks.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -129,7 +154,7 @@ high quality alerts to your SIEM solution.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39960.).
 
-**Guidance**: Not applicable; This control is intended for offerings that expose DNS configurations.
+**Guidance**: Not applicable; This control is intended for offerings that expose DNS configurations. Azure Database Migration Service does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -170,15 +195,11 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39941.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable; Azure Database Migration Service doesn't use any identities or manage any secrets for identities.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Not applicable
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
@@ -209,13 +230,13 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 - [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md) 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Azure AD default password policy](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Eliminate bad passwords using Azure Active Directory Password Protection](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
 
@@ -249,20 +270,26 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39945.).
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't support capability of conditional access.
+**Guidance**: Azure Database Migration Service supports Azure AD conditional access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+- [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+- [Common conditional access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
+
+- [Configure authentication session management with conditional access](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
@@ -342,11 +369,15 @@ Note: Some Azure services support local users and roles which not managed throug
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39950.).
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't support emergency accounts or doesn't need emergency accounts.
+**Guidance**: Azure Database Migration Service uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
-**Azure Security Center monitoring**: Not applicable
+You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-**Responsibility**: Not applicable
+- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### PA-5: Automate entitlement management 
 
@@ -417,7 +448,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39961.).
 
-**Guidance**: Azure Database Migration Service does not provide this capability.
+**Guidance**: Azure Database Migration Service does not persist any data and does not provide this capability. Any data handled is only transient until written to the target data platform.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -428,7 +459,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39962.).
 
-**Guidance**: Azure Database Migration Service does not provide this capability. The data is encrypted on transit by Azure Database Migration Service but the data is not stored.
+**Guidance**: Azure Database Migration Service does not provide this capability. The data is encrypted for transit and transient storage by Azure Database Migration Service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -439,7 +470,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39963.).
 
-**Guidance**: Azure Database Migration Service does not provide this capability.
+**Guidance**: Azure Database Migration Service does not provide this capability. Data is encrypted for the transient storage before being written to the target data platform, as well as on transit. There is no customer accessible persisted data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -476,7 +507,7 @@ At the underlying infrastructure, Azure provides data in transit encryption by d
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39965.).
 
-**Guidance**: Azure Database Migration Service does not store data. Because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest, and enforcement of security controls with automated tools.
+**Guidance**: Azure Database Migration Service does not persist any customer accessible data. Data is stored only for transient purposes before being written to the target data platform. Because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest, and enforcement of security controls with automated tools.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -629,7 +660,7 @@ Audit activity reports in the Azure Active Directory
 
 - [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
-- [Azure Firewall logs and metrics](../../firewall/logs-and-metrics.md) 
+- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics) 
 
 - [How to enable and use Traffic Analytics](../../network-watcher/traffic-analytics.md) 
 
