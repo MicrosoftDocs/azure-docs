@@ -24444,8 +24444,13 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-app-gallery-listing.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-app-gallery-listing",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-app-gallery-listing.md",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/howto-get-appsource-certified.md",
