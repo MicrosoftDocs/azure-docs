@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LTRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string expression after it removes leading blanks.  
   
 ## Syntax

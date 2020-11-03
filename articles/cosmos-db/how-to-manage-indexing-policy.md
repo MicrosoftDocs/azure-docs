@@ -4,12 +4,13 @@ description: Learn how to manage indexing policies, include or exclude a propert
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Manage indexing policies in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
 
@@ -41,7 +42,7 @@ Here are some examples of indexing policies shown in [their JSON format](index-p
     }
 ```
 
-This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you can omit them from your indexing policy entirely (as shown in above example).
+This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you should omit them from your indexing policy entirely (as shown in above example).
 
 ```json
     {
@@ -95,7 +96,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     }
 ```
 
-This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you can omit them from your indexing policy entirely (as shown in above example).
+This indexing policy is equivalent to the one below which manually sets ```kind```, ```dataType```, and ```precision``` to their default values. These properties are no longer necessary to explicitly set and you should omit them from your indexing policy entirely (as shown in above example).
 
 ```json
     {
@@ -137,7 +138,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 ```
 
 > [!NOTE]
-> It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
+> It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your data model.
 
 ### Using a spatial index on a specific property path only
 
@@ -171,7 +172,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 
 ## Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a filter and have an ORDER BY clause on different properties.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a multiple filters or both a filter and an ORDER BY clause.
 
 > [!NOTE]
 > Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
@@ -308,7 +309,7 @@ It is optional to specify the order. If not specified, the order is ascending.
 
 ### Excluding all property paths but keeping indexing active
 
-This policy can be used in situations where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no secondary index is required (to use Azure Cosmos DB as a pure key-value store).
+This policy can be used in situations where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no additional indexes are necessary (to use Azure Cosmos DB as a pure key-value store).
 
 ```json
     {
@@ -368,7 +369,7 @@ To create a container with a custom indexing policy see, [Create a container wit
 
 ## Use PowerShell
 
-To create a container with a custom indexing policy see, [Create a container with a custom index policy using Powershell](manage-with-powershell.md#create-container-custom-index)
+To create a container with a custom indexing policy see, [Create a container with a custom index policy using PowerShell](manage-with-powershell.md#create-container-custom-index)
 
 ## <a id="dotnet-sdk"></a> Use the .NET SDK
 

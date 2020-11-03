@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # System functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   
