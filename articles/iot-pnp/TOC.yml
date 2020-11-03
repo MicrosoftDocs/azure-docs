@@ -85,8 +85,6 @@
     href: concepts-model-discovery.md
   - name: Model parser
     href: concepts-model-parser.md
-  - name: Limits and quotas
-    href: concepts-limits-quotas.md
   - name: Glossary
     href: iot-plug-and-play-glossary.md
 - name: How-to guides

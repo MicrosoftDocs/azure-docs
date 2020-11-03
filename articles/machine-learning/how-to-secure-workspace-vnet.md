@@ -44,7 +44,7 @@ In this article you learn how to enable the following workspaces resources in a 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 
 
 ## Secure the workspace with private endpoint
@@ -62,7 +62,7 @@ Azure Machine Learning supports storage accounts configured to use either servic
 >
 > The default storage account is automatically provisioned when you create a workspace.
 >
-> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) allows you to specify a custom storage account by Azure resource ID.
+> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) allows you to specify a custom storage account by Azure resource ID.
 
 To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
@@ -81,7 +81,12 @@ To use an Azure storage account for the workspace in a virtual network, use the 
         > [!IMPORTANT]
         > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
-    1. Select the __Allow trusted Microsoft services to access this storage account__ check box.
+    1. Select the __Allow trusted Microsoft services to access this storage account__ check box. This does not give all Azure services access to your storage account.
+    
+        * Resources of some services, **registered in your subscription**, can access the storage account **in the same subscription** for select operations. For example, writing logs or creating backups.
+        * Resources of some services can be granted explicit access to your storage account by __assigning an Azure role__ to its system-assigned managed identity.
+
+        For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
@@ -179,7 +184,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 To use Azure Container Registry inside a virtual network, you must meet the following requirements:
 
-* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 
@@ -224,7 +229,7 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     > [!IMPORTANT]
     > Your storage account, compute cluster, and Azure Container Registry must all be in the same subnet of the virtual network.
     
-    For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) method reference.
+    For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) method reference.
 
 1. Apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR.
 
@@ -277,6 +282,13 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     ]
     }
     ```
+
+    This template creates a _private endpoint_ for network access from the workspace to your ACR. The screenshot below shows an example of this private endpoint.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR private endpoint settings":::
+
+    > [!IMPORTANT]
+    > Do not delete this endpoint! If you accidentally delete it, you can re-apply the template in this step to create a new one.
 
 ## Next steps
 

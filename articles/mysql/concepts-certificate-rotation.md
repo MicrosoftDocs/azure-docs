@@ -1,8 +1,8 @@
 ---
 title: Certificate rotation for Azure Database for MySQL
 description: Learn about the upcoming changes of root certificate changes that will affect Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
@@ -47,11 +47,11 @@ To avoid your application’s availability being interrupted due to certificat
 *   Generate a combined CA certificate store with both **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** certificates are included.
     *   For Java (MySQL Connector/J) users, execute:
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MySQLServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MySQLServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -99,7 +99,7 @@ If you do not update the root certificate before February 15, 2021 (02/15/2021),
 ### 4. What is the impact if using App Service with Azure Database for MySQL?
 For Azure app services, connecting to Azure Database for MySQL, we can have two possible scenarios and it depends on how on you are using SSL with your application.
 *   This new certificate has been added to App Service at platform level. If you are using the SSL certificates included on App Service platform in your application, then no action is needed.
-*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)
+*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MySQL?
 If you are trying to connect to the Azure Database for MySQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).

@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ---
 
@@ -53,7 +53,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [Supported operating systems](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
+Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -72,13 +72,15 @@ When you create network group security rules or configure Azure Firewall to allo
 
 ## Enable Change Tracking and Inventory
 
-Here are the ways that you can enable Change Tracking and Inventory and select machines to be managed:
+You can enable Change Tracking and Inventory in the following ways:
 
-* [From an Azure virtual machine](enable-from-vm.md).
-* [From browsing multiple Azure virtual machines](enable-from-portal.md).
-* [From an Azure Automation account](enable-from-automation-account.md).
-* For Arc enabled servers or non-Azure machines, install the Log Analytics agent from Azure Arc enabled servers using the [VM extension](../../azure-arc/servers/manage-vm-extensions.md) and then [enable machines in the workspace](enable-from-automation-account.md#enable-machines-in-the-workspace) to Change Tracking and Inventory.
-* [Using an Automation runbook](enable-from-runbook.md).
+- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
+
+- Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+
+- For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+
+- For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
 ## Tracking file changes
 
@@ -86,7 +88,7 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 ## Tracking file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](/storage/common/storage-account-create). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side.
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side.
 
 ![View changes in a file](./media/overview/view-file-changes.png)
 
@@ -151,7 +153,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### Microsoft service data
 

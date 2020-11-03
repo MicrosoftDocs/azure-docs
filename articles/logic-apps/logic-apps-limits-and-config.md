@@ -42,21 +42,28 @@ Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time. |
-| Run history retention in storage | 90 days | 366 days | When a run completes or times out, run history retention is always calculated by using the run's start time and the limit that's specified at the *current time* by the workflow setting, [**Run history retention in days**](#change-retention). If you change this setting, the *current* limit is always used for calculating retention, no matter the previous limit. When a run's duration exceeds the current limit, the run is removed from the runs history. <p><p>For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run history retention in storage](#change-retention). |
+| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
+| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements. |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
 
+<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### Change run history retention in storage
+### Change run duration and history retention in storage
 
-To change the default limit for run history retention in storage, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+The same setting controls the maximum number of days that a workflow can run and for keeping run history in storage. To change the default or current limit for these properties, follow these steps.
 
-> [!NOTE]
-> For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
-> For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
+* For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+
+* For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
+
+For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
+
+> [!IMPORTANT]
+> If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
+> To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
 
@@ -69,6 +76,27 @@ To change the default limit for run history retention in storage, follow these s
 1. Drag the slider to change the number of days that you want.
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
+
+If you generate an Azure Resource Manager template for your logic app, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
 
 <a name="looping-debatching-limits"></a>
 

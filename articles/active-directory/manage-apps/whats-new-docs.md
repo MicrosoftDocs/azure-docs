@@ -21,7 +21,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 ### New articles
 - [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Assign users to an app that is using Azure AD as an identity provider](add-application-portal-assign-users.md)
-- [What's new?](whats-new-docs.md)
+- [What's new in docs?](whats-new-docs.md)
 
 
 ### Updated articles

@@ -53,6 +53,8 @@ You can configure Capture at the event hub creation time using the [Azure portal
 - [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 - [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+> [!NOTE]
+> If you enable the Capture feature for an existing event hub, the feature captures events that arrive at the event hub **after** the feature is turned on. It doesn't capture events that existed in the event hub before the feature was turned on. 
 
 ## Exploring the captured files and working with Avro
 
