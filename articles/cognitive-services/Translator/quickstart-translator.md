@@ -137,6 +137,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
     
     static async Task Main(string[] args)
     {
@@ -154,6 +158,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -403,6 +408,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
     
     static async Task Main(string[] args)
     {
@@ -420,6 +429,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -667,6 +677,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
     
     static async Task Main(string[] args)
     {
@@ -684,6 +698,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -934,6 +949,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
     
     static async Task Main(string[] args)
     {
@@ -951,6 +970,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1199,6 +1219,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
     
     static async Task Main(string[] args)
     {
@@ -1217,6 +1241,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1459,6 +1484,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
     
     static async Task Main(string[] args)
     {
@@ -1477,6 +1506,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1730,6 +1760,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
     
     static async Task Main(string[] args)
     {
@@ -1748,6 +1782,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -1981,6 +2016,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
     
     static async Task Main(string[] args)
     {
@@ -1998,6 +2037,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -2263,6 +2303,10 @@ class Program
 {
     private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
     
     static async Task Main(string[] args)
     {
@@ -2279,6 +2323,7 @@ class Program
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
