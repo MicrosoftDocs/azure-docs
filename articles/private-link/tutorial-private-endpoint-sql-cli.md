@@ -90,7 +90,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --sku Standard
 ```
 
-Use [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) to create a bastion subnet:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a bastion subnet:
 
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.0.1.0/24**.
@@ -105,7 +105,7 @@ Use [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network
     --address-prefixes 10.0.1.0/24
 ```
 
-Use [az network bastion create](https://docs.microsoft.com/cli/azure/network/bastion?view=azure-cli-latest#az-network-bastion-create) to create a bastion host:
+Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
 
 * Named **myBastionHost**.
 * In **CreateSQLEndpointTutorial-rg**.
@@ -308,7 +308,7 @@ In this section, you'll use the virtual machine you created in the previous step
 When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
 
 ```azurecli-interactive
-  az group delete \
+az group delete \
     --name CreateSQLEndpointTutorial-rg
 ```
 
