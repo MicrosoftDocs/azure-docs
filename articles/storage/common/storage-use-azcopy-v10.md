@@ -54,7 +54,7 @@ To find detailed reference documentation for each command and command parameter,
 > [!NOTE] 
 > As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
-## Choose how you'll provide authorization credentials
+## Authorize AzCopy
 
 You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
 
@@ -66,7 +66,7 @@ Use this table as a guide:
 |**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
 |**File storage** | SAS only |
 
-### Option 1: Use Azure Active Directory
+#### Option 1: Use Azure Active Directory
 
 By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
 
@@ -75,7 +75,7 @@ By using Azure Active Directory, you can provide credentials once instead of hav
 
 To authorize access by using Azure AD, see [Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 
-### Option 2: Use a SAS token
+#### Option 2: Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 
@@ -87,9 +87,9 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
-## Transfer files
+## Transfer data
 
-After you've authenticated your identity or obtained a SAS token, you can begin transferring files.
+After you've authorized your identity or obtained a SAS token, you can begin transferring data.
 
 To find example commands, see any of these articles.
 
@@ -101,9 +101,9 @@ To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
-## Use AzCopy in a script
+## Use in a script
 
-### Obtain a static download link
+#### Obtain a static download link
 
 Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
 
@@ -126,11 +126,11 @@ The URL appears in the output of this command. Your script can then download AzC
 | **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
-### Escape special characters in SAS tokens
+#### Escape special characters in SAS tokens
 
 In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an additional `%` character next to existing `%` characters in the SAS token string.
 
-### Run scripts by using Jenkins
+#### Run scripts by using Jenkins
 
 If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to place the following command at the beginning of the script.
 
@@ -138,7 +138,7 @@ If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to p
 /usr/bin/keyctl new_session
 ```
 
-## Use AzCopy in Azure Storage Explorer
+## Use in Azure Storage Explorer
 
 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of its data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to leverage the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
 
@@ -146,11 +146,11 @@ Storage Explorer uses your account key to perform operations, so after you sign 
 
 <a id="previous-version"></a>
 
-## Configure, optimize, and troubleshoot AzCopy
+## Configure, optimize, and fix
 
 See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
-## Use the previous version of AzCopy
+## Use a previous version
 
 If you need to use the previous version of AzCopy, see either of the following links:
 

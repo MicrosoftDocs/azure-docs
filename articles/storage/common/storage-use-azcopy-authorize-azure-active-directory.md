@@ -15,7 +15,7 @@ When you execute an AzCopy command, your security principal must have authorized
 
 To learn more about getting started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
-## Verify Azure RBAC role assignments
+## Verify role assignments
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
@@ -44,7 +44,7 @@ You don't need to have one of these roles assigned to your security principal if
 
 To learn more, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 
-## Authenticate a user identity
+## Authorize a user identity
 
 After you've verified that your user identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
@@ -68,7 +68,7 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 <a id="service-principal"></a>
 
-## Authenticate a service principal
+## Authorize a service principal
 
 This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authenticate a managed identity](#managed-identity) section of this article.
 
@@ -80,7 +80,7 @@ To learn more about creating service principal, see [How to: Use the portal to c
 
 To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 
-### Using a client secret
+#### Authorize a service principal by using a client secret
 
 Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration.
 
@@ -104,7 +104,7 @@ azcopy login --service-principal  --application-id application-id --tenant-id=te
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal. 
 
-### Using a certificate
+#### Authorize a service principal by using a certificate
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
 
@@ -134,7 +134,7 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully-
 
 <a id="managed-identity"></a>
 
-## Authenticate a managed identity
+## Authorize a managed identity
 
 This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM). When using this option, you won't have to store any credentials on the VM.
 
@@ -142,7 +142,7 @@ You can sign into your account by using the a system-wide managed identity that 
 
 To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 
-### Using a system-wide managed identity
+#### Authorize by using a system-wide managed identity
 
 First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
@@ -152,7 +152,7 @@ Then, in your command console, type the following command, and then press the EN
 azcopy login --identity
 ```
 
-### Using a user-assigned managed identity
+#### Authorize by using a user-assigned managed identity
 
 First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
