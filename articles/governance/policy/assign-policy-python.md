@@ -14,9 +14,12 @@ managed disks. When complete, you'll identify virtual machines that are _non-com
 The Python library is used to manage Azure resources from the command line or in scripts. This guide
 explains how to use Python library to create a policy assignment.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
+before you begin.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Add the Policy library
 

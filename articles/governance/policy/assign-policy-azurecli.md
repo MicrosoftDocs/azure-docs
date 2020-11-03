@@ -18,9 +18,10 @@ Azure CLI is used to create and manage Azure resources from the command line or 
 guide uses Azure CLI to create a policy assignment and to identify non-compliant resources in your
 Azure environment.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
+  account before you begin.
 
 - This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
   `az --version`. If you need to install or upgrade, see
@@ -31,15 +32,17 @@ Azure environment.
   must have permission to the register resource provider operation. This operation is included in
   the Contributor and Owner roles. Run the following command to register the resource provider:
 
-    ```azurecli-interactive
-    az provider register --namespace 'Microsoft.PolicyInsights'
-    ```
+  ```azurecli-interactive
+  az provider register --namespace 'Microsoft.PolicyInsights'
+  ```
 
-    - For more information about registering and viewing resource providers, see
+  For more information about registering and viewing resource providers, see
   [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 - If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a
   tool that sends HTTP requests to Azure Resource Manager-based APIs.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a policy assignment
 

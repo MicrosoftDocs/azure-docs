@@ -18,11 +18,14 @@ are processes that run the first time to set up the management groups service wi
 directory. You receive a notification when the process is complete. For more information, see
 [initial setup of management groups](./overview.md#initial-setup-of-management-groups).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
+  account before you begin.
 
-- This article requires version 2.0.76 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+- This quickstart requires that you run Azure CLI version 2.0.76 or later to install and use the CLI
+  locally. To find the version, run `az --version`. If you need to install or upgrade, see
+  [Install Azure CLI](/cli/azure/install-azure-cli).
 
 - Any Azure AD user in the tenant can create a management group without the management group write
   permission assigned to that user if
@@ -34,6 +37,8 @@ directory. You receive a notification when the process is complete. For more inf
   Management Group when it's created. To avoid the hurdle of finding the Azure AD Global Admins to
   start using management groups, we allow the creation of the initial management groups at the root
   level.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ### Create in the Azure CLI
 
