@@ -369,7 +369,7 @@ To create a container with a custom indexing policy see, [Create a container wit
 
 ## Use PowerShell
 
-To create a container with a custom indexing policy see, [Create a container with a custom index policy using Powershell](manage-with-powershell.md#create-container-custom-index)
+To create a container with a custom indexing policy see, [Create a container with a custom index policy using PowerShell](manage-with-powershell.md#create-container-custom-index)
 
 ## <a id="dotnet-sdk"></a> Use the .NET SDK
 
