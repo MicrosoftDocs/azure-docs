@@ -19,7 +19,7 @@ In this quickstart, you'll use the Azure Synapse Analytics to create a pipeline 
 In this quickstart, you do the following steps:
 
 > [!div class="checklist"]
-> * Create a pipeline with a Data Flow activity.
+> * Create a pipeline with a Data Flow activity in Azure Synapse Analytics.
 > * Build a mapping data flow with four transformations.
 > * Test run the pipeline.
 > * Monitor a Data Flow activity
@@ -45,7 +45,7 @@ In this quickstart, we use the workspace named "adftest2020" as an example. It w
 
 ## Create a pipeline with a Data Flow activity
 
-A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from Azure SQL Database into a SQL pool.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline that contains a Data Flow activity.
 
 1. Go to the **Integrate** tab. Select on the plus icon next to the pipelines header and select Pipeline.
 
@@ -63,9 +63,9 @@ A pipeline contains the logical flow for an execution of a set of activities. In
 
 ## Build transformation logic in the data flow canvas
 
-Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
+Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the MoviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
 
-1. Above the data flow canvas, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](../data-factory/concepts-data-flow-debug-mode.md).
+1. Above the data flow canvas, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
     ![Slide the debug on](media/quickstart-data-flow/debug-on.png)
 
@@ -87,7 +87,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
     ![Create a source linked service](media/quickstart-data-flow/adls-gen2-linked-service.png)
 
-1. Once you're back at the dataset creation screen, under the **File path** field, enter where your file is located . In this quickstart, the file "moviesDB.csv" is located in container "sample-data". As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Click **OK** when done.
+1. Once you're back at the dataset creation screen, under the **File path** field, enter where your file is located . In this quickstart, the file "MoviesDB.csv" is located in container "sample-data". As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Click **OK** when done.
 
     ![Source dataset settings](media/quickstart-data-flow/source-dataset-properties.png)
 
@@ -101,7 +101,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. Name your filter transformation **FilterYears**. Click on the expression box next to **Filter on** to open the expression builder. Here you'll specify your filtering condition.
 
-1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](../data-factory/concepts-data-flow-expression-builder.md).
+1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
     In this quickstart, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
 
@@ -131,7 +131,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
     ![Aggregate settings 2](media/quickstart-data-flow/aggregate-settings-2.png)
 
-1. To get the average of column **Rating**, use the ```avg()``` aggregate function. As **Rating** is a string and ```avg()``` takes in a numerical input, we must convert the value to a number via the ```toInteger()``` function. This is expression looks like:
+1. To get the average of column **Rating**, use the ```avg()``` aggregate function. As **Rating** is a string and ```avg()``` takes in a numerical input, we must convert the value to a number via the ```toInteger()``` function. This expression looks like:
 
     ```avg(toInteger(Rating))```
 
@@ -181,6 +181,12 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 If you followed this quickstart correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data by checking your blob storage.
 
+
 ## Next steps
 
-Learn more about the [data flow expression language](data-flow-expression-functions.md).
+Advance to the following articles to learn about Azure Synapse Analytics support:
+
+> [!div class="nextstepaction"]
+> [Pipeline and activities](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Connector overview](https://docs.microsoft.com/azure/data-factory/connector-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Data flow expression language](https://docs.microsoft.com/azure/data-factory/data-flow-expression-functions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
