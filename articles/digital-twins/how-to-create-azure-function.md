@@ -31,6 +31,10 @@ Here is an overview of the steps it contains:
 4. Publish the function app to Azure
 5. Set up [security](concepts-security.md) access for the Azure function app
 
+## Prerequisite: Set up Azure Digital Twins instance
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## Create an Azure Functions app in Visual Studio
 
 In Visual Studio 2019, select _File > New > Project_ and search for the _Azure Functions_ template, select _Next_.
@@ -51,7 +55,7 @@ Once your function app is created, your visual studio will have auto populated c
 
 ## Write an Azure function with an Event Grid trigger
 
-You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure Digital Twins SDK for .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using visual studio NuGet package manager or add the packages using `dotnet` command-line tool. Choose either of these methods: 
 
@@ -187,26 +191,28 @@ You can set up security access for the Azure function app using one of these opt
 
 The Azure function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
-You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
+You can create system-managed identity and assign the function app's identity to the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
- Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
 
 Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
 
-```azurecli	
+```azurecli-interactive	
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
 ```
-Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance.
+Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
 
-```azurecli	
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive	
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-```azurecli	
+```azurecli-interactive	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### Option 2: Set up security access for the Azure function app using Azure portal
@@ -242,7 +248,7 @@ On the _Add role assignment (Preview)_ page that opens up, select:
 * _Scope_: Resource group
 * _Subscription_: select your Azure subscription
 * _Resource group_: select your resource group from the dropdown
-* _Role_: select _Azure Digital Twins Owner (Preview)_ from the dropdown
+* _Role_: select _Azure Digital Twins Data Owner_ from the dropdown
 
 Then, save your details by hitting the _Save_ button.
 

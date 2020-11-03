@@ -6,6 +6,7 @@ ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
+ms.subservice: security
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Virtual Machines
