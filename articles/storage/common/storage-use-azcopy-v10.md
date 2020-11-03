@@ -54,6 +54,8 @@ To find detailed reference documentation for each command and command parameter,
 > [!NOTE] 
 > As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
+<a id="choose-how-youll-provide-authorization-credentials"></a>
+
 ## Authorize AzCopy
 
 You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
