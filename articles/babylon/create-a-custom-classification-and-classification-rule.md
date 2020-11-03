@@ -5,7 +5,7 @@ author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: how-to
 ms.date: 11/1/2020
 ---
 
