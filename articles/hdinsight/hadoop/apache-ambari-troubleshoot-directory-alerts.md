@@ -49,4 +49,4 @@ Manually create missing directories on the affected worker node(s).
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -40,4 +40,4 @@ Either remove the jar, or recompile the customized jar (AzureLogAppender) and us
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

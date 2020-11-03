@@ -34,4 +34,4 @@ Usually rebooting the active headnode will mitigate this issue. If not please co
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -40,4 +40,4 @@ The value of `HIVE_VIEW_INSTANCE_NAME` is available at the end of the Hive View 
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

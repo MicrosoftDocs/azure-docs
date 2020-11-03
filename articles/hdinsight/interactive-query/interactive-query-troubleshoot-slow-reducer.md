@@ -35,4 +35,4 @@ A value of `true` makes sense when the number of partitions is larger and data i
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -37,4 +37,4 @@ The Zeppelin Hive JDBC Interpreter is pointing to the wrong URL.
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
