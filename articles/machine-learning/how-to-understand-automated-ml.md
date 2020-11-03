@@ -36,7 +36,7 @@ For example, AutoML provides different charts for classification and regression 
 
 After your automated machine learning experiment completes, a history of the runs can be found in your machine learning workspace via the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
-For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
 
 The following steps and animation show how to view the run history and performance metrics and charts of a specific model in the studio.
 
