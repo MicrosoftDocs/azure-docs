@@ -457,10 +457,15 @@ Consider the following data table, describing a set of digital twins 
 | dtmi:example:Room;1    | Room1 | | | |
 | dtmi:example:Room;1    | Room0 | | | |
 
-* The following code sample reads the data from the CSV file and creates a twin graph. Save your CSV file as *data.csv* and specify the path to the file in the line of code `string path = @"<path-to-the-CSV-file>";`.
+* Save your CSV file as *data.csv* in your working project directory. In your code editor, select the properties of the file by right selecting the file and make the property *Copy to Output Directory* to *copy if newer*.
 * Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
-
-You can now run the sample and see the twins and their relationships created.
+* Add these packages to your project:
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+    dotnet add package Azure.identity
+    dotnet add package Nancy
+    ```
+You can now run the sample reads the data from the CSV file and creates a twin graph.
 
 ```csharp
 using System;
@@ -540,7 +545,7 @@ namespace creating_twin_graph_from_csv
         // Read data from the csv file
         public static List<List<string>> ReadData()
         {
-            string path = @"<path-to-the-CSV-file>";
+            string path = "data.csv";
             string[] lines = System.IO.File.ReadAllLines(path);
             List<List<string>> data = new List<List<string>>();
             int count = 0;
