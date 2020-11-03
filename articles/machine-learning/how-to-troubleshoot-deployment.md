@@ -1,5 +1,5 @@
 ---
-title: Docker deployment troubleshooting
+title: Troubleshoot Web Service Deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using Azure Machine Learning.
 services: machine-learning
@@ -31,10 +31,10 @@ Learn how to troubleshoot and solve, or work around, common Docker deployment er
 
 When you deploy a model to non-local compute in Azure Machine Learning, the following things happen:
 
-1. The Dokerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
+1. The Dockerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
 1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your Workspace's default container registry.
 1. The Docker image from your container registry is downloaded to your compute target.
-1. Your workspace's default blob store is mounted to your compute target, giving you access to registered models
+1. Your Workspace's default Blob store is mounted to your compute target, giving you access to registered models
 1. Your web server is initialized by running your entry script's `init()` function
 1. When your deployed model receives a request, your `run()` function handles that request
 
@@ -57,7 +57,7 @@ az ml service get-logs --verbose --workspace-name <my workspace name> --name <se
 # [Python](#tab/python)
 
 
-Assuming you have an object called `ws`, you can do the following:
+Assuming you have an object of type `azureml.core.Workspace` called `ws`, you can do the following:
 
 ```python
 print(ws.webservices)
