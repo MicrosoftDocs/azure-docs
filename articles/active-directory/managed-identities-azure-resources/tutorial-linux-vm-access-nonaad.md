@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2020
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a Linux virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
