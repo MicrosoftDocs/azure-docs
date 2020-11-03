@@ -20,12 +20,7 @@ Azure environment.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
-  account before you begin.
-
-- This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
-  `az --version`. If you need to install or upgrade, see
-  [Install Azure CLI](/cli/azure/install-azure-cli).
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - Register the Azure Policy Insights resource provider using Azure CLI. Registering the resource
   provider makes sure that your subscription works with it. To register a resource provider, you
@@ -42,7 +37,9 @@ Azure environment.
 - If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a
   tool that sends HTTP requests to Azure Resource Manager-based APIs.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.76 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a policy assignment
 
