@@ -4,6 +4,7 @@ description: Learn about paging concepts and continuation tokens
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ---
