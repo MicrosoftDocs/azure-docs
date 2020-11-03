@@ -25,7 +25,7 @@ Use this module to create a Poisson regression model in a pipeline. Poisson regr
 - A Poisson distribution is a discrete distribution; therefore, it is not meaningful to use this method with non-whole numbers.
 
 > [!TIP]
-> If your target isn’t a count, Poisson regression is probably not an appropriate method. Try [other regression modules in the designer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> If your target isn’t a count, Poisson regression is probably not an appropriate method. Try [other regression modules in the designer](./module-reference.md#machine-learning-algorithms). 
 
 After you have set up the regression method, you must train the model using a dataset containing examples of the value you want to predict. The trained model can then be used to make predictions.
 
@@ -69,7 +69,7 @@ Because the response variable has a Poisson distribution, the model makes differ
 
     In this module, you can apply a combination of L1 and L2 regularizations. By combining L1 and L2 regularization, you can impose a penalty on the magnitude of the parameter values. The learner tries to minimize the penalty, in a tradeoff with minimizing the loss.
 
-    For a good discussion of L1 and L2 regularization, see [L1 and L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    For a good discussion of L1 and L2 regularization, see [L1 and L2 Regularization for Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
 6. **Memory size for L-BFGS**: Specify the amount of memory to reserve for model fitting and optimization.
 
@@ -101,4 +101,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.
