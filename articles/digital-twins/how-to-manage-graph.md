@@ -540,7 +540,7 @@ namespace creating_twin_graph_from_csv
         // Read data from the csv file
         public static List<List<string>> ReadData()
         {
-            string path = @"<path-to-the-csv-file>";
+            string path = @"<path-to-the-CSV-file>";
             string[] lines = System.IO.File.ReadAllLines(path);
             List<List<string>> data = new List<List<string>>();
             int count = 0;
