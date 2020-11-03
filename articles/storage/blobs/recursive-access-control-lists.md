@@ -842,10 +842,9 @@ You might encounter runtime or permission errors. For runtime errors, restart th
 
 ### [PowerShell](#tab/azure-powershell)
 
-This example sets ACLs in batches. Each call to `Set-AzDataLakeGen2AclRecursive` returns a continuation token until all ACLs are set. This example sets a variable named `$ContinueOnFailure` to `$false` to indicate the the process should not continue setting ACLs in the event of a permission error. The continuation token is stored to `&token` variable. In the event of a failure, that token can be used to resume the process from the point of failure.
+This example sets ACLs in batches. Each call to **Set-AzDataLakeGen2AclRecursive** returns a continuation token until all ACLs are set. This example sets a variable named `$ContinueOnFailure` to `$false` to indicate that the process should not continue setting ACLs in the event of a permission error. The continuation token is stored to `&token` variable. In the event of a failure, that token can be used to resume the process from the point of failure.
 
 ```powershell
-
 $ContinueOnFailure = $false
 
 $token = $null
@@ -987,10 +986,9 @@ If you want the process to complete uninterrupted by permission errors, you can 
 
 ### [PowerShell](#tab/azure-powershell)
 
-This example sets ACLs in batches. Each call to `Set-AzDataLakeGen2AclRecursive` returns a continuation token until all ACLs are set. This example sets a variable named `$ContinueOnFailure` to `$true` to indicate the the process should continue setting ACLs in the event of a permission error. 
+This example sets the `$ContinueOnFailure` variable to `$true` to indicate that the process should continue setting ACLs in the event of a permission error. 
 
 ```powershell
-
 $ContinueOnFailure = $true
 
 $token = $null
