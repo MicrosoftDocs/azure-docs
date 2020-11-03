@@ -22,7 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure Active directory tenant
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * A user account in GitHub with Admin permissions to the organization
-* [SAML configured for the GitHub Enterprise Cloud organization](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
+* [SAML configured for the GitHub Enterprise Cloud organization](./github-tutorial.md)
 * Ensure that OAuth access has been provided for your organization as described [here](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * SCIM provisioning to a single organization is supported only when SSO is enabled at the organization level
 

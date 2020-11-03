@@ -1,6 +1,6 @@
 ---
-title: How to use OPENROWSET in SQL on-demand (preview)
-description: This article describes syntax of OPENROWSET in SQL on-demand (preview) and explains how to use arguments.
+title: How to use OPENROWSET in serverless SQL pool (preview)
+description: This article describes syntax of OPENROWSET in serverless SQL pool (preview) and explains how to use arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET with SQL on-demand (preview)
+# How to use OPENROWSET using serverless SQL pool (preview) in Azure Synapse Analytics
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the SQL on-demand (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
@@ -90,6 +90,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
 ```
 
 ## Arguments
@@ -125,12 +126,12 @@ The unstructured_data_path that establishes a path to the data may be an absolut
 Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-If you specify the unstructured_data_path to be a folder, a SQL on-demand query will retrieve files from that folder. 
+If you specify the unstructured_data_path to be a folder, a serverless SQL pool query will retrieve files from that folder. 
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PolyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders. Also, unlike Hadoop and PolyBase, serverless SQL pool does return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
@@ -139,12 +140,13 @@ In the example below, if the unstructured_data_path=`https://mystorageaccount.df
 The WITH clause allows you to specify columns that you want to read from files.
 
 - For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. 
-
-    > [!IMPORTANT]
-    > The WITH clause is mandatory for CSV files.
-    >
+    > [!TIP]
+    > You can omit WITH clause for CSV files also. Data types will be automatically inferred from file content. You can use HEADER_ROW argument to specify existence of header row in which case column names will be read from header row. For details check [automatic schema discovery](#automatic-schema-discovery).
     
-- For Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name. If the WITH clause is omitted, all columns from Parquet files will be returned.
+- For Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name and is case sensitive. If the WITH clause is omitted, all columns from Parquet files will be returned.
+    > [!IMPORTANT]
+    > Column names in Parquet files are case sensitive. If you specify column name with casing different from column name casing in Parquet file, NULL values will be returned for that column.
+
 
 column_name = Name for the output column. If provided, this name overrides the column name in the source file.
 
@@ -187,9 +189,9 @@ Specifies a character that will be used as the quote character in the CSV file. 
 
 DATA_COMPRESSION = 'data_compression_method'
 
-Specifies compression method. Following compression method is supported:
+Specifies compression method. Supported in PARSER_VERSION='1.0' only. Following compression method is supported:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 
@@ -200,6 +202,10 @@ Specifies parser version to be used when reading files. Currently supported CSV 
 
 CSV parser version 1.0 is default and feature rich. Version 2.0 is built for performance and does not support all options and encodings. 
 
+CSV parser version 1.0 specifics:
+
+- Following options aren't supported: HEADER_ROW.
+
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
@@ -207,22 +213,93 @@ CSV parser version 2.0 specifics:
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
 
+HEADER_ROW = { TRUE | FALSE }
+
+Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument.
+
+## Fast delimited text parsing
+
+There are two delimited text parser versions you can use. CSV parser version 1.0 is default and feature rich while parser version 2.0 is built for performance. Performance improvement in parser 2.0 comes from advanced parsing techniques and multi-threading. Difference in speed will be bigger as the file size grows.
+
+## Automatic schema discovery
+
+You can easily query both CSV and Parquet files without knowing or specifying schema by omitting WITH clause. Column names and data types will be inferred from files.
+
+Parquet files contain column metadata which will be read, type mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
+
+For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
+
+> [!IMPORTANT]
+> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). In case you have character columns in your files and use schema inference, for optimal performance please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### Type mapping for Parquet
+
+Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+
+| Parquet type | Parquet logical type (annotation) | SQL data type |
+| --- | --- | --- |
+| BOOLEAN | | bit |
+| BINARY / BYTE_ARRAY | | varbinary |
+| DOUBLE | | float |
+| FLOAT | | real |
+| INT32 | | int |
+| INT64 | | bigint |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binary |
+| BINARY |UTF8 |varchar \*(UTF8 collation) |
+| BINARY |STRING |varchar \*(UTF8 collation) |
+| BINARY |ENUM|varchar \*(UTF8 collation) |
+| BINARY |UUID |uniqueidentifier |
+| BINARY |DECIMAL |decimal |
+| BINARY |JSON |varchar(max) \*(UTF8 collation) |
+| BINARY |BSON |varbinary(max) |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
+| BYTE_ARRAY |INTERVAL |varchar(max), serialized into standardized format |
+| INT32 |INT(8, true) |smallint |
+| INT32 |INT(16, true) |smallint |
+| INT32 |INT(32, true) |int |
+| INT32 |INT(8, false) |tinyint |
+| INT32 |INT(16, false) |int |
+| INT32 |INT(32, false) |bigint |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |decimal |
+| INT32 |TIME (MILLIS )|time |
+| INT64 |INT(64, true) |bigint |
+| INT64 |INT(64, false ) |decimal(20,0) |
+| INT64 |DECIMAL |decimal |
+| INT64 |TIME (MICROS / NANOS) |time |
+|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(max), serialized into JSON |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialized into JSON |
+
 ## Examples
 
-The following example returns only two columns with ordinal numbers 1 and 4 from the population*.csv files. Since there's no header row in the files, it starts reading from the first line:
+### Read CSV files without specifying schema
+
+The following example reads CSV file that contains header row without specifying column names and data types: 
 
 ```sql
-SELECT * 
+SELECT 
+	*
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+	HEADER_ROW = TRUE) as [r]
 ```
+
+The following example reads CSV file that doesn't contain header row without specifying column names and data types: 
+
+```sql
+SELECT 
+	*
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### Read Parquet files without specifying schema
 
 The following example returns all columns of the first row from the census data set, in Parquet format, and without specifying column names and data types: 
 
@@ -236,6 +313,42 @@ FROM
     ) AS [r]
 ```
 
+### Read specific columns from CSV file
+
+The following example returns only two columns with ordinal numbers 1 and 4 from the population*.csv files. Since there's no header row in the files, it starts reading from the first line:
+
+```sql
+SELECT 
+	* 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### Read specific columns from Parquet file
+
+The following example returns only two columns of the first row from the census data set, in Parquet format: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+	[stateName] VARCHAR (50),
+	[population] bigint
+) AS [r]
+```
+
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. Check [best practices](best-practices-sql-on-demand.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

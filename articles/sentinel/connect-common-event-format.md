@@ -1,6 +1,6 @@
 ---
 title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
-description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel by using a Linux machine as a proxy.
+description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel by using a Linux machine as a log forwarder.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -48,40 +48,49 @@ To use TLS communication between the Syslog source and the Syslog Forwarder, you
  
 ## Prerequisites
 
-Make sure the Linux machine you use as a proxy is running one of the following operating systems:
+Make sure the Linux machine you use as a log forwarder is running one of the following operating systems:
 
 - 64-bit
-  - CentOS 7 and sub-versions, and higher (not 6)
+  - CentOS 7 and 8, including sub-versions (not 6)
   - Amazon Linux 2017.09
-  - Oracle Linux 6 and 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 and sub-versions, and higher (not 6)
-  - Debian GNU/Linux 8 and 9
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
+  - Debian GNU/Linux 8, 9, and 10
   - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12, 15
+
 - 32-bit
-   - CentOS 7
-   - Oracle Linux 6
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 and 9
-   - Ubuntu Linux 14.04 LTS and 16.04 LTS
+  - CentOS 7 and 8, including sub-versions (not 6)
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
+  - Debian GNU/Linux 8, 9, and 10
+  - Ubuntu Linux 14.04 LTS and 16.04 LTS
  
- - Daemon versions
-   - Syslog-ng: 2.1 - 3.22.1
-   - Rsyslog: v8
+- Daemon versions
+  - Syslog-ng: 2.1 - 3.22.1
+  - Rsyslog: v8
   
- - Syslog RFCs supported
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+- Syslog RFCs supported
+  - Syslog RFC 3164
+  - Syslog RFC 5424
  
 Make sure your machine also meets the following requirements: 
+
 - Permissions
-    - You must have elevated permissions (sudo) on your machine. 
+  - You must have elevated permissions (sudo) on your machine. 
+
 - Software requirements
-    - Make sure you have Python (2.7 or higher) running on your machine
+  - Make sure you have python 2.7 running on your machine.
 
 ## Next steps
 
-In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how Azure Sentinel collects CEF logs from security solutions and appliances. To learn how to connect your solution to Azure Sentinel, see the following articles:
+
+- STEP 1: [Connect CEF by deploying a Syslog/CEF forwarder](connect-cef-agent.md)
+- STEP 2: [Perform solution-specific steps](connect-cef-solution-config.md)
+- STEP 3: [Verify connectivity](connect-cef-verify.md)
+
+To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

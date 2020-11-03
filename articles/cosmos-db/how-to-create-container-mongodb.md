@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article explains the different ways to create a container in Azure Cosmos DB API for MongoDB. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
@@ -57,12 +58,11 @@ If you encounter timeout exception when creating a collection, do a read operati
 
 ## Create a container using Azure Resource Manager templates
 
-[Create a collection for Azure Cosmos DB for MongoDB API with Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-standard-provisioned-throughput).
+[Create a collection for Azure Cosmos DB for MongoDB API with Resource Manager template](./manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput).
 
 ## Next steps
 
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](account-overview.md)
-
+* [Work with Azure Cosmos account](./account-databases-containers-items.md)

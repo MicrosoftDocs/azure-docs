@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/29/2020
+ms.date: 10/22/2020
 ---
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server
@@ -23,17 +23,17 @@ Open your web browser, and then go to the [Azure portal](https://portal.azure.co
 
 ## Create an Azure Database for MySQL Flexible Server
 
-You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
 Follow these steps to create a flexible server:
 
-1. Select **Create a resource** (+) in the upper-left corner of the  portal.
+1. Search for "Azure Database for MySQL" in the portal using the search box to find the service. 
+    
+    > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Search for Azure Database for MySQL":::
 
-2. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
+2. Select **Add**. 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Azure Database for MySQL option":::
-
-3. Select **Flexible server** as the deployment option.
+3. On the "Select deployment option page", select **Flexible server** as the deployment option.
      
     > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Pick deployment option":::    
 

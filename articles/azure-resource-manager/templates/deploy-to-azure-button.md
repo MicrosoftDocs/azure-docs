@@ -2,11 +2,18 @@
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/22/2020
 ---
 # Use a deployment button to deploy templates from GitHub repository
 
-This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to the README.md file in your GitHub repository or to a web page that references the repository. This method only supports resource group level deployment.
+This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to the README.md file in your GitHub repository. Or, you can add the button to a web page that references the repository.
+
+The deployment scope is determined by the template schema. For more information, see:
+
+* [resource groups](deploy-to-resource-group.md)
+* [subscriptions](deploy-to-subscription.md)
+* [management groups](deploy-to-management-group.md)
+* [tenants](deploy-to-tenant.md).
 
 ## Use common image
 
@@ -32,7 +39,7 @@ The format of the URL is:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Then, URL encode it. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
+Then, convert the URL to a URL-encoded value. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
 
 ```powershell
 [uri]::EscapeDataString($url)

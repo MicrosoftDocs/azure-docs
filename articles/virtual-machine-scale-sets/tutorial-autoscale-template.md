@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with an Azure template

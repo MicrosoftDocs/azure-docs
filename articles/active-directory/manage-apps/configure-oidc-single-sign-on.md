@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
+ms.custom: contperfq2
 ---
 
 # Understand OIDC-based single sign-on
