@@ -1,27 +1,27 @@
 ---
-title: Docker deployment troubleshooting
+title: Troubleshoot Web Service Deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: clauren42
-ms.author:  clauren
+author: gvashishtha
+ms.author:  gopalv
 ms.reviewer: jmartens
-ms.date: 08/06/2020
+ms.date: 11/02/2020
 ms.topic: troubleshooting
 ms.custom: contperfq4, devx-track-python, deploy
 ---
 
-# Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
+# Troubleshoot model deployment
 
 Learn how to troubleshoot and solve, or work around, common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
 ## Prerequisites
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
@@ -29,66 +29,48 @@ Learn how to troubleshoot and solve, or work around, common Docker deployment er
 
 ## Steps for Docker deployment of machine learning models
 
-When deploying a model in Azure Machine Learning, you use the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API and an [Environment](how-to-use-environments.md) object. The service creates a base docker image during deployment stage and mounts the required models all in one call. The basic deployment tasks are:
+When you deploy a model to non-local compute in Azure Machine Learning, the following things happen:
 
-1. Register the model in the workspace model registry.
+1. The Dockerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
+1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your Workspace's default container registry.
+1. The Docker image from your container registry is downloaded to your compute target.
+1. Your Workspace's default Blob store is mounted to your compute target, giving you access to registered models
+1. Your web server is initialized by running your entry script's `init()` function
+1. When your deployed model receives a request, your `run()` function handles that request
 
-2. Define Inference Configuration:
-    1. Create an [Environment](how-to-use-environments.md) object. This object can use the dependencies in an environment yaml file, one of our curated environments.
-    2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
+The main difference when using a local deployment is that the container image is built on your local machine, which is why you need to have Docker installed for a local deployment.
 
-3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
+Understanding these high-level steps should help you understand where errors are happening.
 
-Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
+## Get deployment logs
 
-## Before you begin
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here](how-to-deploy-and-where.md#connect-to-your-workspace) to connect to your workspace.
 
-If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
+# [Azure CLI](#tab/azcli)
 
-When using [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
+To get the logs from a deployed webservice, do:
 
-1. Register the model. Here is some sample code:
+```bash
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-    ```python
-    from azureml.core.model import Model
-
-
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
-
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
-
-2. Define inference configuration for deployment:
-
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
+# [Python](#tab/python)
 
 
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
+Assuming you have an object of type `azureml.core.Workspace` called `ws`, you can do the following:
 
-3. Deploy the model using the inference configuration created in the previous step:
+```python
+print(ws.webservices)
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+# Choose the webservice you are interested in
 
+from azureml.core import Webservice
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
 
-Breaking thee deployment process into individual tasks makes it easier to identify some of the more common errors.
+---
 
 ## Debug locally
 
@@ -156,7 +138,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > The script is reloaded from the location specified by the `InferenceConfig` object used by the service.
 
-To change the model, Conda dependencies, or deployment configuration, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate--args-). The following example updates the model used by the service:
+To change the model, Conda dependencies, or deployment configuration, use [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). The following example updates the model used by the service:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -164,7 +146,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### Delete the service
 
-To delete the service, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
+To delete the service, use [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ### <a id="dockerlog"></a> Inspect the Docker log
 
@@ -194,7 +176,7 @@ Use the info in the [Inspect the Docker log](#dockerlog) section to check the lo
 
 ## Function fails: get_model_path()
 
-Often, in the `init()` function in the scoring script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 from azureml.core.model import Model
@@ -272,7 +254,7 @@ There are two things that can help prevent 503 status codes:
     > [!NOTE]
     > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your service increases, you may need to increase the minimum replicas.
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) module reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) module reference.
 
 ## HTTP status code 504
 
@@ -286,7 +268,7 @@ You may need to interactively debug the Python code contained in your model depl
 
 For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
-## [Model deployment user forum](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
+## [Model deployment user forum](/answers/topics/azure-machine-learning-inference.html)
 
 ## Next steps
 
