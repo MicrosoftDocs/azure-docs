@@ -244,6 +244,10 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -263,7 +267,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -514,6 +520,9 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -533,7 +542,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -780,6 +791,10 @@ import com.squareup.okhttp.*;
 public class Detect {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -796,7 +811,9 @@ public class Detect {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1054,6 +1071,10 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1072,7 +1093,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1326,6 +1349,10 @@ import com.squareup.okhttp.*;
 public class Transliterate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1345,7 +1372,9 @@ public class Transliterate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"สวัสดี\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1590,6 +1619,10 @@ import com.squareup.okhttp.*;
 public class Translate {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1608,7 +1641,9 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -1864,6 +1899,10 @@ import com.squareup.okhttp.*;
 public class BreakSentence {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -1880,7 +1919,9 @@ public class BreakSentence {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -2121,6 +2162,10 @@ import com.squareup.okhttp.*;
 public class DictionaryLookup {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
+
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
@@ -2139,7 +2184,9 @@ public class DictionaryLookup {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Shark\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -2410,6 +2457,10 @@ import com.squareup.okhttp.*;
 
 public class DictionaryExamples {
     private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    private static String location = "YOUR_RESOURCE_LOCATION";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
