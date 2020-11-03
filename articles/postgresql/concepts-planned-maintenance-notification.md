@@ -17,7 +17,7 @@ Azure Database for PostgreSQL service performs automated patching of the underly
 
 A planned maintenance is a maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
 
-## Planned Maintenance - Duration and Customer Impact
+## Planned maintenance - duration and customer impact
 
 A planned maintenance for a given Azure region is typically expected to run 15 hrs. The window also includes buffer time to execute a rollback plan if necessary. During planned maintenance, there can be database server restarts or failovers, which might lead to brief unavailability of the database servers for end users. Azure Database for PostgreSQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 60-120 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time, which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
 
@@ -57,7 +57,7 @@ You can either check the planned maintenance notification on Azure portal or con
 
 For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-## Can I control or change planned maintenance for my servers after I receive a notification event?
+## Can I cancel or postpone planned maintenance?
 
 Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be canceled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for PostgreSQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
 

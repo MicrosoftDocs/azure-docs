@@ -37,7 +37,7 @@ This version of this article goes through these steps manually, one by one, usin
 
 In this section, you will **create a new instance of Azure Digital Twins** using the Cloud Shell command. You'll need to provide:
 * A resource group to deploy it in. If you don't already have an existing resource group in mind, you can create one now with this command:
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * A region for the deployment. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -45,7 +45,7 @@ In this section, you will **create a new instance of Azure Digital Twins** using
 
 Use these values in the following command to create the instance:
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -68,7 +68,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this will match the user's email on the Azure AD account.
 
-```azurecli
+```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 

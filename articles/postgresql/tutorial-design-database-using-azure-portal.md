@@ -184,7 +184,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
 
 1. On the Azure Database for PostgreSQL **Overview** page for your server, click **Restore** on the toolbar. The **Restore** page opens.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Azure portal - Restore form options":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Screenshot that shows the Azure Database for PostgreSQL **Overview** page for your server and highlights the Restore button.":::
 
 2. Fill out the **Restore** form with the required information:
 

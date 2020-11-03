@@ -9,6 +9,8 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # StringToBoolean (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns expression translated to a Boolean. If expression cannot be translated, returns undefined.  
   
 ## Syntax

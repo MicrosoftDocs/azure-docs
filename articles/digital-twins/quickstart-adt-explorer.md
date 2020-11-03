@@ -42,51 +42,37 @@ Finally, you will also need to download the sample to use during the quickstart:
 
 ## Set up Azure Digital Twins and ADT Explorer
 
-The first step in working with Azure Digital Twins is to set up an **Azure Digital Twins instance**. After you create an instance of the service, you'll be able to populate it with the example data later in the quickstart.
+The first step in working with Azure Digital Twins is to **set up an Azure Digital Twins instance**. After you create an instance of the service, and **set up your credentials** to authenticate with ADT Explorer, you'll be able to **connect to the instance in ADT Explorer** and populate it with the example data later in the quickstart.
 
-You'll also set up permissions for ADT Explorer to run on your computer and access your Azure Digital Twins instance. This will allow you to use the sample app to explore your instance and its data.
+The rest of this section walks you through these steps.
 
-### Set up Azure Digital Twins instance and app registration
+### Set up Azure Digital Twins instance
 
-First, **set up an Azure Digital Twins instance** and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
-* After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-To authenticate the ADT Explorer application, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
-* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find these in the portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
+### Set up local Azure credentials
 
-### Set ADT Explorer permissions
+The ADT Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more on different ways a client app can authenticate with Azure Digital Twins, see [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
-Next, prepare the Azure Digital Twins instance you created to work with ADT Explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your **app registration** that you created in the previous section from the list.
+With this type of authentication, ADT Explorer will search for credentials within your local environment, such as an Azure login in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio/Visual Studio Code. This means that you should **log into Azure locally** through one of these mechanisms to set up credentials for the ADT Explorer app.
 
-Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
+If you're already logged into Azure through one of these ways, you can skip to the [next section](#run-and-configure-adt-explorer).
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Azure portal page of the Authentication details for an app registration. There is a highlight around an 'Add a platform' button" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+Otherwise, you can install the local **Azure CLI** with these steps:
+1. Follow the process at [**this install link**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS.
+2. Open a console window on your machine.
+3. Run `az login` and follow the authentication prompts to log into your Azure account.
 
-In the *Configure platforms* page that follows, select *Web*.
-Fill the configuration details as follows:
-* **Redirect URIs**: Add a redirect URI of *http://localhost:3000*.
-* **Implicit grant**: Check the box for *Access tokens*.
+After doing this, ADT Explorer should pick up your Azure credentials automatically when you run it in the next section.
 
-Hit *Configure* to finish.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Now you have a web configuration configured that ADT Explorer will use. The Authentication tab in the Azure portal should reflect this. After verifying the sections below, hit *Save*.
-
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of http://localhost:3000, and Implicit Grant being enabled for access tokens. The Save button is also highlighted.":::
+You can close the authentication console window if you'd like, or keep it open to use in the next step.
 
 ### Run and configure ADT Explorer
 
 Next, run the ADT Explorer application and configure it for your Azure Digital Twins instance.
 
 Navigate to the downloaded and unzipped _**Azure_Digital_Twins__ADT__explorer**_ folder. 
-Open a command prompt at the folder location *Azure_Digital_Twins__ADT__explorer/client/src*.
+Open a console window to the folder location *Azure_Digital_Twins__ADT__explorer/client/src*.
 
 Run `npm install` to download all the required dependencies.
 
@@ -100,10 +86,7 @@ Hit the *Sign in* button at the top of the window (shown in image below) to conf
 
 :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-Enter the important information you gathered earlier in the [Prerequisites](#prerequisites) section:
-* Application (client) ID
-* Directory (tenant) ID
-* Azure Digital Twins instance URL, in the format *https://{instance host name}*
+Enter the *Azure Digital Twins instance URL* that you gathered earlier in the [Prerequisites](#prerequisites) section, in the format *https://{instance host name}*.
 
 >[!NOTE]
 > You can revisit/edit this information at any time by selecting the same icon to pull up the Sign In box again. It will keep the values that you passed in.
@@ -319,12 +302,6 @@ To wrap up the work for this quickstart, first end the running console app. This
 If you plan to continue to the Azure Digital Twins tutorials, the instance used in this quickstart can be reused for those articles, and you don't need to remove it.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
 
 Finally, delete the project sample folder you downloaded to your local machine (_**Azure_Digital_Twins__ADT__explorer**_). You may have to delete both the zipped and unzipped versions.
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev devx-track-js
 # Customer intent: As an application developer, I want to learn how MSAL.js can be used with Azure AD B2C for
 # authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### Step 3: Configure authentication
 
-1. Open the `config.json` file in the sample.
+1. Open the *config.json* file in the sample.
 
 2. Configure the sample with the application credentials that you obtained earlier while registering your application. Change the following lines of code by replacing the values with your tenant name, client ID, and policy name.
 

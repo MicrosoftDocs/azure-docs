@@ -59,13 +59,13 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md
+        - name: Azure Policy support
+          href: policy.md
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
           href: security-baseline.md
-        - name: Azure Policy support
-          href: policy.md
     - name: Analytics with Azure Synapse Link
       items:
       - name: Azure Synapse Link for Cosmos DB
@@ -202,11 +202,14 @@
         href: templates-samples-sql.md
     - name: Concepts
       items:
-      - name: Model document data
-        displayName: document
-        href: modeling-data.md
-      - name: Partitioning
+      - name: Modeling and partitioning
         items:
+        - name: Model document data 
+          displayName: document
+          href: modeling-data.md
+        - name: Modeling and partitioning - a real-world example
+          displayName: model, partition, example
+          href: how-to-model-partition-example.md
         - name: Synthetic partition key
           href: synthetic-partition-keys.md
       - name: SQL query
@@ -554,14 +557,9 @@
           href: sql-query-linq-to-sql.md
       - name: Containers and items
         items:
-        - name: Indexing
-          items:
-          - name: Indexing overview
-            displayName: range, spatial
-            href: index-overview.md
-          - name: Indexing policies
-            displayName: consistent, none
-            href: index-policy.md
+        - name: Indexing overview
+          displayName: range, spatial
+          href: index-overview.md
         - name: Time to live
           displayName: delete, delete data, ttl
           href: time-to-live.md
@@ -631,13 +629,13 @@
         items:
         - name: Provisioned throughput
           items:
-          - name: Provision standard (manual) throughput on a container
+          - name: Provision standard (manual) throughput - container
             displayName: request units, RUs, RU, collection level
             href: how-to-provision-container-throughput.md
-          - name: Provision standard (manual) throughput on a database
+          - name: Provision standard (manual) throughput - database
             displayName: request units, RUs, RU, shared throughput, database level
             href: how-to-provision-database-throughput.md
-          - name: Provision autoscale throughput on a database or container
+          - name: Provision autoscale throughput - database or container
             displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
             href: how-to-provision-autoscale-throughput.md
           - name: Estimate RU/s with Cosmos capacity planner
@@ -657,16 +655,11 @@
           href: large-partition-keys.md
         - name: Query a container
           href: how-to-query-container.md
-        - name: Data modeling and partitioning - a real-world example
-          displayName: model, partition, example
-          href: how-to-model-partition-example.md
         - name: Migrate to partitioned containers
           href: migrate-containers-partitioned-to-nonpartitioned.md
         - name: Configure time to live
           displayName: delete, delete data, ttl
           href: how-to-time-to-live.md
-        - name: Manage indexing policies
-          href: how-to-manage-indexing-policy.md
         - name: Define unique keys
           href: how-to-define-unique-keys.md
       - name: Performance
@@ -677,6 +670,13 @@
             href: profile-sql-api-query.md
           - name: Tune query performance
             href: sql-api-query-metrics.md
+        - name: Indexing
+          items:
+          - name: Indexing policies
+            displayName: consistent, none, indexing, policy
+            href: index-policy.md
+          - name: Manage indexing policies
+            href: how-to-manage-indexing-policy.md
         - name: .NET
           items: 
           - name: Performance tips for .NET SDK v3
@@ -731,6 +731,10 @@
           items: 
           - name: Troubleshoot Java SDK v4
             href: troubleshoot-java-sdk-v4-sql.md  
+          - name: Troubleshoot request timeout
+            href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+          - name: Troubleshoot service unavailable
+            href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
           - name: Troubleshoot- Async Java SDK v2
             href: troubleshoot-java-async-sdk.md
       - name: Change feed
@@ -877,8 +881,6 @@
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
         displayName: ARM
-      - name: Emulator release notes
-        href: local-emulator-release-notes.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
@@ -1179,8 +1181,6 @@
       items:
       - name: Response Headers
         href: gremlin-headers.md
-      - name: Limits
-        href: gremlin-limits.md
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
       - name: Resource Manager template
@@ -1281,6 +1281,8 @@
           href: emulator-command-line-parameters.md
         - name: Emulator troubleshooting
           href: troubleshoot-local-emulator.md
+        - name: Emulator release notes
+          href: local-emulator-release-notes.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
       - name: Set up Azure DevOps CI/CD pipeline

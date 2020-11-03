@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 10/15/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
 ---
 
@@ -130,9 +130,9 @@ Save the template and parameter files to disk, and edit the parameter file with 
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
 ```
 
-## Deploy the Custom Script Extension
+## Deploy the Custom Script extension
 
-To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
+To use the Custom Script extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
 * The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc enabled servers. The list of supported OSs for Arc enabled servers can be found [here](agent-overview.md#supported-operating-systems).
 
@@ -140,7 +140,7 @@ To use the Custom Script Extension, the following sample is provided to run on W
 
 * If your machines need to download a script externally and can only communicate through a proxy server, you need to [configure the Connected Machine agent](manage-agent.md#update-or-remove-proxy-settings) to set the proxy server environmental variable.
 
-The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration is specified in an Azure Resource Manager template, provided below for both Linux and Windows hybrid machines.
+The Custom Script extension configuration specifies things like script location and the command to be run. This configuration is specified in an Azure Resource Manager template, provided below for both Linux and Windows hybrid machines.
 
 ### Template file for Linux
 
@@ -286,9 +286,9 @@ The Custom Script Extension configuration specifies things like script location 
 }
 ```
 
-## Deploy the PowerShell DSC Extension
+## Deploy the PowerShell DSC extension
 
-To use the PowerShell DSC Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the PowerShell DSC extension, see [DSC extension handler overview](../../virtual-machines/extensions/dsc-overview.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
+To use the PowerShell DSC extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the PowerShell DSC extension, see [DSC extension handler overview](../../virtual-machines/extensions/dsc-overview.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
 * The list of supported operating systems with the Azure VM PowerShell DSC extension is not applicable to Azure Arc enabled servers. The list of supported OSs for Arc enabled servers can be found [here](agent-overview.md#supported-operating-systems).
 
@@ -538,7 +538,7 @@ To use the PowerShell DSC Extension, the following sample is provided to run on 
 }
 ```
 
-## Deploy the Dependency agent
+## Deploy the Dependency agent extension
 
 To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#dependency-agent).
 

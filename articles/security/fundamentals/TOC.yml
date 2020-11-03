@@ -63,8 +63,8 @@
     href: network-overview.md
   - name: Best practices
     href: network-best-practices.md
-  - name: DDoS Protection
-    href: ddos-best-practices.md
+  - name: DDoS Protection best practices
+    href: https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices
   - name: DDoS Protection security baseline
     href: ddos-protection-security-baseline.md
   - name: Dangling DNS and subdomain takeover

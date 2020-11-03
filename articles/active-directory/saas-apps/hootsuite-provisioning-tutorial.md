@@ -30,7 +30,7 @@ This tutorial describes the steps you need to perform in both Hootsuite and Azur
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A user account with [Hootsuite](http://www.hootsuite.com/) that has **Manage Member** permissions on the organization.
 
 ## Step 1. Plan your provisioning deployment
@@ -44,7 +44,7 @@ Reach out to dev.support@hootsuite.com to obtain a long lasting secret token tha
 
 ## Step 3. Add Hootsuite from the Azure AD application gallery
 
-Add Hootsuite from the Azure AD application gallery to start managing provisioning to Hootsuite. If you have previously setup Hootsuite for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Hootsuite from the Azure AD application gallery to start managing provisioning to Hootsuite. If you have previously setup Hootsuite for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -103,18 +103,30 @@ This section guides you through the steps to configure the Azure AD provisioning
    |displayName|String|
    |preferredLanguage|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|String|
+   |name.givenName|String|
+   |name.familyName|String|
 
-10. To enable the Azure AD provisioning service for Hootsuite, change the **Provisioning Status** to **On** in the **Settings** section.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups**.
+
+11. Review the group attributes that are synchronized from Azure AD to Hootsuite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Hootsuite for update operations. Select the **Save** button to commit any changes.
+
+      |Attribute|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |members|Reference|
+
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. To enable the Azure AD provisioning service for Hootsuite, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-11. Define the users and/or groups that you would like to provision to Hootsuite by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Hootsuite by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-12. When you are ready to provision, click **Save**.
+15. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -127,6 +139,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## Change log
+
+* 10/22/2020 - Added support for User attributes "name.givenName" and "name.familyName". Custom extension attributes "organizationIds" and "teamIds" have been removed for Users.
+Added support for Group attributes "displayName", "members" and "externalId".
 
 ## Additional resources
 

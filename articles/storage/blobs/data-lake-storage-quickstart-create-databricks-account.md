@@ -81,7 +81,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
-    ![Create notebook in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Screenshot that shows how to create a notebook in Databricks and highlights the Create > Notebook menu option.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Create notebook in Databricks")
 
 3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
@@ -165,7 +165,7 @@ Perform the following tasks to run a Spark SQL job on the data.
 
 5. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
 
-    ![Customize bar chart](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Customize bar chart")
+    ![Screenshot that shows the Customize Plot screen and the values that you can drag and drop.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Customize bar chart")
 
     - Set **Keys** to **gender**.
     - Set **Series groupings** to **level**.
