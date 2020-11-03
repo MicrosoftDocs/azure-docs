@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 10/02/2020
 ---
 
-# Get started Lab Services 
+# Get started with Lab Services 
 
 As a student, you can use Azure Lab Services to access industry-standard software required for your programs of study on virtual machines (VM). 
 
-Teaches need to know how to teach students to utilize Azure Lab Services in their instruction through one-to-one student issued hardware.
+Teachers need to know how to teach students to utilize Azure Lab Services in their instruction through one-to-one student issued hardware.
 
 This article provides information for teaching staff on how to access, manage, and teach students to utilize Azure Lab Services.
 
@@ -26,7 +26,7 @@ Dashboards for classroom labs in Azure Lab Services provide a snapshot of differ
 > [!NOTE]
 > While most administrative aspects of the dashboard and the Azure Lab Services portal will be visible to teachers, permissions specific to your role may impact your ability to modify certain criteria in the dashboard. If you encounter an issue with your particular lab set-up, reach out to your CTE Administrator
 
-:::image type="content" source="./media/get-started-manage-labs/dashboard001.png" alt-text="the Azure Lab Services portal":::
+:::image type="content" source="./media/get-started-manage-labs/dashboard.png" alt-text="the Azure Lab Services portal":::
 
 1. From the Azure Lab Services portal,  you will see a **Dashboard** on the left-hand side of the window. Click on **Dashboard** and you will see a number of tiles in your dashboard.
 1. Below the **Costs & Billing** tile, there are also tiles for Templates, Virtual Machine Pools, Users, and Schedules, which allow you to modify aspects and view more details on the Classroom Lab.
@@ -36,7 +36,9 @@ Dashboards for classroom labs in Azure Lab Services provide a snapshot of differ
     1. Users - number of registered users and users who have been added to the lab, but not registered.
     1. Schedules - displays upcoming scheduled events for the lab and a link to view more events.
 
-## Students can access their VMs at any time during scheduled class time without impacting their quota hours. Quota hours are set for the entire semester and determine the number of hours a student can use their VM outside of regularly scheduled class time.
+## Quota hours
+
+Students can access their VMs at any time during scheduled class time without impacting their quota hours. Quota hours are set for the entire semester and determine the number of hours a student can use their VM outside of regularly scheduled class time.
 
 8 Hrs per week, resets on Sunday - not cumulative.
 
@@ -54,16 +56,16 @@ The most important thing to remember when managing our VMs is that anytime a mac
 
 ### Manually starting VMs
 
-* From the **Virtual machine pool** page, you can start all VMs in a lab by clicking the **Start all** button at the top of the page.
-* Individual VMs can be started by clicking the state toggle. 
+1. From the **Virtual machine pool** page, you can start all VMs in a lab by clicking the **Start all** button at the top of the page.
+1. Individual VMs can be started by clicking the state toggle. 
 
     The toggle will read **Starting** as the VM starts up, and then **Running** once the VM has started.
 
     :::image type="content" source="./media/get-started-manage-labs/manually-start-vms.png" alt-text="Manually start your VMs":::
-* You can also select a number of VMs using the checks to the left of the “Name” column. 
+1. You can also select a number of VMs using the checks to the left of the **Name** column. 
 
     Once you have selected the desired VMs, click the **Start** button at the top of the screen.
-* Once started, you can click the **Stop all** button to stop all of the VMs.
+1. Once started, you can click the **Stop all** button to stop all of the VMs.
 
     :::image type="content" source="./media/get-started-manage-labs/stop-vms.png" alt-text="Stop your VMs":::
 
@@ -71,8 +73,8 @@ The most important thing to remember when managing our VMs is that anytime a mac
     * You can also stop multiple VMs by using the checks and clicking the “Stop” button at the top of the screen.
 
     If a student is experiencing difficulties connecting to the VM, or the VM needs to be reset for any other reason, you can use the reset function.
-* To reset one or more VMs, select them using the checks, then click the **Reset** button at the top of the page.
-* In the pop-up window, click **Reset**.
+1. To reset one or more VMs, select them using the checks, then click the **Reset** button at the top of the page.
+1. In the pop-up window, click **Reset**.
 
     :::image type="content" source="./media/get-started-manage-labs/reset-vms.png" alt-text="Reset your VMs":::
 
@@ -103,6 +105,7 @@ Teachers are able to add student users to a lab and monitor their hour quotas.
 1. Your list of users will now be updated with emails, status, invitation, and quota hours.
 
     :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Add students to your lab":::
+
     After students are registered for a lab, their names will be updated with first and last names from the MPS directory.
 
     > [!NOTE]
