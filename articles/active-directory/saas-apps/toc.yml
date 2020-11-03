@@ -1326,6 +1326,8 @@
         href: presspage-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
+      - name: PrinterLogic SaaS
+        href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
@@ -1550,6 +1552,8 @@
         href: showpad-tutorial.md
       - name: Shuccho Navi
         href: shucchonavi-tutorial.md
+      - name: Shutterstock
+        href: shutterstock-tutorial.md
       - name: Signagelive
         href: signagelive-tutorial.md
       - name: SignalFx
