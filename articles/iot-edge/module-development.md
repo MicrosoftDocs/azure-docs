@@ -34,7 +34,7 @@ The IoT Edge hub provides two main functionalities: proxy to IoT Hub, and local 
 
 ### Connecting to IoT Edge hub from a module
 
-Connecting to the local IoT Edge hub from a module involves the same connection steps as for any clients as [described here](iot-edge-runtime.md#connecting-to-the-iot-edge-hub).
+Connecting to the local IoT Edge hub from a module involves the same connection steps as for any clients. For more information, see [Connecting to the IoT Edge hub](iot-edge-runtime.md#connecting-to-the-iot-edge-hub).
 
 <!-- <1.2> -->
 Two implementation options are available depending on which [brokering mechanism](iot-edge-runtime.md#local-communication) you want to use:
