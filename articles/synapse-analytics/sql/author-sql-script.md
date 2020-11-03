@@ -12,11 +12,7 @@ ms.reviewer: omafnan
 ---
 # Using SQL scripts in Azure Synapse Studio (preview)
 
-<<<<<<< HEAD
-Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to dedicated SQL pools (preview) or serverless SQL pools (preview). 
-=======
 Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to SQL pool (preview). 
->>>>>>> ecf7f5b3244665d8fc8e1f21e91cdce02c1ee1f7
 
 ## Begin authoring in SQL script 
 
