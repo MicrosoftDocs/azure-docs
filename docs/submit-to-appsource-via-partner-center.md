@@ -16,6 +16,8 @@ Microsoft AppSource provides a convenient location for you to upload new Office 
 > [!NOTE]
 > Office VSTO add-ins and COM add-ins cannot be submitted to Microsoft AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
 
+For information on how to submit, validate and publish your Teams apps, see [Teams apps submission details] (https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish)
+For information on how to submit, validate and publish your SPFx solutions apps, see [SPFx solutions submission details](https://docs.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-checklist)
 For information about how to submit Power BI custom visuals to Microsoft AppSource, see [Publish custom visuals](https://docs.microsoft.com/power-bi/developer/office-store).
 
 <a name="bk_approval"> </a>
@@ -44,7 +46,7 @@ After you submit your solution:
 
 1. Your submission goes through a series of automated checks to ensure that it complies with the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
 
-2. The validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
+2. The validation team reviews your submission. This can take 3-5 working days (24 hours for Teams & SPFx add ins), depending on the volume of submissions in the queue.
 
    > [!NOTE]
    > The validation team tests Office Add-ins on all the platforms that the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](/office/dev/add-ins/overview/office-add-in-availability).
