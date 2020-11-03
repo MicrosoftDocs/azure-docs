@@ -242,6 +242,8 @@
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
   - name: Use DevOps
     href: luis-how-to-devops-with-github.md
   - name: Related services
