@@ -77,6 +77,7 @@ ComputerNamePrefix | String | Prefix pre-pended to system-generated computer nam
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
+Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/how-to/projects.md)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -88,6 +89,7 @@ EphemeralOSDisk | boolean | Use ephemeral boot disk for VM, if supported
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
+Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/how-to/projects.md)
 ::: moniker-end
 
 ### Image Attributes
