@@ -4,7 +4,6 @@ description: Create an Azure Cosmos account with IP firewall
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
 ---
