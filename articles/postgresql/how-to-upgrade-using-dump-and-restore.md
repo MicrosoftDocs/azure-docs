@@ -10,21 +10,21 @@ ms.date: 10/27/2020
 
 # Upgrade your PostgreSQL database using dump and restore
 
-In Azure Database for PostgreSQL - Single Server, it is recommended to upgrade your PostgreSQL database engine to a higher version using one of these methods:
+In Azure Database for PostgreSQL - Single Server, it is recommended to upgrade your PostgreSQL database engine to a higher major version using one of these methods:
 * Offline method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). In this method, you first perform the dump from your source server and then restore that dump in the target server.
 * Online method using [**Database Migration Service**](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). This method keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are some prerequisites and restrictions to be addressed. 
 
-To help with the decision to choose between online and offline method, the following chart provides some recommendation.
+You can use the following recommendation when deciding between online and offline methods to perform major version upgrades.
 
 | **Database** | **Dump/restore (Offline)** | **DMS (Online)** |
-| ------ | ------ | ----- |
+| ------ | :------: | :-----: |
 | You have a small database and can afford downtime to upgrade  | X | |
 | Small databases (< 10 GB)	 | X | X | 
 | Small-medium DBs (10 GB – 100 GB)	| X | X |
 | Large databases (> 100 GB) |	| X |
-| Can afford downtime to upgrade (irrespective of the database size) | If Yes, X | If No, X |
-| Can address DMS [pre-requisites](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) including a reboot? | If No, X  | If Yes, X |
-| Can avoid DDLs and unlogged tables during the upgrade process? | If No, X| If Yes, X |
+| Can afford downtime to upgrade (irrespective of the database size) | X |  |
+| Can address DMS [pre-requisites](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) including a reboot? |  | X |
+| Can avoid DDLs and unlogged tables during the upgrade process? | |  X |
 
 This how-to guide provides two example methods on how to upgrade your databases using PostgreSQL pg_dump and pg_restore commands. The process in this document is referred as **upgrade** though the database is  **migrated** from the source server to the target server. 
 
@@ -56,7 +56,7 @@ To step through this how-to-guide, you need:
 >
 > 3. In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
 
-## Example database used in this document
+## Example database used in this guide
 
  | **Description** | **Value** |
  | ------- | ------- |
