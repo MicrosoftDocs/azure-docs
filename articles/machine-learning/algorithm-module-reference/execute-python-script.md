@@ -56,7 +56,7 @@ if spec is None:
 > Excute Python Script module does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this module is executed in a simple environment with Python pre-installed only and with non-admin permission.  
 
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 The following example shows how to upload an image file in the Execute Python Script module:
 
@@ -310,4 +310,4 @@ The preinstalled packages are:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

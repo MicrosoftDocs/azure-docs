@@ -180,4 +180,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## Next steps
 
-* Complete the [speech recognition](./quickstarts/speech-to-text-from-microphone.md) or [speech synthesis](./quickstarts/text-to-speech.md) quickstarts using the SDK.
+* Complete the [speech recognition](get-started-speech-to-text.md?pivots=programmer-tool-spx) or [speech synthesis](get-started-text-to-speech.md?pivots=programmer-tool-spx) quickstarts using Speech CLI.
