@@ -507,7 +507,7 @@
         items:
         - name: Import and export data with Apache Spark
           href: ./spark/synapse-spark-sql-pool-import-export.md
-- name: Synapse link
+- name: Synapse Link
   items:
   # - name: Overview
   #   items:
@@ -551,6 +551,10 @@
   #   items:
   # - name: Tutorials
   #   items:  
+  - name: Quickstarts
+    items:
+    - name: Load data into SQL pools using copy activity
+      href: quickstart-copy-activity-load-sql-pool.md
   - name: Concepts
     items:
     - name: Pipeline and activity
