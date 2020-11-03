@@ -18,9 +18,11 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
-* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications. 
+* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 

@@ -21,11 +21,13 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
 
 - You need a Power BI account to analyze output from a Stream Analytics job. You can [try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
