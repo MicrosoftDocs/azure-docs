@@ -383,7 +383,7 @@
           href: database/network-access-controls-overview.md
         - name: DNS aliases
           href: database/dns-alias-overview.md
-        - name: vNet endpoints
+        - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md

@@ -78,4 +78,4 @@ Models that have been trained either in Azure Synapse or outside Azure Synapse c
 * [Get started with Azure Synapse Analytics](../get-started.md)
 * [Create a workspace](../get-started-create-workspace.md)
 * [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
-* [Tutorial: Machine learning model scoring wizard - SQL pool](tutorial-sql-pool-model-scoring-wizard.md)
+* [Tutorial: Machine learning model scoring wizard - dedicated SQL pool](tutorial-sql-pool-model-scoring-wizard.md)

@@ -1,7 +1,7 @@
 ---
 title: Train a model by using a custom Docker image
 titleSuffix: Azure Machine Learning
-description: Learn how to train models with custom Docker images in Azure Machine Learning.
+description: Learn how to use your own Docker images, or curated ones from Microsoft, to train models in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
