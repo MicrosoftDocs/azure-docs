@@ -112,6 +112,7 @@ Recommended:
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. |
 
 Alternative: 
+
 |Method / technology |When to use    |Considerations  |
 |---------|---------|---------|
 |[Transactional replication](../../database/replication-to-sql-database.md)| - Migrate by continuously publishing changes from source database tables to target SQL Database tables. </br> - Full or partial database migrations of selected tables (subset of database).  </br> </br> Supported sources: </br> - [SQL Server (2016 - 2019) with some limitations](/sql/relational-databases/replication/replication-backward-compatibility) </br> - AWS EC2  </br> - GCP Compute SQL Server VM  | - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).  </br> - It is possible to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication).    |
