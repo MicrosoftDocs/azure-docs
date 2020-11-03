@@ -47,9 +47,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-dataprep**
     +  Fixed the issue where if the AzureResourceManager outbound traffic is blocked then it will cause Dataset mount to timeout.
     +  Remove misleading NotFound error message when using `OutputFileDatasetConfig` and `OutputTabularDatasetConfig`
-  + **azureml-parallel-run**
-    + Fix bug: start_time is empty in processed_mini-batches.csv
-    + Allow users to change default store of workspace.
   + **azureml-pipeline-core**
     + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
   + **azureml-pipeline-steps**
