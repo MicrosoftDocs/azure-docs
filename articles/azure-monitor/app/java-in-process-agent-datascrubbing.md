@@ -25,26 +25,26 @@ Create a configuration file named `applicationinsights.json`, and place it in th
 
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "attribute",
-                "processorName": "attributeProcessor1",
-                "....."
-            },
-            {
-                "type": "attribute",
-                "processorName": "attributeProcessor2",
-                "....."
-            },
-            {
-                "type": "span",
-                "processorName": "spanProcessor1",
-                "....."
-            }
-        ]
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "processorName": "attributeProcessor1",
+        ...
+      },
+      {
+        "type": "attribute",
+        "processorName": "attributeProcessor2",
+        ...
+      },
+      {
+        "type": "span",
+        "processorName": "spanProcessor1",
+        ...
+      }
+    ]
+  }
 }
 ```
 
@@ -83,41 +83,41 @@ Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
 
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "processorName": "attributes/selectiveProcessing",
+        "include": {
+          "matchType": "strict",
+          "spanNames": [
+            "svcA",
+            "svcB"
+          ]
+        },
+        "exclude": {
+          "matchType": "strict",
+          "attributes": [
             {
-                "type": "attribute",
-                "processorName": "attributes/selectiveProcessing",
-                "include": {
-                    "matchType": "strict",
-                    "spanNames": [
-                        "svcA",
-                        "svcB"
-                    ]
-                },
-                "exclude": {
-                    "matchType": "strict",
-                    "attributes": [
-                        {
-                            "key": "redact_trace",
-                            "value": "false"
-                        }
-                    ]
-                },
-                "actions": [
-                    {
-                        "key": "credit_card",
-                        "action": "delete"
-                    },
-                    {
-                        "key": "duplicate_key",
-                        "action": "delete"
-                    }
-                ]
-            },
+              "key": "redact_trace",
+              "value": "false"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "key": "credit_card",
+            "action": "delete"
+          },
+          {
+            "key": "duplicate_key",
+            "action": "delete"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
 
@@ -152,96 +152,98 @@ The following example demonstrates inserting keys/values into spans.
 
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "attribute",
-                "processorName": "attributes/insert",
-                "actions": [
-                    {
-                        "key" : "attribute1",
-                        "value" : "value1",
-                        "action" : "insert"
-                    },
-                    {
-                        "key" : "key1",
-                        "fromAttribute" : "anotherkey",
-                        "action" : "insert"
-                    }
-                ]
-            }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "processorName": "attributes/insert",
+        "actions": [
+          {
+            "key": "attribute1",
+            "value": "value1",
+            "action": "insert"
+          },
+          {
+            "key": "key1",
+            "fromAttribute": "anotherkey",
+            "action": "insert"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
+
 The following demonstrates configuring the processor to only update existing keys in an attribute.
 
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "attribute",
-                "processorName": "attributes/update",
-                "actions": [
-                    {
-                        "key" : "piiattribute",
-                        "value" : "redacted",
-                        "action" : "update"
-                    }, 
-                    {
-                        "key" : "credit_card",
-                        "action" : "delete"
-                    },
-                    {
-                        "key" : "user.email",
-                        "action" : "hash"
-                    }
-                ]
-            },
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "processorName": "attributes/update",
+        "actions": [
+          {
+            "key": "piiattribute",
+            "value": "redacted",
+            "action": "update"
+          },
+          {
+            "key": "credit_card",
+            "action": "delete"
+          },
+          {
+            "key": "user.email",
+            "action": "hash"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
+
 The following demonstrates how to process spans that have a span name that match regexp patterns. This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.*" 
 and where span name does not match "login.*".
 
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "attribute",
-                "processorName": "attributes/regexupdate",
-                "include": {
-                    "matchType": "regexp",
-                    "spanNames": [
-                        "auth.*"
-                    ]
-                },
-                "exclude": {
-                    "matchType": "regexp",
-                    "spanNames": [
-                        "login.*"
-                    ]
-                },
-                "actions": [
-                    {
-                        "key" : "password",
-                        "value" : "obfuscated",
-                        "action" : "update"
-                    }, 
-                    {
-                        "key" : "token",
-                        "action" : "delete"
-                    }
-                ]
-            },
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "processorName": "attributes/regexupdate",
+        "include": {
+          "matchType": "regexp",
+          "spanNames": [
+            "auth.*"
+          ]
+        },
+        "exclude": {
+          "matchType": "regexp",
+          "spanNames": [
+            "login.*"
+          ]
+        },
+        "actions": [
+          {
+            "key": "password",
+            "value": "obfuscated",
+            "action": "update"
+          },
+          {
+            "key": "token",
+            "action": "delete"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
 
@@ -266,25 +268,24 @@ Note: If renaming is dependent on attributes being modified by the attributes pr
 The following specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "span",
-                "processorName": "span/renameSpan",
-                "name" : {
-                    "fromAttributes": [
-                        "db.svc", 
-                        "operation", 
-                        "id"
-                    ],
-                    "separator": "::"
-                }
-            },
-        ]
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "span",
+        "processorName": "span/renameSpan",
+        "name": {
+          "fromAttributes": [
+            "db.svc",
+            "operation",
+            "id"
+          ],
+          "separator": "::"
+        }
+      }
+    ]
+  }
 }
-
 ```
 
 #### Extract attributes from span name
@@ -300,24 +301,23 @@ The following settings are required:
 Let's assume input span name is /api/v1/document/12345678/update. Applying the following results in output span name /api/v1/document/{documentId}/update and will add a new attribute "documentId"="12345678" to the span.
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "span",
-                "processorName": "span/extractAttributes",
-                "name" : {
-                    "toAttributes": {
-                        "rules": [
-                            "^\/api\/v1\/document\/(?P<documentId>.*)\/update$"
-                        ]
-                    }
-                }
-            },
-        ]
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "span",
+        "processorName": "span/extractAttributes",
+        "name": {
+          "toAttributes": {
+            "rules": [
+              "^/api/v1/document/(?P<documentId>.*)/update$"
+            ]
+          }
+        }
+      }
+    ]
+  }
 }
-
 ```
 
 The following demonstrates renaming the span name to "{operation_website}" and adding the attribute {Key: operation_website, Value: oldSpanName } when the span has the following properties:
@@ -325,34 +325,33 @@ The following demonstrates renaming the span name to "{operation_website}" and a
 - The span name is not 'donot/change'.
 ```json
 {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-        "processors": [
-            {
-                "type": "span",
-                "processorName": "span/extractAttributesWithIncludeExclude",
-                "include": {
-                    "matchType": "regexp",
-                    "spanNames": [
-                        "^(.*?)/(.*?)$"
-                    ]
-                },
-                "exclude": {
-                    "matchType": "strict",
-                    "spanNames": [
-                        "donot/change"
-                    ]
-                },
-                "name" : {
-                    "toAttributes": {
-                        "rules": [
-                            "(?P<operation_website>.*?)$"
-                        ]
-                    }
-                }
-            },
-        ]
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "span",
+        "processorName": "span/extractAttributesWithIncludeExclude",
+        "include": {
+          "matchType": "regexp",
+          "spanNames": [
+            "^(.*?)/(.*?)$"
+          ]
+        },
+        "exclude": {
+          "matchType": "strict",
+          "spanNames": [
+            "donot/change"
+          ]
+        },
+        "name": {
+          "toAttributes": {
+            "rules": [
+              "(?P<operation_website>.*?)$"
+            ]
+          }
+        }
+      }
+    ]
+  }
 }
-
 ```
