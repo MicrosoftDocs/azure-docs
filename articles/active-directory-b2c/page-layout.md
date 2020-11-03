@@ -22,6 +22,16 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Self-asserted page (selfasserted)
 
+**2.1.1**
+
+- Added a UXString `heading` in addtion to `intro` to show on page as a title, it will be hidden by default.  
+- Allow saving password to iOS keychain.
+- Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
+- Added disclaimers on self-asserted page.
+- Focus will be placed on the first editable field on page load.
+- Focus will be placed on the first error field when multiple fields are errored.
+- Focus will be placed on 'change' button once email verification code is verified.
+
 **2.1.0**
 
 - Localization and accessibility fixes.
@@ -54,6 +64,15 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
 
+**2.1.1**
+- Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
+- Allow using password from iOS Keychain.
+- Added a UXString `heading` in addtion to `intro` to show on page as a title, it will be hidden by default.  
+- Focus will be placed on the first error field when multiple fields are errored.
+- Focus will be placed on the first editable field on page load.
+- Added new location for claims provider selection link `bottomUnderFormClaimsProviderSelections`.
+- Deprecated UXStrings clean up.
+
 **2.1.0**
 
 - Added support for multiple sign-up links.
@@ -78,6 +97,12 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.2**
+- Fixed issue appeared on iOS that verification code can not be autofilled. 
+- Fixed issue appeared on Android that token can't be redirect to RP from a Android Webview. 
+- Added a UXString `heading` in addtion to `intro` to show on page as a title, it will be hidden by default.  
+- Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
 
 **1.2.1**
 
