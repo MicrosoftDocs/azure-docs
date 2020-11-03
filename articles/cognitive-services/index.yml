@@ -126,9 +126,12 @@ conceptualContent:
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Cognitive Service Containers
+          text: What are Cognitive Service containers?
         - url: ./containers/container-reuse-recipe.md
           itemType: learn
           text: Create containers for reuse

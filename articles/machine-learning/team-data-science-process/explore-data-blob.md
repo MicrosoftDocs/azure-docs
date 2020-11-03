@@ -22,7 +22,7 @@ This task is a step in the [Team Data Science Process](overview.md).
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
-* Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md)
+* Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## Load the data into a pandas DataFrame
 To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a pandas DataFrame. Here are the steps to follow for this procedure:

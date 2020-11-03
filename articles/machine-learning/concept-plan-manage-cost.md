@@ -48,11 +48,11 @@ For more information, see [Azure Machine Learning pricing](https://azure.microso
 
 ## Get cost alerts
 
-Create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, budgets and alerts may have limited functionality to manage individual Azure service costs because they're designed to track costs at a higher level.
+Create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, budgets and alerts may have limited functionality to manage individual Azure service costs because they're designed to track costs at a higher level.
 
 ## Monitor costs
 
-As you use resources with Azure Machine Learning, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Machine Learning starts, costs are incurred. View these costs in the [cost analysis](../cost-management/quick-acm-cost-analysis.md) pane in the Azure portal.
+As you use resources with Azure Machine Learning, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Machine Learning starts, costs are incurred. View these costs in the [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
 
 You can view costs in graphs and tables for different time intervals. You can also view costs against budgets and forecasted costs. Switching to longer views over time helps identify spending trends and see where overspending might have occurred. If you've created budgets, see where they exceeded.  
 
@@ -81,7 +81,7 @@ You can also configure the amount of time the node is idle before scale down. By
 + If you perform less iterative experimentation, reduce this time to save costs.
 + If you perform highly iterative dev/test experimentation, you might need to increase the time so you aren't paying for constant scaling up and down after each change to your training script or environment.
 
-AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [AmlCompute CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -91,7 +91,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 AmlCompute comes with a [quota (or limit) configuration](how-to-manage-quotas.md#azure-machine-learning-compute). This quota is by VM family (for example, Dv2 series, NCv3 series) and varies by region for each subscription. Subscriptions start with small defaults to get you going, but use this setting to control the amount of Amlcompute resources available to be spun up in your subscription. 
 
-Also configure [workspace level quota by VM family](how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. Doing so allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
+Also configure [workspace level quota by VM family](how-to-manage-quotas.md#workspace-level-quotas), for each workspace within a subscription. Doing so allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
 
 To set quotas at the workspace level, start in the [Azure portal](https://portal.azure.com).  Select any workspace in your subscription, and select **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas. You need privileges at the subscription scope to set the quota, since it's a setting that affects multiple workspaces.
 
