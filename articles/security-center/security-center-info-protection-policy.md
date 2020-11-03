@@ -17,7 +17,7 @@ ms.author: memildin
 ---
 # SQL information protection policy in Azure Security Center
  
-Data Discovery & Classification is built into Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
+SQL information protection's [data discovery and classification mechanism](../azure-sql/database/data-discovery-and-classification-overview.md) is built into [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
 The classification mechanism is based on two primary constructs that make up the classification taxonomy:
 
@@ -25,8 +25,6 @@ The classification mechanism is based on two primary constructs that make up the
 - **Information Types** – Provides additional granularity into the type of data stored in the column.
 
 The information protection policy options within Security Center provide a predefined set of labels and information types which serve as the defaults for the classification engine. You can customize the policy, according to your organization's needs, as described below.
-
-[Learn more about SQL Data Discovery & Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="The page showing your SQL information protection policy":::
  
@@ -45,9 +43,9 @@ Each of these is shown in the relevant tab below.
 
 
 
-### [**For a whole tenant**](#tab/sqlip-tenant)
+### [**From Security Center's settings**](#tab/sqlip-tenant)
 
-### Access the policy for your whole tenant <a name="sqlip-tenant"></a>
+### Access the policy from Security Center's pricing and settings page <a name="sqlip-tenant"></a>
 
 To customize the information protection policy for your Azure tenant, you need to have [administrative privileges on the tenant's root management group](security-center-management-groups.md). 
 
@@ -57,9 +55,9 @@ From Security Center's **pricing and settings** page, select **SQL information p
 
 
 
-### [**For one database from Security Center**](#tab/sqlip-db)
+### [**From Security Center's recommendation**](#tab/sqlip-db)
 
-### Access the policy for a single database from Security Center <a name="sqlip-db"></a>
+### Access the policy from the Security Center recommendation <a name="sqlip-db"></a>
 
 Use Security Center's recommendation, "Sensitive data in your SQL databases should be classified", to view the data discovery and classification page for your database. There, you'll also see the columns discovered to contain information that we recommend you classify.
 
@@ -75,55 +73,22 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 
 
 
-### [**For one database from Azure SQL**](#tab/sqlip-azuresql)
+### [**From Azure SQL**](#tab/sqlip-azuresql)
 
-### Access the policy for a single database from Azure SQL <a name="sqlip-azuresql"></a>
+### Access the policy from Azure SQL <a name="sqlip-azuresql"></a>
 
 1. From the Azure portal, open Azure SQL.
 
     :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Opening Azure SQL from the Azure portal":::
 
-1. Select the relevant database.
+1. Select any database.
 
-1. Open the **Data Discovery & Classification** page (1) and select **Configure** (2).
+1. From the **Security** area of the menu, open the **Data Discovery & Classification** page (1) and select **Configure** (2).
 
     :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Opening the SQL information protection policy from Azure SQL":::
 
 --- 
 
-
-## View Azure's recommendations for database columns to classify
-
-If the classification mechanism has identified columns in your tables that can be classified, there will be a notification on the data discovery and classification page.
-
-1. From the **Data Discovery & Classification** page for your database, select the notification. 
-
-    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-columns-recommended.png" alt-text="Prompt to classify newly identified columns ":::
-
-1. Data discovery and classification lists the specific columns and the recommendations for each. To quickly accept all recommendations, (1) select all the recommendations, (2) select **Accept selected recommendations**, (3) select **Save**.
-
-    :::image type="content" source="./media/security-center-info-protection-policy/follow-classification-recommendations.png" alt-text="Prompt to classify newly identified columns ":::
-
-## Customize your labels
-
-1. You can edit or delete any existing label, or add a new label:
-    - To edit an existing label, select that label and then click **Configure**, either at the top or from the context menu on the right. 
-    - To add a new label, click **Create label** in the top menu bar or at the bottom of the labels table.
-1. From the **Create and manage sensitivity labels** list, you can:
-    - Use **Create label** to add a new label to the list.
-    - Select an existing label and use **Delete** to remove a label from the list.
-    - Select an existing label and use **Configure** to edit the label's name, description, or status (active or disabled), and modify the information types associated with the label. Any data discovered that matches that information type will automatically include the associated sensitivity label in the classification recommendations.
-
-        In this example, the information type "Other" is associated with the label "Confidential":
-        :::image type="content" source="./media/security-center-info-protection-policy/associate-data-type-with-label.gif" alt-text="Demonstration of associating an information type with a label":::    
-
-1. Labels are listed in order of ascending sensitivity. To change the ranking between labels, drag the labels to reorder them in the table, or use the **Move up** and **Move down** buttons to change the order. 
-
-    :::image type="content" source="./media/security-center-info-protection-policy/move-up.png" alt-text="Modifying the order of the labels"::: 
-
-1. After making any changes, select **Save**.
- 
- 
 
 ## Customize your information types
 
@@ -143,6 +108,15 @@ To manage and customize information types:
 1. After you completed managing your information types, be sure to associate the relevant types with the relevant labels, by clicking **Configure** for a particular label, and adding or deleting information types as appropriate.
 1. To apply your changes, select **Save** in the main **Labels** page.
  
+
+## Exporting and importing a policy
+
+You can download a JSON file with your defined labels and information types, edit the file in the editor of your choice, and then import the updated file. 
+
+:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exporting and importing your information protection policy":::
+
+> [!NOTE]
+> You'll need tenant level permissions to import a policy file. 
 
 
 ## Manage SQL information protection using Azure PowerShell
