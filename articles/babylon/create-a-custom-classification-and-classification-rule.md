@@ -25,7 +25,7 @@ To create a custom classification:
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/management-center.png" alt-text="Management center" border="true":::
 
-2. Select **Classifications** under Metadata management from the left navigation
+2. Select **Classifications** under Metadata management from the left navigation.
 
 3. Select **New**
 
