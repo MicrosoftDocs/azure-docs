@@ -30,7 +30,7 @@ To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](create-data-warehouse-portal.md).
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
-* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](../sql/connect-overview.md).
+* The fully qualified SQL Server name. To find this information, see [Connect to SQL pool](../sql/connect-overview.md).
 
 ## 1. Connect to your SQL pool
 1. Open Visual Studio 2019.
@@ -48,7 +48,7 @@ To use this tutorial, you need:
    * **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
    * **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
    * Click **Connect**.
-5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+5. To explore, expand your Azure SQL Server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
    
     ![Explore AdventureWorksDW](./media/sql-data-warehouse-query-visual-studio/explore-sample.png)
 
