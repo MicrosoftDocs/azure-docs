@@ -25,7 +25,7 @@ The following table briefly describes each stream with its behavior in the Azure
 
 The output stream is used for the output of objects created by a script or workflow when it runs correctly. Azure Automation primarily uses this stream for objects to be consumed by parent runbooks that call the [current runbook](automation-child-runbooks.md). When a parent [calls a runbook inline](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), the child returns data from the output stream to the parent.
 
-Your runbook uses the output stream to communicate general information to the client only if it is never called by another runbook. As a best practice, however, you runbooks should typically use the [verbose stream](#monitor-verbose-stream) to communicate general information to the user.
+Your runbook uses the output stream to communicate general information to the client only if it is never called by another runbook. As a best practice, however, you runbooks should typically use the [verbose stream](#write-output-to-verbose-stream) to communicate general information to the user.
 
 Have your runbook write data to the output stream using [Write-Output](/powershell/module/microsoft.powershell.utility/write-output). Alternatively, you can put the object on its own line in the script.
 
@@ -226,7 +226,7 @@ The next table lists the behavior for the preference variable values that are va
 
 ### Retrieve runbook output and messages in Azure portal
 
-You can view the details of a runbook job in the Azure portal using the **Jobs** tab for the runbook. The job summary displays the input parameters and the [output stream](#use-the-output-stream), in addition to general information about the job and any exceptions that have occurred. The job history includes messages from the output stream and [warning and error streams](#monitor-warning-and-error-streams). It also includes messages from the [verbose stream](#monitor-verbose-stream) and [progress records](#handle-progress-records) if the runbook is configured to log verbose and progress records.
+You can view the details of a runbook job in the Azure portal using the **Jobs** tab for the runbook. The job summary displays the input parameters and the [output stream](#use-the-output-stream), in addition to general information about the job and any exceptions that have occurred. The job history includes messages from the output stream and [warning and error streams](#write-output-to-warning-and-error-streams). It also includes messages from the [verbose stream](#write-output-to-verbose-stream) and [progress records](#handle-progress-records) if the runbook is configured to log verbose and progress records.
 
 ### Retrieve runbook output and messages in Windows PowerShell
 
