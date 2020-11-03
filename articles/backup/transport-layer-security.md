@@ -70,10 +70,6 @@ For improved security from protocol downgrade attacks, Azure Backup is beginning
 - Backup components connections failures with error 10054 (An existing connection was forcibly closed by the remote host).
 - Services related to Azure Backup won't stop or start as usual.
 
-### When will Azure Backup stop supporting older TLS versions?
-
-Beginning December 01, 2020, the TLS changes will start to roll out across Azure Backup services. The changes will complete by January 20, 2021.
-
 ## Additional resources
 
 - [Transport Layer Security Protocol](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
