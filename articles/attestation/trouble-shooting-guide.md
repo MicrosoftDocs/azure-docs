@@ -19,7 +19,7 @@ If your issue is not addressed in this article, you can also submit an Azure sup
 
 Below are some examples of the errors returned by Azure Attestation:
 
-## 1. HTTP – 401 : Unauthorized exception
+## 1. HTTP–401 : Unauthorized exception
 
 ### HTTP status code
 401
@@ -58,7 +58,7 @@ In order to add/delete policy signers or to configure policies, an Azure AD user
 
 Customers can choose to use the default provider for attestation, or create their own providers with custom policies. "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required to send attestation requests to custom providers. The default providers are accessible by any Azure AD user.
 
-To verify the roles in PowerShell, please run below:
+To verify the roles in PowerShell, run below:
 - Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 - Verify your RBAC role assignment settings. 
 
@@ -119,9 +119,9 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 #### Troubleshooting steps
 Users can evaluate enclave evidence against an SGX attestation policy before configuring the same.
 
-Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. Note that the attestation token generated when this field is present will be unsecured.
+Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. The attestation token generated when this field is present will be unsecured.
 
-See [attestation policy examples ](/azure/attestation/policy-examples)
+See [attestation policy examples](/azure/attestation/policy-examples)
 
 ### 2.2. Attestation failure due to invalid input
 
@@ -146,7 +146,7 @@ Refer to [code samples](/samples/browse/?expanded=azure&terms=attestation) for p
 InvalidParameter
 
 #### Scenario examples
-Configure signed policy or add/delete policy signer which is signed with an invalid certificate chain (e.g. when the Basic Constraints extension of the root certificate is not set to Subject Type = CA)
+Configure signed policy or add/delete policy signer, which is signed with an invalid certificate chain (for example, when the Basic Constraints extension of the root certificate is not set to Subject Type = CA)
 
 ```
 Native operation failed with 65529: C:\source\src\AttestationServices\Instance\SgxPal\sgxcert.cpp(1074)\(null)!00007FFA285CDAED: (caller: 00007FFA285C36E8) Exception(0) 83FFFFF9 The requested item is not found    Msg:[Unable to find issuer certificate CN=attestationsigningcert]
@@ -214,7 +214,7 @@ At line:1 char:1
 ```
 
 #### Trouble shooting steps
-To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is a RFC7517 JSON Web Key which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](/azure/attestation/policy-signer-examples).
+To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](/azure/attestation/policy-signer-examples).
 
 ### 2.5. Attestation policy configuration failure
 
@@ -222,7 +222,7 @@ To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) 
 PolicyParsingError
 
 #### Scenario examples
-Policy provided with incorrect syntax (e.g. missing semicolon)/valid JWT policy)
+Policy provided with incorrect syntax (for example, missing semicolon)/valid JWT policy)
 
 ```
 Native operation failed with 65526: ..\NativePolicyWrapper\NativePolicyEngine.cpp(31)\(null)!: (caller: ) Exception(0) 83FFFFF6 Invalid policy was specified    Msg:[Policy Parser Exception Thrown: Offending
@@ -242,7 +242,7 @@ At line:1 char:1
 InvalidOperation
 
 #### Scenario examples
-Invalid content provided (e.g.upload policy/ unsigned policy when policy signing is required)
+Invalid content provided (for example, upload policy/ unsigned policy when policy signing is required)
 
 ```
 Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad message    Msg:[Unknown base64 character: 41 (')')]
