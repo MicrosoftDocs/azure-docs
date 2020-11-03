@@ -118,15 +118,15 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 
 2. From the hamburger menu, select **Admin**.
 
-	![Configure Single Sign-On On App side](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
+	![Screenshot shows the Admin icon selected from the menu.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
 
 3. In Admin page on left hand menu select **AUTHENTICATION** and click on **Azure AD**.
 
-	![Configure Single Sign-On On App side](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
+	![Screenshot shows Azure A D selected from AUTHENTICATION.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
 
 4. Perform the following steps on **AUTHENTICATION** section.
 
-	![Configure Single Sign-On On App side](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
+	![Screenshot shows the AUTHENTICATION page where you can enter the values described.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
 	
 	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
 	

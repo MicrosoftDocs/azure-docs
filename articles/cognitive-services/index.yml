@@ -24,6 +24,9 @@ highlightedContent:
     - title: What's new in docs?
       itemType: whats-new
       url: whats-new-docs.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
@@ -36,9 +39,6 @@ highlightedContent:
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Security
-      itemType: concept
-      url: cognitive-services-security.md
     - title: Support & help options
       itemType: reference
       url: ./cognitive-services-support-options.md
@@ -126,9 +126,12 @@ conceptualContent:
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Cognitive Service Containers
+          text: What are Cognitive Service containers?
         - url: ./containers/container-reuse-recipe.md
           itemType: learn
           text: Create containers for reuse

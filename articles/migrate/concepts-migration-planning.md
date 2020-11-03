@@ -15,7 +15,7 @@ This article provides a quick guide to help build your migration plan to Azure w
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [server migration](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+- Get questions answered in the [Azure Migrate forum](https://docs.microsoft.com/answers/topics/azure-migrate.html)
 
 ## Define the goals of cloud migration
 

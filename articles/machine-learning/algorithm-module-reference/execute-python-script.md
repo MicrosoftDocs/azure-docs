@@ -56,7 +56,7 @@ if spec is None:
 > Excute Python Script module does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this module is executed in a simple environment with Python pre-installed only and with non-admin permission.  
 
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 The following example shows how to upload an image file in the Execute Python Script module:
 
@@ -124,7 +124,10 @@ The Execute Python Script module contains sample Python code that you can use as
     1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
-    
+ 
+    > [!WARNING]
+    > **Don't** use **app** as the name of folder or your script, since **app** is a reserved word for built-in services. But you can use other namespaces like `app123`.
+   
     Following is a script bundle example, which contains a python script file and a txt file:
       
     > [!div class="mx-imgBorder"]
@@ -307,4 +310,4 @@ The preinstalled packages are:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

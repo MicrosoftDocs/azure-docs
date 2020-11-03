@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -33,7 +33,7 @@ Regardless of the authentication type used, Azure role-based access control (Azu
 ## Interactive authentication
 
 > [!IMPORTANT]
-> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
+> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Most examples in the documentation and samples use interactive authentication. For example, when using the SDK there are two function calls that will automatically prompt you with a UI-based authentication flow:
 
@@ -72,7 +72,7 @@ To use service principal (SP) authentication, you must first create the SP and g
 >
 > The reason for granting the least access is that a service principal uses a password to authenticate, and the password may be stored as part of an automation script. If the password is leaked, having the minimum access required for a specific tasks minimizes the malicious use of the SP.
 
-The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). To create a service principal and grant it access to your workspace, use the following steps:
+The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). To create a service principal and grant it access to your workspace, use the following steps:
 
 > [!NOTE]
 > You must be an admin on the subscription to perform all of these steps.
@@ -87,7 +87,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    For other methods of authenticating, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+    For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 1. Install the Azure Machine Learning extension:
 
@@ -185,11 +185,11 @@ ws.get_details()
 
 ### Use a service principal from the Azure CLI
 
-You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
+You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ### Use a service principal with the REST API (preview)
 
-The service principal can also be used to authenticate to the Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/) (preview). You use the Azure Active Directory [client credentials grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), which allow service-to-service calls for headless authentication in automated workflows. The examples are implemented with the [ADAL library](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) in both Python and Node.js, but you can also use any open-source library that supports OpenID Connect 1.0.
+The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/) (preview). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. The examples are implemented with the [ADAL library](../active-directory/azuread-dev/active-directory-authentication-libraries.md) in both Python and Node.js, but you can also use any open-source library that supports OpenID Connect 1.0.
 
 > [!NOTE]
 > MSAL.js is a newer library than ADAL, but you cannot do service-to-service authentication using client credentials with MSAL.js, since it is primarily a client-side library intended
@@ -276,6 +276,62 @@ The variable `token_response` is a dictionary that includes the token and associ
 ```
 
 Use `token_response["accessToken"]` to fetch the auth token. See the [REST API documentation](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) for examples on how to use the token to make API calls.
+
+#### Java
+
+In Java, retrieve the bearer token using a standard REST call:
+
+```java
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+if (response.statusCode == 200)
+{
+     body = gson.fromJson(body, AuthenticationBody.class);
+
+    // ... etc ... 
+}
+// ... etc ...
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(authUrl))
+            .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+            .build();
+    return request;
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
+The preceding code would have to handle exceptions and status codes other than `200 OK`, but shows the pattern: 
+
+- Use the client id and secret to validate that your program should have access
+- Use your tenant id to specify where `login.microsoftonline.com` should be looking
+- Use Azure Resource Manager as the source of the authorization token
 
 ## Web-service authentication
 

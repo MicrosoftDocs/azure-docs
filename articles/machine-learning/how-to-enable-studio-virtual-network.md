@@ -63,9 +63,6 @@ If you do not enable managed identity, you will receive this error, `Error: Unab
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-> [!NOTE]
-> [ML assisted data labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
-
 The studio supports reading data from the following datastore types in a virtual network:
 
 * Azure Blob
@@ -73,7 +70,11 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### Configure datastores to use managed identity
+### Grant workspace managed identity __Reader__ access to storage private link
+
+This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
+
+### Configure datastores to use workspace managed identity
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure your datastores to use managed identity. 
 
@@ -115,7 +116,7 @@ Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You
 
 To access data stored in an Azure SQL Database using managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### Azure Machine Learning designer default datastore
 

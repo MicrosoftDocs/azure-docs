@@ -105,7 +105,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
               .UseStartup<Startup>();
    ```
 
-2. Open *Startup.cs* and update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+2. Open *Startup.cs* and update the `Configure` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # GetCurrentTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
   

@@ -44,7 +44,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine Ubu
        * **Virtual machine name**: Enter the name of the virtual machine. This name will be used in your Azure portal.
        * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image**: Leave the default value.
-       * **Size**: This option should autopopulate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: This option should autopopulate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/sizes.md).
        * **Authentication type**: For quicker setup, select "Password." 
          
          > [!NOTE]
@@ -125,6 +125,8 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a m
 
 >[!NOTE]
 > If you receive a 500 Error at this stage, it is likely that you used capitalized letters in your username. This is a known interaction between Jupyter Hub and the PAMAuthenticator it uses. 
+> If you receive a "Can't reach this page" error, it is likely that your Network Security Group permissions need to be adjusted. In the Azure portal, find the Network Security Group resource within your Resource Group. To access JupyterHub from the public Internet, you must have port 8000 open. (The image shows that this VM is configured for just-in-time access, which is highly recommended. See [Secure your management ports with just-in time access](../../security-center/security-center-just-in-time.md).)
+> ![Configuration of Network Security Group](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Browse the many sample notebooks that are available.
 
@@ -142,6 +144,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to do several common data science tasks with the Linux DSVM provisioned here. 
 * Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to systematically build analytical solutions using the [Team Data Science Process](https://aka.ms/tdsp).
+* Learn how to systematically build analytical solutions using the [Team Data Science Process](../team-data-science-process/index.yml).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
 * Consult the appropriate [reference documentation](./reference-ubuntu-vm.md) for this virtual machine.

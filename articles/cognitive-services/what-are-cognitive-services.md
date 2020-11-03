@@ -88,7 +88,18 @@ The following sections in this article provides a list of services that are part
 |[Bing Local Business Search](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing Local Business Search")| Bing Local Business Search API enables your applications to find contact and location information about local businesses based on search queries.|
 |[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check allows you to perform contextual grammar and spell checking.|
 
-## Get started with Cognitive Services
+## Development options 
+
+With Azure and Cognitive Services, you have access to several development options, such as:
+
+* Automation and integration tools like Logic Apps and Power Automate.
+* Deployment options such as Azure Functions and the App Service. 
+* Cognitive Services Docker containers for secure access.
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+
+To learn more, see [Cognitive Services development options](./cognitive-services-development-options.md).
+
+## Learn with the Quickstarts
 
 Start by creating a Cognitive Services resource with hands-on quickstarts using the following methods:
 

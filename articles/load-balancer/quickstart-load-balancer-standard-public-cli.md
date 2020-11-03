@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2020
+ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
@@ -33,12 +33,12 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create):
 
-* Named **myResourceGroupLB**. 
+* Named **CreatePubLBQS-rg**. 
 * In the **eastus** location.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroupLB \
+    --name CreatePubLBQS-rg \
     --location eastus
 ```
 ---
@@ -60,12 +60,12 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
 * Address prefix of **10.1.0.0/16**.
 * Subnet named **myBackendSubnet**.
 * Subnet prefix of **10.1.0.0/24**.
-* In the **myResourceGroupLB** resource group.
+* In the **CreatePubLBQS-rg** resource group.
 * Location of **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
@@ -80,11 +80,11 @@ For a standard load balancer, the VMs in the backend address for are required to
 Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
 
 * Named **myNSG**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNSG
 ```
 
@@ -94,7 +94,7 @@ Create a network security group rule using [az network nsg rule create](https://
 
 * Named **myNSGRuleHTTP**.
 * In the network security group you created in the previous step, **myNSG**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Protocol **(*)**.
 * Direction **Inbound**.
 * Source **(*)**.
@@ -105,7 +105,7 @@ Create a network security group rule using [az network nsg rule create](https://
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -125,7 +125,7 @@ Create three network interfaces with [az network nic create](https://docs.micros
 #### VM1
 
 * Named **myNicVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
@@ -133,7 +133,7 @@ Create three network interfaces with [az network nic create](https://docs.micros
 ```azurecli-interactive
 
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -142,13 +142,13 @@ Create three network interfaces with [az network nic create](https://docs.micros
 #### VM2
 
 * Named **myNicVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
@@ -157,14 +157,14 @@ Create three network interfaces with [az network nic create](https://docs.micros
 #### VM3
 
 * Named **myNicVM3**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM3 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
@@ -231,7 +231,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 #### VM1
 * Named **myVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Attached to network interface **myNicVM1**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
@@ -239,7 +239,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
     --image UbuntuLTS \
@@ -251,7 +251,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 ```
 #### VM2
 * Named **myVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Attached to network interface **myNicVM2**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
@@ -259,7 +259,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
     --image UbuntuLTS \
@@ -271,7 +271,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 #### VM3
 * Named **myVM3**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Attached to network interface **myNicVM3**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
@@ -279,7 +279,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 ```azurecli-interactive
    az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM3 \
     --nics myNicVM3 \
     --image UbuntuLTS \
@@ -297,11 +297,11 @@ To access your web app on the Internet, you need a public IP address for the loa
 Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
 
 * Create a standard zone redundant public IP address named **myPublicIP**.
-* In **myResourceGroupLB**.
+* In **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --sku Standard
 ```
@@ -310,7 +310,7 @@ To create a zonal redundant public IP address in Zone 1:
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --sku Standard \
     --zone 1
@@ -336,7 +336,7 @@ Create a public load balancer with [az network lb create](https://docs.microsoft
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myLoadBalancer \
     --sku Standard \
     --public-ip-address myPublicIP \
@@ -359,7 +359,7 @@ Create a health probe with [az network lb probe create](https://docs.microsoft.c
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -381,11 +381,13 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
 * Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
 * Using health probe **myHealthProbe**.
 * Protocol **TCP**.
-* Enable outbound source network address translation (SNAT) using the frontend IP address.
+* Idle timeout of **15 minutes**.
+* Enable TCP reset.
+
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -394,7 +396,10 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true 
+    --disable-outbound-snat true \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
+
 ```
 ### Add virtual machines to load balancer backend pool
 
@@ -402,7 +407,7 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 
 #### VM1
 * In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM1** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -411,13 +416,13 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### VM2
 * In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM2** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -426,13 +431,13 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### VM3
 * In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM3** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -441,7 +446,7 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM3 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
@@ -461,11 +466,11 @@ For more information on scaling outbound NAT and outbound connectivity, see [Sca
 #### Public IP
 
 * Named **myPublicIPOutbound**.
-* In **myResourceGroupLB**.
+* In **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPOutbound \
     --sku Standard
 ```
@@ -474,7 +479,7 @@ To create a zonal redundant public IP address in Zone 1:
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPOutbound \
     --sku Standard \
     --zone 1
@@ -482,12 +487,12 @@ To create a zonal redundant public IP address in Zone 1:
 #### Public IP prefix
 
 * Named **myPublicIPPrefixOutbound**.
-* In **myResourceGroupLB**.
+* In **CreatePubLBQS-rg**.
 * Prefix length of **28**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPPrefixOutbound \
     --length 28
 ```
@@ -495,7 +500,7 @@ To create a zonal redundant public IP prefix in Zone 1:
 
 ```azurecli-interactive
   az network public-ip prefix create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPPrefixOutbound \
     --length 28 \
     --zone 1
@@ -511,13 +516,13 @@ Select the public IP or public IP prefix commands based on decision in previous 
 #### Public IP
 
 * Named **myFrontEndOutbound**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with public IP address **myPublicIPOutbound**.
 * Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb frontend-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIPOutbound 
@@ -526,13 +531,13 @@ Select the public IP or public IP prefix commands based on decision in previous 
 #### Public IP prefix
 
 * Named **myFrontEndOutbound**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with public IP prefix **myPublicIPPrefixOutbound**.
 * Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb frontend-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-prefix myPublicIPPrefixOutbound 
@@ -543,12 +548,12 @@ Select the public IP or public IP prefix commands based on decision in previous 
 Create a new outbound pool with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create):
 
 * Named **myBackEndPoolOutbound**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb address-pool create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myBackendPoolOutbound
 ```
@@ -557,7 +562,7 @@ Create a new outbound pool with [az network lb address-pool create](https://docs
 Create a new outbound rule for the outbound backend pool with [az network lb outbound-rule create](https://docs.microsoft.com/cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-create):
 
 * Named **myOutboundRule**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with load balancer **myLoadBalancer**
 * Associated with frontend **myFrontEndOutbound**.
 * Protocol **All**.
@@ -567,7 +572,7 @@ Create a new outbound rule for the outbound backend pool with [az network lb out
 
 ```azurecli-interactive
   az network lb outbound-rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myOutboundRule \
     --frontend-ip-configs myFrontEndOutbound \
@@ -583,7 +588,7 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
 
 #### VM1
 * In backend address pool **myBackEndPoolOutbound**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM1** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -592,13 +597,13 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### VM2
 * In backend address pool **myBackEndPoolOutbound**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM2** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -607,13 +612,13 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### VM3
 * In backend address pool **myBackEndPoolOutbound**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM3** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -622,7 +627,7 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM3 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
@@ -643,12 +648,12 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
 * Address prefix of **10.1.0.0/16**.
 * Subnet named **myBackendSubnet**.
 * Subnet prefix of **10.1.0.0/24**.
-* In the **myResourceGroupLB** resource group.
+* In the **CreatePubLBQS-rg** resource group.
 * Location of **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
@@ -663,11 +668,11 @@ For a standard load balancer, the VMs in the backend address for are required to
 Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
 
 * Named **myNSG**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNSG
 ```
 
@@ -677,7 +682,7 @@ Create a network security group rule using [az network nsg rule create](https://
 
 * Named **myNSGRuleHTTP**.
 * In the network security group you created in the previous step, **myNSG**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Protocol **(*)**.
 * Direction **Inbound**.
 * Source **(*)**.
@@ -688,7 +693,7 @@ Create a network security group rule using [az network nsg rule create](https://
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -708,7 +713,7 @@ Create three network interfaces with [az network nic create](https://docs.micros
 #### VM1
 
 * Named **myNicVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
@@ -716,7 +721,7 @@ Create three network interfaces with [az network nic create](https://docs.micros
 ```azurecli-interactive
 
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -725,14 +730,14 @@ Create three network interfaces with [az network nic create](https://docs.micros
 #### VM2
 
 * Named **myNicVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM2 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -741,14 +746,14 @@ Create three network interfaces with [az network nic create](https://docs.micros
 #### VM3
 
 * Named **myNicVM3**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM3 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -818,13 +823,13 @@ runcmd:
 Create the availability set with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create):
 
 * Named **myAvSet**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Location **eastus**.
 
 ```azurecli-interactive
   az vm availability-set create \
     --name myAvSet \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --location eastus 
     
 ```
@@ -835,7 +840,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 #### VM1
 * Named **myVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Attached to network interface **myNicVM1**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
@@ -843,7 +848,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
     --image UbuntuLTS \
@@ -854,7 +859,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 ```
 #### VM2
 * Named **myVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Attached to network interface **myNicVM2**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
@@ -862,7 +867,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
     --image UbuntuLTS \
@@ -874,7 +879,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 #### VM3
 * Named **myVM3**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Attached to network interface **myNicVM3**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
@@ -882,7 +887,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 
 ```azurecli-interactive
    az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM3 \
     --nics myNicVM3 \
     --image UbuntuLTS \
@@ -901,11 +906,11 @@ To access your web app on the Internet, you need a public IP address for the loa
 Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
 
 * Create a standard zone redundant public IP address named **myPublicIP**.
-* In **myResourceGroupLB**.
+* In **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --sku Basic
 ```
@@ -930,7 +935,7 @@ Create a public load balancer with [az network lb create](https://docs.microsoft
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myLoadBalancer \
     --sku Basic \
     --public-ip-address myPublicIP \
@@ -953,7 +958,7 @@ Create a health probe with [az network lb probe create](https://docs.microsoft.c
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -975,10 +980,11 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
 * Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
 * Using health probe **myHealthProbe**.
 * Protocol **TCP**.
+* Idle timeout of **15 minutes**.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -986,7 +992,8 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
+    --probe-name myHealthProbe \
+    --idle-timeout 15
 ```
 
 ### Add virtual machines to load balancer backend pool
@@ -996,7 +1003,7 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 
 #### VM1
 * In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM1** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -1005,13 +1012,13 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### VM2
 * In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM2** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -1020,13 +1027,13 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### VM3
 * In backend address pool **myBackEndPool**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreatePubLBQS-rg**.
 * Associated with network interface **myNicVM3** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
@@ -1035,7 +1042,7 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM3 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 ---
@@ -1048,7 +1055,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
 
 ```azurecli-interactive
   az network public-ip show \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -1061,7 +1068,7 @@ When no longer needed, use the [az group delete](https://docs.microsoft.com/cli/
 
 ```azurecli-interactive
   az group delete \
-    --name myResourceGroupLB
+    --name CreatePubLBQS-rg
 ```
 
 ## Next steps

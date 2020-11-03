@@ -79,6 +79,8 @@
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Export
       href: configure-export-data.md
+    - name: Configure Private Link
+      href: configure-private-link.md
   - name: Export data
     expanded: false
     items:
@@ -92,6 +94,8 @@
     href: enable-diagnostic-logging.md
   - name: Export Azure IoT Connector for FHIR (preview) metrics through Diagnostic settings
     href: iot-metrics-diagnostics-export.md
+  - name: View and configure Azure IoT Connector for FHIR (preview) Metrics
+    href: iot-metrics-display.md  
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
