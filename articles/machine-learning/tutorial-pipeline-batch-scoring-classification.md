@@ -58,7 +58,7 @@ ws = Workspace.from_config()
 
 On the `pipelinedata` account, get the ImageNet evaluation public data sample from the `sampledata` public blob container. Call `register_azure_blob_container()` to make the data available to the workspace under the name `images_datastore`. Then, set the workspace default datastore as the output datastore. Use the output datastore to score output in the pipeline.
 
-For more information on accessing data, see [How to access data](./how-to-access-data.md#python-sdk).
+For more information on accessing data, see [How to access data](./how-to-access-data.md).
 
 ```python
 from azureml.core.datastore import Datastore
