@@ -85,11 +85,11 @@
     - name: OpenShift overview
       href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
-      href: openshift-container-platform-4x.md
+      href: ./linux/openshift-container-platform-4x.md
     - name: OpenShift Container Platform 3.11 prerequisites
       href: ./linux/openshift-container-platform-3x-prerequisites.md
     - name: OpenShift Container Platform 3.11
-      href: openshift-container-platform-3x.md
+      href: ./linux/openshift-container-platform-3x.md
     - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
       href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
@@ -420,7 +420,7 @@
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Elasticsearch
-    href: tutorial-elasticsearch.md
+    href: ./linux/tutorial-elasticsearch.md
   - name: FreeBSD Packet Filter
     href: ./linux/freebsd-pf-nat.md
   - name: Databases
@@ -499,13 +499,13 @@
     - name: Use specialized disk
       items:
       - name: Portal
-        href: create-vm-specialized-portal.md
+        href: ./windows/create-vm-specialized-portal.md
       - name: PowerShell
-        href: create-vm-specialized.md
+        href: ./windows/create-vm-specialized.md
     - name: Create VM with Chef
       href: /azure/developer/chef/windows-vm-configure
     - name: Use Java
-      href: java.md
+      href: ./windows/java.md
     - name: Use Python
       href: python.md
     - name: Use ARM template
@@ -533,10 +533,16 @@
       href: ../windows/migration-classic-resource-manager-community-tools.md
     - name: FAQ
       href: migration-classic-resource-manager-faq.md
+  - name: Management basics 
+    items:
+    - name: Linux
+      href: ./linux/tutorial-govern-resources.md
+    - name: Windows
+      href: ./windows/tutorial-govern-resources.md
   - name: Time sync
     items: 
     - name: Linux
-      href: ./time-sync.md
+      href: ./linux/time-sync.md
     - name: Windows
       href: ./windows/time-sync.md
   - name: Run scripts on a VM
@@ -561,11 +567,10 @@
         href: ./troubleshooting/serial-console-linux.md)
       - name: Windows
         href: ./troubleshooting/serial-console-windows.md)
-  - name: Use Remote Desktop
-    href: use-remote-desktop.md
+  - name: Remote Desktop for Linux
+    href: ./linux/use-remote-desktop.md
   - name: Use File storage with Linux
     href: mount-azure-file-storage-on-linux-using-smb.md
-
   - name: Updates and patches
     items:
     - name: Red Hat Update Infrastructure
@@ -753,13 +758,15 @@
       href: dedicated-hosts-portal.md
     - name: PowerShell
       href: ../windows/dedicated-hosts-powershell.md
+  - name: Enable nested virtualization
+    href: ./windows/nested-virtualization.md
 - name: Imaging
   items:
   - name: Overview
     href: ./linux/imaging.md
   - name: Linux provisioning
     href: ./linux/provisioning.md
-  - name: Distribution specific requirements
+  - name: Linux distribution specific requirements
     items:
     - name: Generic steps
       href: ./linux/create-upload-generic.md
@@ -917,14 +924,20 @@
     href: ./linux/cli-ps-findimage.md
   - name: Purchase plan information
     href: marketplace-images.md
-  - name: Capture VM to managed image
+  - name: Managed images (legacy)
     items:
-    - name: Linux
-      href: ./linux/capture-image.md
-    - name: Windows
-      href: ./windows/capture-image.md
+    - name: Capture VM to managed image
+      items:
+      - name: Linux
+        href: ./linux/capture-image-resource.md
+      - name: Windows
+        href: ./windows/capture-image-resource.md
+    - name: Create a VM from a managed image
+    - href: ./windows/create-vm-generalized-managed.md
   - name: Build image with Packer
-    href: ./linux/build-image-with-packer.md
+    items: 
+    - name: Linux
+      href: ./linux/build-image-with-packer.md
   - name: Download existing disk
     items: 
     - name: Linux
@@ -966,6 +979,8 @@
   items: 
   - name: Overview
     href: maintenance-and-updates.md
+  - name: Automatic VM guest patching (preview)
+    href: automatic-vm-guest-patching.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications
@@ -1074,8 +1089,12 @@
           href: ./linux/disk-encryption-key-vault-aad.md
         - name: Windows
           href: ./windows/disk-encryption-key-vault-aad.md
-      - name: Disk encryption scenarios for Linux
-        href: ./linux/disk-encryption-linux-aad.md
+      - name: Disk encryption scenarios
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-linux-aad.md
+        - name: Windows
+          href: ./windows/disk-encryption-windows-aad.md
   - name: Disk Storage reservations
     href: ../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Virtual machine and disk performance
@@ -1117,7 +1136,7 @@
         - name: Azure PowerShell
           href: attach-disk-ps.md
         - name: Azure portal
-          href: attach-managed-disk-portal.md
+          href: ../windows/attach-managed-disk-portal.md
     - name: Change disk tier
       href: disks-performance-tiers.md
     - name: Detach a disk
@@ -1350,6 +1369,8 @@
   items:
   - name: Overview
     href: ../azure-monitor/insights/monitor-vm-azure.md
+  - name: Monitoring VMs
+    href: ./linux/tutorial-monitor.md
   - name: Monitor VMs
     items:
     - name: Agents
@@ -1444,7 +1465,11 @@
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
-    href: tag.md
+    items:
+    - name: CLI
+      href: ./linux/tag.md
+    - name: PowerShell
+      href: ./windows/tag.md
   - name: Monitor metadata
     items: 
     - name: CLI
@@ -1502,9 +1527,9 @@
       href: ./windows/on-prem-to-azure.md
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
-        href: ../windows/aws-to-azure.md
+        href: ./windows/aws-to-azure.md
       - name: Upload on-prem VM
-        href: upload-vhd.md
+        href: ./linux/upload-vhd.md
       - name: Use Azure Site Recovery
         href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: Infrastructure automation
