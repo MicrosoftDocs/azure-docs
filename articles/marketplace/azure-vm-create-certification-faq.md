@@ -1,6 +1,6 @@
 ---
-title: Virtual machine certification troubleshooting for Azure Marketplace
-description: Troubleshoot common issue related to testing and certifying virtual machine (VM) images for Azure Marketplace.
+title: Virtual machine (VM) certification troubleshooting for Azure Marketplace
+description: Troubleshoot common issues related to testing and certifying virtual machine (VM) images for Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
@@ -43,7 +43,7 @@ Check to see whether your image supports VM extensions.
 1. Enable base matrices by updating the **Storage account**.
 1. Select **Save**.
 
-   ![Enable guest-level monitoring](./media/create-vm/vm-certification-issues-solutions-1.png)
+   ![Screenshot that displays how to enable guest-level monitoring.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 **To verify that the VM extensions are properly activated:**
 
@@ -53,7 +53,7 @@ Check to see whether your image supports VM extensions.
    * If the status is *Provisioning Succeeded*, the extensions test case has passed.  
    * If the status is *Provisioning Failed*, the extensions test case has failed, and you need to set the Hardened flag.
 
-   ![Screenshot showing that provisioning has succeeded](./media/create-vm/vm-certification-issues-solutions-2.png)
+   ![Screenshot showing that provisioning has succeeded.](./media/create-vm/vm-certification-issues-solutions-2.png)
 
    If the VM extension fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
 
@@ -110,13 +110,14 @@ The following table lists the Linux test cases that the toolkit will run. Test v
 ### Common errors found while executing previous test cases
 
 The following table lists common errors that are found while executing previous test cases:
- 
-|Scenario|Test case|Error|Solution|
-|---|---|---|---|
-|1|Linux Agent version test case|The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020.|Update the Linux agent version. It should be 2.241 or later. For more information,, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
-|2|Bash history test case|An error occurs if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your bash history file doesn't contain any potentially sensitive information.|Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the.bash` history files.|
-|3|Required kernel parameter test case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by running the following command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0**, and resubmit the request.|
-|4|ClientAlive interval test case|If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`.|Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request.|
+
+| Scenario | Test case | Error | Solution |
+| --- | --- | --- | --- |
+| 1 | Linux Agent version test case | The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020. | Update the Linux agent version. It should be 2.241 or later. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
+| 2 | Bash history test case | An error occurs if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the.bash` history files. |
+| 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
+| 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
+
 
 ### Windows test cases
 
@@ -294,29 +295,29 @@ These steps apply to Linux only.
 
 1. Create any kind of Linux VM, such as Ubuntu, Cent OS, or other. Fill the required fields and select **Next: Disks >**.
 
-   ![Next: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
+   ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 1. Create an unmanaged disk for your VM.
 
    Either use the default values or specify any value for fields like NIC, NSG, and public IP.
 
-   ![Create an unmanaged disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
 
 1. After you create the VM, select **Disks** in the left pane.
 
-   ![Select Disks](./media/create-vm/vm-certification-issues-solutions-17.png)
+   ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
 
 1. Attach your VHD as data disk to your VM for creating a partition table.
 
    1. Select **Add DataDisk** > **Existing Blob**
 
-      ![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+      ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
 
    1. Find your VHD storage account
    1. Select **Container** and then select your VHD.
    1. Select **OK**.
 
-      ![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+      ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
 
       Your VHD will be added as data disk LUN 0.
 
@@ -324,7 +325,7 @@ These steps apply to Linux only.
 
 1. After you restart the VM, log in to the VM using Putty or another client and run the `sudo  -i` command to gain root access.
 
-   ![Log in into the VM](./media/create-vm/vm-certification-issues-solutions-20.png)
+   ![Putty client command line screenshot showing the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
 
 1. Create a partition on your VHD.
 
@@ -332,7 +333,7 @@ These steps apply to Linux only.
    1. To view the existing partition list from your VHD, enter `p`.
    1. Enter `d` to delete all existing partitions available in your VHD. You can skip this step, if it's not required.
 
-      ![Delete all existing partition](./media/create-vm/vm-certification-issues-solutions-21.png)
+      ![Putty client command line screenshot showing the commands for deleting existing partitions.](./media/create-vm/vm-certification-issues-solutions-21.png)
 
    1. Enter `n` to create new partition and select `p` for (primary partition).
 
@@ -341,15 +342,15 @@ These steps apply to Linux only.
       >[!IMPORTANT]
       >Any existing data will be erased till 2048 KB. Backup of the VHD before you create a new new partition.
 
-      ![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
+      ![Putty client command line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Type w to confirm the creation of partition. 
+   1. Type `w` to confirm the creation of partition. 
 
-      ![Creation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
+      ![Putty client command line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
    1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value. 
 
-      ![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
+      ![Putty client command line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Detach the VHD from VM and delete the VM.
 
@@ -359,17 +360,17 @@ These steps apply to Linux only.
 
 1. Create any kind of Linux VM, such as Ubuntu, Cent OS, or other. Fill the required fields and select **Next: Disks >**.
 
-   ![Select Next: Disks >.](./media/create-vm/vm-certification-issues-solutions-15.png)
+   ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 1. Create an unmanaged disk for your VM.
 
-   ![Create an unmanaged disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
 
    Either use the default values or specify any value for fields like NIC, NSG, and public IP.
 
 1. After you create the VM, select **Disks** in the left pane.
 
-   ![Select Disks](./media/create-vm/vm-certification-issues-solutions-17.png)
+   ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
 
 1. Attach your VHD as data disk to your VM for creating a partition table.
 
@@ -377,13 +378,13 @@ These steps apply to Linux only.
 
    1. Select **Add DataDisk** > **Existing Blob**
 
-      ![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+      ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
 
    1. Find your VHD storage account
    1. Select **Container** and then select your VHD.
    1. Select **OK**.
 
-      ![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+      ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
 
       Your VHD will be added as data disk LUN 0.
 
@@ -391,11 +392,11 @@ These steps apply to Linux only.
 
 1. Log in into the VM with Putty or another client and run `sudo  -i` command to gain root access.
 
-   ![Log in after restart](./media/create-vm/vm-certification-issues-solutions-20.png)
+   ![Putty client command line screenshot showing log in and the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
 
 1. Execute the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`
 
-   ![Execute command](./media/create-vm/vm-certification-issues-solutions-25.png)
+   ![Putty client command line screenshot showing the execution of the commands.](./media/create-vm/vm-certification-issues-solutions-25.png)
 
    >[!NOTE]
    >This command may take some time to complete because it depends upon the size of the disk.
@@ -452,11 +453,11 @@ To delete the Bash history.
 
 1. Deploy the VM and select the **Run Command** option on Azure portal.
 
-   ![Run command on Azure portal](./media/create-vm/vm-certification-issues-solutions-3.png)
+   ![Screenshot of the Azure portal with the 'Run Command' option in the left pane.](./media/create-vm/vm-certification-issues-solutions-3.png)
 
 1. Select first option **RunShellScript** and then run the command: `cat /dev/null > ~/.bash_history && history -c`
 
-   ![Bash History command on Azure portal](./media/create-vm/vm-certification-issues-solutions-4.png)
+   ![Screenshot of 'Run Command Script' page on the Azure portal.](./media/create-vm/vm-certification-issues-solutions-4.png)
 
 1. After the command executes successfully, restart the VM.
 
