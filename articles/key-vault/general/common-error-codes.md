@@ -29,6 +29,7 @@ The error codes listed in the following table may be returned by an operation on
 | RegionNotSupported |  Specified azure region is not supported for this resource. |
 | SkuNotSupported |  Specified SKU type is not supported for this resource. |
 | ResourceNotFound |  Specified azure resource is not found. |
+|ResourceGroupNotFound | Specified azure resource group is not found. |
 | CertificateExpired |  Check the expiration date and validity period of the certificate. |
 
 
