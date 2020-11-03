@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 By setting up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list.
 
-The access-restriction capability works with all App Service-hosted workloads, including web apps, API apps, Linux apps, Linux container apps, and functions.
+The access-restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux container apps, and functions.
 
 When a request is made to your app, the FROM address is evaluated against the IP address rules in your access-restriction list. If the FROM address is in a subnet that's configured with service endpoints to Microsoft.Web, the source subnet is compared against the virtual network rules in your access-restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
@@ -44,7 +44,7 @@ To add an access-restriction rule to your app, do the following:
 
    ![Screenshot of the Access Restrictions page in the Azure portal, showing the list of access-restriction rules defined for the selected app.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
-   The list displays all the current restrictions that are applied to the app. If you have a VNet restriction on your app, the table shows whether service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.  
+   The list displays all the current restrictions that are applied to the app. If you have a virtual-network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.  
 
 ### Add an access-restriction rule
 
@@ -52,40 +52,41 @@ To add an access-restriction rule to your app, on the **Access Restrictions** pa
 
 Rules are enforced in priority order, starting from the lowest number in the **Priority** column. An implicit *deny all* is in effect after you add even a single rule.
 
-On the **Add IP Restriction** pane, when you create a rule, you must:
+On the **Add IP Restriction** pane, when you create a rule, do the following:
 
 1. Under **Action**, select either **Allow** or **Deny**.  
 
    ![Screenshot of the "Add IP Restriction" pane.](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
-1. In the **Type** drop-down list, select type of rule.  
-1. In the **Priority** box, enter a priority value.  
-1. In the **Subscription**, **Virtual Network**, and **Subnet** and what you are restricting access to.  
+   
 1. Optionally, enter a name and description of the rule.  
+1. In the **Type** drop-down list, select the type of rule.  
+1. In the **Priority** box, enter a priority value.  
+1. In the **Subscription**, **Virtual Network**, and **Subnet** drop-down lists, select what you want to restrict access to.  
 
 ### Set an IP address-based rule
 
-Follow the procedure as in the preceding section, but with the following variation:
-* For step 2, in the **Type** drop-down list, select **IPv4** or **IPv6**. 
+Follow the procedure as outlined in the preceding section, but with the following variation:
+* For step 3, in the **Type** drop-down list, select **IPv4** or **IPv6**. 
 
 Specify the IP address in Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like *1.2.3.4/32*, where the first four octets represent your IP address and */32* is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## Use service endpoints
 
-By using service endpoints, you can restrict access to selected Azure virtual network subnets. To restrict access to a specific subnet, create a restriction rule with a type of virtual network. You can select the subscription, virtual network, and subnet that you want to allow or deny access to. 
+By using service endpoints, you can restrict access to selected Azure virtual network subnets. To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
 
-If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they'll be automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you'd want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet. 
+If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they'll be automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet. 
 
 If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app will be configured for service endpoints in anticipation of having them enabled later on the subnet. 
 
 ![Screenshot of the "Add IP Restriction" pane with the Virtual Network type selected.](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
-You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to to it by applying IP access rules. 
+You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules. 
 
 With service endpoints, you can configure your app with application gateways or other web application firewall (WAF) devices. You can also configure multi-tier applications with secure back ends. For more information, see [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
 > - Service endpoints aren't currently supported for web apps that use IP Secure Sockets Layer (SSL) virtual IP (VIP).
-> - There is a limit of 512 rows of IP or service-endpoint restrictions. If you require more than 512 rows of restrictions, we suggest that you look into a standalone security product, such as Azure Front Door, Azure App Gateway, or a WAF.
+> - There is a limit of 512 rows of IP or service-endpoint restrictions. If you require more than 512 rows of restrictions, we suggest that you consider installing a standalone security product, such as Azure Front Door, Azure App Gateway, or a WAF.
 >
 
 ## Manage access-restriction rules
@@ -96,7 +97,7 @@ You can edit or delete an existing access-restriction rule.
 
 1. To begin editing an existing access-restriction rule, on the **Access Restrictions** page, double-click the rule you want to edit.
 
-1. On the **Edit IP Restriction** pane, make your changes. Edits are effective immediately, including changes in priority ordering.
+1. On the **Edit IP Restriction** pane, make your changes, and then select **Update rule**. Edits are effective immediately, including changes in priority ordering.
 
    ![Screenshot of the "Edit IP Restriction" pane in the Azure portal, showing the fields for an existing access-restriction rule.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
@@ -107,21 +108,21 @@ You can edit or delete an existing access-restriction rule.
 
 ### Delete a rule
 
-To delete a rule, on the **Access Restrictions** page, select the **Remove** ellipsis (**...**) next to the rule you want to delete, and then select **Remove**.
+To delete a rule, on the **Access Restrictions** page, select the ellipsis (**...**) next to the rule you want to delete, and then select **Remove**.
 
-![Screenshot of the "Access Restrictions" page, showing the "Remove" button next to the access-restriction rule to be deleted.](media/app-service-ip-restrictions/access-restrictions-delete.png)
+![Screenshot of the "Access Restrictions" page, showing the "Remove" ellipsis next to the access-restriction rule to be deleted.](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## Block a single IP address
 
 When you add your first IP restriction rule, the service adds an explicit *Deny all* rule with a priority of 2147483647. In practice, the explicit *Deny all* rule is the final rule to be executed, and it blocks access to any IP address that's not explicitly allowed by an *Allow* rule.
 
-For a scenario in which you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add an explicit *Allow All* rule.
+For a scenario where you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add an explicit *Allow All* rule.
 
 ![Screenshot of the "Access Restrictions" page in the Azure portal, showing a single blocked IP address.](media/app-service-ip-restrictions/block-single-address.png)
 
-## Restrict access to the SCM site 
+## Restrict access to an SCM site 
 
-In addition to being able to control access to your app, you can restrict access to the SCM site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can separately assign access restrictions to the SCM site from the app or use the same set of restrictions for both the app and the SCM site. When you select the **Same restrictions as \<app name>** check box, everything is blanked out. If you clear the check box, your SCM site settings are reapplied. 
+In addition to being able to control access to your app, you can restrict access to the SCM site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select the **Same restrictions as \<app name>** check box, everything is blanked out. If you clear the check box, your SCM site settings are reapplied. 
 
 ![Screenshot of the "Access Restrictions" page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
@@ -129,14 +130,14 @@ In addition to being able to control access to your app, you can restrict access
 
 You can add access restrictions programatically by doing either of the following: 
 
-* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest). For example:
+* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). For example:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
   --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0). For example:
+* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true). For example:
 
 
   ```azurepowershell-interactive
@@ -171,7 +172,7 @@ You can also set values manually by doing either of the following:
 
 ## Set up Azure Functions access restrictions
 
-Access restrictions are also available for function apps with the same functionality as Azure App Service plans. When you enable access restrictions, you also disable the Azure portal code editor for any disallowed IPs.
+Access restrictions are also available for function apps with the same functionality as App Service plans. When you enable access restrictions, you also disable the Azure portal code editor for any disallowed IPs.
 
 ## Next steps
 [Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
