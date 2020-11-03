@@ -106,7 +106,7 @@ Applications and systems that support customization of the attribute list includ
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
 - Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported)
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643), where attributes defined in the [core schema](https://tools.ietf.org/html/rfc7643) need to be added
-- For Azure Active Directory writeback to Workday or SuccessFactors, it is supported to updated relevant metadata for supported attributes (XPATH and JSONPath), but it is not supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
+- For Azure Active Directory writeback to Workday or SuccessFactors, it is supported to update relevant metadata for supported attributes (XPATH and JSONPath), but it is not supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
 
 
 > [!NOTE]
@@ -137,10 +137,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    4. Select **Edit attribute list for AppName**.
    5. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
 
-For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example:  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttributeName:value
+For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 

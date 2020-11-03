@@ -558,7 +558,7 @@ The new recommendations are:
 - **Advanced threat protection should be enabled on Azure Storage accounts**
 - **Advanced threat protection should be enabled on virtual machines**
 
-These new recommendations belong to the **Enable Advanced Threat Protection** security control.
+These new recommendations belong to the **Enable Azure Defender** security control.
 
 The recommendations also include the quick fix capability. 
 

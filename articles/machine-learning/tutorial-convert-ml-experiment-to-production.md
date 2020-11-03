@@ -63,7 +63,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)

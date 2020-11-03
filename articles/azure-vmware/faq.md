@@ -72,8 +72,11 @@ No, use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-
 #### Is VMware HCX supported on VPNs?
 No, because of bandwidth and latency requirements.
 
-#### Can Azure Bastion be used for connecting to AVS VMs?
+#### Can Azure Bastion be used for connecting to Azure VMware Solution VMs?
 Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.
+
+#### Can Azure Load Balancer internal be used for Azure VMware Solution VMs?
+No. Azure Load Balancer internal only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set (VMSS) objects in which Azure VMware Solution VMs aren't Azure objects.
 
 #### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
 Yes, you can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.

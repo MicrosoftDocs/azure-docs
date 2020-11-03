@@ -87,6 +87,9 @@ For GPU images, Azure ML currently offers both cuda9 and cuda10 base images. The
 The CPU images are built from ubuntu16.04. The GPU images for cuda9 are built from nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04. The GPU images for cuda10 are built from nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04.
 <a id="getname"></a>
 
+> [!IMPORTANT]
+> When using custom Docker images, it is recommended that you pin package versions in order to better ensure reproducibility.
+
 ### Get container registry information
 
 In this section, learn how to get the name of the Azure Container Registry for your Azure Machine Learning workspace.

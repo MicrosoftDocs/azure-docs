@@ -13,6 +13,7 @@
   - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create public load balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
   - name: Create internal load balancer - Azure CLI
     href: quickstart-load-balancer-standard-internal-cli.md
   - name: Create internal load balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutorials
@@ -76,7 +78,7 @@
   - name: Floating IP configuration
     href: load-balancer-floating-ip.md
   - name: Security
-    items: 
+    items:
     - name: Security baseline
       href: security-baseline.md
   - name: Backend Pool management
