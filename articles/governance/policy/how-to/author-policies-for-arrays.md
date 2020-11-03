@@ -173,7 +173,7 @@ Resource properties can be referenced by Azure Policy using [aliases](../concept
   }
   ```
 
-- Use `field()` function to access the **literal** value of a property. Example:
+- Use `field()` function to access the value of a property. Example:
 
   ```json
   {
