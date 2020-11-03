@@ -23,16 +23,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **new examples**
   + A new community-driven repository of examples is available at https://github.com/Azure/azureml-examples
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    +  We have improved handling of short time series by allowing padding them with gaussian noise.
   + **azureml-automl-core**
-    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+    +  Improved handling of short time series by allowing padding them with gaussian noise.
   + **azureml-automl-runtime**
     + Throw ConfigException if a DateTime column has OutOfBoundsDatetime value
-    +  We have improved handling of short time series by allowing padding them with gaussian noise.
-    + Making sure that each text col can leverage char-gram transform with the n-gram range based on the length of the strings in that text col
-    + Based on a recent customer issue we discovered that then a text column has fewer than 3 characters across all the rows, then current char-gram featurizer breaks because it is configured to use (3,3) char-grams. With this change we'll check the max len in the input text column and only apply the char-gram featurizer if it satisfies the required condition.
-    +  Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
+    + Improved handling of short time series by allowing padding them with gaussian noise.
+    + Making sure that each text column can leverage char-gram transform with the n-gram range based on the length of the strings in that text column
+    + Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
   + **azureml-core**
     + Pin packages en_core_web_sm and pyjwt
     + Creating an experiment will return the active or last archived experiment with that same given name if such experiment exists or a new experiment.
@@ -57,11 +54,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-synapse**
     + Add Synapse magic and SparkMonitor to enable user submit Syanpse job and view the job progress in notebook.
   + **azureml-train-automl-client**
-    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+    +  Improved handling of short time series by allowing padding them with gaussian noise.
   + **azureml-train-automl-runtime**
     + Throw ConfigException if a DateTime column has OutOfBoundsDatetime value
-    +  Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
-    +  We have improved handling of short time series by allowing padding them with gaussian noise.
+    + Added support for providing raw feature explanations for best model for AutoML experiments running on user's local compute
+    + Improved handling of short time series by allowing padding them with gaussian noise.
   + **azureml-train-core**
     + This change allows an empty string to be used as a value for a script_param
   + **azureml-train-restclients-hyperdrive**
