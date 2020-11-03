@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 11/03/2020
+ ms.date: 07/09/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -20,8 +20,8 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
    * **Subscription** - Select the subscription that you want to use.
    * **Resource group** - Create new or use existing.
-   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to manage and locate the WAN resource that you create.
    * **Name** - Type the Name that you want to call your WAN.
-   * **Type** - Basic or Standard. If you create a Basic WAN, you can create only a Basic hub, which can limit the Virtual WAN architectures that you can create. Basic hubs are capable of VPN site-to-site connectivity only. If you know you will only be configuring site-to-site, you can select **Basic**. For all other architectures or architectures that will incorporate multiple connection types, select **Standard**.
+   * **Type** - Basic or Standard. Unless you know that you only ever want to create site-to-site connections, select **Standard**.
 1. After you finish filling out the fields, select **Review +Create**.
 1. Once validation passes, select **Create** to create the virtual WAN.
