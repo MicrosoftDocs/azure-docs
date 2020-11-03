@@ -28,9 +28,9 @@ In this quickstart you deploy a virtual machine (VM), and then check communicati
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This quickstart requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade). 
+- This quickstart requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
- - The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
+- The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
 
 ## Create a VM
 
@@ -131,7 +131,7 @@ az network nic list-effective-nsg \
 
 The returned output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Use IP flow verify](#use-ip-flow-verify):
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -172,7 +172,7 @@ You can see in the previous output that **destinationAddressPrefix** is **Intern
 
 When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -205,7 +205,7 @@ The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denie
 
 When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},

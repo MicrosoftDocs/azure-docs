@@ -27,9 +27,9 @@ In this article, you deploy a virtual machine (VM), and then check communication
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade). 
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
- - The Azure CLI commands in this article are formatted to run in a Bash shell.
+- The Azure CLI commands in this article are formatted to run in a Bash shell.
 
 ## Create a VM
 
@@ -110,7 +110,7 @@ az network nic show-effective-route-table \
 
 The following text is included in the returned output:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -130,7 +130,7 @@ When you used the `az network watcher show-next-hop` command to test outbound co
 
 When you used the `az network watcher show-next-hop` command to test outbound communication to 172.31.0.100 however, the result informed you that there was no next hop type. In the returned output you also see the following text:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
