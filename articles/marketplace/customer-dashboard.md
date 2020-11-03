@@ -73,7 +73,9 @@ In this section, you will find trend and count of all customers, including new, 
 
 ### Customers by Orders/Usage
 
-The **Customers by orders/usage** chart has three tabs: Orders, Normalized usage, and Raw usage.
+The **Customers by orders/usage** chart has three tabs: Orders, Normalized usage, and Raw usage. Select the **Orders** tab to show order details.
+
+:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Illustrates the Orders tab of the Customers by orders and usage widget on the Customers page.":::
 
 Note the following:
 
@@ -82,16 +84,12 @@ Note the following:
 - The **Orders by SKUs** donut chart displays the breakdown of orders purchased for plans. The top five plans with the highest order count are displayed, while the rest of the orders are grouped under **Rest all**.
 - The **SKUs by Seats** donut chart displays the breakdown of seats ordered for plans. The top five plans with the highest seats are displayed, while the rest of the orders are grouped under **Rest All**.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Illustrates the Orders tab of the Customers by orders and usage widget on the Customers page.":::
-
 You can also select the **Normalized usage** or **Raw usage** tab to view usage details.
 
 - The Leader board presents details of the customers ranked by usage hours count. After selecting a customer, the details of the customer are presented in the adjoining “Details”, “Normalized Usage by offers” and “Normalized Usage by virtual machine (VM) Size(s)” section.
 - The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section will not be available.
 - The **Normalized usage by Offers** donut chart displays the breakdown of usage consumed by the offers. The top five plans with the highest usage count are displayed, while the rest of the offers are grouped under **Rest All**.
 - The **Normalized usage by VM Size(s)** donut chart displays the breakdown of usage consumed by different VM Size(s). The top five VM Sizes with the highest normalized usage are displayed, while the rest of the usage is grouped under **Rest All**.
-
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage-2.png" alt-text="Illustrates the Normalized Usage tab of the Customers by orders and usage widget on the Customers page.":::
 
 ### Top customers percentile
 
