@@ -53,6 +53,8 @@
           href: quickstart-blobs-javascript-browser.md
         - name: JavaScript (v10 SDK for browser)
           href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
+      - name: C++ (v12 SDK)
+        href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
       - name: PHP
@@ -105,6 +107,8 @@
       href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: JavaScript
       href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: C++
+      href: ../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Other languages
       href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
@@ -145,8 +149,6 @@
           href: encryption-scope-overview.md
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
-      - name: Built-in security controls
-        href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
         href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure network routing preference
@@ -177,7 +179,7 @@
         href: storage-blob-rehydration.md
       - name: Performance tiers
         href: storage-blob-performance-tiers.md
-      - name: Manage the Azure Blob storage lifecycle
+      - name: Automate access tiers lifecycle
         href: storage-lifecycle-management-concepts.md
     - name: Disaster recovery and failover
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -207,7 +209,7 @@
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
       items:
-      - name: Use blob index to manage and find blob data
+      - name: Use blob index tags to manage and find blob data
         href: storage-manage-find-blobs.md
       - name: Use AI to understand blob data
         href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -233,10 +235,13 @@
           href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Import data to blobs
           href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          displayName: Azure CLI, az import-export create, import-export
         - name: Import data to files
           href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          displayName: Azure CLI, az import-export create, import-export
         - name: Export data from blobs
           href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          displayName: Azure CLI, az import-export create, import-export
         - name: How-to
           items:
           - name: Use customer managed key
@@ -316,7 +321,7 @@
         href: storage-blob-properties-metadata.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
-      - name: Utilize blob index
+      - name: Use blob index tags
         href: storage-blob-index-how-to.md
     - name: Authorize access to blob data
       items:
@@ -328,7 +333,7 @@
           href: authorize-active-directory-powershell.md
         - name: Azure CLI
           href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage access rights with RBAC
+      - name: Manage access rights with Azure RBAC
         items:
         - name: Portal
           href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -362,8 +367,8 @@
             href: storage-blob-user-delegation-sas-create-cli.md
           - name: .NET
             href: storage-blob-user-delegation-sas-create-dotnet.md
-        - name: Create a service SAS (.NET)
-          href: storage-blob-service-sas-create-dotnet.md
+        - name: Create a service SAS
+          href: sas-service-create.md
         - name: Create an account SAS (.NET)
           href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Define a stored access policy
@@ -462,6 +467,8 @@
         href: storage-blob-static-website-how-to.md
       - name: Integrate with Azure CDN
         href: static-website-content-delivery-network.md
+      - name: Use GitHub Actions to deploy a static site to Azure Storage
+        href: storage-blobs-static-site-github-actions.md
     - name: Use a custom domain
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
@@ -580,10 +587,10 @@
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Storage on Microsoft Q&A
+    - name: Blob storage on Microsoft Q&A
       href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
-    - name: Azure Storage on Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+    - name: Blob storage on Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-blob-storage
     - name: Pricing for block blobs
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Pricing for page blobs
@@ -672,6 +679,8 @@
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
       href: data-lake-storage-query-acceleration.md
+    - name: Premium tier for Data Lake Storage
+      href: premium-tier-for-data-lake-storage.md
     - name: Architecture
       items:
       - name: Azure Blob File System driver for Hadoop
@@ -684,11 +693,10 @@
       items:
       - name: Security recommendations
         href: security-recommendations.md
-      - name: Access control (directories and files)
+      - name: Access control model
+        href: data-lake-storage-access-control-model.md
+      - name: Access control lists
         href: data-lake-storage-access-control.md
-      - name: Security controls by Azure Policy
-        displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
     - name: Compatibility
       items:
       - name: Multi-protocol access

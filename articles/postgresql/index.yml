@@ -133,7 +133,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
-            url: /tutorial-design-database-using-azure-portal.md               -
+            url: tutorial-design-database-using-azure-portal.md
           - text: Design a multi-tenant database using Hyperscale
             url: tutorial-design-database-hyperscale-multi-tenant.md
           - text: Design a real-time database using Hyperscale
@@ -149,7 +149,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/postgresql/sample-scripts-azure-cli
+            url: ./sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbforpostgresql/allversions
       - linkListType: reference
@@ -158,4 +158,3 @@ landingContent:
             url: /rest/api/postgresql/
           - text: REST API developer reference
             url: /cli/azure/postgres
-

@@ -54,6 +54,6 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 ## Next steps
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
-* [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [NFS FAQs](./azure-netapp-files-faqs.md#nfs-faqs)
+* [Network File System overview](/windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)

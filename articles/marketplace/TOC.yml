@@ -79,8 +79,6 @@
   items:
   - name: Publishing guide by offer type
     href: publisher-guide-by-offer-type.md 
-  - name: Enable offer authentication with Azure AD
-    href: enable-appsource-marketplace-using-azure-ad.md
   - name: Azure application offers
     items:
     - name: Plan a solution template offer
@@ -107,38 +105,48 @@
         href: partner-center-portal/create-azure-container-offer.md
   - name: Azure virtual machine offers
     items:
-    - name: Plan a virtual machine offer
+    - name: Plan a VM offer
       href: marketplace-virtual-machines.md
-    - name: Create and publish a virtual machine offer
-      items: 
-      - name: Create an Azure virtual machine offer
-        href: partner-center-portal/azure-vm-create-offer.md
-      - name: Create Azure VM technical asset
+    - name: Create and publish a VM offer
+      items:
+      - name: Create a VM offer
+        href: azure-vm-create.md
+      - name: Configure VM offer properties
+        href: azure-vm-create-properties.md
+      - name: Configure VM offer listing
+        href: azure-vm-create-listing.md
+      - name: Create VM plans
+        href: azure-vm-create-plans.md
+      - name: Add a preview audience
+        href: azure-vm-create-preview.md
+      - name: Create VM technical assets
         items:
-          - name: Virtual machine certification - issues and solutions
-            href: partner-center-portal/vm-certification-issues-solutions.md
-          - name: Create an Azure VM technical asset
-            href: partner-center-portal/create-azure-vm-technical-asset.md
-          - name: Azure VM technical asset FAQ
-            href: partner-center-portal/common-issues-during-vhd-creation.md
-          - name: Test Virtual Machine deployed from VHD 
-            href: partner-center-portal/azure-vm-image-certification.md
-          - name: SAS URI
-            items:
-              - name: Get SAS URI
-                href: partner-center-portal/get-sas-uri.md
-              - name: SAS URI FAQ
-                href: partner-center-portal/common-sas-uri-issues.md
+        - name: Create VM from an approved base
+          href: azure-vm-create-using-approved-base.md
+        - name: Create VM using your own image
+          href: azure-vm-create-using-own-image.md
+        - name: Test a VM image
+          href: azure-vm-image-test.md
+        - name: Get SAS URI
+          href: azure-vm-get-sas-uri.md
+        - name: SAS failure messages
+          href: azure-vm-sas-failure-messages.md
+        - name: VM creation FAQ
+          href: azure-vm-create-faq.md
+        - name: VM certification troubleshooting
+          href: azure-vm-create-certification-faq.md
   - name: Consulting services
     items: 
-    - name: Plan a consulting services offer
-      href: consulting-services.md
-    - name: Create and publish a consulting services offer
-      items:
-      - name: Prerequisites
-        href: partner-center-portal/consulting-service-prerequisites.md
-      - name: Create a consulting service offer
-        href: partner-center-portal/create-consulting-service-offer.md
+    - name: Plan a consulting service offer
+      href: plan-consulting-service-offer.md
+    - name: Create a consulting service offer
+      href: create-consulting-service-offer.md
+    - name: Configure consulting service properties
+      href: create-consulting-service-offer-properties.md
+    - name: Configure consulting service listing
+      href: create-consulting-service-offer-listing.md
+    - name: Configure pricing and availability
+      href: create-consulting-service-pricing-availability.md
   - name: Dynamics 365 offers
     items: 
     - name: Plan a Dynamics 365 offer
@@ -155,14 +163,14 @@
           href: dynamics-365-finance-operations-functional-validation.md
       - name: Create a Dynamics 365 Business Central offer
         href: partner-center-portal/create-new-business-central-offer.md
-    - name: IoT Edge module offers
-      items:
-      - name: Plan an IoT Edge module offer
-        href: iot-edge-module.md
-      - name: Create an IoT Edge module offer
-        href: partner-center-portal/azure-iot-edge-module-creation.md
-      - name: Prepare IoT Edge module technical assets
-        href: partner-center-portal/create-iot-edge-module-asset.md
+  - name: IoT Edge module offers
+    items:
+    - name: Plan an IoT Edge module offer
+      href: iot-edge-module.md
+    - name: Create an IoT Edge module offer
+      href: partner-center-portal/azure-iot-edge-module-creation.md
+    - name: Prepare IoT Edge module technical assets
+      href: partner-center-portal/create-iot-edge-module-asset.md
   - name: Managed Service offers
     items:
     - name: Create a Managed Service offer
@@ -323,18 +331,28 @@
   - name: Commercial marketplace FAQ
     href: marketplace-faq-publisher-guide.md
   - name: Cloud Partner Portal migration FAQ
-    href: cloud-partner-portal-migration-faq.md     
+    href: cloud-partner-portal-migration-faq.md 
+  - name: Business opportunity office hours
+    href: https://aka.ms/marketplaceofficehours
+  - name: Technical and publishing office hours
+    href: https://aka.ms/marketplacepublishingofficehours   
   - name: Partner Center support options
-    href: partner-center-portal/support.md
+    href: support.md
+  - name: Partner Center announcements
+    href: /partner-center/announcements
+  - name: Microsoft Partner Community
+    href: https://www.microsoftpartnercommunity.com/
+  - name: Partner Community forum
+    href: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
   - name: Geographic availability and currencies
     href: marketplace-geo-availability-currencies.md
+  - name: Find Tenant and Object IDs
+    href: find-tenant-object-id.md
   - name: Supported countries and regions
     href: sell-from-countries.md  
-  - name: Supported HTML tags
-    href: supported-html-tags.md
   - name: Co-sell country and region codes
     href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: partner-center-portal/commercial-marketplace-co-sell-states.md
-  - name: Forums, blogs, and quick links
-    href: marketplace-roadmap.md
+  - name: Supported HTML tags
+    href: supported-html-tags.md

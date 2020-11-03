@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
 
@@ -39,12 +39,12 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## Secure the workspace with private endpoint
@@ -53,10 +53,9 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 
 For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
 
+## Secure Azure storage accounts with service endpoints
 
-## Secure Azure storage accounts
-
-In this section, you learn how to secure an Azure storage account using service endpoints. However, you can also use private endpoints to secure Azure storage. For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
+Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. In this section, you learn how to secure an Azure storage account using service endpoints. For private endpoints, see the next section.
 
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
@@ -82,7 +81,12 @@ To use an Azure storage account for the workspace in a virtual network, use the 
         > [!IMPORTANT]
         > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
-    1. Select the __Allow trusted Microsoft services to access this storage account__ check box.
+    1. Select the __Allow trusted Microsoft services to access this storage account__ check box. This does not give all Azure services access to your storage account.
+    
+        * Resources of some services, **registered in your subscription**, can access the storage account **in the same subscription** for select operations. For example, writing logs or creating backups.
+        * Resources of some services can be granted explicit access to your storage account by __assigning an Azure role__ to its system-assigned managed identity.
+
+        For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
@@ -91,11 +95,23 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## Secure Azure storage accounts with private endpoints
+
+Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
+1. A private endpoint with a **blob** target sub-resource.
+1. A private endpoint with a **file** target sub-resource (fileshare).
+
+![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+To configure a private endpoint for a storage account that is **not** the default storage, select the **Target sub-resource** type that corresponds to the storage account you want to add.
+
+For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+
 ## Secure datastores and datasets
 
-In this section, you learn how to use datastore and dataset usage for the SDK experience in a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
+In this section, you learn how to use datastore and datasets in the SDK experience with a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
 
-To access the data using SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+To access data using the SDK, you must use the authentication method required by the individual service that the data is stored in. For example, if you register a datastore to access Azure Data Lake Store Gen2, you must still use a service principal as documented in [Connect to Azure storage services](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
 ### Disable data validation
 
@@ -172,7 +188,7 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 
-* Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute).
+* Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
@@ -266,6 +282,13 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     ]
     }
     ```
+
+    This template creates a _private endpoint_ for network access from the workspace to your ACR. The screenshot below shows an example of this private endpoint.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR private endpoint settings":::
+
+    > [!IMPORTANT]
+    > Do not delete this endpoint! If you accidentally delete it, you can re-apply the template in this step to create a new one.
 
 ## Next steps
 

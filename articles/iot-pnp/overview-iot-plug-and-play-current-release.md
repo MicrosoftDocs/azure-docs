@@ -36,10 +36,7 @@ To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug 
 
 - Azure CLI IoT extension 0.10.0.
 
-    To learn more, see [Install and use the Azure IoT extension for the Azure CLI](howto-use-iot-pnp-cli.md).
-
-    > [!TIP]
-    > The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
+    The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
 
 ## Libraries and SDKs
 
@@ -51,7 +48,7 @@ To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and
 - Java device SDK [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
 - Python device SDK [pip 2.3.0](https://pypi.org/project/azure-iot-device/)
 - Node.js device SDK [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)
-- .NET - IoT Hub service [NuGet 1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices )
+- .NET - IoT Hub service [NuGet 1.27.1](https://www.nuget.org/packages/Microsoft.Azure.Devices )
 - Java - IoT Hub service [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.26.0)
 - Node.js - IoT Hub service [npm 1.13.0](https://www.npmjs.com/package/azure-iothub)
 - Python - IoT Hub/Digital Twins service [pip 2.2.3](https://pypi.org/project/azure-iot-hub)
@@ -59,7 +56,7 @@ To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and
 
 ## REST APIs
 
-REST API [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
+REST API [2020-09-30](/rest/api/iothub).
 
 To learn more, see [IoT Plug and Play developer guide](concepts-developer-guide-service.md).
 

@@ -72,7 +72,7 @@ However, the provided effects do no give any detailed introspection into service
 
 ## API documentation
 
-* [C++ RemoteManager::DebugRenderingSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+* [C++ RemoteManager::DebugRenderingSettings()](/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## Next steps
 

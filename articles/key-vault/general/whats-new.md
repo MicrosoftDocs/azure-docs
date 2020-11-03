@@ -1,5 +1,5 @@
 ---
-title: What's New for Azure Key Vault
+title: What's new for Azure Key Vault
 description: Recent updates for Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -19,6 +19,16 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## October 2020
+
+> [!WARNING]
+> These updates have the potential to impact Azure Key Vault implementations.
+
+To support [soft delete now on by default](#soft-delete-on-by-default), two changes have been made to Azure Key Vault PowerShell cmdlets:
+
+- The DisableSoftDelete and EnableSoftDelete parameters of [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) have been deprecated.
+- The output of the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet no longer has the `SecretValueText` attribute.
+
 ## July 2020
 
 > [!WARNING]
@@ -26,9 +36,9 @@ Here's what's new with Azure Key Vault. New features and improvements are also a
 
 ### Soft delete on by default
 
-By the end of 2020, the **soft-delete will be on by default for all key vaults**, both new and pre-existing. For full details on this potentially breaking change, as well as steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md). 
+By the end of 2020, the **soft-delete will be on by default for all key vaults**, both new and pre-existing. For full details on this potentially breaking change, as well as steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md).
 
-### Azure TLS certificate changes  
+### Azure TLS certificate changes
 
 Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.  For full details, see [Azure TLS Certificate Changes](../../security/fundamentals/tls-certificate-changes.md).
 
@@ -47,7 +57,7 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 ## 2019
 
 - Release of the next-generation Azure Key Vault SDKs. For examples of their use, see the Azure Key Vault secret quickstarts for [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md), and [Node.js](../secrets/quick-create-node.md)
-- New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-samples.md).
+- New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-reference.md).
 - Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md], and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
 
@@ -55,7 +65,7 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 
 New features and integrations released this year:
 
-- Integration with Azure Functions. For an example scenario leveraging [Azure Functions](../../azure-functions/index.yml) for key vault operations, see [Automate the rotation of a secret](../secrets/tutorial-rotation.md). 
+- Integration with Azure Functions. For an example scenario leveraging [Azure Functions](../../azure-functions/index.yml) for key vault operations, see [Automate the rotation of a secret](../secrets/tutorial-rotation.md).
 - [Integration with Azure Databricks](/azure/databricks/scenarios/store-secrets-azure-key-vault). With this, Azure Databricks now supports two types of secret scopes: Azure Key Vault-backed and Databricks-backed. For more information, see [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
 
@@ -63,39 +73,39 @@ New features and integrations released this year:
 
 New features released this year:
 
-- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. See the overview topic for more information, [Managed Storage Account Keys overview](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. See the overview topic for more information, [Soft-delete overview](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. See the overview topic for more information, [Managed Storage Account Keys overview](../secrets/overview-storage-keys.md).
+- Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. See the overview topic for more information, [Soft-delete overview](./soft-delete-overview.md).
 
 ## 2015
 
 New features released this year:
 - Certificate management. Added as a feature to the GA version 2015-06-01 on September 26, 2016.
 
-General Availability (version 2015-06-01) was announced on June 24, 2015. The following changes were made at this release: 
+General Availability (version 2015-06-01) was announced on June 24, 2015. The following changes were made at this release:
 - Delete a key - "use" field removed.
 - Get information about a key - "use" field removed.
 - Import a key into a vault - "use" field removed.
-- Restore a key - "use" field removed.     
-- Changed "RSA_OAEP" to "RSA-OAEP" for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
- 
-Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) blog post. The following tasks were updated:
- 
+- Restore a key - "use" field removed.
+- Changed "RSA_OAEP" to "RSA-OAEP" for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
+
+Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](/archive/blogs/kv/rest-api-update) blog post. The following tasks were updated:
+
 - List the keys in a vault - added pagination support to operation.
-- List the versions of a key - added operation to list the versions of a key.  
+- List the versions of a key - added operation to list the versions of a key.
 - List secrets in a vault - added pagination support.
-- List versions of a secret - add operation to list the versions of a secret.  
-- All operations - Added created/updated timestamps to attributes.  
+- List versions of a secret - add operation to list the versions of a secret.
+- All operations - Added created/updated timestamps to attributes.
 - Create a secret - added Content-Type to secrets.
 - Create a key - added tags as optional information.
 - Create a secret - added tags as optional information.
 - Update a key - added tags as optional information.
 - Update a secret - added tags as optional information.
-- Changed max size for secrets from 10 K to 25 K Bytes. See, [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
+- Changed max size for secrets from 10 K to 25 K Bytes. See, [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
 ## 2014
- 
-First preview version (version 2014-12-08-preview) was announced on January 8, 2015.  
+
+First preview version (version 2014-12-08-preview) was announced on January 8, 2015.
 
 ## Next steps
 
-If you have additional questions, please contact us through [support](https://azure.microsoft.com/support/options/).  
+If you have additional questions, please contact us through [support](https://azure.microsoft.com/support/options/).

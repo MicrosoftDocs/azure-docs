@@ -74,7 +74,7 @@ SQL pool supports the most commonly used data types. For a list of the supported
 
 ## Distributed tables
 
-A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  SQL pool supports three methods for distributing data:  round-robin (default), hash and replicated.
+A fundamental feature of Synapse SQL is the way it can store and operate on tables across [distributions](massively-parallel-processing-mpp-architecture.md#distributions). Synapse SQL supports three methods for distributing data:  round-robin (default), hash and replicated.
 
 ### Hash-distributed tables
 

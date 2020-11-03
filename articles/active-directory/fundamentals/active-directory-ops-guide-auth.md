@@ -43,7 +43,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Owner recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## Credentials management
@@ -172,7 +172,7 @@ Finally, if you have an Azure AD app gallery and use applications that support S
 
 ### Assign users to applications
 
-[Assigning users to applications](../manage-apps/assign-user-or-group-access-portal.md) is best mapped by using groups because they allow greater flexibility and ability to manage at scale. The benefits of using groups include [attribute-based dynamic group membership](../users-groups-roles/groups-dynamic-membership.md) and [delegation to app owners](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Therefore, if you are already using and managing groups, we recommend you take the following actions to improve management at scale:
+[Assigning users to applications](../manage-apps/assign-user-or-group-access-portal.md) is best mapped by using groups because they allow greater flexibility and ability to manage at scale. The benefits of using groups include [attribute-based dynamic group membership](../enterprise-users/groups-dynamic-membership.md) and [delegation to app owners](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Therefore, if you are already using and managing groups, we recommend you take the following actions to improve management at scale:
 
 - Delegate group management and governance to application owners.
 - Allow self-service access to the application.
@@ -184,8 +184,8 @@ On the other hand, if you find applications that have assignment to individual u
 #### Assign users to applications recommended reading
 
 - [Assign users and groups to an application in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegate app registration permissions in Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Dynamic membership rules for groups in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegate app registration permissions in Azure Active Directory](../roles/delegate-app-roles.md)
+- [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## Access policies
 
@@ -243,7 +243,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - Use Conditional Access policies to [implement MFA](../conditional-access/plan-conditional-access.md), rather than using a **per-user MFA**
 - Have a small set of core policies that can apply to multiple applications
 - Define empty exception groups and add them to the policies to have an exception strategy
-- Plan for [break glass](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
+- Plan for [break glass](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
 - Ensure a consistent experience across Microsoft 365 client applications, for example, Teams, OneDrive, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and Sharepoint Online
 - Assignment to policies should be implemented through groups, not individuals
 - Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
@@ -342,7 +342,7 @@ Below are the user and group settings that can be locked down if there isn't an 
 - [Integrating Applications with Azure Active Directory](../develop/quickstart-register-app.md)
 - [Apps, permissions, and consent in Azure Active Directory.](../develop/quickstart-register-app.md)
 - [Use groups to manage access to resources in Azure Active Directory](./active-directory-manage-groups.md)
-- [Setting up self-service application access management in Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Setting up self-service application access management in Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### Traffic from unexpected locations
 

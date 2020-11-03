@@ -11,7 +11,8 @@
 - name: Quickstarts
   expanded: true 
   items:
-  - name: Set up Azure NetApp Files and create an NFS volume
+  - name: Set up Azure NetApp Files and create an NFS volume - ARM template
+    displayName: Resource Manager
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 # - name: Tutorials
 # - name: Samples
@@ -39,6 +40,8 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: Manual QoS capacity pool
+    href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
     items: 
     - name: Understand cross-region replication
@@ -111,7 +114,7 @@
       href: azure-netapp-files-develop-with-rest-api.md
     - name: REST API using PowerShell
       href: develop-rest-api-powershell.md
-    - name: Azure NetApp Files SDKs and CLI tools
+    - name: SDKs, CLI tools, and ARM templates
       href: azure-netapp-files-sdk-cli.md
     - name: Troubleshoot Azure NetApp Files Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
@@ -128,7 +131,7 @@
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/ 
+    href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
 - name: Resources

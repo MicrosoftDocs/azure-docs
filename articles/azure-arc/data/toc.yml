@@ -24,7 +24,7 @@
       items:
       - name: Install client tools
         href: install-client-tools.md
-      - name: azdata
+      - name: Azure Data CLI (azdata)
         items:
           - name: Install
             href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
@@ -46,7 +46,7 @@
           href: create-data-controller-azure-data-studio.md
         - name: Create data controller resource (portal)
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Create data controller (azdata)
+        - name: Create data controller (Azure Data CLI)
           href: create-data-controller-using-azdata.md
         - name: Create data controller using Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md
@@ -66,8 +66,16 @@
       items:
         - name: Monitor with Grafana & Kibana
           href: monitor-grafana-kibana.md
-        - name: Upload metrics and logs
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Upload to Azure Monitor
+          items:
+            - name: Upload prerequisites
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: Upload logs
+              href: upload-logs.md
+            - name: Upload metrics
+              href: upload-metrics.md
+            - name: Upload usage data
+              href: upload-usage-data.md
         - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
@@ -218,3 +226,7 @@
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi-config
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+- name: Resources
+  items:
+    - name: Azure Arc jumpstart
+      href: https://github.com/microsoft/azure_arc

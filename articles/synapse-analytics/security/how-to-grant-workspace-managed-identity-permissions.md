@@ -66,7 +66,7 @@ The managed identity should have data access to the container (file system) that
 
 
 Select that same container or file system to grant the *Storage Blob Data Contributor* role to the managed identity.
-![ADLS Gen2 storage account container selection](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Screenshot that shows the container or file system that you should select.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### Step 3: Navigate to Access control
 

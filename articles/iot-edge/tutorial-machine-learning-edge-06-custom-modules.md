@@ -807,14 +807,6 @@ In this article, we created an IoT Edge Solution in Visual Studio Code with thre
 
 Next, we updated the configuration of the IoT Hub to route our messages based on type and to handle file uploads. With everything in place, we deployed the modules to the IoT Edge device and ensured the modules were running correctly.
 
-See the following articles for more guidance:
-
-* [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md)
-* [IoT Hub message routing query syntax](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [IoT Hub message routing: now with routing on message body](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Upload files from your device to the cloud with IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
-
 Continue to the next article to start sending data and see your solution in action.
 
 > [!div class="nextstepaction"]

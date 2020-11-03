@@ -9,6 +9,7 @@ ms.author: sngun
 ---
 
 # Frequently asked questions about the Gremlin API in Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 This article explains answers to some frequently asked questions about Gremlin API in Azure Cosmos DB.
 
@@ -94,7 +95,7 @@ The RU charge is based on the working data set of the traversal, and not the res
 
 ### What's the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API?
 
-Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](partition-data.md) article.
+Azure Cosmos DB makes use of [horizontal partitioning](partitioning-overview.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](partitioning-overview.md) article.
 
 ### For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
 

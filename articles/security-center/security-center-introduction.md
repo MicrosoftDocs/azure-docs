@@ -39,7 +39,8 @@ To help you protect yourself against these challenges, Security Center provides 
 
 -   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto-provisioning and protection with Azure services.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> This service supports [Azure Lighthouse](../lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated. For Azure Security Center scenarios, a subscription must be delegated rather than individual resource groups.
 
 ## Architecture
 
@@ -53,13 +54,11 @@ When you enable Security Center, the security policy built-in to Security Center
 
 ## Strengthen security posture
 
-Azure Security Center enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your
-network security estate. 
+Azure Security Center enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your network security estate. 
 
 ### Manage organization security policy and compliance
 
-It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure Policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security
-Center, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
+It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure Policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security Center, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
 
 :::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Policy management page":::
 
@@ -77,16 +76,14 @@ To help you understand how important each recommendation is to your overall secu
 
 ### Network map
 
-One of the most powerful tools Security Center provides for continuously monitoring the security status of your network is the **Network map**. The map enables you to see the topology of your workloads, so you can see if each node is properly configured. You can see how your nodes are connected, which helps
-you block unwanted connections that could potentially make it easier for an attacker to creep along your network.
+One of the most powerful tools Security Center provides for continuously monitoring the security status of your network is the **Network map**. The map enables you to see the topology of your workloads, so you can see if each node is properly configured. You can see how your nodes are connected, which helps you block unwanted connections that could potentially make it easier for an attacker to creep along your network.
 
 :::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center network map":::
 
 
 ### Optimize and improve security by configuring recommended controls
 
-The heart of Azure Security Center's value lies in its recommendations. The recommendations are tailored to the particular security concerns found on your workloads, and Security Center does the security admin work for you, by not only finding your vulnerabilities, but providing you with specific instructions for
-how to get rid of them.
+The heart of Azure Security Center's value lies in its recommendations. The recommendations are tailored to the particular security concerns found on your workloads, and Security Center does the security admin work for you, by not only finding your vulnerabilities, but providing you with specific instructions for how to get rid of them.
 
 In this way, Security Center enables you not just to set security policies, but to apply secure configuration standards across your resources.
 
@@ -102,42 +99,34 @@ Security Center's threat protection includes fusion kill-chain analysis, which a
 
 :::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Security alerts":::
 
-### Integration with Microsoft Defender Advanced threat protection
+### Integration with Microsoft Defender for Endpoint
 
-Security Center includes automatic, native integration with Microsoft Defender Advanced Threat Protection. This means that without any configuration, your Windows and Linux machines are fully integrated with Security Center's recommendations and assessments.
+Security Center includes automatic, native integration with Microsoft Defender for Endpoint. This means that without any configuration, your Windows and Linux machines are fully integrated with Security Center's recommendations and assessments.
 
 In addition, Security Center lets you automate application control policies on server environments. The adaptive application controls in Security Center enable end-to-end app approval listing across your Windows servers. You don't need to create the rules and check violations, it's all done automatically for you.
 
 ### Protect PaaS
 
-Security Center helps you detect threats across Azure PaaS services. You can detect threats targeting Azure services including Azure App Service, Azure SQL, Azure Storage Account, and more data services. You can also take advantage of the native integration with Microsoft Cloud App Security's User and Entity
-Behavioral Analytics (UEBA) to perform anomaly detection on your Azure activity logs.
+Security Center helps you detect threats across Azure PaaS services. You can detect threats targeting Azure services including Azure App Service, Azure SQL, Azure Storage Account, and more data services. You can also take advantage of the native integration with Microsoft Cloud App Security's User and Entity Behavioral Analytics (UEBA) to perform anomaly detection on your Azure activity logs.
 
 ### Block brute force attacks
 
-Security Center helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address
-ranges or IP addresses, and for a limited amount of time.
+Security Center helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address ranges or IP addresses, and for a limited amount of time.
 
 ### Protect data services
 
 Security Center includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and
 recommendations for how to mitigate them.
 
-### Protect IoT and hybrid cloud workloads
-
-Defender for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat protection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Defender for IoT](../defender-for-iot/index.yml).
-
 ## Get secure faster
 
-Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
-onboard and roll out.
+Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Microsoft Defender for Endpoint help make sure your security solution is comprehensive as well as simple to onboard and roll out.
 
 In addition, you can extend the full solution beyond Azure to workloads running on other clouds and in on-premises data centers.
 
 ### Automatically discover and onboard Azure resources
 
-Security Center provides seamless, native integration with Azure and Azure resources. That means that you can pull together a complete security story involving Azure Policy and built-in Security Center policies across all your Azure resources, and make sure that the whole thing is automatically applied to
-newly discovered resources as you create them in Azure.
+Security Center provides seamless, native integration with Azure and Azure resources. That means that you can pull together a complete security story involving Azure Policy and built-in Security Center policies across all your Azure resources, and make sure that the whole thing is automatically applied to newly discovered resources as you create them in Azure.
 
 Extensive log collection - logs from Windows and Linux are all leveraged in the security analytics engine and used to create recommendations and alerts.
 

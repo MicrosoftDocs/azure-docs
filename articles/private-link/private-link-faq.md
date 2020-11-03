@@ -5,7 +5,7 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/05/2019
 ms.author: allensu
 
 ---
@@ -20,14 +20,16 @@ ms.author: allensu
 - **[Azure Private Link Service](private-link-service-overview.md)**: Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. 
 
 ### How is traffic being sent when using Private Link?
-Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet.  
+Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet. Azure Private Link doesn't store customer data.
  
 ### What is the difference between a Service Endpoints and a Private Endpoints?
-- When using Private Endpoints, network access is granted to specific resources behind a given service providing granular segmentation, also traffic can reach the service resource from on premises without using public endpoints.
+- Private Endpoints grant network access to specific resources behind a given service providing granular segmentation. Traffic can reach the service resource from on premises without using public endpoints.
 - A service endpoint remains a publicly routable IP address.  A private endpoint is a private IP in the address space of the virtual network where the private endpoint is configured.
 
 ### What is the relationship between Private Link service and Private Endpoint?
-Private Endpoint provides access to multiple private link resource types, including Azure PaaS services and your own Private Link Service. It is a one-to-many relationship. One Private Link service can receive connections from multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.    
+Multiple private link resource types support access via Private Endpoint. Resources include Azure PaaS services and your own Private Link Service. It's a one-to-many relationship. 
+
+A Private Link service receives connections from multiple private endpoints. A private endpoint connects to one Private Link service.    
 
 ## Private Endpoint 
  
@@ -42,6 +44,9 @@ Yes. Private endpoints can connect to Private Link services or Azure PaaS across
  
 ### Can private endpoint connect to Azure PaaS resources across Azure regions?
 Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
+
+### Can I modify my Private Endpoint Network Interface (NIC) ?
+When a private endpoint is created, a read-only NIC is assigned. This cannot be modified and will remain for the life cycle of the Private endpoint.
 
 ## Private Link Service
  
@@ -64,14 +69,14 @@ You can control the exposure using the visibility configuration on Private Link 
 - **Restrictive** - Only subscriptions that are approved and with RBAC access can locate the service. 
 - **All** - Everyone can locate the service. 
  
-### Can I create a Private Link service with Basic Load Balancer? 
-No. Private Link service over a Basic Load Balancer is not supported.
+### Can I create a Private Link service with basic load balancer? 
+No. Private Link service over a basic load balancer isn't supported.
  
 ### Is a dedicated subnet required for Private Link service? 
 No. Private Link service doesn’t require a dedicated subnet. You can choose any subnet in your VNet where your service is deployed.   
 
-### I am a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 
-No. Azure Private Link provides this functionality for you. Hence, you are not required to have non-overlapping address space with your customer's address space. 
+### I'm a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 
+No. Azure Private Link provides this functionality for you. You aren't required to have non-overlapping address space with your customer's address space. 
 
 ##  Next steps
 

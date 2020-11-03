@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ---
 
 # Tutorial: Create a form-processing app with AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
+[AI Builder](/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
 
 > [!NOTE]
-> This project is also available as a [Microsoft Learn module](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> This project is also available as a [Microsoft Learn module](/learn/modules/get-started-with-form-processing/).
 
 In this tutorial, you learn how to:
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * A set of at least five forms of the same type to use for training/testing data. See [Build a training data set](./build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2128080).
-* A Power Apps or Power Automate license - see the [Licensing Guide](https://go.microsoft.com/fwlink/?linkid=2085130). The license must include [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* A Power Apps or Power Automate license - see the [Licensing Guide](https://go.microsoft.com/fwlink/?linkid=2085130). The license must include [Common Data Service](https://powerplatform.microsoft.com/common-data-service/).
 * An AI Builder [add-on or trial](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409).
 
 
@@ -65,7 +65,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > After you upload these documents, you can still remove some of the documents or upload additional ones.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Screenshot that highlights the Add documents button.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### Analyze your documents
 
@@ -89,7 +89,7 @@ On the field selection page, you choose the fields that matter to you:
     - **Field value**: The value for the detected field.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-ai-builder/select-fields-page.png)
+> ![tagging page](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### Label undetected fields
 
@@ -100,7 +100,7 @@ If the field you want to label wasn't detected automatically by the model, you c
 1. Select **Next** to check your selected form fields. If everything looks good, select **Train** to train your model.
 
     > [!div class="mx-imgBorder"]
-    > ![add documents page](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![training page](./media/tutorial-ai-builder/summary-train-page.png)
 1. When training completes,  select **Go to Details page** in the **Training complete** screen.
 ## Quick-test your model
 
@@ -123,13 +123,13 @@ If you're getting bad results or low confidence scores for certain fields, try t
 If you're happy with your model, select **Publish**  to publish it. When publishing completes, your model is promoted as **Published** and is ready to be used.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-ai-builder/model-page.png)
+> ![publish model page](./media/tutorial-ai-builder/model-page.png)
 
-After you've published your form processing model, you can use it in a [Power Apps canvas app](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+After you've published your form processing model, you can use it in a [Power Apps canvas app](/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](/ai-builder/form-processing-model-in-flow).
 
 ## Next steps
 
 Follow the AI Builder documentation for using a form-processing model.
 
-* [Use the form-processor component in Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Use a form-processing model in Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Use the form-processor component in Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Use a form-processing model in Power Automate](/ai-builder/form-processing-model-in-flow)
