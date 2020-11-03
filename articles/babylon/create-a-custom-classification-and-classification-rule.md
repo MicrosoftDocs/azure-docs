@@ -15,7 +15,7 @@ By default, the catalog provides a large set of default classifications
 that represent typical personal data types that you might have in your
 data estate.
 
- ![Classification](media/create-a-custom-classification-and-classification-rule/image1.png)
+:::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="Classification" border="true":::
 
 ## Steps to create a custom classification
 
@@ -23,15 +23,15 @@ To create a custom classification:
 
 1. From your catalog, select the **Management Center** icon.
 
- ![Management center](media/create-a-custom-classification-and-classification-rule/image2.png)
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/management-center.png" alt-text="Management center" border="true":::
 
 2. Select **Classifications** under Metadata management from the left navigation
 
- ![Select classifications](media/create-a-custom-classification-and-classifictaion-rule/image3.png)
+    :::image type="content" source="media/create-a-custom-classification-and-classifictaion-rule/select-classifications.png" alt-text="Select classifications" border="true":::
 
 3. Select **New**
 
- ![New classification](media/create-a-custom-classification-and-classification-rule/image4.png)
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="New classification" border="true":::
 
 The **Add new classification** pane opens, where you can give your
 classification a name and a description. It\'s good practice to use a
@@ -60,12 +60,12 @@ As an example, if you named your
 classification **CONTOSO.HR.EMPLOYEE\_ID**, the friendly name is stored
 in the system as **Hr.Employee ID**.
 
- ![Contoso.hr.employee_id](media/create-a-custom-classification-and-classification-rule/image5.png)
+:::image type="content" source="media/create-a-custom-classification-and-classification-rule/contoso-hr-employee-id.png" alt-text="Contoso.hr.employee_id" border="true":::
 
 Select **OK**, and your new classification is added to your
 classification list.
 
- ![Custom classification](media/create-a-custom-classification-and-classification-rule/image6.png)
+:::image type="content" source="media/create-a-custom-classification-and-classification-rule/custom-classification.png" alt-text="Custom classification" border="true":::
 
 Selecting the classification in the list opens the classification
 details page. Here, you find all the details about the classification.
@@ -73,7 +73,7 @@ These details include the count of how many instances there are, the
 formal name, associated classification rules (if any), and the owner
 name.
 
- ![Select classification](media/create-a-custom-classification-and-classification-rule/image7.png)
+:::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-classification.png" alt-text="Select classification" border="true":::
 
 # Custom classification rules
 
@@ -93,7 +93,7 @@ like EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55.
 Contoso can configure the scanning system to find instances of these IDs
 by creating a custom classification rule. They can supply a regular
 expression that matches the data pattern, in this
-case, \^Employee\[A-Za-z0-9\]{8}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{12}\$. Optionally,
+case, `\^Employee\[A-Za-z0-9\]{8}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{12}\$`. Optionally,
 if the data usually is in a column that they know the name of, such as
 Employee\_ID or EmployeeID, they can add a column pattern regular
 expression to make the scan even more accurate. An example regex
@@ -116,17 +116,15 @@ To create a custom classification rule:
 
 3. Select the **Classifications rules** section.
 
- ![Classification rules tile](media/create-a-custom-classification-and-classification-rule/classificationrules.png)
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="Classification rules tile" border="true":::
 
 4. Select **New**.
 
- ![Add new classification
-rule](media/create-a-custom-classification-and-classification-rule/newclassificationrule.png)
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Add new classification rule" border="true":::
 
-The **New classification rule** dialog box opens. Fill in the
-configuration information for your new rule.
+5. The **New classification rule** dialog box opens. Fill in the configuration information for your new rule.
 
- ![Create new classification rule](media/create-a-custom-classification-and-classification-rule/createclassificationrule.png)
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Create new classification rule" border="true":::
 
 |Field     |Description  |
 |---------|---------|
