@@ -65,7 +65,7 @@ The following samples show public client applications (desktop or mobile applica
 | Client application | Platform | Flow/grant | Calls Microsoft Graph | Calls an ASP.NET Core web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Desktop tutorial (.NET Core) - Interactive authentication in .NET Core, optionally using the cross platform token cache and custom web UI | ![This image shows the .NET/C# logo](media/sample-v2-code/logo_NETcore.png) | [Authorization code](msal-authentication-flows.md#authorization-code)| [ms-identity-dotnet-desktop-tutorial](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
-| Desktop (WPF)      | ![This image shows the .NET/C# logo](media/sample-v2-code/logo_NET.png) | [Authorization code](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Desktop (WPF)      | ![This image shows the .NET desktop/C# logo](media/sample-v2-code/logo_NET.png) | [Authorization code](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Desktop (Console)   | ![Image that shows the .NET/C# (Desktop) logo](media/sample-v2-code/logo_NET.png) | [Integrated Windows Authentication](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Desktop (Console)   | ![This image shows the Java logo](media/sample-v2-code/logo_java.png) | [Integrated Windows Authentication](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Desktop (Console)   | ![This is the .NET/C# (Desktop) logo](media/sample-v2-code/logo_NETcore.png) | [Username/Password](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
@@ -139,4 +139,4 @@ To learn about [samples](https://github.com/microsoftgraph/msgraph-community-sam
 
 ## See also
 
-[Microsoft Graph API conceptual and reference](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API conceptual and reference](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)
