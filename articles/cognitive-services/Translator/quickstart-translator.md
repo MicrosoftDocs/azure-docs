@@ -100,7 +100,7 @@ When calling the Translator service via REST, you'll need to make sure the follo
   <th>Description</th>
   <tr>
     <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
+    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>

@@ -753,6 +753,8 @@
           href: create-sql-api-java-changefeed.md
       - name: Server-side programming
         items:
+        - name: Perform transactional batch operations
+          href: transactional-batch.md
         - name: Write stored procedures, triggers, and UDFs
           href: how-to-write-stored-procedures-triggers-udfs.md
         - name: Write stored procedures and triggers with JavaScript query API

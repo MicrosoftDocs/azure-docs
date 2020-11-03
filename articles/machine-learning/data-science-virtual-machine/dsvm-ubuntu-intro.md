@@ -44,7 +44,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine Ubu
        * **Virtual machine name**: Enter the name of the virtual machine. This name will be used in your Azure portal.
        * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image**: Leave the default value.
-       * **Size**: This option should autopopulate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: This option should autopopulate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/sizes.md).
        * **Authentication type**: For quicker setup, select "Password." 
          
          > [!NOTE]
@@ -148,6 +148,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to do several common data science tasks with the Linux DSVM provisioned here. 
 * Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to systematically build analytical solutions using the [Team Data Science Process](https://aka.ms/tdsp).
+* Learn how to systematically build analytical solutions using the [Team Data Science Process](../team-data-science-process/index.yml).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
 * Consult the appropriate [reference documentation](./reference-ubuntu-vm.md) for this virtual machine.
