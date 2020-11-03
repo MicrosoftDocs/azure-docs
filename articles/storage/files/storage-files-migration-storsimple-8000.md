@@ -204,7 +204,7 @@ After your storage accounts are created, go to the **File share** section of the
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="An Azure portal screenshot showing the new file share UI.":::
     :::column-end:::
     :::column:::
-        </br>**Name**</br>Lowercase letters, numbers, and hyphens are supported.</br></br>**Quota**</br>Quota here is comparable to an SMB hard quota on a Windows Server instance. The best practice is to not set a quota here because your migration and other services will fail when the quota is reached.</br></br>**Tiers**</br>Select **Transaction optimized** for your new file share. During the migration, many transactions will occur. It's more cost efficient to change your tier later to the tier best suited to your workload.
+        </br>**Name**</br>Lowercase letters, numbers, and hyphens are supported.</br></br>**Quota**</br>Quota here is comparable to an SMB hard quota on a Windows Server instance. The best practice is to not set a quota here because your migration and other services will fail when the quota is reached.</br></br>**Tiers**</br>Select **Transaction optimized** for your new file share. During the migration, many transactions will occur. Its more cost efficient to change your tier later to the tier best suited to your workload.
     :::column-end:::
 :::row-end:::
 
