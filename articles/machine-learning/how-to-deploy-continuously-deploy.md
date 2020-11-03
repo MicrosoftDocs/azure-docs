@@ -1,7 +1,7 @@
 ---
 title: Continuously deploy Azure Machine Learning models
 titleSuffix: Azure Machine Learning
-description: 'Learn how to continuously deploy models with the Azure Machine Learning DevOps extension.'
+description: 'Learn how to continuously deploy models with the Azure Machine Learning DevOps extension. Automatically check for, and deploy, new model versions.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

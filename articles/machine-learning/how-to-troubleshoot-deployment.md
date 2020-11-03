@@ -1,7 +1,7 @@
 ---
 title: Docker deployment troubleshooting
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using Azure Machine Learning.
+description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

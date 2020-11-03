@@ -1,7 +1,7 @@
 ---
 title: Create and attach Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: 'Azure Kubernetes Service (AKS) can be used to deploy a machine learning model as a web service. Learn how to create a new AKS cluster through Azure Machine Learning. You will also learn how to attach an existing AKS cluster to your Azure Machine Learning workspace.'
+description: 'Learn how to create a new Azure Kubernetes Service cluster through Azure Machine Learning, or how to attach an existing AKS cluster to your workspace.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

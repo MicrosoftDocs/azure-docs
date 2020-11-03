@@ -1,7 +1,7 @@
 ---
 title: Secure web services using TLS
 titleSuffix: Azure Machine Learning
-description: Learn how to enable HTTPS in order to secure a web service that's deployed through Azure Machine Learning. Azure Machine Learning uses TLS version 1.2 to secure models deployed as web services.
+description: Learn how to enable HTTPS with TLS version 1.2 to secure a web service that's deployed through Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

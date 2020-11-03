@@ -1,7 +1,7 @@
 ---
 title: Audit and manage policy compliance
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning.
+description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
 author: jhirono
 ms.author: jhirono 
 ms.date: 09/15/2020
