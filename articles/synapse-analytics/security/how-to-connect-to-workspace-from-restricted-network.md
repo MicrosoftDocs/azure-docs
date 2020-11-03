@@ -26,7 +26,7 @@ From this article, you'll learn how to connect to your Azure Synapse workspace f
 
 ## Step 1: Add network outbound security rules to the restricted network
 
-You'll need to add four network outbound security rules with four service tags. Learn more about [Service tags overview](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) 
+You'll need to add four network outbound security rules with four service tags. Learn more about [Service tags overview](/azure/virtual-network/service-tags-overview.md) 
 * AzureResourceManager
 * AzureFrontDoor.Frontend
 * AzureActiveDirectory
