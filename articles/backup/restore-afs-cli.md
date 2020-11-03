@@ -22,10 +22,10 @@ By the end of this article, you'll learn how to perform the following operations
 
 This article assumes that you already have an Azure file share that's backed up by Azure Backup. If you don't have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file share. For this article, you use the following resources:
 
-| File share  | Storage account | Region | Details                                                      |
-| ----------- | --------------- | ------ | ------------------------------------------------------------ |	
-| *azurefiles*  | *afsaccount*      | EastUS | Original source backed up by using Azure Backup                 |	
-| *azurefiles1* | *afaccount1*      | EastUS | Destination source used for alternate location recovery |
+| File share | Storage account | Region | Details |
+|---|---|---|---|
+| *azurefiles* | *afsaccount* | EastUS | Original source backed up by using Azure Backup |
+| *azurefiles1* | *afaccount1* | EastUS | Destination source used for alternate location recovery |
 
 You can use a similar structure for your file shares to try out the different types of restores explained in this article.
 
