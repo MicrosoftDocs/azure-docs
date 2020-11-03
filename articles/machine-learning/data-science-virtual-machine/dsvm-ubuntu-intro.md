@@ -120,17 +120,17 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a m
    1. From your local machine, open a web browser and navigate to https:\//your-vm-ip:8000, replacing "your-vm-ip" with the IP address you took note of earlier.
    1. Your browser will probably prevent you from opening the page directly, telling you that there's a certificate error. The DSVM is providing security via a self-signed certificate. Most browsers will allow you to click through after this warning. Many browsers will continue to provide some kind of visual warning about the certificate throughout your Web session.
 
->[!NOTE]
-> If you receive `ERR_EMPTY_RESPONSE` error message in your browser, make sure you are accessing the machine using **https** protocol, and not **http**. If you just type the address without `https://` in the address line, most browsers will default to http, and you will receive this error.
+      >[!NOTE]
+      > If you see the `ERR_EMPTY_RESPONSE` error message in your browser, make sure you access the machine by explicitly using the *HTTPS* protocol, and not by using *HTTP* or just the web address. If you type the web address without `https://` in the address line, most browsers will default to `http`, and you will see this error.
 
    1. Enter the username and password that you used to create the VM, and sign in. 
 
       ![Enter Jupyter login](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> If you receive a 500 Error at this stage, it is likely that you used capitalized letters in your username. This is a known interaction between Jupyter Hub and the PAMAuthenticator it uses. 
-> If you receive a "Can't reach this page" error, it is likely that your Network Security Group permissions need to be adjusted. In the Azure portal, find the Network Security Group resource within your Resource Group. To access JupyterHub from the public Internet, you must have port 8000 open. (The image shows that this VM is configured for just-in-time access, which is highly recommended. See [Secure your management ports with just-in time access](../../security-center/security-center-just-in-time.md).)
-> ![Configuration of Network Security Group](./media/dsvm-ubuntu-intro/nsg-permissions.png)
+      >[!NOTE]
+      > If you receive a 500 Error at this stage, it is likely that you used capitalized letters in your username. This is a known interaction between Jupyter Hub and the PAMAuthenticator it uses. 
+      > If you receive a "Can't reach this page" error, it is likely that your Network Security Group permissions need to be adjusted. In the Azure portal, find the Network Security Group resource within your Resource Group. To access JupyterHub from the public Internet, you must have port 8000 open. (The image shows that this VM is configured for just-in-time access, which is highly recommended. See [Secure your management ports with just-in time access](../../security-center/security-center-just-in-time.md).)
+      > ![Configuration of Network Security Group](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Browse the many sample notebooks that are available.
 
