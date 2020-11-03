@@ -41,7 +41,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (e.g. ScriptRunConfig). 
     + Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
-    + Repurposed `grant_workspace_access` parameter when registering datastore. Set it to `True` to access data behind virtual network from Machine Learning Studio.
+    + Repurposed `grant_workspace_access` parameter when registering datastores. Set it to `True` to access data behind virtual network from Machine Learning Studio.
       [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
