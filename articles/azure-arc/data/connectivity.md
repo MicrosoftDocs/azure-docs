@@ -32,7 +32,7 @@ Additionally, Azure Active Directory and Azure Role-Based Access Control can be 
 
 Some Azure-attached services are only available when they can be directly reached such as the Azure Defender security services, Container Insights, and Azure Backup to blob storage.
 
-Currently, in the preview only the indirectly connected mode is supported. Directly connected mode is planned for future.  There is a conceivable Never Connected mode outlined below, but it is not currently supported.
+Currently, in the preview only the indirectly connected mode is supported. 
 
 ||**Indirectly connected**|**Directly connected**|**Never Connected**|
 |---|---|---|---|
@@ -82,7 +82,7 @@ Currently, in the preview only the indirectly connected mode is supported. Direc
 Currently, in the preview phase, only the indirectly connected mode is supported. In this mode, there are only three connections required to services available on the Internet. These connections include:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
-- [Azure resource manager APIs](#azure-resource-manager-apis)
+- [Azure Resource Manager APIs](#azure-resource-manager-apis)
 - [Azure monitor APIs](#azure-monitor-apis)
 
 All HTTPS connections to Azure and the Microsoft Container Registry are encrypted using SSL/TLS using officially signed and verifiable certificates.
@@ -117,7 +117,7 @@ Yes
 
 None
 
-### Azure resource manager APIs
+### Azure Resource Manager APIs
 Azure Data Studio, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] and Azure CLI connect to the Azure Resource Manager APIs to send and retrieve data to and from Azure for some features.
 
 #### Connection source
