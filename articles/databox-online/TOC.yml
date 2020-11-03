@@ -209,6 +209,8 @@
         href: azure-stack-edge-j-series-configure-tls-settings.md 
     - name: Deploy VMs (Preview)
       items:
+      - name: Deploy VMs - Azure portal
+        href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
       - name: Deploy VMs - Templates
         href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md 
       - name: Deploy VMs - Azure PowerShell cmdlets
