@@ -165,7 +165,7 @@ Each inventory run generates the following files:
 
 ## Inventory completed event
 
-You can subscribe to the inventory completed event to get notified when the inventory run completes. This event is generated when the manifest checksum file is created. The inventory completed event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic.
+Subscribe to the inventory completed event to get notified when the inventory run completes. This event is generated when the manifest checksum file is created. The inventory completed event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic.
 
 Sample event:
 
