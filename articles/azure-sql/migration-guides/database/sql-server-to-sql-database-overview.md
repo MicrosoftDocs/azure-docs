@@ -62,18 +62,18 @@ Consider general guidelines to help you choose the right deployment model and se
 
 **Purchasing models**: Choose between the vCore, DTU, or serverless purchasing model. 
 
-- The [vCore purchasing model](../../database/service-tiers-vcore) lets you choose the number of vCores for your Azure SQL database, making it the easiest choice when translating from on-premises SQL Server. This option supports saving on license cost with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
-- The [DTU model](../../database/service-tiers-dtu) abstracts the underlying compute, memory, and IO resources in order to provide a blended DTU. The DTU model automatically includes SQL Server license in its pricing and as such the Azure Hybrid Benefit is not supported. 
-- The [serverless model](../../database/serverless-tier-overview) is intended for workloads that require automatic on-demand scaling with compute resources billed per second of usage. The serverless compute tier automatically pauses databases during inactive periods (where only storage is billed), and automatically resumes databases when activity returns. The Azure Hybrid Benefit is not supported. 
+- The [vCore model](../../database/service-tiers-vcore) lets you choose the number of vCores for your Azure SQL Database, making it the easiest choice when translating from on-premises SQL Server. This is the only option that supports saving on license cost with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
+- The [DTU model](../../database/service-tiers-dtu) abstracts the underlying compute, memory, and IO resources in order to provide a blended DTU. 
+- The [serverless model](../../database/serverless-tier-overview) is intended for workloads that require automatic on-demand scaling with compute resources billed per second of usage. The serverless compute tier automatically pauses databases during inactive periods (where only storage is billed), and automatically resumes databases when activity returns. 
 
-> [!IMPORTANT]
-> [Transaction log rate is governed](../../database/resource-limits-logical-server#transaction-log-rate-governance) in Azure SQL Database to limit high ingestion rates. As such, during migration, it may be necessary to scale target database resources (vCores/DTUs) to ease pressure on CPU or throughput. Choose the appropriately sized target database, but plan to scale up for the migration, if necessary. 
-
-**Service tiers**: Choose between the three service tiers that are designed for different types of applications.
+**Service tiers**: Choose between three service tiers designed for different types of applications.
 
 - [General Purpose / Standard service tier](../../database/service-tier-general-purpose) offers a balanced budget-oriented option with compute and storage suitable to deliver mid-lower tier applications, with redundancy built in at the storage layer to recover from failures. Designed for most database workloads. 
-- [Business Critical / Premium service tier](../../database/service-tier-business-critical) is for high tier applications that require high transaction rates, low latency IO, and a high level of resiliency with secondary replicas available for failover due to unforeseen issues. Designed for mission critical performance. 
-- [Hyperscale service tier](../../database/service-tier-hyperscale) is for databases that have growing data volumes and need the capabilities to automatically scale up to 100-TB database size. Designed for very large databases. 
+- [Business Critical / Premium service tier](../../database/service-tier-business-critical) is for high tier applications that require high transaction rates, low latency IO, and a high level of resiliency with secondary replicas available for both failover and to offload read workloads.
+- [Hyperscale service tier](../../database/service-tier-hyperscale) is for databases that have growing data volumes and need to automatically scale up to 100-TB database size. Designed for very large databases. 
+
+> [!IMPORTANT]
+> [Transaction log rate is governed](../../database/resource-limits-logical-server#transaction-log-rate-governance) in Azure SQL Database to limit high ingestion rates. As such, during migration, it may be necessary to scale target database resources (vCores/DTUs) to ease pressure on CPU or throughput. Choose the appropriately-sized target database, but plan to scale resources up for the migration if necessary. 
 
 
 ### SQL Server on Azure VM alternative
@@ -91,6 +91,14 @@ If the following apply to your business, consider moving to a SQL Server on Azur
 ## Migration options
 
 The following table describes data migration options and corresponding recommendations: 
+
+|Migration option  |When to use  |Description |
+|---------|---------|---------|---------|
+|[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb) | - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database. </br></br> **Considerations**: - Migration is a logical data movement between objects and hence recommended to run during off-peak times. </br> - DMA reports the status of migration per database object including the number of rows migrated.  </br> - For large migrations (number of databases / size of database), use the Azure Database Migration Service listed below.|
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases. </br></br> **Considerations**: - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. |
+
+
+
 
 
 |Migration option  |When to use  |Description  |Considerations  |
