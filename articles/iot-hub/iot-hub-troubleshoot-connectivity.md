@@ -26,11 +26,19 @@ These capabilities are limited to what IoT Hub can observe, so we also recommend
 
 Use Azure Monitor to get alerts and write logs when devices disconnect.
 
-## Route events to logs
+## Route connection events to logs
+
+IoT hub continuously emits resource logs for several categories of operations. To collect this log data, though, you need to create a diagnostic setting to route it to a destination where it can be analyzed or archived. One such destination is to Azure Monitor Logs via a Log Analytics workspace ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)), where the data can be analyzed using Kusto queries.
+
+The IoT Hub [resource logs connections category](monitor-iot-hub-reference.md#connections) emits operations and errors having to do with device connections. The following screenshot shows a diagnostic setting to route these logs to a Log Analytics workspace:
 
 To log device connection events and errors, create a diagnostic setting for the [IoT Hub resource logs connections category](monitor-iot-hub-reference.md#connections). We recommend creating this setting as early as possible, because although IoT Hub always emits log data, it isn't collected until you route it to a destination. To send logs to Azure Monitor Logs, route the Connections logs to a Log Analytics workspace ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)), where you can analyze them using Kusto queries.
 
-The following screenshot shows a diagnostic setting that routes IoT Hub resource logs for the Connections category to a Log Analytics workspace. To learn more about routing metrics and logs, see []For detailed instructions to create a diagnostic setting, see the [Use metrics and logs](totorial-use-metrics-and-diags.md) tutorial.
+The following screenshot shows a diagnostic setting that routes IoT Hub resource logs for the Connections category to a Log Analytics workspace.
+
+:::image type="content" source="media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png" alt-text="Recommended setting to send connectivity logs to Log Analytics workspace.":::
+
+To learn more about routing metrics and logs, see [Collection and routing](monitor-iot-hub.md#collection-and-routing). For detailed instructions to create a diagnostic setting, see the [Use metrics and logs](totorial-use-metrics-and-diags.md) tutorial.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
