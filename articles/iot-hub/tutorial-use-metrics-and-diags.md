@@ -345,6 +345,9 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
 Let the application run for at least 10-15 minutes. Ideally, let it run until it stops sending messages (about 20-30 minutes). This will happen when you've exceeded the daily message quota for your IoT hub, and it has stopped accepting any more messages.
 
+> [!NOTE]
+> If you leave the device app running for an extended period after it stops sending messages, you may get an exception. You can safely ignore this exception and close the app window.
+
 ## View metrics chart on your dashboard
 
 1. In the upper-left corner of Azure portal, open the portal menu, and then select **Dashboard**.
