@@ -27,17 +27,33 @@ In this quickstart you learn how to:
 
 This quickstart walks you through creating a Windows virtual machine and configuring it to be an IoT Edge device. Then, you deploy a module from the Azure portal to your device. The module used in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying additional modules that analyze the simulated data for business insights.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
- - **Cloud resources**: A resource group to manage all the resources you use in this quickstart.
+You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
+
+Add the Azure IoT extension to the Cloud Shell instance.
+
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
+## Prerequisites
+
+Cloud resources:
+
+* A resource group to manage all the resources you use in this quickstart.
 
      ```azurecli-interactive
      az group create --name IoTEdgeResources --location westus2
      ```
 
- - **IoT Edge device**: A Windows virtual machine to act as your IoT Edge device. You can create this virtual machine using the following command, replacing `{password}` with a secure password:
+ IoT Edge device:
+
+* A Windows virtual machine to act as your IoT Edge device. You can create this virtual machine using the following command, replacing `{password}` with a secure password:
 
     ```azurecli-interactive
      az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -45,20 +61,20 @@ This quickstart walks you through creating a Windows virtual machine and configu
 
     It may take a few minutes to create and start the new virtual machine.
 
- - Once your virtual machine starts, you can download an RDP file for use when connecting to your virtual machine:
+    Once your virtual machine starts, you can download an RDP file for use when connecting to your virtual machine:
 
-   1. Navigate to your new Windows virtual machine in the Azure portal.
-   2. Select **Connect**.
-   3. On the **RDP** tab, select **Download RDP File**.
+    1. Navigate to your new Windows virtual machine in the Azure portal.
+    1. Select **Connect**.
+    1. On the **RDP** tab, select **Download RDP File**.
 
-   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
+    Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
- > [!NOTE]
- > Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
- >
-  > This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
- >
- > If you want to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
+> [!NOTE]
+> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+>
+> This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
+>
+> If you want to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
 ## Create an IoT hub
 

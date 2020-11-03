@@ -14,7 +14,7 @@ Follow these steps to prepare your environment before using Azure CLI to create 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Azure HPC Cache requires version 2.7 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+ - Azure HPC Cache requires version 2.7 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set default resource group (optional)
 
