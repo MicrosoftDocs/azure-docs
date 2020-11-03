@@ -1,10 +1,10 @@
 ---
-title: Create a commercial marketplace account in Partner Center
+title: Create a commercial marketplace account in Partner Center for Azure Marketplace
 description: Learn how to create a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
@@ -60,9 +60,9 @@ Your publisher profile includes your company name and MPN ID. If you haven't yet
     > [!IMPORTANT]
     > To accept these terms, you must be authorized to act on your company's behalf.
 
-    After you're enrolled, you're taken to the commercial marketplace overview page. The commercial marketplace account is displayed in the left pane. 
-    
-1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
+    After you're enrolled, you're taken to the commercial marketplace overview page. The commercial marketplace account is displayed in the left pane.
+
+1. To verify that the commercial marketplace account is listed as registered, select **Settings** (gear icon) in the top-right corner > **Developer Settings** > **Programs**.
 
 You've now created a commercial marketplace account in Partner Center. Continue to [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -86,19 +86,19 @@ When you use your Microsoft Partner Network account, it links your company's wor
 > You must have an **account admin** or a **global admin** role to sign in to Microsoft Partner Network.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/) with your Microsoft Partner Network account.
-1. Select **Settings** > **Partner Settings** > **Programs** > **Get Started**.
+1. Select **Settings** > **Developer Settings** > **Programs** > **Get Started**.
 
    Microsoft Partner Network detects your subscription and displays the **Publisher profile** pane.
-   
+
 1. Enter your company name and MPN ID.
 1. Read the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
 
     > [!IMPORTANT]
     > To accept these terms, you must be authorized to act on your company's behalf.
 
-    After you're enrolled, you're taken to the commercial marketplace overview page. The commercial marketplace account is displayed in the left pane. 
-    
-1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
+    After you're enrolled, you're taken to the commercial marketplace overview page. The commercial marketplace account is displayed in the left pane.
+
+1. To verify that the commercial marketplace account is listed as registered, select **Settings** > **Developer Settings** > **Programs**.
 
 You've now created a commercial marketplace account in Partner Center. Continue to [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -107,9 +107,9 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 >[!NOTE]
 >To register for the commercial marketplace under the same account that you're signed in with, you need to have registered in Partner Center with a company account. If you registered with an individual account, your commercial marketplace enrollment will appear under a new account.
 >
->Individual accounts are for developers who are working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. 
+>Individual accounts are for developers who are working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality.
 >
-> To ascertain that you're authorized to set up the account for your company, we require additional verification of company accounts after you've registered. This verification can take from a few days to a couple of weeks, and it often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more information, see [Account types, locations, and fees](/windows/uwp/publish/account-types-locations-and-fees).
+> To ascertain that you're authorized to set up the account for your company, we require additional verification of company accounts after you've registered. This verification can take from a few days to a couple of weeks, and it often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more information, see [Account types, locations, and fees](../windows/uwp/publish/account-types-locations-and-fees).
 
 When you register for the commercial marketplace program with the same account as your developer program, you can see all of your existing program enrollments in the left pane of Partner Center.
 
@@ -121,9 +121,9 @@ When you register for the commercial marketplace program with the same account a
     >[!Important]
     > To accept these terms, you must be authorized to act on your company's behalf.
 
-    After you're enrolled, you're taken to the commercial marketplace overview page. The commercial marketplace account is displayed in the left pane. 
-    
-1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
+    After you're enrolled, you're taken to the commercial marketplace overview page. The commercial marketplace account is displayed in the left pane.
+
+1. To verify that the commercial marketplace account is listed as registered, select **Settings** > **Developer Settings** > **Programs**.
 
 You've now created a commercial marketplace account in Partner Center. For help with adding publishers, continue to [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -137,7 +137,7 @@ The publishing agreement and company profile information transition to your new 
 
 ## Add new publishers to the commercial marketplace program
 
-An organization can have multiple publishers associated with a commercial marketplace account. An existing user can add more publishers after signing in to Partner Center by selecting **Account Settings** > **Publishers** > **Add Publisher**.
+An organization can have multiple publishers associated with a commercial marketplace account. An existing user can add more publishers after signing in to Partner Center by selecting **Settings** > **Developer settings** > **Publisher** > **Add publisher**.
 
 >[!NOTE]
 >Before you add a new publisher, review your list of existing publishers by signing in to Partner Center and selecting **Account Settings** > **Publishers**.

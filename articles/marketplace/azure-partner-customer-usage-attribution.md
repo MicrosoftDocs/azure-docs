@@ -3,10 +3,10 @@ title: Commercial marketplace partner and customer usage attribution
 description: Get an overview of tracking customer usage for Azure Marketplace solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -69,9 +69,9 @@ After you add a GUID to your template or in the user agent, and register the GUI
    * Partners can register multiple GUIDs.
    * Partners can register GUIDs for non-marketplace solution templates and offers.
 
-1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
+1. Select **Settings** (gear icon) in the top-right corner > **Account settings**.
 
-1. On the **Account settings page**, select **Add Tracking GUID.**
+1. On **Organization profile** > **Identifiers**, select **Add Tracking GUID**.
 
 1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the `pid-` prefix. In the **Description** box, enter your offer name or description.
 
@@ -178,9 +178,10 @@ If you deploy resources via Azure PowerShell, append your GUID by using the foll
 
 When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT** environment variable. You can set this variable within the scope of a script. You can also set the variable globally for shell scope:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 For more information, see [Azure SDK for Go](/azure/developer/go/).
 
 ## Use Terraform
@@ -201,7 +202,6 @@ Partners who want to get their deployment via Terraform tracked by customer usag
 
 * Create a GUID (the GUID should be added for each Offer or SKU)
 * Update their Azure Provider to set the value of *partner_id* to the GUID (DO NOT pre-fix the GUID with "pid-", just set it to the actual GUID)
-
 
 ## Verify the GUID deployment
 
@@ -258,11 +258,11 @@ Partners should inform their customers about deployments that use customer usage
 
 ### Notification for Resource Manager template deployments
 
-When you deploy this template, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at https://www.microsoft.com/trustcenter.
+When you deploy this template, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ### Notification for SDK or API deployments
 
-When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at https://www.microsoft.com/trustcenter.
+When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ## Get support
 
@@ -277,6 +277,7 @@ Learn about the support options in the commercial marketplace at [Support for th
     * Complete/review the contact information.
     * The consultation details may be pre-populated or select from the drop-downs.
     * Enter a title and the description of the problem (provide as much detail as possible).
+
 1. Click Submit
 
 View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
