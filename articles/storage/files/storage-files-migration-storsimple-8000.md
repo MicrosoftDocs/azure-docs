@@ -175,7 +175,7 @@ Only choose from either of the following two options:
 > [!NOTE]
 > Only LRS and ZRS redundancy types are compatible with the large 100-TiB-capacity Azure file shares.
 
-Globally redundant storage (GRS) in all variations is currently not supported. You can switch your redundancy type later, and switch to GRS when support for it arrives in Azure.
+Geo redundant storage (GRS) in all variations is currently not supported. You can switch your redundancy type later, and switch to GRS when support for it arrives in Azure.
 
 #### Enable 100-TiB-capacity file shares
 
@@ -265,21 +265,21 @@ A mapping is expressed from left to right: [\source path] \> [\target path].
 |Semantic character          | Meaning  |
 |:---------------------------|:---------|
 | **\\**                     | Root level indicator.       |
-| **\>**                     | [Source] and [target-mapping operator.     |
+| **\>**                     | [Source] and [target-mapping] operator.     |
 |**\|** or RETURN (new line) | Separator of two folder-mapping instructions. </br>Alternatively, you can omit this character and select **Enter** to get the next mapping expression on its own line.        |
 
 ### Examples
 Moves the content of folder *User data* to the root of the target file share:
 ``` console
-\User data > \\
+\User data > \
 ```
 Moves the entire volume content into a new path on the target file share:
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 Moves the source folder content into a new path on the target file share:
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 Sorts multiple source locations into a new directory structure:
 ``` console
@@ -291,7 +291,7 @@ Sorts multiple source locations into a new directory structure:
 ### Semantic rules
 
 * Always specify folder paths relative to the root level.
-* Begin each folder path with a root level indicator "\".
+* Begin each folder path with a root level indicator "\\".
 * Don't include drive letters.
 * When specifying multiple paths, source or target paths can't overlap:</br>
    Invalid source path overlap example:</br>
@@ -513,7 +513,7 @@ Background:
    :::column-end:::
 :::row-end:::
 
-When you configure source and target locations of the RoboCopy command, make sure you review the structure of the source and target to ensure they match. If you used the directory-mapping feature of the migration job, your root-directory structure might be different than the structure of your StorSimple volume. If that's the case, you might need multiple RoboCopy jobs, one for each subdirectory.
+When you configure source and target locations of the RoboCopy command, make sure you review the structure of the source and target to ensure they match. If you used the directory-mapping feature of the migration job, your root-directory structure might be different than the structure of your StorSimple volume. If that's the case, you might need multiple RoboCopy jobs, one for each subdirectory. If you unsure if the command will perform as expected, you can use the */L* parameter, which will simulate the command without actually making any changes.
 
 This RoboCopy command uses /MIR, so it won't move files that are the same (tiered files, for instance). But if you get the source and target path wrong, /MIR also purges directory structures on your Windows Server instance or Azure file share that aren't present on the StorSimple source path. They must match exactly for the RoboCopy job to reach its intended goal of updating your migrated content with the latest changes made while the migration is ongoing.
 
@@ -542,7 +542,7 @@ When you deprovision a resource, you lose access to the configuration of that re
 Before you begin, it's a best practice to observe your new Azure File Sync deployment in production for a while. That time gives you the opportunity to fix any problems you might encounter. After you've observed your Azure File Sync deployment for at least a few days, you can begin to deprovision resources in this order:
 
 1. Deprovision your StorSimple Data Manager resource via the Azure portal. All of your DTS jobs will be deleted with it. You won't be able to easily retrieve the copy logs. If they're important for your records, retrieve them before you deprovision.
-1. Make sure that your StorSimple physical appliances have been migrated, and then unregister them. If you aren't completely sure that they've been migrated, don't proceed. If you deprovision these resources while they're still necessary, you won't be able to recover the data or their configuration.
+1. Make sure that your StorSimple physical appliances have been migrated, and then unregister them. If you aren't completely sure that they've been migrated, don't proceed. If you deprovision these resources while they're still necessary, you won't be able to recover the data or their configuration.<br>Optionally you can first deprovision the StorSimple volume resource, which will clean up the data on the appliance. This can take several days and **will not** forensically zero out the data on the appliance. If this is important to you, handle disk zeroing separately from the resource deprovisioning and according to your policies.
 1. If there are no more registered devices left in a StorSimple Device Manager, you can proceed to remove that Device Manager resource itself.
 1. It's now time to delete the StorSimple storage account in Azure. Again, stop and confirm your migration is complete and that nothing and no one depends on this data before you proceed.
 1. Unplug the StorSimple physical appliance from your data center.
