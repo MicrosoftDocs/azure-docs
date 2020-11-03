@@ -1,14 +1,14 @@
 ---
-title: Data Scrubbing with Java In Process Agent - Azure Monitor Application Insights
-description: Data Scrubbing with Java In Process Agent
+title: Monitor Java applications running in any environment - Azure Monitor Application Insights
+description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 10/29/2020
 
 ---
 
-# Data Scrubbing with Java In Process Agent - private preview
+# Telemetry processors with Java In Process Agent - preview
 
-Java In Process Agent has now the capabilities to pre-process telemetry data before the data is exported.
+Java In Process Agent has now the capabilities to process telemetry data before the data is exported.
 
 ### Some Use Cases:
  * Mask sensitive data.

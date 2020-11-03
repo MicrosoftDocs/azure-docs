@@ -1,6 +1,6 @@
 ---
-title: Monitor Java applications anywhere - Azure Monitor Application Insights
-description: Codeless application performance monitoring for Java applications running in any environment without instrumenting the app. Find the root cause of the issues d using distributed tracing and application map.
+title: Monitor Java applications running in any environment - Azure Monitor Application Insights
+description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
