@@ -54,7 +54,7 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
      This algorithm supports a linear combination of L1 and L2 regularization values: that is, if <code>x = L1</code> and <code>y = L2</code>, then <code>ax + by = c</code> defines the linear span of the regularization terms.  
   
     > [!NOTE]
-    >  Want to learn more about L1 and L2 regularization? The following article provides a discussion of how L1 and L2 regularization are different and how they affect model fitting, with code samples for logistic regression and neural network models:  [L1 and L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Want to learn more about L1 and L2 regularization? The following article provides a discussion of how L1 and L2 regularization are different and how they affect model fitting, with code samples for logistic regression and neural network models:  [L1 and L2 Regularization for Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Different linear combinations of L1 and L2 terms have been devised for logistic regression models: for example, [elastic net regularization](https://wikipedia.org/wiki/Elastic_net_regularization). We suggest that you reference these combinations to define a linear combination that is effective in your model.
       
@@ -93,4 +93,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.
