@@ -176,39 +176,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md).
 
-It considers [inheritance](concepts-models.md#model-inheritance) and [version ordering](how-to-manage-model.md#update-models) semantics, and evaluates to **true** for a given twin if the twin meets one of these conditions:
+It considers [inheritance](concepts-models.md#model-inheritance) and model [versioning](how-to-manage-model.md#update-models), and evaluates to **true** for a given twin if the twin meets either of these conditions:
 
 * The twin directly implements the model provided to `IS_OF_MODEL()`, and the version number of the model on the twin is *greater than or equal to* the version number of the provided model
 * The twin implements a model that *extends* the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is *greater than or equal to* the version number of the provided model
 
-This method has several overload options.
+So for example, if you query for twins of the model `dtmi:example:widget;4`, the query will return all twins based on **version 4 or greater** of the **widget** model, and also twins based on version **4 or greater** of any **models that inherit from widget**.
+
+`IS_OF_MODEL` can take several different parameters, and the rest of this section is dedicated to its different overload options.
 
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: `IS_OF_MODEL(twinCollection, twinTypeName)`.
 Here is a query example that adds a value for this parameter:
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 To do an exact match, add the `exact` parameter: `IS_OF_MODEL(twinTypeName, exact)`.
 Here is a query example that adds a value for this parameter:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 You can also pass all three arguments together: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
 Here is a query example specifying a value for all three parameters:
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### Query based on relationships
