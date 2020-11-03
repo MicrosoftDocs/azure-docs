@@ -30,29 +30,9 @@ To update your IoT Hub in the Azure portal, first create a diagnostic setting, t
 
 1. On the **Diagnostic setting** pane, give the diagnostic setting a name.
 
-1. Under **Category details**, select the categories for the operations you want to monitor. The operations that diagnostic settings can report on are:
+1. Under **Category details**, select the categories for the operations you want to monitor. For more information about the categories of operations available with IoT Hub, see [Resource logs](monitor-iot-hub-reference.md#resource-logs).
 
-   * Connections
-   * Device telemetry
-   * Cloud-to-device messages
-   * Device identity operations
-   * File uploads
-   * Message routing
-   * Cloud-to-device twin operations
-   * Device-to-cloud twin operations
-   * Twin operations
-   * Job operations
-   * Direct methods  
-   * Distributed tracing (preview)
-   * Configurations
-   * Device streams
-   * Device metrics
-
-   You can also select AllMetrics to send IoT Hub platform metrics to a destination.
-
-   For more information about the categories of operations available with IoT Hub, see [Resource logs](monitor-iot-hub-reference.md#resource-logs).
-
-1. Choose where you want to send the logs. You can select any combination of these destinations:
+1. Under **Destination details**, choose where you want to send the logs. You can select any combination of these destinations:
 
    * Archive to a storage account
    * Stream to an event hub
