@@ -147,7 +147,7 @@ You can configure auditing to write database events on a storage account behind 
 > [!IMPORTANT]
 > In order to use storage account behind virtual network and firewall, you need to set **isStorageBehindVnet** parameter to true
 
-- [Deploy an Azure SQL server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > The linked sample is on an external public repository and is provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
