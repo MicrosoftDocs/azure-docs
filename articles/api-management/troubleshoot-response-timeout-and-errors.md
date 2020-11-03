@@ -10,7 +10,7 @@ ms.service: api-management
 
 # Troubleshooting client response timeouts and errors with API Management
 
-This article helps you troubleshoot intermittent connection errors and related latency issues in [Azure API Management](./api-management-key-concepts.md). Specifically, this topic will provide information and troubleshooting for the exhaustion of source address network translation (SNAT) ports. If you require more help, contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/) or file a support request with [Azure Support](https://azure.microsoft.com/support/options/).
+This article helps you troubleshoot intermittent connection errors and related latency issues in [Azure API Management](./api-management-key-concepts.md). Specifically, this article will provide information and troubleshooting for the exhaustion of source address network translation (SNAT) ports. If you require more help, contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/) or file a support request with [Azure Support](https://azure.microsoft.com/support/options/).
 
 ## Symptoms
 
@@ -26,7 +26,7 @@ These symptoms manifest as instances of `BackendConnectionFailure` in your [Azur
 
 This pattern of symptoms often occurs due to network address translation (SNAT) port limits with your APIM service.
 
-Whenever a client calls one of your APIM APIs, Azure API Management service opens a SNAT port to access your backend API. As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that arn't using [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+Whenever a client calls one of your APIM APIs, Azure API Management service opens a SNAT port to access your backend API. As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that aren't using [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 Each instance of API Management service is initially given a pre-allocated number of SNAT ports. That limit affects opening connections to the same host and port combination. SNAT ports are used up when you have repeated calls to the same address and port combination. Once a SNAT port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT ports from closed connections only after waiting four minutes.
 
@@ -61,7 +61,7 @@ For details, see [How to use Azure API Management with virtual networks](api-man
 
 ### Place your APIM in a virtual network and route outbound calls to Azure Firewall
 
-Similar to placing your APIM and backend services in a virtual network, you can employ Azure Firewall in a VNet with your APIM service, then route outbound APIM calls to Azure Firewall. Between APIM and Azure Firewall (being in the same VNet), no SNAT ports are required. For SNAT connections to your backend services, Azure Firewall has 64,000 available ports, a significantly higher amount than is allocated to APIM instances.
+Similar to placing your APIM and backend services in a virtual network, you can employ Azure Firewall in a VNet with your APIM service, then route outbound APIM calls to Azure Firewall. Between APIM and Azure Firewall (being in the same VNet), no SNAT ports are required. For SNAT connections to your backend services, Azure Firewall has 64,000 available ports, a much higher amount than is allocated to APIM instances.
 
 Refer to [Azure Firewall](../firewall/overview.md) documentation for more.
 
@@ -72,7 +72,6 @@ If it makes sense for your business scenario, you can implement access restricti
 See [API Management access restriction policies](api-management-access-restriction-policies.md) for more info.
 
 ## See also
-
 
 * [Azure Load Balancer: Troubleshooting outbound connections failures](../load-balancer/troubleshoot-outbound-connection.md)
 * [Azure App Service: Troubleshooting intermittent outbound connection errors](../app-service/troubleshoot-intermittent-outbound-connection-errors.md)
