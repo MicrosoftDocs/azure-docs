@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/03/2020
 ms.author: tisande
 ---
 
