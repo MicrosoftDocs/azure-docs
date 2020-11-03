@@ -110,7 +110,7 @@ Follow these steps to create a VM after you have created a VM image.
 
 1. In the **Overview** page, select **Add virtual machine**.
 
-    ![Add VM 1](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-11a.png)
+    ![Add VM 1](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-1.png)
 
 1. In the **Basics** tab, input the following parameters.
 
@@ -126,7 +126,7 @@ Follow these steps to create a VM after you have created a VM image.
     |Confirm password    | Enter the password again.        |
 
 
-    ![Add VM 2](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-12.png)
+    ![Add VM 2](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
 
     Select **Next: Disks**.
 
@@ -134,15 +134,15 @@ Follow these steps to create a VM after you have created a VM image.
     
     1. You can choose to **Create and attach a new disk** or **Attach an existing disk**.
 
-        ![Add VM 3](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-13.png)
+        ![Add VM 3](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-1.png)
 
     1. Select **Create and attach a new disk**. In the **Create new disk** blade, provide a name for the disk and the size in GiB.
 
-        ![Add VM 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-14.png)
+        ![Add VM 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
     1.  Repeat the above to process to add more disks. After the disks are created, they show up in the **Disks** tab.
 
-        ![Add VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-15.png)
+        ![Add VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-3.png)
 
         Select **Next: Networking**.
 
@@ -155,30 +155,30 @@ Follow these steps to create a VM after you have created a VM image.
     |Subnet     | This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address     | Provide a static or a dynamic IP for your VM. The static IP should be an available, free IP from the specified subnet range.        |
 
-    ![Add VM 6](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-16.png)
+    ![Add VM 6](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
 
     Select **Next: Review + Create**.
 
 1. In the **Review + Create** tab, review the specifications for the VM and select **Create**.
 
-    ![Add VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-17.png)
+    ![Add VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. The VM creation starts and can take up to 20 minutes. You can go to **Deployments** to monitor the VM creation.
 
-    ![Add VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-20.png)
+    ![Add VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
     
 1. After the VM is successfully created, the **Overview** page updates to display the new VM.
 
-    ![Add VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-18.png)
+    ![Add VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Select the newly created VM to go to **Virtual machines**.
 
-    ![Add VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-19.png)
+    ![Add VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Select the VM to see the details. 
 
-    ![Add VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-21.png)
+    ![Add VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
 ## Next steps
 
