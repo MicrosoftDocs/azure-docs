@@ -19,17 +19,21 @@ ms.author: yelevin
 
 ---
 
-# Security Playbooks in Azure Sentinel
+# Security playbooks in Azure Sentinel
 
 This article explains what Azure Sentinel Security Playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
 
 ## What is a security playbook?
 
-A security playbook is a collection of threat response procedures that can be run from Azure Sentinel as a routine. <!-- as part of an automation rule. - This is only when the automation rules feature is implemented, right? -YL --> A security playbook can help automate and orchestrate your threat response, and can be run manually or set to run automatically when triggered by an analytics rule. Security playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power and customizability of Logic Apps' built-in templates. Playbooks are created at the subscription level, but the Playbooks gallery displays all the playbooks available across any selected subscriptions.
-
 SIEM/SOC teams are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
 
-Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined remediation actions. Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more. <!-- This needs more explanation. Is this talking about automation rules, or something else? -->
+Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
+
+A security playbook (or just a "playbook" for short) is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response, and can be run manually or set to run automatically when triggered by an analytics rule. 
+
+Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power and customizability of Logic Apps' built-in templates. Playbooks are created and run at the subscription level, but the Playbooks gallery displays all the playbooks available across any selected subscriptions.
+
+Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more. <!-- This needs more explanation. Is this talking about automation rules, or something else? -->
 
 ## Prerequisites
 
@@ -79,7 +83,7 @@ Playbooks are built on Azure Logic Apps, and are a separate Azure resource. You 
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
-- **Dynamic fields:** The output schema of trigger/action is parsed to dynamic fields that can be used in the followed actions. <!--in the actions that follow?-->
+- **Dynamic fields:** The output schema of trigger/action is parsed to dynamic fields that can be used in the actions that follow.
 
 ### When to use playbooks?
 
@@ -91,12 +95,10 @@ Collect data and attach it to the incident in order to make smarter decisions.
 
 For example:
 
-Azure Sentinel scheduled alert was created from an analytic rule that generates IP entities.
+An Azure Sentinel incident was created from an alert by an analytics rule that generates IP entities.
 The analytic rule triggers a playbook with the following steps:
 
-- Starts with [Azure Sentinel incident trigger](link). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?-->
-
-- The entities list of the incident arrives as part of the trigger dynamic fields.
+- Starts with [Azure Sentinel incident trigger](link). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities list of the incident arrives as part of the trigger dynamic fields.
 
 - For each ip address, use an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
 
@@ -188,7 +190,7 @@ To attach a playbook to an analytics rule:
 
     Note: The input for the playbook will fit the [playbook trigger kind](connectordocumentation):
     - When an Azure Sentinel incident is triggered
-    - When an Azure Sentinel alert is triggered <!--Don't understand this-->
+    - When an Azure Sentinel alert is triggered 
 
 Special configurations:
 
@@ -201,11 +203,11 @@ Special configurations:
   - If **Event Grouping** was enabled on this analytics rule (such that any event creates an alert):
     Any attached playbook that start with **When an Azure Sentinel alert is triggered** will be triggered for each alert that this rule creates.
 
-  - If incident creation is enabled, any attached playbook that start with **When an Azure Sentinel Incident is triggered** will be triggered for each incident that this rule creates (one for every alert).
+  - If incident creation is enabled, any attached playbook that start with **When an Azure Sentinel Incident is triggered** will be triggered for each incident that this rule creates.
 
-    In order to run a playbook on the incident that gathers all the alerts from this analytics rule, use **Alert Grouping** in **Incident settings** tab.
+    In order to run a playbook on the incident that gathers all the alerts from this analytics rule, use **Alert Grouping** in **Incident settings** tab.  <!--The playbook will run immediately upon the creation of the incident, which will include only the single alert that generated the incident, and not any of the subsequent alerts that were grouped into this incident. -->
 
-    <!-- Need an explanation for this section-->
+    <!-- How each configuration option in analytics rule creation affects running of playbooks-->
 
 ### Run a playbook manually on an alert
 
@@ -225,7 +227,7 @@ Manual trigger is available from Sentinel portal in the following blades:
 
 ### Run a playbook manually on an incident
 
-In the Incidents blade, select the incident you wish to run a playbook on.
+Not supported yet. <!--make this a note instead? -->
 
 ## Manage your playbooks
 
@@ -249,7 +251,7 @@ API connections are used to connect Logic Apps to other services. Every time a n
 
 To see all the API connections, enter *API connections* in the header search box of the Azure Portal. Note the interesting columns:
 
-- Display name - every time a new connection is created, you are offered to choose the display name of the connection. <!--Huh?-->
+- Display name - every time a new connection is created, you are offered to choose the display name of the connection. 
 - Status - indicates the connection status: Error, connected.
 - Resource group - API connections are created in the resource group of the playbook (Logic Apps) resource.
 
