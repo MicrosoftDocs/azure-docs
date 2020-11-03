@@ -127,6 +127,8 @@
   items:
   - name: Digital Twins service limits
     href: reference-service-limits.md
+  - name: Digital Twins pricing
+    href: https://azure.microsoft.com/pricing/details/digital-twins/
   - name: APIs and SDKs
     items:
       - name: REST API reference
@@ -170,7 +172,7 @@
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
         - name: Java SDK - Maven
-          href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
+          href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar 
         - name: Java SDK - reference
           href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
         - name: Java SDK - source
@@ -188,7 +190,7 @@
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference
-      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
     - name: CLI package
       href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: DTDL

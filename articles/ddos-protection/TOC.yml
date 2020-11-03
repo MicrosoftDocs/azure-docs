@@ -62,6 +62,8 @@
     href: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
 - name: Resources
   items:
+  - name: FAQ
+    href: ddos-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
   - name: Regional availability
