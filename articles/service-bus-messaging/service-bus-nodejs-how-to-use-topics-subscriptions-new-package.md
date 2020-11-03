@@ -158,7 +158,7 @@ queue.
 > check if the subscription exists by using the
 > `getSubscription` method.
 >
-> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](/javascript/api/@azure/arm-servicebus/sbsubscription?#autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter used when a subscription is created. When you use the **MatchAll**
@@ -397,7 +397,7 @@ to handle duplicate message delivery. You can use the
 delivery attempts.
 
 ## Delete topics and subscriptions
-Topics and subscriptions are persistent unless the [AutoDeleteOnIdle property](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) is set, and must be explicitly deleted
+Topics and subscriptions are persistent unless the [AutoDeleteOnIdle property](/javascript/api/@azure/arm-servicebus/sbsubscription?#autodeleteonidle) is set, and must be explicitly deleted
 either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
@@ -436,7 +436,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Azure portal]: https://portal.azure.com
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
+[SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Create and deploy a Node.js application to Azure App Service]: ../app-service/quickstart-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
