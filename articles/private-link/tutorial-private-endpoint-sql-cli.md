@@ -59,7 +59,7 @@ Create a virtual network with [az network vnet create](/cli/azure/network/vnet#a
 * Location of **eastus**.
 
 ```azurecli-interactive
-  az network vnet create \
+az network vnet create \
     --resource-group CreateSQLEndpointTutorial-rg\
     --location eastus \
     --name myVNet \
@@ -72,10 +72,10 @@ Update the subnet to disable private endpoint network policies for the private e
 
 ```azurecli-interactive
 az network vnet subnet update \
- --name myBackendSubnet \
- --resource-group CreateSQLEndpointTutorial-rg \
- --vnet-name myVNet \
- --disable-private-endpoint-network-policies true
+    --name myBackendSubnet \
+    --resource-group CreateSQLEndpointTutorial-rg \
+    --vnet-name myVNet \
+    --disable-private-endpoint-network-policies true
 ```
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
@@ -84,7 +84,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
 * In **CreateSQLEndpointTutorial-rg**.
 
 ```azurecli-interactive
-  az network public-ip create \
+az network public-ip create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name myBastionIP \
     --sku Standard
@@ -98,7 +98,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
 * In resource group **CreateSQLEndpointTutorial-rg**.
 
 ```azurecli-interactive
-  az network vnet subnet create \
+az network vnet subnet create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
@@ -114,7 +114,7 @@ Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-cr
 * In **eastus** location.
 
 ```azurecli-interactive
-  az network bastion create \
+az network bastion create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name myBastionHost \
     --public-ip-address myBastionIP \
@@ -137,7 +137,7 @@ Create a VM with [az vm create](/cli/azure/vm#az_vm_create). When prompted, pr
 * Server image **Win2019Datacenter**.
 
 ```azurecli-interactive
-  az vm create \
+az vm create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name myVM \
     --image Win2019Datacenter \
