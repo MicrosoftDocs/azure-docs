@@ -93,7 +93,7 @@ Configuration: ***yarn.scheduler.capacity.root.llap.capacity***
 
 This value indicates a percentage of capacity given to llap queue. The capacity allocations may have different values for different workloads depending on how the YARN queues are configured. If your workload is read-only operations, then setting it as high as 90% of the capacity should work. However, if your workload is mix of update/delete/merge operations using managed tables, it's recommended to give 85% of the capacity for llap queue. The remaining 15% capacity can be used by other tasks such as compaction etc. to allocate containers from default queue. That way tasks in default queue won't deprive of YARN resources.    
 
-For D14v2 worker nodes, the recommended value for llap queue is **85**.   
+For D14v2 worker nodes, the recommended value for llap queue is **85**.     
 (For readonly workloads, it can be increased up to 90 as suitable.)  
 
 #### **7. LLAP daemon container size**    
