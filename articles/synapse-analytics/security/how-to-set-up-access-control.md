@@ -45,8 +45,6 @@ Create and populate three security groups for your workspace:
 - **WS1\_WSAdmins** – for users who need complete control over the workspace
 - **WS1\_SparkAdmins** – for those users who need complete control over the Spark aspects of the workspace
 - **WS1\_SQLAdmins** – for users who need complete control over the SQL aspects of the workspace
-- Add **WS1\_WSAdmins** to **WS1\_SQLAdmins**
-- Add **WS1\_WSAdmins** to **WS1\_SparkAdmins**
 
 ## STEP 2: Prepare your Data Lake Storage Gen2 account
 
