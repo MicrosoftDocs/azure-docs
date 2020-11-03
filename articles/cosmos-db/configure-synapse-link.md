@@ -10,6 +10,7 @@ ms.custom: references_regions
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
@@ -220,7 +221,7 @@ You can build a Synapse SQL serverless database and views over Synapse Link for 
 
 ## Azure Resource Manager template
 
-The [Azure Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos DB account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
+The [Azure Resource Manager template](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos DB account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 

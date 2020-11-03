@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ---
 
-# Tutorial: Migrate Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server  online using DMS via the Azure portal
+# Tutorial: Migrate/Upgrade Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server  online using DMS via the Azure portal
 
 You can use Azure Database Migration Service to migrate the databases from an [Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instance to same or different version of Azure Database for PostgreSQL - Single Server instance or Azure Database for PostgreSQL - Flexible Server with minimal downtime. In this tutorial, you migrate the **DVD Rental** sample database from an Azure Database for PostgreSQL v10 to Azure Database for PostgreSQL - Single Server by using the online migration activity in Azure Database Migration Service.
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need to:
 
 * Check [status of migration scenarios supported by Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status) for supported migration and version combinations. 
-* An existing [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 and later instance with the **DVD Rental** database. Azure Database Migration Service does not support migrating from Azure DB for PostgreSQL 9.5 or 9.6.
+* An existing [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 and later instance with the **DVD Rental** database. 
 
     Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 10 can migrate to Azure Database for PostgreSQL 10, or 11, but not to Azure Database for PostgreSQL 9.6.
 

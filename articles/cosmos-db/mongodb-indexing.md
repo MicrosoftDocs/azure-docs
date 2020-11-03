@@ -11,6 +11,7 @@ ms.author: tisande
 ms.custom: devx-track-js
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
@@ -72,7 +73,7 @@ Here's an example of creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-Azure Cosmos DB's API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB. 
+Azure Cosmos DB's API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
 
 ## Wildcard indexes
 

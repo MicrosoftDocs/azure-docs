@@ -354,7 +354,7 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level, for example, development, test and production environments. 
 
-Control access to Azure resources with Azure Active Directory (Azure AD) role-based access control (Azure RBAC).
+Control access to Azure resources with Azure role-based access control (Azure RBAC).
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
@@ -378,10 +378,10 @@ Follow Security Center recommendations for encryption at rest and encryption in 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Control access to Azure resources with Azure Active Directory (Azure AD) role-based access control (Azure RBAC).
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+**Guidance**: Control access to Azure resources with Azure role-based access control (Azure RBAC).
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

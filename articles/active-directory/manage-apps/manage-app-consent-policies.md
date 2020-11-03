@@ -52,14 +52,14 @@ It's a good idea to start by getting familiar with the existing app consent poli
 1. View the "includes" condition sets of a policy:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. View the "excludes" condition sets:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 

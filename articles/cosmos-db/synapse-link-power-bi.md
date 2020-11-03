@@ -9,6 +9,7 @@ ms.author: acomet
 ---
 
 # Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link (preview) 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 In this article, you learn how to build a serverless Synapse SQL pool (which, was previously referred to as **SQL on-demand**) database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query.
 
@@ -136,5 +137,7 @@ After you choose these options, you should see a graph like the following screen
 :::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Report that compares the relative importance of household size to the average revenue per store":::
 
 ## Next steps
+
+[Use T-SQL to query Azure Cosmos DB data using Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
 Use serverless Synapse SQL pool to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

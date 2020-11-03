@@ -148,7 +148,7 @@ Next, publish your function to Azure, using the steps described in the [*Publish
 
 1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -243,7 +243,7 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

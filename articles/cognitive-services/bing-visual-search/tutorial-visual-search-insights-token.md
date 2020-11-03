@@ -15,6 +15,11 @@ ms.custom: devx-track-csharp
 ---
 # Tutorial: Find similar images from previous searches using an image insights token
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The Visual Search client library enables you to find images online from previous searches that return an `ImageInsightsToken`. This application gets an `ImageInsightsToken` and uses the token in a subsequent search. It then sends the `ImageInsightsToken` to Bing and returns results that include Bing Search URLs and URLs of similar images found online.
 
 The full source code for this tutorial can be found with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
