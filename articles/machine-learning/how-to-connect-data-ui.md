@@ -47,8 +47,6 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
 
-
-
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
 > [!IMPORTANT]
@@ -57,7 +55,7 @@ Create a new datastore in a few steps with the Azure Machine Learning studio.
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
-1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure storage type and authentication type. See the [storage access and permissions section](#access-validation) to understand where to find the authentication credentials you need to populate this form.
+1. Complete the form to create and register a new datastore. The form intelligently updates itself based on your selections for Azure storage type and authentication type. See the [storage access and permissions section](#access-validation) to understand where to find the authentication credentials you need to populate this form.
 
 The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
 
@@ -155,11 +153,16 @@ You can find account key, SAS token, and service principal information on your [
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
-> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so, be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md).
+> * If you need to change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md). <br> <br>
+> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault]( https://docs.microsoft.com/en-us/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).”
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). An account SAS token defaults to no permissions. 
+* For data **read access**, your authentication credentials must have a minimum of list and read permissions for containers and objects. 
+
+* For data **write access**, write and add permissions also are required.
+
 
 ## Train with datasets
 
