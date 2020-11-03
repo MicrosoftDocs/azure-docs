@@ -487,5 +487,8 @@ Once deployment is complete, you can send communication informing the users of t
 Communication to external users: This group of users are usually the most critically impacted in case of issues. This is especially true if your security posture dictates a different set of Conditional Access rules or risk profiles for external partners. Ensure that external partners are aware of the cloud migration schedule and have a timeframe during which they are encouraged to participate in a pilot deployment that tests out all flows unique to external collaboration. Finally, ensure they have a way to access your helpdesk in case of breaking issues.
 
 ## Next Steps
+
 Read  [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper)<p>
 Set up [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+
+Try a step-wise code sample:[AD FS to Azure AD application migration playbook for developers](https://aka.ms/adfsplaybook)
