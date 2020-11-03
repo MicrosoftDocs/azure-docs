@@ -202,7 +202,7 @@ Add your Phone Sign-in credentials to the Authenticator app without needing a pa
 
     :::image type="content" source="media/user-help-auth-app-add-non-ms-account/temporary-access-pass.png" alt-text="Your account administrator should give you a temporary access pass":::
 
-1. Meet any requirements for your work or school account's IT department, such as enabling screen lock on your device.
+1. Meet any requirements for your work or school account's IT department, such as enabling screen lock on your device. Select **Next** when you finish.
 
     :::image type="content" source="media/user-help-auth-app-add-non-ms-account/requirements-page.png" alt-text="Fulfill any further requirements, such as screen lock, and you're done.":::
 
