@@ -27,8 +27,8 @@ Run the code on either of these environments:
   * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **notebooks** > **fastai** > **train-pets-resnet34.ipynb** directory. 
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
-  * Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-  * Create an [Azure container registry](/azure/container-registry) or other Docker registry that's available on the internet.
+  * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Create an [Azure container registry](../container-registry/index.yml) or other Docker registry that's available on the internet.
 
 ## Set up a training experiment
 
@@ -36,7 +36,7 @@ In this section, you set up your training experiment by initializing a workspace
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) object.
 
 Create a `Workspace` object from the config.json file that you created as a [prerequisite](#prerequisites).
 
@@ -158,7 +158,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data by using a [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
