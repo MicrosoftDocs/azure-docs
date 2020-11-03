@@ -80,7 +80,7 @@ Sending device-to-cloud telemetry messages with the MQTT broker is similar to pu
 
 To process messages using routing, first set up a route to send messages coming from another endpoint (module or device) to the input endpoint of your module, then listen for messages on the input endpoint of your module. Each time a new message comes back, a callback function is triggered by the Azure IoT SDK. Process your message with this callback function and optionally send new messages on your module endpoint queue.
 
-Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/<module_name>/messages/events`. . Authorizations must be setup appropriately. Optionally you can send new new messages on the topics of your choice.
+Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be setup appropriately. Optionally you can send new messages on the topics of your choice.
 
 #### Twins
 
