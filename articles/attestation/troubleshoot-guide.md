@@ -213,7 +213,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-#### Trouble shooting steps
+#### Troubleshooting steps
 To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](/azure/attestation/policy-signer-examples).
 
 ### 2.5. Attestation policy configuration failure
@@ -254,7 +254,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
 ```
 
-#### Trouble shooting steps
+#### Troubleshooting steps
 Ensure that the policy in Text format is UTF-8 encoded.
 
 If policy signing is required, attestation policy must be configured only in RFC7519 JSON Web Token (JWT) format. If policy signing is not required, policy can be configured in text or JWT format.
