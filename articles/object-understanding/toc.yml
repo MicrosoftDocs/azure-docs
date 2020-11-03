@@ -1,8 +1,8 @@
-- name: Object Understanding documentation
+- name: Object Anchors documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Object Understanding
+  - name: About Object Anchors
     href: overview.md
 - name: Concepts
   items:
@@ -24,7 +24,7 @@
     href: quickstarts/get-started-hololens-directx.md
 - name: Samples
   items:
-  - name: Azure Object Understanding samples (GitHub)
+  - name: Azure Object Anchors samples (GitHub)
     href: https://github.com/Azure/azure-object-understanding
 - name: References
   items:

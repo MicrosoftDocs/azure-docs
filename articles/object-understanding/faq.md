@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions
-description: FAQs about the Azure Object Understanding service.
+description: FAQs about the Azure Object Anchors service.
 author: craigktreasure
 manager: vriveras
 
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-understanding
-#Customer intent: Address frequently asked questions regarding Azure Object Understanding.
+#Customer intent: Address frequently asked questions regarding Azure Object Anchors.
 ---
 
-# Frequently asked questions about Azure Object Understanding
+# Frequently asked questions about Azure Object Anchors
 
-Azure Object Understanding enables an application to detect an object in the physical world using a 3D model and estimate its 6-DoF pose.
+Azure Object Anchors enables an application to detect an object in the physical world using a 3D model and estimate its 6-DoF pose.
 
-For more information, see [Azure Object Understanding overview](overview.md).
+For more information, see [Azure Object Anchors overview](overview.md).
 
-**Q: What are the typical objects that Object Understanding can handle?**
+**Q: What are the typical objects that Object Anchors can handle?**
 
 **A:** Objects should have the following qualities:
 
@@ -62,7 +62,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 1-cm error. For large objects, like a car, the error can be up to 2-8 cm.
 
-**Q: What is the best practice of using Object Understanding in a HoloLens application?**
+**Q: What is the best practice of using Object Anchors in a HoloLens application?**
 
 **A:**
 
@@ -76,23 +76,23 @@ The unit represents the unit of measurement of the model. Supported units can be
  8. Start object detection and visualize the rendering based on estimated pose;
  9. Lock detected object or stop tracking once the pose is stable and accurate to preserve battery life.
 
-**Q: Can Object Understanding handle moving objects?**
+**Q: Can Object Anchors handle moving objects?**
 
 **A:** No. We don't handle **continuously moving** objects, but can handle **occasionally moving** ones. When an object is **occasionally moving**, it changes location once in a while, but is mostly stationary (for several minutes or longer).
 
-**Q: Can Object Understanding handle deformation or articulations?**
+**Q: Can Object Anchors handle deformation or articulations?**
 
 **A:** Partially, depending on how much object shape or geometry changes due to deformation or articulation. If the object's geometry changes a lot, the user can create another model for that configuration and use it for detection.
 
-**Q: How many different objects can Object Understanding detect at the same time?**
+**Q: How many different objects can Object Anchors detect at the same time?**
 
 **A:** A maximum of 3 objects is recommended. Applications can load multiple object models and track them simultaneously. However, the latency (time until detection) could be high due to limited memory and computation resources on HoloLens.
 
-**Q: Can Object Understanding detect multiple instances of the same object model?**
+**Q: Can Object Anchors detect multiple instances of the same object model?**
 
 **A:** Yes, the application can call `ObjectObserver.DetectAsync` multiple times with different queries to detect multiple instances of the same model.
 
-**Q: What to do if the Object Understanding runtime couldn't detect my object?**
+**Q: What to do if the Object Anchors runtime couldn't detect my object?**
 
 **A:**
 
@@ -111,7 +111,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 * Default `ObjectQuery.MinSurfaceCoverage` from object model usually is good, otherwise use a smaller value to get a quicker detection;
 * Use a small value for `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` if object is expected to be up-right.
 
-**Q: How do I get Object Understanding diagnostics data from the HoloLens?**
+**Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
 **A:** The application can specify the location of diagnostics archives. The OU sample app writes diagnostics to the **TempState** folder.
 

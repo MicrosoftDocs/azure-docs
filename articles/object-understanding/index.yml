@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Object Understanding documentation
-summary: Object Understanding can be used to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
+title: Azure Object Anchors documentation
+summary: Object Anchors can be used to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
 
 metadata:
-  title: Azure Object Understanding documentation
-  description: Use Azure Object Understanding to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
+  title: Azure Object Anchors documentation
+  description: Use Azure Object Anchors to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
   services: azure-object-understanding
   ms.service: azure-object-understanding
   ms.topic: landing-page
@@ -17,11 +17,11 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure Object Understanding
+  - title: About Azure Object Anchors
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Object Understanding?
+          - text: What is Azure Object Anchors?
             url: overview.md
           - text: View release notes on GitHub
             url: https://github.com/Azure/azure-object-understanding/releases

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a HoloLens app with Unity and MRTK'
-description: In this quickstart, you learn how to build a HoloLens Unity app using Object Understanding.
+description: In this quickstart, you learn how to build a HoloLens Unity app using MRTK and Object Anchors.
 author: craigktreasure
 manager: virivera
 services: azure-object-understanding
@@ -10,10 +10,10 @@ ms.date: 04/02/2020
 ms.topic: quickstart
 ms.service: azure-object-understanding
 ---
-# Quickstart: Create a HoloLens app with Azure Object Understanding, in Unity with MRTK
+# Quickstart: Create a HoloLens app with Azure Object Anchors, in Unity with MRTK
 
-In this quickstart, you'll create a Unity HoloLens app that uses [Azure Object Understanding](../overview.md). Azure
-Object Understanding is a managed cloud service that converts 3D assets into AI models that enable object-aware mixed
+In this quickstart, you'll create a Unity HoloLens app that uses [Azure Object Anchors](../overview.md). Azure
+Object Anchors is a managed cloud service that converts 3D assets into AI models that enable object-aware mixed
 reality experiences for the HoloLens. When you're finished, you'll have a HoloLens app built with Unity that can detect
 objects in the physical world.
 
@@ -54,7 +54,7 @@ You can also do other actions using the hand menu:
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
-**Upload Tracing**: Upload diagnostics data to the Object Understanding service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
+**Upload Tracing**: Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
 
 ```json
 {
