@@ -266,4 +266,4 @@ To further explore using Azure Monitor to monitor IoT Hub, see:
 
 * [Monitor IoT Hub](monitor-iot-hub.md)
 
-* [Migrate from IoT Hub operations monitoring to Azure Monitor](iot-hub-migrate-to-diagnostics-setting.mc)
+* [Migrate from IoT Hub operations monitoring to Azure Monitor](iot-hub-migrate-to-diagnostics-setting.md)

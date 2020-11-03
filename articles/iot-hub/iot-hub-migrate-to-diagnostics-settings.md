@@ -64,7 +64,7 @@ To update your IoT Hub in the Azure portal, first create a diagnostic setting, t
 
 1. Select **Save** to save the settings.
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured destination. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/platform/platform-logs-overview.md).
+New settings take effect in about 10 minutes. After that, logs appear in the configured destination. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](/azure/azure-monitor/platform/platform-logs-overview).
 
 For more detailed information about how to create diagnostic settings, including with PowerShell and the Azure CLI, see [Diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) in the Azure Monitor documentation.
 
