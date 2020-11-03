@@ -22,6 +22,6 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
    * **Resource group** - Create new or use existing.
    * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
    * **Name** - Type the Name that you want to call your WAN.
-   * **Type** - Basic or Standard. Select **Standard** unless you specifically know that you want to have a Basic VWAN. Basic VWANs limit the type of hub that you can create.
+   * **Type** - Basic or Standard. Select **Standard** unless you specifically know that you want to have a Basic VWAN. Basic VWANs can only contain Basic hubs, which limits your connection type to site-to-site.
 1. After you finish filling out the fields, select **Review +Create**.
 1. Once validation passes, select **Create** to create the virtual WAN.
