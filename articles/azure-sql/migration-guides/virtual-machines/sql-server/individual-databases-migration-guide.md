@@ -23,7 +23,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform - GCP)
 
-For information about additional migration strategies, see the [SQL Server VM migration overview](to-sql-server-on-azure-vm-overview.md).
+For information about additional migration strategies, see the [SQL Server VM migration overview](to-sql-server-on-azure-vm-overview).
 
 :::image type="content" source="../media/migration-process-flow-small.png" alt-text="Migration process flow":::
 
@@ -32,10 +32,10 @@ For information about additional migration strategies, see the [SQL Server VM mi
 Migrating to SQL Server on Azure VMs requires the following: 
 
 - [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)
-- An [Azure Migrate project](../../../../migrate/create-manage-projects.md)
-- A prepared target [SQL Server on Azure VM](../../../virtual-machines/windows/create-sql-vm-portal.md) that is the same or greater version than the source SQL Server
+- An [Azure Migrate project](/azure/migrate/create-manage-projects)
+- A prepared target [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) that is the same or greater version than the source SQL Server
 - [Connectivity between Azure and on-premises](/architecture/reference-architectures/hybrid-networking)
-- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview.md#migrate)
+- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview#migrate)
 
 ## Pre-migration
 
@@ -68,7 +68,10 @@ See [assessment](/sql/dma/dma-migrateonpremsql) to learn more.
 
 
 > [!IMPORTANT]
-> DMA requires **sysadmin** access to perform an assessment. 
+>Based on the type of assessment, the permissions required on the source SQL Server can be different. 
+   > - For the **feature parity** advisor, the credentials provided to connect to source SQL Server database must be a member of the *sysadmin* server role.
+   > - For the compatibility issues advisor, the credentials provided must have at least `CONNECT SQL`, `VIEW SERVER STATE` and `VIEW ANY DEFINITION` permissions.
+   > - DMA will highlight the permissions required for the chosen advisor before running the assessment.
 
 
 #### Assess applications
@@ -104,9 +107,9 @@ It is highly recommended that all DMA fixes are scripted and applied to the targ
 
 After you have completed the pre-migration steps, you are ready to migrate the user databases and components. Migrate your databases using your preferred [migration method](to-sql-server-on-azure-vm-overview.md#migrate).  
 
-The following provides steps for performing either an standard migration using backup and restore, or an minimal downtime migration using backup and restore along with log shipping for the online cutover. 
+The following provides steps for performing either a migration using backup and restore, or a minimal downtime migration using backup and restore along with log shipping. 
 
-### Standard Migration (Offline Migration)
+### Migrate using backup and restore
 
 To perform an standard migration using backup and restore, follow these steps: 
 
@@ -117,7 +120,7 @@ To perform an standard migration using backup and restore, follow these steps:
 1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (> 2TB backups recommended).
 1. Restore full database backup(s) to the SQL Server on Azure VM.
 
-### Minimal Downtime Migration (Online Migration)
+### Migrate using log shipping to minimize downtime
 
 To perform a minimal downtime migration using backup, restore, and log shipping, follow these steps: 
 
@@ -127,7 +130,7 @@ To perform a minimal downtime migration using backup, restore, and log shipping,
 1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
 1. Restore Full Database backup(s) on the SQL Server on Azure VM.
 1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialize the database(s) as this has already been completed in the previous steps.
-1. **Cut over** to the online target. 
+1. **Cut over** to the target server. 
    1. Pause/stop applications using databases to be migrated. 
    1. Ensure user database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
    1. When ready, perform a log shipping [controlled fail-over](/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server) of on-premise database(s) to target SQL Server on Azure VM.
