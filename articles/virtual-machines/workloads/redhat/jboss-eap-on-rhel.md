@@ -26,7 +26,7 @@ JBoss EAP and RHEL include everything that you need to build, run, deploy, and m
 
   If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. To create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 * RHEL options. Choose pay-as-you-go (PAYG) or bring-your-own-subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before you deploy the Quickstart template.
 
@@ -169,7 +169,7 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
       az vm image list --offer rhel-byos --all
       ```
 
-   1. Run the following command to accept the Azure Marketplace terms for RHEL 7.7 BYOS and RHEL 8.0 BYOS, respectively.
+   1. Run the following command to accept the Azure Marketplace terms for RHEL 7.7 BYOS and RHEL 8.0 BYOS, respectively:
       ```
       az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm77
       ``` 
