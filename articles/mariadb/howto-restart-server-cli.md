@@ -18,11 +18,15 @@ The time required to complete a restart depends on the MariaDB recovery process.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
- - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md).
+To complete this how-to guide:
 
- - This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+- You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md).
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 
 ## Restart the server

@@ -14,17 +14,17 @@ ms.custom: mvc, devx-track-azurecli
 
 You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
- - This quickstart requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+If you install and use the CLI locally, for this quickstart, you must run Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
- - If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
+If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
 
-   ```azurecli-interactive
-   az account set --subscription 00000000-0000-0000-0000-000000000000
-   ```
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
+```
 
 ## Create a resource group
 
