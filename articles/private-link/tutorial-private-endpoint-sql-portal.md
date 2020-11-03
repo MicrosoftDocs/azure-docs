@@ -1,7 +1,7 @@
 ﻿---
 
-title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Portal'
-description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint using the Azure portal.
+title: 'Tutorial - Connect to an Azure SQL Server using an Azure Private Endpoint - Portal'
+description: Use this tutorial to learn how to create a Azure SQL Server with a private endpoint using the Azure portal.
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -12,7 +12,7 @@ ms.author: allensu
 
 ---
 
-# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure portal
+# Tutorial - Connect to an Azure SQL Server using an Azure Private Endpoint - Azure portal
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create a Azure SQL Server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites
@@ -128,7 +128,7 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
-## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
+## <a name ="create-a-private-endpoint"></a>Create an Azure SQL Server and private endpoint
 
 In this section, you'll create a SQL server in Azure. 
 
@@ -254,7 +254,7 @@ In this tutorial, you created a:
 
 * Virtual network and bastion host.
 * Virtual machine.
-* Azure SQL server with private endpoint.
+* Azure SQL Server with private endpoint.
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
 
