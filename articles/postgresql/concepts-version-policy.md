@@ -5,12 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy
 
-This page describes the Azure Database for PostgreSQL versioning policy. This is applicable to both Single Server and Flexible Server (Preview) deployment modes.
+This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server (Preview) deployment modes.
 
 ## Supported  PostgreSQL versions
 
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL supports the following database versions.
 | PostgreSQL 9.5 | X |  |
 
 ## Major version support
-Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, as provided in the PostgreSQL community versioning policy.
+Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, as provided in the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
 
 ## Minor version support
 Azure Database for PostgreSQL automatically performs minor version upgrades to the Azure preferred PostgreSQL version as part of periodic maintenance. 
@@ -43,12 +43,12 @@ The table below provides the retirement details for PostgreSQL major versions. T
 
 ## Retired PostgreSQL engine versions not supported in Azure PostgreSQL
 
-After the retirement date for each PostgreSQL database version, if you continue running the retired version, note the following:
+After the retirement date for each PostgreSQL database version, if you continue running the retired version, note the following restrictions:
 - As the community will not be releasing any further bug fixes or security fixes, Azure for PostgreSQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. You may experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
 - If any support issue you may experience relates to the PostgreSQL database, we will be unable to provide you with support. In such cases, you will have to upgrade your database in order for us to provide you with any support.
 - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for PostgreSQL may only be available to supported database server versions.
-- Uptime SLAs will apply solely to Azure Database for PostgreSQL service-related issues and not to any downtime caused by database engine related bugs.  
+- Uptime SLAs will apply solely to Azure Database for PostgreSQL service-related issues and not to any downtime caused by database engine-related bugs.  
 - In the event of a serious database security vulnerability identified in the retired database version, Azure may choose to automatically upgrade your database to a higher version.
 
 ## PostgreSQL version syntax
