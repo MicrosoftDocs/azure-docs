@@ -318,6 +318,15 @@
       - name: Migrate SQLite to serverless
         href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
 
+  - name: Migration guides
+    items: 
+    - name: Overview
+      href: migration-guides/database/sql-server-to-database-overview.md
+    - name: From SQL Server
+      href: migration-guides/database/sql-server-to-database-guide.md
+    - name: Performance baseline
+      href: migration-guides/database/sql-server-to-database-performance-baseline.md
+
   - name: Concepts
     items:
     - name: Connectivity architecture
@@ -734,6 +743,14 @@
       - name: MI pub, MI dist, SQL sub
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
 
+  - name: Migration guides
+    items: 
+    - name: Overview
+      href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+    - name: From SQL Server 
+      href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+    - name: Performance baseline
+      href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
   - name: Concepts
     items:
     - name: Resource limits
@@ -1222,7 +1239,17 @@
         href: https://azure.microsoft.com/roadmap/?category=compute
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+  
+  - name: Migration guides
+    items: 
+      - name: Overview
+        href: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+      - name: From SQL Server
+        items: 
+        - name: Individual databases 
+          href: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
 
+        
 - name: Reference
   items:
   - name: T-SQL language reference
