@@ -215,7 +215,7 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
 1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Activate the environment.  For example, after creating `newenv`:
 
@@ -225,8 +225,8 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
 1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

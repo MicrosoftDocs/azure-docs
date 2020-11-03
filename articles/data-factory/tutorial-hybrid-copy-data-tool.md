@@ -44,7 +44,7 @@ To view the permissions you have in the subscription, go to the Azure portal. Se
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
 
-1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connect to your SQL Server instance by using your credentials.
 

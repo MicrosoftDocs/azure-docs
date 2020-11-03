@@ -9,6 +9,7 @@ ms.date: 10/14/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB allows you to set provisioned throughput on your databases and containers. There are two types of provisioned throughput, standard (manual) or autoscale. This article gives an overview of how provisioned throughput works. 
 
@@ -38,9 +39,6 @@ The following image shows how a physical partition hosts one or more logical par
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Physical partition that hosts one or more logical partitions of a container" border="false":::
 
 ## Set throughput on a database
-
-> [!NOTE]
-> Provisioning throughput on an Azure Cosmos database is currently not possible in accounts where [customer-managed keys](how-to-setup-cmk.md) are enabled.
 
 When you provision throughput on an Azure Cosmos database, the throughput is shared across all the containers (called shared database containers) in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md). To learn how to configure autoscale throughput on a database, see [Provision autoscale throughput](how-to-provision-autoscale-throughput.md).
 
@@ -91,7 +89,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container.
 
-### Current provisioned throughput
+### <a id="current-provisioned-throughput"></a> Current provisioned throughput
 
 You can retrieve the provisioned throughput of a container or a database in the Azure portal or by using the SDKs:
 
@@ -130,6 +128,14 @@ You can programmatically check the scaling progress by reading the [current prov
 * [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) on the Java SDK.
 
 You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
+
+## <a id="high-storage-low-throughput-program"></a> High storage / low throughput program
+
+As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
+
+This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint from 10 to 1 on eligible accounts.
+
+You currently need to have at least 1 container or shared-throughput database containing more than 1 TB of data in your account to be eligible. To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
 
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 

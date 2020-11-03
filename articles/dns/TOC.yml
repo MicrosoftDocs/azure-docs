@@ -18,6 +18,7 @@
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
     - name: Create a public zone - ARM Template
+      displayName: Resource Manager
       href: dns-get-started-template.md
   - name: Private DNS
     items:

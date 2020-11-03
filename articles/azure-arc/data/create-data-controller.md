@@ -34,7 +34,7 @@ Currently, the supported list of Kubernetes services and distributions are the f
 > * The minimum supported version of Kubernetes is v1.14.
 > * See the [connectivity requirements](connectivity.md) to understand what connectivity is required between your environment and Azure.
 > * See the [storage configuration guidance](storage-configuration.md) to understand the details of how to configure your persistent storage.
-> * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** 
+> * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. 
 > * If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 32 GB RAM available across all of your Kubernetes nodes. For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
 
 > [!NOTE]

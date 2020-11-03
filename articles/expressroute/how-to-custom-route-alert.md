@@ -54,7 +54,7 @@ When you create an Automation account in the Azure portal, a [Run As](../automat
 
 * Creates a service principal account for the application in Azure AD.
 
-* Assigns itself the Contributor Role (RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
+* Assigns itself the Contributor role (Azure RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
 
 In order to create an Automation account, you need privileges and permissions. For information, see [Permissions required to create an Automation account](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 
@@ -66,7 +66,7 @@ Create an Automation account with run-as permissions. For instructions, see [Cre
 
 ### <a name="about"></a>2. Assign the Run As account a role
 
-By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/users-groups-roles/roles-create-custom.md).
+By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/roles/custom-create.md).
 
  Use the following steps to determine the role assign to the service principal that is used by your Run As account:
 

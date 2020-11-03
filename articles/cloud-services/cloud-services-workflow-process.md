@@ -48,7 +48,7 @@ The following diagram presents the architecture of Azure resources.
 2. Monitoring all its child processes.
 3. Raising the StatusCheck event on the role host process.
 
-**F**. IISConfigurator runs if the role is configured as a Full IIS web role (it will not run for SDK 1.2 HWC roles). It is responsible for:
+**F**. IISConfigurator runs if the role is configured as a Full IIS web role. It is responsible for:
 
 1. Starting the standard IIS services
 2. Configuring the rewrite module in the web configuration

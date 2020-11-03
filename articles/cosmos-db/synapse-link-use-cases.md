@@ -9,6 +9,7 @@ ms.author: ramkris
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB is a cloud native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
@@ -114,7 +115,7 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
   * High throughput ingestion of both batch & streaming data feeds with [real-time indexing](index-policy.md) in transactional store.
 
-  * Azure Cosmos DB transactional store provides three more options than the two extremes of strong and eventual consistency levels to achieve the [availability vs performance tradeoffs](consistency-levels-tradeoffs.md) closest to the business need.
+  * Azure Cosmos DB transactional store provides three more options than the two extremes of strong and eventual consistency levels to achieve the [availability vs performance tradeoffs](./consistency-levels.md) closest to the business need.
 
 * CompanyXYZ's supply chain partners have highly fluctuating traffic patterns ranging from hundreds to millions of requests/s and thus the inventory management platform needs to deal with unexpected burstiness in traffic.  Benefits of using Azure Cosmos DB:
 

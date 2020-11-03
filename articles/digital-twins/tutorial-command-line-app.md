@@ -243,7 +243,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
     >[!NOTE]
-    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
+    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
 
 * **What are all the rooms in my environment?** (query by model)
 

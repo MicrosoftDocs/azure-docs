@@ -14,7 +14,7 @@ Some resources outside of this docs.microsoft.com website might help you underst
 
 ## Avere vFXT for Azure cache documentation
 
-[Avere vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/) is a similar cluster cache product that uses virtual nodes in Microsoft Azure. It is created with the Azure portal, but uses the same control panel configuration software as the Azure FXT Edge Filer hardware cache.
+[Avere vFXT for Azure](../avere-vfxt/index.yml) is a similar cluster cache product that uses virtual nodes in Microsoft Azure. It is created with the Azure portal, but uses the same control panel configuration software as the Azure FXT Edge Filer hardware cache.
 
 ## Legacy hardware documentation
 

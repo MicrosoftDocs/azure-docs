@@ -146,8 +146,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 Click on Test this application in Azure portal and you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO
 
-You can use Microsoft Access Panel. When you click the Palo Alto Networks Captive Portal tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can use Microsoft Access Panel. When you click the Palo Alto Networks Captive Portal tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Palo Alto Networks Captive Portal you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Palo Alto Networks Captive Portal you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

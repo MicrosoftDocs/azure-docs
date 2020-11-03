@@ -14,14 +14,11 @@ ms.date: 10/19/2020
 
 This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace.
 
-Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md) and ensure your account is enrolled in the commercial marketplace program.
 
 ### Technical fundamentals
 
-The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of the following Microsoft technologies:
-
-- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
+The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking), as well as proficiency with the [design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/). See these additional technical resources: 
 
 - Tutorials
   - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -35,9 +32,17 @@ The process of designing, building, and testing offers takes time and requires e
 
 ## Technical requirements
 
+VM offers have the following technical requirements:
+
+- You must prepare one operating system virtual hard disk (VHD). Data disk VHDs are optional. This is explained in more detail below.
+- The customer can cancel your offer at any time.
+- You must create at least one plan for your offer. Your plan is priced based on the [licensing option](#licensing-options) you select.
+   > [!IMPORTANT]
+   > Every VM Image in a plan must have the same number of data disks.
+
 A VM contains two components:
 
-- **Operating system virtual hard disk (VHD)** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-, Windows-, or custom-based VM.
+- **Operating VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-, Windows-, or custom-based VM.
 - **Data disk VHDs** (optional) – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information. 
     - You can include up to 16 data disks.
     - Use one VHD per data disk, even if the disk is blank.
@@ -45,13 +50,7 @@ A VM contains two components:
     > [!NOTE]
     > Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
 
-VM offers have the following technical requirements:
-
-- You must prepare one operating system virtual hard disk (VHD). Data disk VHDs are optional.
-- The customer can cancel your offer at any time.
-- You must create at least one plan for your offer. Your plan is priced based on the [licensing option](#licensing-options) you select.
-   > [!IMPORTANT]
-   > Every VM Image in a plan must have the same number of data disks.
+For detailed instructions on preparing your technical assets, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md).
 
 ## Preview audience
 
@@ -66,7 +65,7 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure
 
 VM offers require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and licensing options, as well as free trials. See [Plans and pricing for commercial marketplace offers](plans-pricing.md) for general guidance about plans, including pricing models, free trials, and private plans. 
 
-VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements. For more information, see [Commercial marketplace transact capabilities](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements. For more information, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > The monetary commitments associated with an Enterprise Agreement can be used against the Azure usage of your VM, but not against your software licensing fees.
@@ -80,7 +79,7 @@ These are the available licensing options for VM offers:
 | Licensing option | Transaction process |
 | --- | --- |
 | Free trial | Offer your customers a one-, three- or six-month free trial. |
-| Test drive | This option lets your customers evaluate VMs at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. For details, see [What is a test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Test drive | This option lets your customers evaluate VMs at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. For details, see [What is a test drive?](./what-is-test-drive.md) |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
 | Usage-based | Also known as pay-as-you-go, this option lets your customers pay per hour. |
 | Interactive demo  | Give your customers a guided experience of your solution using an interactive demonstration. The benefit is that you can offer a trial experience without having to provide a complicated setup of your complex solution. |
@@ -126,9 +125,10 @@ If you choose to use the standard contract, you have the option to add universal
 When creating your offer in Partner Center, you will see the **Resell through CSPs** tab. This option allows partners who are part of the Microsoft Cloud Solution Providers (CSP) program to resell your VM as part of a bundled offer. All Bring-your-own-license (BYOL) plans are automatically opted in to the program. You can also choose to opt in your non-BYOL plans. See [Cloud Solution Provider program](cloud-solution-providers.md) for more information. 
 
 > [!NOTE]
-> The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](./cloud-solution-providers.md).
 
 ## Next steps
 
+- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)
 - [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

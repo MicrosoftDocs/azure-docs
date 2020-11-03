@@ -22,7 +22,9 @@ Azure environment.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.76 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+- This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
+  `az --version`. If you need to install or upgrade, see
+  [Install Azure CLI](/cli/azure/install-azure-cli).
 
 - Register the Azure Policy Insights resource provider using Azure CLI. Registering the resource
   provider makes sure that your subscription works with it. To register a resource provider, you

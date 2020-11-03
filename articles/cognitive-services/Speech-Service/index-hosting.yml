@@ -42,3 +42,10 @@ landingContent:
           url: sovereign-clouds.md
         - text: Containers FAQ
           url: speech-container-faq.md
+          
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
