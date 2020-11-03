@@ -21,8 +21,8 @@ ms.date: 01/22/2018
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
@@ -35,7 +35,7 @@ ms.date: 01/22/2018
 ### Azure Machine Learning Studio (classic)
 [Azure Machine Learning Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
-1. **Create a training experiment**. You do this step by using Azure Machine Learning Studio (classic). Azure Machine Learning Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
+1. **Create a training experiment**. You do this step by using Azure Machine Learning Studio (classic). Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions fro the model.
 
@@ -47,22 +47,22 @@ Data Factory service allows you to create data pipelines that move and transform
 See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
 ### Data Factory and Machine Learning Studio (classic) together
-Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning Studio (classic)][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning Studio (classic) web service to make predictions on the data in batch. See Invoking an Azure Machine Learning Studio (classic) web service using the Batch Execution Activity section for details.
+Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning Studio (classic)][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Studio (classic) web service to make predictions on the data in batch. See Invoking an Azure Machine Learning Studio (classic) web service using the Batch Execution Activity section for details.
 
-Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain an Azure Machine Learning Studio (classic) model from a Data Factory pipeline by doing the following steps:
+Over time, the predictive models in the Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain an Studio (classic) model from a Data Factory pipeline by doing the following steps:
 
-1. Publish the training experiment (not predictive experiment) as a web service. You do this step in Azure Machine Learning Studio (classic) as you did to expose predictive experiment as a web service in the previous scenario.
-2. Use the Azure Machine Learning Studio (classic) Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Azure Machine Learning Studio (classic) Batch Execution activity to invoke both training web service and scoring web service.
+1. Publish the training experiment (not predictive experiment) as a web service. You do this step in Studio (classic) as you did to expose predictive experiment as a web service in the previous scenario.
+2. Use the Studio (classic) Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Studio (classic) Batch Execution activity to invoke both training web service and scoring web service.
 
 After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) article for details.
 
 ## Invoking a web service using Batch Execution Activity
-You use Azure Data Factory to orchestrate data movement and processing, and then perform batch execution using Azure Machine Learning Studio (classic). Here are the top-level steps:
+You use Azure Data Factory to orchestrate data movement and processing, and then perform batch execution using Studio (classic). Here are the top-level steps:
 
 1. Create an Azure Machine Learning Studio (classic) linked service. You need the following values:
 
    1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking the **BATCH EXECUTION** link in the web services page.
-   2. **API key** for the published Azure Machine Learning Studio (classic) web service. You can find the API key by clicking the web service that you have published.
+   2. **API key** for the published Studio (classic) web service. You can find the API key by clicking the web service that you have published.
    3. Use the **AzureMLBatchExecution** activity.
 
       ![Machine Learning Studio (classic) Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -70,14 +70,14 @@ You use Azure Data Factory to orchestrate data movement and processing, and then
       ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
-In this scenario, the Azure Machine Learning Studio (classic) Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.
+In this scenario, the Studio (classic) Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.
 
 > [!IMPORTANT]
 > If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. See the [Web service requires multiple inputs](#web-service-requires-multiple-inputs) section for an example of using the webServiceInputs property.
 >
 > Datasets that are referenced by the **webServiceInput**/**webServiceInputs** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
 >
-> In your Azure Machine Learning Studio (classic) experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure Machine Learning Studio (classic) endpoint to verify the expected mapping.
+> In your Studio (classic) experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Studio (classic) endpoint to verify the expected mapping.
 >
 >
 
@@ -246,7 +246,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. At runtime, pipeline performs the following steps:
 
    1. Gets the location of the input file from your input datasets.
-   2. Invokes the Azure Machine Learning Studio (classic) batch execution API
+   2. Invokes the Studio (classic) batch execution API
    3. Copies the batch execution output to the blob given in your output dataset.
 
       > [!NOTE]
@@ -296,7 +296,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       }
       ```
 
-      Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+      Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) for details about JSON properties.
 
       > [!NOTE]
       > Specifying input for the AzureMLBatchExecution activity is optional.
@@ -304,16 +304,16 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       >
 
 ### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
-Another common scenario when creating Azure Machine Learning Studio (classic) experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
+Another common scenario when creating Studio (classic) experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](/azure/machine-learning/studio-module-reference/import-data) and [Writer](/azure/machine-learning/studio-module-reference/export-data) topics on MSDN Library.
 
 When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
 
 > [!NOTE]
-> Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure Machine Learning Studio (classic) Web service. In this scenario, you pass parameters for a Web service that correspond to properties of reader/writer modules.
+> Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for a Studio (classic) Web service. In this scenario, you pass parameters for a Web service that correspond to properties of reader/writer modules.
 >
 >
 
-Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning Studio (classic) web service that uses a reader module to read data from one of the data sources supported by Azure Machine Learning Studio (classic) (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows.
+Let's look at a scenario for using Web service parameters. You have a deployed Studio (classic) web service that uses a reader module to read data from one of the data sources supported by Studio (classic) (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows.
 
 ```JSON
 "typeProperties": {
@@ -342,7 +342,7 @@ You can also use [Data Factory Functions](data-factory-functions-variables.md) i
 ### Using a Reader module to read data from multiple files in Azure Blob
 Big data pipelines with activities such as Pig and Hive can produce one or more output files with no extensions. For example, when you specify an external Hive table, the data for the external Hive table can be stored in Azure blob storage with the following name 000000_0. You can use the reader module in an experiment to read multiple files, and use them for predictions.
 
-When using the reader module in an Azure Machine Learning Studio (classic) experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (Example: 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory/blob**. The **Path to container** points to the container and **directory/blob** points to folder that contains the files as shown in the following image. The asterisk that is, \*) **specifies that all the files in the container/folder (that is, data/aggregateddata/year=2014/month-6/\*)** are read as part of the experiment.
+When using the reader module in a Studio (classic) experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (Example: 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory/blob**. The **Path to container** points to the container and **directory/blob** points to folder that contains the files as shown in the following image. The asterisk that is, \*) **specifies that all the files in the container/folder (that is, data/aggregateddata/year=2014/month-6/\*)** are read as part of the experiment.
 
 ![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -399,14 +399,14 @@ When using the reader module in an Azure Machine Learning Studio (classic) exper
 
 In the above JSON example:
 
-* The deployed Azure Machine Learning Studio (classic) Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
-* Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+* The deployed Studio (classic) Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
+* Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) for details about JSON properties.
 
 ### Other scenarios
 #### Web service requires multiple inputs
 If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**.
 
-In your Azure Machine Learning Studio (classic) experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure Machine Learning Studio (classic) endpoint to verify the expected mapping.
+In your Azure Machine Learning Studio (classic) experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Studio (classic) endpoint to verify the expected mapping.
 
 ```JSON
 {
@@ -543,9 +543,9 @@ The **takeaways** are:
 After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) article for details.
 
 ### Reader and Writer Modules
-A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio (classic). The writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio (classic).
+A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Studio (classic). The writer module is to save data from your experiments into data management services outside Studio (classic).
 
-For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.
+For details about Azure Blob/Azure SQL reader/writer, see [Reader](/azure/machine-learning/studio-module-reference/import-data) and [Writer](/azure/machine-learning/studio-module-reference/export-data) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.
 
 ## Frequently asked questions
 **Q:** I have multiple files that are generated by my big data pipelines. Can I use the AzureMLBatchExecution Activity to work on all the files?

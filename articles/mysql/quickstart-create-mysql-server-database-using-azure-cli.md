@@ -130,6 +130,6 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Build a PHP app on Windows with MySQL](../app-service/app-service-web-tutorial-php-mysql.md)
->[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)
->[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[Build a PHP app on Windows with MySQL](../app-service/tutorial-php-mysql-app.md)
+>[Build PHP app on Linux with MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
+>[Build Java based Spring App with MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

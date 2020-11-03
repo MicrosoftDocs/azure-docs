@@ -151,7 +151,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 2. Enable Action Groups to use your Azure AD Application.
 
     > [!NOTE]
-    > You must be a member of the [Azure AD Application Administrator role](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) to execute this script.
+    > You must be a member of the [Azure AD Application Administrator role](../../active-directory/roles/permissions-reference.md#available-roles) to execute this script.
     
     - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
     - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.

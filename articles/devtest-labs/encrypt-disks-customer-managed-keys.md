@@ -30,7 +30,7 @@ The following section shows how a lab owner can set up encryption using a custom
 1. For the lab to handle encryption for all the lab OS disks, lab owner needs to explicitly grant the lab’s **system-assigned identity** reader role on the disk encryption set as well as virtual machine contributor role on the underlying Azure subscription. Lab owner can do so by completing the following steps:
 
    
-    1. Ensure you are a member of [User Access Admin role](../role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
+    1. Ensure you are a member of [User Access Administrator role](../role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
     1. On the **Disk Encryption Set** page, select **Access control (IAM)** on the left menu. 
     1. Select **+ Add** on the toolbar and select **Add a role assignment**.  
 

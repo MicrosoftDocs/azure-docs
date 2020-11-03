@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Spatial functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. 
 

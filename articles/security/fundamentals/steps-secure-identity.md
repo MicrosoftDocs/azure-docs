@@ -130,7 +130,7 @@ Another impact of "assume breach" is the need to minimize the likelihood a compr
 
 Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely, with the necessary change control.
 
-As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) to make sure you still have access to Azure AD if you lock yourself out.
+As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/roles/security-planning.md) to make sure you still have access to Azure AD if you lock yourself out.
 
 ## Step 3 - Automate threat response
 
@@ -140,7 +140,7 @@ Azure Active Directory has many capabilities that automatically intercept attack
 
 User risk indicates the likelihood a user's identity has been compromised and is calculated based on the [user risk detections](../../active-directory/identity-protection/overview.md) that are associated with a user's identity. A user risk policy is a Conditional Access policy that evaluates the risk level to a specific user or group. Based on Low, Medium, High risk-level, a policy can be configured to block access or require a secure password change using multi-factor authentication. Microsoft's recommendation is to require a secure password change for users on high risk.
 
-![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Screenshot shows Users flagged for risk, with a user selected.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### Implement sign-in risk policy using Azure AD Identity Protection
 
@@ -170,7 +170,7 @@ Azure AD Identity Protection provides two important reports you should monitor d
 1. Risky sign-in reports will surface user sign-in activities you should investigate, the legitimate owner may not have performed the sign-in.
 2. Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event.
 
-![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Screenshot shows the Azure A D Identity Protection pane with users and their risk levels.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### Audit apps and consented permissions
 
@@ -188,7 +188,7 @@ Azure AD's [self-service password reset (SSPR)](../../active-directory/authentic
 
 ### Implement self-service group and application access
 
-Azure AD provides the ability to non-administrators to manage access to resources, using security groups, Microsoft 365 groups, application roles, and access package catalogs.  [Self-service group management](../../active-directory/users-groups-roles/groups-self-service-management.md) enables group owners to manage their own groups, without needing to be assigned an administrative role. Users can also create and manage Microsoft 365 groups without relying on administrators to handle their requests, and unused groups expire automatically.  [Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md) further enables delegation and visibility, with comprehensive access request workflows and automatic expiration.  You can delegate to non-administrators the ability to configure their own access packages for groups, Teams, applications, and SharePoint Online sites they own, with custom policies for who is required to approve access, including configuring employee's managers and business partner sponsors as approvers.
+Azure AD provides the ability to non-administrators to manage access to resources, using security groups, Microsoft 365 groups, application roles, and access package catalogs.  [Self-service group management](../../active-directory/enterprise-users/groups-self-service-management.md) enables group owners to manage their own groups, without needing to be assigned an administrative role. Users can also create and manage Microsoft 365 groups without relying on administrators to handle their requests, and unused groups expire automatically.  [Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md) further enables delegation and visibility, with comprehensive access request workflows and automatic expiration.  You can delegate to non-administrators the ability to configure their own access packages for groups, Teams, applications, and SharePoint Online sites they own, with custom policies for who is required to approve access, including configuring employee's managers and business partner sponsors as approvers.
 
 ### Implement Azure AD access reviews
 

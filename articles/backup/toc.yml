@@ -406,8 +406,8 @@
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
       href: encryption-at-rest-with-cmk.md
-    - name: Built-in security controls
-      href: backup-security-controls.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

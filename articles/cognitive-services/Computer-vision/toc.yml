@@ -161,6 +161,8 @@
       href: spatial-analysis-zone-line-placement.md
     - name: Camera placement
       href: spatial-analysis-camera-placement.md
+  - name: Cognitive Services containers documentation
+    href: ../containers/index.yml
 
 - name: How-to guides
   items:
@@ -174,14 +176,14 @@
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision API v3.2 preview
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005
   - name: Computer Vision API v3.1
     href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
   - name: Computer Vision API v3.0
     href: https://aka.ms/computer-vision-v3-ref
   - name: Computer Vision API v2.1
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-  - name: Computer Vision API v2.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
   - name: Computer Vision API v1.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
@@ -199,7 +201,7 @@
 - name: Resources
   items: 
   - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context-support
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
   - name: Samples  
     items:  
     - name: Explore an image processing app
@@ -220,5 +222,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Upgrade to v3.0 from 2.0 or 2.1
+  - name: Upgrade from Read 2.x to Read 3.x
     href: upgrade-api-versions.md

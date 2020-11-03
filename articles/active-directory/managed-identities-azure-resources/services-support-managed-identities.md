@@ -36,6 +36,16 @@ Refer to the following list to configure managed identity for Azure API Manageme
 
 - [Azure Resource Manager template](../../api-management/api-management-howto-use-managed-service-identity.md)
 
+### Azure App Configuration
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not Available | Not Available |
+| User assigned | ![Available][check] | ![Available][check]  | Not Available  | Not Available |
+
+Refer to the following list to configure managed identity for Azure App Configuration (in regions where available):
+
+- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
 ### Azure App Service
 
@@ -187,8 +197,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] | 
-| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| System assigned | ![Available][check] | ![Available][check] | Not available | Not available | 
+| User assigned | Preview | Not available | Not available | Not available |
 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
@@ -266,8 +276,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Preview | Preview | Preview |
-| User assigned | ![Available][check] | Preview | Preview | Preview |
+| System assigned | ![Available][check] | ![Available][check] | Preview | Preview |
+| User assigned | ![Available][check] | ![Available][check] | Preview | Preview |
 
 Refer to the following list to configure managed identity for Azure Virtual Machine Scale Sets (in regions where available):
 
