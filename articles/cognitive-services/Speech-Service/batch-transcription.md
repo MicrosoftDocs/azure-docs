@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ---
@@ -31,8 +31,6 @@ You can use batch transcription REST APIs to call the following methods:
 
 You can review and test the detailed API, which is available as a [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-This API does not require custom endpoints, and has no concurrency requirements.
-
 Batch transcription jobs are scheduled on a best effort basis.
 You cannot estimate when a job will change into the running state,
 but it should happen within minutes under normal system load. 
@@ -43,9 +41,12 @@ Once in the running state, the transcription occurs faster than the audio runtim
 As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
-> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 If you plan to customize models, follow the steps in [Acoustic customization](how-to-customize-acoustic-models.md) and [Language customization](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (`self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
+
+>[!NOTE]
+As a part of the REST API, Batch Transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource), which we encourage to review. To take the full advantage of Batch Transcription ability to efficiently transcribe a large number of audio files we recommend always sending multiple files per request or pointing to a Blob Storage container with the audio files to transcribe. The service will transcribe the files concurrently reducing the turnaround time. Using multiple files in a single request is very simple and straightforward - see [Configuration](#configuration) section. 
 
 ## Batch transcription API
 
@@ -62,12 +63,14 @@ To create an ordered final transcript, use the timestamps generated per utteranc
 
 ### Configuration
 
-Configuration parameters are provided as JSON (one or more individual files):
+Configuration parameters are provided as JSON (one or more individual files). If you have more, than one file to transcribe, we recommend sending multiple files in one request. The example below is using three files:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -153,14 +156,14 @@ Use these optional properties to configure transcription:
       `channels`
    :::column-end:::
    :::column span="2":::
-      Optional, `0` and `1` transcribed by default. An array of channel numbers to process. Here a subset of the available channels in the audio file can be specified to be processed (e.g. `0` only).
+      Optional, `0` and `1` transcribed by default. An array of channel numbers to process. Here a subset of the available channels in the audio file can be specified to be processed (for example `0` only).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Optional, no deletion by default. A  duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H` for 12 hours).
+      Optional, no deletion by default. A  duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (for example, `PT12H` for 12 hours).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -331,7 +334,7 @@ The sample code sets up the client and submits the transcription request. It the
 
 For full details about the preceding calls, see our [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 
-This sample uses a asynchronous setup to post audio and receive transcription status.
+This sample uses an asynchronous setup to post audio and receive transcription status.
 The `PostTranscriptions` method sends the audio file details and the `GetTranscriptions` method receives the states.
 `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 
