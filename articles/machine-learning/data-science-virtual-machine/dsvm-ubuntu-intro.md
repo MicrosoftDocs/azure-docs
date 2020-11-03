@@ -119,6 +119,10 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a m
 
    1. From your local machine, open a web browser and navigate to https:\//your-vm-ip:8000, replacing "your-vm-ip" with the IP address you took note of earlier.
    1. Your browser will probably prevent you from opening the page directly, telling you that there's a certificate error. The DSVM is providing security via a self-signed certificate. Most browsers will allow you to click through after this warning. Many browsers will continue to provide some kind of visual warning about the certificate throughout your Web session.
+
+>[!NOTE]
+> If you receive `ERR_EMPTY_RESPONSE` error message in your browser, make sure you are accessing the machine using **https** protocol, and not **http**. If you just type the address without `https://` in the address line, most browsers will default to http, and you will receive this error.
+
    1. Enter the username and password that you used to create the VM, and sign in. 
 
       ![Enter Jupyter login](./media/dsvm-ubuntu-intro/jupyter-login.png)
