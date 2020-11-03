@@ -355,17 +355,23 @@ Let the application run for at least 10-15 minutes. Ideally, let it run until it
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-on-dashboard-last-hour.png" alt-text="Screenshot showing the metrics chart.":::
 
+   In this scenario, the simulated device's message throughput isn't large enough to cause IoT Hub to throttle its messages. In a scenario that actually involves throttling, you may see telemetry messages sent exceed the throttle limit for your IoT hub for a limited time. This is to accommodate burst traffic. For details, see [traffic shaping](iot-hub-devguide-quotas-throttling.md#traffic-shaping).
+
 ## View the alerts
 
-When the number of messages sent exceeds the limit, you start getting e-mail alerts. 
+When the number of messages sent exceeds the limits you set in your alert rules, you start getting e-mail alerts.
 
-THIS WAS NOT WORKING TODAY. IT WORKED YESTERDAY!!!!
-To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
+To see if there are any active alerts, select **Alerts** under **Monitoring** on the left pane of your IoT hub. The **Alerts** pane shows the number of alerts that have fired sorted by severity for the specified time range.
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/14-alerts-firing.png" alt-text="Screenshot showing the alerts have fired.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-alerts.png" alt-text="Screenshot showing the alerts summary.":::
 
-Select the alert for telemetry messages. It shows the metric result and a chart with the results.
-END OF NOT WORKING SECTION.
+Select the row for severity Sev 3. The **All Alerts** pane opens and lists the Sev 3 alerts that have fired.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-all-alerts.png" alt-text="Screenshot showing the All Alerts pane.":::
+
+Select one of the alerts to see the alert details.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-individual-alert.png" alt-text="Screenshot showing alert details.":::
 
 Check your inbox for emails from Microsoft Azure. The subject line will describe the alert that was triggered. For example, *Azure: Activated Severity: 3 Alert if more than 1000 messages over 5 minutes*. The body will look similar to the following image:
 
