@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how a Linux virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use the a secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without including authentication information in your code.
+This tutorial shows you how a Linux virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without including authentication information in your code.
 
 You learn how to:
 
@@ -37,7 +37,7 @@ You learn how to:
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
 - "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - You also need a Linux Virtual machine that has system assigned managed identities enabled.
-  - If you need to create  a virtual machine for this tutorial you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 
 ## Create a Key Vault  
@@ -69,14 +69,14 @@ The managed identity used by the virtual machine needs to be granted access to r
 
    ![key vault create access policy screen](./media/tutorial-linux-vm-access-nonaad/key-vault-access-policy.png)
 
-1. In the **Add access policy** section under **Configure from template (optional)** choose **Secret Management** from the pull down menu.
+1. In the **Add access policy** section under **Configure from template (optional)** choose **Secret Management** from the pull-down menu.
 1. Choose **Select Principal**, and in the search field enter the name of the VM you created earlier.  Select the VM in the result list and choose **Select**.
 1. Select **Add**
 1. Select **Save**.
 
 ## Create a secret
 
-Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purposes of this tutorial we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
+Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
 
 1. Navigate to your newly created Key Vault.
 1. Select **Secrets**, and click **Add**.
