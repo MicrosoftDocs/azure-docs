@@ -277,7 +277,7 @@ Customers can submit a request to list an application by selecting **App request
 
 Here's the flow of customer-requested applications.
 
-![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customerrequest.png)
+![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request2.png)
 
 
 ### Timelines
