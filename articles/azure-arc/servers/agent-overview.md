@@ -198,7 +198,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
 * During uninstall of the agent, the following artifacts are not removed.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * *%ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent and subdirectories
     * %ProgramData%\GuestConfig
 

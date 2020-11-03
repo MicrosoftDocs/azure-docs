@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, contperfq2
 
 ---
 
 # Azure Cosmos DB SQL SDK connectivity modes
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS called gateway mode. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and uses TLS for initial authentication and encrypting traffic, called direct mode.
 

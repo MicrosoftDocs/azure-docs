@@ -8,7 +8,8 @@ ms.date: 09/22/2020
 ms.author: rosouz
 ---
 
-# What is Azure Cosmos DB Analytical Store (Preview)?
+# What is Azure Cosmos DB analytical store (Preview)?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB analytical store is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

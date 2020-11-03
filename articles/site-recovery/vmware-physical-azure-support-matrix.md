@@ -60,7 +60,7 @@ Site Recovery supports replication of any workload running on a supported machin
 **Component** | **Details**
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
-Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](https://aka.ms/asr_workload).
+Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](./site-recovery-workload.md).
 Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. Ex: Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
 
 ### For Windows
@@ -230,7 +230,7 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for all [Azure marketplace UEFI OSes](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Guest/server EFI/UEFI boot | - Supported for all [Azure marketplace UEFI OSes](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## Replication channels
 

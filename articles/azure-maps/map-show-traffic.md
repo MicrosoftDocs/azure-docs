@@ -77,10 +77,10 @@ map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-l
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
+> [TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions)
 
 Enhance your user experiences:
 
