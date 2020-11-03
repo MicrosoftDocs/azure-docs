@@ -47,7 +47,7 @@
   - name: Azure DCAP library for Linux
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
   - name: Troubleshoot issues
-    href: trouble-shooting-guide.md
+    href: troubleshoot-guide.md.md
   - name: VBS attestation protocol
     href: virtualization-based-security-protocol.md
     
