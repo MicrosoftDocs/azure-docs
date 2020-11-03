@@ -17,20 +17,20 @@ When you have a failure on your private cloud, you need to open a support reques
 
 ## Get the correlation ID
  
-When you create a private cloud or any resource in Azure, a correlation ID for the resource is automatically generated. Include the correlation ID in your support request to more quickly open and resolve the request.
+When you create a private cloud or any resource in Azure, a correlation ID for the resource is automatically generated for the resource. Include the private cloud correlation ID in your support request to more quickly open and resolve the request.
 
 In the Azure portal, you can get the correlation ID for a resource in two ways:
 
 * Overview pane
 * Deployment logs
  
- ### Get correlation ID from resource overview
+ ### Get the correlation ID from the resource overview
 
-Here's an example of the operation details of a failed private cloud deployment, with the correlation ID highlighted:
+Here's an example of the operation details of a failed private cloud deployment, with the correlation ID selected:
 
 :::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Screenshot that shows a failed private cloud deployment with the correlation ID selected.":::
 
-To access deployment results in the **Overview** pane:
+To access deployment results in a private cloud Overview pane:
 
 1. In the Azure portal, select your private cloud.
 
@@ -40,7 +40,7 @@ After a deployment is initiated, the results of the deployment are shown in the 
 
 Copy and save the private cloud deployment correlation ID to include in the service request.
 
-### Get correlation ID from deployment log
+### Get the correlation ID from the deployment log
 
 You can get the correlation ID for a failed deployment by searching the deployment activity log in the Azure portal.
 
@@ -56,7 +56,7 @@ To access the deployment log:
 
 1. To find the failed deployment and its correlation ID, search for the name of the resource or other information that you used to create the resource. 
 
-    The following example shows search results for a private cloud resource (pc03).
+    The following example shows search results for a private cloud resource named pc03.
  
     :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Screenshot that shows search results for an example private cloud resource and the Create or update a PrivateCloud pane.":::
  
@@ -66,15 +66,17 @@ To access the deployment log:
  
 ## Copy error messages
 
-To help resolve your deployment issue, include any error messages that are shown. Select a warning message to see a summary of errors:
+To help resolve your deployment issue, include any error messages that are shown in the Azure portal. Select a warning message to see a summary of errors:
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Screenshot that shows error details on the Summary tab of the Errors pane, with the copy icon selected.":::
 
-Select the copy icon to copy the error message. Save the copied message to include in your support request.
+To copy the error message, select the copy icon. Save the copied message to include in your support request.
  
 ## Get the ExpressRoute ID (URI)
  
-Perhaps you're trying to scale or peer an existing private cloud with the private cloud ExpressRoute circuit, and it fails. In that case, you need the ExpressRoute ID to include in your support request. 
+Perhaps you're trying to scale or peer an existing private cloud with the private cloud ExpressRoute circuit, and it fails. In that scenario, you need the ExpressRoute ID to include in your support request.
+
+To copy the ExpressRoute ID:
 
 1. In the Azure portal, select your private cloud.
 1. In the left menu, under **Manage**, select **Connectivity**. 
@@ -85,9 +87,9 @@ Perhaps you're trying to scale or peer an existing private cloud with the privat
  
 ## Pre-validation failures
 
-If your private cloud pre-validation check failed (before deployment), a correlatin ID won't have been generated. In this scenario, you can provide the following information in your support request:
+If your private cloud pre-validation check failed (before deployment), a correlation ID won't have been generated. In this scenario, you can provide the following information in your support request:
 
-- Error and failure messages. These messages can be helpful in many failures, for example, for quota-related issues. It's important to copy these messages and include them in the support request. See the section [Copy error messages](#copy-error-messages).
+- Error and failure messages. These messages can be helpful in many failures, for example, for quota-related issues. It's important to copy these messages and include them in the support request, as described in this article.
 - Information you used to create the Azure VMware Solution private cloud, including:
   - Location
   - Resource group
@@ -99,24 +101,24 @@ For general information about creating a support request, see [How to create an 
 
 To create a support request for an Azure VMware Solution deployment or provisioning failure:
 
-1. Select the **Help** icon, and then select **New support request**.
+1. In the Azure portal, select the **Help** icon, and then select **New support request**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collect an ExpressRoute ID for your SR.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
 
-1. Enter or select the required information.
+1. Enter or select the required information:
 
-1. On the **Basics** tab:
+   1. On the **Basics** tab:
 
-    1. For **Problem type**, select **Configuration and Setup Issues**.
+      1. For **Problem type**, select **Configuration and Setup Issues**.
 
-    1. For **Problem subtype**, select **Provision a private cloud**.
+      1. For **Problem subtype**, select **Provision a private cloud**.
 
-1. On the **Details** tab:
+   1. On the **Details** tab:
 
-    1. Enter or select the required information.
+      1. Enter or select the required information.
 
-    1. Paste your Correlation ID or ExpressRoute ID where this information is requested. If you don't see a specific text box for these values, paste them in the **Provide details about the issue** text box.
+      1. Paste your Correlation ID or ExpressRoute ID where this information is requested. If you don't see a specific text box for these values, paste them in the **Provide details about the issue** text box.
 
     1. Paste any error details, including the error or failure messages you copied, in the **Provide details about the issue** text box.
 
-4. Review and then select **Create** to create your support request.
+1. Review your entries, and then select **Create** to create your support request.
