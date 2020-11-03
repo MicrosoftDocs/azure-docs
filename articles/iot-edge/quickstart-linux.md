@@ -34,9 +34,9 @@ You use the Azure CLI to complete many of the steps in this quickstart, and Azur
 
 Add the Azure IoT extension to the Cloud Shell instance.
 
-    ```azurecli-interactive
-     az extension add --name azure-iot
-    ```
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -46,9 +46,9 @@ Cloud resources:
 
 * A resource group to manage all the resources you use in this quickstart. We use the example resource group name **IoTEdgeResources** throughout this quickstart and the following tutorials.
 
-     ```azurecli-interactive
-     az group create --name IoTEdgeResources --location westus2
-     ```
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus2
+   ```
 
 ## Create an IoT hub
 

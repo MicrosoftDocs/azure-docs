@@ -39,6 +39,7 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+
 ## Create two regional IoT hubs
 
 In this section, you will use the Azure Cloud Shell to create two new regional IoT hubs in the **West US** and **East US** regions for a tenant.
