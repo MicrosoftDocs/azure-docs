@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
+ms.date: 11/03/2020
 ---
 
 # Quickstart: Transform data using mapping data flows
@@ -83,7 +83,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. Name your dataset **MoviesDB**. In the linked service dropdown, choose **New**.
 
-1. In the linked service creation screen, name your ADLS gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we're using Account key to connect to our storage account. You can click **Test connection** to verify your credentials were entered correctly. Click **Create** when finished.
+1. In the linked service creation screen, name your ADLS Gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this quickstart, we're using Account key to connect to our storage account. You can click **Test connection** to verify your credentials were entered correctly. Click **Create** when finished.
 
     ![Create a source linked service](media/quickstart-data-flow/adls-gen2-linked-service.png)
 
@@ -141,22 +141,21 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. Go to the **Data Preview** tab to view the transformation output. Notice only two columns are there, **year** and **AverageComedyRating**.
 
-    ![Aggregate](media/tutorial-data-flow/agg3.png)
+    ![Aggregate Data Preview](media/quickstart-data-flow/transformation-output.png)
+
 1. Next, you want to add a **Sink** transformation under **Destination**.
 
-    ![Screenshot that shows where to add a sink transformation under Destination.](media/tutorial-data-flow/sink1.png)
+    ![Add a Sink](media/quickstart-data-flow/add-sink.png)
+
 1. Name your sink **Sink**. Click **New** to create your sink dataset.
 
-    ![Screenshot that shows where you can name your sink and create a new sink dataset.](media/tutorial-data-flow/sink2.png)
 1. Choose **Azure Data Lake Storage Gen2**. Click Continue.
 
-    ![Screenshot that shows the Azure Data Lake Storage Gen2 tile you can choose.](media/tutorial-data-flow/dataset1.png)
 1. Choose **DelimitedText**. Click Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
-1. Name your sink dataset **MoviesSink**. For linked service, choose the ADLS gen2 linked service you created in step 6. Enter an output folder to write your data to. In this tutorial, we're writing to folder 'output' in container 'sample-data'. The folder doesn't need to exist beforehand and can be dynamically created. Set **First row as header** as true and select **None** for **Import schema**. Click Finish.
+1. Name your sink dataset **MoviesSink**. For linked service, choose the ADLS Gen2 linked service you created in step 7. Enter an output folder to write your data to. In this quickstart, we're writing to folder 'output' in container 'sample-data'. The folder doesn't need to exist beforehand and can be dynamically created. Set **First row as header** as true and select **None** for **Import schema**. Click **OK** when done.
 
-    ![Sink](media/tutorial-data-flow/sink3.png)
+    ![Sink dataset properties](media/quickstart-data-flow/sink-dataset-properties.png)
 
 Now you've finished building your data flow. You're ready to run it in your pipeline.
 
@@ -166,28 +165,22 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 1. Go to the pipeline canvas. Click **Debug** to trigger a debug run.
 
-    ![Screenshot that shows the pipeline canvas with Debug highlighted.](media/tutorial-data-flow/pipeline1.png)
+    ![Debug pipeline](media/quickstart-data-flow/debug-pipeline.png)
+
 1. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the **Output** tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
 
-    ![Pipeline](media/tutorial-data-flow/pipeline2.png)
+    ![Debugging output](media/quickstart-data-flow/debugging-output.png)
+
 1. In the monitoring pane, you can see the number of rows and time spent in each transformation step.
 
-    ![Screenshot that shows the monitoring pane where you can see the number of rows and time spent in each transformation step.](media/tutorial-data-flow/pipeline3.png)
+    ![Transformation monitoring](media/quickstart-data-flow/4-transformations.png)
+
 1. Click on a transformation to get detailed information about the columns and partitioning of the data.
 
-    ![Monitoring](media/tutorial-data-flow/pipeline4.png)
+    ![Transformation details](media/quickstart-data-flow/transformation-details.png)
 
-If you followed this tutorial correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data is correct by checking your blob storage.
+If you followed this quickstart correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data by checking your blob storage.
 
 ## Next steps
-
-The pipeline in this tutorial runs a data flow that aggregates the average rating of comedies from 1910 to 2000 and writes the data to ADLS. You learned how to:
-
-> [!div class="checklist"]
-> * Create a data factory.
-> * Create a pipeline with a Data Flow activity.
-> * Build a mapping data flow with four transformations.
-> * Test run the pipeline.
-> * Monitor a Data Flow activity
 
 Learn more about the [data flow expression language](data-flow-expression-functions.md).
