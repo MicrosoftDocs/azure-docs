@@ -78,10 +78,10 @@ Take the following steps if returning the device in the UK.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 
-3. If you are returning the device with DHL, request pickup by visiting the DHL Express United Kingdom website and specifying the airway bill number:
+3. If you are returning the device with DHL, request pickup by visiting their website and specifying the airway bill number:
    - Go to the [DHL Express United Kingdom website](https://mydhl.express.dhl/gb/en/schedule-pickup.html#/schedule-pickup).
    - Under **Do you need a shipping label**, select **No**. Then select **I have a DHL Waybill Number**.
-   - Specify the waybill number <!--Can't test this with no waybill #. Code and phone fields also are included. It's not clear what is required and what might be pre-filled when a waybill number is entered-->, and click **Schedule Pickup** to arrange for pickup.<!--I suspect they might click Next to schedule the pickup. Couldn't test this either.-->
+   - Specify the waybill number, and click **Schedule Pickup** to arrange for pickup. <!--Can't test this with no waybill #. Code and phone fields also are included. It's not clear what is required and what might be pre-filled when a waybill number is entered. I suspect also they might click Next instead of Schedule Pickup to schedule the pickup.-->
 
 ### [Europe](#tab/in-europe)
 
@@ -92,7 +92,7 @@ Take the following steps if returning the device in Europe.
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
-3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
+3. If you are returning the device in Europe with DHL, request pickup from DHL by visiting their website and specifying the airway bill number.
 4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
 5. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
