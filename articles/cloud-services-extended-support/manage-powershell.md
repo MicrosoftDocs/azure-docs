@@ -198,12 +198,11 @@ For more information, see <Add link to CS Powershell reference documents>
     ```
 
 4.	 Add certificate details to Cscfg.
-
-    ```PowerShell 
-    <Certificates>
-    <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="Add certificate thumprint" thumbprintAlgorithm="sha1" />
-    </Certificates>
-    ```
+        ```PowerShell 
+        <Certificates>
+        <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="Add certificate thumbprint" thumbprintAlgorithm="sha1" />
+        </Certificates>
+        ```
 
 5.	Upload the certificate  to Key Vault and reference the key vault during CS create operation
 6.	Create cloud services deployment
