@@ -32,7 +32,7 @@ ms.author: aahi
     > [![Create the language understanding resource](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
 1. Click **Review + create** and wait for the resource to be created.
-1. After both resources are created, still in the Azure portal, select the new authoring resource, then **Quickstarts** to get the authoring **endpoint URL** and **key** for authoring programmatically.
+1. After both resources are created, still in the Azure portal, select the new authoring resource, then **Keys and Endpoint** to get the authoring **endpoint URL** and **key** for authoring programmatically.
 
 > [!TIP]
 > To use the resources, in the LUIS portal, [assign the resources](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).
