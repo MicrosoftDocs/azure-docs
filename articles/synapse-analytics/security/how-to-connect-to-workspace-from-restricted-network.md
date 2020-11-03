@@ -39,7 +39,10 @@ You'll need to add four network outbound security rules with four service tags. 
 
 ## Step 2: Create Azure Synapse Analytics (private link hubs)
 
-You'll need to create an Azure Synapse Analytics (private link hubs) from Azure portal. Search "**Azure Synapse Analytics (private link hubs)**" through the Azure portal, and then fill the needed field and create it. Note: the region should be same as the one where your Synapse workspace is.
+You'll need to create an Azure Synapse Analytics (private link hubs) from Azure portal. Search "**Azure Synapse Analytics (private link hubs)**" through the Azure portal, and then fill the needed field and create it. 
+
+> [!Note]
+> The region should be same as the one where your Synapse workspace is.
 
 ![Creating Synapse Analytics private link hubs](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
@@ -47,7 +50,8 @@ You'll need to create an Azure Synapse Analytics (private link hubs) from Azure 
 
 To access the Synapse Studio gateway, you'll need to create private link endpoint from Azure portal. Search "**Private Link**" through the Azure portal. Select "**Create private endpoint**" in the "**Private Link Center**" and then fill the needed field and create it. 
 
-Note: the region should be same as the one where your Synapse workspace is.
+> [!Note]
+> The region should be same as the one where your Synapse workspace is.
 
 ![Creating private endpoint for Synapse studio 1](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-1.png)
 
