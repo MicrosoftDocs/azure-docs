@@ -12,9 +12,9 @@ This article is an introduction to developing Azure Functions using Python. The 
 
 As a Python developer, you may also be interested in one of the following articles:
 
-| Getting started | Concepts| Scenarios|Samples |
-| -- | -- | -- | -- |
-| <ul><li>[Python function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Machine learning with Python and TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li></ul> |<ul><li>[Sample browser (Python)](/samples/browse/?products=azure-functions&languages=python)</li><li>[Serverless Community Library](https://www.serverlesslibrary.net/?language=Python)</li></ul> |
+| Getting started | Concepts| Scenarios/Samples |
+| -- | -- | -- | 
+| <ul><li>[Python function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Machine learning with Python and TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Sample browser (Python)](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 For standalone Function sample projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python).
 
@@ -45,7 +45,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods.
+Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) package to bind input and outputs to your methods.
 
 ## Alternate entry point
 
@@ -195,7 +195,7 @@ Output can be expressed both in return value and output parameters. If there's o
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
 
-To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
+To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
 
 ```json
 {
@@ -311,7 +311,7 @@ A key to improving performance is understanding how your app uses resources and 
 
 The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
 
-|| I/O-bound workload | CPU-bound workload |
+|&nbsp;| I/O-bound workload | CPU-bound workload |
 |--| -- | -- |
 |Function app characteristics| <ul><li>App needs to handle many concurrent invocations.</li> <li> App processes a large number of I/O events, such as network calls and disk read/writes.</li> </ul>| <ul><li>App does long-running computations, such as image resizing.</li> <li>App does data transformation.</li> </ul> |
 |Examples| <ul><li>Web APIs</li><ul> | <ul><li>Data processing</li><li> Machine learning inference</li><ul>|
@@ -382,7 +382,7 @@ The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates w
 
 ## Context
 
-To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argument in its signature.
+To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argument in its signature.
 
 For example:
 
@@ -395,7 +395,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) class has the following string attributes:
+The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) class has the following string attributes:
 
 `function_directory`
 The directory in which the function is running.
@@ -750,7 +750,7 @@ All known issues and feature requests are tracked using [GitHub issues](https://
 
 For more information, see the following resources:
 
-* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Blob storage bindings](functions-bindings-storage-blob.md)
@@ -759,5 +759,5 @@ For more information, see the following resources:
 * [Timer trigger](functions-bindings-timer.md)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true
