@@ -58,7 +58,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-To score a model, see [Consume an Azure Machine Learning model deployed as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Many ONNX projects use protobuf files to compactly store training and validation data, which can make it difficult to know what the data format expected by the service. As a model developer, you should document for your developers:
+To score a model, see [Consume an Azure Machine Learning model deployed as a web service](./how-to-consume-web-service.md). Many ONNX projects use protobuf files to compactly store training and validation data, which can make it difficult to know what the data format expected by the service. As a model developer, you should document for your developers:
 
 * Input format (JSON or binary)
 * Input data shape and type (for example, an array of floats of shape [100,100,3])

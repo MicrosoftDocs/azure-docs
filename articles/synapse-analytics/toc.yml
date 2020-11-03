@@ -509,7 +509,7 @@
         items:
         - name: Import and export data with Apache Spark
           href: ./spark/synapse-spark-sql-pool-import-export.md
-- name: Synapse link
+- name: Synapse Link
   items:
   # - name: Overview
   #   items:
