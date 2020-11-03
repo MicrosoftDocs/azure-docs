@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge device using the Azure portal. This article describes how to create and manage a VM on your Azure Stack Edge device using the Azure portal. 
+You can create and manage virtual machines (VMs) on an Azure Stack Edge device using Azure portal, templates, Azure PowerShell cmdlets and via Azure CLI/Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge device using the Azure portal. 
 
 This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. 
 
