@@ -457,7 +457,7 @@ Consider the following data table, describing a set of digital twins 
 | dtmi:example:Room;1    | Room1 | | | |
 | dtmi:example:Room;1    | Room0 | | | |
 
-* Save your CSV file as *data.csv* in your working project directory. In your code editor, select the properties of the file by right selecting the file and make the property *Copy to Output Directory* to *copy if newer*.
+* Save your CSV file as *data.csv* in your working project directory. In your code editor, select the properties of the file by right selecting the file and edit the property *Copy to Output Directory* to *Copy if newer*.
 * Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
 * Add these packages to your project:
     ```cmd/sh
@@ -465,7 +465,7 @@ Consider the following data table, describing a set of digital twins 
     dotnet add package Azure.identity
     dotnet add package Nancy
     ```
-You can now run the sample reads the data from the CSV file and creates a twin graph.
+You can now run the sample, that reads the data from the CSV file and creates a twin graph.
 
 ```csharp
 using System;
