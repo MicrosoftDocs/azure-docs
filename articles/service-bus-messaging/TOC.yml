@@ -33,7 +33,7 @@
       - name: Python (azure-servicebus)
         href: service-bus-python-how-to-use-queues.md
       - name: JavaScript (@azure/service-bus)
-        href: service-bus-nodejs-how-to-use-queues-new-package.md
+        href: service-bus-nodejs-how-to-use-queues.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
       - name: Ruby
@@ -63,7 +63,7 @@
       - name: Python (azure-servicebus)
         href: service-bus-python-how-to-use-topics-subscriptions.md
       - name: JavaScript (@azure/service-bus)
-        href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+        href: service-bus-nodejs-how-to-use-topics-subscriptions.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
       - name: Ruby
@@ -199,9 +199,9 @@
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Send and receive messages from queues (legacy azure-sb)
-      href: service-bus-nodejs-how-to-use-queues.md
+      href: service-bus-nodejs-how-to-use-queues-new-package.md
     - name: Publish and subscribe for messages (legacy azure-sb)
-      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+      href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
   - name: Migrate
     items:
     - name: Migrate from ActiveMQ to Azure Service Bus
