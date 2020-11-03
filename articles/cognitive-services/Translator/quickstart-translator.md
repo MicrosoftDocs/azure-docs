@@ -288,10 +288,14 @@ public class Translate {
 
 ```Javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -299,6 +303,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -324,6 +329,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -336,6 +345,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -543,10 +553,14 @@ public class Translate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -554,6 +568,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -579,6 +594,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -590,6 +609,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -791,10 +811,14 @@ public class Detect {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -802,6 +826,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -825,6 +850,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/detect'
 constructed_url = endpoint + path
 
@@ -835,6 +864,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1052,10 +1082,14 @@ public class Translate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1063,6 +1097,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1088,6 +1123,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -1100,6 +1139,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1310,10 +1350,14 @@ public class Transliterate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1321,6 +1365,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1347,6 +1392,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/transliterate'
 constructed_url = endpoint + path
 
@@ -1360,6 +1409,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1558,10 +1608,14 @@ public class Translate {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1569,6 +1623,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1594,6 +1649,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/translate'
 constructed_url = endpoint + path
 
@@ -1606,6 +1665,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -1815,10 +1875,14 @@ public class BreakSentence {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -1826,6 +1890,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -1849,6 +1914,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/breaksentence'
 constructed_url = endpoint + path
 
@@ -1859,6 +1928,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -2059,10 +2129,14 @@ public class DictionaryLookup {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -2070,6 +2144,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -2095,6 +2170,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/dictionary/lookup'
 constructed_url = endpoint + path
 
@@ -2107,6 +2186,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -2334,10 +2414,14 @@ public class DictionaryExamples {
 
 ```javascript
 const axios = require('axios').default;
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+// Add your location, also known as region. The default is global.
+// This is required if using a Cognitive Services resource.
+var location = "YOUR_RESOURCE_LOCATION";
 
 axios({
     baseURL: endpoint,
@@ -2345,6 +2429,7 @@ axios({
     method: 'post',
     headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
@@ -2371,6 +2456,10 @@ import requests, uuid, json
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
+# Add your location, also known as region. The default is global.
+# This is required if using a Cognitive Services resource.
+location = "YOUR_RESOURCE_LOCATION"
+
 path = '/dictionary/examples'
 constructed_url = endpoint + path
 
@@ -2383,6 +2472,7 @@ constructed_url = endpoint + path
 
 headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
