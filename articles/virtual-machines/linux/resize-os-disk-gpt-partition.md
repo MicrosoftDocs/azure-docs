@@ -464,7 +464,14 @@ correct this problem? (Y/N):". You have to press 'Y'
    ```
 
    ![New Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
-  
+
+1. Run the xfs_growfs command on the partition to resize it
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+
 ## Next steps
 
 - [Resize disk](expand-disks.md)
