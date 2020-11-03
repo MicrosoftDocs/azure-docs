@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### Step 3: Configure authentication
 
-1. Open the `config.json` file in the sample.
+1. Open the *config.json* file in the sample.
 
 2. Configure the sample with the application credentials that you obtained earlier while registering your application. Change the following lines of code by replacing the values with your tenant name, client ID, and policy name.
 
