@@ -101,10 +101,6 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: You have attempted to delete an image definition that contains image versions. An image definition must be empty before it can be deleted.  
 **Workaround**: Delete all image versions inside the image definition and then proceed to delete the image definition.
 
-*Cannot bind parameter <property\>. Cannot convert value <value\> to type <propertyType\>*  
-**Cause**: <property\> has a restricted list of possible values and <value\> is not one of them.  
-**Workaround**: Check that you are using one of the allowed values from this table. (Link to table of allowed values)
-
 *Cannot bind parameter <property\>. Cannot convert value <value\> to type <propertyType\>. Unable to match the identifier name <value\> to a valid enumerator name. Specify one of the following enumerator names and try again: <choice1\>, <choice2\>, …*  
 **Cause**: The property has a restricted list of possible values and <value\> is not one of them.  
 **Workaround**: Choose one of the possible <choice\> values.
@@ -118,7 +114,7 @@ If you run into issues while performing any operations on shared image galleries
 **Workaround**: Choose an integer value.
 
 *ZRS storage account type is not supported in this region.*  
-**Cause**: You have chosen a Standard ZRS in a region that does not yet support it. 
+**Cause**: You have chosen a Standard ZRS in a region that does not yet support it.  
 **Workaround**: Change the storage account type to 'Premium\_LRS' or 'Standard\_LRS'. Check our documentation for the latest [list of regions](/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
 
 ## Issues with creating or updating image versions ##
@@ -199,8 +195,8 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: The virtual machine in <resourceID\> uses unmanaged disks.  
 **Workaround**: Use a source based on a VM that contains only Premium SSD, Standard SSD and/or Standard HDD-managed disks.
 
-*Too many requests on source '<resourceID\>'. Please reduce the number of requests on the source or wait some time before retrying.*
-**Cause**:  The source for this image version is currently being throttled due to too many requests.
+*Too many requests on source '<resourceID\>'. Please reduce the number of requests on the source or wait some time before retrying.*  
+**Cause**:  The source for this image version is currently being throttled due to too many requests.  
 **Workaround**: Try the image version creation later.
 
 *The disk encryption set '<diskEncryptionSetID\>' must be in the same subscription '<subscriptionID\>' as the gallery resource.*  
@@ -217,14 +213,13 @@ If you run into issues while performing any operations on shared image galleries
 
 *The image version name is invalid. The image version name should follow Major(int).Minor(int).Patch(int) format, for e.g: 1.0.0, 2018.12.1 etc.*  
 **Cause**: The valid format for an image version is 3 integers separated by a period. The image version name did not meet the valid format.  
-**Workaround**: Use an image version name that follows the format Major(int).Minor(int).Patch(int), for exammple: 1.0.0. or 2018.12.1.
+**Workaround**: Use an image version name that follows the format Major(int).Minor(int).Patch(int), for example: 1.0.0. or 2018.12.1.
 
 *The value of parameter galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.dataDiskImages.diskEncryptionSetId is invalid*  
 **Cause**: The resource ID of the disk encryption set used on a data disk image uses an invalid format.  
 **Workaround**: Ensure that the resource ID of the disk encryption set follows the format /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroupName\>/providers/Microsoft.Compute/<diskEncryptionSetName\>.
 
-*The value of parameter galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId is invalid_.
-
+*The value of parameter galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId is invalid.*
 **Cause**: The resource ID of the disk encryption set used on the OS disk image uses an invalid format  
 **Workaround**: Ensure that the resource ID of the disk encryption set follows the format /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroupName\>/providers/Microsoft.Compute/<diskEncryptionSetName\>.
 
@@ -275,7 +270,7 @@ If you run into issues while performing any operations on shared image galleries
 ## Issues creating or updating a VM or scale sets from image version ##
 
 *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantId1\> is not authorized to access linked subscription <subscriptionId2\>.*  
-**Cause**: The virtual machine or scale set was created using a SIG image in another tenant. You have attempted to make a change to the virtual machine or scale set, but do not have access to the subscription that owns the image.
+**Cause**: The virtual machine or scale set was created using a SIG image in another tenant. You have attempted to make a change to the virtual machine or scale set, but do not have access to the subscription that owns the image.  
 **Workaround**: Contact the owner of the subscription of the image version to grant read access to the image version.
 
 *The gallery image <resourceID\> is not available in <region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
@@ -298,7 +293,7 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: The current source image for the scaleset is a generalized source image, but it is being updated with a source image that is specialized. The current source image and the new source image for a scaleset must be of the same state.  
 **Workaround**: To update the scaleset, use a generalized image version.
 
-*Disk encryption set <diskEncryptionSetId\> in shared image gallery <versionId\> belongs to subscription <subscriptionId1\> and cannot be used with resource '' in subscription <subscriptionId2\>*
+*Disk encryption set <diskEncryptionSetId\> in shared image gallery <versionId\> belongs to subscription <subscriptionId1\> and cannot be used with resource '' in subscription <subscriptionId2\>*  
 **Cause**: The disk encryption set used to encrypt the image version resides in a different subscription than the subscription to host the image version.  
 **Workaround**: Use the same subscription for the image version and disk encryption set.
 
