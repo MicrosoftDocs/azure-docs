@@ -35,6 +35,8 @@
     href: portal-scan-azure-data-sources.md
   - name: Use the REST APIs
     href: tutorial-using-rest-apis.md
+  - name: Register and scan an on-prem SQL server
+    href: register-scan-on-premises-sql-server.md
 #- name: Samples
 - name: Concepts
   items:
@@ -48,6 +50,8 @@
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
+  - name: Data lineage
+    href: data-lineage.md
   - name: Supported data sources
     href: sources-and-scans.md    
 - name: How-to guides
@@ -89,6 +93,8 @@
       displayName: Register and scan Azure Synapse Analytics
     - name: Register and scan Azure Synapse Analytics
       href: register-scan-azure-synapse-analytics.md
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md
   - name: Classify
     items: 
     - name: Use classifications
