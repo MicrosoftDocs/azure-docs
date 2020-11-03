@@ -349,7 +349,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
    [![Visualization Dashboard Local Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **Models** pane
-  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), you can select **Models** in the left pane to view it.
+  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
   1. Select a model, and then the **Explanations** tab to view the explanation visualization dashboard.
 
 ## Interpretability at inference time
@@ -414,7 +414,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
 1. Deploy the image to a compute target, by following these steps:
 
-   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Create a scoring file.
 
@@ -548,4 +548,3 @@ You can deploy the explainer along with the original model and use it at inferen
 [Learn more about model interpretability](how-to-machine-learning-interpretability.md)
 
 [Check out Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-
