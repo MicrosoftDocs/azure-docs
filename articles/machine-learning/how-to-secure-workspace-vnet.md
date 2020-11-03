@@ -184,7 +184,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 To use Azure Container Registry inside a virtual network, you must meet the following requirements:
 
-* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-skus).
+* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 

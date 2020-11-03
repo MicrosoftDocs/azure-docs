@@ -48,11 +48,7 @@ The first step in debugging errors is to get your deployment logs. First, follow
 
 # [Azure CLI](#tab/azcli)
 
-<<<<<<< HEAD
 To get the logs from a deployed webservice, do:
-=======
-When using [Model.deploy()](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
->>>>>>> 11d6adaaa35 (Links: Azure - machine-learning - 3)
 
 ```bash
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
