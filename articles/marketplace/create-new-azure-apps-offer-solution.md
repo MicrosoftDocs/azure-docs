@@ -74,7 +74,7 @@ Under **Package file (.zip)**, drag your package file to the gray box or select 
 
 ### Previously published packages
 
-The **Previously published packages** sub-tab enables you to view all published versions of your technical configuration.
+After you publish your offer live, the **Previously published packages** sub-tab appears on the **Technical configuration** page. This tab lists all previously published versions of your technical configuration.
 
 ## View your plans
 

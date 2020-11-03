@@ -168,7 +168,7 @@ To help create your offer more easily, prepare some of these items ahead of time
   - The look and feel of your logo should be flat and avoid gradients in the logo or background. Don't place text on the logo, not even your company or brand name. Blurry images will cause your submission to be rejected.
   - Make sure the logo isn't stretched.
 
-- **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
+- **Media - Screenshots** (optional): We recommend that you add screenshots that show how your offer works. You can add up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
   - .png file
   - Must include a caption

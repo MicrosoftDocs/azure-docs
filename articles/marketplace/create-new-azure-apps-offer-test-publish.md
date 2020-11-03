@@ -35,7 +35,7 @@ When the offer is ready for your sign off, we’ll send you an email to request 
 
 The following screenshot shows the **Offer overview** page for an offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the selections you made when you created the offer.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](media/publish-status-publisher-signoff.png)
+![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](media/create-new-azure-app-offer/azure-app-publish-status.png)
 
 Use the following steps to preview your offer.
 
