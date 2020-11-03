@@ -108,6 +108,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
