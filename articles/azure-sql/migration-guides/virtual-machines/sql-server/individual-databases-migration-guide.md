@@ -18,13 +18,14 @@ This migration guide teaches you to **discover**, **assess** and **migrate** you
 
 You can migrate SQL Server running on-premises or on:
 
-- SQL Server on Virtual Machines
-- Amazon Web Services (AWS) EC2
-- Compute Engine (GCP)
-- AWS RDS
+- SQL Server on Virtual Machines  
+- Amazon Web Services (AWS) EC2 
+- Amazon Relational Database Service (AWS RDS) 
+- Compute Engine (Google Cloud Platform - GCP)
 
 For information about additional migration strategies, see the [SQL Server VM migration overview](to-sql-server-on-azure-vm-overview.md).
 
+:::image type="content" source="../media/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites
 

@@ -18,10 +18,10 @@ Learn about the different migration strategies to migrate your SQL Server to SQL
 
 You can migrate SQL Server running on-premises or on:
 
-- SQL Server on Virtual Machines
-- Amazon Web Services (AWS) EC2
-- Compute Engine (Google Cloud Provider - GCP)
-- Amazon Relational Database Service (AWS RDS)
+- SQL Server on Virtual Machines  
+- Amazon Web Services (AWS) EC2 
+- Amazon Relational Database Service (AWS RDS) 
+- Compute Engine (Google Cloud Platform - GCP)
 
 For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
 
@@ -72,6 +72,8 @@ The following table details the available method for the **lift and shift** migr
 ## Migrate  
 
 Due to the ease of setup, the recommended approach to migrate user databases is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1TB) for all versions of SQL Server starting from 2008 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
+
+:::image type="content" source="../media/VM-migration-downtime.png" alt-text="Migration downtime":::
 
 When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
 
@@ -125,67 +127,6 @@ These services include:
 ## Supported versions
 
 As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be sure to consider the versions of SQL Server that are supported. For a list of current supported SQL Server versions on Azure VMs, please see [SQL Server on Azure VMs](../../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
-
-## Partners
-
-The following lists alternative partners that can help with migration as well:
-
-
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)  
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-     [:::image type="content" source="../../media/migration-partners/fujitsu-logo-220.png" alt-text="Fujitsu":::](https://www.fujitsu.com/us/services/application-services/application-development-integration/legacy-modernization/capabilities/index.html)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
-   :::column-end:::
-   :::column span="":::
-    [:::image type="content" source="../../media/migration-partners/nayatech_migVisor_logo_small.png" alt-text="migVisor":::](https://www.migvisor.com/)
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-     [:::image type="content" source="../../media/migration-partners/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="../../media/migration-partners/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="../../media/migration-partners/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-     [:::image type="content" source="../../media/migration-partners/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="../../media/migration-partners/Zen3-logo-220.png" alt-text="Zen3":::](https://zen3tech.com/)
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-:::row-end:::
-
 
 
 ## Next steps

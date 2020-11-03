@@ -12,7 +12,7 @@ ms.reviewer: mokabiru
 ms.date: 08/25/2020
 ---
 # Migration guide: SQL Server to SQL Database
-[!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
+[!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 This guide helps you migrate your SQL Server instance to Azure SQL Database. 
 
