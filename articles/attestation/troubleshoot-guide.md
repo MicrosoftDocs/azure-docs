@@ -59,8 +59,11 @@ In order to add/delete policy signers or to configure policies, an Azure AD user
 Customers can choose to use the default provider for attestation, or create their own providers with custom policies. To send attestation requests to custom attestation providers, "Owner" (wildcard permissions) or "Reader" (wildcard permissions) or "Attestation Reader" role is required for the user. The default providers are accessible by any Azure AD user.
 
 To verify the roles in PowerShell, run below:
+
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
-b. Verify your RBAC role assignment settings. 
+
+b. Verify your RBAC role assignment settings
+
 
   ```powershell
   $c = Get-AzContext
