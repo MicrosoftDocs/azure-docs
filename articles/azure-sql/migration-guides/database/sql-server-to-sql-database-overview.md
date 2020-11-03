@@ -87,24 +87,51 @@ If the following apply to your business, consider moving to a SQL Server on Azur
 - If you absolutely need to stay at a specific version of SQL Server (2012, for instance). 
 - If your compute requirements are much lower than managed instance offers (one vCore, for instance), and database consolidation is not an acceptable option. 
 
+## Migration tools
+
+[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)
+ The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database.
+
+[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)
+ A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases.
+
+[Transactional replication](../../database/replication-to-sql-database.md)
+Replicate data from source SQL Server database table(s) to SQL Database by providing a publisher-subscriber type migration option while maintaining transactional consistency. Incremental data changes are propagated to Subscribers as they occur on the Publishers.</br></br> **Note:** Transactional replication has a number of limitations to consider when setting up the Publisher on the source SQL Server. See [Limitations on Publishing Objects](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) to learn more.
+
+[Import Export Service / BACPAC](../../database/database-import.md)
+[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the data into Azure SQL Database. BACPAC  file can be imported to a new Azure SQL Database using the Azure portal. </br></br> For scale and performance with large databases sizes or large number of databases, you should consider using the [SqlPackage](../../database/database-import#using-sqlpackage) command-line utility to export and import databases.
+
+
+## Compare migration options
+
+Recommended:
+
+|Migration option  |When to use  |Considerations  |
+|---------|---------|---------|-
+|[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb) | - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migration is a logical data movement between objects and hence recommended to run during off-peak times. </br> - DMA reports the status of migration per database object including the number of rows migrated.  </br> - For large migrations (number of databases / size of database), use the Azure Database Migration Service listed below.|
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. |
+
+Alternative: 
+|Method / technology |When to use    |Considerations  |
+|---------|---------|---------|
+|[Transactional replication](../../database/replication-to-sql-database.md)| - Migrate by continuously publishing changes from source database tables to target SQL Database tables. </br> - Full or partial database migrations of selected tables (subset of database).  </br> </br> Supported sources: </br> - [SQL Server (2016 - 2019) with some limitations](/sql/relational-databases/replication/replication-backward-compatibility) </br> - AWS EC2  </br> - GCP Compute SQL Server VM  | - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).  </br> - It is possible to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication).    |
+|[Import Export Service / BACPAC](../../database/database-import.md)| - Migrate individual Line-of-business application database(s). </br>- Suited for smaller databases.  </br>  - Does not require a separate migration service or tool. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM  |  - Requires downtime as data needs to be exported at the source and imported at the destination.   </br> - The file formats and data types used in the export / import need to be consistent with table schemas to avoid truncation / data type mismatch errors.  </br> - Time taken to export a database with a large number of objects can be significantly higher.       |
+|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Migrating full or partial data migrations. </br> - Can accommodate downtime. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | - Requires downtime for exporting data from source and importing into target. </br> - The file formats and data types used in the export / import need to be consistent with table schemas. |
+
+
 
 ## Migration options
 
 The following table describes data migration options and corresponding recommendations: 
 
-|Migration option  |Description  |When to use |
-|---------|---------|---------|---------|
-|[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb) | The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database. </br></br> **Considerations**: - Migration is a logical data movement between objects and hence recommended to run during off-peak times. </br> - DMA reports the status of migration per database object including the number of rows migrated.  </br> - For large migrations (number of databases / size of database), use the Azure Database Migration Service listed below.| - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |
-|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md) | A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases. </br></br> **Considerations**: - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. | - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |
-
-
-
-
-
 |Migration option  |When to use  |Description  |Considerations  |
 |---------|---------|---------|---------|
 |[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb) | - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database. | - Migration is a logical data movement between objects and hence recommended to run during off-peak times. </br> - DMA reports the status of migration per database object including the number of rows migrated.  </br> - For large migrations (number of databases / size of database), use the Azure Database Migration Service listed below.|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases.| - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. |
+
+
+
+
 
 ## Other methods for migration
 
