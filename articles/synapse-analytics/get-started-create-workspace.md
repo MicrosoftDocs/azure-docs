@@ -32,7 +32,6 @@ To complete this all of this tutorial's steps, you need to have access to a reso
     1. Navigate to **Select Data Lake Storage Gen 2**. 
     1. Click **Create New** and name it **contosolake**.
     1. Click **File System** and name it **users**. This will create a container called **users**
-1. OPTION 2 Using an existing ADLSGEN2 account. See the **Preparing an ADLSGEN2 Storage Account** instructions at the bottom of this document.
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
