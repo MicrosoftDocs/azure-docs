@@ -16,8 +16,6 @@ As a Python developer, you may also be interested in one of the following articl
 | -- | -- | -- | 
 | <ul><li>[Python function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Machine learning with Python and TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Sample browser (Python)](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
-For standalone Function sample projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python).
-
 ## Programming model
 
 Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
