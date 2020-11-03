@@ -1,15 +1,15 @@
 ﻿---
-title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
-description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
+title: 'Tutorial - Connect to an Azure SQL Server using an Azure Private Endpoint - PowerShell'
+description: Use this tutorial to learn how to create an Azure SQL Server with a private endpoint using Azure PowerShell
 services: private-link
 author: asudbring
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL Server so that I can securely connect to it.
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
 ---
-# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure PowerShell
+# Tutorial - Connect to an Azure SQL Server using an Azure Private Endpoint - Azure PowerShell
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -18,8 +18,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
-> * Test connectivity to the SQL server private endpoint.
+> * Create a Azure SQL Server and private endpoint.
+> * Test connectivity to the SQL Server private endpoint.
 
 ## Prerequisites
 
@@ -140,20 +140,20 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 New-AzVM -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Location 'eastus' -VM $vmConfig
 ```
 
-## Create an Azure SQL server
+## Create an Azure SQL Server
 
-In this section, you'll create a SQL server and database using:
+In this section, you'll create a SQL Server and Database using:
 
 * [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)
 * [New-AzSQlDatabase](/powershell/module/az.sql/new-azsqldatabase)
 
-Create SQL server and database. Replace **\<sql-server-name>** with your unique server name:
+Create SQL Server and Database. Replace **\<sql-server-name>** with your unique server name:
 
 ```azurepowershell-interactive
-## Set and administrator and password for the SQL server. ##
+## Set and administrator and password for the SQL Server. ##
 $cred = Get-Credential
 
-## Create SQL server ##
+## Create SQL Server ##
 $parameters1 = @{
     ResourceGroupName = 'CreateSQLEndpointTutorial-rg'
     ServerName = '<sql-server-name>'
@@ -181,7 +181,7 @@ In this section, you'll create the private endpoint and connection using:
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place SQL server into variable. Replace <sql-server-name> with your server name ##
+## Place SQL Server into variable. Replace <sql-server-name> with your server name ##
 $server = Get-AzSqlServer -ResourceGroupName CreateSQLEndpointTutorial-rg -ServerName <sql-server-name>
 
 ## Create private endpoint connection. ##
@@ -257,7 +257,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
+In this section, you'll use the virtual machine you created in the previous step to connect to the SQL Server across the private endpoint.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) 
  
@@ -275,7 +275,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 8. Open Windows PowerShell on the server after you connect.
 
-9. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL server you created in the previous steps.  You'll receive a message similar to what is displayed below:
+9. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL Server you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
@@ -287,7 +287,7 @@ In this section, you'll use the virtual machine you created in the previous step
     Aliases:  mysqlserver8675.database.windows.net
     ```
 
-    A private IP address of **10.0.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.0.0.5** is returned for the SQL Server name.  This address is in the subnet of the virtual network you created previously.
 
 
 10. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
@@ -314,7 +314,7 @@ In this section, you'll use the virtual machine you created in the previous step
 16. Close the bastion connection to **myVM**. 
 
 ## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
+When you're done using the private endpoint, SQL Server, and the VM, delete the resource group and all of the resources it contains: 
 
 1. Enter **CreateSQLEndpointTutorial-rg** in the **Search** box at the top of the portal and select **CreateSQLEndpointTutorial-rg** from the search results. 
 
@@ -328,9 +328,9 @@ In this tutorial, you created a:
 
 * Virtual network and bastion host.
 * Virtual machine.
-* Azure SQL server with private endpoint.
+* Azure SQL Server with private endpoint.
 
-You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
+You used the virtual machine to test connectivity securely to the SQL Server across the private endpoint.
 
 Learn how to create a Private Link service:
 > [!div class="nextstepaction"]
