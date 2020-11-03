@@ -25,7 +25,7 @@ ms.author: inhenkel
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
-This article shows common scenarios for delivering your content [live](#live_scenarios) or on-demand.
+This article shows common scenarios for delivering your content live or on-demand.
 
 ## Overview
 

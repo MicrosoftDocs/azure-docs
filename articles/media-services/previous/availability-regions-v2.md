@@ -35,7 +35,7 @@ Use [Azure Products by Region](https://azure.microsoft.com/global-infrastructure
 
 ## Streaming endpoints
 
-Media Services customers can choose either a **Standard** streaming endpoint or a **Premium** streaming endpoint. For more information, see the [scaling](#scaling) section.
+Media Services customers can choose either a **Standard** streaming endpoint or a **Premium** streaming endpoint.
 
 |Name|Status|Region
 |---|---|---|
