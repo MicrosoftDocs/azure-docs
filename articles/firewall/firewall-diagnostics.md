@@ -45,31 +45,55 @@ It can take a few minutes for the data to appear in your logs after you complete
 8. Select your subscription.
 9. Select **Save**.
 
-## Enable logging with PowerShell
+## Enable diagnostic logging with PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
 
-To enable diagnostic logging, use the following steps:
+To enable diagnostic logging with PowerShell, use the following steps:
 
-1. Note your storage account's resource ID, where the log data is stored. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>*.
+1. Note your Log Analytics Workspace resource ID, where the log data is stored. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`.
 
-   You can use any storage account in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Property** page.
+   You can use any workspace in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Properties** page.
 
-2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/azureFirewalls/\<Firewall name\>*.
+2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
 
    You can use the portal to find this information.
 
-3. Enable diagnostic logging by using the following PowerShell cmdlet:
+3. Enable diagnostic logging for all logs and metrics by using the following PowerShell cmdlet:
 
-    ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
-   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
-   -Enabled $true     
-    ```
+   ```powershell
+   $diagSettings = @{
+      Name = 'toLogAnalytics'
+      ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      Enabled = $true
+   }
+   Set-AzDiagnosticSetting  @diagSettings 
+   ```
 
-> [!TIP]
->Diagnostic logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+## Enable diagnostic logging with Azure CLI
 
+Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
+
+To enable diagnostic logging with Azure CLI, use the following steps:
+
+1. Note your Log Analytics Workspace resource ID, where the log data is stored. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+
+   You can use any workspace in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Properties** page.
+
+2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+
+   You can use the portal to find this information.
+
+3. Enable diagnostic logging for all logs and metrics by using the following Azure CLI command:
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create -n 'toLogAnalytics'
+      --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
+      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
+   ```
 ## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
@@ -84,6 +108,8 @@ You can view and analyze activity log data by using any of the following methods
 
 For Azure Firewall log analytics sample queries, see [Azure Firewall log analytics samples](log-analytics-samples.md).
 
+[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple Firewalls deployed across Azure, and combine them into unified interactive experiences.
+
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
 > [!TIP]
@@ -95,5 +121,7 @@ Browse to an Azure Firewall, under **Monitoring** select **Metrics**. To view th
 ## Next steps
 
 Now that you've configured your firewall to collect logs, you can explore Azure Monitor logs to view your data.
+
+[Monitor logs using Azure Firewall Workbook](firewall-workbook.md)
 
 [Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)
