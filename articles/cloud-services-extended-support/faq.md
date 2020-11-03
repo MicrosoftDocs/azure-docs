@@ -94,9 +94,9 @@ We recommend following steps:
 
 ### What is the difference between Azure Service Manager (ASM) & Azure Resource Manager (ARM) ? What is the difference between classic deployment model and deployment using resource manager? 
 
-Classic deployment model uses ASM to manage deployments & resources. Deployment using Resource Manager uses Azure Resource Manager for deployments.  
+- Classic deployment model uses ASM to manage deployments & resources. Deployment using Resource Manager uses Azure Resource Manager for deployments.  
 
-Classic vs resource manager document explains the difference between these two deployment models.  
+- Classic vs resource manager document explains the difference between these two deployment models.  
 
  
 

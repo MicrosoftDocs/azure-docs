@@ -51,23 +51,23 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cloud-services
   - name: .csdef XML Schema
-    href: schema-csdef-file.md
+    href: ./cloud-services/schema-csdef-file.md
     items:
     - name: LoadBalancerProbe Schema
-      href: schema-csdef-loadbalancerprobe.md
+      href: ./cloud-services/schema-csdef-loadbalancerprobe.md
     - name: WebRole Schema
-      href: schema-csdef-webrole.md
+      href: ./cloud-services/schema-csdef-webrole.md
     - name: WorkerRole Schema
-      href: schema-csdef-workerrole.md
+      href: ./cloud-services/schema-csdef-workerrole.md
     - name: NetworkTrafficRules Schema
-      href: schema-csdef-networktrafficrules.md
+      href: ./cloud-services/schema-csdef-networktrafficrules.md
   - name: .cscfg XML Schema
-    href: schema-cscfg-file.md
+    href: ./cloud-services/schema-cscfg-file.md
     items:
     - name: Role Schema
-      href: schema-cscfg-role.md
+      href: ./cloud-services/schema-cscfg-role.md
     - name: NetworkConfiguration Schema
-      href: schema-cscfg-networkconfiguration.md
+      href: ./cloud-services/schema-cscfg-networkconfiguration.md
   - name: REST
     href: /rest/api/compute/cloudservices/
 - name: Resources
