@@ -40,9 +40,10 @@ The IoT Edge agent is one of two modules that make up the Azure IoT Edge runtime
 
 The [IoT Edge security daemon](iot-edge-security-manager.md) starts the IoT Edge agent on device startup. The agent retrieves its module twin from IoT Hub and inspects the deployment manifest. The deployment manifest is a JSON file that declares the modules that need to be started.
 
-Each item in the deployment manifest contains specific information about a module and is used by the IoT Edge agent for controlling the module's lifecycle. Some of the more interesting properties are:
+Each item in the deployment manifest contains specific information about a module and is used by the IoT Edge agent for controlling the module's lifecycle. For more information about all the properties used by the IoT Edge agent to control modules, read about the [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
 
 <!-- I feel that most of these settings should be moved out of the conceptual docs. what do you think? -->
+<!-- Commenting these out per Kelly and added pointer to module-edgeagent-edgehub.md instead
 * **settings.image** – The container image that the IoT Edge agent uses to start the module. The IoT Edge agent must be configured with credentials for the container registry if the image is protected by a password. Credentials for the container registry can be configured remotely using the deployment manifest, or on the IoT Edge device itself by updating the `config.yaml` file in the IoT Edge program folder.
 * **settings.createOptions** – A string that is passed directly to the Moby container daemon when starting a module's container. Adding options in this property allows for advanced configurations like port forwarding or mounting volumes into a module's container.  
 * **status** – The state in which the IoT Edge agent places the module. Usually, this value is set to *running* as most people want the IoT Edge agent to immediately start all modules on the device. However, you could specify the initial state of a module to be stopped and wait for a future time to tell the IoT Edge agent to start a module. The IoT Edge agent reports the status of each module back to the cloud in the reported properties. A difference between the desired property and the reported property is an indicator of a misbehaving device. The supported statuses are:
@@ -74,9 +75,10 @@ The IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible
 * 406 - The IoT Edge device is offline or not sending status reports.
 * 500 - An error occurred in the IoT Edge runtime.
 
-For more information, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+For more information, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md). -->
 
 ### Security
+<!-- This section probably needs an update too to convey that: 1/it is not the edgeAgent that takes care of security but all IoT Edge components and 2/ There is a lot more than IoT Edge does about security than verifying a module image before starting it. -->
 
 The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module's image before starting it.
 
@@ -86,8 +88,7 @@ For more information about the Azure IoT Edge security framework, read about the
 
 The IoT Edge hub is the other module that makes up the Azure IoT Edge runtime. It acts as a local proxy for IoT Hub by exposing the same protocol endpoints as IoT Hub. This consistency means that clients can connect to the IoT Edge runtime just as they would to IoT Hub.
 
-<!-- TODO: Is this example still true with cloud authentication as disabled? I don t believe so-->
-The IoT Edge hub isn't a full version of IoT Hub running locally. IoT Edge hub silently delegates some tasks to IoT Hub. For example, IoT Edge hub forwards authentication requests to IoT Hub when a device first tries to connect. After the first connection is established, security information is cached locally by IoT Edge hub. Future connections from that device are allowed without having to authenticate to the cloud again.
+The IoT Edge hub isn't a full version of IoT Hub running locally. IoT Edge hub silently delegates some tasks to IoT Hub. For example, IoT Edge hub automatically downloads authorization information from IoT Hub on its first connection to enable a device to connect. After the first connection is established, authorization information is cached locally by IoT Edge hub. Future connections from that device are authorized without having to download authorization information from the cloud again.
 
 ### Cloud communication
 
@@ -145,7 +146,7 @@ The first brokering mechanism leverages the same routing APIs as IoT Hub. It lev
 
 ![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
-The second brokering mechanism is based on a standard MQTT broker. MQTT is a simple message transfer protocol that guarantees optimal performances on resource constrained devices. It is a popular publish/subscribe protocol standard. IoT Edge hub implements its own v3.1.1 compatible MQTT broker built-in. This mechanism enables two extra communication patterns: local broadcasting and point-to-point communication. Local broadcasting is useful when one device or module needs to locally alert multiple other devices or modules. Point-to-point communication enables two IoT Edge devices or two IoT devices to communicate locally without round-trip to the cloud. It can be used by devices or modules built with either the Azure IoT Hub SDKs that communicate via the MQTT protocol or any general-purpose MQTT clients. To use it, first a device or module subscribes to a topic, then another device or module publishes a message on the same topic. This topic could a IoT Hub special topic or a user-defined topic. Because IoT Hub special topics are supported, with the exception of C2D all messaging IoT Hub primitives, e.g. telemetry, direct methods, twins are supported. However, unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features enable the MQTT broker to be faster than routing. Lastly, a MQTT bridge is available to forward topics from the IoT Edge hub MQTT broker to another MQTT broker.
+The second brokering mechanism is based on a standard MQTT broker. MQTT is a simple message transfer protocol that guarantees optimal performances on resource constrained devices. It is a popular publish/subscribe protocol standard. IoT Edge hub implements its own v3.1.1 compatible MQTT broker built-in. This mechanism enables two extra communication patterns: local broadcasting and point-to-point communication. Local broadcasting is useful when one device or module needs to locally alert multiple other devices or modules. Point-to-point communication enables two IoT Edge devices or two IoT devices to communicate locally without round-trip to the cloud. It can be used by devices or modules built with either the Azure IoT Hub SDKs that communicate via the MQTT protocol or any general-purpose MQTT clients. To use it, first a device or module subscribes to a topic, then another device or module publishes a message on the same topic. This topic could be an IoT Hub special topic or a user-defined topic. Because IoT Hub special topics are supported, with the exception of C2D all messaging IoT Hub primitives, e.g. telemetry, direct methods, twins are supported. However, unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features enable the MQTT broker to be faster than routing. Lastly, a MQTT bridge is available to forward topics from the IoT Edge hub MQTT broker to another MQTT broker.
 
 <!--TODO:Add new picture about the MQTT broker -->
 ![IoT Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/module-endpoints.png)
@@ -154,14 +155,14 @@ Here are the features available with each brokering mechanism:
 
 |Features  | Routing  | MQTT broker  |
 |---------|---------|---------|
-|Telemetry     |     &#10004;    |    &#10004;     |
+| D2C telemetry    |     &#10004;    |         |
+| Local telemetry     |     &#10004;    |    &#10004;     |
 |DirectMethods     |    &#10004;     |    &#10004;     |
 |Twin     |    &#10004;     |    &#10004;     |
 |C2D for devices     |   &#10004;      |         |
 |Ordering     |    &#10004;     |         |
 |Filtering     |     &#10004;    |         |
 |User-defined topics     |         |    &#10004;     |
-|Edge-to-Edge     |         |    &#10004;     |
 |Device-to-Device     |         |    &#10004;     |
 |Local broadcasting     |         |    &#10004;     |
 |Performance     |         |    &#10004;     |
@@ -196,6 +197,8 @@ Notes:
 - IoT Edge modules currently only support symmetric key authentication.
 - MQTT clients with only local username and passwords are not accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
 
+<!-- 
+Commented out per Kelly: To be moved to an how-to article
 To authenticate with a MQTT client, you first need to send a CONNECT packet to to the MQTT broker to initiate the connection. This packet provides three authentication information: a `client identifier`, a `username` and `password`. The connect packet delivers the following credentials:
 
 -	The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
@@ -213,11 +216,11 @@ To authenticate with a MQTT client, you first need to send a CONNECT packet to t
 - The `password` field of the CONNECT packet depends on the authentication mode:
 
     - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token. You can use the  [generate-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext_azure_cli_iot_ext_az_iot_hub_generate_sas_token&preserve-view=true) Azure CLI commands to generate SAS token for a device or module.
-    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md).
+    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md). -->
 
 #### Authorization
 
-Once authenticated, the IoT Edge hub have two ways to authorize client connections:
+Once authenticated, the IoT Edge hub has two ways to authorize client connections:
 
 1. By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
 2. By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.

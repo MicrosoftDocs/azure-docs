@@ -26,7 +26,7 @@ The IoT Edge runtime provides the infrastructure to integrate the functionality 
 
 ### Packaging your program as an IoT Edge module
 
-To deploy your program on an IoT Edge device, it must first be containerized and run with a Docker-compatible engine. IoT Edge uses [Moby](https://github.com/moby/moby), the open-source project behind Docker, as its Docker-compatible engine. The same parameters that you're used to with Docker can be passed to your IoT Edge modules. [Learn more about these parameters here](how-to-use-create-options.md). 
+To deploy your program on an IoT Edge device, it must first be containerized and run with a Docker-compatible engine. IoT Edge uses [Moby](https://github.com/moby/moby), the open-source project behind Docker, as its Docker-compatible engine. The same parameters that you're used to with Docker can be passed to your IoT Edge modules. For more information, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md). 
 
 ## Using the IoT Edge hub
 
@@ -88,19 +88,19 @@ Twins are one of the primitives provided by IoT Hub. There are JSON documents th
 
 ##### Get twins
 
-To get a module twin with the Azure IoT SDK, simply call the `ModuleClient.getTwin` method.
+To get a module twin with the Azure IoT SDK, call the `ModuleClient.getTwin` method.
 
 To get a module twin with any MQTT client, a little bit more work is involved since getting a twin is not a typical MQTT pattern. The module must first subscribe to IoT Hub special topic `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all devices/modules need to subscribe to the same topic. It does not mean that devices receive the twin of each other. IoT Hub and edgeHub knows which twin should be delivered where, even if all devices listen to the same topic name. Once the subscription is made, the module needs to ask for the twin by publishing a message to the following IoT Hub special topic with a request id `$iothub/twin/GET/?$rid=1234`. This request id is an arbitrary id, e.g. a GUID, which will be sent back by IoTHub along with the requested data. This is how a client can pair its requests with the responses. The result code is a HTTP-like status code, where successful is encoded as 200.
 
 ##### Receive twin patches
 
-To receive a module twin patch with the Azure IoT SDK, simply implement a callback function and register it with the `ModuleClient.moduleTwinCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a twin patch comes in.
+To receive a module twin patch with the Azure IoT SDK, implement a callback function and register it with the `ModuleClient.moduleTwinCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a twin patch comes in.
 
-To receive a module twin patch with any MQTT client, process is very similar to receiving full twins: a client needs to subscribe to a special IoTHub topic. After the subscription made, when IoT Hub sends a change of the desired section of the twin, the client receives it.
+To receive a module twin patch with any MQTT client, the process is very similar to receiving full twins: a client needs to subscribe to special IoTHub topic `$iothub/twin/PATCH/properties/desired/#`. After the subscription is made, when IoT Hub sends a change of the desired section of the twin, the client receives it.
 
-#### Send/Receive Direct Methods
+#### Receive direct methods
 
-To receive a direct method with the Azure IoT SDK, simply implement a callback function and register it with the `ModuleClient.methodCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a direct method comes in.
+To receive a direct method with the Azure IoT SDK, implement a callback function and register it with the `ModuleClient.methodCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a direct method comes in.
 
 To receive a direct method with any MQTT client, process is very similar to receiving twin patches with the addition that the client needs to confirm back that it has received the call and can send back some information at the same time. Special IoT Hub topic to subscribe to is `$iothub/methods/POST/#`.
 
