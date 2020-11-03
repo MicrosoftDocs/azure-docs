@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 11/02/2020
 tags: connectors
 ---
 
@@ -35,6 +35,8 @@ You can use triggers that monitor events on your SFTP server and make output ava
 For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
 
 ## Limits
+
+* The SFTP-SSH connector supports either private key authentication or password authentication, not both.
 
 * SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. Although the default chunk size is 15 MB, this size can dynamically change, starting from 5 MB and gradually increasing to the 50 MB maximum, based on factors such as network latency, server response time, and so on.
 
