@@ -61,7 +61,7 @@ For details, see [How to use Azure API Management with virtual networks](api-man
 
 ### Place your APIM in a virtual network and route outbound calls to Azure Firewall
 
-Similar to placing your APIM and backend services in a virtual network, you can employ Azure Firewall in a VNet with your APIM service, then route outbound APIM calls to Azure Firewall. Between APIM and Azure Firewall (being in the same VNet), no SNAT ports are required. For SNAT connections to your backend services, [Azure Firewall has 64,000 available ports](../firewall/overview.md#:~:text=Azure%20Firewall%20allows%20any%20port,in%20the%201-63999%20range), a significantly higher amount than is allocated to APIM instances.
+Similar to placing your APIM and backend services in a virtual network, you can employ Azure Firewall in a VNet with your APIM service, then route outbound APIM calls to Azure Firewall. Between APIM and Azure Firewall (being in the same VNet), no SNAT ports are required. For SNAT connections to your backend services, Azure Firewall has 64,000 available ports, a significantly higher amount than is allocated to APIM instances.
 
 Refer to [Azure Firewall](../firewall/overview.md) documentation for more.
 
