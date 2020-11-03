@@ -24,93 +24,94 @@ LUIS allows three types of Azure resources and one non-Azure resource:
 
 |Resource|Purpose|Cognitive service `kind`|Cognitive service `type`|
 |--|--|--|--|
-|Authoring resource|Allows you to create, manage, train, test, and publish your applications. [Create a LUIS authoring resource](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) if you intend to author LUIS apps programtically or from the LUIS portal. You need to [migrate your LUIS account](luis-migration-authoring.md#what-is-migration) before you link your Azure authoring resources to your application. You can control permissions to the authoring resource by assigning people [the contributor role](#contributions-from-other-authors). <br><br> One tier is available for the LUIS authoring resource:<br> <ul> <li>**Free F0 Authoring resource**, which gives you 1M Free authoring transactions and 1000 free testing prediction endpoint requests monthly. |`LUIS.Authoring`|`Cognitive Services`|
-|Prediction resource| After you publish your LUIS application, use the prediction resource/key to query prediction endpoint requests. Create a LUIS prediction resource before your client app requests predictions beyond the 1,000 requests provided by the Authoring or the starter resource. <br><br> There are two tiers avialble for the prediction resource:<br> * **Free F0 Prediction resource** which gives you 10,000 free prediction endpoint requests monthly<br> * **Standard S0 Prediction resource** which is the paid tier. [Learn more about the pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Starter/Trial resource|Allows you to create, manage, train, test and publish your applications. This is created by deafult if you choose the starter resource option while first signing up tp LUIS. However, the starter key will eventually be deprecated and all LUIS users will need to [migrate their accounts](luis-migration-authoring.md#what-is-migration) and link their LUIS applications to an authoring resource. This resource does not give you permissions for Azure role-based access control like the authoring resource. <br><br> Just as the authoring resource, the starter resource gives you 1M Free authoring transactions and 1000 free testing prediction endpoint requests.|-|Not an Azure resource|
-|[Cognitive Services multiservice resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
+|Authoring resource|Allows you to create, manage, train, test, and publish your applications. [Create a LUIS authoring resource](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) if you intend to author LUIS apps programtically or from the LUIS portal. You need to [migrate your LUIS account](luis-migration-authoring.md#what-is-migration) before you link your Azure authoring resources to your application. You can control permissions to the authoring resource by assigning people [the contributor role](#contributions-from-other-authors). <br><br> One tier is available for the LUIS authoring resource:<br> <ul> <li>**Free F0 authoring resource**, which gives you 1 million free authoring transactions and 1,000 free testing prediction endpoint requests monthly. |`LUIS.Authoring`|`Cognitive Services`|
+|Prediction resource| After you publish your LUIS application, use the prediction resource/key to query prediction endpoint requests. Create a LUIS prediction resource before your client app requests predictions beyond the 1,000 requests provided by the authoring or starter resource. <br><br> Two tiers are available for the prediction resource:<br><ul> <li> **Free F0 prediction resource**, which gives you 10,000 free prediction endpoint requests monthly.<br> <li> **Standard S0 prediction resource**, which is the paid tier. [Learn more about pricing.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Starter/Trial resource|Allows you to create, manage, train, test, and publish your applications. This resource is created by default if you choose the starter resource option when you first sign in to LUIS. The starter key will eventually be deprecated. All LUIS users will need to [migrate their accounts](luis-migration-authoring.md#what-is-migration) and link their LUIS applications to an authoring resource. Unlike the authoring resource, this resource doesn't give you permissions for Azure role-based access control. <br><br> Like the authoring resource, the starter resource gives you 1 million free authoring transactions and 1,000 free testing prediction endpoint requests.|-|Not an Azure resource.|
+|[Cognitive Services multiservice resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported cognitive services.|`CognitiveServices`|`Cognitive Services`|
 
 
 > [!Note]
-> There are two types of F0 (free tier) resources that LUIS provides. One for authoring transactions and one for prediction transactions. If you are running out of free quota for prediction transactions, make sure that you are in fact using the F0 prediction resource that gives you a 10,000 free transactions monthly and not the authoring resource that gives you 1000 prediction transactions monthly.
+> LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource that gives you a 10,000 free transactions monthly and not the authoring resource that gives you 1,000 prediction transactions monthly.
 
 When the Azure resource creation process is finished, [assign the resource](#assign-a-resource-to-an-app) to the app in the LUIS portal.
 
-It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
+> [!important]
+> You should author LUIS apps in the [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
 ## Resource ownership
 
-An Azure resource, such as a LUIS, is owned by the subscription containing the resource.
+An Azure resource, like a LUIS resource, is owned by the subscription that contains the resource.
 
-To transfer ownership of a resource, you can either:
-* Transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription
-* Export the LUIS app as a file, then import app on a different subscription. Export is available from the **My apps** page in the LUIS portal.
+To change the ownership of a resource, you can take one of these actions:
+* Transfer the [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
+* Export the LUIS app as a file, and then import the app on a different subscription. Export is available on the **My apps** page in the LUIS portal.
 
 
 ## Resource limits
 
 ### Authoring key creation limits
 
-You can create up to 10 authoring keys per region per subscription.
+You can create as many as 10 authoring keys per region, per subscription.
 
-See [Key Limits](luis-limits.md#key-limits) and [Azure regions](luis-reference-regions.md).
+For more information, see [key limits](luis-limits.md#key-limits) and [Azure regions](luis-reference-regions.md).
 
-Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want your client application to be located.
+Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located.
 
-### Key usage limit errors
+### Errors for key usage limits
 
 Usage limits are based on the pricing tier.
 
-If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 error. If you exceed your transaction-per-month (TPS) quota, you receive an HTTP 403 error.
+If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 error. If you exceed your transaction-per-month (TPM) quota, you receive an HTTP 403 error.
 
 
-### Reset authoring key
+### Reset an authoring key
 
-For [authoring resource migrated](luis-migration-authoring.md) apps: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource.
+For [migrated authoring resource](luis-migration-authoring.md) apps: If your authoring key is compromised, reset the key in the Azure portal, on the **Keys** page for the authoring resource.
 
-For apps that have not migrated yet: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
+For apps that haven't been migrated: The key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of `Ocp-Apim-Subscription-Key` to the new key.
 
-### Regenerate Azure key
+### Regenerate an Azure key
 
-Regenerate the Azure keys from the Azure portal, on the **Keys** page.
+You can regenerate an Azure key from the **Keys** page in the Azure portal.
 
 
 <a name="securing-the-endpoint"></a>
 
-## App Ownership, access, and security
+## App ownership, access, and security
 
-An app is defined by its Azure resources, which is determined by the owner's subscription.
+An app is defined by its Azure resources, which are determined by the owner's subscription.
 
-You can move your LUIS app. Use the following documentation resources in the Azure portal or Azure CLI:
+You can move your LUIS app. Use the following resources to help you do so by using the Azure portal or Azure CLI:
 
-* [Move app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Move resource to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-* [Move resource within same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+* [Move an app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Move a resource to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Move a resource within the same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
 
 ### Contributions from other authors
 
-For [authoring resource migrated](luis-migration-authoring.md) apps: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md), using the collaborator's email address and the _contributor_ role.
+For [migrated authoring resource](luis-migration-authoring.md) apps: You can manage _contributors_ for an authoring resource in the Azure portal by using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md) by using the collaborator's email address and the contributor role.
 
-For apps that have not migrated yet: all _collaborators_ are managed in the LUIS portal from the **Manage -> Collaborators** page.
+For apps that have not migrated yet: You can manage all _collaborators_ on the **Manage -> Collaborators** page in the LUIS portal.
 
 ### Query prediction access for private and public apps
 
-For a **private** app, query prediction runtime access is available for owners and contributors. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](#create-resources-in-the-azure-portal) runtime resource, and has the public app's ID.
+For private apps, query prediction runtime access is available for owners and contributors. For public apps, runtime access is available to users who have their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](#create-resources-in-the-azure-portal) runtime resource and the public app's ID.
 
-Currently, there isn't a catalog of public apps.
+There isn't currently a catalog of public apps.
 
 ### Authoring permissions and access
-Access to the app from the [LUIS](luis-reference-regions.md#luis-website) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the Azure authoring resource.
+Access to an app from the [LUIS](luis-reference-regions.md#luis-website) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the Azure authoring resource.
 
 The owner and all contributors have access to author the app.
 
-|Authoring access includes|Notes|
+|Authoring access includes:|Notes|
 |--|--|
 |Add or remove endpoint keys||
-|Exporting version||
+|Export version||
 |Export endpoint logs||
-|Importing version||
-|Make app public|When an app is public, anyone with an authoring or endpoint key can query the app.|
+|Import version||
+|Make app public|When an app is public, anyone who has an authoring or endpoint key can query the app.|
 |Modify model|
 |Publish|
 |Review endpoint utterances for [active learning](luis-how-to-review-endpoint-utterances.md)|
@@ -120,47 +121,47 @@ The owner and all contributors have access to author the app.
 
 ### Prediction endpoint runtime access
 
-Access to query the prediction endpoint is controlled by a setting on the **Application Information** page in the **Manage** section.
+Access for querying the prediction endpoint is controlled by a setting on the **Application Information** page in the **Manage** section.
 
 |[Private endpoint](#runtime-security-for-private-apps)|[Public endpoint](#runtime-security-for-public-apps)|
 |:--|:--|
-|Available to owner and contributors|Available to owner, contributors, and anyone else that knows app ID|
+|Available to owner and contributors|Available to owner, contributors, and anyone else who knows the app ID|
 
-You can control who sees your LUIS runtime key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authenticated and authorization is verified, pass the call on to LUIS. While this strategy doesn't prevent man-in-the-middle attacks, it obfuscates your key and endpoint URL from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).
+You can control who sees your LUIS runtime key by calling it in a server-to-server environment. If you're using LUIS from a bot, the connection between the bot and LUIS is already more secure. If you're calling the LUIS endpoint directly, you should create a server-side API (like an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (via something like [Azure AD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authenticated and authorization is verified, pass the call on to LUIS. This strategy doesn't prevent man-in-the-middle attacks. But it does obfuscate your key and endpoint URL from your users, allow you to track access, and allow you to add endpoint response logging (like [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 ### Runtime security for private apps
 
-A private app's runtime is only available to the following:
+A private app's runtime is available only to the following keys:
 
 |Key and user|Explanation|
 |--|--|
-|Owner's authoring key| Up to 1000 endpoint hits|
-|Collaborator/contributor authoring keys| Up to 1000 endpoint hits|
+|Owner's authoring key| Up to 1,000 endpoint hits|
+|Collaborator/contributor authoring keys| Up to 1,000 endpoint hits|
 |Any key assigned to LUIS by an author or collaborator/contributor|Based on key usage tier|
 
 ### Runtime security for public apps
 
-Once an app is configured as public, _any_ valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
+When your app is configured as public, _any_ valid LUIS authoring key or LUIS endpoint key can query it, as long as the key hasn't used the entire endpoint quota.
 
-A user who is not an owner or contributor, can only access a public app's runtime if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.
+A user who isn't an owner or contributor can access a public app's runtime only if given the app ID. LUIS doesn't have a public market or any other way for users to search for a public app.
 
-A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
+A public app is published in all regions, so a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
 
 
-### Securing the query prediction endpoint
+### Control access to your query prediction endpoint
 
-You can control who can see your LUIS prediction runtime endpoint key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn't prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).
+You can control who can see your LUIS prediction runtime endpoint key by calling it in a server-to-server environment. If you're using LUIS from a bot, the connection between the bot and LUIS is already more secure. If you're calling the LUIS endpoint directly, you should create a server-side API (like an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (via something like [Azure AD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. This strategy doesn't prevent man-in-the-middle attacks. But it does obfuscate your endpoint from your users, allow you to track access, and allow you to add endpoint response logging (like [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 <a name="starter-key"></a>
 
-## Sign in to LUIS portal and begin authoring
+## Sign in to the LUIS portal and begin authoring
 
-1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
-1. Begin your LUIS app by choosing your Azure LUIS authoring key.
+1. Sign in to the [LUIS portal](https://www.luis.ai) and agree to the terms of use.
+1. Begin your LUIS app by choosing your Azure LUIS authoring key:
 
-   ![Choose a type of Language Understanding authoring resource](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Screenshot that shows the welcome screen.](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-1. When you are done with your resource selection process, [create a new app](luis-how-to-start-new-app.md#create-new-app-in-luis).
+1. When you're done with the resource selection process, [create a new app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
 <a name="create-azure-resources"></a>
@@ -170,28 +171,28 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 
 ### Create resources in Azure CLI
 
-Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
+Use [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
 
 Resource `kind`:
 
 * Authoring: `LUIS.Authoring`
 * Prediction: `LUIS`
 
-1. Sign in to the Azure CLI:
+1. Sign in to Azure CLI:
 
     ```azurecli
     az login
     ```
 
-    This opens a browser to allow you to select the correct account and provide authentication.
+    This command opens a browser so you can select the correct account and provide authentication.
 
-1. Create a **LUIS authoring resource**, of kind `LUIS.Authoring`, named `my-luis-authoring-resource` in the _existing_ resource group named `my-resource-group` for the `westus` region.
+1. Create a LUIS authoring resource of kind `LUIS.Authoring`, named `my-luis-authoring-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Create a **LUIS prediction endpoint resource**, of kind `LUIS`, named `my-luis-prediction-resource` in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want a higher throughput than the free tier, change `F0` to `S0`. Learn more about [pricing tiers and throughput](luis-limits.md#key-limits).
+1. Create a LUIS prediction endpoint resource of kind `LUIS`, named `my-luis-prediction-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want higher throughput than the free tier provides, change `F0` to `S0`. [Learn more about pricing tiers and throughput.](luis-limits.md#key-limits)
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
