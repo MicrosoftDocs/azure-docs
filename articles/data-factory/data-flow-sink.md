@@ -8,7 +8,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 ---
 
 # Sink transformation in mapping data flow
@@ -66,9 +66,11 @@ The following video explains a number of different sink options for text-delimit
 
 **Use TempDB:** By default, Data Factory will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask Data Factory to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Use Temp DB](media/data-flow/tempdb.png "Use Temp DB")
 
 ## Cache sink
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
 A *cache sink* is when a data flow writes data into the Spark cache instead of a data store. In mapping data flows, you can reference this data within the same flow many times using a *cache lookup*. This is useful when you want to reference data as part of an expression but don't want to explicitly join the columns to it. Common examples where a cache sink can help are looking up a max value on a data store and matching error codes to an error message database. 
 
