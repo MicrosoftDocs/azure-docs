@@ -198,7 +198,7 @@ Add your Phone Sign-in credentials to the Authenticator app without needing a pa
     :::image type="content" source="media/user-help-auth-app-add-non-ms-account/add-account.png" alt-text="The Add account icon is a plus sign":::
 
 1. Select **Sign in with your email** if it is available. Contact the administrator for your work or school account if it isn't available but you think it should be. If you have a QR code, you can select **Scan QR code**.
-1. Sign in with the username for the account you want to use. You should have a temporary access passcode that you can use to sign in. Contact the administrator for your work or school account if you don't.
+1. Sign in with the email for the account you want to use. You should have a temporary access passcode that you can use to sign in. Contact the administrator for your work or school account if you don't.
 
     :::image type="content" source="media/user-help-auth-app-add-non-ms-account/temporary-access-pass.png" alt-text="Your account administrator should give you a temporary access pass":::
 
