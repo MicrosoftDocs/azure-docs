@@ -53,7 +53,6 @@ Welcome to what's new in the Cognitive Services docs from October 1, 2020 throug
 ### Updated articles
 
 - [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
 - [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq.md)
 
 ## Text Analytics
