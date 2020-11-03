@@ -12,9 +12,9 @@ Companies that want a local presence, or a hot backup, choose to run services fr
 
 A geo-replicated registry provides the following benefits:
 
-* Single registry/image/tag names can be used across multiple regions
-* Network-close registry access from regional deployments
-* No additional egress fees, as images are pulled from a local, replicated registry in the same region as your container host
+* Single registry, image, and tag names can be used across multiple regions
+* Improve performance and reliability of regional deployments with network-close registry access
+* Reduce data transfer costs by pulling image layers from a local, replicated registry in the same or nearby region as your container host
 * Single management of a registry across multiple regions
 
 > [!NOTE]
@@ -50,8 +50,9 @@ Typical challenges of multiple registries include:
 Using the geo-replication feature of Azure Container Registry, these benefits are realized:
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
-* Manage a single configuration of image deployments as all regions used the same image URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
+* Manage a single configuration of image deployments as all regions use the same image URL: `contoso.azurecr.io/public/products/web:1.2`
+* Push to a single registry, while ACR manages the geo-replication. ACR only replicates unique layers, reducing data transfer across regions. 
+* Configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
 
 ## Configure geo-replication
 
