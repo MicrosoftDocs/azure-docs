@@ -296,7 +296,7 @@
         - name: Manage connections
           href: manage-connections.md
           displayName: best practice
-        - name: Error handling
+        - name: Error handling and retries
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
