@@ -65,8 +65,6 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 1. Publish the asset by creating an OnDemand locator.
 1. Stream published content.
 
-For information about availability in datacenters, see the [Availability](#availability) section.
-
 ## Protect content in storage, deliver dynamically encrypted streaming media
 
 ![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)

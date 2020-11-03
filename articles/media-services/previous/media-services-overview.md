@@ -3,7 +3,7 @@ title: Azure Media Services overview | Microsoft Docs
 description: Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. This article gives an overview of Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
+ms.date: 11/03/2020
+ms.author: inhenkel
 
 ---
 # Azure Media Services overview
@@ -82,13 +82,12 @@ For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
 ## Supported scenarios and availability of Media Services across data centers
 
-For detailed information, see [AMS scenarios and availability of features and services across data centers](scenarios-and-availability.md).
+For more information about Azure common scenarios, see [AMS scenarios](scenarios-and-availability.md).
+For information about regional availability, see [Media service availability](availability-regions-v2.md).
 
 ## Service Level Agreement (SLA)
 
 For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
-
-For information about availability in datacenters, see the [Availability](scenarios-and-availability.md#availability) section.
 
 ## Support
 
