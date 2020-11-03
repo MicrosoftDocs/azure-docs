@@ -127,6 +127,16 @@ Returns a JSON document with a "status" field that can have the following values
 
 If the status is "Failure", there will be an additional "error" field with a "message" subfield containing error information. Additional logs will be uploaded to your output container.
 
+## List Conversions
+
+To get a list of conversions run from a given account use the interface:
+
+| Endpoint | Method |
+|-----------|:-----------|
+| /v1/accounts/**accountID**/conversions | GET |
+
+This will return a json document that contains a list of conversions and their details up to a maximum of 50 conversions at a time. In the where there are more conversions the response will contain a **nextLink** property which can be queried to 
+
 ## Next steps
 
 - [Use Azure Blob Storage for model conversion](blob-storage.md)
