@@ -25,18 +25,17 @@ This article describes a pattern for converting RDF-based industry or custom mod
 
 ## Industry models  
 
-Using industry models provides a rich starting point when designing your Azure Digital Twins model. Using industry models also helps with standardization and information sharing. 
+Using industry models provides a rich starting point when designing your Azure Digital Twins model. Using industry models also helps with standardization and information sharing.
 
-Some common industry models include:  
+Depending on your needs, there are several ways you can work with industry models in Azure Digital Twins.
+For some industries, there are starter DTDL ontologies (sets of models) available that help provide common ground for industry standards and DTDL requirements to prevent reinvention. You can also extend or contribute to a starter ontology to customize it to your business. 
 
-| Industry vertical | Model |
-| --- | --- | 
-| Building / facility management | [RealEstateCore](https://www.realestatecore.io/)<br>[BRICK Schema](https://brickschema.org/ontology/1.1/)<br>[Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/)<br>[Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/)<br>[buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
-| Smart Cities | [ETSI NGSI-LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Smart Applications REFerence (SAREF)](https://saref.etsi.org/)<br>[Fiware](https://www.fiware.org/)<br>[Open & Agile Smart Cities (OASC)](https://oascities.org/) |
-| Energy Grid | [CIM](https://cimug.ucaiug.org/)/[IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[ADRM models](http://www.adrm.com/) for energy and commodity trading |
-| Automotive | [Vehicle Signal Specification](https://github.com/GENIVI/vehicle_signal_specification/tree/master/spec) |
+Here are the starter DTDL ontologies currently available:
+* For the real estate industry – the [Smart Building DTDL-based ontology](https://github.com/Azure/opendigitaltwins-building) (created in partnership with the RealEstateCore Consortium). Here you can find models for smart buildings, as well as best practices for how to consume and extend the ontology.
 
-Depending on your needs, you can also use DTDL to customize or extend industry models, or develop your own custom model from scratch. 
+For other domains that do not currently offer starter DTDL ontologies, like smart cities and energy grids, you can follow the best practices outlined in this article to convert industry models and create your own solutions.
+
+Finally, you can also use the ideas from your industry models to develop your own [custom DTDL models](how-to-manage-model.md) from scratch.
 
 ## Create and edit models
 
