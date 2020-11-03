@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 10/29/2020
-ms.author: joannapea
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019
 
 In this article, you learn how to restore an existing SQL pool in Azure Synapse Analytics using Azure portal and Azure Synapse Studio. This article applies to both restores and geo-restores. 
 
-**Verify your DWU capacity.** Each pool is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota. Verify the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DWU capacity.** Each pool is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota. Verify the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](./sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore an existing SQL pool through the Synapse Studio
 

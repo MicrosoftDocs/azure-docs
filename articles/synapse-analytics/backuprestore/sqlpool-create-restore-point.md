@@ -1,5 +1,5 @@
 ---
-title: User-defined restore points 
+title: Create a user defined restore poit for a Synapse SQL pool.
 description: How to create a restore point for Synapse SQL pool.
 services: synapse-analytics
 author: joannapea
@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 10/29/2020
-ms.author: joannapea
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
@@ -34,6 +34,5 @@ User-defined restore points can also be created through Azure portal.
 
 ## Next steps
 
-- [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restore an existing SQL pool](restore-sql-pool.md)
 
