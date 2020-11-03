@@ -66,7 +66,7 @@ You can choose compute and storage resources during deployment and then change t
 
 ## Migration options
 
-The following table describes data migration options and considerations: 
+The following table describes the recommended migration options and their considerations: 
 
 
 |Migration option  |When to use  |Description  |Considerations  |
@@ -76,7 +76,7 @@ The following table describes data migration options and considerations:
 
 ## Other methods for migration
 
-The following table describes other methods leveraging tools or technologies that can be used for migration as described: 
+The following table describes other methods leveraging tools or technologies that can be used for migration based on your preference: 
 |Method / technology |When to use  |Description  |Considerations  |
 |---------|---------|---------|---------|
 |[Transactional replication](../../managed-instance/replication-transactional-overview.md) | - Migrating by continuously publishing changes from source database tables to target SQL Managed Instance database tables. </br> - Full or partial database migrations of selected tables (subset of database).  </br> </br> Supported sources: </br> - SQL Server (2012 - 2019) with some limitations </br> - AWS EC2  </br> - GCP Compute SQL Server VM | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. | </br> - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).  </br> - Capability to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication) is available.    |
