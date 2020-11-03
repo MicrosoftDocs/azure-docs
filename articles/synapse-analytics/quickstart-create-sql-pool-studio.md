@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Launch Synapse Studio
 
-1. From the workspace overview, click on link near **Workspace web URL** to open the location where the dedicated SQL pool will be created. Type the service name or resource name directly into the search bar.
+1. From the workspace overview, select the **Workspace web URL** to launch Synapse Studio.
 
     ![Azure portal Synapse workspace overview with Workspace web URL highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
