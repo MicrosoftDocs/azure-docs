@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
 ---
 
@@ -31,6 +31,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Max input blob size for Batch Transcription** | N/A | 2.5 GB |
 | **Max blob container size for Batch Transcription** | N/A | 5 GB |
 | **Max number of blobs per container for Batch Transcription** | N/A | 10000 |
+| **Max number of files per Transcription request for Batch Transcription (when using multiple content URLs as input)** | N/A | 1000  |
 | **Max number of simultaneously running jobs for Batch Transcription** | N/A | 2000  |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

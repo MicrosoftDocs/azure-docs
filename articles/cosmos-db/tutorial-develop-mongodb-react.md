@@ -9,9 +9,10 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This multi-part video tutorial demonstrates how to create a hero tracking app with a React front-end. The app used Node and Express for the server, connects to Cosmos database configured with the [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point-and-click scaling of Cosmos DB in the Azure portal and how to deploy the app to the internet so everyone can track their favorite heroes. 
 
@@ -101,5 +102,4 @@ In this tutorial, you've learned how to:
 You can proceed to the next tutorial and learn how to import MongoDB data into Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
- 
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

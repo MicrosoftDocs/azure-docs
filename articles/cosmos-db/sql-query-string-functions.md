@@ -4,11 +4,12 @@ description: Learn about string SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # String functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The string functions let you perform operations on strings in Azure Cosmos DB.
 
@@ -24,6 +25,7 @@ The following scalar functions perform an operation on a string input value and 
 * [LENGTH](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
+* [REGEXMATCH](sql-query-regexmatch.md)
 * [REPLACE](sql-query-replace.md)
 * [REPLICATE](sql-query-replicate.md)
 * [REVERSE](sql-query-reverse.md)

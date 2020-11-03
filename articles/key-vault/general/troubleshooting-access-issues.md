@@ -15,11 +15,19 @@ ms.topic: how-to
 
 ### How can I identify how and when key vaults are accessed?
 
-After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do monitoring by enabling logging for Azure Key Vault, for step-by-step guide to enable logging, [read more](https://docs.microsoft.com/azure/key-vault/general/logging).
+After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do monitoring by enabling logging for Azure Key Vault, for step-by-step guide to enable logging, [read more](./logging.md).
 
 ### How can I monitor vault availability, service latency periods or other performance metrics for key vault?
 
-As you start to scale your service, the number of requests sent to your key vault will rise. Such demand has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](https://docs.microsoft.com/azure/key-vault/general/alert).
+As you start to scale your service, the number of requests sent to your key vault will rise. Such demand has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](./alert.md).
+
+### I am not able to modify access policy, how can it be enabled?
+The user needs to have sufficient AAD permissions to modify access policy. In this case, the user would need to have higher contributor role.
+
+### I am seeing 'Unkwown Policy' error. What does that mean?
+There are two different possibilities of seeing access policy in Unknown section:
+* There might be a previous user who had access and for some reason that user does not exist.
+* If access policy is added via powershell and the access policy is added for the application objectid instead of the service priciple
 
 ### How can I assign access control per key vault object? 
 
@@ -38,7 +46,9 @@ The application also needs at least one Identity and Access Management (IAM) rol
 
 ### How can I redeploy Key Vault with ARM template without deleting existing access policies?
 
-Currently Key Vault redeployment deletes any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
+Currently Key Vault redeployment deletes any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need to read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
+
+Another option that can help for this scenario is using RBAC roles as an alternative to access policies. With RBAC, you can re-deploy the key vault without specifying the policy again. You can read more this solution [here](./rbac-guide.md).
 
 ### Recommended troubleshooting Steps for following error types
 

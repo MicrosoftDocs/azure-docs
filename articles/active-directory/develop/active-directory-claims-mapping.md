@@ -296,7 +296,7 @@ The ID element identifies which property on the source provides the value for th
 | User | companyname| Organization Name |
 | User | streetaddress | Street Address |
 | User | postalcode | Postal Code |
-| User | preferredlanguange | Preferred Language |
+| User | preferredlanguage | Preferred Language |
 | User | onpremisesuserprincipalname | On-premises UPN |*
 | User | mailnickname | Mail Nickname |
 | User | extensionattribute1 | Extension Attribute 1 |
@@ -414,7 +414,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your Application object.
 
 Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
 

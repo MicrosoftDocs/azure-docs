@@ -49,7 +49,7 @@ Azure Synapse Analytics connector support basic authentication.
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Synapse Analytics by using different tools/APIs.
 
-The easiest way to create a pipeline that copies data to/from Azure Synapse Analytics is to use the Copy data wizard. See [Tutorial: Load data into Synapse Analytics with Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+The easiest way to create a pipeline that copies data to/from Azure Synapse Analytics is to use the Copy data wizard. See [Tutorial: Load data into Synapse Analytics with Data Factory](../load-azure-sql-data-warehouse.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
 You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
@@ -73,7 +73,7 @@ The following table provides description for JSON elements specific to Azure Syn
 | connectionString |Specify information needed to connect to the Azure Synapse Analytics instance for the connectionString property. Only basic authentication is supported. |Yes |
 
 > [!IMPORTANT]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure Synapse Analytics from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure Synapse Analytics.
+> Configure [Azure SQL Database Firewall](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure). Additionally, if you are copying data to Azure Synapse Analytics from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure Synapse Analytics.
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
@@ -146,10 +146,10 @@ GO
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For details, see [repeatability section](#repeatability-during-copy). |A query statement. |No |
 | allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into Azure Synapse Analytics.** See [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) section for constraints and details. |True <br/>False (default) |No |
 | polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |&nbsp; |No |
-| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase's reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. |0 (default), 1, 2, … |No |
+| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase's reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) topic. |0 (default), 1, 2, … |No |
 | rejectType |Specifies whether the rejectValue option is specified as a literal value or a percentage. |Value (default), Percentage |No |
 | rejectSampleValue |Determines the number of rows to retrieve before the PolyBase recalculates the percentage of rejected rows. |1, 2, … |Yes, if **rejectType** is **percentage** |
-| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (default) |No |
+| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql). |True, False (default) |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize |Integer (number of rows) |No (default: 10000) |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: "00:30:00" (30 minutes). |No |
 
@@ -163,7 +163,7 @@ GO
 ```
 
 ## Use PolyBase to load data into Azure Synapse Analytics
-Using **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** is an efficient way of loading large amount of data into Azure Synapse Analytics with high throughput. You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [copy performance reference number](data-factory-copy-activity-performance.md#performance-reference) with detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Using **[PolyBase](/sql/relational-databases/polybase/polybase-guide)** is an efficient way of loading large amount of data into Azure Synapse Analytics with high throughput. You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [copy performance reference number](data-factory-copy-activity-performance.md#performance-reference) with detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 * If your source data is in **Azure Blob or Azure Data Lake Store**, and the format is compatible with PolyBase, you can directly copy to Azure Synapse Analytics using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details.
 * If your source data store and format is not originally supported by PolyBase, you can use the **[Staged Copy using PolyBase](#staged-copy-using-polybase)** feature instead. It also provides you better throughput by automatically converting the data into PolyBase-compatible format and storing the data in Azure Blob storage. It then loads data into Azure Synapse Analytics.
@@ -188,7 +188,7 @@ Set the `allowPolyBase` property to **true** as shown in the following example f
 Azure Synapse Analytics PolyBase directly support Azure Blob and Azure Data Lake Store (using service principal) as source and with specific file format requirements. If your source data meets the criteria described in this section, you can directly copy from source data store to Azure Synapse Analytics using PolyBase. Otherwise, you can use [Staged Copy using PolyBase](#staged-copy-using-polybase).
 
 > [!TIP]
-> To copy data from Data Lake Store to Azure Synapse Analytics efficiently, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with Azure Synapse Analytics](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> To copy data from Data Lake Store to Azure Synapse Analytics efficiently, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with Azure Synapse Analytics](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse).
 
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
@@ -259,7 +259,7 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 The following sections provide additional best practices to the ones that are mentioned in [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### Required database permission
-To use PolyBase, it requires the user being used to load data into Azure Synapse Analytics has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+To use PolyBase, it requires the user being used to load data into Azure Synapse Analytics has the ["CONTROL" permission](/sql/relational-databases/security/permissions-database-engine) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### Row size and data type limitation
 Polybase loads are limited to loading rows both smaller than **1 MB** and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX). Refer to [here](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
@@ -267,7 +267,7 @@ Polybase loads are limited to loading rows both smaller than **1 MB** and cannot
 If you have source data with rows of size greater than 1 MB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure Synapse Analytics.
 
 ### Azure Synapse Analytics resource class
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into Azure Synapse Analytics via PolyBase. Learn how to do that by following [Change a user resource class example](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).
+To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into Azure Synapse Analytics via PolyBase. Learn how to do that by following [Change a user resource class example](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).
 
 ### tableName in Azure Synapse Analytics
 The following table provides examples on how to specify the **tableName** property in dataset JSON for various combinations of schema and table name.
@@ -298,7 +298,7 @@ If you are using Copy Wizard to copy data from SQL Server or Azure SQL Database 
 
 Data Factory creates the table in the destination store with the same table name in the source data store. The data types for columns are chosen based on the following type mapping. If needed, it performs type conversions to fix any incompatibilities between source and destination stores. It also uses Round Robin table distribution.
 
-| Source SQL Database column type | Destination SQL DW column type (size limitation) |
+| Source SQL Database column type | Destination Azure Synapse Analytics column type (size limitation) |
 | --- | --- |
 | Int | Int |
 | BigInt | BigInt |
@@ -339,7 +339,7 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 
 When moving data to & from Azure Synapse Analytics, the following mappings are used from SQL type to .NET type and vice versa.
 
-The mapping is same as the [SQL Server Data Type Mapping for ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
+The mapping is same as the [SQL Server Data Type Mapping for ADO.NET](/dotnet/framework/data/adonet/sql-server-data-type-mappings).
 
 | SQL Server Database Engine type | .NET Framework type |
 | --- | --- |
@@ -743,7 +743,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
   }
 }
 ```
-For a walkthrough, see the see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) and [Load data with Azure Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure Synapse Analytics documentation.
+For a walkthrough, see the see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) and [Load data with Azure Data Factory](../load-azure-sql-data-warehouse.md) article in the Azure Synapse Analytics documentation.
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

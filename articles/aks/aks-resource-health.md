@@ -11,7 +11,7 @@ ms.author: yunjchoi
 # Check for Resource Health events impacting your AKS cluster (Preview)
 
 
-When running your container workloads on AKS, you want to ensure you can troubleshoot and fix problems as soon as they arise to minimize the impact on the availability of your workloads. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) gives you visibility into various health events that may cause your AKS cluster to be unavailable.
+When running your container workloads on AKS, you want to ensure you can troubleshoot and fix problems as soon as they arise to minimize the impact on the availability of your workloads. [Azure Resource Health](../service-health/resource-health-overview.md) gives you visibility into various health events that may cause your AKS cluster to be unavailable.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -28,7 +28,7 @@ When running your container workloads on AKS, you want to ensure you can trouble
 - Select **Resource health** in the left navigation.
 - Select your subscription and set the resource type to Azure Kubernetes Service (AKS).
 
-![resource-health-check](./media/aks-resource-health/resource-health-check.png)
+![Screenshot shows the Resource health for your A K S clusters.](./media/aks-resource-health/resource-health-check.png)
 
 ## Check the health status
 
@@ -44,7 +44,7 @@ Resource Health receives signals for your managed cluster to determine the clust
 
 - **Degraded**: When there is a health issue requiring your action, Resource Health reports your cluster as *Degraded*.
 
-For additional details on what each health status indicates, visit [Resource Health overview](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+For additional details on what each health status indicates, visit [Resource Health overview](../service-health/resource-health-overview.md#health-status).
 
 ### View historical data
 
@@ -52,4 +52,4 @@ You can also view the past 30 days of historical Resource Health information in 
 
 ## Next steps
 
-Run checks on your cluster to further troubleshoot cluster issues by using [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Run checks on your cluster to further troubleshoot cluster issues by using [AKS Diagnostics](./concepts-diagnostics.md).

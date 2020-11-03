@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Query Parquet files using SQL on-demand (preview) in Azure Synapse Analytics
@@ -150,43 +150,7 @@ ORDER BY
 
 ## Type mapping
 
-Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
-
-| Parquet type | Parquet logical type (annotation) | SQL data type |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY / BYTE_ARRAY | | varbinary |
-| DOUBLE | | float |
-| FLOAT | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*(UTF8 collation) |
-| BINARY |STRING |varchar \*(UTF8 collation) |
-| BINARY |ENUM|varchar \*(UTF8 collation) |
-| BINARY |UUID |uniqueidentifier |
-| BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(UTF8 collation) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), serialized into standardized format |
-| INT32 |INT(8, true) |smallint |
-| INT32 |INT(16, true) |smallint |
-| INT32 |INT(32, true) |int |
-| INT32 |INT(8, false) |tinyint |
-| INT32 |INT(16, false) |int |
-| INT32 |INT(32, false) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |decimal |
-| INT32 |TIME (MILLIS )|time |
-| INT64 |INT(64, true) |bigint |
-| INT64 |INT(64, false ) |decimal(20,0) |
-| INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS / NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(max), serialized into JSON |
-|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialized into JSON |
+For Parquet type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## Next steps
 

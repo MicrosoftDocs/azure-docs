@@ -45,9 +45,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
 | View pipeline run details in studio                                        | GA                   | YES                | YES         |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview       | YES                | YES         |
+| Create, run, visualize, and publish pipelines in Azure ML designer          | GA      | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
-| Create pipeline endpoints in Azure ML designer                             | Public Preview       | YES                | YES         |
+| Create pipeline endpoints in Azure ML designer                             | GA      | YES                | YES         |
 | **Integrated notebooks** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
@@ -118,7 +118,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Root and SSH access to compute resources.                                          | YES | YES |  |
 | Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available |                                  
 | Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available|
-| Role-Based Access Control (RBAC) - Custom Role Creations                           | YES | YES |  |
+| Azure role-based access control (Azure RBAC) - Custom Role Creations                           | YES | YES |  |
 | Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	| ACR behind private endpoint and VNet not supported in Azure Government |
 | **General Machine Learning Service Usage** |  | | |
 | Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp     | YES | YES |  |
@@ -132,7 +132,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 * For Azure Machine Learning compute instances, the ability to refresh a token lasting more than 24 hours is not available in Azure Government.
 * Model Profiling does not support 4 CPUs in the US-Arizona region.   
 * Sample notebooks may not work in Azure Government if it needs access to public data.
-* IP addresses: The CLI command used in the [VNet and forced tunneling](how-to-enable-virtual-network.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
+* IP addresses: The CLI command used in the [VNet and forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
 * For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do additional setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
 * Firewalls: When using an Azure Government region, add the following additional hosts to your firewall setting:
 
@@ -158,9 +158,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
 | View pipeline run details in studio                                        | GA               | YES       | N/A        |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview   | YES       | N/A        |
+| Create, run, visualize, and publish pipelines in Azure ML designer          | GA  | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | NO        | N/A        |
-| Create pipeline endpoints in Azure ML designer                             | Public Preview   | YES       | N/A        |
+| Create pipeline endpoints in Azure ML designer                             | GA   | YES       | N/A        |
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
@@ -232,7 +232,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
-* IP address ranges: The CLI command used in the [VNet forced tunneling](how-to-enable-virtual-network.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
+* IP address ranges: The CLI command used in the [VNet forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
 
 ## Next steps

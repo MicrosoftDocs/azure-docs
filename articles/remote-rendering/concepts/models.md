@@ -23,7 +23,6 @@ Each entity may have [components](components.md) attached. In the most common ca
 Creating models for runtime is achieved by [converting input models](../how-tos/conversion/model-conversion.md) from file formats such as FBX and GLTF. The conversion process extracts all the resources, such as textures, materials and meshes, and converts them to optimized runtime formats. It will also extract the structural information and convert that into ARR's entity/component graph structure.
 
 > [!IMPORTANT]
->
 > [Model conversion](../how-tos/conversion/model-conversion.md) is the only way to create [meshes](meshes.md). Although meshes can be shared between entities at runtime, there is no other way to get a mesh into the runtime, other than loading a model.
 
 ## Loading models
@@ -113,6 +112,13 @@ Afterwards you can traverse the entity hierarchy and modify the entities and com
 
 > [!CAUTION]
 > All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the use of *await* guarantees that the local variable 'loadOp' holds a reference until model loading is finished. However, if you were to use the *Completed* event instead, you would need to store the asynchronous operation in a member variable.
+
+## API documentation
+
+* [C# RemoteManager.LoadModelAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# RemoteManager.LoadModelFromSASAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ RemoteManager::LoadModelAsync()](/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ RemoteManager::LoadModelFromSASAsync()](/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## Next steps
 

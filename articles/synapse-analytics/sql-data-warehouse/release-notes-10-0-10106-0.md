@@ -31,10 +31,17 @@ For tooling improvements, make sure you have the correct version installed speci
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## Oct 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**T-SQL Inline Table-Valued Functions (preview)**|With this release, you can now create inline table-valued functions with Transact-SQL and query their results as you would a table. This feature is currently in Preview and will be supported in tooling at GA. For more information, see [CREATE FUNCTION (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**MERGE command (preview)**|You can now run insert, update, or delete operations on a target table from the results of a join with a source table. For example, you can synchronize two tables by inserting, updating, or deleting rows in one table based on differences found in the other table.  Check [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) for details.|
 
 ## Aug 2020
 
@@ -47,7 +54,7 @@ For tooling improvements, make sure you have the correct version installed speci
 
 | Service improvements | Details |
 | --- | --- |
-|**Column-Level Encryption (Public Preview)**|Protect sensitive information in your Synapse SQL data warehouse by applying symmetric encryption to a column of data using Transact-SQL. Column-level encryption has built-in functions you can use to encrypt data using symmetric keys that are further protected with a certificate, password, symmetric key, or asymmetric key. For more information, please visit [Encrypt a Column of Data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Column-Level Encryption (Public Preview)**|Protect sensitive information in your Azure Synapse Analytics by applying symmetric encryption to a column of data using Transact-SQL. Column-level encryption has built-in functions you can use to encrypt data using symmetric keys that are further protected with a certificate, password, symmetric key, or asymmetric key. For more information, please visit [Encrypt a Column of Data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Compatibility Level support (GA)**|With this release, users can now set a database's compatibility level to get the Transact-SQL language and query processing behaviors of a specific version of the Synapse SQL engine. For more information, see [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) and [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Row Level Security**|This release includes an improvement for update and delete operations on rows with RLS enforced on them. With this release, update and delete operations with intrinsic functions like ‘is_rolemember’ will succeed if the intrinsic does not reference any column in the DML target table. Before this improvement, these operations failed due to limitation in the underlying DML operations.|
 |**DBCC SHRINKDATABASE (GA)**|You can now shrink the size of the data and log files in the specified database. For more info, see the [documentation](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|

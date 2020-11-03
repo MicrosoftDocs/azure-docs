@@ -25,7 +25,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > 
 > * [Create a storage account](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
+> * [Create an Azure Machine Learning workspace](../classic/create-workspace.md)
 > 
 > 
 

@@ -5,15 +5,16 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
+ms.custom: references_regions
 
 
 ---
 
 
 # ExpressRoute Global Reach
-ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. You can access many Microsoft cloud services such as Azure, and Office 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in London with an ExpressRoute circuit in the same city. Both branch offices have high-speed connectivity to Azure resources in US West and UK South. However, the branch offices cannot connect and send data directly with one another. In other words, 10.0.1.0/24 can send data to 10.0.3.0/24 and 10.0.4.0/24 network, but NOT to 10.0.2.0/24 network.
+ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. You can access many Microsoft cloud services such as Azure and Microsoft 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in London with an ExpressRoute circuit in the same city. Both branch offices have high-speed connectivity to Azure resources in US West and UK South. However, the branch offices cannot connect and send data directly with one another. In other words, 10.0.1.0/24 can send data to 10.0.3.0/24 and 10.0.4.0/24 network, but NOT to 10.0.2.0/24 network.
 
 ![Diagram that shows circuits not linked together with Express Route Global Reach.][1]
 
@@ -27,10 +28,27 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ![Diagram that shows a use case for Express Route Global Reach.][3]
 
 ## Availability 
-ExpressRoute Global Reach is supported in all regions where ExpressRoute is currently supported. You can refer to [ExpressRoute peering locations](expressroute-locations.md#locations) for current supported regions. 
+ExpressRoute Global Reach is supported in the following places. 
 
 > [!NOTE] 
-> To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md#locations), your circuits must be **Premium SKU**.
+> To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations-providers.md#locations), your circuits must be **Premium SKU**.
+
+* Australia
+* Canada
+* France
+* Germany
+* Hong Kong SAR
+* Ireland
+* Japan
+* Korea
+* Netherlands
+* New Zealand
+* Norway
+* Singapore
+* Sweden
+* Switzerland
+* United Kingdom
+* United States
 
 ## Next steps
 - View the [Global Reach FAQ](expressroute-faqs.md#globalreach).

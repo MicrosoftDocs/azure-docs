@@ -314,7 +314,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 
 ## Set up packet capture by using PowerShell
 
-The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [this PowerShell document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### Start packet capture for a VPN gateway
 
@@ -349,6 +349,10 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Running packet capture can affect performance. Remember to stop the packet capture when you don't need it.
 - Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
+- Packet captures aren't supported on policy-based gateways.
+- If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
+
 
 ## Next steps
 

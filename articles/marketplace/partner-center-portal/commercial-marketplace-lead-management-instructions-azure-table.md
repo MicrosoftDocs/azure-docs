@@ -21,7 +21,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     1. Select **+ Create a resource** in the left menu bar. The **New** pane appears to the right.
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
-    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steps to create an Azure storage account.":::
 
@@ -54,7 +54,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
 ## (Optional) Use Power Automate to get lead notifications
 
-You can use [Power Automate](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Power Automate](/flow/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
@@ -130,7 +130,7 @@ The example creates a flow that automatically sends an email notification when a
    In the next few steps, you set up the action to take based on the result of the condition:
 
    * If the condition resolves to **If no**, don't do anything.
-   * If the condition resolves to **If yes**, trigger an action that connects your Office 365 account to send an email.
+   * If the condition resolves to **If yes**, trigger an action that connects your work or school account to send an email. 
 
 1. Select **Add an action** under **If yes**.
 

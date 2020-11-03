@@ -56,7 +56,7 @@ The Azure CLI command has a few parameters that are described in the following t
 
 
 >[!NOTE]
->For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
+>For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md).
 
 ## PowerShell
 
@@ -92,7 +92,7 @@ $lb | Set-AzLoadBalancer
 Regarding the `New-AzLoadBalancerRuleConfig` command, the `-FrontendPort` represents the port the load balancer exposes for external connections, and the `-BackendPort` represents the port the service fabric app is listening to.
 
 >[!NOTE]
->For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
+>For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md).
 
 ## Next steps
 

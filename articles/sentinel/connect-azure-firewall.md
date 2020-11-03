@@ -35,7 +35,7 @@ Learn more about [monitoring Azure Firewall logs](https://docs.microsoft.com/azu
 
 1. Enable **Diagnostic logs** on all the firewalls whose logs you wish to connect:
 
-    1. Select the [Open Azure Firewall resource >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FazureFirewalls) link.
+    1. Select the **Open Azure Firewall resource >** link.
 
     1. From the **Firewalls** navigation menu, select **Diagnostic settings**.
 

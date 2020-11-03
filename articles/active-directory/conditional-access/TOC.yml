@@ -52,8 +52,8 @@
   items:
   - name: Plan your Conditional Access deployment
     href: plan-conditional-access.md
-  - name: Best practices
-    href: best-practices.md
+  - name: Conditional Access APIs
+    href: howto-conditional-access-apis.md
   - name: Common Conditional Access policies
     items: 
     - name: Block legacy authentication

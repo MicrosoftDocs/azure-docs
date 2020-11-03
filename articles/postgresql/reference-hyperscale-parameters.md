@@ -1,5 +1,5 @@
 ---
-title: Server parameters – Hyperscale (Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Server parameters – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Parameters in the Hyperscale (Citus) SQL API
 author: jonels-msft
 ms.author: jonels
@@ -18,11 +18,11 @@ group. Under the **Settings** category, choose **Worker node parameters** or
 **Coordinator node parameters**. These pages allow you to set parameters for
 all worker nodes, or just for the coordinator node.
 
-## Hyperscale parameters
+## Hyperscale (Citus) parameters
 
 > [!NOTE]
 >
-> Hyperscale server groups running older versions of the Citus Engine may not
+> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
 > offer all the parameters listed below.
 
 ### General configuration

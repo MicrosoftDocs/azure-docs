@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,11 +21,16 @@ Risk detections in Azure AD Identity Protection include any identified suspiciou
 
 Identity Protection provides organizations access to powerful resources to see and respond quickly to these suspicious actions. 
 
+>**Note:** Identity Protection generates risk detections only when the correct credentials are used. If incorrect credentials are used on a sign-in, it does not represent risk of credential compromise.
+
 ![Security overview showing risky users and sign-ins](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
 
 ## Risk types and detection
 
 There are two types of risk **User** and **Sign-in** and two types of detection or calculation **Real-time** and **Offline**.
+
+Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to twenty-four hours.
 
 ### User risk
 

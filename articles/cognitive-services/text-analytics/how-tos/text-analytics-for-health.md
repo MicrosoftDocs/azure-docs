@@ -69,7 +69,7 @@ Text Analytics for health only supports English language documents.
 
 ## Request access to the container registry
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container. Currently you will not be billed for Text Analytics for health usage. 
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/csgate) to request access to the container. Currently you will not be billed for Text Analytics for health usage. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -223,7 +223,11 @@ For more information, see NGINX's documentation on [NGINX SSL Termination](https
 
 
 ## Example API request
-The container provides REST-based query prediction endpoint APIs.
+The container provides REST-based query prediction endpoint APIs.  We have also provided a visualization tool in the container that is accessible by appending the **demo** to the endpoint of the container for example:
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 

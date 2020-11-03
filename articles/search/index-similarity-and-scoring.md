@@ -7,7 +7,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 09/08/2020
 ---
 # Similarity and scoring in Azure Cognitive Search
 
@@ -34,7 +34,7 @@ A scoring profile is part of the index definition, composed of weighted fields, 
 
 ## Scoring statistics and sticky sessions
 
-For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that portions of an index are physically separate.
+For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 By default, the score of a document is calculated based on statistical properties of the data *within a shard*. This approach is generally not a problem for a large corpus of data, and it provides better performance than having to calculate the score based on information across all shards. That said, using this performance optimization could cause two very similar documents (or even identical documents) to end up with different relevance scores if they end up in different shards.
 
@@ -102,6 +102,6 @@ You can consume these data points in [custom scoring solutions](https://github.c
 ## See also
 
  [Scoring Profiles](index-add-scoring-profiles.md)
- [REST API Reference](/rest/api/searchservice/)   
- [Search Documents API](/rest/api/searchservice/search-documents)   
- [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
+ [REST API Reference](/rest/api/searchservice/)
+ [Search Documents API](/rest/api/searchservice/search-documents)
+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

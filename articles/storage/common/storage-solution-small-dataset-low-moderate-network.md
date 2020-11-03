@@ -59,6 +59,5 @@ The following table summarizes the differences in key capabilities.
 
 ## Next steps
 
-- Learn how to [transfer data with Azure Storage Explorer](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transfer data with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
-
+- Learn how to [transfer data with Azure Storage Explorer](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md).
+- [Transfer data with AzCopy](./storage-use-azcopy-v10.md)

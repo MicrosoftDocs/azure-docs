@@ -10,7 +10,7 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
 ---
-# Secure your Synapse workspace (preview)
+# Secure your Synapse workspace (preview) 
 
 This article will teach you how to use roles and access control to control activities and access to data. By following these instructions, access control in Azure Synapse Analytics is simplified. You only need to add and remove users to one of three security groups.
 
@@ -25,7 +25,7 @@ To secure a Synapse workspace (preview), you'll follow a pattern of configuring 
   - Apache Spark for Azure Synapse Analytics admin
 - Access control for data in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Access control for Synapse SQL and Spark databases
-
+- 
 ## Steps to secure a Synapse workspace
 
 This document uses standard names to simplify the instructions. Replace them with any names of your choice.
@@ -45,8 +45,6 @@ Create and populate three security groups for your workspace:
 - **WS1\_WSAdmins** – for users who need complete control over the workspace
 - **WS1\_SparkAdmins** – for those users who need complete control over the Spark aspects of the workspace
 - **WS1\_SQLAdmins** – for users who need complete control over the SQL aspects of the workspace
-- Add **WS1\_WSAdmins** to **WS1\_SQLAdmins**
-- Add **WS1\_WSAdmins** to **WS1\_SparkAdmins**
 
 ## STEP 2: Prepare your Data Lake Storage Gen2 account
 
@@ -65,11 +63,13 @@ Identify this information about your storage:
 
 ## STEP 3: Create and configure your Synapse Workspace
 
-In the Azure portal, create a Synapse workspace:
+ In the Azure portal, create a Synapse workspace:
 
+- Select your subscription
+- Select your resource group - You need to have access to a resource group for which you have been assigned the **Owner** role.
 - Name the workspace WS1
 - Choose STG1 for the Storage account
-- Choose CNT1 for the container that is being used as the "filesystem".
+-. Choose CNT1 for the container that is being used as the "filesystem".
 - Open WS1 in Synapse Studio
 - Select **Manage** > **Access Control** assign the security groups to the following Synapse roles.
   - Assign **WS1\_WSAdmins** to Synapse Workspace admins
@@ -91,8 +91,8 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 
 - Open the Azure portal
 - Navigate to WS1
-- Under **Settings**, click **SQL Active Directory admin**
-- Click **Set admin** and choose WS1\_SQLAdmins
+- Under **Settings**, select **SQL Active Directory admin**
+- Select **Set admin** and choose WS1\_SQLAdmins
 
 ## STEP 6: Maintain access control
 
@@ -117,8 +117,9 @@ Users in each role need to complete the following steps:
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Some steps will deliberately not be allowed depending on the role.
 > - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
 

@@ -72,7 +72,7 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+    var client = new SecretClient(new Uri("https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
                                  
     //Retrieve Secret
     secret = client.GetSecret(secretName);
@@ -95,5 +95,4 @@ At this point, you should not be getting HTTP 429 response codes.
 
 ## See also
 
-For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
+For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](/azure/architecture/patterns/throttling).

@@ -26,7 +26,7 @@ Azure Machine Learning makes it easy to connect to your data in the cloud.  It p
     
 ## Data workflow
 
-When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
+When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
 
 1. Create an [Azure Machine Learning datastore](#datastores) to store connection information to your Azure storage.
 
@@ -45,7 +45,7 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
 The following diagram provides a visual demonstration of this recommended workflow.
 
-![Data-concept-diagram](./media/concept-data/data-concept-diagram.svg)
+![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
 
 ## Datastores
 
@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 
 ## Datasets
 
-Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your dataBy creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. 
+Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
 
 Because datasets are lazily evaluated, and the data remains in its existing location, you
 
@@ -78,9 +78,9 @@ Datasets can be created from local files, public urls, [Azure Open Datasets](htt
 
 There are 2 types of datasets: 
 
-+ A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
++ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
 
-+ A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
++ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Additional datasets capabilities can be found in the following documentation:
 
@@ -97,7 +97,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
      + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
-+ Access datasets for scoring with [batch inference](how-to-use-parallel-run-step.md) in [machine learning pipelines](how-to-create-your-first-pipeline.md).
++ Access datasets for scoring with [batch inference](./tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](how-to-create-your-first-pipeline.md).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
 <a name="label"></a>

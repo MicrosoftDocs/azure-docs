@@ -78,10 +78,6 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
-          },
-          {
-	    "name": "DefaultMSIEndpointForTokenAuthentication",
-	    "value": "URI"
           }
         ]
       },
@@ -95,6 +91,9 @@ Service Fabric supports using tokens as credentials to download images for your 
 1. Ensure that *System Assigned Managed Identity* is enabled for the VM.
 
     ![Azure portal: Create virtual machine scale set identity option](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> For user-assigned managed identity, skip this step. The remaining steps below will work the same, as long as the scale set is only associated with a single user-assigned managed identity.
 
 2. Grant permissions to the virtual machine scale set to pull/read images from the registry. From the Access Control (IAM) blade of your Azure Container Registry in the Azure portal, add a *role assignment* for your virtual machine:
 
@@ -116,25 +115,6 @@ Service Fabric supports using tokens as credentials to download images for your 
 
     > [!NOTE]
     > The flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true will cause an error during deployment.
-
-### Using token credentials outside of Azure Global Cloud
-
-When using token-based registry credentials, Service Fabric fetches a token on behalf of the virtual machine to present to ACR. By default, Service Fabric requests a token whose audience is the global Azure cloud endpoint. If you are deploying to another cloud instance, like Azure Germany, or Azure Government, you will need to override the default of the parameter `DefaultMSIEndpointForTokenAuthentication`. If you are not deploying to a special environment, do not override this parameter. If you are, you will replace the default, which is
-
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
-```
-
-with the appropriate resource endpoint for your environment. For example, for [Azure Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping), the override would be 
-
-```json
-{
-    "name": "DefaultMSIEndpointForTokenAuthentication",
-    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
-}
-```
-
-[Read more about fetching virtual machine scale set tokens](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## Next steps
 

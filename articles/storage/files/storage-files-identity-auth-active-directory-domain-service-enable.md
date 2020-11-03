@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1
+ms.custom: contperfq1, devx-track-azurecli
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
@@ -55,7 +55,7 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 
 ## Regional availability
 
-Azure Files authentication with Azure AD DS is available in [all Azure Public regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with Azure AD DS is available in [all Azure Public and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview of the workflow
 

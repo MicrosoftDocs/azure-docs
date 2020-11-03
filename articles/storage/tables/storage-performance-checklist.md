@@ -148,7 +148,7 @@ Set the connection limit before opening any connections.
 
 For other programming languages, see that language's documentation to determine how to set the connection limit.  
 
-For more information, see the blog post [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+For more information, see the blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### Increase minimum number of threads
 
@@ -166,7 +166,7 @@ While parallelism can be great for performance, be careful about using unbounded
 
 ## Client libraries and tools
 
-For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
+For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
 
 ## Handle service errors
 
@@ -192,7 +192,7 @@ This section lists several quick configuration settings that you can use to make
 
 Beginning with storage service version 2013-08-15, the Table service supports using JSON instead of the XML-based AtomPub format for transferring table data. Using JSON can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.
 
-For more information, see the post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+For more information, see the post [Microsoft Azure Tables: Introducing JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) and [Payload Format for Table Service Operations](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### Disable Nagle
 

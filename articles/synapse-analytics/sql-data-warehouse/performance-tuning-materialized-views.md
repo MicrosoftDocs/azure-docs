@@ -1,6 +1,6 @@
 ---
 title: Performance tune with materialized views
-description: Recommendations and considerations you should know as you use materialized views to improve your query performance. 
+description: Learn about recommendations and considerations you should know as you use materialized views to improve your query performance. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
@@ -47,7 +47,7 @@ A properly designed materialized view provides the following benefits:
 
 The materialized views implemented in SQL pool also provide the following additional benefits:
 
-Comparing to other data warehouse providers, the materialized views implemented in Azure SQL Data Warehouse also provide the following additional benefits:
+Comparing to other data warehouse providers, the materialized views implemented in Azure Synapse Analytics also provide the following additional benefits:
 
 - Automatic and synchronous data refresh with data changes in base tables. No user action is required.
 - Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -74,7 +74,7 @@ In comparison to other tuning options such as scaling and statistics management,
 
 **Need different data distribution strategy for faster query performance**
 
-SQL pool is a distributed massively parallel processing (MPP) system.   Data in a SQL pool table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).  
+Synapse SQL is a distributed query processing system.  Data in a SQL table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).   
 
 The data distribution is specified at the table creation time and stays unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that is different from the base tables but optimal for the performance of queries that use the views most.  
 

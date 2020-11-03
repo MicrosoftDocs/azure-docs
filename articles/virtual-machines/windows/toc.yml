@@ -278,7 +278,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Spot VMs
-      displayName: pre-empt, preempt
+      displayName: pre-empt, preempt, spot
       href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
@@ -304,7 +304,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Dedicated hosts
-    href: dedicated-hosts.md
+    href: ../dedicated-hosts.md
   - name: Maintenance and updates
     href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Disk storage
@@ -314,13 +314,15 @@
     - name: Select a disk type for IaaS VMs
       href: ../disks-types.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Encryption
-      href: disk-encryption.md
+      href: ../disk-encryption.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Virtual machine and disk performance
+      href: disk-performance-windows.md
     - name: Designing for high performance
       href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disk bursting
-      href: disk-bursting.md
+      href: ../disk-bursting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -346,12 +348,13 @@
       href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
-    - name: Built-in security controls
-      href: virtual-machines-windows-security-controls.md
     - name: Bastion
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: States and lifecycle
     href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+  - name: PUT calls for create or update operations
+    href: ../put-calls-create-or-update.md
+    maintainContext: true
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Boot diagnostics
@@ -371,11 +374,11 @@
       - name: PowerShell
         href: dedicated-hosts-powershell.md
       - name: Portal
-        href: dedicated-hosts-portal.md
+        href: ../dedicated-hosts-portal.md
     - name: Deploy spot VMs
       items:
       - name: Portal
-        href: spot-portal.md
+        href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: PowerShell
         href: spot-powershell.md
       - name: ARM template
@@ -402,7 +405,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Connect to Linux VMs
+    - name: SSH to Linux VMs
       displayName: ssh keygen ssk-key putty
       items:
       - name: In the portal
@@ -444,7 +447,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md
@@ -466,7 +469,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md
@@ -497,7 +500,7 @@
         - name: Create a VM from Image Version
           href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
+        href: ../troubleshooting-shared-images.md
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: ../image-version-encryption.md
@@ -505,23 +508,35 @@
       items:
       - name: Overview
         href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: Use Azure CLI
-        href: image-builder.md
-      - name: Create VM using VNET
+      - name: Use Image Builder
+        items:
+        - name: CLI
+          href: image-builder.md
+        - name: PowerShell
+          href: image-builder-powershell.md
+      - name: Use a VNET
         href: image-builder-vnet.md
-      - name: Use Azure PowerShell
-        href: image-builder-powershell.md
+      - name: Networking options
+        href: ../linux/image-builder-networking.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Configure permissions
+        items:
+        - name: CLI
+          href: ../linux/image-builder-permissions-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: PowerShell
+          href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: DevOps task
+        href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Image Builder template reference
+        displayName: json
+        href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Build for image galleries
         href: image-builder-gallery.md
       - name: Update an existing image
         href: image-builder-gallery-update-image-version.md
       - name: Store scripts
         href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: ARM template reference
-        displayName: Azure Resource Manager
-        href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Troubleshoot
-        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
+        href: ../linux/image-builder-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Purchase plan information
@@ -538,6 +553,8 @@
       href: client-images.md
     - name: Download existing disk
       href: download-vhd.md
+    - name: Managed disk from image version
+      href: ../managed-disk-from-image-version.md
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -578,7 +595,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (AAD)
+      - name: Disk encryption - previous version
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -656,7 +673,7 @@
       href: nested-virtualization.md
     - name: Automatic VM guest patching (preview)
       href: automatic-vm-guest-patching.md
-  - name: Platform maintenance
+  - name: Maintenance control
     items:
     - name: Maintenance notifications
       items:
@@ -668,7 +685,7 @@
         href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: PowerShell
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Maintenance control
+    - name: Platform maintenance
       items:
       - name: Overview
         href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -682,6 +699,16 @@
       href: scheduled-events.md
     - name: Windows scheduled event service
       href: scheduled-event-service.md
+    - name: Virtual machine scale set OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: PowerShell (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Monitor VMs
     items:
     - name: Agents
@@ -794,8 +821,9 @@
     - name: Virtual Machine Scale Sets
       href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     - name: High availability
-      href: manage-availability.md
+      href: ../manage-availability.md
     - name: Create a proximity placement group
+      displayName: ppg aligned colocation co-location
       items:
       - name: Portal
         href: proximity-placement-groups-portal.md
@@ -848,6 +876,8 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
+    - name: Change disk tier
+      href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template

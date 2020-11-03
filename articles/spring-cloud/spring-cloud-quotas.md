@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Quotas and Service Plans for Azure Spring Cloud
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 All Azure services set default limits and quotas for resources and features.   Azure Spring Cloud offers two pricing tiers: Basic and Standard. We will detail limits for both tiers in this article.
 
 ## Azure Spring Cloud service tiers and limits
@@ -25,4 +27,4 @@ Persistent volumes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 
 ## Next steps
 
-Some default limits can be increased. If your setup requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Some default limits can be increased. If your setup requires an increase, [create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).

@@ -1,28 +1,29 @@
 ---
 title: "Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
+description: Learn how to use the Anomaly Detector API's two detection modes to detect anomalies in your time series data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 09/03/2020
+ms.author: mbullwin
 ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C#
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses.
+Use this quickstart to start using the Anomaly Detector API to detect anomalies in your time series data. This C# application sends API requests containing JSON-formatted time series data, and gets the responses.
 
 | API request                                        | Application output                                                                                                                                         |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
-| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                        |
+| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data. |
+| Detect change points that mark new data trends | The JSON response containing the detected change points in the time series data. |
 
- While this application is written in C#, the API is a RESTful web service compatible with most programming languages. You can find the source code for this quickstart on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
+While this application is written in C#, the API is a RESTful web service compatible with most programming languages. You can find the source code for this quickstart on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## Prerequisites
 
@@ -56,6 +57,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     |------------------------------------|--------------------------------------------------|
     | Batch detection                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Detection on the latest data point | `/anomalydetector/v1.0/timeseries/last/detect`   |
+    | Change point detection | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
@@ -90,6 +92,18 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
 
+## Detect change points in the data
+
+1. Create a new function called `detectChangePoints()`. Construct the request and send it by calling the `Request()` function with your endpoint, the URL for batch anomaly detection, your subscription key, and the time series data.
+
+2. Deserialize the JSON object, and write it to the console.
+
+3. If the response contains a `code` field, print the error code and error message.
+
+4. Otherwise, find the positions of change points in the data set. The response's `isChangePoint` field contains an array of boolean values, each of which indicates whether a data point was identified as a change point. Convert this to a string array with the response object's `ToObject<bool[]>()` function. Iterate through the array, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
+
+    [!code-csharp[Detect change points](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
+
 ## Load your time series data and send the request
 
 1. In the main method of your application, load your JSON time series data with `File.ReadAllText()`.
@@ -103,5 +117,6 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
 * [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Example change point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

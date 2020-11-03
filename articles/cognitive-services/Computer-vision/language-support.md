@@ -20,7 +20,7 @@ Some features of Computer Vision support multiple languages; any features not me
 
 Computer Vision's OCR APIs support several languages. They do not require you to specify a language code. See [Optical Character Recognition (OCR)](concept-recognizing-text.md) for more information.
 
-|Language| Language code | OCR API | Read v3.0 | Read v3.1 public preview |
+|Language| Language code | OCR API | Read 3.0 and 3.1 | Read v3.2-preview.1 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Arabic | `ar`|✔ | | |
 |Chinese (Simplified) | `zh-Hans`|✔ | |✔ |
@@ -35,7 +35,7 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Greek | `el` |✔ | | |
 |Hungarian | `hu` |✔ | | |
 |Italian | `it` |✔ |✔ |✔ |
-|Japanese | `ja` |✔ | | |
+|Japanese | `ja` |✔ | |✔ |
 |Korean | `ko` |✔ | | |
 |Norwegian | `nb` |✔ | | |
 |Polish | `pl` |✔ | | |

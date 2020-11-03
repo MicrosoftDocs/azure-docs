@@ -25,13 +25,13 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of IT-managed contact information to Workday.
+* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of IT-managed contact information to Workday.
 
-* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee rehires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee rehires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
 ### What's new
 This section captures recent Workday integration enhancements. For a list of comprehensive updates, planned changes and archives, please visit the page [What's new in Azure Active Directory?](../fundamentals/whats-new.md) 
@@ -54,7 +54,7 @@ This Workday user provisioning solution is ideally suited for:
 
 * Organizations that require joining, moving, and leaving users to be synced to one or more Active Directory Forests, Domains, and OUs based only on change information detected in the Workday HCM module (see [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
-* Organizations using Office 365 for email
+* Organizations using Microsoft 365 for email
 
 ## Solution Architecture
 
@@ -123,7 +123,7 @@ In this step, you will create an unconstrained or constrained integration system
 1. Enter create security group in the search box, and then click **Create Security Group**.
 
    > [!div class="mx-imgBorder"]
-   > ![CreateSecurity Group](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity Group")
+   > ![Screenshot that shows "create security group" entered in the search box, and "Create Security Group - Task" displayed in the search results.](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. Complete the **Create Security Group** task. 
 
    * There are two types of security groups in Workday:
@@ -148,7 +148,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
 
 1. Enter **Domain Security Configuration** in the search box, and then click on the link **Domain Security Configuration Report**.  
    >[!div class="mx-imgBorder"]
-   >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
+   >![Screenshot that shows "domain security configuration" in the search box, with "Domain Security Configuration - Report" displayed in the results.](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. In the **Domain** text box, search for the following domains and add them to the filter one by one.  
    * *External Account Provisioning*
    * *Worker Data: Workers*
@@ -160,10 +160,10 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    * *Workday Accounts*
    
      >[!div class="mx-imgBorder"]
-     >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
+     >![Screenshot that shows the Domain Security Configuration report with the "External Account" in the "Domain" text box.](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
 
      >[!div class="mx-imgBorder"]
-     >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
+     >![Screenshot that shows the Domain Security Configuration report with a list of domains selected.](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
 
      Click **OK**.
 
@@ -173,7 +173,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
 
 4. On the **Edit Domain Security Policy Permissions** page, scroll down to the section **Integration Permissions**. Click on the "+" sign to add the integration system group to the list of security groups with **Get** and **Put** integration permissions.
    >[!div class="mx-imgBorder"]
-   >![Edit Permission](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permission")  
+   >![Screenshot that shows the "Integration Permissons" section highlighted.](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permission")  
 
 5. Click on the "+" sign to add the integration system group to the list of security groups with **Get** and **Put** integration permissions.
 
@@ -204,12 +204,12 @@ In this step, you'll grant "business process security" policy permissions for th
 1. Enter **Business Process Policy** in the search box, and then click on the link **Edit Business Process Security Policy** task.  
 
    >[!div class="mx-imgBorder"]
-   >![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_12.png "Business Process Security Policies")  
+   >![Screenshot that shows "Business Process Policy" in the search box and "Edit Business Process Security Policy - Task" selected.](./media/workday-inbound-tutorial/wd_isu_12.png "Business Process Security Policies")  
 
 2. In the **Business Process Type** textbox, search for *Contact* and select **Work Contact Change** business process and click **OK**.
 
    >[!div class="mx-imgBorder"]
-   >![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_13.png "Business Process Security Policies")  
+   >![Screenshot that shows the "Edit Business Process Security Policy" page and "Work Contact Change" selected in the "Business Process Type" menu.](./media/workday-inbound-tutorial/wd_isu_13.png "Business Process Security Policies")  
 
 3. On the **Edit Business Process Security Policy** page, scroll to the **Change Work Contact Information (Web Service)** section.
     
@@ -305,7 +305,7 @@ This section provides steps for user account provisioning from Workday to each A
 To provision to Active Directory on-premises, the Provisioning agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
 
 > [!TIP]
-> You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> You can check the version of the .NET framework on your server using the instructions provided [here](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > If the server does not have .NET 4.7.1 or higher installed, you can download it from [here](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Transfer the downloaded agent installer to the server host and follow the steps given below to complete the agent configuration.
@@ -367,7 +367,7 @@ Transfer the downloaded agent installer to the server host and follow the steps 
 1. Verify the installation of the Agent and make sure it is running by opening the "Services" Snap-In and look for the Service named "Microsoft Azure AD Connect Provisioning Agent"
 
    >[!div class="mx-imgBorder"]
-   >![Services](./media/workday-inbound-tutorial/services.png)
+   >![Screenshot of the Microsoft Azure AD Connect Provisioning Agent running in Services.](./media/workday-inbound-tutorial/services.png)
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
 In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
@@ -404,12 +404,12 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
 
      > [!NOTE]
-     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
+     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
      >[!div class="mx-imgBorder"]
-     >![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
+     >![Screenshot that shows  the "Provisioning" page with credentials entered.](./media/workday-inbound-tutorial/wd_1.png)
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize Workday Workers to On Premises Active Directory**
 
@@ -478,7 +478,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. To save your mappings, click **Save** at the top of the  Attribute-Mapping section.
    >[!div class="mx-imgBorder"]
-   >![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
+   >![Screenshot that shows the "Attribute Mapping" page with the "Save" action selected.](./media/workday-inbound-tutorial/wd_2.png)
 
 #### Below are some example attribute mappings between Workday and Active Directory, with some common expressions
 
@@ -592,7 +592,7 @@ No, the solution does not maintain a cache of user profiles. The Azure AD provis
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
-This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
+This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
 
 #### Which Workday APIs does the solution use to query and update Workday worker profiles?
 
@@ -678,7 +678,7 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 
 #### How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?
 
-You can also check whether all of the [required ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) are open.
+You can also check whether all of the [required ports](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) are open.
 
 #### Can one Provisioning Agent be configured to provision multiple AD domains?
 
@@ -943,11 +943,11 @@ When you click on any of the audit log records, the **Activity Details** page op
 
   Look for a HTTP POST record corresponding to the timestamp of the export operation with *Event ID = 2*. This record will contain the attribute values sent by the provisioning service to the provisioning agent.
 
-  [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="Screenshot that shows the 'HTTP POST' record in the 'Provisioning Agent' log." lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   Immediately following the above event, there should be another event that captures the response of the create AD account operation. This event returns the new objectGuid created in AD and it is set as the TargetAnchor attribute in the provisioning service.
 
-  [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Screenshot that shows the 'Provisioning Agent' log with the objectGuid created in AD highlighted." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### Understanding logs for manager update operations
 
@@ -1041,14 +1041,14 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 5. Select **External**, and select the Human_Resources WSDL file you downloaded in step 2.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Screenshot that shows the "Human_Resources" file open in Workday Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. Set the **Location** field to `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, but replacing "IMPL-CC" with your actual instance type, and "TENANT" with your real tenant name.
 
 7. Set **Operation** to **Get_Workers**
 
 8.    Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name\@tenant, and leave the **WS-Security UsernameToken** option selected.
-   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Screenshot that shows the "Security" tab with the "Username" and "Password" entered, and "WS-Security Username Token" selected.](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Select **OK**.
 
@@ -1087,7 +1087,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 13. In the command bar of Workday Studio, select **File > Open File...** and open the XML file you saved. This action will open the file in the Workday Studio XML editor.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    ![Screenshot of an X M L file open in the "Workday Studio X M L editor".](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. In the file tree, navigate through **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** to find your user's data.
 
@@ -1113,7 +1113,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 5. Select **Edit attribute list for Workday**.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Screenshot that shows the "Workday to Azure A D User Provisioning - Provisioning" page with the "Edit attribute list for Workday" action highlighted.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Scroll to the bottom of the attribute list to where the input fields are.
 
@@ -1158,4 +1158,4 @@ With respect to data retention, the Azure AD provisioning service does not gener
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-* [Learn how to use Microsoft Graph APIs to manage provisioning configurations](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Learn how to use Microsoft Graph APIs to manage provisioning configurations](/graph/api/resources/synchronization-overview)

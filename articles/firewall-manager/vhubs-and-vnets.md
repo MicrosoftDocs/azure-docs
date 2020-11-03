@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
 ---
 
@@ -39,6 +39,7 @@ The following table compares these two architecture options and can help you dec
 |**Multiple security provider support**|Supported with manually configured forced tunneling to third-party firewalls|Automated support for two security providers: Azure Firewall for private traffic filtering and third party for Internet filtering|
 |**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
 |**Network Virtual Appliance**|Supported in Virtual Network|Currently supported in spoke network|
+|**Azure DDoS Protection Standard support**|Yes|No|
 
 ## Next steps
 

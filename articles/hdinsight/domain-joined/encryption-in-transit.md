@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ---
 
-# Encryption in transit for Azure HDInsight
+# IPSec Encryption in transit for Azure HDInsight
 
-This article discusses the implementation of encryption in transit for all communication between Azure HDInsight cluster nodes.
+This article discusses the implementation of encryption in transit for communication between Azure HDInsight cluster nodes.
 
 > [!Note]
-> Encryption in transit is currently enabled for the following regions: East US, South Central US, West US2. 
+> Encryption in transit is currently enabled for the following regions: East US, South Central US, West US2.
 
 ## Background
 
-Azure HDInsight offers a variety of security features for securing your enterprise data. These solutions are grouped under the pillars of perimeter security, authentication, authorization, auditing, encryption and compliance. Encryption can be applied to data both at rest and in transit.
+Azure HDInsight offers a variety of security features for securing your enterprise data. These solutions are grouped under the pillars of perimeter security, authentication, authorization, auditing, encryption, and compliance. Encryption can be applied to data both at rest and in transit.
 
-Encryption at rest is covered by server side encryption on Azure storage accounts, as well as disk encryption on the Azure VMs that are a part of your HDInsight cluster.
+Encryption at rest is covered by server-side encryption on Azure storage accounts, as well as disk encryption on the Azure VMs that are a part of your HDInsight cluster.
 
-Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) and [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec). IPSec is enabled between all head nodes, worker nodes, edge nodes, and zookeeper nodes. It is not enabled for traffic between gateway nodes (windows VMs) and other linux nodes in the cluster.
+Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](../transport-layer-security.md) for accessing the cluster gateways and [Internet Protocol Security (IPSec)](https://wikipedia.org/wiki/IPsec) between cluster nodes. IPSec can be optionally enabled between all head nodes, worker nodes, edge nodes, and zookeeper nodes. It is not enabled for traffic between gateway or [id broker](./identity-broker.md) nodes which are Windows based VMs and other linux based nodes in the cluster.
 
 ## Enable encryption in transit
 
@@ -35,7 +35,7 @@ To create a new cluster with encryption in transit enabled using the Azure porta
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Create cluster - security and networking tab.":::
 
-1. On the **Security + Networking** tab, click the **Enable encryption in transit** checkbox.
+1. On the **Security + Networking** tab, select the **Enable encryption in transit** checkbox.
 
     :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Create cluster - enable encryption in transit.":::
 
@@ -49,7 +49,7 @@ You can [download a sample template and parameter file](https://github.com/Azure
 |---|---|
 | `<SUBSCRIPTION_ID>` | The ID of your Azure subscription |
 | `<RESOURCE_GROUP>` | The resource group where you want the new cluster and storage account created. |
-| `<STORAGEACCOUNTNAME>` | The existing storage account which should be used with the cluster. The name should be of the form `ACCOUNTNAME.blob.core.windows.net` |
+| `<STORAGEACCOUNTNAME>` | The existing storage account that should be used with the cluster. The name should be of the form `ACCOUNTNAME.blob.core.windows.net` |
 | `<CLUSTERNAME>` | The name of your HDInsight cluster. |
 | `<PASSWORD>` | Your chosen password for signing in to the cluster using SSH and the Ambari dashboard. |
 | `<VNET_NAME>` | The virtual network where the cluster will be deployed. |

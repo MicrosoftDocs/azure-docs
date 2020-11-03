@@ -8,7 +8,7 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: shresha
 ---
 
@@ -16,7 +16,10 @@ ms.custom: shresha
 
 ## Overview
 
-If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article.
+If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article. This change does not affect any users who are using the Gen1 version of Azure Time Series Insights.
+
+> [!IMPORTANT]
+> The updates described in this article will ONLY upgrade the API versions used by your TSI environment. This change is unrelated to the new [JSON flattening and escaping rules](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) introduced for Gen2 environments.
 
 The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
@@ -51,7 +54,7 @@ To help users migrate their [Time Series Model variables](./concepts-variables.m
 
     [![Update variables](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Click **Update saved queries**. The tool will notify you when variables have been updated.
+1. Click **Update saved queries**. The tool will notify you when saved queries have been updated.
 
     [![Update saved queries](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 

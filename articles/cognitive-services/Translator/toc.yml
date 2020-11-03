@@ -2,26 +2,12 @@
   href: index.yml
 - name: Translator
   items:
-  - name: Overview
-    items:
-    - name: What is Translator?
-      href: translator-info-overview.md
-    - name: Language Support
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
-  - name: Quickstarts
-    items:
-    - name: Translate text
-      href: quickstart-translate.md
-    - name: Transliterate text
-      href: quickstart-transliterate.md
-    - name: Detect language
-      href: quickstart-detect.md
-    - name: Look up word translations
-      href: quickstart-dictionary.md
-    - name: Get supported languages
-      href: quickstart-languages.md
-    - name: Determine sentence length
-      href: quickstart-sentences.md
+  - name: What is Translator?
+    href: translator-info-overview.md
+  - name: Quickstart
+    href: quickstart-translator.md
+  - name: Language Support
+    href: language-support.md
   - name: Tutorials
     items:
     - name: Create a WPF app for Translator, C#
@@ -98,6 +84,8 @@
       href: request-limits.md
   - name: Resources
     items:
+    - name: Support & help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: Code samples on GitHub
       href: https://aka.ms/TranslatorGitHub
     - name: FAQ
@@ -108,8 +96,6 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator
 - name: Custom Translator
   items:
   - name: Overview
@@ -162,6 +148,8 @@
       href: custom-translator/unsupported-language-deployments.md
   - name: Resources
     items:
+    - name: Support & help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: Glossary
       href: custom-translator/glossary.md
     - name: FAQ
@@ -172,5 +160,3 @@
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption
       href: translator-encryption-of-data-at-rest.md
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator

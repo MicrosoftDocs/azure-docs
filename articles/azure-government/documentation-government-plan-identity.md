@@ -26,7 +26,7 @@ Before determining the identity approach for your application, you need to know 
 |On-Premises Identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities originate, only exist, and are managed in Azure AD.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Azure AD. After directory synchronization they exist both on-premises and in the cloud, hence hybrid.|
  
 >[!NOTE]
->Hybrid comes with deployment options (Synchronized Identity, Federated Identity, etc.) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [Choose a Hybrid Identity Solution](../active-directory/choose-hybrid-identity-solution.md).
+>Hybrid comes with deployment options (Synchronized Identity, Federated Identity, etc.) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [Choose a Hybrid Identity Solution](../active-directory/hybrid/whatis-hybrid-identity.md).
 >
 
 ## Selecting identity for an Azure Government application
@@ -38,7 +38,7 @@ When building any Azure application, a developer must first decide on the authen
 Based on this decision there are different considerations when building in Azure Government.
 
 ### Applications using modern authentication in Azure Government
-[Integrating Applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) shows how you can use Azure AD to provide secure sign-in and authorization to your applications.  This process is the same for Azure Public and Azure Government once you choose your identity authority.
+[Integrating Applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md) shows how you can use Azure AD to provide secure sign-in and authorization to your applications.  This process is the same for Azure Public and Azure Government once you choose your identity authority.
 
 #### Choosing your identity authority
 Azure Government applications can use Azure AD Government identities, but can you use Azure AD Public identities to authenticate to an application hosted in Azure Government?  Yes!  Since you can use either identity authority, you need to choose which to use:
@@ -64,7 +64,7 @@ Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authenticati
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
+![Diagram shows a site-to-site VPN connectivity example for Azure IaaS.](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
 
 </div>
 <div></div>
@@ -83,11 +83,11 @@ We have documentation covering the guidelines for deploying AD Domain Controller
     -   Is it safe to virtualize Windows Server Active Directory Domain Controllers?
     -   Why deploy AD to Azure Virtual Machines?
     -   Can you deploy ADFS to Azure Virtual Machines?
-- [Deploying Active Directory Federation Services in Azure](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)
+- [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
   -   Provides guidance on how to deploy ADFS in Azure.
 
 ## Identity scenarios for subscription administration in Azure Government
-First, see [Managing and connecting to your subscription in Azure Government](./documentation-government-manage-subscriptions.md), for instructions on accessing Azure Government management portals.
+First, see [Managing and connecting to your subscription in Azure Government](./compare-azure-government-global-azure.md), for instructions on accessing Azure Government management portals.
 
 There are a few important points that set the foundation of this section:
 
@@ -111,13 +111,13 @@ The following diagram is the simplest of the scenarios to implement.
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png "Using Cloud Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a multi-cloud subscription administration option using cloud identities for Office 365 and Microsoft Azure Government.](./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png "Using Cloud Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
 </div>
 
-While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
+While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
 
 See [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md) to learn more about the available methods for two-step verification.
 
@@ -129,7 +129,7 @@ In this scenario, we include administrator identities through directory synchron
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-hybrid-and-cloud-identities-for-subscription-administration.png "Using Hybrid and Cloud Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a scenario for hybrid and cloud identities for multi-cloud subscription administration using smartcards for access.](./media/documentation-government-plan-identity-hybrid-and-cloud-identities-for-subscription-administration.png "Using Hybrid and Cloud Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -145,7 +145,7 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-hybrid-identities-for-subscription-administration.png "Using Hybrid Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a scenario with hybrid identities for multi-cloud subscription administration, requiring different credentials for each cloud service.](./media/documentation-government-plan-identity-hybrid-identities-for-subscription-administration.png "Using Hybrid Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -196,4 +196,3 @@ No, the ability to manage Azure Government subscriptions requires identities sou
 
 - Check out the [Azure Government developer guide](../azure-government/documentation-government-developer-guide.md) and build your first application!
 - For supplemental information and updates, subscribe to the [Microsoft Azure Government blog.](https://blogs.msdn.microsoft.com/azuregov/)
-

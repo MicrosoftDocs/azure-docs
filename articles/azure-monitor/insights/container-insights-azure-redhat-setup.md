@@ -5,7 +5,16 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ---
 
-# Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers 
+# Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers
+
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired June 2022.
+>
+> As of October 2020 you will no longer be able to create new 3.11 clusters.
+> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
+>
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3 and latest supported version of version 3, to achieve a similar monitoring experience.
 
@@ -29,7 +38,7 @@ Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as desc
 
 - A [Log Analytics workspace](../platform/design-logs-deployment.md).
 
-    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
+    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../samples/resource-manager-workspace.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
 - To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Azure Monitor for containers.
 
@@ -239,4 +248,3 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
 - To learn how to stop monitoring your cluster with Azure Monitor for containers, see [How to Stop Monitoring Your Azure Red Hat OpenShift cluster](./container-insights-optout-openshift-v3.md).
-

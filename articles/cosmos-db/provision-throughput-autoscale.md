@@ -9,6 +9,7 @@ ms.date: 06/04/2020
 ---
 
 # Create Azure Cosmos containers and databases with autoscale throughput
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
 
@@ -72,7 +73,7 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 | **Provisioned throughput (RU/s)** | Manually provisioned. | Automatically and instantaneously scaled based on the workload usage patterns. |
 | **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if you consume RU/s within the autoscale throughput range that you've set.    |
 | **Capacity planning** |  You have to do capacity planning and provision the exact throughput you need. |    The system automatically takes care of capacity planning and capacity management. |
-| **Pricing** | You pay for the manually provisioned RU/s per hour, using the [standard (manual) RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). | You pay per hour for the highest RU/s the system scaled up to within the hour. <br/><br/> For single write region accounts, you pay for the RU/s used on an hourly basis, using the [autoscale RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>For accounts with multiple write regions, there is no extra charge for autoscale. You pay for the throughput used on hourly basis using the same [multi-master RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Pricing** | You pay for the manually provisioned RU/s per hour, using the [standard (manual) RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). | You pay per hour for the highest RU/s the system scaled up to within the hour. <br/><br/> For single write region accounts, you pay for the RU/s used on an hourly basis, using the [autoscale RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>For accounts with multiple write regions, there is no extra charge for autoscale. You pay for the throughput used on hourly basis using the same [multi-region write RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
 ## Next steps
@@ -80,6 +81,6 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 * Review the [autoscale FAQ](autoscale-faq.md).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
-* Learn more about [partitioning](partition-data.md) in Azure Cosmos DB.
+* Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
 
 

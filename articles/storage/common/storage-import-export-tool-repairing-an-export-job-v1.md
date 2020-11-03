@@ -1,12 +1,12 @@
 ---
 title: Repairing an Azure Import/Export export job - v1 | Microsoft Docs
 description: Learn how to repair an export job that was created and run using the Azure Import/Export service.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
 ---
 # Repairing an export job
@@ -75,7 +75,7 @@ The copy log file indicates that a failure occurred while the Windows Azure Impo
 ## Using RepairExport to validate drive contents  
 You can also use Azure Import/Export with the **RepairExport** option to validate the contents on the drive are correct. The manifest file on each export drive contains MD5s for the contents of the drive.  
   
-The Azure Import/Export service can also save the manifest files to a storage account during the export process. The location of the manifest files is available via the [Get Job](/rest/api/storageimportexport/jobs) operation when the job has completed. For more information about the format of a drive manifest file, see [Import/Export service Manifest File Format](storage-import-export-file-format-metadata-and-properties.md).  
+The Azure Import/Export service can also save the manifest files to a storage account during the export process. The location of the manifest files is available via the [Get Job](/rest/api/storageimportexport/jobs) operation when the job has completed. For more information about the format of a drive manifest file, see [Import/Export service Manifest File Format](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties).  
   
 The following example shows how to run the Azure Import/Export Tool with the **/ManifestFile** and **/CopyLogFile** parameters:  
   
@@ -147,6 +147,6 @@ Any component failing the verification will be downloaded by the tool and rewrit
 ## Next steps
  
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
-* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)

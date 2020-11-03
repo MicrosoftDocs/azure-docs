@@ -1,8 +1,8 @@
 ---
 title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
 description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
@@ -47,7 +47,7 @@ After you delete the cluster, you can either leave the data in place, or copy th
 
 * Create a new HDInsight instance pointing to the current storage location. The new instance is created with all the existing data.
 
-* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Storage location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy.md), and for Data Lake Storage use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Storage location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy-v10.md), and for Data Lake Storage use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## Export then Import
 
@@ -240,4 +240,4 @@ To enable replication on HDInsight, apply a Script Action to your running source
 ## Next steps
 
 * [Configure Apache HBase replication](apache-hbase-replication.md)
-* [Working with the HBase Import and Export Utility](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Working with the HBase Import and Export Utility](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

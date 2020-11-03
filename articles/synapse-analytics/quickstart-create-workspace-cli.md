@@ -5,10 +5,10 @@ services: synapse-analytics
 author: alehall
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Quickstart: Create an Azure synapse workspace with Azure CLI

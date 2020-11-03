@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Create and use views in SQL on-demand (preview) using Azure Synapse Analytics
@@ -52,7 +52,7 @@ WITH (
 
 The view in this example uses `OPENROWSET` function that uses absolute path to the underlying files. If you have `EXTERNAL DATA SOURCE` with a root URL of your storage, you can use `OPENROWSET` with `DATA_SOURCE` and relative file path:
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

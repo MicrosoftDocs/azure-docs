@@ -21,7 +21,7 @@ In this tutorial, you create a Data Factory pipeline that showcases some control
 
 This graphic provides an overview of the scenario:
 
-![Overview](media/tutorial-control-flow/overview.png)
+![Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.](media/tutorial-control-flow/overview.png)
 
 This tutorial shows you how to do the following tasks:
 
@@ -35,7 +35,7 @@ This tutorial shows you how to do the following tasks:
 > * Start a pipeline run
 > * Monitor the pipeline and activity runs
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](/azure/data-factory/quickstart-create-data-factory-portal).
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](./quickstart-create-data-factory-portal.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

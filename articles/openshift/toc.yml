@@ -18,6 +18,8 @@
   items:
     - name: Create a private Azure Red Hat OpenShift 4 cluster
       href: howto-create-private-cluster-4x.md
+    - name: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
+      href: howto-create-a-storageclass.md
     - name: Update pull secret for an Azure Red Hat OpenShift 4 cluster
       href: howto-add-update-pull-secret.md
     - name: Configure DNS forwarding for an Azure Red Hat OpenShift 4 cluster
@@ -65,7 +67,7 @@
                   href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md

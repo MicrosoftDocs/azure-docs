@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen, devx-track-javascript
+ms.custom: codepen, devx-track-js
 ---
 
 # Interact with the map
 
-This article shows you how to use [map events class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
+This article shows you how to use [map events class](/javascript/api/azure-maps-control/atlas.map#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 
@@ -21,7 +21,7 @@ Play with the map below, and see the corresponding mouse events highlighted on t
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Interact with map layers
@@ -30,16 +30,16 @@ The following code highlights the fired event as you interact with the Symbol La
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Interact with HTML Marker
 
-The following code adds Javascript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
+The following code adds JavaScript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 The following table lists all of the supported map class events.
@@ -93,11 +93,11 @@ The following table lists all of the supported map class events.
 | `sourceremoved`     | Fired when a `DataSource` or `VectorTileSource` is removed from the map.|
 | `styledata`         | Fired when the map's style loads or changes.|
 | `styleimagemissing` | Fired when a layer tries to load an image from the image sprite that doesn't exist |
-| `tokenacquired`     | Fired when an AAD access token is obtained.|
-| `touchcancel`       | Fired when a touchcancel event occurs within the map.|
-| `touchend`          | Fired when a touchend event occurs within the map.|
-| `touchmove`         | Fired when a touchmove event occurs within the map.|
-| `touchstart`        | Fired when a touchstart event occurs within the map.|
+| `tokenacquired`     | Fired when an Azure Active Directory access token is obtained.|
+| `touchcancel`       | Fired when a `touchcancel` event occurs within the map.|
+| `touchend`          | Fired when a `touchend` event occurs within the map.|
+| `touchmove`         | Fired when a `touchmove` event occurs within the map.|
+| `touchstart`        | Fired when a `touchstart` event occurs within the map.|
 | `wheel`             | Fired when a mouse wheel event occurs within the map.|
 | `zoom`              | Fired repeatedly during an animated transition from one zoom level to another, as the result of either user interaction or methods.|
 | `zoomend`           | Fired just after the map completes a transition from one zoom level to another, as the result of either user interaction or methods.|
@@ -112,4 +112,4 @@ See the following articles for full code examples:
 > [Using the Azure Maps Services module](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)

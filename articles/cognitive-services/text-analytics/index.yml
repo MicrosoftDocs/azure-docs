@@ -147,7 +147,16 @@ landingContent:
           url: how-tos/text-analytics-how-to-install-containers.md
         - text: Configure Text Analytics containers
           url: text-analytics-resource-container-config.md
+        - text: Use the Text Analytics for health container
+          url: How-tos/text-analytics-for-health.md
         - text: Deploy a container instance to Azure
           url: how-tos/text-analytics-how-to-use-container-instances.md
         - text: Deploy a container to Azure Kubernetes Service (AKS)
           url: how-tos/text-analytics-how-to-use-kubernetes-service.md
+
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context

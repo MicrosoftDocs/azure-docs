@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 07/14/2020
+ms.date: 09/04/2020
 ---
 
 # Azure Marketplace listing guidelines
@@ -24,7 +24,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 5 | Categories and industries | <ul><li>Categories and subcategories must match offer capabilities </li><li>Do not select categories/subcategories that do not fit with your offer capabilities. </li></ul> | <ul><li>Select up to two categories, including a primary and a secondary category (optional).</li><li>Select up to two subcategories for each primary and/or secondary category. If no subcategory is selected, your offer will still be discoverable on the selected category.</li></ul> |
 | 6 | Images | <ul><li>Image requirements are listed in Partner Center.</li><li>Text included in the screenshot is legible, and the image is clear. | The solution offering is easily understood at a glance. |
 | 7 | Videos | <ul><li>No video is required but, if provided, it must play back without any errors.</li><li>If provided, it may not refer to competitor companies *unless* it is demonstrating a migration solution. |<ul><li>Ideally, the length is 3 min. or more.</li><li>The solution offer is easily understood through video content.</li><li>Provides demo of solution capabilities. |
-| 8 | List status (call to action) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
+| 8 | List status (listing options) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
 | 9 | Solution pricing | Must have solution pricing tab/details, and pricing must be in the local currency of the partner solution offering. | Multiple billing options should be available with tier pricing to give customer options. |
 | 10 | Learn more | Links at the bottom (under the description, not the Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
 | 11 | Solution support and help | Link to at least one of the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed.</li><li>Paid support is offered free during the *Trial* or *Test Drive* period. |
@@ -35,7 +35,7 @@ This article explains the requirements and guidelines for listing new offers and
 
 | No. | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
-|  | List status (call to action) | The link must lead to a customer-led *Trial* experience. | Other calls to action (for example, *Buy Now*) are also available. | 
+|  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. | 
 |||
 
 ## SaaS application requirements
@@ -73,7 +73,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 2 | Offer description  |<ul><li>Ensure proper usage of [Microsoft product names](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Offers marked as *Price: Estimated* must have a note at either the top or bottom to explain the variability (travel to client, number of servers being migrated, and so on).</li><li>Each offer type has description requirements, as follows: <ul><li>Briefings need at least four or five bullets, with information about topics to be covered.</li><li>All workshops need an agenda.</li><li>All agendas must be broken down by day or by week, depending on the duration of the workshop.</li><li>Assessment, POC, non-training workshops, and implementation offers need deliverables.</li><li>Training workshops don't need deliverables, but they need a more detailed agenda with topics that will be covered.</li></ul></ul> | <ul><li>Any offer has agenda and deliverables.</li><li>Offer includes a paragraph with context about the company providing the service in the top section.</li><li>Offer includes a paragraph about the value of the service itself as a top section. |
 | 3 | Markdown formatting  | All offers must use Markdown formatting so that the offer renders properly when it's converted to HTML.  |  |
 | 4 | Categories and industries | Categories are not relevant. |  | 
-| 5 | List status (call to action) | Automatically listed as *Contact Me*. |  | 
+| 5 | List status (Listing option) | Automatically listed as *Contact Me*. |  | 
 | 6 | Solution support and help  | Support and help are not required.  | | 
 | 7 | Privacy policy and terms of use available  |  Policies or terms are not required.  | | 
 | 8 | Service types | Ensure that the service type matches the title. | |
@@ -86,7 +86,7 @@ This article explains the requirements and guidelines for listing new offers and
 ## Next steps
 
 * Learn about the various offer types in Azure Marketplace:
-  * [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Determine your publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [SaaS apps](./plan-saas-offer.md)
+  * [Containers](./marketplace-containers.md)
+  * [Consulting services](./consulting-services.md)
+* [Determine your publishing option](./determine-your-listing-type.md)

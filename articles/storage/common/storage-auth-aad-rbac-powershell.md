@@ -1,7 +1,7 @@
 ---
 title: Use PowerShell to assign an Azure role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use PowerShell to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
+description: Learn how to use the Azure PowerShell module to assign permissions to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) authorizes access rights to secured resources 
 
 When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use Azure PowerShell to list Azure built-in roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+This article describes how to use Azure PowerShell to list Azure built-in roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -132,6 +132,6 @@ New-AzRoleAssignment -SignInName <email> `
 
 ## Next steps
 
-- [Manage access to Azure resources using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
+- [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md)
+- [Use the Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
+- [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md)

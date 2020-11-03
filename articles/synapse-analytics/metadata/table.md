@@ -69,12 +69,12 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | With collation `Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |    `varchar(max)`   | With collation `Latin1_General_100_BIN2_UTF8` |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
+| `map`       |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
+| `struct`    |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
@@ -100,7 +100,7 @@ Create a managed Spark table with SparkSQL by running the following command:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-This creates the table `myParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
+This command creates the table `myParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
 
 ```sql
     USE mytestdb;

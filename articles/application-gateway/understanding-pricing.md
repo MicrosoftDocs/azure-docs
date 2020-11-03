@@ -374,10 +374,10 @@ More metrics such as throughput, current connections and compute units are also 
 
 **Observed Metrics:**
 
-Compute Units = 17.38
-Throughput = 1.37M Bytes/sec - 10.96 Mbps
-Current Connections = 123.08k
-Capacity Units calculated = max(17.38, 10.96/2.22, 123.08k/2500) = 49.232
+* Compute Units = 17.38
+* Throughput = 1.37M Bytes/sec - 10.96 Mbps
+* Current Connections = 123.08k
+* Capacity Units calculated = max(17.38, 10.96/2.22, 123.08k/2500) = 49.232
 
 Observed Capacity Units in metrics = 49.23
 

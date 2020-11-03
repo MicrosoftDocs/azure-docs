@@ -7,13 +7,12 @@ ms.date: 05/15/2020
 ms.author: v-demjoh
 ---
 
-## Prerequisites
-
-The only prerequisite is an Azure Speech subscription. See the [guide](../get-started.md#new-resource) on creating a new subscription if you don't already have one.
-
 ## Download and install
 
 #### [Windows Install](#tab/windowsinstall)
+
+> [!NOTE]
+> On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require you to restart Windows.
 
 Follow these steps to install the Speech CLI on Windows:
 
@@ -47,10 +46,8 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install](#tab/dockerinstall)
 
-#### Prerequisites
-
-> [!div class="checklist"]
-> * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> must be installed.
 
 Follow these steps to install the Speech CLI within a Docker container:
 
@@ -109,8 +106,8 @@ For example, on Windows, this command sets your key:
 
 ## Create subscription config
 
-To start using the Speech CLI, you first need to enter your Speech subscription key and region information. 
-See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. 
+To start using the Speech CLI, you need to enter your Speech subscription key and region identifier. 
+Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
 ```shell

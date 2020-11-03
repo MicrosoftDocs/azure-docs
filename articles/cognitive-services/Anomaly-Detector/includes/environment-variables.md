@@ -2,12 +2,12 @@
 title: Anomaly Detector environment variables
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/30/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 ### Create an environment variable
