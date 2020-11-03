@@ -12,7 +12,7 @@ ms.date: 08/17/2020
 
 api-version: 1.0
 
-A Key-Value is a resource identified by unique combination of `key` + `label`. `label` is optional. To explicitly reference a key-value without a label use "\0" (url encoded as ``%00``). See details for each operation.
+A Key-value is a resource identified by unique combination of `key` + `label`. `label` is optional. To explicitly reference a key-value without a label use "\0" (url encoded as ``%00``). See details for each operation.
 
 ## Operations
 
