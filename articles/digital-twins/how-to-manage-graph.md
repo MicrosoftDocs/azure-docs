@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -444,22 +444,23 @@ Here is the console output of the above program:
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
-### Create a twin graph from a spreadsheet
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a csv file. This section illustrates how to read data from a csv file and create a twin graph out of it.
+### Create a twin graph from a CSV file
 
-Consider the following data table, describing a set of digital twins and relationships to create a csv file in your local machine.
+In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 
-| Model ID| Twin ID (must be unique) | Relationship name | Target twin ID | Twin init data |
-| --- | --- | --- | --- | --- |
-| dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80}
-| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70}
-| dtmi:example:Room;1  | Room1 | 
-| dtmi:example:Room;1  | Room0 |
+Consider the following data table, describing a set of digital twins and relationships to create a CSV file.
 
-* The following code sample reads data from the csv file and creates a twin graph. Save your csv file as data.csv and upload it to your project directory. You can also save your csv file elsewhere and specify the path in the code like this: `string path = @"<path-to-the-csv-file>";`.
+|  Model ID    | Twin ID (must be unique) |  Relationship name  |  Target twin ID  | Twin init data |
+| --- | --- | --- | --- | --- |
+| dtmi:example:Floor;1    | Floor1 | contains | Room1 | {"Temperature": 80} |
+| dtmi:example:Floor;1    | Floor1 | has | Room0 | {"Temperature": 70} |
+| dtmi:example:Room;1    | Room1 | | | |
+| dtmi:example:Room;1    | Room0 | | | |
+
+* The following code sample reads the data from the CSV file and creates a twin graph. Save your CSV file as *data.csv* and specify the path to the file in the line of code `string path = @"<path-to-the-CSV-file>";`.
 * Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
 
-You can now run the sample and see the twins and its relationships created.
+You can now run the sample and see the twins and their relationships created.
 
 ```csharp
 using System;
@@ -539,7 +540,7 @@ namespace creating_twin_graph_from_csv
         // Read data from the csv file
         public static List<List<string>> ReadData()
         {
-            string path = "data.csv";
+            string path = @"<path-to-the-csv-file>";
             string[] lines = System.IO.File.ReadAllLines(path);
             List<List<string>> data = new List<List<string>>();
             int count = 0;
@@ -561,7 +562,7 @@ namespace creating_twin_graph_from_csv
         private static DigitalTwinsClient createDTClient()
         {
             
-            string adtInstanceUrl = "https://<your-digital-twins-instance-hostname>";
+            string adtInstanceUrl = "https://<your-instance-hostname>";
             var credentials = new DefaultAzureCredential();
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             return client;
