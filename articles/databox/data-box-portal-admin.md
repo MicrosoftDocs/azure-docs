@@ -194,11 +194,11 @@ Perform the following steps to download the order history.
 
     You can then go to your storage account and view the copy logs.
 
-   ![The copy logs for a storage account](media/data-box-portal-admin/portal-admin-storage-acct-copy-logs.png)
+   ![The copy logs for a storage account](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
    You can also view the chain of custody logs, which include the audit logs and the BOM files.
 
-   ![Chain of custody logs for a storage account](media/data-box-portal-admin/portal-admin-storage-acct-chain-of-custody-logs.png)
+   ![Chain of custody logs for a storage account](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## View order status
 
