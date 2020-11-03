@@ -12,7 +12,11 @@ ms.reviewer: omafnan
 ---
 # Using SQL scripts in Azure Synapse Studio (preview)
 
+<<<<<<< HEAD
 Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to dedicated SQL pools (preview) or serverless SQL pools (preview). 
+=======
+Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to SQL pool (preview). 
+>>>>>>> ecf7f5b3244665d8fc8e1f21e91cdce02c1ee1f7
 
 ## Begin authoring in SQL script 
 
@@ -20,13 +24,7 @@ There are several ways to start the authoring experience in SQL script. You can 
 
 1. From the Develop menu, select the **"+"** icon and choose **SQL script**.
 
-![new sql script](media/author-sql-script/newsqlscript.png)
-
 2. From the **Actions** menu, choose **New SQL script**.
-> [!div class="mx-imgBorder"]
-> ![new sql script 2 actions](media/author-sql-script/newsqlscript2actions.png)
-
-Alternatively, you can: 
 
 3. Choose **Import** from the **Actions** menu under Develop SQL scripts. Select an existing SQL script from your local storage.
 ![new sql script 3 actions](media/author-sql-script/newsqlscript3actions.png)
@@ -40,7 +38,6 @@ Alternatively, you can:
 ![new sql choose pool](media/author-sql-script/newsqlchoosepool.png)
 
 3. Start authoring your SQL script using the intellisense feature.
-![new sql intellisense](media/author-sql-script/newsqlintellisense.png)
 
 ## Run your SQL script
 
@@ -71,7 +68,7 @@ By selecting the **Actions** menu under data, you can select several actions suc
 - CREATE
 - DROP and CREATE 
  
-Explore the available gestures by right-clicking the nodes of the dedicated SQL pool or the serverless SQL pool.
+Explore the available gesture by right-clicking the nodes of SQL databases.
  
 ![new script database](media/author-sql-script/newscriptdatabase.png)
 

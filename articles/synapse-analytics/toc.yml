@@ -153,6 +153,8 @@
           displayname: links
         - name: Provision and secure a linked service with Managed Vnet
           href: ./data-integration/linked-service.md
+        - name: Connect to Synapse workspace from restricted network
+          href: security/how-to-connect-to-workspace-from-restricted-network.md
 - name: Synapse SQL
   items:
   - name: Overview
