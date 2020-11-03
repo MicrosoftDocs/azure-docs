@@ -24,7 +24,7 @@ Learn how to run a disaster recovery drill to another Azure region, for Azure VM
 
 ## Prerequisites
 
-Before you start this tutorial, you must enable disaster recovery for one or more Azure VMs. If you haven't, [complete the first tutorial](azure-to-azure-tutorial-enable-replication.md) in this series.
+Before you start this tutorial, you must enable disaster recovery for one or more Azure VMs. To do this, [complete the first tutorial](azure-to-azure-tutorial-enable-replication.md) in this series.
 
 ## Verify VM settings
 

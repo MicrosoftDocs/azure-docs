@@ -9,7 +9,7 @@ ms.custom: mvc
 
 # Tutorial: Fail back Azure VM to the primary region
 
-After failing over an Azure VM to a secondary Azure region, follow this tutorial to fail the VM to the primary Azure region, using [Azure Site Recovery](site-recovery-overview.md).  In this tutorial, learn how to:
+After failing over an Azure VM to a secondary Azure region, follow this tutorial to fail the VM to the primary Azure region, using [Azure Site Recovery](site-recovery-overview.md).  In this article, you learn how to:
 
 > [!div class="checklist"]
 > 
@@ -26,8 +26,8 @@ After failing over an Azure VM to a secondary Azure region, follow this tutorial
 
 Before you start this tutorial, you should have:
 
-1. [Set up replication](azure-to-azure-tutorial-enable-replication.md) for at least one Azure VM, and tried out a disaster recovery drill(azure-to-azure-tutorial-dr-drill.m) for it.
-2. [Failed over the VM](azure-to-azure-tutorial-failover-failback.md) from the primary region to a secondary region, and reprotected it so that it now replicates from the secondary region to the primary. 
+1. [Set up replication](azure-to-azure-tutorial-enable-replication.md) for at least one Azure VM, and tried out a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) for it.
+2. [Failed over the VM](azure-to-azure-tutorial-failover-failback.md) from the primary region to a secondary region, and reprotected it so that it replicates from the secondary region to the primary. 
 3. Check that the primary region is available, and that you're able to create and access new resources in it.
 
 ## Fail back to the primary region
