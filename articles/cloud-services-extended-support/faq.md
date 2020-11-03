@@ -1,5 +1,5 @@
 ---
-title: Cloud Services (extended support) FAQ
+title: Cloud Services (extended support) 
 description: Frequently asked questions for Cloud Services (extended support)
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
@@ -12,9 +12,9 @@ ms.custom:
 
 # Cloud Services (extended support) Frequently Asked Questions 
 
-This article is broken down into various high level FAQ topics. 
+This article is broken down into various high level  topics. 
 
-## General FAQ
+## General 
 
 ### How has cloud services changed? 
 
@@ -122,7 +122,7 @@ Cloud Services (extended support) documents takes priority if there is conflict 
 
 If there are errors/issues with documents, feel free to report the error using the feedback section of the document or via github links provided at topright corner of the documents.  
 
-## Technical FAQ
+## Technical 
 
 ### Where can I see Cloud Services (Extended Support) deployments? 
 
@@ -174,7 +174,7 @@ Template & Parameters file can be passed as a parameter via Rest API or PS/CLI c
 
 Both. If template is being used for deployment automation, then the information on Template and Cscfg/Csdef should match else deployment will fail.  
 
-## Deployment Files (Cscfg, Csdef) FAQ
+## Deployment Files (Cscfg, Csdef) 
 
 ### What is changing in my existing deployment file? 
 
@@ -200,7 +200,7 @@ Not necessarily. Template & parameter files are only used for deployment automat
 
 You can find details on a basic create operation in the [power shell quick starter](Tanmay to add link once available). 
 
-## Cloud Services (Extended Support) Architecture & Features FAQ 
+## Cloud Services (Extended Support) Architecture & Features  
 
 NEEDS INFORMATION
 
@@ -286,7 +286,7 @@ No, Similar to Cloud Services (classic), Cloud Services (extended support) deplo
 
 No, Cloud Service (extended support) deployments are tied to a cluster like Cloud Services (classic). Therefore, allocation failures will continue to exist if the cluster is full.  
 
-## Networking Components FAQ
+## Networking Components 
 
 ### Why can’t I create a deployment without virtual network? 
 
@@ -338,7 +338,7 @@ NEEDS INFORMATION
 
 Yes, Network Security Groups. This is the current experience both in RDFE and ARM. And customers need to be in control of their own security enforcement. 
 
-## Certificates FAQ
+## Certificates 
 
 ### Why do I need to manage my certificates on Cloud Services (extended support)? 
 
@@ -364,7 +364,7 @@ No, Key Vault is a regional resource and therefore you will need one Key Vault i
 
 However, one Key Vault can be used for all deployments within a region. 
 
-## Troubleshooting FAQ
+## Troubleshooting 
 
 ### Does Cloud Services (extended support) support Resource Health Check (RHC)? 
 
@@ -380,7 +380,7 @@ If you have Basic support plan, we recommend upgrading to a better support plan.
 
 We need our customers to provide us feedback, suggestions, and report bugs (in the product or documents) via our community forums. This helps us make your experience better going forward.  
 
-## Migration FAQ
+## Migration 
 
 ### How do I migrate my existing deployment to ARM? 
 
