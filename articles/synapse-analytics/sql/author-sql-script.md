@@ -23,15 +23,15 @@ There are several ways to start the authoring experience in SQL script. You can 
 2. From the **Actions** menu, choose **New SQL script**.
 
 3. Choose **Import** from the **Actions** menu under Develop SQL scripts. Select an existing SQL script from your local storage.
-![new sql script 3 actions](media/author-sql-script/newsqlscript3actions.png)
+![new sql script 3 actions](media/author-sql-script/new-sql-script-3-actions.png)
 
 ## Create your SQL script
 
 1. Choose a name for your SQL script by selecting the **Property** button and replacing the default name assigned to the SQL script. 
-![new sql script rename](media/author-sql-script/newsqlscriptrename.png)
+![new sql script rename](media/author-sql-script/new-sql-script-rename.png)
 
 2. Choose the specific dedicated SQL pool or serverless SQL pool from the **Connect to** drop-down menu. Or if necessary, choose the database from **Use database**. 
-![new sql choose pool](media/author-sql-script/newsqlchoosepool.png)
+![new sql choose pool](media/author-sql-script/new-sql-choose-pool.png)
 
 3. Start authoring your SQL script using the intellisense feature.
 
@@ -39,7 +39,7 @@ There are several ways to start the authoring experience in SQL script. You can 
 
 Select the **Run** button to execute your SQL script. The results are displayed by default in a table.
 
-![new sql script results table](media/author-sql-script/newsqlscriptresultstable.png)
+![new sql script results table](media/author-sql-script/new-sql-script-results-table.png)
 
 ## Export your results
 
@@ -47,13 +47,13 @@ You can export the results to your local storage in different formats (including
 
 You can also visualize the SQL script results in a chart by selecting the **Chart** button. Select the "Chart type" and **Category column**. You can export the chart into a picture by selecting **Save as image**. 
 
-![new sql script results chart](media/author-sql-script/newsqlscriptresultschart.png)
+![new sql script results chart](media/author-sql-script/new-sql-script-results-chart.png)
 
 ## Explore data from a Parquet file
 
 You can explore Parquet files in a storage account using SQL script to preview the file contents.
 
-![new script sqlod parquet](media/author-sql-script/newscriptsqlodparquet.png)
+![new script sqlod parquet](media/author-sql-script/new-script-sqlod-parquet.png)
 
 ## SQL Tables, external tables, views
 
@@ -66,7 +66,7 @@ By selecting the **Actions** menu under data, you can select several actions suc
  
 Explore the available gesture by right-clicking the nodes of SQL databases.
  
-![new script database](media/author-sql-script/newscriptdatabase.png)
+![new script database](media/author-sql-script/new-script-database.png)
 
 ## Next steps
 
