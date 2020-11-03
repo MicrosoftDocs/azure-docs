@@ -28,53 +28,27 @@ Use Azure Monitor to get alerts and write logs when devices disconnect.
 
 ## Route connection events to logs
 
-IoT hub continuously emits resource logs for several categories of operations. To collect this log data, though, you need to create a diagnostic setting to route it to a destination where it can be analyzed or archived. One such destination is to Azure Monitor Logs via a Log Analytics workspace ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)), where the data can be analyzed using Kusto queries.
+IoT hub continuously emits resource logs for several categories of operations. To collect this log data, though, you need to create a diagnostic setting to route it to a destination where it can be analyzed or archived. One such destination is Azure Monitor Logs via a Log Analytics workspace ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)), where you can analyze the data using Kusto queries.
 
 The IoT Hub [resource logs connections category](monitor-iot-hub-reference.md#connections) emits operations and errors having to do with device connections. The following screenshot shows a diagnostic setting to route these logs to a Log Analytics workspace:
 
-To log device connection events and errors, create a diagnostic setting for the [IoT Hub resource logs connections category](monitor-iot-hub-reference.md#connections). We recommend creating this setting as early as possible, because although IoT Hub always emits log data, it isn't collected until you route it to a destination. To send logs to Azure Monitor Logs, route the Connections logs to a Log Analytics workspace ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)), where you can analyze them using Kusto queries.
-
-The following screenshot shows a diagnostic setting that routes IoT Hub resource logs for the Connections category to a Log Analytics workspace.
-
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png" alt-text="Recommended setting to send connectivity logs to Log Analytics workspace.":::
 
-To learn more about routing metrics and logs, see [Collection and routing](monitor-iot-hub.md#collection-and-routing). For detailed instructions to create a diagnostic setting, see the [Use metrics and logs](totorial-use-metrics-and-diags.md) tutorial.
+We recommend creating a diagnostic setting as early as possible after you create your IoT hub, because, although IoT Hub always emits resource logs, they aren't collected by Azure Monitor until you route them to a destination.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+To learn more about routing logs to a destination, see [Collection and routing](monitor-iot-hub.md#collection-and-routing). For detailed instructions to create a diagnostic setting, see the [Use metrics and logs tutorial](totorial-use-metrics-and-diags.md).
 
-1. Browse to your IoT hub.
+## Set up metric alerts for device disconnect at scale
 
-1. Select **Diagnostics settings**.
+You can set up alerts based on the platform metrics emitted by IoT Hub. With metric alerts, you can notify individuals that a condition of interest has occurred and also trigger actions that can respond to that condition automatically.
 
-1. Select **Add diagnostic setting**.
+The [*Connected devices (preview)*](monitor-iot-hub-reference.md#device-metrics) metric tells you how many devices are connected to your IoT Hub. You can create alerts with static thresholds to trigger when this metric drops below a set value, or, with [Dynamic Thresholds](/azure/azure-monitor/platform/alerts-dynamic-thresholds), when this metric drops below a historically determined value.
 
-1. Select **Connections** logs.
+You can use metric alert rules to monitor for device disconnect anomolies at-scale. That is, when a significant number of devices unexpectedly disconnect. When such an occurrence is detected you can look at logs to help troubleshoot the issue. To monitor per-device disconnects and disconnects for critical devices; however, you must use Event Grid. Event Grid also provides a more real-time experience than Azure metrics.
 
-1. For easier analysis, select **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#resolve-connectivity-errors).
+To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](/tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) in the Azure Monitor documentation.
 
-   ![Recommended settings](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
-
-To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
-
-### Set up alerts for device disconnect at scale
-
-To get alerts when devices disconnect, configure alerts on the **Connected devices (preview)** metric.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Browse to your IoT hub.
-
-3. Select **Alerts**.
-
-4. Select **New alert rule**.
-
-5. Select **Add condition**, then select "Connected devices (preview)".
-
-6. Set up threshold and alerting by following prompts.
-
-To learn more, see [What are alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
-
-#### Detecting individual device disconnects
+## Per-device, low-latency  Detecting individual device disconnects
 
 To detect *per-device* disconnects, such as when you need to know a factory just went offline, [configure device disconnect events with Event Grid](iot-hub-event-grid.md).
 
