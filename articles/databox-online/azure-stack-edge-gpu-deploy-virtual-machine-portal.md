@@ -134,17 +134,17 @@ Follow these steps to create a VM after you have created a VM image.
     
     1. You can choose to **Create and attach a new disk** or **Attach an existing disk**.
 
-    ![Add VM 3](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-13.png)
+        ![Add VM 3](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-13.png)
 
     1. Select **Create and attach a new disk**. In the **Create new disk** blade, provide a name for the disk and the size in GiB.
 
         ![Add VM 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-14.png)
 
-    2. Repeat the above to process to add more disks. After the disks are created, they show up in the **Disks** tab.
+    1.  Repeat the above to process to add more disks. After the disks are created, they show up in the **Disks** tab.
 
-    ![Add VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-15.png)
+        ![Add VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-15.png)
 
-    Select **Next: Networking**.
+        Select **Next: Networking**.
 
 1. In the **Networking** tab, you will configure the network connectivity for your VM.
 
