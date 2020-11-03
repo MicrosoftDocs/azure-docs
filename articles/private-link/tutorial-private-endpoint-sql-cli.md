@@ -126,7 +126,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 In this section, you'll create a virtual machine that will be used to test the private endpoint.
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). When prompted, provide a password to be used as the sign-in credentials for the VM:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). When prompted, provide a password to be used as the credentials for the VM:
 
 * Named **myVM**.
 * In **CreateSQLEndpointTutorial-rg**.
@@ -164,7 +164,7 @@ az sql server create \
 
 Use [az sql db create](/cli/azure/sql/db#az_sql_db_create) to create a database:
 
-* Named **mydatabase**.
+* Named **myDataBase**.
 * In **CreateSQLEndpointTutorial-rg**.
 * Replace **\<sql-server-name>** with your unique server name.
 
@@ -173,7 +173,7 @@ Use [az sql db create](/cli/azure/sql/db#az_sql_db_create) to create a database:
 az sql db create \
     --resource-group CreateSQLEndpointTutorial-rg  \
     --server <sql-server-name> \
-    --name mySampleDatabase \
+    --name myDataBase \
     --sample-name AdventureWorksLT \
     --edition GeneralPurpose \
     --family Gen4 \
@@ -212,14 +212,18 @@ az network private-endpoint create \
 
 ## Configure the private DNS zone
 
-In this section you'll create and configure the private DNS zone using [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create), [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create), and [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create):
+In this section, you'll create and configure the private DNS zone using 
 
-* Zone named **privatelink.database.windows.net**
-* In virtual network **myVNet**.
-* In resource group **CreateSQLEndpointTutorial-rg**.
-* DNS link named **myDNSLink**.
-* Associated with **myPrivateEndpoint**.
-* Zone group named **MyZoneGroup**.
+* [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create)
+* [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create)
+* [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create):
+
+    * Zone named **privatelink.database.windows.net**
+    * In virtual network **myVNet**.
+    * In resource group **CreateSQLEndpointTutorial-rg**.
+    * DNS link named **myDNSLink**.
+    * Associated with **myPrivateEndpoint**.
+    * Zone group named **MyZoneGroup**.
 
 ```azurecli-interactive
 az network private-dns zone create \
