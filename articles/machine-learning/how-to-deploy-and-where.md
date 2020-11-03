@@ -1,7 +1,7 @@
 ---
 title: How and where to deploy models 
 titleSuffix: Azure Machine Learning
-description: 'Learn how and where to deploy your Azure Machine Learning models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and field-programmable gate arrays.'
+description: 'Learn how and where to deploy your Azure Machine Learning models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and FPGA.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
