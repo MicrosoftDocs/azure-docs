@@ -24,7 +24,7 @@ Azure Data CLI (`azdata`) version number: 20.2.3. Download at [https://aka.ms/az
 
 This release introduces the following breaking changes: 
 
-* PostgreSQL custom resource definition (CRD) files replaces the term `shards` are renamed to `workers`. This term (`workers`) matches the command line parameter name.
+* In the PostgreSQL custom resource definition (CRD), the term `shards` is renamed to `workers`. This term (`workers`) matches the command line parameter name.
 
 * `azdata arc postgres server delete` prompts for confirmation before deleting a postgres instance.  Use `--force` to skip prompt.
 
@@ -46,15 +46,15 @@ This release introduces the following breaking changes:
 
    * If no data has been loaded to Azure, a prompt to try it again.
 
-* `azdata arc dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects postgres logs.
+* `azdata arc dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects PostgreSQL engine logs on Linux.
 
-*	Display a working indicator during postgres creating and restoring backup.
+*	Display a working indicator during creating and restoring backup with PostgreSQL Hyperscale.
 
 * `azdata arc postrgres backup list` now includes backup size information.
 
 * SQL Managed Instance admin name property was added to right column of overview blade in the Azure portal.
 
-* Azure Data Studio supports configuring number of worker nodes, vCore, and memory settings for a server group. 
+* Azure Data Studio supports configuring number of worker nodes, vCore, and memory settings for PostgreSQL Hyperscale. 
 
 * Preview supports backup/restore for Postgres version 11 and 12.
 
@@ -76,9 +76,7 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 - For now, if you are using NFS, you need to set `allowRunAsRoot` to `true` in your deployment profile file before creating the Azure Arc data controller.
 - SQL and PostgreSQL login authentication only.  No support for Azure Active Directory or Active Directory.
 - Creating a data controller on OpenShift requires relaxed security constraints.  See documentation for details.
-- Scaling the number of PostgresSQL Hyperscale worker nodes _down_ is not supported.
 - If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster.
-- Preview does not support backup/restore for Postgres version 11 engine. (Resolved in October, 2020) It only supports backup/restore for Postgres version 12.
 - Azure Kubernetes Service (AKS), clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services. To avoid this issue, when you create the AKS cluster in Azure portal, if you select a region where zones are available, clear all the zones from the selection control. See the following image:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
@@ -86,10 +84,11 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 
 ### Known issues for Azure Arc Enabled PostgreSQL Hyperscale   
 
+- Preview does not support backup/restore for PostgreSQL version 11 engine. It only supports backup/restore for PostgreSQL version 12.
+- `azdata arc dc debug copy-logs` ndoes not collect PostgreSQL engine logs on Windows.
 - Recreating a server group with the name of a server group that was just deleted may fail or hang. 
    - **Workaround** Do not reuse the same name when you recreate a server group or wait for the load balancer/external service of previously deleted server group. Assuming that the name of the server group you deleted was `postgres01` and it was hosted in a namespace `arc`, before you recreate a server group with the same name, wait until `postgres01-external-svc` is not showing up in the output of the kubectl command `kubectl get svc -n arc`.
- 
-- Loading the Overview page and Compute + Storage configuration page in Azure Data Studio is slow. 
+ - Loading the Overview page and Compute + Storage configuration page in Azure Data Studio is slow. 
 
 
 
