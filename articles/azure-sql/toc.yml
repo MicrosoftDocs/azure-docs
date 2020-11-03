@@ -321,11 +321,9 @@
   - name: Migration guides
     items: 
     - name: Overview
-      href: migration-guides/database/sql-server-to-database-overview.md
+      href: migration-guides/database/sql-server-to-sql-database-overview.md
     - name: From SQL Server
-      href: migration-guides/database/sql-server-to-database-guide.md
-    - name: Performance baseline
-      href: migration-guides/database/sql-server-to-database-performance-baseline.md
+      href: migration-guides/database/sql-server-to-sql-database-guide.md
 
   - name: Concepts
     items:
