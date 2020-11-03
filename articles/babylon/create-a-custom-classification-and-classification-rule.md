@@ -27,8 +27,6 @@ To create a custom classification:
 
 2. Select **Classifications** under Metadata management from the left navigation
 
-    :::image type="content" source="media/create-a-custom-classification-and-classifictaion-rule/select-classification.png" alt-text="Select classifications" border="true":::
-
 3. Select **New**
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="New classification" border="true":::
