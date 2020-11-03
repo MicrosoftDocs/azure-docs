@@ -111,7 +111,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 await sender.SendMessagesAsync(messageBatch);
                 messageBatch.Dispose();
 
-                Console.WriteLine($"Sent a batch of {listOfMessages.Count} messages");
+                Console.WriteLine($"Sent a batch of {listOfMessages.Count} messages to the topic: {topicName}");
             }
         }
     ```
@@ -149,7 +149,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         static async Task MessageHandler(ProcessMessageEventArgs args)
         {
             string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body}");
+            Console.WriteLine($"Received: {body} from subscription: {subName}");
 
             // complete the message. messages is deleted from the queue. 
             await args.CompleteMessageAsync(args.Message);
