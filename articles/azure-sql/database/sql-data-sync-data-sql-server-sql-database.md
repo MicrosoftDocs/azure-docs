@@ -167,7 +167,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 
 ### Network requirements
 
-When the sync group is established, the Data Sync service needs to connect to the hub database. At the time when you establish the sync group, the Azure SQL server must have the following configuration in its `Firewalls and virtual networks` settings:
+When the sync group is established, the Data Sync service needs to connect to the hub database. At the time when you establish the sync group, the Azure SQL Server must have the following configuration in its `Firewalls and virtual networks` settings:
 
  * *Deny public network access* must be set to *Off*.
  * *Allow Azure services and resources to access this server* must be set to *Yes*, or you must create IP rules for the [IP addresses used by Data Sync service](network-access-controls-overview.md#data-sync).
