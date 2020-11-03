@@ -57,7 +57,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 4. For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
 5. Make sure you don't use an authentication proxy to control network connectivity for VMs that you want to move.
 
-6. If the VM you're trying to move doesn't have access to the internet and uses a firewall proxy to control outbound access, check the requirements at [Configure outbound network connectivity](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Verify [outbound connectivity requirements for VMs](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identify the source networking layout and the resources you currently use for verification, including load balancers, NSGs, and public IP.
 

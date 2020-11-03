@@ -121,7 +121,7 @@ A replication policy defines the settings for the retention history of recovery 
 - 24 hours for the retention history of recovery points.
 - 4 hours for the frequency of app-consistent snapshots.
 
-[Learn more about replication settings](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
+[Learn more about replication settings](azure-to-azure-how-to-enable-replication.md#customize-target-resources).
 
 ### What is a crash-consistent recovery point?
 
@@ -194,7 +194,7 @@ Site Recovery provides a **Multi-VM consistency** option, which creates a replic
 
 When you fail over the virtual machines, they'll have shared crash-consistent and app-consistent recovery points.
 
-Go through the tutorial to [enable multi-VM consistency](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm).
+Go through the tutorial to [enable multi-VM consistency](azure-to-azure-tutorial-enable-replication.md#enable-replication).
 
 ### Can I fail over a single virtual machine within a multi-VM consistency replication group?
 
