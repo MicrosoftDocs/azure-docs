@@ -383,7 +383,7 @@
           href: database/network-access-controls-overview.md
         - name: DNS aliases
           href: database/dns-alias-overview.md
-        - name: vNet endpoints
+        - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
@@ -1037,6 +1037,8 @@
           href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Management
         items:
+        - name: SQL IaaS Agent extension
+          href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
         - name: Extend support for SQL 2008 & R2
@@ -1066,12 +1068,14 @@
           href: virtual-machines/windows/change-sql-server-version.md
         - name: Storage
           href: virtual-machines/windows/storage-configuration.md
+        - name: Automated Patching
+          href: virtual-machines/windows/automated-patching.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Register with SQL VM RP
-          displayName: resource provider, registration
+        - name: Install SQL IaaS Agent extension
+          displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1079,12 +1083,7 @@
             href: virtual-machines/windows/sql-vm-resource-provider-register.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-        - name: Automate management tasks
-          items:
-          - name: Use the SQL Server IaaS Agent Extension
-            href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-          - name: Automated Patching
-            href: virtual-machines/windows/automated-patching.md
+
       - name: Migrate
         items:
         - name: SQL Server database to VM

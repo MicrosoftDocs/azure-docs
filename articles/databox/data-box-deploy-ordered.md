@@ -297,7 +297,7 @@ Do the following steps in the Azure portal to order a device.
      
         ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
-       On the **Security** screen, you can use **View of change passwords** to change the passwords.
+       On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
 1. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
