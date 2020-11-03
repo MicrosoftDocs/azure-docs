@@ -144,10 +144,11 @@ The following table summarizes these additional parameters. See the [reference d
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. ||
 |`feature_lags`| The features to lag will be automatically decided by automated ML when `target_lags` are set and `feature_lags` is set to `auto`. Enabling feature lags may help to improve accuracy. Feature lags are disabled by default. ||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
+|`short_series_handling`| Enables short time series handling to avoid failing during training due to insufficient data. Short series handling is set to True by default.|
 
 
 The following code, 
-* Creates the `time-series settings` as a dictionary object. 
+* Leverages the `ForecastingParameters` class to define the forecasting parameters for your experiment training
 * Sets the `time_column_name` to the `day_datetime` field in the data set. 
 * Defines the `time_series_id_column_names` parameter to `"store"`. This ensures that **two separate time-series groups** are created for the data; one for store A and B.
 * Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
@@ -156,16 +157,18 @@ The following code,
 * Sets `target_lags` to the recommended "auto" setting, which will automatically detect this value for you.
 
 ```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(
+    time_column_name='day_datetime', 
+    forecast_horizon=50,
+    time_series_id_column_names=["store"],
+    target_lags='auto',
+    target_rolling_window_size=10
+)
 ```
 
-These `time_series_settings` are then passed into your standard `AutoMLConfig` object along with the `forecasting` task type, primary metric, exit criteria and training data. 
+These `forecasting_parameters` are then passed into your standard `AutoMLConfig` object along with the `forecasting` task type, primary metric, exit criteria and training data. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -345,4 +348,3 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
 * Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 * Follow the [tutorial](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
-

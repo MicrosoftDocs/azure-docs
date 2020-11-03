@@ -1,8 +1,8 @@
 ---
 title: Private Link - Azure Database for PostgreSQL - Single server 
 description: Learn how Private link works for Azure Database for PostgreSQL - Single server.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
