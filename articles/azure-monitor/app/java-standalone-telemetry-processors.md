@@ -30,17 +30,14 @@ Create a configuration file named `applicationinsights.json`, and place it in th
     "processors": [
       {
         "type": "attribute",
-        "processorName": "attributeProcessor1",
         ...
       },
       {
         "type": "attribute",
-        "processorName": "attributeProcessor2",
         ...
       },
       {
         "type": "span",
-        "processorName": "spanProcessor1",
         ...
       }
     ]
@@ -88,7 +85,6 @@ Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
     "processors": [
       {
         "type": "attribute",
-        "processorName": "attributes/selectiveProcessing",
         "include": {
           "matchType": "strict",
           "spanNames": [
@@ -157,7 +153,6 @@ The following example demonstrates inserting keys/values into spans.
     "processors": [
       {
         "type": "attribute",
-        "processorName": "attributes/insert",
         "actions": [
           {
             "key": "attribute1",
@@ -185,7 +180,6 @@ The following demonstrates configuring the processor to only update existing key
     "processors": [
       {
         "type": "attribute",
-        "processorName": "attributes/update",
         "actions": [
           {
             "key": "piiattribute",
@@ -217,7 +211,6 @@ and where span name does not match "login.*".
     "processors": [
       {
         "type": "attribute",
-        "processorName": "attributes/regexupdate",
         "include": {
           "matchType": "regexp",
           "spanNames": [
@@ -273,7 +266,6 @@ The following specifies the values of attribute "db.svc", "operation", and "id" 
     "processors": [
       {
         "type": "span",
-        "processorName": "span/renameSpan",
         "name": {
           "fromAttributes": [
             "db.svc",
@@ -306,7 +298,6 @@ Let's assume input span name is /api/v1/document/12345678/update. Applying the f
     "processors": [
       {
         "type": "span",
-        "processorName": "span/extractAttributes",
         "name": {
           "toAttributes": {
             "rules": [
@@ -330,7 +321,6 @@ The following demonstrates renaming the span name to "{operation_website}" and a
     "processors": [
       {
         "type": "span",
-        "processorName": "span/extractAttributesWithIncludeExclude",
         "include": {
           "matchType": "regexp",
           "spanNames": [
