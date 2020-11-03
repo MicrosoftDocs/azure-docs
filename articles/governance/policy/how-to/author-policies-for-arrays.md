@@ -159,7 +159,7 @@ expression. To resolve this error message, change `equals` to either `in` or `no
 
 ## Referencing array resource properties
 
-Many use cases require working with array properties in the evaluated resource. Some scenarios require referencing an entire array (for example, checking it's length). Others require applying a condition to each individual array member (for example, ensure that all firewall rule block access from the internet). Understanding the different ways Azure Policy can reference resource properties, and how these references behave when they refer to array properties is the key for writing conditions that cover these scenarios.
+Many use cases require working with array properties in the evaluated resource. Some scenarios require referencing an entire array (for example, checking its length). Others require applying a condition to each individual array member (for example, ensure that all firewall rule block access from the internet). Understanding the different ways Azure Policy can reference resource properties, and how these references behave when they refer to array properties is the key for writing conditions that cover these scenarios.
 
 ### Referencing resource properties
 Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure.md#aliases) There are two ways to reference the values of a resource property within Azure Policy:
@@ -202,7 +202,14 @@ The first alias represents a single value, the value of `stringArray` property f
 }
 ```
 
-This condition compares the entire `stringArray` array to a single string value. Most conditions, including `equals`, only accept string values, so there's not much use in comparing an array to a string. Even with conditions that accept arrays, there aren't many scenarios where a condition that compares an entire array to another value is useful.
+This condition compares the entire `stringArray` array to a single string value. Most conditions, including `equals`, only accept string values, so there's not much use in comparing an array to a string. The main scenario where referencing the array property is useful is when checking whether it exists:
+
+```json
+{
+  "field": "Microsoft.Test/resourceType/stringArray",
+  "exists": "true"
+}
+```
 
 With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example, the following condition checks whether the length of `stringArray` is greater than 0:
 
@@ -270,7 +277,7 @@ When using the field condition on the example resource content, the results are 
 | `Microsoft.Test/resourceType/missingArray[*].property` | An empty collection of values. |
 | `Microsoft.Test/resourceType/stringArray` | `["a", "b", "c"]` |
 | `Microsoft.Test/resourceType/stringArray[*]` | `"a"`, `"b"`, `"c"` |
-| `Microsoft.Test/resourceType/objectArray[*]` |  `{ "property": "value", "nestedArray": [ 1, 2 ] }`,<br/>`{ "property": "value", "nestedArray": [ 3, 4 ] }`|
+| `Microsoft.Test/resourceType/objectArray[*]` |  `{ "property": "value1", "nestedArray": [ 1, 2 ] }`,<br/>`{ "property": "value2", "nestedArray": [ 3, 4 ] }`|
 | `Microsoft.Test/resourceType/objectArray[*].property` | `"value1"`, `"value2"` |
 | `Microsoft.Test/resourceType/objectArray[*].nestedArray` | `[ 1, 2 ]`, `[ 3, 4 ]` |
 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` | `1`, `2`, `3`, `4` |
@@ -284,7 +291,7 @@ When using the `field()` function on the example resource content, the results a
 | `[field('Microsoft.Test/resourceType/missingArray[*].property')]` | `[]` |
 | `[field('Microsoft.Test/resourceType/stringArray')]` | `["a", "b", "c"]` |
 | `[field('Microsoft.Test/resourceType/stringArray[*]')]` | `["a", "b", "c"]` |
-| `[field('Microsoft.Test/resourceType/objectArray[*]')]` |  `[{ "property": "value", "nestedArray": [ 1, 2 ] }, { "property": "value", "nestedArray": [ 3, 4 ] }]`|
+| `[field('Microsoft.Test/resourceType/objectArray[*]')]` |  `[{ "property": "value1", "nestedArray": [ 1, 2 ] }, { "property": "value2", "nestedArray": [ 3, 4 ] }]`|
 | `[field('Microsoft.Test/resourceType/objectArray[*].property')]` | `["value1", "value2"]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray')]` | `[[ 1, 2 ], [ 3, 4 ]]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]` |
@@ -340,7 +347,7 @@ Example:
   "equals": 1
 }
 ```
-In order to evaluate the `count` expression, Azure Policy evaluates the `where` condition 3 times, once for each member of `stringArray`, counting how many times it was evaluated to `true`. When the `where` condition refers the the `Microsoft.Test/resourceType/stringArray[*]` array members, instead of selecting all the members of `stringArray`, it will be only select a single array member every time:
+In order to evaluate the `count` expression, Azure Policy evaluates the `where` condition 3 times, once for each member of `stringArray`, counting how many times it was evaluated to `true`. When the `where` condition refers the the `Microsoft.Test/resourceType/stringArray[*]` array members, instead of selecting all the members of `stringArray`, it will only select a single array member every time:
 
 | Iteration | Selected `Microsoft.Test/resourceType/stringArray[*]` values | `where` Evaluation result |
 |:---|:---|:---|
