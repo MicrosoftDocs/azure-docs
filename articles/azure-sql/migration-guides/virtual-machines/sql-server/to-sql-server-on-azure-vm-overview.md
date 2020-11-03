@@ -66,7 +66,7 @@ The following table details the available method for the **lift and shift** migr
 <br />
 
 |**Method** | **Minimum source version** | **Minimum target version** | **Source backup size constraint** |  **Notes** |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Existing SQL Server to be moved as-is to instance of SQL Server on an Azure VM. Can scale migration workloads of up to 35,000 VMs. <br /><br /> Source server(s) remain online and servicing requests during synchronization of server data, minimizing downtime. <br /><br /> **Automation & scripting**: [Azure Site Recovery Scripts](../../../../migrate/how-to-migrate-at-scale.md) and [Example of scaled migration and planning for Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
 ## Migrate  
