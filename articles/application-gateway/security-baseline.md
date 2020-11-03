@@ -967,7 +967,7 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 **Guidance**: When using Azure Web Application Firewall (WAF), you can configure WAF policies. A WAF policy consists of two types of security rules: custom rules that are authored by the customer, and managed rule sets that are a collection of Azure-managed pre-configured set of rules. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
 
-* [Understand Azure-managed WAF rule sets](../web-application-firewall/ag/ag-overview.md#waf-policy)
+* [Understand Azure-managed WAF rule sets](../web-application-firewall/ag/ag-overview.md#waf-policy-and-rules)
 
 **Azure Security Center monitoring**: Currently not available
 
