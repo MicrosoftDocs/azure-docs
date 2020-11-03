@@ -154,7 +154,7 @@ In this section, you'll create a SQL server and database.
 Use [az sql server create](/cli/azure/sql/server#az_sql_server_create) to create a SQL server:
 
 * Replace **\<sql-server-name>** with your unique server name.
-* Replace **\<your-password> with your password.
+* Replace **\<your-password>** with your password.
 * In **CreateSQLEndpointTutorial-rg**.
 * In **eastus** region.
 
