@@ -175,6 +175,9 @@
       href: streaming-policy-concept.md        
   - name: Content protection
     items:
+    - name: Managed identities and media services
+      displayName: content protection
+      href: concept-managed-identities.md
     - name: Dynamic encryption and key delivery
       displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
