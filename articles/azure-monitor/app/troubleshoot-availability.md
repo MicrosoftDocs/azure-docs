@@ -20,7 +20,7 @@ The Troubleshooting Report allows you to easily diagnose common problems that ca
 ![Animation of navigating from the availability tab by selecting a failure to the end-to-end transaction details to view the troubleshooting report](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
 > [!NOTE]
-> If step 1 is present, steps 2-4 would not be present.
+>  If the connection re-use step is present, then DNS resolution, connection establishment, and SSL handshakes steps will not be present.
 
 |Step | Error message | Possible cause |
 |-----|---------------|----------------|
