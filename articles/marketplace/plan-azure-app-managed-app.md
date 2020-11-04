@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/09/2020
 ---
 
 # Plan an Azure managed application for an Azure application offer
@@ -47,7 +47,7 @@ Azure Government services handle data that is subject to certain government regu
 
 You can configure each plan to be visible to everyone (public) or to only a specific audience (private). You can create up to 100 plans and up to 45 of them can be private. You may want to create a private plan to offer different pricing options or technical configurations to specific customers.
 
-You grant access to a private plan using Azure subscription IDs with the option to include a description of each subscription ID you assign. You can add a maximum of 10 subscription IDs manually or up to 20,000 subscription IDs using a .CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
+You grant access to a private plan using Azure subscription IDs with the option to include a description of each subscription ID you assign. You can add a maximum of 10 subscription IDs manually or up to 10,000 subscription IDs using a .CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 Private plans are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP). For more information, see [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
@@ -99,7 +99,7 @@ You can optionally provide an HTTPS Webhook endpoint to receive notifications ab
 
 You can optionally specify which actions customers can perform on the managed resources in addition to the `*/read` actions that is available by default.
 
-If you choose this option, you’ll provide the control actions and allowed data actions you want. For more information, see [Understanding deny assignments for Azure resources](/azure/role-based-access-control/deny-assignments.md). For available actions, see [Azure Resource Manager resource provider operations](/azure/role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
+If you choose this option, you need to provide either the control actions or the allowed data actions, or both. For more information, see [Understanding deny assignments for Azure resources](/azure/role-based-access-control/deny-assignments.md). For available actions, see [Azure Resource Manager resource provider operations](/azure/role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
 ## Choose who can manage the application
 
@@ -115,7 +115,7 @@ For each principal ID, you will associate one of the Azure AD built-in roles (Ow
 
 ## Policy settings
 
-You can apply [Azure Policies](/azure/governance/policy/overview.md) to your managed application to specify compliance requirements for the deployed solution. For policy definitions and the format of the parameter values, see [Azure Policy Samples](/azure/governance/policy/samples.md).
+You can apply [Azure Policies](/azure/governance/policy.md) to your managed application to specify compliance requirements for the deployed solution. For policy definitions and the format of the parameter values, see [Azure Policy Samples](/azure/governance/policy/samples.md).
 
 You can configure a maximum of five policies, and only one instance of each Policy type. Some policy types require additional parameters.
 

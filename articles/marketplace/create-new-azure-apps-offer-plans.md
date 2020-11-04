@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/09/2020
 ---
 
 # How to create plans for your Azure application offer
