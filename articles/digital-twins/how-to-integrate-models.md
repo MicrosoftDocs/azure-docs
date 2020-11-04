@@ -22,19 +22,18 @@ Using models that are based on industry standards or use standard ontology repre
 To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
 
 There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
-* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
-* If you already have existing models that are based on an industry standard, you'll need to **convert them to DTDL** in order to bring them into Azure Digital Twins.
+* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry. Currently, this option is available for the real estate industry.
+* If you already have existing models that are based on an industry standard, or you work in an industry where there are no starter DTDL ontologies, you'll need to **convert your models to DTDL** in order to bring them into Azure Digital Twins.
 
 You can also always use the ideas from your industry models to develop your own custom DTDL models from scratch, as described in [*How-to: Manage custom models*](how-to-manage-model.md).
 
 ## Use a starter DTDL ontology for your industry 
 
-For some industries, there are starter DTDL ontologies (sets of models) available that help provide common ground for industry standards and DTDL requirements to prevent reinvention. You can also extend or contribute to a starter ontology to customize it to your business. 
+One way to integrate industry-standard models with DTDL is to use a starter DTDL ontology (set of models), which is designed around the vocabulary of a particular business and thus helps provide common ground for industry standards and DTDL requirements. You can also extend or contribute to a starter ontology to customize it to your business. 
 
-Here are the starter DTDL ontologies currently available:
-* For the real estate industry – the [Smart Building DTDL-based ontology](https://github.com/Azure/opendigitaltwins-building) (created in partnership with the RealEstateCore Consortium). Here you can find models for smart buildings, as well as best practices for how to consume and extend the ontology.
+There is currently one starter DTDL ontology available: the [**Smart Building DTDL-based ontology**](https://github.com/Azure/opendigitaltwins-building) for the real estate industry (created in partnership with the RealEstateCore Consortium). Here you can find models for smart buildings, as well as best practices for how to consume and extend the ontology.
 
-For other domains that do not currently offer starter DTDL ontologies, like smart cities and energy grids, you can follow the best practices outlined in this article to convert industry models and create your own solutions.
+For other domains that do not currently offer starter DTDL ontologies, like smart cities and energy grids, you can follow the best practices in the next section for converting industry models to create your own solutions.
 
 ## Convert industry-standard models to DTDL
 
