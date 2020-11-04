@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Extended Data** and perform the following steps in the following page.
 
-    ![Extended data saml page](./media/services@sosafe-tutorial/saml-settings.png)
+    ![Extended data saml page](./media/servicessosafe-tutorial/saml-settings.png)
 
     a. Paste the value of Tenant ID value in **Azure Tenant ID** textbox from Azure portal.
 
@@ -146,9 +146,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Services@SoSafe Sign on URL where you can initiate the login flow.  
+1. Click on **Test this application** in Azure portal. This will redirect to Services@SoSafe Sign on URL where you can initiate the login flow.  
 
-* Go to Services@SoSafe Sign-on URL directly and initiate the login flow from there.
+1. Go to Services@SoSafe Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
