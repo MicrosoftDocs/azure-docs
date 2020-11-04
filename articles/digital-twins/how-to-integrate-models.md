@@ -39,7 +39,9 @@ For other domains that do not currently offer starter DTDL ontologies, you can f
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/[), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
-To use a model with Azure Digital Twins, it must be in DTDL format. This section describes general design guidance in the form of a **conversion pattern** for converting RDF-based models to DTDL so that they can be used with Azure Digital Twins. It also contains [**sample code** for an RDF-specific converter](#sample-converter-application), which has been validated for the [Brick](https://brickschema.org/ontology/) schema and can be extended for other schemas in the building industry.
+To use a model with Azure Digital Twins, it must be in DTDL format. This section describes general design guidance in the form of a **conversion pattern** for converting RDF-based models to DTDL so that they can be used with Azure Digital Twins. 
+
+It also contains [**sample converter code** for an RDF converter](#sample-converter-application), which has been validated for the [Brick](https://brickschema.org/ontology/) schema and can be extended for other schemas in the building industry.
 
 ### Conversion pattern
 
