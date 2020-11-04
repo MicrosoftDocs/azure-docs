@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 09/15/2020
-author: acomet
+ms.author: acomet
 ms.reviewer: jrasnick
 ---
 

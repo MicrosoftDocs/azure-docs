@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: 
 ms.date: 04/15/2020
-author: acomet
+ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
