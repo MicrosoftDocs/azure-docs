@@ -20,7 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V11 Release - [KB4539949](https://support.microsoft.com/en-us/help/4539949)| 11.0.0.0 | October 15, 2020 | Supported - Flighting |
+| V11.1 Release - [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported - Flighting |
 | V10.1 Release - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported |
 | May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported |
 | V10 Release - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | April 9, 2020 | Supported |
@@ -43,8 +43,8 @@ The following Azure File Sync agent versions have expired and are no longer supp
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## Agent version 11.0.0.0
-The following release notes are for version 11.0.0.0 of the Azure File Sync agent (released October 15, 2020).
+## Agent version 11.1.0.0
+The following release notes are for version 11.1.0.0 of the Azure File Sync agent (released November 4, 2020).
 
 ### Improvements and issues that are fixed
 - New cloud tiering modes to control initial download and proactive recall
