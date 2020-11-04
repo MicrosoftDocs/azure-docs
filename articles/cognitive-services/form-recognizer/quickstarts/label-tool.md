@@ -34,6 +34,14 @@ To complete this quickstart, you must have:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
+## Try it out
+
+To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
+
+
 ## Set up the sample labeling tool
 
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).

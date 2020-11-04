@@ -227,7 +227,7 @@ When the VM has restarted, perform the following steps:
    
    In the preceding example, we can see that the file system size for the OS disk has been increased.
 
-### RHEL
+### RHEL LVM
 
 To increase the size of the OS disk in RHEL 7.x with LVM:
 
@@ -347,6 +347,130 @@ When the VM has restarted, perform the following steps:
 
 > [!NOTE]
 > To use the same procedure to resize any other logical volume, change the **lv** name in step 7.
+
+### RHEL RAW
+>[!NOTE]
+>Always take a snapshot of the VM before increasing OS disk size.
+
+To increase the size of the OS disk in RHEL with RAW partition:
+
+Stop the VM.
+Increase the size of the OS disk from the portal.
+Start the VM.
+When the VM has restarted, perform the following steps:
+
+1. Access your VM as a **root** user by using the following command:
+ 
+   ```
+   sudo su
+   ```
+
+1. Install the **gptfdisk** package, which is required to increase the size of the OS disk.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  To see all the  sectors available on the disk, run the following command:
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. You will see the details informing the partition type. Ensure it is GPT. Identify the root partition. Do not change or delete the boot partition (BIOS boot partition) and the system partition ('EFI System Partition')
+
+1. Use the following command to start the partitioning for the first time. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Now you will see a message asking for the next command ('Command: ? for help'). 
+
+   ```
+   w
+   ```
+
+1. You will receive a warning stating "Warning! Secondary header is placed too early on the disk! Do you want to
+correct this problem? (Y/N):". You have to press 'Y'
+
+   ```
+   Y
+   ```
+
+1. You should see a message informing that final checks are complete and asking for confirmation. Press 'Y'
+
+   ```
+   Y
+   ```
+
+1. Check if everything happened correctly using partprobe command
+
+   ```
+   partprobe
+   ```
+
+1. The above steps have ensured that the secondary GPT header is placed at the end. The next step is to start the process of resizing by using the gdisk tool again. Use the following command.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. In the command menu, press 'p' to see list of partition. Identify the root partition (In the steps, sda2 is considered as the root partition) and the boot partition (In the steps, sda3 is considered as the boot partition) 
+
+   ```
+   p
+   ```
+    ![Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Press 'd' to delete the partition and select the partition number assigned to boot (in this example it is '3')
+   ```
+   d
+   3
+   ```
+1. Press 'd' to delete the partition and select the partition number assigned to boot (in this example it is '2')
+   ```
+   d
+   2
+   ```
+    ![Delete Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. To recreate root partition with increased size, Press 'n', enter the partition number you deleted previously for root('2' for this example) and choose the First Sector as 'Default Value', Last Sector as 'Last sector value -  boot size sector' ('4096 in this case' corresponding to 2MB boot) and Hex Code as '8300'
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. To recreate boot partition, Press 'n', enter the partition number you deleted previously for boot('3' for this example) and choose the First Sector as 'Default Value', Last Sector as 'Default value'  and Hex Code as 'EF02'
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Write the changes with the 'w' command and press 'Y' to confirm
+   ```
+   w
+   Y
+   ```
+1. Run command 'partprobe' to check for disk stability
+   ```
+   partprobe
+   ```
+1. Reboot the VM and the root partition size would have been increased
+   ```
+   reboot
+   ```
+
+   ![New Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Run the xfs_growfs command on the partition to resize it
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## Next steps
 

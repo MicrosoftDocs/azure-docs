@@ -75,39 +75,7 @@ When you perform Spark activity in Azure Synapse, you specify a Spark pool to us
 
 ## The serverless SQL pool
 
-Every workspace comes with a pre-built pool called **Built-in**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a serverless SQL pool in Azure Synapse.
-
-
-Unlike the other kinds of pools, billing for serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
-
-* Serverless SQL pool has its own databases that exist independently from other serverless SQL pools.
-* A workspace always has exactly one serverless SQL pool named **Built-in**.
-
-## Preparing a ADLSGEN2 storage account
-
-### Perform the following steps BEFORE you create your workspace
-
-1. Open the [Azure portal](https://portal.azure.com).
-1. Navigate to your existing storage account
-1. Select **Access control (IAM)** on the left pane. 
-1. Assign the following roles or make sure they're already assigned:
-    * Assign yourself to the **Owner** role.
-    * Assign yourself to the **Storage Blob Data Owner** role.
-1. On the left pane, select **Containers** and create a container.
-1. You can give the container a name. In this document, we use the name  **users**.
-1. Accept the default setting **Public access level**, and then select **Create**.
-
-### Perform the following steps AFTER you create your workspace
-
-Configure access to the storage account from your workspace. Managed identities for your Azure Synapse workspace might already have access to the storage account. Follow these steps to make sure:
-
-1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
-1. Select **Access control (IAM)** from the left pane.
-1. Assign the following roles or make sure they're already assigned. We use the same name for the workspace identity and the workspace name.
-    * For the **Storage Blob Data Contributor** role on the storage account, assign **myworkspace** as the workspace identity.
-    * Assign **myworkspace** as the workspace name.
-1. Select **Save**.
-
+Every workspace comes with a pre-built pool called **Built-in**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a serverless SQL pool in Azure Synapse. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
 
 ## Next steps
 
