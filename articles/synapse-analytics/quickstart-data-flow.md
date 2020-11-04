@@ -12,9 +12,7 @@ ms.date: 11/03/2020
 
 # Quickstart: Transform data using mapping data flows
 
-Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, and analyze your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse workspace, data can be loaded, modeled, processed, and delivered for faster analytic insight.
-
-In this quickstart, you'll use the Azure Synapse Analytics to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this quickstart can be expanded upon when transforming data using mapping data flow
+In this quickstart, you'll use the Azure Synapse Analytics to create a pipeline that transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this quickstart can be expanded upon when transforming data using mapping data flow
 
 In this quickstart, you do the following steps:
 
@@ -188,5 +186,5 @@ Advance to the following articles to learn about Azure Synapse Analytics support
 
 > [!div class="nextstepaction"]
 > [Pipeline and activities](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Connector overview](https://docs.microsoft.com/azure/data-factory/connector-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Mapping data flow overview](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > [Data flow expression language](https://docs.microsoft.com/azure/data-factory/data-flow-expression-functions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
