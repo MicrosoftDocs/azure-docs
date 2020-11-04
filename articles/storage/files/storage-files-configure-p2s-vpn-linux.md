@@ -168,18 +168,21 @@ sudo cp "${installDir}ipsec.conf" "${installDir}ipsec.conf.backup"
 sudo cp "Generic/VpnServerRoot.cer" "${installDir}ipsec.d/cacerts"
 sudo cp "${username}.p12" "${installDir}ipsec.d/private" 
 
-echo -e "\nconn $virtualNetworkName" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tkeyexchange=$vpnType" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\ttype=tunnel" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftfirewall=yes" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleft=%any" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftauth=eap-tls" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftid=%client" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tright=$vpnServer" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\trightid=%$vpnServer" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\trightsubnet=$routes" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftsourceip=%config" | sudo tee -a "${installDir}ipsec.conf" > /dev/null 
-echo -e "\tauto=add" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
+sudo tee -a "${installDir}ipsec.conf" <<EOF
+
+conn $virtualNetworkName
+	keyexchange=$vpnType
+	type=tunnel
+	leftfirewall=yes
+	left=%any
+	leftauth=eap-tls
+	leftid=%client
+	right=$vpnServer
+	rightid=%$vpnServer
+	rightsubnet=$routes
+	leftsourceip=%config
+	auto=add
+EOF
 
 echo ": P12 client.p12 '$password'" | sudo tee -a "${installDir}ipsec.secrets" > /dev/null
 
