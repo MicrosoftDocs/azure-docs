@@ -519,57 +519,9 @@
       href: active-directory-how-to-integrate.md
     - name: Configure single sign-on for an application
       href: registration-config-sso-how-to.md
-- name: How-to guides
+- name: How-to
   items:
-  - name: Authentication
-    items:
-    - name: Configure role claim
-      href: active-directory-enterprise-app-role-management.md
-    - name: Customize claims - Portal
-      href: active-directory-saml-claims-customization.md
-    - name: Customize claims - PowerShell
-      href: active-directory-claims-mapping.md
-    - name: Configure optional claims
-      href: active-directory-optional-claims.md
-    - name: Use directory schema extension attributes in claims
-      href: active-directory-schema-extensions.md
-    - name: Configure token lifetimes
-      href: configure-token-lifetimes.md
-    - name: Handle SameSite cookie changes in Chrome browser
-      href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Handle ITP in Safari
-      href: reference-third-party-cookies-spas.md
-  - name: Application configuration
-    displayName: App configuration
-    items:
-    - name: Convert a single-tenant app to a multi-tenant app
-      href: howto-convert-app-to-be-multi-tenant.md
-    - name: Create a service principal
-      items:
-      - name: Using Azure PowerShell
-        href: howto-authenticate-service-principal-powershell.md
-      - name: Using the Azure portal
-        href: howto-create-service-principal-portal.md
-    - name: Restrict your app to a set of users
-      href: howto-restrict-your-app-to-a-set-of-users.md
-    - name: Add app roles in your application
-      href: howto-add-app-roles-in-azure-ad-apps.md
-    - name: Follow the branding guidelines
-      displayName: Add branding
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Configure publisher domain
-      href: howto-configure-publisher-domain.md
-      displayName: verified domain, verified publisher domain
-    - name: Configure Terms of Service and Privacy Statement
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure publisher verification for your app
-      items:
-      - name: Mark your app as publisher verified
-        href: mark-app-as-publisher-verified.md
-      - name: Troubleshoot publisher verification
-        href: troubleshoot-publisher-verification.md
-  - name: Work with Microsoft Authentication Library
-    displayName: MSAL
+  - name: Use the Microsoft Authentication Library
     items:
       - name: MSAL.NET
         items:
@@ -620,8 +572,66 @@
             href: msal-java-token-cache-serialization.md
           - name: Get and remove accounts from the token cache
             href: msal-java-get-remove-accounts-token-cache.md
+  - name: Customize tokens and claims
+    items:
+    - name: Configure role claim
+      href: active-directory-enterprise-app-role-management.md
+    - name: Customize claims using Azure portal
+      href: active-directory-saml-claims-customization.md
+    - name: Customize claims using PowerShell
+      href: active-directory-claims-mapping.md
+    - name: Configure optional claims
+      href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
+    - name: Configure token lifetimes
+      href: configure-token-lifetimes.md
+  - name: Handle browser cookie restrictions
+    items:
+      - name: Handle ITP in Safari
+        href: reference-third-party-cookies-spas.md
+      - name: Handle SameSite cookie changes in Chrome
+        href: howto-handle-samesite-cookie-changes-chrome-browser.md
+  - name: Authenticate apps and services
+    items:
+      - name: Create a service principal using Azure PowerShell
+        href: howto-authenticate-service-principal-powershell.md
+      - name: Create a service principal using the Azure portal
+        href: howto-create-service-principal-portal.md
+  - name: Accept sign-ins from multiple tenants
+    items:
+    - name: Enable multi-tenant log-ins
+      href: howto-convert-app-to-be-multi-tenant.md
+    - name: Configure the publisher domain
+      displayName: verified domain, verified publisher domain
+      href: howto-configure-publisher-domain.md
+  - name: Authorize access to apps and resources
+    items:
+    - name: Restrict your app to a set of users
+      href: howto-restrict-your-app-to-a-set-of-users.md
+    - name: Add app roles in your application
+      href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
+  - name: Bring an app to market
+    items:
+    - name: Follow the branding guidelines
+      displayName: Add branding
+      href: howto-add-branding-in-azure-ad-apps.md
+    - name: Configure Terms of Service and Privacy Statement
+      href: howto-add-terms-of-service-privacy-statement.md
+    - name: Configure publisher verification for your app
+      items:
+      - name: Mark your app as publisher verified
+        href: mark-app-as-publisher-verified.md
+      - name: Troubleshoot publisher verification
+        href: troubleshoot-publisher-verification.md
+    - name: Publish to App Source
+      href: v2-howto-get-appsource-certified.md
+    - name: Publish to Azure AD App Gallery
+      href: v2-howto-app-gallery-listing.md
+    - name: Publish to the Office 365 Seller Dashboard
+      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
   - name: Work with Visual Studio
     items:
     - name: Use the Active Directory connected service
@@ -636,14 +646,6 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
-  - name: Bring an app to market
-    items:
-    - name: Publish to App Source
-      href: v2-howto-get-appsource-certified.md
-    - name: Publish to Azure AD App Gallery
-      href: v2-howto-app-gallery-listing.md
-    - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Reference
   items:
   - name: Application manifest
