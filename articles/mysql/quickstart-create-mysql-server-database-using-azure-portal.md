@@ -77,7 +77,7 @@ You can add additional IPs or provide an IP range to connect to your server from
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Connect to the server with mysql command-line client
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](../cloud-shell/overview) to connect to the server.
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](../../cloud-shell/overview) to connect to the server.
 
 
 1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password, and subscription for your newly created server from the **Overview** section as shown in the image below.
