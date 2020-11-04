@@ -1,6 +1,6 @@
 ---
-title: Verify subdomain names as managed domains - Azure Active Directory | Microsoft Docs
-description: Mto manage child domain authentication settings independently from root domain settings in Azure Active Directory
+title: Verify subdomain names as managed domains using PowerShell and Graph - Azure Active Directory | Microsoft Docs
+description: Change default subdomain authentication settings inherited from root domain settings in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -35,10 +35,10 @@ Because subdomains by default inherit the authentication type of the root domain
 New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
 ```
 
-1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain and see the domain isn't root so it has to inherit its root domain authentication type. For example:
+1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain. You can see that  the domain isn't a root domain, so it inherits its root domain authentication type. Your command and results might look as follows, using your organization ID:
 
 ```http
-GET https://graph.windows.net/{{tenant_id}}/domains?api-version=1.6
+GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
 ```
 
 ```http
@@ -101,7 +101,7 @@ Return:
 ```
 
 > [!Note]
->This process can be used only if the child domain does not already have users referencing the domain. If the child domain does already have users referencing it, open an [Incident Management ticket](https://aka.ms/icm) and transfer it to **Azure AD Distributed Directory Services** > **Customer Escalations**.
+>This process can be used only if the subdomain doesn't already have users referencing the domain. If the subdomain already has users referencing it, open an [Incident Management ticket](https://aka.ms/icm) and transfer it to **Azure AD Distributed Directory Services** > **Customer Escalations**.
 
 ## Next steps
 
