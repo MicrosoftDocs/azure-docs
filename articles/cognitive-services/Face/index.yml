@@ -55,11 +55,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/csharp-sdk.md
+            url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts/python-sdk.md
+            url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
           - text: Using the Go SDK
-            url: quickstarts/go-sdk.md
+            url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
       - linkListType: how-to-guide
         links:
           - text: Specify a face recognition model
@@ -98,27 +98,25 @@ landingContent:
           - text: Face API v1.0
             url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face
+            url: /javascript/api/@azure/cognitiveservices-face
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
           - text: iOS SDK
             url: https://github.com/Microsoft/Cognitive-Face-iOS
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices?view=azure-cli-latest
   
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/430315-face-api
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context

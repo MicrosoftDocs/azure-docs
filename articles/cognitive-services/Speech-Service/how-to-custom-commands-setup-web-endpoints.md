@@ -203,4 +203,7 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Export Custom Commands application as a remote skill](./how-to-custom-commands-integrate-remote-skills.md)
+
+> [!div class="nextstepaction"]
 > [Update a command from the client](./how-to-custom-commands-update-command-from-client.md)

@@ -112,7 +112,7 @@
     - name: Kubernetes network policies
       href: kubernetes-network-policies.md
     - name: DDoS protection
-      href: ddos-protection-overview.md
+      href: https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview
     - name: Virtual network TAP
       href: virtual-network-tap-overview.md
     - name: Security controls by Azure Policy
@@ -240,6 +240,8 @@
         href: virtual-network-public-ip-address.md
       - name: Manage public IP prefix
         href: manage-public-ip-address-prefix.md
+      - name: Upgrade public IP addresses
+        href: virtual-network-public-ip-address-upgrade.md
       - name: Add or remove IP address from NICs
         href: virtual-network-network-interface-addresses.md
       - name: Routing preference
@@ -298,9 +300,9 @@
         - name: Azure CLI
           href: virtual-network-service-endpoint-policies-cli.md
     - name: Manage DDoS protection
-      href: manage-ddos-protection.md
+      href: https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection
     - name: Onboard partners to DDoS Protection Standard
-      href: ddos-protection-partner-onboarding.md
+      href: https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding
     - name: Manage network security groups
       href: manage-network-security-group.md    
     - name: Security scenarios

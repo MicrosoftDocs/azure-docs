@@ -23,7 +23,7 @@ You can create and manage read replicas using PowerShell.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) installed
+- The [Az PowerShell module](/powershell/azure/install-az-ps) installed
   locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
@@ -34,7 +34,7 @@ To complete this how-to guide, you need:
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

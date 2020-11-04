@@ -23,7 +23,7 @@ This quickstart uses the resources created in either of these guides as a starti
 ## Install PHP
 Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
 
-### MacOS
+### macOS
 - Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).
 - Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration.
 
@@ -223,6 +223,16 @@ mysqli_stmt_close($stmt);
 //Close the connection
 mysqli_close($conn);
 ?>
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 # Monitor apps in Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
+[Azure App Service](./overview.md) provides
 built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
 In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
@@ -86,6 +86,7 @@ For an app, the available metrics are:
 | **Gen 1 Garbage Collections** | The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
 | **Gen 2 Garbage Collections** | The number of times the generation 2 objects are garbage collected since the start of the app process.|
 | **Handle Count** | The total number of handles currently open by the app process.|
+| **Health Check Status** | The average health status across the application's instances in the App Service Plan.|
 | **Http 2xx** | The count of requests resulting in an HTTP status code ≥ 200 but < 300. |
 | **Http 3xx** | The count of requests resulting in an HTTP status code ≥ 300 but < 400. |
 | **Http 401** | The count of requests resulting in HTTP 401 status code. |

@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
+ms.date: 10/21/2020
 ---
 
 # Execute R Script module
@@ -117,7 +117,7 @@ After the pipeline run is finished, you can preview the image in the right panel
 
 ## Access to registered dataset
 
-You can refer to the following sample code to [access to the registered datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) in your workspace:
+You can refer to the following sample code to [access to the registered datasets](../how-to-create-register-datasets.md) in your workspace:
 
 ```R
 		azureml_main <- function(dataframe1, dataframe2){
@@ -190,11 +190,11 @@ Datasets stored in the designer are automatically converted to an R data frame w
     > [!NOTE]
     > Existing R code might need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
 
-    If your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
+1. If your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
     
     1. Bundle the script and other custom resources to a zip file.
     1. Upload the zip file as a **File Dataset** to the studio. 
-    1. Drag the dataset module from the *My datasets* list in the left module pane in the designer authoring page. 
+    1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
     1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
     
     Following is the sample code to consume the script in the script bundle:
@@ -501,4 +501,4 @@ The following preinstalled R packages are currently available:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

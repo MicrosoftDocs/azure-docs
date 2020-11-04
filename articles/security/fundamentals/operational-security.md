@@ -78,7 +78,7 @@ The core functionality of Azure Monitor logs is provided by a set of services th
 This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 
-![Azure Monitor logs](./media/operational-security/azure-operational-security-fig2.png)
+![Diagram that shows data consolidation from various sources, so you can combine data from your Azure services with your existing on-premises environment.](./media/operational-security/azure-operational-security-fig2.png)
 
 The Azure Monitor service manages your cloud-based data securely by using the following methods:
 -	data segregation

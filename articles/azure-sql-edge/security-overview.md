@@ -87,8 +87,8 @@ Similar to Azure SQL and Microsoft SQL Server, Azure SQL Edge provides the same 
 
 Azure SQL Edge security best practices include writing secure client applications. For more information about how to help secure client applications at the networking layer, see [Client Network Configuration](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
 
-### SQL Server security catalog views and functions  
- Security information is exposed in several views and functions that are optimized for performance and utility. The following table contains information about security views and functions.  
+### Security catalog views and functions  
+Security information is exposed in several views and functions that are optimized for performance and utility. The following table contains information about security views and functions in Azure SQL Edge.  
   
 |Functions and views|Links|  
 |---------------------------|---------|  

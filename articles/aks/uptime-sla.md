@@ -4,7 +4,7 @@ description: Learn about the optional Uptime SLA offering for the Azure Kubernet
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
