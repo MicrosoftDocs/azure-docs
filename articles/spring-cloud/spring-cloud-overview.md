@@ -38,6 +38,9 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 * Full integration into Azure's ecosystems and services.
 
 * Enterprise ready.
+    * Fully managed infrastructure
+    * Built-in lifecycle management
+    * Ease of monitoring
 
 This documentation includes sections that explain how to get started and leverage Azure Spring Cloud services.
 
