@@ -87,31 +87,78 @@ If the following apply to your business, consider moving to a SQL Server on Azur
 - If you absolutely need to stay at a specific version of SQL Server (2012, for instance). 
 - If your compute requirements are much lower than managed instance offers (one vCore, for instance), and database consolidation is not an acceptable option. 
 
-## Migration tools
+## Migration tools 1
+
+The recommended tools for migration are the Data Migration Assistant and the Azure Database Migration Service. There are other alternative migration options available as well. 
+
+### Recommended
 
 [Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)
- The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database.
+The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database.
 
 [Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)
- A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases.
+A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases.
+
+ ### Alternative
 
 [Transactional replication](../../database/replication-to-sql-database.md)
-Replicate data from source SQL Server database table(s) to SQL Database by providing a publisher-subscriber type migration option while maintaining transactional consistency. Incremental data changes are propagated to Subscribers as they occur on the Publishers.</br></br> **Note:** Transactional replication has a number of limitations to consider when setting up the Publisher on the source SQL Server. See [Limitations on Publishing Objects](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) to learn more.
+Replicate data from source SQL Server database table(s) to SQL Database by providing a publisher-subscriber type migration option while maintaining transactional consistency. Incremental data changes are propagated to Subscribers as they occur on the Publishers.
 
 [Import Export Service / BACPAC](../../database/database-import.md)
 [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the data into Azure SQL Database. BACPAC  file can be imported to a new Azure SQL Database using the Azure portal. </br></br> For scale and performance with large databases sizes or large number of databases, you should consider using the [SqlPackage](../../database/database-import#using-sqlpackage) command-line utility to export and import databases.
 
+[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)
+The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Database. </br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximize transfer speed by leveraging parallel copy tasks.
+
+[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-database.md)
+The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory  migrates data from source SQL Server database(s) to SQL Database using built-in connectors and an [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Database.
+
+[SQL Data Sync](../../database/sql-data-sync-data-sql-server-sql-database.md)
+SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud.</br>Data Sync is useful in cases where data needs to be kept updated across several databases in Azure SQL Database or SQL Server.
+
+
+## Migration tools 2
+
+The recommended tools for migration are the Data Migration Assistant and the Azure Database Migration Service. There are other alternative migration options available as well. 
+
+### Recommended
+
+
+|Technology | Description|
+|---------|---------|
+|[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database.|
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases.|
+
+
+
+ ### Alternative
+
+
+|Technology |Description  |
+|---------|---------|
+|[Transactional replication](../../database/replication-to-sql-database.md)|Replicate data from source SQL Server database table(s) to SQL Database by providing a publisher-subscriber type migration option while maintaining transactional consistency. Incremental data changes are propagated to Subscribers as they occur on the Publishers.|
+|[Import Export Service / BACPAC](../../database/database-import.md)|[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the data into Azure SQL Database. BACPAC  file can be imported to a new Azure SQL Database using the Azure portal. </br></br> For scale and performance with large databases sizes or large number of databases, you should consider using the [SqlPackage](../../database/database-import#using-sqlpackage) command-line utility to export and import databases.|
+|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)|The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Database. </br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximize transfer speed by leveraging parallel copy tasks.|
+|[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-database.md)|The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory  migrates data from source SQL Server database(s) to SQL Database using built-in connectors and an [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Database.|
+|[SQL Data Sync](../../database/sql-data-sync-data-sql-server-sql-database.md)|SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud.</br>Data Sync is useful in cases where data needs to be kept updated across several databases in Azure SQL Database or SQL Server.|
+|Row2     |         |
+|Row3     |         |
+|Row4     |         |
+
+
+
+
 
 ## Compare migration options
 
-Recommended:
+### Recommended
 
 |Migration option  |When to use  |Considerations  |
 |---------|---------|---------|-
 |[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb) | - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migration is a logical data movement between objects and hence recommended to run during off-peak times. </br> - DMA reports the status of migration per database object including the number of rows migrated.  </br> - For large migrations (number of databases / size of database), use the Azure Database Migration Service listed below.|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. |
 
-Alternative: 
+### Alternative
 
 |Method / technology |When to use    |Considerations  |
 |---------|---------|---------|
@@ -120,31 +167,7 @@ Alternative:
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Migrating full or partial data migrations. </br> - Can accommodate downtime. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | - Requires downtime for exporting data from source and importing into target. </br> - The file formats and data types used in the export / import need to be consistent with table schemas. |
 
 
-
-## Migration options
-
-The following table describes data migration options and corresponding recommendations: 
-
-|Migration option  |When to use  |Description  |Considerations  |
-|---------|---------|---------|---------|
-|[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb) | - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database. | - Migration is a logical data movement between objects and hence recommended to run during off-peak times. </br> - DMA reports the status of migration per database object including the number of rows migrated.  </br> - For large migrations (number of databases / size of database), use the Azure Database Migration Service listed below.|
-|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases.| - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration is dependent on database size and the number of objects in the database. </br> - Requires the source database to set as Read-Only. |
-
-
-
-
-
-## Other methods for migration
-
-The following table describes other methods leveraging tools or technologies that can be used for migration based on your preference: 
-
-|Method / technology |When to use  |Description  |Considerations  |
-|---------|---------|---------|---------|
-|[Transactional replication](../../database/replication-to-sql-database.md)| - Migrate by continuously publishing changes from source database tables to target SQL Database tables. </br> - Full or partial database migrations of selected tables (subset of database).  </br> </br> Supported sources: </br> - [SQL Server (2016 - 2019) with some limitations](/sql/relational-databases/replication/replication-backward-compatibility) </br> - AWS EC2  </br> - GCP Compute SQL Server VM | Replicate data from source SQL Server database table(s) to SQL Database by providing a publisher-subscriber type migration option while maintaining transactional consistency. Incremental data changes are propagated to Subscribers as they occur on the Publishers.</br></br> **Note:** Transactional replication has a number of limitations to consider when setting up the Publisher on the source SQL Server. See [Limitations on Publishing Objects](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) to learn more. | - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).  </br> - It is possible to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication).    |
-|[Import Export Service / BACPAC](../../database/database-import.md)| - Migrate individual Line-of-business application database(s). </br>- Suited for smaller databases.  </br>  - Does not require a separate migration service or tool. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM  | [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the data into Azure SQL Database. BACPAC  file can be imported to a new Azure SQL Database using the Azure portal. </br></br> For scale and performance with large databases sizes or large number of databases, you should consider using the [SqlPackage](../../database/database-import#using-sqlpackage) command-line utility to export and import databases.| - Requires downtime as data needs to be exported at the source and imported at the destination.   </br> - The file formats and data types used in the export / import need to be consistent with table schemas to avoid truncation / data type mismatch errors.  </br> - Time taken to export a database with a large number of objects can be significantly higher.       |
-|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Migrating full or partial data migrations. </br> - Can accommodate downtime. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Database. </br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximize transfer speed by leveraging parallel copy tasks.| - Requires downtime for exporting data from source and importing into target. </br> - The file formats and data types used in the export / import need to be consistent with table schemas. |
-|[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-database.md)| - Migrating and/or transforming data from source SQL Server database(s). </br> - Merging data from multiple sources of data to Azure SQL Database typically for Business Intelligence (BI) workloads.  | The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory  migrates data from source SQL Server database(s) to SQL Database using built-in connectors and an [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Database.|  - Requires creating data movement pipelines in ADF to move data from source to destination.   </br> - [Cost](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) is an important consideration and is based on the pipeline triggers, activity runs, duration of data movement, etc. |
-|[SQL Data Sync](../../database/sql-data-sync-data-sql-server-sql-database.md)| - Synchronizing data between source and target databases.</br> - Suitable to run continuous sync between Azure SQL Database and on-premises SQL Server in a bi-directional flow. | SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud.</br>Data Sync is useful in cases where data needs to be kept updated across several databases in Azure SQL Database or SQL Server.| - Azure SQL Database must be the Hub database for sync with On-prem SQL Server database as Member database.</br> - Compared to Transactional Replication, SQL Data Sync supports bi-directional data sync between on-premises and Azure SQL Database. </br> - Can have a higher performance impact depending on the workload.|
+Transactional replication has a number of limitations to consider when setting up the Publisher on the source SQL Server. See [Limitations on Publishing Objects](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) to learn more.
 
 ## Feature interoperability 
 
@@ -152,7 +175,7 @@ There are additional considerations when migrating workloads that rely on other 
 
 ### SQL Server Integration Services 
 
-Migrate SQL Server Integration Services (SSIS) packages  to Azure by redeploying the packages to Azure-SSIS runtime in Azure Data Factory. Azure Data Factory [supports migration of SSIS packages](../../../data-factory/scenario-ssis-migration-overview.md#azure-sql-database-as-database-workload-destination) by providing a runtime built to execute SSIS packages in Azure. Alternatively, you can also rewrite the SSIS ETL logic natively in ADF using [Dataflows](../../../data-factory/concepts-data-flow-overview.md).
+Migrate SQL Server Integration Services (SSIS) packages  to Azure by redeploying the packages to Azure-SSIS runtime in [Azure Data Factory](../../../data-factory/introduction.md). Azure Data Factory [supports migration of SSIS packages](../../../data-factory/scenario-ssis-migration-overview.md#azure-sql-database-as-database-workload-destination) by providing a runtime built to execute SSIS packages in Azure. Alternatively, you can also rewrite the SSIS ETL logic natively in ADF using [Dataflows](../../../data-factory/concepts-data-flow-overview.md).
 
 
 ### SQL Server Reporting Services 
