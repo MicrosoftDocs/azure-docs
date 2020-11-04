@@ -17,7 +17,7 @@ This article describes a module included in Azure Machine Learning designer.
 
 Use the Feature Hashing module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 
-The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## What is feature hashing?
 
