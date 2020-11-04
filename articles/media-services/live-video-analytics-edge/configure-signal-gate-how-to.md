@@ -16,14 +16,14 @@ In this article, you will learn the details about how to configure a signal gate
 -	[Event-based video recording](event-based-video-recording-concept.md)
 
 
-## Problem:
+## Problem
 The user may want to start recording a particular time before or after the gate was triggered by an event. The user knows the acceptable latency within their system, so the user wants to specify the latency of the signal gate processor. The user wants to specify the shortest and longest that the duration of their recording can be no matter how many new events are received.
  
-### Use case scenario:
+### Use case scenario
 Suppose you want to record video every time the front door of your building opens. You want the **X** seconds prior to the door being opened included in the recording. You want the recording to last at least **Y** seconds, if the door is not opened again. You want the recording to last at most **Z** seconds, if the door is repeatedly opened. You know that your door sensor has a latency of **K** seconds and want to decrease the chance of events being disregarded ("late arrivals"), so you want to allow at least **K** seconds for the events to arrive.
 
 
-## Solution:
+## Solution
 
 ***Modifying Signal Gate Processor Parameters***
 
@@ -41,18 +41,18 @@ When the signal gate processor is triggered, it will stay open for the minimum a
 
 ### Parameters: (Based on when events arrive in physical time to the signal gate)
 
-**minimumActivationTime (shortest possible duration of a recording)** = the minimum number of seconds that the signal gate processor will remain open after being triggered to receive new events, unless interrupted by the **maximumActivationTime**
+* **minimumActivationTime (shortest possible duration of a recording)** = the minimum number of seconds that the signal gate processor will remain open after being triggered to receive new events, unless interrupted by the **maximumActivationTime**
 
-**maximumActivationTime (longest possible duration of a recording)** = the maximum number of seconds from the initial event that the signal gate processor will remain open after being triggered to receive new events, regardless of what events are received
+* **maximumActivationTime (longest possible duration of a recording)** = the maximum number of seconds from the initial event that the signal gate processor will remain open after being triggered to receive new events, regardless of what events are received
 
-**activationSignalOffset** = the number of seconds between the activation of the signal gate processor and when the video recording begins, typically this value is negative, in order to start the recording before the triggering event
+* **activationSignalOffset** = the number of seconds between the activation of the signal gate processor and when the video recording begins, typically this value is negative, in order to start the recording before the triggering event
 
-**activationEvaluationWindow** = the number of seconds starting from the initial triggering event, in which an event that occurred before the initial event, in media time, must arrive to the signal gate processor before being disregarded and considered a “late arrival”
+* **activationEvaluationWindow** = the number of seconds starting from the initial triggering event, in which an event that occurred before the initial event, in media time, must arrive to the signal gate processor before being disregarded and considered a “late arrival”
 
 > [!NOTE]
 > A late arrival is any event that arrives once the activation evaluation window has passed but this event arrived before the initial event in media time.
 
-### Limits of parameters:
+### Limits of parameters
 
 * **activationEvaluationWindow: 0 seconds to 10 seconds**
 
@@ -106,7 +106,7 @@ Here is an example of what the Signal Gate Processor node section would like in 
 ```
 
 
-**Let’s consider how this signal gate processor configuration will behave in different recording scenarios.**
+Let’s consider how this signal gate processor configuration will behave in different recording scenarios.
 
 
 **1 Event from 1 Source (*Normal Activation*)**
@@ -146,7 +146,7 @@ Example Diagram:
 
 ## Next steps
 
-### Try It Out:
+### Try It Out
 
 [Event-based video recording tutorial](event-based-video-recording-tutorial.md)
 
