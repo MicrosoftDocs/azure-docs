@@ -158,8 +158,16 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
-> [!NOTE]
-> If you want to add custom dimensions only on some telemetry, check out the telemetry processor preview feature.
+## Telemetry processors
+
+This is a preview feature.
+
+It allows you to configure rules that will be applied to request, dependency and trace telemetry, e.g.
+ * Mask sensitive data
+ * Conditionally add custom dimensions
+ * Update the telemetry name used for aggregation and display
+
+For more information, check out the [telemetry processor](./java-standalone-telemetry-processors.md) documentation.
 
 ## Auto-collected logging
 
