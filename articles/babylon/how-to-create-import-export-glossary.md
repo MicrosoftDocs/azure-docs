@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/4/2020
 ---
 
-# How to Browse Data catalog
+# How to create, import and export glossary terms
 
 This guide outlines how to create a business glossary term, import terms using .csv file and exporting glossary terms.
 

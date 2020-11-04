@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/4/2020
 ---
 
-# How to Browse Data catalog
+# How to manage term templates for business glossary
 
 This guide outlines how to create a term template and custom attributes which can be associated to glossary terms.
 
