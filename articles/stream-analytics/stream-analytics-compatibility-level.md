@@ -78,7 +78,7 @@ The upsert behavior is *insert or replace*.
 
 ### DateTimeOffset when writing to SQL output
 
-**Previous levels:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
+**Previous levels:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) types were adjusted to UTC.
 
 **1.2 level:** DateTimeOffset is no longer adjusted.
 
