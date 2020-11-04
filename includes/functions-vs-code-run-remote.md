@@ -14,7 +14,7 @@ ms.author: glenga
 1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
 
     ```http
-    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
+    http://<FUNCTION_APP_NAME>.azurewebsites.net/api/httpexample?name=Functions
     ```
 
     The following example shows the response in the browser to the remote GET request returned by the function:
