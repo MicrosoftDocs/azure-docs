@@ -84,13 +84,13 @@ The instructions below are for accessing Babylon securely from an Azure VM. Foll
 
 4. Connect to the VM, open the browser, navigate to the browser console (Ctrl + Shift + J) and switch to the network tab to monitor network requests. Enter `web.babylon.azure.com` in the url box and try to sign in using your Azure AD credentials. Login may fail and in the network tab on the console you can see Azure AD trying to access `aadcdn.msauth.net` but getting blocked.
 
-    ![Set up Azure AD access](media/catalog-private-end-point/connection-blocked.png)
+    ![connection blocked](media/catalog-private-end-point/connection-blocked.png)
  
 5. In this case, open a Command prompt on the VM and ping this url (aadcdn.msauth.net), get its IP, and then add an outbound port rule for the IP in VM's network security rules. Set the Destination to IP Address and set Destination IP addresses to aadcdn's IP. Due to load balancer and traffic manager, Azure AD CDN's IP might be dynamic. Once you get its IP, add it to your VM's host file to force browser visit that IP to get Azure AD CDN.
 
-    ![Set up Azure AD access](media/catalog-private-end-point/ping-ip-address.png)
+    ![ping ip address](media/catalog-private-end-point/ping-ip-address.png)
 
-    ![Set up Azure AD access](media/catalog-private-end-point/add-outbound-security-rule.png)
+    ![add outbound security rule](media/catalog-private-end-point/add-outbound-security-rule.png)
  
 6. Once the new rule is created, navigate back to the VM and try logging in using your Azure AD credentials again. If the login succeeds, then Babylon portal is ready to use. But in some cases, Azure AD will redirect to other domains to login based on customer's account type. For e.g. for a live.com account, Azure AD will redirect to live.com to login, then those requests would be blocked again. For Microsoft employee accounts, Azure AD will access msft.sts.microsoft.com for login information. Check the networking requests in browser networking tab to see which domain's requests are getting blocked, redo the previous step to get its IP and add outbound port rules in network security group to allow requests for that IP (if possible, add the url and IP to VM's host file to fix the DNS resolution). If you know the exact login domain's IP ranges, you can also directly add them into networking rules.
 
@@ -121,13 +121,13 @@ There are 2 ways you can add a Babylon private endpoints after creating your Bab
 
 4. In Resource tab, select Resource type to be **Microsoft.ProjectBabylon/accounts**.
 
-    ![Add portal private endpoint](media/catalog-private-end-point/select-resource-type.png)
+    ![select resource type](media/catalog-private-end-point/select-resource-type.png)
 
 5. Select the Resource to be the newly created Babylon account and select target sub-resource to be account.
 
 6. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and select **Create** to create the portal private endpoint.
 
-    ![Add portal private endpoint](media/catalog-private-end-point/image6.png)
+    ![select virtual network](media/catalog-private-end-point/select-virtual-network.png)
 
 > [!NOTE]
 > You will need to follow the same steps as above for the target sub-resource selected as 'Portal' as well.
@@ -144,19 +144,19 @@ There are 2 ways you can add a Babylon private endpoints after creating your Bab
 
 3. Select on **+ Add** and fill in the basic details:
 
-    ![Add portal private endpoint](media/catalog-private-end-point/add-private-endpoint.png)
+    ![Add portal private endpoint2](media/catalog-private-end-point/add-private-endpoint.png)
 
-    ![Add portal private endpoint](media/catalog-private-end-point/fill-in-basic-information.png)
+    ![fill in basic information2](media/catalog-private-end-point/fill-in-basic-information.png)
 
 4. Select the Resource to be the already created Babylon account and select target sub-resource to be account.
 
 5. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and select **Create** to create the account private endpoint.
 
-    ![Add portal private endpoint](media/catalog-private-end-point/select-virtual-network.png)
+    ![select virtual network2](media/catalog-private-end-point/select-virtual-network.png)
 
 > [!NOTE]
 > You will need to follow the same steps as above for the target sub-resource selected as 'Portal' as well.
 
 ## Next steps
 
-- [Tutorial: Scan Azure data sources by using a self-hosted IR](scan-azure-data-sources-self-hosted-integration-runtime.md)
+- [Bring new data sources under management](bring-new-data-sources-under-management.md)
