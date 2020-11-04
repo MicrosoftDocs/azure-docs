@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Save**.
 
-1. Your Panorays application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **Unique User Identifier** is mapped with **user.userprincipalname**. Panorays application expects **Unique User Identifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+1. Your Panorays application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname**. Panorays application expects **Unique User Identifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/default-attributes.png)
 
@@ -138,7 +138,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Panorays for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Panorays tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Panorays for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Panorays tile in the Access Panel, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Panorays for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
