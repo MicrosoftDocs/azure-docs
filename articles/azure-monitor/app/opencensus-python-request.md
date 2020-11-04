@@ -115,27 +115,40 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
 
 ## Tracking FastAPI applications
 
+There is no extension in opencensus for FastAPI, therefore we need to write our own FastAPI middleware.
+
 1. The following dependencies are required: 
-    - fastapi
-    - uvicorn
+    - [fastapi](https://pypi.org/project/fastapi/)
+    - [uvicorn](https://pypi.org/project/uvicorn/)
 
-2. Add FastAPI middleware.
+2. Add [FastAPI middleware](https://fastapi.tiangolo.com/tutorial/middleware/), make sure to set span kind server, `span.span_kind = SpanKind.SERVER`.
 
-3. Set span kind server, `span.span_kind = SpanKind.SERVER`.
+3. Run your application. Calls made to your FastAPI application should be automatically be tracked and telemetry should be logged directly to Azure Monitor...
 
 ```python 
+# Opencensus imports
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.trace.samplers import ProbabilitySampler
+from opencensus.trace.tracer import Tracer
+from opencensus.trace.span import SpanKind
+from opencensus.trace.attributes_helper import COMMON_ATTRIBUTES
+# FastAPI imports
+from fastapi import FastAPI, Request
+# uvicorn
+import uvicorn
+
 app = FastAPI()
-logger = logging.getLogger(__name__)
 
 HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
 HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
 
+# fastapi middleware for opencensus
 @app.middleware("http")
-async def add_process_time_header(request: Request, call_next):
+async def middlewareOpencensus(request: Request, call_next):
     tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
     with tracer.span("main") as span:
         span.span_kind = SpanKind.SERVER
-            
+
         response = await call_next(request)
 
         tracer.add_attribute_to_current_span(
