@@ -47,7 +47,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Max acoustic dataset file size for Data Import | 2 GB | 2 GB |
 | Max language dataset file size for Data Import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for Data Import | 1 KB | 1 MB |
-| Max language model text size | 200 KB | 500 KB |
+| Max text size when using `text` parameter in [Create Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
