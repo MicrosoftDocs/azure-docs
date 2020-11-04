@@ -65,7 +65,7 @@ To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected
 
 ### Security
 
-The connection between a device and your IoT Central application is secured using either [shared access signatures](./concepts-get-connected.md#connect-devices-at-scale-using-sas) or industry-standard [X.509 certificates](./concepts-get-connected.md#connect-devices-using-x509-certificates).
+The connection between a device and your IoT Central application is secured using either [shared access signatures](./concepts-get-connected.md#sas-group-enrollment) or industry-standard [X.509 certificates](./concepts-get-connected.md#x509-group-enrollment).
 
 ### Communication protocols
 
