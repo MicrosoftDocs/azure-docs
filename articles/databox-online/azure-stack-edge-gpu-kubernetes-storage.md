@@ -100,6 +100,26 @@ spec:
 
 For more information, see [Deploy a stateful application via static provisioning on your Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
+To access the same statically provisioned storage, the corresponding volume mount options for storage bindings for IoT are as follows. The `/home/input` is the path at which the volume is accessible within the container.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
+
 Azure Stack Edge Pro also has a builtin `StorageClass` called `ase-node-local` that uses a data disk storage attached to the Kubernetes node. This `StorageClass` supports dynamic provisioning. You can make a `StorageClass` reference in the pod applications and a PV is automatically created for you. For more information, see the [Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) to query for `ase-node-local StorageClass`.
 
 ![Built-in storage class in Kubernetes dashboard](./media/azure-stack-edge-gpu-kubernetes-storage/dynamic-provisioning-builtin-storage-class-1.png)
