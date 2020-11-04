@@ -7,11 +7,11 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
@@ -90,7 +90,6 @@ The following tables describe current support for administrative unit scenarios:
 | -- | -- | -- | -- |
 | Administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported |
 | Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
-
 
 Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 
