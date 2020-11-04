@@ -78,7 +78,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 * Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 * Heartbeat
 * HTTP Proxy
-* Self diagnostics
+* Self-diagnostics
 
 See [configuration options](./java-standalone-config.md) for full details.
 

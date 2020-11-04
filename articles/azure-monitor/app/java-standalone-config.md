@@ -270,9 +270,9 @@ If your application is behind a firewall and cannot connect directly to Applicat
 [//]: # "}"
 [//]: # "```"
 
-## Self diagnostics
+## Self-diagnostics
 
-"Self diagnostics" refers to internal logging from Application Insights Java 3.0.
+"Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
 
 This can be helpful for spotting and diagnosing issues with Application Insights itself.
 
