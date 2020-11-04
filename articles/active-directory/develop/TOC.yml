@@ -586,11 +586,12 @@
       href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
       href: configure-token-lifetimes.md
-    - name: Handle SameSite cookie changes in Chrome browser
-      href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Handle ITP in Safari
-      href: reference-third-party-cookies-spas.md
   - name: Handle browser cookie restrictions
+    items:
+      - name: Handle ITP in Safari
+        href: reference-third-party-cookies-spas.md
+      - name: Handle SameSite cookie changes in Chrome browser
+        href: howto-handle-samesite-cookie-changes-chrome-browser.md
   - name: Authenticate apps and services
     items:
       - name: Create a service principal using Azure PowerShell
