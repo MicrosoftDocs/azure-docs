@@ -38,11 +38,11 @@ The remainder of this doc shows how to get started writing SQL queries in Azure 
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, open the [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) to create a container called `Families`. After the container is created, use the data structures browser, or menu, to find and open the container you just created. In your container, you will see the `Items` option. Open this option and you'll see a button in the center of the screen to create a 'New Item'. You will use this option to create the 2 JSON items below.
+In your SQL API Cosmos DB account, open the [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 
-The following JSON items are documents about the Andersen and Wakefield families. They include parents, children and their pets, address, and registration information. 
+The following 2 JSON items are documents about the Andersen and Wakefield families. They include parents, children and their pets, address, and registration information. 
 
 The first item has strings, numbers, Booleans, arrays, and nested properties:
 
