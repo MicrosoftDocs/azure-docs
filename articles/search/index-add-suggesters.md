@@ -142,9 +142,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 A suggester is used in a query. After a suggester is created, call one of the following APIs for a search-as-you-type experience:
 
-+ [Suggestions REST API](/rest/api/searchservice/suggestions) 
-+ [Autocomplete REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [Suggestions REST API](/rest/api/searchservice/suggestions)
++ [Autocomplete REST API](/rest/api/searchservice/autocomplete)
++ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
 + [AutocompleteWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 In a search application, client code should leverage a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query and provide the match. For more information about this task, see [Add autocomplete or suggested results to client code](search-autocomplete-tutorial.md).
@@ -162,8 +162,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## Sample code
 
 + [Create your first app in C# (lesson 3 - Add search-as-you-type)](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample runs on a sandbox Azure Cognitive Search service and uses a pre-loaded Hotels index so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
-
-+ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) is an older sample containing both C# and Java code. It also demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample uses the hosted [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample data. 
 
 ## Next steps
 
