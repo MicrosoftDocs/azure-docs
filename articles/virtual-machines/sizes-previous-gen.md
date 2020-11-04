@@ -118,7 +118,7 @@ Premium Storage caching:  Not Supported
 
 <br>
 
-## A-series - compute-intensive instances  
+## A-series (compute intensive)  
 
 **Newer size recommendation**: [Av2-series](av2-series.md)
 
@@ -228,7 +228,7 @@ Premium Storage caching:  Supported
 
 <br>
 
-### DS-series - memory optimized  
+### DS-series (memory optimized)
 
 **Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
@@ -365,7 +365,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 <br>
 
 ## NC series
-**Newer size recommendation**: [NC T4 v3-series](ct4-v3-series.md)
+**Newer size recommendation**: [NC T4 v3-series](nct4-v3-series.md)
 
 > [!NOTE]
 > This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
