@@ -13,7 +13,7 @@ ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio (classic) web services
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Excel makes it easy to call web services directly without the need to write any code.
@@ -83,4 +83,4 @@ Get the API key for your web service. Where you perform this action depends on w
 ## Sharing Your Workbook
 If you save your workbook, then the API/Primary key for the web services you have added is also saved. That means you should only share the workbook with individuals you trust.
 
-Ask any questions in the following comment section or on our [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
+Ask any questions in the following comment section or on our [forum](/answers/topics/azure-machine-learning.html).

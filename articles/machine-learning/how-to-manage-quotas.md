@@ -47,7 +47,7 @@ In this section, you learn about the default and maximum quota limits for the fo
 + Azure Storage
 
 > [!IMPORTANT]
-> Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) for all of Azure.
+> Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) for all of Azure.
 
 ### Virtual machines
 Each Azure subscription has a limit on the number of virtual machines across all services. Virtual machine cores have a regional total limit and a regional limit per size series. Both limits are separately enforced.
@@ -95,7 +95,7 @@ The following table shows additional limits that you can't exceed.
 
 ### Container Instances
 
-For more information, see [Container Instances limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+For more information, see [Container Instances limits](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
 ### Storage
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
@@ -151,7 +151,7 @@ You can't raise limits above the maximum values shown in the preceding tables. I
 When you're requesting a quota increase, select the service that you have in mind. For example, select Azure Machine Learning, Container Instances, or Storage. For Azure Machine Learning compute, you can select the **Request Quota** button while viewing the quota in the preceding steps.
 
 > [!NOTE]
-> [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
+> [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
 
 ## Private endpoint and private DNS quota increases
 
@@ -167,7 +167,7 @@ Azure Machine Learning creates resources in your (customer) subscription, but so
 
 To request an allowance for these scenarios, use the following steps:
 
-1. [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and select the following options in the __Basics__ section:
+1. [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and select the following options in the __Basics__ section:
 
     | Field | Selection |
     | ----- | ----- |
