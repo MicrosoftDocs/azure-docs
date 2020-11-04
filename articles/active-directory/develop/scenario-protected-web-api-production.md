@@ -26,16 +26,12 @@ Now that you know how to protect your web API, here's how you can move it to pro
 
 Learn how to call a downstream API.
 
-> [!div class="nextstepaction"]
-> [Scenario - Web API calls downstream APIs](scenario-web-api-call-api-overview.md)
+[Scenario-web-api-call-api-overview](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-web-api-call-api-overview)
 
 Learn more with tutorials and samples.
 
-> [!div class="nextstepaction"]
-> [Calling a protected API using a daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+[Calling a protected API using a daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
-> [!div class="nextstepaction"]
-> [ASP.NET Core web API tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+[ASP.NET Core web API tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
-> [!div class="nextstepaction"]
-> [ASP.NET web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+[ASP.NET web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
