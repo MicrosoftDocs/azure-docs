@@ -110,6 +110,10 @@
       href: register-scan-azure-synapse-analytics.md
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
+  - name: Business Glossary
+    items:
+    - name: Create, Import and Export Glossary Terms
+      href: how-to-create-import-export-glossary.md
   - name: Classify
     items: 
     - name: Use classifications
