@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Secure a linked service with Private Links 
+# Secure a linked service with Private Links
 
 In this article, you'll learn how to secure a linked service in Synapse with a private endpoint.
 
