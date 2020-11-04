@@ -20,8 +20,7 @@ used as the service principal for the Azure services you want to use with Media
 Services.
 
 To learn more about what managed identities can do for you and your Azure
-applications, see [Azure AD Managed
-Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
+applications, see [Azure AD Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 A storage account is automatically created when you create a Media Services
 account. Media Services can access that storage account using the system (first
