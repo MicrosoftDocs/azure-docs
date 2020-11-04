@@ -377,11 +377,18 @@ Configuration AuditFilePathExists
 
 ## Policy lifecycle
 
-To release an update to the policy definition, there are two fields that require attention.
+To release an update to the policy definition, there are three fields that require attention.
+
+> [!NOTE]
+> The `version` property of the Guest Configuration assignment only effects packages that
+> are hosted by Microsoft. The best practice for versioning custom content is to include
+> the version in the file name.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
-  number greater than what is currently published. The property updates the version of the Guest
-  Configuration assignment so the agent recognizes the updated package.
+  number greater than what is currently published.
+- **contentUri**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a URI
+  to the location of the package. Including a package version in the file name will ensure the value
+  of this property changes in each release.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
   must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,
@@ -390,7 +397,6 @@ To release an update to the policy definition, there are two fields that require
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
-
 
 ### Filtering Guest Configuration policies using Tags
 
