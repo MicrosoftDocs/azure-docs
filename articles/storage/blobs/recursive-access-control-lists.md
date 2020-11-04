@@ -962,12 +962,9 @@ If you want the process to complete uninterrupted by permission errors, you can 
 
 ### [PowerShell](#tab/azure-powershell)
 
-This example sets the `$ContinueOnFailure` variable to `$true` to indicate that the process should continue setting ACLs in the event of a permission error. 
-
 This example uses the `ContinueOnFailure` parameter so that execution continues even if the operation encounters a permission error. 
 
 ```powershell
-$ContinueOnFailure = $true
 
 $TotalDirectoriesSuccess = 0
 $TotalFilesSuccess = 0
