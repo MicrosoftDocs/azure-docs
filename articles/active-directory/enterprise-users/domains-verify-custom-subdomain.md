@@ -1,6 +1,6 @@
 ---
 title: Add and verify custom domain names - Azure Active Directory | Microsoft Docs
-description: Management concepts and how-tos for managing a domain name in Azure Active Directory
+description: Mto manage child domain authentication settings independently from root domain settings in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 
@@ -19,41 +19,29 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Verifying a custom subdomain as managed domain
+# Add a custom subdomain name as a managed domain in Azure ACtive Directory
 
-Follow
-3
+After a root domain is added to Azure Active Directory (Azure AD), all subsequent subdomains added to that root in your Azure AD organization automatically inherit the authentication setting from the root domain. However, if you want to manage domain authentication settings independently from the root domain settings, you can now with the Microsoft Graph API. For example, if you have a federated root domain such as contoso.com, this article can help you verify a subdomain such as child.contoso.com as managed instead of federated.
 
-Edit
+In the Azure AD portal, when the parent domain is federated and the admin tries to verify a managed subdomain on the **Custom domain names** page, you'll get a 'Failed to add domain' error with the reason "One or more properties contains invalid values". If the administrator tries to add this subdomain from the Microsoft 365 admin center, they will receive a similar error.
 
+## How to verify a custom subdomain
 
-Jason Fritts
-Jul 31
-Customers often have a federated root domain such as mydomain.com  and then wish to verify a sub domain such as child.mydomain.com  as managed instead of federated like it's parent domain mydomain.com .
+Because subdomains by default inherit the authentication type of the root domain, administrators must promote the subdomain to a root domain instead of a child subdomain in Azure AD using Graph API so they can set the authenticationType to managed.
 
-The Azure AD Portal \ Custom Domain's blade has a bug where it will give the following errors whenever the parent domain is federated and the admin tries to verify the sub-domain in the Custom Domains blade:
+1. Verify the new child domain with its root domain's default authentication type using PowerShell.
 
-image.png
-
- {"code":"Request_BadRequest","message":{"lang":"en","value":"One or more properties contains invalid values."}
- [Microsoft.Online.Workflows.ValidationException: AddDomain. domain.LiveType must follow the root domain=domain.com;;]
-If the administrator tries to add this domain from the Office 365 Admin Center, they will receive a similar error which points to a possible solution:
-
-image.png
-
-How to successfully verify custom sub-domain
-As sub domains by default will inherit the authenticationType of the root domain, administrators must promote the child domain to a root domain instead of a child domain in AAD using Graph API so they can set the authenticationType to managed.
-
-See below for example steps on how to perform:
-
-First verify the new child domain as it's root domain's authentication type using PowerShell (can't use the portal due to above bug)
-
+```powershell
 New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
-Next, use AAD Graph Explorer  to GET the domain and see the domain isn't root so it has to inherit it's root domain authenticationType:
+```
 
-Example: GET: https://graph.windows.net/{{tenant_id}}/domains?api-version=1.6
+1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain and see the domain isn't root so it has to inherit its root domain authentication type. For example"
 
+```HTTP
+GET: 
+https://graph.windows.net/{{tenant_id}}/domains?api-version=1.6
 
+Return:
      {
          "authenticationType": "Federated",
          "availabilityStatus": null,
@@ -61,7 +49,7 @@ Example: GET: https://graph.windows.net/{{tenant_id}}/domains?api-version=1.6
          "isDefault": false,
          "isDefaultForCloudRedirections": false,
          "isInitial": false,
-         "isRoot": false,          <---------------- Not a root domain, so inherits parent domain's authenticaiton type (Federated)
+         "isRoot": false,          <---------------- Not a root domain, so it inherits parent domain's authentication type (federated)
          "isVerified": true,
          "name": "child.mydomain.com",
          "supportedServices": [],
@@ -70,16 +58,26 @@ Example: GET: https://graph.windows.net/{{tenant_id}}/domains?api-version=1.6
          "passwordValidityPeriodInDays": null,
          "passwordNotificationWindowInDays": null
      },
-Use AAD Graph Explorer API  to make this a root domain
+```
 
-POST https://graph.windows.net/{{tenant_id} }/domains/child.mydomain.com/promote?api-version=1.6
+## Use Azure AD Graph Explorer API to make this a root domain
 
- Example: POST https://graph.windows.net/ 2229f358-fc95-47e3-8661-a034d8abb2b5 /domains/child.domain.com/promote?api-version=1.6 
+```HTTP
+POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?api-version=1.6
+```
+
 Now Set to a managed domain using Set-MsolDomainAuthentication
 
+```powershell
 Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
-Verify via AAD Graph Explorer to GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6 that auth type is now managed:
+```
 
+Verify via GET in Azure AD Graph Explorer that subdomain authentication type is now managed:
+
+```HTTP
+GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6
+
+Return:
      {
          "authenticationType": "Managed",   <---------- Now this domain is successfully added as Managed and not inheriting Federated status
          "availabilityStatus": null,
@@ -98,11 +96,15 @@ Verify via AAD Graph Explorer to GET https://graph.windows.net/{{tenant_id} }/do
          "forceDeleteState": null,
          "state": null,
          "passwordValidityPeriodInDays": null,
-         "passwordNotificationWindowInDays": null
- }
+         "passwordNotificationWindowInDays": null }
+```
+
 > [!Note]
->This process can be used only if the child domain does not already have users referencing the domain. If they do have users referencing the domain, an ICM should be opened for TA review and transfer to AAD Distributed Directory Services / Customer Escalations -
+>This process can be used only if the child domain does not already have users referencing the domain. If the child domain does already have users referencing it, open an [Incident Management ticket](https://aka.ms/icm) and transfer it to **Azure AD Distributed Directory Services** > **Customer Escalations**.
 
 ## Next steps
 
-39 visits in last 30 days
+## Next steps
+
+- [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+- [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta)
