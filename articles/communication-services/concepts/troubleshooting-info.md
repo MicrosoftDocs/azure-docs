@@ -128,6 +128,9 @@ console.log(result); // your message ID will be in the result
 
 ## Enable and access call logs
 
+
+
+
 # [JavaScript](#tab/javascript)
 
 The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript client library:
@@ -145,11 +148,18 @@ callClient = new CallClient({logger: AzureLogger});
 
 # [iOS](#tab/ios)
 
-When developing for iOS, your logs are stored in `.blog` files. 
+When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
-These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container".  
+These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container". 
 
-This will give you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll see the `.blog` files that you can then attach to your Azure support request.
+This will give you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
+
+# [Android](#tab/android)
+
+When developing for Android, your logs are stored in `.blog` files. 
+
+On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request. 
+   
 
 ---
 
