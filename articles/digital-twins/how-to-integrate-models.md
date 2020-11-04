@@ -36,63 +36,9 @@ Here are the starter DTDL ontologies currently available:
 
 For other domains that do not currently offer starter DTDL ontologies, like smart cities and energy grids, you can follow the best practices outlined in this article to convert industry models and create your own solutions.
 
-## Create and edit models
-
-The first step in modeling is creating your models. You can create and complete editing of your industry-standard models before converting them to DTDL, or you can convert them to DTDL early and continue editing them as DTDL documents.
-
-### With industry standards
+## Convert industry-standard models to DTDL
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/[), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
-
-In some cases, you may want to create or edit a model using OWL-based model tools. You can use any number of model authoring tools to design an OWL-based model, including the following.
-* [WebProtégé](https://protege.stanford.edu/products.php#web-protege) and [Protégé Desktop](https://protege.stanford.edu/products.php#desktop-protege) are popular examples. You can import industry models in multiple formats, edit or extend a model, and export the model. 
-* [WebVOWL](http://www.visualdataweb.de/webvowl/) is another popular tool for visualizing models. 
-
-If you create a model using some industry standard that is not DTDL, you will then need to convert it to DTDL and upload it to Azure Digital Twins. 
-
-#### Common model file formats 
-
-RDF, OWL, and RDFS are the basic building blocks of the semantic web. 
-
-**RDF** provides a conceptual structure for describing things, in the form of **triples**. Triples consist of three parts: **subject**, **predicate**, and **object**. Objects can be made of URIs. 
-
-Here are some examples of RDF triples:
-
-```
-<LogicalDevice> <hasCapabiity> <Temperature>
-<Chiller> <locatedIn> <Level1>
-<Asset> <isPartOf> <Asset>  
-```
-
-These examples are all valid RDF, but the last statement is semantically invalid. This situation is where the OWL specification enters the picture. **OWL** defines what you can write with RDF in order to have valid ontology.
-
-Here is an example making use of OWL: 
-
-```
-<Asset> <isPartOf> <Building>
-<TemperatureSensor> <isType> <Sensor>
-```
-
-**RDFS** provides additional vocabulary semantics that help you define and describe classes. For example, one such class is `rdfs:subClassOf`:
-
-```
-<Equipment> <subClassOf> <Asset>
-```
-
-Models can be saved, imported, and exported in many file formats, including:  
-* RDF/XML 
-* Turtle (TTL) 
-* OWL/XML 
-
-### With DTDL
-
-Azure Digital Twins uses the JSON-LD-based **Digital Twin Definition Language (DTDL)** for modeling. Any model that will be used with Azure Digital Twins will need to be either originally written in or converted into DTDL.
-
-When working with models in DTDL, you can use the [**DTDL extension**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL models.
-
-You can read more about Azure Digital Twins models and their components in [*Concepts: Custom models*](concepts-models.md) and [*How-to: Manage custom models*](how-to-manage-model.md).
-
-## Convert industry-standard models to DTDL
 
 To use a model with Azure Digital Twins, it must be in DTDL format. This section describes a pattern for converting convert RDF-based models to DTDL so that they can be used with Azure Digital Twins, including...
 * **Strategy-level guidance** that can be applied to a variety of standards and model types
