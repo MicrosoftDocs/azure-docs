@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Update Management overview
 
-You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
+You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
@@ -19,13 +19,15 @@ Before deploying Update Management and enabling your machines for management, ma
 
 ## About Update Management
 
-Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
+Machines that are managed by Update Management rely on the following to perform assessment and to update deployments:
 
 * Log Analytics agent for Windows or Linux
 * PowerShell Desired State Configuration (DSC) for Linux
-* Automation Hybrid Runbook Worker
+* Automation Hybrid Runbook Worker (automatically installed when you enable Update Management on the machine)
 * Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
 * Either a private or public update repository for Linux machines
+
+You can enable Update Management for Azure VMs from your Automation account, from the **Virtual machines** page, or from the VM directly. For virtual machines or servers hosted outside of Azure, connect them with [Arc enabled servers](../../azure-arc/servers/overview.md). We recommend using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux servers in a workspace:
 
@@ -58,7 +60,7 @@ Having a machine registered for Update Management in more than one Log Analytics
 
 ### Supported client types
 
-The following table lists the supported operating systems for update assessments and patching. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) and a [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
+The following table lists the supported operating systems for update assessments and patching. Patching requires a Hybrid Runbook Worker, which is automatically installed when you enable the virtual machine or server for management by Update Management. For information on Hybrid Runbook Worker system requirements, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) and a [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
@@ -241,7 +243,7 @@ Here are the ways that you can enable Update Management and select machines to b
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
 
-- For a [selected Azure VM](enable-from-vm.md) from the Virtual machine page in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a [selected Azure VM](enable-from-vm.md) from the Virtual machines page in the Azure portal. This scenario is available for Linux and Windows VMs.
 
 - For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
