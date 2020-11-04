@@ -1,5 +1,5 @@
 ---
-title: Prepare ASR resources for disaster recovery of Azure VMware Solution VMs
+title: Prepare Azure Site Recovery resources for disaster recovery of Azure VMware Solution VMs
 description: Learn how to prepare Azure resources for disaster recovery of Azure VMware Solution machines using Azure Site Recovery.
 services: site-recovery
 author: Harsha-CS
@@ -11,7 +11,7 @@ ms.author: harshacs
 ms.custom: MVC
 
 ---
-# Prepare ASR resources for disaster recovery of Azure VMware Solution VMs
+# Prepare Azure Site Recovery resources for disaster recovery of Azure VMware Solution VMs
 
 This article describes how to prepare Azure resources and components so that you can set up disaster recovery of Azure VMware Solution VMs using [Azure Site Recovery](site-recovery-overview.md) service. [Azure VMware Solution](../azure-vmware/introduction.md) provides private clouds in Azure. These private clouds contain vSphere clusters, built from dedicated bare-metal Azure infrastructure.
 
