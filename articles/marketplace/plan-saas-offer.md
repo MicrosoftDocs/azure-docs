@@ -151,14 +151,14 @@ To help create your offer more easily, prepare some of these items ahead of time
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
 - **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
     
-    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
 
 - **Getting Started Instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These are instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
-- **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the marketplace(s). You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
+- **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
 - **Privacy policy link**: The URL for your company’s privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
 - **Contact information**: You must designate the following contacts from your organization:
   - **Support contact**: Provide the name, phone, and email for Microsoft partners to use when your customers open tickets. You must also include the URL for your support website.
-  - **Engineering contact**: Provide the name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn’t listed in the marketplace.
+  - **Engineering contact**: Provide the name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn’t listed in the commercial marketplace.
   - **CSP Program contact** (optional): Provide the name, phone, and email if you opt in to the CSP program, so those partners can contact you with any questions. You can also include a URL to your marketing materials.
 - **Useful links** (optional): You can provide links to various resources for users of your offer. For example, forums, FAQs, and release notes.
 - **Supporting documents**: You can provide up to three customer-facing documents, such as whitepapers, brochures, checklists, or PowerPoint presentations.
@@ -170,9 +170,9 @@ To help create your offer more easily, prepare some of these items ahead of time
 
   These logos are used in different places in the online stores:
 
-  -  The Small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
-  -  The Medium logo appears when you create a new resource in Microsoft Azure.
-  -  The Large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+  - The Small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+  - The Medium logo appears when you create a new resource in Microsoft Azure.
+  - The Large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
 
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
@@ -184,7 +184,7 @@ To help create your offer more easily, prepare some of these items ahead of time
   - Thumbnail: 1280 x 720 .png file
 
 > [!Note]
-> Your offer must meet the general [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) and the [software as a service policies](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
+> Your offer must meet the general [commercial marketplace certification policies](/legal/marketplace/certification-policies#100-general) and the [software as a service policies](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
 
 ## Preview audience
 A preview audience can access your offer prior to being published live in the online stores in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).

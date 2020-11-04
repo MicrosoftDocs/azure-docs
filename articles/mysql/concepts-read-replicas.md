@@ -1,11 +1,11 @@
 ---
-title: Read replicas - Azure Database for MySQL.
+title: Read replicas - Azure Database for MySQL
 description: 'Learn about read replicas in Azure Database for MySQL: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
+ms.date: 10/26/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -32,9 +32,6 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
-> [!IMPORTANT]
-> Azure Database for MySQL uses **ROW** based binary logging. If your table is missing a primary key, all rows in the table are scanned for DML operations. This causes increased replication lag. To ensure that the replica is able to keep up with changes on the source, we generally recommend adding a primary key on tables in the source server before creating the replica server or re-creating the replica server if you already have one.
-
 ## Cross-region replication
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
@@ -45,7 +42,7 @@ You can have a source server in any [Azure Database for MySQL region](https://az
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your source server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
+Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -66,7 +63,7 @@ However, there are limitations to consider:
 
 If a source server has no existing replica servers, the source will first restart to prepare itself for replication.
 
-When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the source server. The creation time depends on the amount of data on the source and the time since the last weekly full backup. The time can range from a few minutes to several hours. The replica server is always created in the same resource group and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) after creation.
+When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the source server. The creation time depends on the amount of data on the source and the time since the last weekly full backup. The time can range from a few minutes to several hours. The replica server is always created in the same resource group and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation.
 
 Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent an interruption in replication caused by out-of-storage errors.
 
@@ -74,7 +71,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-At creation, a replica inherits the firewall rules of the source server. Afterwards, these rules are independent from the the source server.
+At creation, a replica inherits the firewall rules of the source server. Afterwards, these rules are independent from the source server.
 
 The replica inherits the admin account from the source server. All user accounts on the source server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the source server.
 
@@ -88,11 +85,9 @@ At the prompt, enter the password for the user account.
 
 ## Monitor replication
 
-Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only.
+Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only. This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command. Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
 
-This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command.
-
-Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+If you see increased replication lag, refer to [troubleshooting replication latency](howto-troubleshoot-replication-latency.md) to troubleshoot and understand possible causes.
 
 ## Stop replication
 
@@ -124,6 +119,26 @@ Once you have decided you want to failover to a replica,
    Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
 	
 Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
+
+## Global transaction identifier (GTID)
+
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
+
+MySQL supports two types of transactions: GTID transactions (identified with GTID) and anonymous transactions (don't have a GTID allocated)
+
+The following server parameters are available for configuring GTID: 
+
+|**Server parameter**|**Description**|**Default Value**|**Values**|
+|--|--|--|--|
+|`gtid_mode`|Indicates if GTIDs are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
+|`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
+
+> [!NOTE]
+> Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+
+To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you cannot update `gtid_mode` on the source or replica server(s).
 
 ## Considerations and limitations
 
@@ -168,16 +183,25 @@ Users on the source server are replicated to the read replicas. You can only con
 To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas.
 
 The following server parameters are locked on both the source and replica servers:
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. 
 
 To update one of the above parameters on the source server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
+### GTID
+
+GTID is supported on:
+- MySQL versions 5.7 and 8.0 
+- Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list of regions that support 16 TB storage. 
+
+GTID is OFF by default. Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+
+If GTID is enabled on a source server, newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you cannot update `gtid_mode` on the source or replica server(s).
+
 ### Other
 
-- Global transaction identifiers (GTID) are not supported.
 - Creating a replica of a replica is not supported.
 - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
 - Ensure the source server tables have primary keys. Lack of primary keys may result in replication latency between the source and replicas.

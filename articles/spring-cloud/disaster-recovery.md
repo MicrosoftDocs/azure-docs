@@ -46,7 +46,7 @@ You will need two service instances of Azure Spring Cloud deployed in two differ
 2. Set up Custom Domain for Service
 Follow [Custom Domain Document](spring-cloud-tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
 
-3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Here is the traffic manager profile:
 * Traffic Manager DNS Name: `http://asc-bcdr.trafficmanager.net`
@@ -64,4 +64,3 @@ Here is the traffic manager profile:
 ## Next steps
 
 * [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
- 

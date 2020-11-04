@@ -91,17 +91,17 @@ If using online data transfer, use the table in the following section for high n
 
 ## Next steps
 
-- [Learn how to transfer data with Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
+- [Learn how to transfer data with Import/Export](./storage-import-export-data-to-blobs.md).
 - Understand how to
 
-    - [Transfer data with Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Transfer data with Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-- [Transfer data with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
+- [Transfer data with AzCopy](./storage-use-azcopy-v10.md).
 - Understand how to:
-    - [Transfer data with Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transform data with Data Box Edge before sending to Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Learn how to transfer data with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+    - [Transfer data with Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Learn how to transfer data with Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Use the REST APIs to transfer data
 
-    - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [In .NET](/dotnet/api/overview/azure/storage)
+    - [In Java](/java/api/overview/azure/storage)

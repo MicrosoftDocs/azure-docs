@@ -49,7 +49,7 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
 
 1. Select **Save** to submit the changes.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Custom domain menu":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Custom domain menu":::
 
 ## Enable HTTPS on your custom domain
 
@@ -57,10 +57,10 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
 
 1. Select the  **Certificate management type** to *'Use my own certificate'*.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Custom domain HTTPS settings":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Custom domain HTTPS settings":::    
 
-    > [!WARNING]
-    > Front Door managed certificate management type is not currently supported for apex or root domains. The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom TLS/SSL certificate hosted on Azure Key Vault.
+   > [!WARNING]
+   > Front Door managed certificate management type is not currently supported for apex or root domains. The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom TLS/SSL certificate hosted on Azure Key Vault.
 
 1. Ensure that you have setup the right permissions for Front Door to access your key Vault as noted in the UI, before proceeding to the next step.
 

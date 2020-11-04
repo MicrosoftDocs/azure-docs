@@ -89,13 +89,16 @@
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
+    - name: Example repository
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/Azure/azureml-examples
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
     - name: Open Datasets (public)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: ../open-datasets/samples.md?context=azure%252fmachine-learning%252fcontext%252fml-context
 - name: Concepts
   items: 
     - name: Plan and manage costs
@@ -152,13 +155,31 @@
       href: concept-onnx.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
-    - name: Enterprise readiness & security
+    - name: Security
       items: 
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+    - name: Responsible ML
+      items: 
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
+- name: How-to guides
+  items:
+    - name: Security
+      items:
         - name: Identity & access management
           items:
             - name: Set up authentication
@@ -166,6 +187,8 @@
               href: how-to-setup-authentication.md
             - name: Manage users and roles
               href: how-to-assign-roles.md
+            - name: Use managed identities for access control
+              href: how-to-use-managed-identities.md
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
         - name: Network security
@@ -188,6 +211,8 @@
             - name: Use Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Use custom DNS
+              href: how-to-custom-dns.md
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
@@ -208,26 +233,9 @@
         - name: Audit and manage compliance
           href: how-to-integrate-azure-policy.md
           displayName: policy
-        
-    - name: Responsible ML
-      items: 
-        - name: Responsible ML overview
-          displayName: responsible,ml
-          href: concept-responsible-ml.md
-        - name: Model interpretability
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Fairness in Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Differential Privacy
-          displayName: differential,privacy
-          href: concept-differential-privacy.md
-- name: How-to guides
-  items:
     - name: Create & manage workspaces
       items: 
-        - name: Use Azure portal
+        - name: Use Azure portal or Python SDK
           href: how-to-manage-workspace.md
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
@@ -405,6 +413,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Understand charts and metrics
           href: how-to-understand-automated-ml.md
+        - name: Use ONNX model in .NET application
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: Deploy & serve models
       items:
       - name: Where and how to deploy
@@ -436,7 +446,7 @@
         - name: Use custom Docker image
           href: how-to-deploy-custom-docker-image.md
         - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+          href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
@@ -512,15 +522,14 @@
           href: how-to-debug-pipelines.md
         - name: Log pipeline data to Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Use parallel run step
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-use-parallel-run-step.md
         - name: Debug & troubleshoot parallel run step
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
     - name: Azure Pipelines for CI/CD
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+    - name: GitHub Actions for CI/CD
+      href: how-to-github-actions-machine-learning.md
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md
@@ -540,7 +549,7 @@
   items: 
     - name: Python SDK
       displayName: api, core, package, python, class
-      href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
@@ -548,7 +557,7 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: REST API
-      href: https://docs.microsoft.com/rest/api/azureml/
+      href: /rest/api/azureml/
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
@@ -579,7 +588,7 @@
       displayName: bugs, errors, troubleshoot
       href: resource-known-issues.md
     - name: User forum
-      href: https://docs.microsoft.com/answers/topics/azure-machine-learning.html
+      href: /answers/topics/azure-machine-learning.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
@@ -589,4 +598,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md   
+      href: designer-accessibility.md

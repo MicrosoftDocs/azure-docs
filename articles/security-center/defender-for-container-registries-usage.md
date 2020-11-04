@@ -1,9 +1,9 @@
 ---
 title: How to use Azure Defender for container registries
-description: Learn about using Azure Defender for container registries to scan images in your registries
+description: Learn about using Azure Defender for container registries to scan Linux images in your Linux-hosted registries
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -24,22 +24,21 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|**Azure Defender for container registries** is billed as shown on [the pricing page](security-center-pricing.md)|
-|Supported registries and images:|![Yes](./media/icons/yes-icon.png) Linux-hosted ACR registries that are accessible from the public internet and provide shell access.<br>![No](./media/icons/no-icon.png) Windows-hosted ACR registries.<br>![No](./media/icons/no-icon.png) 'Private' registries - Security Center requires your registries to be accessible from the public internet. Security Center can't currently connect to, or scan, registries with access limited with a firewall, a service endpoint, or private endpoints such as Azure Private Link.<br>![No](./media/icons/no-icon.png) Super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.|
-|Required roles and permissions:|**Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Supported registries and images:|Linux images in ACR registries accessible from the public internet with shell access|
+|Unsupported registries and images:|Windows images<br>'Private' registries<br>Registries with access limited with a firewall, service endpoint, or private endpoints such as Azure Private Link<br>Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS|
+|Required roles and permissions:|**Security reader** and [Azure Container Registry reader role](../container-registry/container-registry-roles.md)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov - Only the scan on push feature is currently supported. Learn more in [When are images scanned?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
 
 
 ## Identify vulnerabilities in images in Azure container registries 
 
-1. To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
+To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
-    1. Enable **Azure Defender for container registries** for your subscription.
+1. Enable **Azure Defender for container registries** for your subscription. Security Center is now ready to scan images in your registries.
 
-        Security Center is now ready to scan images in your registries.
-
-        >[!NOTE]
-        > This feature is charged per image.
+    >[!NOTE]
+    > This feature is charged per image.
 
 1. Image scans are triggered on every push or import, and if the image has been pulled within the last 30 days. 
 

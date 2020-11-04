@@ -108,7 +108,5 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Set up SAML-based SSO
-            url: add-application-portal-setup-sso.md
-          - text: Set up OIDC-based SSO
-            url: add-application-portal-setup-oidc-sso.md
+          - text: What's new in docs
+            url: whats-new-docs.md

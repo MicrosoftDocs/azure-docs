@@ -105,12 +105,14 @@ Conditional Access administrators can also create policies that factor in sign-i
 | Risk policies | User risk policy (via Identity Protection)  | No | No |Yes | 
 | Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access)  | No |  No |Yes |
 | Security reports | Overview |  No | No |Yes |
-| Security reports | Risky users  | Limited Information | Limited Information | Full access|
-| Security reports | Risky sign-ins  | Limited Information | Limited Information | Full access|
-| Security reports | Risk detections   | No | Limited Information| Full access|
+| Security reports | Risky users  | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Full access|
+| Security reports | Risky sign-ins  | Limited Information. No risk detail or risk level is shown. | Limited Information. No risk detail or risk level is shown. | Full access|
+| Security reports | Risk detections   | No | Limited Information. No details drawer.| Full access|
 | Notifications | Users at risk detected alerts  | No | No |Yes |
 | Notifications | Weekly digest| No | No | Yes | 
 | | MFA registration policy | No | No | Yes |
+
+More information on these rich reports can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## Next steps
 

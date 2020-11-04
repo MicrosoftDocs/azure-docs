@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu 
 ms.reviewer: 
 ms.custom: devx-track-python
@@ -81,12 +81,12 @@ The following image is an example of how you can write a PySpark query using the
 
 You cannot reference data or variables directly across different languages in a Synapse Studio notebook. In Spark, a temporary table can be referenced across languages. Here is an example of how to read a `Scala` DataFrame in `PySpark` and `SparkSQL` using a Spark temp table as a workaround.
 
-1. In Cell 1, read a DataFrame from SQL pool connector using Scala and create a temporary table.
+1. In Cell 1, read a DataFrame from a SQL pool connector using Scala and create a temporary table.
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-   scalaDataFrame.registerTempTable( "mydataframetable" )
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
 2. In Cell 2, query the data using Spark SQL.
@@ -107,7 +107,7 @@ You cannot reference data or variables directly across different languages in a 
 
 Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
-The IntelliSense features are at different levels of maturity for different languages. Use the table below to see what's supported.
+The IntelliSense features are at different levels of maturity for different languages. Use the following table to see what's supported.
 
 |Languages| Syntax Highlight | Syntax Error Marker  | Syntax Code Completion | Variable Code Completion| System Function Code Completion| User Function Code Completion| Smart Indent | Code Folding|
 |--|--|--|--|--|--|--|--|--|
@@ -198,7 +198,7 @@ A step-by-step cell execution status is displayed beneath the cell to help you s
 
 ### Spark progress indicator
 
-Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
+Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the serverless Apache Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 The number of tasks per each job or stage help you to identify the parallel level of your spark job. You can also drill deeper to the Spark UI of a specific job (or stage) via selecting the link on the job (or stage) name.
 
 
@@ -272,7 +272,7 @@ You can access data in the primary storage account directly. There's no need to 
 
 A tabular results view is provided with the option to create a bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the **Chart Options**. 
 
-The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames, Pandas DataFrames, List or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
+The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames, Pandas DataFrames, List, or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
@@ -289,7 +289,7 @@ You can use <code>display(df, summary = True)</code> to check the statistics sum
 
 ### Render HTML or interactive libraries
 
-You can render HTML code , including Javascript, CSS, D3 or interactive libraries, like **bokeh**, using the **displayHTML()**.
+You can render HTML code, including JavaScript, CSS, D3, or interactive libraries, like **bokeh**, using the **displayHTML()**.
 
 The following image is an example of plotting glyphs over a map using **bokeh**.
 
@@ -354,7 +354,7 @@ Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## Orchestrate notebook
+## Integrate a notebook
 
 ### Add a notebook to a pipeline
 

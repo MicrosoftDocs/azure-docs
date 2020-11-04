@@ -87,34 +87,6 @@ conceptualContent:
       footerLink:
         text: More
         url: index-intent-recognition.yml
-    - title: Conversation scenarios
-      links:
-        - itemType: overview
-          text: About Conversation Transcription (meetings)
-          url: conversation-transcription.md
-        - itemType: overview
-          text: About multi-device conversations (meetings)
-          url: multi-device-conversation.md
-        - itemType: how-to-guide
-          text: Call center transcription
-          url: call-center-transcription.md
-      footerLink:
-        text: More
-        url: index-conversation-scenarios.yml
-    - title: Voice assistants
-      links:
-        - itemType: overview
-          text: About Voice Assistants
-          url: voice-assistants.md
-        - itemType: quickstart
-          text: Create a voice assistant using Custom Commands
-          url: custom-commands.md
-        - itemType: get-started
-          text: Create a voice assistant using the Bot Framework
-          url: direct-line-speech.md
-      footerLink:
-        text: More
-        url: index-voice-assistants.yml
     - title: Speaker Recognition
       links:
         - itemType: overview
@@ -134,6 +106,26 @@ conceptualContent:
         - itemType: quickstart
           text: Get started with Custom Keyword       
           url: custom-keyword-basics.md
+    - title: Scenario deep-dives
+      links:
+        - itemType: overview
+          text: About Conversation Transcription (meetings)
+          url: conversation-transcription.md
+        - itemType: overview
+          text: About multi-device conversations (meetings)
+          url: multi-device-conversation.md
+        - itemType: overview
+          text: About Voice Assistants
+          url: voice-assistants.md
+        - itemType: quickstart
+          text: Create a voice assistant using Custom Commands
+          url: custom-commands.md
+        - itemType: quickstart
+          text: Create a voice assistant using the Bot Framework
+          url: direct-line-speech.md
+        - itemType: how-to-guide
+          text: Enable call center transcription
+          url: call-center-transcription.md
     - title: Tools
       links:
         - itemType: overview
@@ -231,10 +223,6 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help
-          url: support.md
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-        - text: Stack Overflow
-          url: https://aka.ms/SOspeechquestions
-        - text: UserVoice
-          url: https://cognitive.uservoice.com/forums/912208-speech-service

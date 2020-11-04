@@ -1,6 +1,6 @@
 ---
-title: Query JSON files using SQL on-demand (preview) 
-description: This section explains how to read JSON files using SQL on-demand in Azure Synapse Analytics.
+title: Query JSON files using serverless SQL pool (preview) 
+description: This section explains how to read JSON files using serverless SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick 
 ---
 
-# Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics
+# Query JSON files using serverless SQL pool (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
+In this article, you'll learn how to write a query using serverless SQL pool (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
 - Standard JSON files where multiple JSON documents are stored as a JSON array.
 - Line-delimited JSON files, where JSON documents are separated with new-line character. Common extensions for these types of files are `jsonl`, `ldjson`, and `ndjson`.
 
@@ -53,7 +53,7 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-This query will return each JSON document as a separate row of the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+The JSON document in the preceding sample query includes an array of objects. The query returns each object as a separate row in the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
 ### Data source usage
 

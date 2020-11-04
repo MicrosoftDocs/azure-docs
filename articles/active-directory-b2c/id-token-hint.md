@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -83,13 +83,13 @@ The following metadata is relevant when using symmetric key.
 | issuer | Yes | Identifies the security token service (token issuer). This value must be identical to the `iss` claim within the JWT token claim. | 
 | IdTokenAudience | Yes | Identifies the intended recipient of the token. Must be identical to the `aud` claim withing the JWT token claim. | 
 
-The following metadata is relevant when using a symmetric key. 
+The following metadata is relevant when using an asymmetric key. 
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | METADATA| Yes | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint.   |
 | issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT token claim. |  
-| IdTokenAudience | No | Identifies the intended recipient of the token. This value can be used to overwrite the value configured in the metadata, and must be identical to the `aud` claim within the JWT token claim. |  
+| IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim withing the JWT token claim. |  
 
 ## Cryptographic keys
 
@@ -215,7 +215,7 @@ The following technical profile validates the token and extracts the claims. Cha
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

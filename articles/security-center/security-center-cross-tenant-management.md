@@ -54,4 +54,4 @@ This article explains how cross-tenant management works in Security Center. To l
 
 * [Strengthen your security posture with Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
 * [Azure Security Center FAQ](faq-general.md) - Find frequently asked questions about using the service.
-* [Learn about Azure Lighthouse in enterprise scenarios](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) - Discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+* [Learn about Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md) - Discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.

@@ -2316,6 +2316,9 @@ This loop action contains actions that run until the specified condition is true
 | <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
+> [!NOTE]
+> If the expression depends on the output from any action within the Until loop, make sure that you account for any failure that results from that action.
+
 *Example*
 
 This loop action definition sends an HTTP request to the specified URL until one of these conditions is met:
@@ -2423,8 +2426,6 @@ Here are some considerations for when you want to enable concurrency on a trigge
 * When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * You can't disable concurrency after you enable the concurrency control.
-
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 

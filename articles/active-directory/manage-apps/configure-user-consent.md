@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
+ms.custom: contperfq2
 ---
 
 # Configure how end-users consent to applications
@@ -42,7 +43,7 @@ By choosing which app consent policies apply for all users, you can set limits o
 
 To configure user consent settings through the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
 1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 1. Under **User consent for applications**, select which consent setting you'd like to configure for all users.
 1. Select **Save** to save your settings.
@@ -70,7 +71,7 @@ To allow user consent, choose which app consent policy should govern users' auth
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
      -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("{consent-policy-id}")
+     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
   ```
 
 Replace `{consent-policy-id}` with the ID of the policy you'd like to apply. You can choose a [custom app consent policy](manage-app-consent-policies.md#create-a-custom-app-consent-policy) you have created, or you can choose from the following built-in policies:
@@ -85,7 +86,7 @@ For example, to enable user consent subject to the built-in policy `microsoft-us
 ```powershell
 Set-AzureADMSAuthorizationPolicy `
    -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
 ```
 
 ---
