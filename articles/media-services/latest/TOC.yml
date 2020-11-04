@@ -102,6 +102,11 @@
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
+    - name: Managed identities and media services
+      displayName: content protection
+      href: concept-managed-identities.md
+    - name: Customer managed keys
+      href: concept-use-customer-managed-keys-byok.md
   - name: Assets
     items: 
     - name: Assets
@@ -175,14 +180,9 @@
       href: streaming-policy-concept.md        
   - name: Content protection
     items:
-    - name: Managed identities and media services
-      displayName: content protection
-      href: concept-managed-identities.md
     - name: Dynamic encryption and key delivery
       displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
-    - name: Customer managed keys
-      href: concept-use-customer-managed-keys-byok.md
     - name: Design of multi-DRM system 
       displayName: drm, access control
       href: design-multi-drm-system-with-access-control.md  
