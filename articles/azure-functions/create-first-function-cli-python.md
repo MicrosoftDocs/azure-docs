@@ -28,7 +28,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 4.0 or later.
+    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
 
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are all supported by version 3.x of Azure Functions.
 
