@@ -169,27 +169,6 @@ It allows you to configure rules that will be applied to request, dependency and
 
 For more information, check out the [telemetry processor](./java-standalone-telemetry-processors.md) documentation.
 
-## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
-
-If your application uses [Micrometer](https://micrometer.io),
-then metrics that are sent to the Micrometer global registry are auto-collected.
-
-Also, if your application uses
-[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html),
-then metrics configured by Spring Boot Actuator are also auto-collected.
-
-To disable this feature:
-
-```json
-{
-  "instrumentation": {
-    "micrometer": {
-      "enabled": false
-    }
-  }
-}
-```
-
 ## Auto-collected logging
 
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
@@ -225,6 +204,27 @@ These are the valid `level` values that you can specify in the `applicationinsig
 | FINER             | DEBUG  | DEBUG   | FINER   |
 | TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
+
+## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
+
+If your application uses [Micrometer](https://micrometer.io),
+then metrics that are sent to the Micrometer global registry are auto-collected.
+
+Also, if your application uses
+[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html),
+then metrics configured by Spring Boot Actuator are also auto-collected.
+
+To disable auto-collection of Micrometer metrics (including Spring Boot Actuator metrics):
+
+```json
+{
+  "instrumentation": {
+    "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
 
 ## Heartbeat
 
@@ -270,9 +270,9 @@ If your application is behind a firewall and cannot connect directly to Applicat
 [//]: # "}"
 [//]: # "```"
 
-## Self-diagnostics
+## Self diagnostics
 
-"Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
+"Self diagnostics" refers to internal logging from Application Insights Java 3.0.
 
 This can be helpful for spotting and diagnosing issues with Application Insights itself.
 

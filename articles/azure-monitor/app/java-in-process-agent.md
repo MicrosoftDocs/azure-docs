@@ -70,15 +70,13 @@ In the `applicationinsights.json` file, you can additionally configure:
 
 * Cloud role name
 * Cloud role instance
-* Application log capture
+* Sampling
 * JMX metrics
 * Custom dimensions
 * Telemetry processors
-* Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 * Auto-collected logging
-* Suppressing instrumentation
+* Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 * Heartbeat
-* Sampling
 * HTTP Proxy
 * Self diagnostics
 
