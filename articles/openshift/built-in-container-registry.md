@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) implements OpenID Connect (OIDC). OIDC lets yo
    1. When you reach the step dealing with the **Redirect URI** field, enter the URI from the preceding step.
    1. Select **Register**.
    1. On the **Overview** page for the app, note the value shown for **Application (client) ID**, as shown here.
-      :::image type="content" source="media/built-in-container-registry/azure-ad-app-overview-client-id.png" alt-text="Overview page of AAD Application.":::
+      :::image type="content" source="media/built-in-container-registry/azure-ad-app-overview-client-id.png" alt-text="Overview page of Azure AD Application.":::
 
 4. Create a new client secret. 
    1. In the newly created application registration, select **Certificates & secrets** in the left navigation pane.
