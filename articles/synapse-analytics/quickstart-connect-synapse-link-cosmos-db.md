@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.subservice: synapse-link
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.author: acomet
+ms.author: ArnoMicrosoft
 ms.reviewer: jrasnick
 ---
 
