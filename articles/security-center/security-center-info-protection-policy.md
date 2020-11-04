@@ -53,7 +53,7 @@ Each of these is shown in the relevant tab below.
 From Security Center's **pricing and settings** page, select **SQL information protection**.
 
 > [!NOTE]
-> This option only appear for users with tenant level permissions. 
+> This option only appears for users with tenant-level permissions. 
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Azure Security Center":::
 
