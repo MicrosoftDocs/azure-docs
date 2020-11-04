@@ -1,6 +1,6 @@
 ---
-title: How to browse the data catalog 
-description: This article gives an overview of How to browse a data catalog using 'Browse by asset type tile'
+title: How to create, import and export glossary terms
+description: This article gives an overview of How to create, import and export glossary terms
 author: nayenama
 ms.author: nayenama
 ms.service: data-catalog

@@ -1,6 +1,6 @@
 ---
-title: How to browse the data catalog 
-description: This article gives an overview of How to browse a data catalog using 'Browse by asset type tile'
+title: How to manage term templates for business glossary
+description: This article gives an overview of How to manage term templates for business glossary
 author: nayenama
 ms.author: nayenama
 ms.service: data-catalog
