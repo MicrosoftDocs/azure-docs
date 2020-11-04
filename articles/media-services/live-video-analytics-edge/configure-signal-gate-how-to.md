@@ -122,7 +122,7 @@ Example Diagram:
 
 **2 Events from 1 Source (*Retriggered Activation*)**
 
-A signal gate processor receiving two events would result in a recording that starts “activation signal offset” (5) seconds before the 1st event arrived at the gate. The 2nd event arrives 5 seconds after the 1st event, which is before the “minimum activation time” (20) seconds from the 1st event completes, therefore the gate is retriggered to stay open. The remainder of the recording is “minimum activation time” (20) seconds long, since no other events arrive before the minimum activation time from the 2nd event completes to retrigger the gate again.
+A signal gate processor receiving two events would result in a recording that starts “activation signal offset” (five) seconds before the first event arrived at the gate. The seconnd event arrives fiv seconds after the first event, which is before the “minimum activation time” (20) seconds from the first event completes, therefore the gate is retriggered to stay open. The remainder of the recording is “minimum activation time” (20) seconds long, since no other events arrive before the minimum activation time from the 2nd event completes to retrigger the gate again.
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
@@ -133,7 +133,7 @@ Example Diagram:
 
 **N Events from 1 Source (*Maximum Activation*)**
 
-A signal gate processor receiving N events would result in a recording that starts “activation signal offset” (5) seconds before the 1st event arrived at the gate. As each event arrives before the completion of the “minimum activation time” (20) seconds from the previous event, the gate would continuously be retriggered and remain open until “maximum activation time” (40) seconds after the 1st event, in which the gate would close and no longer accept any new events.
+A signal gate processor receiving N events would result in a recording that starts “activation signal offset” (5) seconds before the first event arrived at the gate. As each event arrives before the completion of the “minimum activation time” (20) seconds from the previous event, the gate would continuously be retriggered and remain open until “maximum activation time” (40) seconds after the first event, in which the gate would close and no longer accept any new events.
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
@@ -144,8 +144,9 @@ Example Diagram:
 > [!IMPORTANT]
 > Diagrams assume every event arrives at the same instance in physical and media time. (No late arrivals)
 
+## Next steps
 
-## Try It Out:
+### Try It Out:
 
 [Event-based video recording tutorial](event-based-video-recording-tutorial.md)
 
