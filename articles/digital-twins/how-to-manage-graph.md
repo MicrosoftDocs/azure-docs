@@ -446,16 +446,16 @@ Here is the console output of the above program:
 
 ### Create a twin graph from a CSV file
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
+In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 
-Consider the following data table, describing a set of digital twins and relationships to create a CSV file.
+Consider the following data table, describing a set of digital twins and relationships.
 
 |  Model ID    | Twin ID (must be unique) |  Relationship name  |  Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |
-| dtmi:example:Floor;1    | Floor1 | contains | Room1 | {"Temperature": 80} |
-| dtmi:example:Floor;1    | Floor1 | has | Room0 | {"Temperature": 70} |
-| dtmi:example:Room;1    | Room1 | | | |
-| dtmi:example:Room;1    | Room0 | | | |
+| dtmi:example:Floor;1    | Floor1 | contains | Room1 | |
+| dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
+| dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
+| dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
 * Save your CSV file as *data.csv* in your working project directory. In your code editor, select the properties of the file by right selecting the file and edit the property *Copy to Output Directory* to *Copy if newer*.
 * Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
