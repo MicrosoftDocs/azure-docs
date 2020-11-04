@@ -145,8 +145,7 @@ Use [REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/cre
 [Diagnostic settings](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed. 
 
 ### Learn more about moving resources across Azure regions
-To learn more about moving resources between regions and disaster recovery in Azure, refer to:
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+To learn more about moving resources between regions and disaster recovery in Azure, refer to [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
