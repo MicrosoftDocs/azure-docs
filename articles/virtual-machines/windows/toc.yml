@@ -558,7 +558,7 @@
   - name: Secure VMs
     items:
     - name: Recommendations
-      href: security-recommendations.md
+      href: ../security-recommendations.md
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md
     - name: Use Bastion
@@ -959,7 +959,7 @@
     - name: Use accelerated networking
       href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Assign public DNS name
-      href: portal-create-fqdn.md
+      href: ../create-fqdn.md
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Configure managed identities
