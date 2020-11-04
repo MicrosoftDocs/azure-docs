@@ -33,7 +33,7 @@ One way to integrate industry-standard models with DTDL is to use a starter DTDL
 
 There is currently one starter DTDL ontology available: the [**Smart Building DTDL-based ontology**](https://github.com/Azure/opendigitaltwins-building) for the real estate industry (created in partnership with the RealEstateCore Consortium). Here you can find models for smart buildings, as well as best practices for how to consume and extend the ontology.
 
-For other domains that do not currently offer starter DTDL ontologies, like smart cities and energy grids, you can follow the best practices in the next section for converting industry models to create your own solutions.
+For other domains that do not currently offer starter DTDL ontologies, you can follow the best practices in the next section for converting industry models to create your own solutions.
 
 ## Convert industry-standard models to DTDL
 
