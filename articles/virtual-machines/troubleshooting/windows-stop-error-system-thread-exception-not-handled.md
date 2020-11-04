@@ -1,6 +1,6 @@
 ---
 title: Windows Stop Error - 0x0000007E System Thread Exception Not Handled
-description: This article provides steps to resolve issues where your Guest OS ran into a problem and wishes to restart because a system thread exception wasn’t handled in an Azure VM.
+description: This article provides steps to resolve issues where the Guest OS encounters a problem and wishes to restart your Azure VM. The message will state that "A system thread exception wasn’t handled".
 services: virtual-machines-windows
 documentationcenter: ''
 author: mibufo
@@ -17,17 +17,17 @@ ms.author: v-mibufo
 
 # Windows Stop Error - 0x0000007E System Thread Exception Not Handled
 
-This article provides steps to resolve issues where your Guest OS ran into a problem and wishes to restart because a system thread exception wasn’t handled in an Azure VM.
+This article provides steps to resolve issues where the Guest OS ran into a problem and wishes to restart because a system thread exception wasn’t handled in an Azure VM.
 
 ## Symptoms
 
-When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you'll see that the screenshot displays Windows needing to restart with either the stop code: **SYSTEM THREAD EXCEPTION NOT HANDLED** or the error code **0x0000007E**.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you'll see that the screenshot displays Windows needing to restart with either the stop code **SYSTEM THREAD EXCEPTION NOT HANDLED** or the error code **0x0000007E**.
 
 ![The screenshot shows Windows stuck during boot with the message: “Your PC ran into a problem and needs to restart. We’ll restart for you.” Stop code: “SYSTEM THREAD EXCEPTION NOT HANDLED”](media/windows-stop-error-system-thread-exception-not-handled/windows-stop-error-system-thread-exception-not-handled-1.png)
 
 ## Cause
 
-A memory dump analysis will need to be performed to determine the source of the issue.
+The cause can't be determined until a memory dump file is analyzed. Continue to collect the memory dump file.
 
 ## Solution
 
@@ -46,7 +46,7 @@ To resolve this problem, you first need to gather the memory dump file for the c
 2. Locate the **memory.dmp** file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
 3. If you're having trouble locating the **memory.dmp** file, then follow the guide to [generate a crash dump file using non-maskable interrupt (NMI) calls](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-For further information about NMI calls, see the [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) user guide.
+For more information about NMI calls, see the [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) user guide.
 
 ## Next Steps
 
