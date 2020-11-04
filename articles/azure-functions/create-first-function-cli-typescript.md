@@ -28,7 +28,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 4.0 or later.
+    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
 
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
