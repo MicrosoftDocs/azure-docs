@@ -48,9 +48,13 @@ You can use metric alert rules to monitor for device disconnect anomolies at-sca
 
 To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](/tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) in the Azure Monitor documentation.
 
-## Per-device, low-latency  Detecting individual device disconnects
+## Monitor device connect and disconnect events with Event Grid
 
-To detect *per-device* disconnects, such as when you need to know a factory just went offline, [configure device disconnect events with Event Grid](iot-hub-event-grid.md).
+To monitor device connect and disconnect events in production, we recommend subscribing to the [**device disconnected** event](iot-hub-event-grid.md#event-types) on Event Grid to trigger alerts and monitor the device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than just for the total number of connected devices. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+
+For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connected and device disconnected events](iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events) section. To learn how to integrate Device Connected and Device Disconnected events from IoT Hub in your IoT solution, see [Order device connection events from Azure IoT Hub using Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md) to learn how to integrate Device Connected and Device Disconnected events from IoT Hub in your IoT solution.
+
+When you use Event Grid to trigger alerts on device disconnects, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal on devices that use the Azure IoT SDKs. To learn more, see [Device disconnect behavior over MQTT with Azure IoT SDKs](#device-disconnect-behavior-over mqtt-with-azure-iot-sdks).
 
 ## Resolve connectivity errors
 
@@ -75,17 +79,17 @@ When you turn on logs and alerts for connected devices, you get alerts when erro
 
 1. Follow the problem resolution guides for the most common errors:
 
-    - **[404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
-    - **[401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)**
-    - **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
-    - **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
-    - **[500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+    * **[404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
+    * **[401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)**
+    * **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
+    * **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+    * **[500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
 
 ## Device disconnect behavior over MQTT with Azure IoT SDKs
 
-With the MQTT or MQTT over Web Sockets protocols, on SAS token renewal, Azure IoT SDKs disconnect from IoT Hub and then reconnect. In logs this shows up by informational device disconnect and connect events sometimes accompanied by error events. By default, the token lifespan is 60 minutes, for all SDKs.
+On SAS token renewal, when using MQTT or MQTT over Web Sockets protocols, Azure IoT SDKs disconnect from IoT Hub and then reconnect. In logs this shows up as informational device disconnect and connect events sometimes accompanied by error events.
 
-The following table shows the token lifespan, renewal, and renewal behavior for each of the SDKs:
+By default, the token lifespan is 60 minutes for all SDKs; however, it can be changed in many of the SDKs. The following table summarizes the token lifespan, token renewal, and token renewal behavior for each of the SDKs:
 
 | SDK | Token lifespan | Token renewal | Renewal behavior |
 |-----|----------|---------------------|---------|
@@ -94,7 +98,7 @@ The following table shows the token lifespan, renewal, and renewal behavior for 
 | Node.js | 60 minutes, configurable | configurable | SDK connects and disconnects at token renewal. Only informational events are generated in logs. |
 | Python | 60 minutes, not configurable | -- | SDK connects and disconnects at token lifespan. |
 
-The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from default as noted for each screenshot. The following query was used:
+The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from their defaults as noted for each screenshot. The following query was used. The query extracts the SDK name and version from the property bag; to learn more, see [SDK version in IoT Hub logs](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
 
 ```kusto
 AzureDiagnostics
@@ -118,7 +122,9 @@ AzureDiagnostics
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Node SDK.":::
 
-As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether a device implements a device twin setting or a device method that makes this possible. If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out disconnects due to SAS token renewal; for example, by not not triggering actions based on disconnects as long as the disconnect is followed by a connect within a certain time span.
+As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and related errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether the device implements a device twin setting or a device method that makes this possible.
+
+If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal; for example, by not not triggering actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
 
 ## I tried the steps, but they didn't work
 
