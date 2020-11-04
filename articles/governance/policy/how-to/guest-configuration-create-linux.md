@@ -32,8 +32,7 @@ non-Azure machine.
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 > 
-> The use of secrets or confidential information with custom content packages in
-> Guest Configuration is not supported.
+> Don't use secrets or confidential information in custom content packages
 
 ## Install the PowerShell module
 
