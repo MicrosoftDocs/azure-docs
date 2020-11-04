@@ -59,8 +59,11 @@ Operating Systems where the module can be installed:
 - Windows
 
 > [!NOTE]
-> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on
+> The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
+>
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
 
@@ -210,10 +213,6 @@ integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
 Test- cmdlet on the same OS platform as you plan to audit.
-
-> [!IMPORTANT]
-> Running the cmdlet `Test-GuestConfiguration` is not supported on Linux
-> operating systems for Guest Configuration module version 2.1.0.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
