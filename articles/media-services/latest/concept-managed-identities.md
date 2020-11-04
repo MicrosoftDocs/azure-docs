@@ -25,11 +25,10 @@ applications, see [Azure AD Managed Identities](https://docs.microsoft.com/azure
 A storage account is automatically created when you create a Media Services
 account. Media Services can access that storage account using the system (first
 party) authentication. Media Services validates that the user can access the
-storage account using the customer’s storage keys.
+storage account using your storage keys.
 
 However, if you want to use a firewall to secure your storage account, you must
-use managed identity authentication. Switching from system authentication to
-managed identity authentication allows Media Services to access the storage
+use managed identity authentication. Managed identity authentication allows Media Services to access the storage
 account that has been configured with a firewall.
 
 ## Media services managed identity scenarios
