@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
-ms.author: ArnoMicrosoft
+author: acomet
 ms.reviewer: jrasnick
 ---
 
