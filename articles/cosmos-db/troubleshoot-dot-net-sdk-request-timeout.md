@@ -3,6 +3,7 @@ title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with the 
 description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
