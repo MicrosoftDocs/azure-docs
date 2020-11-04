@@ -6,7 +6,7 @@ ms.date: 03/29/2020
 
 ---
 
-# Java codeless application monitoring Azure Monitor Application Insights - public preview
+# Java codeless application monitoring Azure Monitor Application Insights
 
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
@@ -22,15 +22,15 @@ The 3.0 agent supports Java 8 and above.
 
 **1. Download the agent**
 
-Download [applicationinsights-agent-3.0.0-PREVIEW.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
+Download [applicationinsights-agent-3.0.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
-For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](./java-standalone-arguments.md).
+For additional help with configuring your application's JVM args, please see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
@@ -42,7 +42,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.7.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0.jar`, with the following content:
 
 ```json
 {
@@ -66,19 +66,23 @@ Now start up your application and go to your Application Insights resource in th
 
 ## Configuration options
 
-In the `ApplicationInsights.json` file, you can additionally configure:
+In the `applicationinsights.json` file, you can additionally configure:
 
 * Cloud role name
 * Cloud role instance
 * Application log capture
 * JMX metrics
-* Micrometer
+* Custom dimensions
+* Telemetry processors
+* Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
+* Auto-collected logging
+* Suppressing instrumentation
 * Heartbeat
 * Sampling
 * HTTP Proxy
 * Self diagnostics
 
-See details at [3.0 Public Preview: Configuration Options](./java-standalone-config.md).
+See [configuration options](./java-standalone-config.md) for full details.
 
 ## Autocollected requests, dependencies, logs, and metrics
 
