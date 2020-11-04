@@ -1,15 +1,19 @@
-﻿---
- title: include file
- description: include file
- services: virtual-machines
- author: cynthn
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 11/12/2019
- ms.author: cynthn;kareni
- ms.custom: include file
+---
+title: Guidance for mitigating speculative execution
+description: Learn more about mitigating speculative execution side-channel vulnerabilities in Azure.
+services: virtual-machines
+author: cynthn
+keywords: spectre,meltdown,specter
+ms.service: virtual-machines
+ms.workload: infrastructure-services
+ms.subservice: security
+ms.topic: conceptual
+ms.date: 11/12/2019
+ms.author: cynthn
+
 ---
 
+# Guidance for mitigating speculative execution side-channel vulnerabilities
 
 **Last document update**: 12 November 2019 10:00 AM PST.
 
@@ -68,7 +72,7 @@ You can enable additional security features inside your VM or Cloud Service if y
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
 
-**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](https://docs.microsoft.com/azure/virtual-machines/windows/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, please refer to the below script using the Windows command line from within the VM.
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, please refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the below to view the amount of physical and logical processors on the VM.
 
@@ -115,7 +119,7 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
 
 
-**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](https://docs.microsoft.com/azure/virtual-machines/linux/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you are running a hyper-threaded VM, run the `lscpu` command in the Linux VM. 
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you are running a hyper-threaded VM, run the `lscpu` command in the Linux VM. 
 
 If `Thread(s) per core = 2`, then hyper-threading has been enabled. 
 
@@ -175,11 +179,5 @@ This article provides guidance to the below speculative execution side-channel a
 
 Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort:  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
-
-
-
-
-
-
 
 
