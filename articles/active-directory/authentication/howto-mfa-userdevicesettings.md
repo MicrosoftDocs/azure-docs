@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: michmcla
+ms.reviewer: michmcla, dawoo
 
 ms.collection: M365-identity-device-management
 ---
@@ -37,6 +37,8 @@ You can add authentication methods for a user via the Azure Portal or Microsoft 
 > [!NOTE]
 > For security reasons, public user contact information fields should not be used to perform MFA. Instead, users should populate their authentication method numbers to be used for MFA.  
 
+:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Add authentication methods from the Azure portal":::
+
 To add authentication methods for a user via the Azure Portal:  
 
 1. Sign into the **Azure Portal**. 
@@ -46,21 +48,38 @@ To add authentication methods for a user via the Azure Portal:
    1. Select a method (phone number or email). Email may be used for self-password reset but not authentication. When adding a phone number, select a phone type and enter phone number with valid format (e.g. +1 4255551234).
    1. Select **Add**.
 
-### Example invoking Microsoft Graph requests from PowerShell:  
+> [!NOTE]
+> The preview experience allows administrators to add any available authentication methods for users, while the original experience only allows updating of phone and alternate phone methods.
 
-In a PowerShell window execute the following commands.
+### Manage methods using PowerShell:  
 
-1. Install-Module Microsoft.Graph.Authentication
-1. Install-Module Microsoft.Graph.Identity.Signins
-1. Connect-MgGraph
-1. Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
-1. Invoke-MgGraphRequest -Method GET -URI /beta/users/$UserId/authentication/phoneMethods | % value
-   1. Copy the phone method $Id that you want to update
-   1. Formulate the body of your request, including phone number and phone type (e.g. mobile, alternateMobile, office).
-1. $phoneNumber = “+1 1112223333”
-1. $phoneType = “office”
-1. $JSON = @{"phoneNumber" = $phoneNumber; "phoneType" = $phoneType} | ConvertTo-Json
-1. Invoke-MgGraphRequest –Method PUT –URI /beta/users/$UserId/authentication/phoneMethods/$Id  -Body $JSON –ContentType “application/json”
+Install the Microsoft.Graph.Identity.Signins PowerShell module using the following commands. 
+
+```powershell
+Install-module Microsoft.Graph.Identity.Signins
+Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Select-MgProfile -Name beta
+```
+
+List phone based authentication methods for a specific user.
+
+```powershell
+Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
+```
+
+Create a mobile phone authentication method for a specific user.
+
+```powershell
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+```
+
+Remove a specific phone method for a user
+
+```powershell
+Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
+```
+
+Authentication methods can also be managed using Microsoft Graph APIs, more information can be found in the document [Azure AD authentication methods API overview](graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)
 
 ## Manage user authentication options
 
