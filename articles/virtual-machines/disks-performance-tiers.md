@@ -1,6 +1,6 @@
 ---
 title: Change the performance of Azure managed disks
-description: Learn about performance tiers for managed disks, and learn how to change performance tiers for existing managed disks.
+description: Learn about performance tiers for managed disks, and learn how to change performance tiers for existing managed disks using either the Azure PowerShell module or the Azure CLI.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -103,6 +103,7 @@ Set-AzContext -Subscription $subscriptionId
 $diskConfig = New-AzDiskConfig -SkuName $sku -Location $region -CreateOption Empty -DiskSizeGB $diskSizeInGiB -Tier $performanceTier
 New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
 ```
+---
 
 ## Update the tier of a disk
 
@@ -127,6 +128,7 @@ $diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
 
 Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
 ```
+---
 
 ## Show the tier of a disk
 
@@ -143,6 +145,7 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
 
 $disk.Tier
 ```
+---
 
 ## Next steps
 
