@@ -27,7 +27,7 @@ Deployment of applications to Azure Spring Cloud has many benefits.  You can:
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.  
 
-  ![Full integration](media/spring-cloud-principles/spring-cloud-full-integration.png)
+  ![Azure Spring Cloud overview](media/spring-cloud-principles/azure-spring-cloud-overview.png)
 
 * Azure Spring Cloud is a fully managed service for Spring Boot apps that lets you focus on building and running apps that run your business without the hassle of managing infrastructure.
 
