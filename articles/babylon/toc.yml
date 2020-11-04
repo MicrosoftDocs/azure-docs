@@ -132,8 +132,10 @@
     items:
     - name: Azure Data Share
       href: how-to-link-azure-data-share.md
- #- name: Security
- #  items:
+  - name: Security
+    items:
+    - name: Create a private endpoint
+      href: catalog-private-end-point.md
   - name: Insights
     items:
     - name: Map and discover insights
