@@ -124,11 +124,11 @@ To configure Azure AD single sign-on with Work.com, perform the following steps:
 
 2. Go to **Setup**.
    
-    ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
+    ![Screenshot shows Setup selected from the user menu.](./media/work-com-tutorial/ic794108.png "Setup")
 
 3. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
    
-    ![My Domain](./media/work-com-tutorial/ic767825.png "My Domain")
+    ![Screenshot shows My Domain selected Domain Management in the Administer pane.](./media/work-com-tutorial/ic767825.png "My Domain")
 
 4. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
    
@@ -138,7 +138,7 @@ To configure Azure AD single sign-on with Work.com, perform the following steps:
 
 6. Go to **Setup**.
     
-    ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
+    ![Screenshot shows Setup selected from the user menu.](./media/work-com-tutorial/ic794108.png "Setup")
 
 7. Expand the **Security Controls** menu, and then click **Single Sign-On Settings**.
     
@@ -181,15 +181,15 @@ To configure Azure AD single sign-on with Work.com, perform the following steps:
 
 10. In your Work.com classic portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
     
-    ![My Domain](./media/work-com-tutorial/ic794115.png "My Domain")
+    ![Screenshot shows My Domain selected from Domain Management.](./media/work-com-tutorial/ic794115.png "My Domain")
 
 11. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
     
-    ![Login Page Branding](./media/work-com-tutorial/ic767826.png "Login Page Branding")
+    ![Screenshot shows the Login Page Branding section where you can select edit.](./media/work-com-tutorial/ic767826.png "Login Page Branding")
 
 12. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
     
-    ![Login Page Branding](./media/work-com-tutorial/ic784366.png "Login Page Branding")
+    ![Screenshot shows Login Page Branding where you can select the name of your setting, which is P P E.](./media/work-com-tutorial/ic784366.png "Login Page Branding")
 
 ### Create an Azure AD test user 
 
@@ -251,7 +251,7 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 
 2. Go to **Setup**.
    
-    ![Setup](./media/work-com-tutorial/IC794108.png "Setup")
+    ![Screenshot shows Setup selected from the user menu.](./media/work-com-tutorial/ic794108.png "Setup")
 
 3. Go to **Manage Users \> Users**.
    

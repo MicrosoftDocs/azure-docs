@@ -10,23 +10,14 @@ ms.date: 01/05/2019
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). 
-This loop repeats one or more actions on each item in the array. 
-For limits on the number of array items that "Foreach" loops can process, see 
-[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). This loop repeats one or more actions on each item in the array. 
+For the limit on the number of array items that a "Foreach" loop can process, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-To repeat actions until a condition gets met or a state changes, 
-you can create an ["Until" loop](#until-loop). Your logic app first runs 
-all the actions inside the loop, and then checks the condition or state. 
-If the condition is met, the loop stops. Otherwise, the loop repeats. 
-For limits on the number of "Until" loops in a logic app run, see 
-[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+To repeat actions until a condition gets met or a state changes, you can create an ["Until" loop](#until-loop). Your logic app first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the limit on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> If you have a trigger that receives an array 
-> and want to run a workflow for each array item, 
-> you can *debatch* that array with the 
-> [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> If you have a trigger that receives an array and want to run a workflow for each array item, you can *debatch* that array 
+> with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## Prerequisites
 
@@ -38,7 +29,9 @@ For limits on the number of "Until" loops in a logic app run, see
 
 ## "Foreach" loop
 
-A "Foreach loop" repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "Foreach" loops:
+A "Foreach" loop repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "Foreach" loops:
+
+* The "Foreach" loop can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * By default, iterations in a "Foreach" loop run at the same time, or in parallel. This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential "Foreach" loop iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a "Foreach" loop by using the [Delay action](../connectors/connectors-native-delay.md), you need to set the loop to run sequentially.
 
@@ -184,21 +177,15 @@ you can use the `Sequential` option by adding the
 
 ## "Until" loop
   
-To run and repeat actions until a condition gets met or a state changes, 
-put those actions in an "Until" loop. Your logic app first runs any and 
-all actions inside the loop, and then checks the condition or state. 
-If the condition is met, the loop stops. Otherwise, the loop repeats.
+To run and repeat actions until a condition gets met or a state changes, put those actions in an "Until" loop. Your logic app first runs any and all actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the limit on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Here are some common scenarios where you can use an "Until" loop:
 
 * Call an endpoint until you get the response you want.
 
-* Create a record in a database. Wait until a specific field 
-in that record gets approved. Continue processing. 
+* Create a record in a database. Wait until a specific field in that record gets approved. Continue processing. 
 
-Starting at 8:00 AM each day, this example logic app increments 
-a variable until the variable's value equals 10. The logic app 
-then sends an email that confirms the current value. 
+Starting at 8:00 AM each day, this example logic app increments a variable until the variable's value equals 10. The logic app then sends an email that confirms the current value. 
 
 > [!NOTE]
 > These steps use Office 365 Outlook, but you can 

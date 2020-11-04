@@ -13,6 +13,7 @@ ms.date: 10/20/2020
 To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You should regularly review this data and create alerts to be proactively notified when there are any important incidents in your workspace.
 
 ## _LogOperation function
+
 Azure Monitor Logs sends details on any issues to the [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
 
 ## Columns
@@ -32,6 +33,7 @@ The **_LogOperation** function returns the columns in the following table.
 
 
 ## Categories
+
 The following table describes the categories from the _LogOperation function. 
 
 | Category | Description |
@@ -54,8 +56,8 @@ Ingestion operations are issues that occurred during data ingestion including no
 | Metadata. | Error | Configuration error detected. | |
 | Data collection | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Data collection | Info    | Collection machine configuration is detected.| |
-| Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
 | Data processing | Error   | Invalid JSON format. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](data-collector-api.md#request-body) | 
 | Data processing | Warning | Value has been trimmed to the max allowed size. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Data processing | Warning | Field value trimmed as size limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) | 

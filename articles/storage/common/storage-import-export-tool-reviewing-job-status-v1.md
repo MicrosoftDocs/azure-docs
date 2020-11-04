@@ -21,11 +21,11 @@ The following are example URLs for copy log files for an import job with two dri
 
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
 
- See [Import/Export service Log File Format](../storage-import-export-file-format-log.md) for the format of copy logs and the full list of status codes.  
+ See [Import/Export service Log File Format](/previous-versions/azure/storage/common/storage-import-export-file-format-log) for the format of copy logs and the full list of status codes.  
 
 ## Next steps
 
  * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
- * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- * [Repairing an import job](../storage-import-export-tool-repairing-an-import-job-v1.md)   
- * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)
+ * [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+ * [Repairing an import job](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [Repairing an export job](./storage-import-export-tool-repairing-an-export-job-v1.md)

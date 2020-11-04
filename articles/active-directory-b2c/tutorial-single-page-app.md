@@ -113,13 +113,13 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
     };
     ```
 
-1. Open the `authConfig.js` file inside the *JavaScriptSPA* folder.
+1. Open the *authConfig.js* file inside the *JavaScriptSPA* folder.
 1. In the `msalConfig` object, update:
     * `clientId` with the **Application (client) ID** you recorded in an earlier step
     * `authority` URI with your Azure AD B2C tenant name and the name of the sign-up/sign-in user flow you created as part of the prerequisites (for example, *B2C_1_signupsignin1*)
-1. Open the `policies.js` file.
+1. Open the *policies.js* file.
 1. Find the entries for `names` and `authorities` and replace them as appropriate with the names of the policies you created in Step 2. Replace `fabrikamb2c.onmicrosoft.com` with the name of your Azure AD B2C tenant, for example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
-1. Open the `apiConfig.js` file.
+1. Open the *apiConfig.js* file.
 1. Find the assignment for the scopes `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
 1. Find the assignment for the API URL `webApi` and replace the current URL with the URL where you deployed your Web API in Step 4, for example `webApi: http://localhost:5000/hello`.
 

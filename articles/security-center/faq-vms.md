@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-
 ---
 
 
@@ -22,7 +21,7 @@ ms.author: memildin
 
 ## What types of virtual machines are supported?
 
-Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](/azure/security-center/./azure-resource-manager/management/deployment-models).
+Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](/azure/azure-resource-manager/management/deployment-models).
 
 See [Supported platforms in Azure Security Center](security-center-os-coverage.md) for a list of supported platforms.
 

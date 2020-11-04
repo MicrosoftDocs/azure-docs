@@ -81,7 +81,7 @@ For uploading datasets in the terabyte range, network latency can be a major pro
 
 ### Azure Synapse Analytics
 
-Azure Synapse Analytics is an appropriate choice to store prepared results. You can use Azure HDInsight to perform those services for Zure Synapse Analytics.
+Azure Synapse Analytics (formerly SQL DW) is an appropriate choice to store prepared results. You can use Azure HDInsight to perform those services for Azure Synapse Analytics.
 
 Azure Synapse Analytics is a relational database store optimized for analytic workloads. It scales based on partitioned tables. Tables can be partitioned across multiple nodes. The nodes are selected at the time of creation. They can scale after the fact, but that's an active process that might require data movement. For more information, see [Manage compute in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
