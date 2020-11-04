@@ -30,7 +30,7 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 - A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- A serverless Apache Spark pool.
+- An Apache Spark pool.
 
 ## View Apache Spark applications 
 You can view all Apache Spark applications from **Monitor** -> **Apache Spark applications**.
