@@ -74,7 +74,7 @@ Azure SQL Database and Azure Synapse Audit stores 4000 characters of data for ch
 The following section describes the configuration of auditing using the Azure portal.
 
   > [!NOTE]
-  > Enabling auditing on a paused Synapse SQL pool is not possible. To enable auditing, un-pause the Synapse SQL pool. Learn more about [Synapse SQL pool](../../synapse-analytics/sql/best-practices-sql-pool.md).
+  > Enabling auditing on a paused dedicated SQL pool is not possible. To enable auditing, un-pause the dedicated SQL pool. Learn more about [dedicated SQL pool](../..//synapse-analytics/sql/best-practices-sql-pool.md).
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your **SQL database** or **SQL server** pane.

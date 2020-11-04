@@ -3,6 +3,7 @@ title: Frequently asked questions about the Gremlin API in Azure Cosmos DB
 description: Get answers to frequently asked questions about the Gremlin API in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun

@@ -81,6 +81,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/security-recommendations.md",
+      "redirect_url": "/azure/virtual-machines/security-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/security-recommendations.md",
+      "redirect_url": "/azure/virtual-machines/security-recommendations",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-motion-detection.md",
       "redirect_url": "/azure/media-services/previous/legacy-components",
       "redirect_document_id": false
@@ -24444,8 +24454,13 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-app-gallery-listing.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-app-gallery-listing",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-app-gallery-listing.md",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/howto-get-appsource-certified.md",
