@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Configure a managed instance as a replication publisher and distributor.
-> - Configure a managed instance as a replication distributor.
+> - Configure a managed instance as a replication subscriber.
 
 ![Replicate between two managed instances](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 

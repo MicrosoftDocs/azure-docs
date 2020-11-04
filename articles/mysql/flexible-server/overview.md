@@ -79,6 +79,17 @@ The flexible server service is available in three SKU tiers: Burstable, General 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
+## Scale-out your read workload with up to 10 read replicas
+
+MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
+
+On the applications side, the application is typically developed in Java or php and migrated to run on [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview.md) or [Azure App Services](/azure/app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+
+The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale-out your application workload to read replicas without any application refactoring cost. 
+
+See [Read Replica concepts](concepts-read-replicas.md) to learn more. 
+
+
 ## Stop/Start server to optimize cost
 
 The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner. 

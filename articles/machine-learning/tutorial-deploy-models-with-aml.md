@@ -355,6 +355,6 @@ service.delete()
 
 + Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
-+  [Make predictions on large quantities of data](how-to-use-parallel-run-step.md) asynchronously.
++  [Make predictions on large quantities of data](./tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
-+ Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 
++ Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial.
