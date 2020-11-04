@@ -88,7 +88,7 @@ You'll need the files for these steps:
     The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub.
     
 1. Next, browse to the src/edge folder and create a file named **.env**.
-1. Copy the contents from the ~/clouddrive/lva-sample/.env file. The text should look like:
+1. Copy the contents from the ~/clouddrive/lva-sample/edge-deployment/.env file. The text should look like:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  

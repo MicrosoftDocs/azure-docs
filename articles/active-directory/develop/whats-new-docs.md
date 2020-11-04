@@ -25,7 +25,7 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 - [Quickstart: Sign in users and get an access token in a Node web app using the auth code flow](quickstart-v2-nodejs-webapp-msal.md)
 - [How to: Enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md)
 - [Support single sign-on and app protection policies in mobile apps you develop](mobile-sso-support-overview.md)
-- [Microsoft identity platform docs: What's new](whats-new-docs.md)
+- Microsoft identity platform docs: What's new (this article)
 - [Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app](tutorial-blazor-webassembly.md)
 - [Microsoft Identity Web authentication library](microsoft-identity-web.md)
 
