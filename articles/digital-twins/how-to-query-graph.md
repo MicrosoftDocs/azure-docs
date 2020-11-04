@@ -162,7 +162,7 @@ FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 This can help you to get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md). Here is a query that gets all twins tagged with *red*:
 
 ```sql
-select * from digitaltwins where is_defined(tags.red)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(tags.red)
 ```
 
 You can also get twins based on the **type of a property**. Here is a query that gets twins whose *Temperature* property is a number:
