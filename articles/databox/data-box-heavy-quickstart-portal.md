@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
