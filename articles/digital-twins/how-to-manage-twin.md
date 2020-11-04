@@ -56,12 +56,7 @@ You can initialize the properties of a twin at the time that the twin is created
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-First, you can create a data object to represent the twin and its property data, like this:
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
+First, you can create a data object to represent the twin and its property data. You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
 #### Create twins using manually created data
 
