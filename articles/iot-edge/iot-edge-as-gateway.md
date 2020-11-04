@@ -95,7 +95,7 @@ On downstream IoT Edge devices, use the **parent_hostname** parameter in the con
 Parent and child devices also need to authenticate their connections to each other. Each device needs a copy of a shared root CA certificate which the child devices use to verify that they are connecting to the proper gateway.
 
 <!--::: moniker range">= iotedge-1.2"-->
-When multiple IoT Edge gateways connect to each other in a gateway hierarcy, all the devices in the hierarchy should use a single certificate chain.
+When multiple IoT Edge gateways connect to each other in a gateway hierarchy, all the devices in the hierarchy should use a single certificate chain.
 <!--::: moniker-end-->
 
 ### Device capabilities behind transparent gateways
