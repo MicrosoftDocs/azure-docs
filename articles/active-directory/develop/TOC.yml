@@ -519,7 +519,7 @@
       href: active-directory-how-to-integrate.md
     - name: Configure single sign-on for an application
       href: registration-config-sso-how-to.md
-- name: How-to guides
+- name: How-to
   items:
   - name: Use the Microsoft Authentication Library
     items:
