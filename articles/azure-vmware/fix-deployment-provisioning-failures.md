@@ -21,7 +21,7 @@ When you create a private cloud or any resource in Azure, a correlation ID for t
 
 In the Azure portal, you can get the correlation ID for a resource in two ways:
 
-* Overview pane
+* **Overview** pane
 * Deployment logs
  
  ### Get the correlation ID from the resource overview
@@ -30,13 +30,13 @@ Here's an example of the operation details of a failed private cloud deployment,
 
 :::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Screenshot that shows a failed private cloud deployment with the correlation ID selected.":::
 
-To access deployment results in a private cloud Overview pane:
+To access deployment results in a private cloud **Overview** pane:
 
 1. In the Azure portal, select your private cloud.
 
 1. In the left menu, select **Overview**.
 
-After a deployment is initiated, the results of the deployment are shown in the private cloud Overview pane.
+After a deployment is initiated, the results of the deployment are shown in the private cloud **Overview** pane.
 
 Copy and save the private cloud deployment correlation ID to include in the service request.
 
