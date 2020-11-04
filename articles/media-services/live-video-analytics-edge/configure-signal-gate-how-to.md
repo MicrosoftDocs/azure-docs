@@ -19,7 +19,7 @@ In this article, you will learn the details about how to configure a signal gate
 ## Problem:
 The user may want to start recording a particular time before or after the gate was triggered by an event. The user knows the acceptable latency within their system, so the user wants to specify the latency of the signal gate processor. The user wants to specify the shortest and longest that the duration of their recording can be no matter how many new events are received.
  
-### Use Case Scenario:
+### Use case scenario:
 Suppose you want to record video every time the front door of your building opens. You want the **X** seconds prior to the door being opened included in the recording. You want the recording to last at least **Y** seconds, if the door is not opened again. You want the recording to last at most **Z** seconds, if the door is repeatedly opened. You know that your door sensor has a latency of **K** seconds and want to decrease the chance of events being disregarded ("late arrivals"), so you want to allow at least **K** seconds for the events to arrive.
 
 
@@ -52,7 +52,7 @@ When the signal gate processor is triggered, it will stay open for the minimum a
 > [!NOTE]
 > A late arrival is any event that arrives once the activation evaluation window has passed but this event arrived before the initial event in media time.
 
-### Limits of Parameters:
+### Limits of parameters:
 
 * **activationEvaluationWindow: 0 seconds to 10 seconds**
 
