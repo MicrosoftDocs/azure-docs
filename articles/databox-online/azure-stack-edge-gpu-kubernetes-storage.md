@@ -102,7 +102,7 @@ For more information, see [Deploy a stateful application via static provisioning
 
 For the same statically provisioned storage, the corresponding mount options for storage bindings for IoT would be as follows:
 
-```yml
+```
 {
 "HostConfig": {
 "Mounts": [
