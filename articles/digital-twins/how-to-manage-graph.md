@@ -457,123 +457,79 @@ Consider the following data table, describing a set of digital twins 
 | dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
 | dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-* Save your CSV file as *data.csv* in your working project directory. In your code editor, select the properties of the file by right selecting the file and edit the property *Copy to Output Directory* to *Copy if newer*.
-* Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
-* Add these packages to your project:
-    ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-    dotnet add package Azure.identity
-    dotnet add package Nancy
-    ```
-You can now run the sample, that reads the data from the CSV file and creates a twin graph.
+One way to get this data into Azure Digital Twins is to convert the table to a CSV file and write code to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
+
+In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Text.Json;
-using Azure;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using Nancy.Json;
 
-namespace creating_twin_graph_from_csv
+namespace creating_twin_graph_from_csv
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
-            List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
-            List<List<string>> data = ReadData();
-            DigitalTwinsClient client = createDTClient();
-            
-            // Reading the csv file by each row
-            foreach (List<string> row in data)
-            {
-                string modelID = row.Count > 0 ? row[0].Trim() : null;
-                string srcID = row.Count > 1 ? row[1].Trim() : null;
-                string relName = row.Count > 2 ? row[2].Trim() : null;
-                string targetID = row.Count > 3 ? row[3].Trim() : null;
-                string initproperty = row.Count > 4 ? row[4].Trim() : null;
-                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initproperty}");
-                var jss = new JavaScriptSerializer();
-                var dict = jss.Deserialize<Dictionary<string, dynamic>>(initproperty);
-                               
-                // Null check for source and target ID's
-                if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
-                {
-                    BasicRelationship br = new BasicRelationship()
-                    {
-                        SourceId = srcID,
-                        TargetId = targetID,
-                        Name = relName
-                    };
-                    RelationshipRecordList.Add(br);
-                }
-                BasicDigitalTwin srcTwin = new BasicDigitalTwin();
-                srcTwin.Id = srcID;
-                srcTwin.Metadata = new DigitalTwinMetadata();
-                srcTwin.Metadata.ModelId = modelID;
-                srcTwin.Contents = dict;
-                TwinList.Add(srcTwin);                                              
-            }
-            // create digital twins 
-            foreach (BasicDigitalTwin twin in TwinList)
-            {
-                try
-                {
-                    client.CreateOrReplaceDigitalTwinAsync(twin.Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-                }
-                catch (RequestFailedException e)
-                {
-                    Console.WriteLine($"Error {e.Status}: {e.Message}");
-                }
-            }
-            // Create relationship between the twins
-            foreach (BasicRelationship rec in RelationshipRecordList)
-            {
-                try
-                {
-                    client.CreateOrReplaceRelationshipAsync(rec.SourceId, Guid.NewGuid().ToString(), rec.TargetId);
-                }
-                catch (RequestFailedException e)
-                {
-                    Console.WriteLine($"Error {e.Status}: {e.Message}");
-                }
-            }
-        }
-        // Read data from the csv file
-        public static List<List<string>> ReadData()
-        {
-            string path = "data.csv";
-            string[] lines = System.IO.File.ReadAllLines(path);
-            List<List<string>> data = new List<List<string>>();
-            int count = 0;
-            foreach (string line in lines)
-            {
-                if (count++ == 0)
-                    continue;
-                List<string> cols = new List<string>();
-                data.Add(cols);
-                string[] columns = line.Split(',');
-                foreach (string column in columns)
-                {
-                    cols.Add(column);
-                }
-            }
-            return data;
-        }
-        // Create digital twins client
-        private static DigitalTwinsClient createDTClient()
-        {
-            
-            string adtInstanceUrl = "https://<your-instance-hostname>";
-            var credentials = new DefaultAzureCredential();
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
-            return client;
-        }
-        
-    }
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
+            List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
+            List<List<string>> data = ReadData();
+            DigitalTwinsClient client = createDTClient();
+
+            // Interpret the CSV file data, by each row
+            foreach (List<string> row in data)
+            {
+                string modelID = row.Count > 0 ? row[0].Trim() : null;
+                string srcID = row.Count > 1 ? row[1].Trim() : null;
+                string relName = row.Count > 2 ? row[2].Trim() : null;
+                string targetID = row.Count > 3 ? row[3].Trim() : null;
+                string initProperties = row.Count > 4 ? row[4].Trim() : null;
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
+                Dictionary<string, object> props = new Dictionary<string, object>();
+                // Parse properties into dictionary (left out for compactness)
+                // ...
+
+                // Null check for source and target ID's
+                if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
+                {
+                    BasicRelationship br = new BasicRelationship()
+                    {
+                        SourceId = srcID,
+                        TargetId = targetID,
+                        Name = relName
+                    };
+                    RelationshipRecordList.Add(br);
+                }
+                BasicDigitalTwin srcTwin = new BasicDigitalTwin();
+                srcTwin.Id = srcID;
+                srcTwin.Metadata = new DigitalTwinMetadata();
+                srcTwin.Metadata.ModelId = modelID;
+                srcTwin.Contents = props;
+                TwinList.Add(srcTwin);
+            }      
+        }
+
+        // Method to ingest data from the CSV file
+        public static List<List<string>> ReadData()
+        {
+            string path = "<path-to>/data.csv";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            List<List<string>> data = new List<List<string>>();
+            int count = 0;
+            foreach (string line in lines)
+            {
+                if (count++ == 0)
+                    continue;
+                List<string> cols = new List<string>();
+                data.Add(cols);
+                string[] columns = line.Split(',');
+                foreach (string column in columns)
+                {
+                    cols.Add(column);
+                }
+            }
+            return data;
+        }
+       
+    }
 }
 
 ```
