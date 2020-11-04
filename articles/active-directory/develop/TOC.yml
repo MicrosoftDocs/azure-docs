@@ -590,7 +590,7 @@
     items:
       - name: Handle ITP in Safari
         href: reference-third-party-cookies-spas.md
-      - name: Handle SameSite cookie changes in Chrome browser
+      - name: Handle SameSite cookie changes in Chrome
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
   - name: Authenticate apps and services
     items:
