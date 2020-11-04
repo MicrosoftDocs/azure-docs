@@ -25,14 +25,14 @@ Private offers allow publishers to take advantage of the scale and global availa
 
 Private offers are now available for Virtual Machine, Azure Application (implemented as solution templates or managed applications), and SaaS Apps offers.
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). Customers can be granted or revoked access to private offers in minutes.
+<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
 --->
 
 ## Creating private offers using plans
 
 For *new or existing offers with plans*, publishers can easily create new, private variations by creating new plans (formerly known as SKUs) and marking them as private. Each offer can have up to 45 private plans.
 
-<!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
+<!--- [Private SKUs]() --->
 
 Private plans are components of an offer and are only visible and purchasable by the targeted customers. Private plans can reuse the base images and/or offer metadata already published for a public plan. This option allows publishers to create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Virtual Machine and Azure application offers only, when a private plan shares a base image with a public plan, any changes to the offer's base image will propagate across all public and private plans using that base image.
 
@@ -64,5 +64,5 @@ Private offers will also appear in search results. Just look for the **Private**
 <!---
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
 --->

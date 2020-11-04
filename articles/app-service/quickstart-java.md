@@ -76,7 +76,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
 1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **Windows** by entering `2`.
+1. When prompted with **OS** option, select **Windows** by entering `3`.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
@@ -108,7 +108,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
 1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **Windows** by entering `2`.
+1. When prompted with **OS** option, select **Windows** by entering `3`.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
 1. Use the default web container, **Tomcat 8.5**, by pressing enter.

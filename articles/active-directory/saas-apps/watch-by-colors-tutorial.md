@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. On the top-right corner of the page, click on **profile** > **Account Settings** > **SSO (Single Sign On)**.
 
-	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config01.png)
+	![Screenshot shows the Account Settings page where S S O is disabled.](./media/watch-by-colors-tutorial/config01.png)
 
 5. On the **SSO (Single Sign On)** page, perform the following steps:
 
-	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config02.png)
+	![Screenshot shows the SAML Setup tab where you can enable SAML.](./media/watch-by-colors-tutorial/config02.png)
 
 	a. Toggle **Enable SAML** to **ON**.
 
@@ -149,11 +149,11 @@ To enable Azure AD users to sign in to Watch by Colors, they must be provisioned
 
 1. On the top-right corner of the page, click on **profile** > **Users** > **Add User**.
 
-	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config03.png)
+	![Screenshot shows the Users page.](./media/watch-by-colors-tutorial/config03.png)
 
 1. On the **User Details** page, perform the following steps:
 
-    ![Watch by Colors configuration](./media/watch-by-colors-tutorial/config04.png)
+    ![Screenshot shows the User Details where you can enter the values described.](./media/watch-by-colors-tutorial/config04.png)
 
     a. In **First Name** text box, enter the first name of user like **B**.
 

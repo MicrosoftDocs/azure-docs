@@ -36,13 +36,6 @@ landingContent:
        links:
        - text: Working with Device Twins using Node.js
          url: iot-hub-node-node-twin-getstarted.md
-       - text: Monitor IoT Hub 
-         url: monitor-iot-hub.md
-       - text: Monitor IoT Hub data reference
-         url: monitor-iot-hub-reference.md
-       - text: Monitor, diagnose, and troubleshoot disconnects with IoT
-         url: iot-hub-troubleshoot-connectivity.md
-
  - title: Scale your solution
    linkLists:
      - linkListType: concept
@@ -89,6 +82,18 @@ landingContent:
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
           url: ../iot-pnp/howto-use-iot-explorer.md
+ -   title: Monitor and troubleshoot IoT Hub
+     linkLists:
+     -  linkListType: how-to-guide
+        links:
+        - text: Monitor IoT Hub 
+          url: monitor-iot-hub.md
+        - text: Monitor IoT Hub data reference
+          url: monitor-iot-hub-reference.md
+        - text: Monitor, diagnose, and troubleshoot disconnects with IoT Hub
+          url: iot-hub-troubleshoot-connectivity.md
+        - text: Order device connection events from Azure IoT Hub using Azure Cosmos DB
+          url: iot-hub-how-to-order-connection-state-events.md
  - title: Using IoT Security certificates
    linkLists:
      - linkListType: concept

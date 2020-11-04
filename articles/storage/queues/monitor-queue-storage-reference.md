@@ -21,7 +21,7 @@ The following tables list the platform metrics collected for Azure Storage.
 
 ### Capacity metrics
 
-Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
+Capacity metrics values are refreshed daily (up to 24 Hours) . The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
@@ -31,7 +31,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Queue storage
 
-This table shows [Queue storage metrics](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
+This table shows [Queue storage metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |

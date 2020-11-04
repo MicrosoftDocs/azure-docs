@@ -135,6 +135,9 @@ Finally, create a configuration, import the **PSDesiredStateConfiguration** reso
 compile the configuration.
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -150,7 +153,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -168,7 +170,7 @@ You should now have a project structure as below:
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -183,7 +185,7 @@ The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of th
 - **Configuration**: Compiled configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is created
   in current directory.
-- **ChefProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
+- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
   content to audit Linux.
 
 Run the following command to create a package using the configuration given in the previous step:
@@ -221,7 +223,7 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
@@ -278,7 +280,7 @@ role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This

@@ -3,13 +3,11 @@ title: Migrate to Azure Resource Manager tools for HDInsight
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
 ms.reviewer: jasonh
 author: hrasheed-msft
-
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.author: hrasheed
-
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
 
@@ -79,7 +77,7 @@ For information on other ways to run Apache Hadoop MapReduce, Apache Hive, and A
 ## Migrating Azure PowerShell to Azure Resource Manager
 The general information about Azure PowerShell in the Azure Resource Manager mode can be found at [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
-The Azure PowerShell Resource Manager cmdlets can be installed side by side with the ASM cmdlets. The cmdlets from the two modes can be distinguished by their names.  The Resource Manager mode has *AzHDInsight* in the cmdlet names comparing to *AzureHDInsight* in the ASM mode.  For example, *New-AzHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parameters and switches may have news names, and there are many new parameters available when using Resource Manager.  For example, several cmdlets require a new switch called *-ResourceGroupName*. 
+The Azure PowerShell Resource Manager cmdlets can be installed side by side with the ASM cmdlets. The cmdlets from the two modes can be distinguished by their names.  The Resource Manager mode has *AzHDInsight* in the cmdlet names comparing to *AzureHDInsight* in the older Azure Service Management mode.  For example, *New-AzHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parameters and switches may have news names, and there are many new parameters available when using Resource Manager.  For example, several cmdlets require a new switch called *-ResourceGroupName*.
 
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 

@@ -1,6 +1,6 @@
 ---
-title: T-SQL language elements
-description: Links to the documentation for T-SQL language elements supported in Synapse SQL pool.
+title: T-SQL language elements for dedicated SQL pool
+description: Links to the documentation for T-SQL language elements supported for dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# T-SQL language elements supported in Synapse SQL pool
+# T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics 
 
-Links to the documentation for T-SQL language elements supported in Synapse SQL pool.
+Links to the documentation for T-SQL language elements supported in dedicated SQL pool.
 
 ## Core elements
 
@@ -285,4 +285,4 @@ Links to the documentation for T-SQL language elements supported in Synapse SQL 
 
 ## Next steps
 
-For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in Synapse SQL pool](../sql/reference-tsql-system-views.md).
+For more reference information, see [T-SQL statements in dedicated SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in dedicated SQL pool](../sql/reference-tsql-system-views.md).

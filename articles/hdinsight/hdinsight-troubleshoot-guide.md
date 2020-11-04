@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight troubleshooting guides
-description: Troubleshoot Apache Hadoop workloads by using Azure HDInsight. Step-by-step documentation shows you how to use HDInsight to solve common problems with Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS, and Apache Storm.
+description: Troubleshoot Azure HDInsight. Step-by-step documentation shows you how to use HDInsight to solve common problems with Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS, and Apache Storm.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 08/14/2019
 ---
 
-# Troubleshoot by using Azure HDInsight
+# Troubleshoot Azure HDInsight
 
 | Apache workload | Top questions |
 |---|---|
@@ -31,10 +31,4 @@ ms.date: 08/14/2019
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

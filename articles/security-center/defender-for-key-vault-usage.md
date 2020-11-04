@@ -68,4 +68,4 @@ This page explained the process of responding to an alert from Azure Defender fo
 
 - [Introduction to Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
-- [Export security alerts](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
