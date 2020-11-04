@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
 
-This article shows you how to use the Azure Portal to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
+This article shows you how to use the Azure portal to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
 
 > [!NOTE]
 > [This article](virtual-nodes.md) gives you an overview of the region availability and limitations using virtual nodes.
