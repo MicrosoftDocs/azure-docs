@@ -33,8 +33,8 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
 | REST API Request limit | 100 requests per 10 seconds | 100 requests per 10 seconds |
-| Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit below) | N/A | 2.5 GB |
 | Max audio input file size | N/A | 1 GB |
+| Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit above) | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per Transcription request (when using multiple content URLs as input) | N/A | 1000  |
