@@ -94,7 +94,7 @@ The token contains the non-hashed values so that the recipient can recompute the
 
 The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, `http://<namespace>.servicebus.windows.net/<entityPath>` or `sb://<namespace>.servicebus.windows.net/<entityPath>`; that is, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**The URI must be [percent-encoded](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
+**The URI must be [percent-encoded](/dotnet/api/system.web.httputility.urlencode).**
 
 The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/contosoTopics/T1` or `http://contoso.servicebus.windows.net` in the previous example.
 
