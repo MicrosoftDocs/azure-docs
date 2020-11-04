@@ -1,6 +1,6 @@
 ---
-title: T-SQL statements
-description: Links to the documentation for T-SQL statements supported in Synapse SQL pool.
+title: T-SQL statements in dedicate SQL pool
+description: Links to the documentation for T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics .
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# T-SQL statements supported in Synapse SQL pool
+# T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics 
 
-Links to the documentation for T-SQL statements supported in Synapse SQL pool.
+Links to the documentation for T-SQL statements supported in dedicated SQL pool.
 
 ## Data Definition Language (DDL) statements
 
@@ -126,4 +126,4 @@ Links to the documentation for T-SQL statements supported in Synapse SQL pool.
 
 ## Next steps
 
-For more reference information, see [T-SQL language elements in Synapse SQL pool](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in Synapse SQL pool](../sql/reference-tsql-system-views.md).
+For more reference information, see [T-SQL language elements in dedicated SQL pool](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in dedicated SQL pool](../sql/reference-tsql-system-views.md).

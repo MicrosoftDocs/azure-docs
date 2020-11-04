@@ -1,6 +1,6 @@
 ---
-title: How to use OPENROWSET in SQL on-demand (preview)
-description: This article describes syntax of OPENROWSET in SQL on-demand (preview) and explains how to use arguments.
+title: How to use OPENROWSET in serverless SQL pool (preview)
+description: This article describes syntax of OPENROWSET in serverless SQL pool (preview) and explains how to use arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET with SQL on-demand (preview)
+# How to use OPENROWSET using serverless SQL pool (preview) in Azure Synapse Analytics
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the SQL on-demand (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
@@ -91,6 +91,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## Arguments
@@ -107,7 +108,7 @@ The unstructured_data_path that establishes a path to the data may be an absolut
 - Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>' enables a user to directly read the files.
 - Relative path in the format '<storage_path>' that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
- Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
+Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -120,18 +121,21 @@ The unstructured_data_path that establishes a path to the data may be an absolut
 
 '\<storage_path>'
 
- Specifies a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included. 
+Specifies a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included. 
 
- You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
+You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
 Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-If you specify the unstructured_data_path to be a folder, a SQL on-demand query will retrieve files from that folder. 
+If you specify the unstructured_data_path to be a folder, a serverless SQL pool query will retrieve files from that folder. 
+
+You can instruct serverless SQL pool to traverse folders by specifying /* at the end of path as in example:
+`https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PolyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Also, unlike Hadoop and PolyBase, serverless SQL pool does return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
@@ -217,6 +221,10 @@ HEADER_ROW = { TRUE | FALSE }
 
 Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument.
 
+DATAFILETYPE = { 'char' | 'widechar' }
+
+Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+
 ## Fast delimited text parsing
 
 There are two delimited text parser versions you can use. CSV parser version 1.0 is default and feature rich while parser version 2.0 is built for performance. Performance improvement in parser 2.0 comes from advanced parsing techniques and multi-threading. Difference in speed will be bigger as the file size grows.
@@ -230,7 +238,7 @@ Parquet files contain column metadata which will be read, type mappings can be f
 For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
 > [!IMPORTANT]
-> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). In case you have character columns in your files and use schema inference, for optimal performance please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
 
 ### Type mapping for Parquet
 

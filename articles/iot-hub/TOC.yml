@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Message enrichments
       href: tutorial-message-enrichments.md
-    - name: Use metrics and diagnostic logs
+    - name: Use metrics and logs
       href: tutorial-use-metrics-and-diags.md
     - name: Perform manual failover
       href: tutorial-manual-failover.md
