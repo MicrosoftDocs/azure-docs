@@ -19,7 +19,7 @@ This article describes how to use private endpoints to secure network traffic wi
 You can use private endpoints for your Babylon accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over a Private Link. The private endpoint uses an IP address from the VNet address space for your Babylon account. Network traffic between the clients on the VNet and the Babylon account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 > [!NOTE]
-> We currently support only access to the Babylon portal UX, scan APIs and catalog APIs via private endpoints. We don't support scanning data sources behind a private endpoint in Babylon, this is work in-progress and will be available in the next few months.
+> We currently support only access to the Babylon portal UX, scan APIs and catalog APIs via private endpoints. We don't support scanning data sources behind a private endpoint in Babylon.
 
 ## Create Babylon account with a gateway service private endpoint
 
@@ -57,13 +57,13 @@ You can use private endpoints for your Babylon accounts to allow clients and use
 
 4. In Resource tab, select Resource type to be **Microsoft.ProjectBabylon/accounts**.
 
-    ![Add portal private endpoint](media/catalog-private-end-point/select-resource-type.png)
+    ![select resource type](media/catalog-private-end-point/select-resource-type.png)
 
 5. Select the Resource to be the newly created Babylon account and select target subresource to be portal.
 
 6. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and select **Create** to create the portal private endpoint.
 
-    ![Add portal private endpoint](media/catalog-private-end-point/select-virtual-network.png)
+    ![select virtual network](media/catalog-private-end-point/select-virtual-network.png)
 
 ## Enabling access to Azure Active Directory
 
@@ -100,8 +100,8 @@ The instructions below are for accessing Babylon securely from an Azure VM. Foll
 
 There are 2 ways you can add a Babylon private endpoints after creating your Babylon account:
 
-1. Using the Azure portal (Babylon account)
-2. Using the Private link center
+- Using the Azure portal (Babylon account)
+- Using the Private link center
 
 ### Using the Azure portal (Babylon account)
 
@@ -110,12 +110,12 @@ There are 2 ways you can add a Babylon private endpoints after creating your Bab
     ```
     https://portal.azure.com/?feature.canmodifystamps=true&feature.customportal=false&Microsoft_Azure_ProjectBabylon=staging&Microsoft_Azure_ProjectBabylon_privateEndpoint=true&feature.showassettypes=Microsoft_Azure_ProjectBabylon_BabylonAccountResource&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ProjectBabylonHidden#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ProjectBabylon%2FAccounts
     ```
-    
-2. Select **+Private** endpoint to create a new private endpoint
+
+2. Select **+Private** endpoint to create a new private endpoint.
 
     ![Add portal private endpoint](media/catalog-private-end-point/add-portal-private-endpoint.png)
 
-3. Fill in basic information
+3. Fill in basic information.
 
     ![fill in basic information](media/catalog-private-end-point/fill-in-basic-information.png)
 
