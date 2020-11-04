@@ -165,6 +165,8 @@
         href: azure-stack-edge-gpu-kubernetes-workload-management.md 
     - name: View Key Vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
+    - name: Enable proactive logging
+      href: azure-stack-edge-gpu-proactive-log-collection.md
   - name: Shared how-tos
     items:
     - name: Deploy IoT Edge samples
