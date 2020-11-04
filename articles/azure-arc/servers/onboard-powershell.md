@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A machine with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-You use PowerShell to manage VM extensions on your hybrid server, managed by servers enabled with Azure Arc. Before using PowerShell, install the `Az.ConnectedMachine` module. Run the following command on your server enabled with Azure Arc:
+You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module. Run the following command on your server enabled with Azure Arc:
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine
@@ -90,7 +90,7 @@ Here's how to configure one or more Windows servers with servers enabled with Az
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to a server enabled with Azure Arc, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
+After you install and configure the agent to register with Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
 
 ![Screenshot of Servers dashboard, showing a successful server connection.](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
