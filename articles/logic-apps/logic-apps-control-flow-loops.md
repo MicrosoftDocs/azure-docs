@@ -13,14 +13,14 @@ ms.date: 01/05/2019
 To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). 
 This loop repeats one or more actions on each item in the array. 
 For limits on the number of array items that "Foreach" loops can process, see 
-[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 To repeat actions until a condition gets met or a state changes, 
 you can create an ["Until" loop](#until-loop). Your logic app first runs 
 all the actions inside the loop, and then checks the condition or state. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
 For limits on the number of "Until" loops in a logic app run, see 
-[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!TIP]
 > If you have a trigger that receives an array 
