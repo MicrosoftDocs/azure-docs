@@ -61,7 +61,7 @@ Select your KB, and navigate to the **Settings** page. There is a link to all th
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-![Add chit-chat to existing KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+![Add chit-chat to existing KB preview release](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 
 ---
 
