@@ -252,10 +252,10 @@ Mixed-language content within the same document returns the language with the la
 ```json
 {
     "documents": [
-    {
-        "id": "1",
-        "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
-    }
+        {
+            "id": "1",
+            "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+        }
     ]
 }
 ```
