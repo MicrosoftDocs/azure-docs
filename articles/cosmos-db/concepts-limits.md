@@ -9,6 +9,7 @@ ms.date: 09/02/2020
 ---
 
 # Azure Cosmos DB service quotas
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
@@ -127,7 +128,6 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of partition key value | 2048 bytes |
 | Maximum length of ID value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
-| Maximum nesting depth | No practical limit |
 | Maximum length of property name | No practical limit |
 | Maximum length of property value | No practical limit |
 | Maximum length of string property value | No practical limit |

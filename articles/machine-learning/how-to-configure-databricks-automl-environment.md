@@ -37,9 +37,10 @@ You can use Azure Databricks:
 + With [automated machine learning](concept-automated-ml.md) capabilities using an Azure ML SDK.
 + As a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md).
 
-## Set up your Databricks cluster
+## Set up a Databricks cluster
 
-Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
+Create a [Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
+
 **It takes few minutes to create the cluster.**
 
 Use these settings:
@@ -117,4 +118,4 @@ Try it out:
 ## Next steps
 
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
-- Go to the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference.
+- See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).

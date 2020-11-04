@@ -267,6 +267,10 @@ The new server created during a restore does not have the VNet service endpoints
 original server. These rules must be set up separately for the new server. Firewall rules from the
 original server are restored.
 
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

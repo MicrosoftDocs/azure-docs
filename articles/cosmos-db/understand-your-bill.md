@@ -5,11 +5,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
 ---
 
 # Understand your Azure Cosmos DB bill
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for your database operations and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premises or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service provides a substantial reduction in costs compared to existing on-premises or IaaS solutions.
 
@@ -99,9 +100,9 @@ If you increase provisioned throughput for a container or a set of containers at
 
 :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Shared throughput bill example":::
 
-## Billing examples with geo-replication and multi-region writes  
+## Billing examples with geo-replication  
 
-You can add/remove Azure regions anywhere in the world to your Azure Cosmos database account at any time. The throughput that you have configured for various Azure Cosmos databases and containers will be reserved in each of the Azure regions associated with your Azure Cosmos database account. If the sum of provisioned throughput (RU/sec) configured across all the databases and containers within your Azure Cosmos database account (provisioned per hour) is T and the number of Azure regions associated with your database account is N, then the total provisioned throughput for a given hour, for your Azure Cosmos database account, (a) configured with a single write region is equal to T x N RU/sec and (b) configured with all regions capable of processing writes is equal to T x (N+1) RU/sec, respectively. Provisioned throughput (single write region) costs $0.008/hour per 100 RU/sec and provisioned throughput with multiple writable regions (multi-region writes config) costs $0.016/per hour per 100 RU/sec (see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)). Whether its single write region, or multiple write regions, Azure Cosmos DB allows you to read data from any region.
+You can add/remove Azure regions anywhere in the world to your Azure Cosmos database account at any time. The throughput that you have configured for various Azure Cosmos databases and containers will be reserved in each of the Azure regions associated with your Azure Cosmos database account. If the sum of provisioned throughput (RU/sec) configured across all the databases and containers within your Azure Cosmos database account (provisioned per hour) is T and the number of Azure regions associated with your database account is N, then the total provisioned throughput for a given hour, for your Azure Cosmos database account is equal to T x N RU/sec. Provisioned throughput (single write region) costs $0.008/hour per 100 RU/sec and provisioned throughput with multiple writable regions (multi-region writes config) costs $0.016/per hour per 100 RU/sec (see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)). Whether its single write region, or multiple write regions, Azure Cosmos DB allows you to read data from any region.
 
 ### Billing example: multi-region Azure Cosmos account, single region writes
 

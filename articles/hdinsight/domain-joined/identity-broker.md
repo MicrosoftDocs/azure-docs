@@ -1,15 +1,15 @@
 ---
-title: Use ID Broker (preview) for credential management - Azure HDInsight
+title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ---
 
-# Azure HDInsight ID Broker (preview)
+# Azure HDInsight ID Broker (HIB)
 
 This article describes how to set up and use the Azure HDInsight ID Broker feature. You can use this feature to get modern OAuth authentication to Apache Ambari while having multifactor authentication enforcement without needing legacy password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
@@ -78,7 +78,7 @@ If you add a new role called `idbrokernode` with the following attributes to the
         {
             "autoscale": null,
             "name": "idbrokernode",
-            "targetInstanceCount": 1,
+            "targetInstanceCount": 2,
             "hardwareProfile": {
                 "vmSize": "Standard_A2_V2"
             },
@@ -95,6 +95,9 @@ If you add a new role called `idbrokernode` with the following attributes to the
 .
 .
 ```
+
+To see a complete sample of an ARM template, please see the template published [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
 
 ## Tool integration
 
@@ -127,6 +130,8 @@ After you acquire the OAuth token, use it in the authorization header of the HTT
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
+
+For using Beeline and Livy, you can also follow the samples codes provided [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) to setup your client to use OAuth and connect to the cluster.
 
 ## Next steps
 

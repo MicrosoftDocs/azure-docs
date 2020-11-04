@@ -50,7 +50,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 
 This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
-To use this file from your code, use the [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) method. This code loads the information from the file and connects to your workspace.
+To use this file from your code, use the [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) method. This code loads the information from the file and connects to your workspace.
 
 Create a workspace configuration file in one of the following methods:
 
@@ -62,7 +62,7 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure Machine Learning Python SDK
 
-    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
+    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
     ```python
     from azureml.core import Workspace
@@ -94,7 +94,7 @@ To configure a local development environment or remote VM:
     > If you're on Linux or macOS and use a shell other than bash (for example, zsh) you might receive errors when you run some commands. To work around this problem, use the `bash` command to start a new bash shell and run the commands there.
 
 1. Activate your newly created Python virtual environment.
-1. Install the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 1. To to configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
 
 Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-sdk-setup-local.md) to get started.
@@ -209,8 +209,7 @@ Similar to local environments, you can use Visual Studio Code and the [Azure Mac
 For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 
-
 ## Next steps
 
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
-- View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference
+- View the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference

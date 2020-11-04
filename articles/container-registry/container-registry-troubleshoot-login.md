@@ -76,6 +76,7 @@ Check the validity of the credentials you use for your scenario, or were provide
   * Password - service principal password (also called *client secret*)
 * If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
 * If you ran `az acr login` with the `--expose-token` option, which enables registry login without using the Docker daemon, ensure that you authenticate with the username `00000000-0000-0000-0000-000000000000`.
+* If your registry is configured for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), existing Docker credentials stored from a previous Docker login can prevent anonymous access. Run `docker logout` before attempting an anonymous pull operation on the registry.
 
 Related links:
 

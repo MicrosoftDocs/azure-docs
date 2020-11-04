@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
@@ -14,9 +14,6 @@ ms.custom: devx-track-csharp
 # Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
 
 ACL inheritance is already available for new child items that are created under a parent directory. You can also now add, update, and remove ACLs recursively for existing child items of a parent directory without having to make these changes individually for each child item.
-
-> [!NOTE]
-> The ability to set access lists recursively is in public preview and is available in all regions.  
 
 [Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines) | [Give feedback](#provide-feedback)
 
@@ -42,9 +39,7 @@ Install the necessary libraries.
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Ensure that the .NET framework is installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
- 
-2. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
@@ -52,18 +47,10 @@ Install the necessary libraries.
     
    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
-3. Install the latest version of the PowershellGet module.
+2. Install **Az.Storage** module.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
-
-4. Close, and then reopen the PowerShell console.
-
-5. Install **Az.Storage** preview module.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
@@ -142,14 +129,14 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
    pip install azure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl
    ```
 
-Add these import statements to the top of your code file.
+3. Add these import statements to the top of your code file.
 
-```python
-import os, uuid, sys
-from azure.storage.filedatalake import DataLakeServiceClient
-from azure.core._match_conditions import MatchConditions
-from azure.storage.filedatalake._models import ContentSettings
-```
+   ```python
+   import os, uuid, sys
+   from azure.storage.filedatalake import DataLakeServiceClient
+   from azure.core._match_conditions import MatchConditions
+   from azure.storage.filedatalake._models import ContentSettings
+   ```
 
 ---
 
@@ -852,7 +839,7 @@ You might encounter runtime or permission errors. For runtime errors, restart th
 
 ### [PowerShell](#tab/azure-powershell)
 
-Return results to the variable. Pipe failed entries to a formatted table.
+This example return results to the variable, and then pipes failed entries to a formatted table.
 
 ```powershell
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
@@ -870,10 +857,10 @@ $result
 
 ### [Azure CLI](#tab/azure-cli)
 
-In the event of a failure, you can return a continuation token by setting the `--continue-on-failure` parameter to `true`. After you address the errors, you can resume the process from the point of failure by running the command again, and then setting the `--continuation` parameter to the continuation token. 
+In the event of a failure, you can return a continuation token by setting the `--continue-on-failure` parameter to `false`. After you address the errors, you can resume the process from the point of failure by running the command again, and then setting the `--continuation` parameter to the continuation token. 
 
 ```azurecli
-az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure true --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
+az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure false --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
 ```
 
 ## [.NET](#tab/dotnet)
@@ -971,13 +958,132 @@ def resume_set_acl_recursive(continuation_token):
 
 ---
 
+If you want the process to complete uninterrupted by permission errors, you can specify that.
+
+### [PowerShell](#tab/azure-powershell)
+
+This example uses the `ContinueOnFailure` parameter so that execution continues even if the operation encounters a permission error. 
+
+```powershell
+
+$TotalDirectoriesSuccess = 0
+$TotalFilesSuccess = 0
+$totalFailure = 0
+$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
+
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
+
+echo "[Result Summary]"
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft) 
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To ensure that the process completes uninterrupted, set the `--continue-on-failure` parameter to `true`. 
+
+```azurecli
+az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure true --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
+```
+
+### [.NET](#tab/dotnet)
+
+To ensure that the process completes uninterrupted, pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
+
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+
+```cs
+public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
+    DataLakeDirectoryClient directoryClient, 
+    List<PathAccessControlItem> accessControlList)
+{
+    var accessControlChangeResult = 
+        await directoryClient.SetAccessControlRecursiveAsync(
+            accessControlList, null, new AccessControlChangeOptions() 
+            { ContinueOnFailure = true });
+
+    var counters = accessControlChangeResult.Value.Counters;
+
+    Console.WriteLine("Number of directories changed: " +
+        counters.ChangedDirectoriesCount.ToString());
+
+    Console.WriteLine("Number of files changed: " +
+        counters.ChangedFilesCount.ToString());
+
+    Console.WriteLine("Number of failures: " +
+        counters.FailedChangesCount.ToString());
+}
+```
+
+### [Java](#tab/java)
+
+To ensure that the process completes uninterrupted, call the **setContinueOnFailure** method of a [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) object and pass in a value of **true**.
+
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+
+```java
+static public void ContinueOnFailure(DataLakeFileSystemClient fileSystemClient,
+DataLakeDirectoryClient directoryClient,
+List<PathAccessControlEntry> accessControlList){
+    
+    PathSetAccessControlRecursiveOptions options = 
+        new PathSetAccessControlRecursiveOptions(accessControlList);
+        
+    options.setContinueOnFailure(true);
+    
+    Response<AccessControlChangeResult> accessControlChangeResult =  
+        directoryClient.setAccessControlRecursiveWithResponse(options, null, null);
+
+    AccessControlChangeCounters counters = accessControlChangeResult.getValue().getCounters();
+
+    System.out.println("Number of directories changes: " + 
+        counters.getChangedDirectoriesCount());
+
+    System.out.println("Number of files changed: " + 
+        counters.getChangedDirectoriesCount());
+
+    System.out.println("Number of failures: " + 
+        counters.getChangedDirectoriesCount());
+}
+```
+
+### [Python](#tab/python)
+
+To ensure that the process completes uninterrupted, don't pass a continuation token into the **DataLakeDirectoryClient.set_access_control_recursive** method.
+
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+
+```python
+def continue_on_failure():
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user::rwx,group::rwx,other::rwx,user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r--'
+
+        acl_change_result = directory_client.set_access_control_recursive(acl=acl)
+
+        print("Summary: {} directories and {} files were updated successfully, {} failures were counted."
+          .format(acl_change_result.counters.directories_successful, acl_change_result.counters.files_successful,
+                  acl_change_result.counters.failure_count))
+        
+    except Exception as e:
+     print(e)
+```
+
+---
+
 ## Resources
 
 This section contains links to libraries and code samples.
 
 #### Libraries
 
-- [PowerShell](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.powershellgallery.com%2Fpackages%2FAz.Storage%2F2.5.2-preview&data=02%7C01%7Cnormesta%40microsoft.com%7Ccdabce06132c42132b4008d849a2dfb1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637340311173215017&sdata=FWynO9UKTt7ESMCFgkWaL7J%2F%2BjODaRo5BD6G6yCx9os%3D&reserved=0)
+- [PowerShell](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](/java/api/overview/azure/storage-file-datalake-readme)
@@ -991,7 +1097,7 @@ This section contains links to libraries and code samples.
 
 - NET: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%252FSc2aDVW3De4A%252Fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0) | [Sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
 
-- Python: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0) | [Sample](https://recursiveaclpr.blob.core.windows.net/privatedrop/datalake_samples_access_control_async.py?sv=2019-02-02&st=2020-08-24T07%3A48%3A10Z&se=2021-08-25T07%3A48%3A00Z&sr=b&sp=r&sig=%2F1c540%2BpXYyNcuTmWPWHg2m9SyClXLIMw7ChLZGsyD0%3D)
+- Python: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0) | [Sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)
 
 ## Best practice guidelines
 
