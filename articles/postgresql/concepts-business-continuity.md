@@ -16,9 +16,12 @@ This overview describes the capabilities that Azure Database for PostgreSQL prov
 
 As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your Recovery Time Objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your Recovery Point Objective (RPO).
 
-Azure Database for PostgreSQL provides business continuity features that include geo-redundant backups with the ability to initiate geo-restore, and deploying read replicas in a different region. Each has different characteristics for the recovery time and the potential data loss. With [Geo-restore](concepts-backup.md) feature, a new server is created using the backup data that is replicated from another region. The overall time it takes to restore and recover depends on the size of the database and the amount of logs to recover. The overall time to establish the server varies from few minutes to few hours. With [read replicas](concepts-read-replicas.md), transaction logs from the primary are asynchronously streamed to the replica. The lag between the primary and the replica depends on the latency between the sites and also the amount of data to be transmitted. In the event of a primary site failure such as availability zone fault, promoting the replica provides a shorter RTO and reduced data loss. 
+Azure Database for PostgreSQL provides business continuity features that include geo-redundant backups with the ability to initiate geo-restore, and deploying read replicas in a different region. Each has different characteristics for the recovery time and the potential data loss. With [Geo-restore](concepts-backup.md) feature, a new server is created using the backup data that is replicated from another region. The overall time it takes to restore and recover depends on the size of the database and the amount of logs to recover. The overall time to establish the server varies from few minutes to few hours. With [read replicas](concepts-read-replicas.md), transaction logs from the primary are asynchronously streamed to the replica. In the event of a primary database outage due to a zone-level or a region-level fault, failing over to the replica provides a  shorter RTO and reduced data loss.
 
-The following table compares RTO and RPO in a typical scenario:
+> [!NOTE]
+> The lag between the primary and the replica depends on the workload, latency between the sites, and the amount of data to be transmitted.  
+
+The following table compares RTO and RPO in a **typical workload** scenario:
 
 | **Capability** | **Basic** | **General Purpose** | **Memory optimized** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -26,7 +29,7 @@ The following table compares RTO and RPO in a typical scenario:
 | Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
 | Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 
-\* RTO and RPO can be much higher in some cases depending on various factors including primary database workload and latency between regions. 
+ \* RTO and RPO **can be much higher** in some cases depending on various factors including primary database workload and the latency between regions. 
 
 ## Recover a server after a user or application error
 
@@ -51,7 +54,7 @@ The geo-restore feature restores the server using geo-redundant backups. The bac
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using pg_dump of your existing server and restore it to a newly created server configured with geo-redundant backups.
 
 ## Cross-region read replicas
-You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using PostgreSQL's physical replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
+You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
 
 ## FAQ
 ### Where does Azure Database for PostgreSQL store customer data?

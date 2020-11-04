@@ -28,6 +28,10 @@ To configure the right level of logging, use the Azure replication support param
 
 The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
 
+
+> [!NOTE]
+> When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
+
 ## Prepare the primary server
 
 1. In the Azure portal, select an existing Azure Database for PostgreSQL server to use as a master.

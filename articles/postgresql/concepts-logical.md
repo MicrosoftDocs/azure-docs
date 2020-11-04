@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 11/05/2020
 ---
 
 # Logical decoding
@@ -34,14 +34,15 @@ The server needs to be restarted after a change of this parameter. Internally, t
 ### Using Azure CLI
 
 1. Set azure.replication_support to `logical`.
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. Restart the server to apply the change.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. If you are running Postgres 9.5 or 9.6, and use public network access, add the firewall rule to include the public IP address of the client from where you will run the logical replication. The firewall rule name must include **replrule**. For example, *test_replrule*. To create a new firewall rule on the server, run the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command. 
 
 ### Using Azure portal
 
@@ -53,6 +54,9 @@ The server needs to be restarted after a change of this parameter. Internally, t
 
    :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
 
+3. If you are running Postgres 9.5 or 9.6, and use public network access, add the firewall rule to include the public IP address of the client from where you will run the logical replication. The firewall rule name must include **replrule**. For example, *test_replrule*. Then click **Save**.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule.png" alt-text="Azure Database for PostgreSQL - Replication - Add firewall rule":::
 
 ## Start logical decoding
 

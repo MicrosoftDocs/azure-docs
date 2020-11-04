@@ -76,7 +76,7 @@ In this method, the entire database dump  is streamed directly to the target dat
    ```azurecli-interactive
     psql "host=myTargetServer port=5432 dbname=postgres user=myUser password=###### sslmode=mySSLmode"
     ```
-    ```bash
+    ```SQL
     postgres> \l   
     postgres> create database myTargetDB;
    ```
