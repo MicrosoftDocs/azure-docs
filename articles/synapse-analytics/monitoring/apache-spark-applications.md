@@ -32,29 +32,9 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 - A serverless Apache Spark pool.
 
-## Monitor running Apache Spark application
-
-Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
-
-  ![select running job](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. Check the **Completed tasks**, **Status**, and **Total duration**.
-
-2. **Cancel** the Apache Spark application.
-
-3. **Refresh** Log query.
-
-4. Click on **Spark UI** button to go to Spark Job page.
-
-5. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application).
-
-6. Check the **Summary** info.
-
-7. Check the diagnostics in **Diagnostic** tab.
-
-8. Check the **Logs** in this tab. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
-
-    ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)
+## View Apache Spark applications 
+You can view all Apache Spark applications from **Monitor** -> **Apache Spark applications**.
+   ![apache spark applications](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## View completed Apache Spark application
 
@@ -103,6 +83,31 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 11. Click on **View details** in the graph, then the details for stage will show out.
 
     ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## Monitor running Apache Spark application
+
+Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
+
+   ![select running job](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. Check the **Completed tasks**, **Status**, and **Total duration**.
+
+2. **Cancel** the Apache Spark application.
+
+3. **Refresh** Log query.
+
+4. Click on **Spark UI** button to go to Spark Job page.
+
+5. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application).
+
+6. Check the **Summary** info.
+
+7. Check the diagnostics in **Diagnostic** tab.
+
+8. Check the **Logs** in this tab. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+
+    ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## View canceled Apache Spark application
 
