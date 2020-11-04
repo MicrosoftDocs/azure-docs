@@ -1,12 +1,13 @@
 ---
-title: Use JavaScript to create a function in Azure to respond to HTTP
-description: Learn how to create a function from the command line using JavaScript, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 09/14/2020
+title: Create a JavaScript function from the command line - Azure Functions
+description: Learn how to create a JavaScript function from the command line, then publish the local Node.js project to serverless hosting in Azure Functions.
+ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Create a function in Azure using JavaScript that responds to HTTP requests
+# Quickstart: Create a JavaScript function in Azure from the command line
+
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
@@ -26,6 +27,8 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
++ (Optional) Azure PowerShell version 4.0 or later, when using PowerShell to create Azure resources.
+
 + [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
 
 ### Prerequisite check
@@ -35,6 +38,8 @@ Before you begin, you must have the following:
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
 + Run `az login` to sign in to Azure and verify an active subscription.
+
++ (Optional) Run `(Get-Module -ListAvailable Az).Version` and verify version 4.0 or later, when using PowerShell to create Azure resources. 
 
 ## Create a local function project
 

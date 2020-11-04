@@ -1,12 +1,14 @@
 ---
-title: Use Java to create a function in Azure to respond to HTTP
-description: Learn how to create a function from the command line using Java, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 09/14/2020
+title: Create a Java function from the command line - Azure Functions
+description: Learn how to create a Java function from the command line, then publish the local project to serverless hosting in Azure Functions.
+ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: [devx-track-java, devx-track-azurecli]
 ---
 
-# Quickstart: Create a function in Azure using Java that responds to HTTP requests
+# Quickstart: Create a Java function in Azure from the command line
+
+[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
 In this article, you use command-line tools to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
@@ -185,9 +187,19 @@ If you continue to the [next step](#next-steps) and add an Azure Storage queue o
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
+ # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az group delete --name java-functions-group
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name java-functions-group
+```
+
+---
 
 ## Next steps
 

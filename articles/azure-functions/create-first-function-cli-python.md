@@ -1,12 +1,12 @@
 ---
-title: Use Python to create a function in Azure to respond to HTTP
-description: Learn how to create a function from the command line using Python, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 09/14/2020
+title: Create a Python function from the command line - Azure Functions
+description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
+ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: [devx-track-python, devx-track-azurecli]
 ---
 
-# Quickstart: Create a function in Azure using Python that responds to HTTP requests
+# Quickstart: Create a Python function in Azure from the command line
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
@@ -26,6 +26,8 @@ Before you begin, you must have the following:
   
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
++ (Optional) Azure PowerShell version 4.0 or later, when using PowerShell to create Azure resources.
+
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are all supported by version 3.x of Azure Functions.
 
 ### Prerequisite check
@@ -35,6 +37,8 @@ Before you begin, you must have the following:
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
 + Run `az login` to sign in to Azure and verify an active subscription.
+
++ (Optional) Run `(Get-Module -ListAvailable Az).Version` and verify version 4.0 or later, when using PowerShell to create Azure resources. 
 
 + Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
 

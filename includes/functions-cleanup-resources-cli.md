@@ -12,6 +12,16 @@ If you continue to the [next step](#next-steps) and add an Azure Storage queue o
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
+ # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name AzureFunctionsQuickstart-rg
+```
+
+---
