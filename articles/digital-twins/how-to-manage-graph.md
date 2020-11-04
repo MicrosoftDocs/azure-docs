@@ -33,7 +33,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created using the `CreateRelationship()` call. 
+Relationships are created using the `CreateOrReplaceRelationshipAsync()` call. 
 
 To create a relationship, you need to specify:
 * The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
