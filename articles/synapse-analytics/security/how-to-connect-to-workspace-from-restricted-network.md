@@ -82,6 +82,32 @@ Pay attention to below areas in tab of "**Resource**":
 
 ![Creating private endpoint for Synapse studio workspace](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
 
+
+## Step 5: Create private link endpoints for Synapse Studio workspace linked storage
+
+To access the Synapse Studio workspace linked storage, you'll need to create one private link endpoint with the similar steps in above step 3. 
+
+Pay attention to below areas in tab of "**Resource**":
+* Select "**Microsoft.Synapse/storageAccounts**" to "**Resource type**".
+* Select "**YourWorkSpaceName**" to "**Resource**" which you've created before.
+* Select the endpoint type in "**Target sub-resource**":
+  * **blob**: is for the blob storage.
+  * **dfs**: is for Azure Data Lake Storage Gen2.
+
+![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
+
+Now, you can access the linked storage resource from your workstation within your vNet.
+
+If your workspace has "**Enable managed virtual network**" during your workspace creation as below,
+
+![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+
+And you'd like your Notebook to access the linked storage resources under certain storage account, you need to add a "**Managed private endpoints**" under your Synapse Studio. The "**Storage account name**" should be the one your notebook needs to access.
+
+![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/mgd-pe-creation.png)
+
+After this endpoint is created, the "**Approval state**" will be "**Pending**", you need to request the owner of this storage account to approve it in the "**Private endpoint connections**" tab of this storage account in Azure portal. After it's approved, your Notebook will be able to access the linked storage resources under this storage account.
+
 Now, all set. You can access your Synapse studio workspace resource.
 
 ## Next steps
