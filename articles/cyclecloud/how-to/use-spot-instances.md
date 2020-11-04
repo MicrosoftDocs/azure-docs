@@ -33,6 +33,13 @@ For most HPC applications, `MaxPrice=-1` is a good default choice.   However, if
 
 For full details see [Spot Virtual Machines](./cluster-templates.md#spot-virtual-machines) in the cluster template guide.
 
+## Spot VM Eviction
+
+CycleCloud monitors for spot evictions via the [Scheduled Events](https://docs.microsoft.com//azure/virtual-machines/linux/scheduled-events) endpoint on each VM.  When a spot preemption event is detected, CycleCloud is notified by the VM and the instance is moved into a "waiting for eviction" state. Spot eviction monitoring can be disabled by setting `cyclecloud.monitor_spot_eviction = False` on a node or nodearray.
+
+> [!NOTE]
+> Non-preemption events will be automatically acknowledged by CycleCloud when spot monitoring is enabled, this is to ensure that events such as reboots are not unnecessarily delayed. In the case that the acknowledging of events is not wanted (e.g. another custom process is already monitoring events), spot monitoring can be disabled.
+
 ## Frequently Asked Questions
 
 Using Spot with CycleCloud has some considerations that are specific to HPC workloads and CycleCloud auto-scaling.
