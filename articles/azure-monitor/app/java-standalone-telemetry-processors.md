@@ -12,8 +12,8 @@ Java 3.0 Agent for Application Insights now has the capabilities to process tele
 
 ### Some Use Cases:
  * Mask sensitive data
- * Filter data to control cost
- * Static attributes for all telemetry, for example applying "k8spod=abc" to all telemetry data
+ * Conditionally add custom dimensions
+ * Update the telemetry name used for aggregation and display
 
 ### Supported Processors:
  * Attribute Processor
