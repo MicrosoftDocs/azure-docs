@@ -143,7 +143,7 @@ Numeric and boolean JMX metric values are supported. Boolean JMX metrics are map
 [//]: # "NOTE: Not documenting APPLICATIONINSIGHTS_JMX_METRICS here"
 [//]: # "json embedded in env var is messy, and should be documented only for codeless attach scenario"
 
-## Global custom dimensions
+## Custom dimensions
 
 If you want to add custom dimensions to all of your telemetry:
 
@@ -168,6 +168,27 @@ It allows you to configure rules that will be applied to request, dependency and
  * Update the telemetry name used for aggregation and display
 
 For more information, check out the [telemetry processor](./java-standalone-telemetry-processors.md) documentation.
+
+## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
+
+If your application uses [Micrometer](https://micrometer.io),
+then metrics that are sent to the Micrometer global registry are auto-collected.
+
+Also, if your application uses
+[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html),
+then metrics configured by Spring Boot Actuator are also auto-collected.
+
+To disable this feature:
+
+```json
+{
+  "instrumentation": {
+    "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
 
 ## Auto-collected logging
 
