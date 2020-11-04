@@ -23,7 +23,7 @@ This article provides steps to resolve issues where the Guest OS is stuck waitin
 
 When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you'll see that the screenshot displays a prompt with the message: "*Please wait for the Local Session Manager*"
 
-![The screenshot shows the Guest OS stuck with the message *"Please wait for the Local Session Manager"* in Windows Server 2012 R2.](./media/vm-unresponsive-wait-local-session-manager/vm-unresponsive-wait-local-session-manager-1.png)
+![The screenshot shows the Guest OS stuck with the message "Please wait for the Local Session Manager" in Windows Server 2012 R2.](media/vm-unresponsive-wait-local-session-manager/vm-unresponsive-wait-local-session-manager-1.png)
 
 ## Cause
 
@@ -48,7 +48,7 @@ To resolve this problem, you first need to gather the memory dump file for the c
 2. Locate the **memory.dmp** file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
 3. If you're having trouble locating the **memory.dmp** file, then follow the guide to [generate a crash dump file using non-maskable interrupt (NMI) calls](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-For further information about NMI calls, see the [non-maskable interrupt (NMI) calls in serial console](/serial-console-windows.md#use-the-serial-console-for-nmi-calls) user guide.
+For further information about NMI calls, see the [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) user guide.
 
 ## Next Steps
 
