@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.topic: conceptual, data4ml
-ms.custom: how-to
+ms.topic: conceptual
+ms.custom: how-to, data4ml
 
 ## Customer intent: As a data scientist, I want to monitor data drift in my datasets and set alerts.
 ---
