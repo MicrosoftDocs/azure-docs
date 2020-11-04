@@ -33,7 +33,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created using the `CreateRelationship()` call. 
+Relationships are created using the `CreateOrReplaceRelationshipAsync()` call. 
 
 To create a relationship, you need to specify:
 * The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
@@ -58,7 +58,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -352,7 +352,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
