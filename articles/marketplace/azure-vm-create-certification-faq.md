@@ -81,7 +81,7 @@ Provisioning issues can include the following failure scenarios:
 ## VHD specifications
 
 ### Conectix cookie and other VHD specifications
-The “conectix” string is part of the VHD specification, and defined as the 8 byte “cookie” in the VHD footer below that identifies the file creator. All vhd files created by Microsoft have this cookie. 
+The 'conectix' string is part of the VHD specification, and defined as the 8 byte 'cookie' in the VHD footer below that identifies the file creator. All vhd files created by Microsoft have this cookie. 
 
 A VHD formatted blob should have a 512 byte footer; this is the VHD footer format:
 
@@ -100,25 +100,20 @@ Current Size|8
 Disk Geometry|4
 Disk Type|4
 Checksum|4
-Unique Id|16
+Unique ID|16
 Saved State|1
 Reserved|427
 
 
 ### VHD specifications
-To ensure a seamless publishing experience, ensure that <b>VHD meets the following criteria :
-1. The cookie must contain the string “conectix”
-1. The disk type must be Fixed
-1. The VHD’s virtual size is at least 20MB
-1. The VHD is aligned (i.e. the virtual size must be a multiple of 1 MB)
-1. The VHD blob length = virtual size + VHD footer length (512)
+To ensure a seamless publishing experience, ensure that **VHD meets the following criteria :**
+* The cookie must contain the string “conectix”
+* The disk type must be Fixed
+* The VHD’s virtual size is at least 20MB
+* The VHD is aligned (i.e. the virtual size must be a multiple of 1 MB)
+* The VHD blob length = virtual size + VHD footer length (512)
 
-</b>
-
-You can download the VHD specification here: https://www.microsoft.com/en-us/download/details.aspx?id=23850
-
-
-### 
+You can download the VHD specification [here.](https://www.microsoft.com/download/details.aspx?id=23850)
 
 
 ## Software compliance for Windows
