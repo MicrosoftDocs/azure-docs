@@ -146,8 +146,6 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
-7. Display failed information.
-
 ## Next steps
 
 For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.  
