@@ -42,7 +42,7 @@ IoT hub continuously emits resource logs for several categories of operations. T
 
 The IoT Hub [resource logs connections category](monitor-iot-hub-reference.md#connections) emits operations and errors having to do with device connections. The following screenshot shows a diagnostic setting to route these logs to a Log Analytics workspace:
 
-:::image type="content" source="media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png" alt-text="Recommended setting to send connectivity logs to Log Analytics workspace.":::
+:::image type="content" source="media/iot-hub-troubleshoot-connectivity/create-diagnostic-setting.png" alt-text="Recommended setting to send connectivity logs to Log Analytics workspace.":::
 
 We recommend creating a diagnostic setting as early as possible after you create your IoT hub, because, although IoT Hub always emits resource logs, they aren't collected by Azure Monitor until you route them to a destination.
 
@@ -52,11 +52,13 @@ To learn more about routing logs to a destination, see [Collection and routing](
 
 You can set up alerts based on the platform metrics emitted by IoT Hub. With metric alerts, you can notify individuals that a condition of interest has occurred and also trigger actions that can respond to that condition automatically.
 
-The [*Connected devices (preview)*](monitor-iot-hub-reference.md#device-metrics) metric tells you how many devices are connected to your IoT Hub. You can create alerts with static thresholds to trigger when this metric drops below a set value, or, with [Dynamic Thresholds](/azure/azure-monitor/platform/alerts-dynamic-thresholds), when this metric drops below a historically determined value.
+The [*Connected devices (preview)*](monitor-iot-hub-reference.md#device-metrics) metric tells you how many devices are connected to your IoT Hub. You can create alerts to trigger if this metric drops below a threshold value:
+
+:::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Alert logic settings for connected devices metric.":::
 
 You can use metric alert rules to monitor for device disconnect anomalies at-scale. That is, when a significant number of devices unexpectedly disconnect. When such an occurrence is detected, you can look at logs to help troubleshoot the issue. To monitor per-device disconnects and disconnects for critical devices; however, you must use Event Grid. Event Grid also provides a more real-time experience than Azure metrics.
 
-To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](/tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) in the Azure Monitor documentation.
+To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) in the Azure Monitor documentation.
 
 ## Azure Monitor: Use logs to resolve connectivity errors
 
@@ -93,9 +95,9 @@ Once you've identified the error, follow the problem resolution guides for help 
 
 ## MQTT device disconnect behavior with Azure IoT SDKs
 
-On SAS token renewal, when using MQTT or MQTT over Web Sockets protocols, Azure IoT SDKs disconnect from IoT Hub and then reconnect. In logs this shows up as informational device disconnect and connect events sometimes accompanied by error events.
+Azure IoT device SDKs disconnect from IoT Hub and then reconnect when they renew SAS tokens over the MQTT (and MQTT over WebSockets) protocol. In logs, this shows up as informational device disconnect and connect events sometimes accompanied by error events.
 
-By default, the token lifespan is 60 minutes for all SDKs; however, it can be changed in many of the SDKs. The following table summarizes the token lifespan, token renewal, and token renewal behavior for each of the SDKs:
+By default, the token lifespan is 60 minutes for all SDKs; however, it can be changed by developers in some of the SDKs. The following table summarizes the token lifespan, token renewal, and token renewal behavior for each of the SDKs:
 
 | SDK | Token lifespan | Token renewal | Renewal behavior |
 |-----|----------|---------------------|---------|
@@ -104,7 +106,7 @@ By default, the token lifespan is 60 minutes for all SDKs; however, it can be ch
 | Node.js | 60 minutes, configurable | configurable | SDK connects and disconnects at token renewal. Only informational events are generated in logs. |
 | Python | 60 minutes, not configurable | -- | SDK connects and disconnects at token lifespan. |
 
-The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from their defaults as noted for each screenshot.
+The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from their defaults as noted.
 
 * .NET device SDK with a 1200 sec (20 min) token lifespan and renewal set to happen at 90% of lifespan. disconnects happen every 30 minutes:
 
@@ -118,7 +120,7 @@ The following screenshots show the token renewal behavior in Azure Monitor Logs 
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Node SDK.":::
 
-The following query was used. The query extracts the SDK name and version from the property bag; to learn more, see [SDK version in IoT Hub logs](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
+The following query was used to collect the results. The query extracts the SDK name and version from the property bag; to learn more, see [SDK version in IoT Hub logs](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
 
 ```kusto
 AzureDiagnostics
