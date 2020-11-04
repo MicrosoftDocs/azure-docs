@@ -692,7 +692,7 @@
         href: app/kubernetes-codeless.md
       - name: Standalone - any environment
         items:  
-          - name: Java (preview)
+          - name: Java
             items:
             - name: Overview
               href: app/java-in-process-agent.md
