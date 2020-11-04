@@ -24,13 +24,19 @@ Before you begin, you must have the following:
 
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
   
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ One of the following tools for creating Azure resources:
 
-+ (Optional) Azure PowerShell version 4.0 or later, when using PowerShell to create Azure resources.
+    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps) version 4.0 or later.
 
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are all supported by version 3.x of Azure Functions.
 
 ### Prerequisite check
+
+Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
+
+# [Azure CLI](#tab/azure-cli)
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
 
@@ -38,9 +44,19 @@ Before you begin, you must have the following:
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
-+ (Optional) Run `(Get-Module -ListAvailable Az).Version` and verify version 4.0 or later, when using PowerShell to create Azure resources. 
++ Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
+
++ Run `(Get-Module -ListAvailable Az).Version` and verify version 4.0 or later. 
+
++ Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
 + Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
+
+---
 
 ## Create a local function project
 
