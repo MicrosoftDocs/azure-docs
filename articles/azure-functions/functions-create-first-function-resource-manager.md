@@ -37,7 +37,7 @@ Create your local functions project in your chosen language in Visual Studio Cod
 
 + [C#](create-first-function-vs-code-csharp.md)
 + [Java](create-first-function-vs-code-java.md)
-+ [JavaScript](create-first-function-vs-code-javascript.md)
++ [JavaScript](create-first-function-vs-code-node.md)
 + [PowerShell](create-first-function-vs-code-powershell.md)
 + [Python](create-first-function-vs-code-python.md)
 + [TypeScript](create-first-function-vs-code-typescript.md)
@@ -52,7 +52,7 @@ Create your local functions project in your chosen language from the command lin
 
 + [C#](create-first-function-cli-csharp.md)
 + [Java](create-first-function-cli-java.md)
-+ [JavaScript](create-first-function-cli-javascript.md)
++ [JavaScript](create-first-function-cli-node.md)
 + [PowerShell](create-first-function-cli-powershell.md)
 + [Python](create-first-function-cli-python.md)
 + [TypeScript](create-first-function-cli-typescript.md)
