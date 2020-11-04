@@ -1,5 +1,5 @@
 ---
-title: Configure a signal gate for Event-based Video Recording
+title: Configure a signal gate for event-based video recording - Azure
 description: This article provides guidance on how to configure a signal gate in a media graph.
 ms.topic: how-to
 ms.date: 11/3/2020
