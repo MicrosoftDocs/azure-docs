@@ -226,9 +226,4 @@ Or you can also use Application Insights Java SDK 2.x:
 
 ## Upgrading from Application Insights Java SDK 2.x
 
-If you're already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x to prevent duplicate capture.
-
-If you were using Application Insights 2.x agent, you need to remove the `-javaagent:` JVM arg that was pointing to the 2.x agent.
-
-> [!NOTE]
-> Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent.
+See [Upgrading from 2.x SDK](./java-standalone-upgrading-from-2x.md)
