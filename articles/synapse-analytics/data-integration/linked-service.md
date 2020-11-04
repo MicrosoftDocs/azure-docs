@@ -2,7 +2,7 @@
 title: Secure a linked service 
 description: Learn how to provision and secure a linked service with Managed VNet 
 services: synapse-analytics 
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: 
@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Secure a linked service with Private Links 
+# Secure a linked service with Private Links
 
 In this article, you'll learn how to secure a linked service in Synapse with a private endpoint.
 
@@ -63,6 +63,8 @@ You've now established a secure and private connection between Synapse and your 
 
 ## Next steps
 
-To develop further understanding of Managed private endpoint in Synapse Analytics, see the [Concept around Synapse Managed private endpoint](../security/synapse-workspace-managed-private-endpoints.md) article.
+
+To develop further understanding of Managed private endpoint in Synapse Analytics, see [Managed private endpoints](../security/synapse-workspace-managed-private-endpoints.md).
+
 
 For more information on data integration for Synapse Analytics, see the [Ingesting data into a Data Lake](data-integration-data-lake.md) article.
