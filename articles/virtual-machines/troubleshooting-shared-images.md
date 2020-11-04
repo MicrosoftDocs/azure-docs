@@ -219,7 +219,7 @@ If you run into issues while performing any operations on shared image galleries
 **Cause**: The resource ID of the disk encryption set used on a data disk image uses an invalid format.  
 **Workaround**: Ensure that the resource ID of the disk encryption set follows the format /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroupName\>/providers/Microsoft.Compute/<diskEncryptionSetName\>.
 
-*The value of parameter galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId is invalid.*
+*The value of parameter galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId is invalid.*  
 **Cause**: The resource ID of the disk encryption set used on the OS disk image uses an invalid format  
 **Workaround**: Ensure that the resource ID of the disk encryption set follows the format /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroupName\>/providers/Microsoft.Compute/<diskEncryptionSetName\>.
 

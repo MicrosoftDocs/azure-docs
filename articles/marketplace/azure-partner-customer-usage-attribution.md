@@ -154,7 +154,7 @@ For Python, use the **config** attribute. You can only add the attribute to a Us
 
 #### Example: The .NET SDK
 
-For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) library can be used to set the user agent with the following code (example in C#):
+For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent) library can be used to set the user agent with the following code (example in C#):
 
 ```csharp
 
