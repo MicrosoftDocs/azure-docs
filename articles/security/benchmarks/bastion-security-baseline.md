@@ -95,9 +95,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39747.).
 
-**Guidance**: Protect your Azure Bastion resources against attacks from external networks, including distributed denial of service (DDoS) Attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+**Guidance**: Protect your Azure Bastion resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
-Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines and is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
+Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines and is not intended to run web applications. Azure Bastion does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -221,13 +221,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39734.).
 
-**Guidance**: Azure Bastion is a PaaS service that customers can use to connect to their virtual machines over RDP/SSH.  Customers can enable diagnostics logs for remote sessions and use these logs to view which users connected to which workloads, at what time, from where, and other such relevant logging information.
+**Guidance**: Azure Bastion is a PaaS service that customers can use to connect to their virtual machines over RDP/SSH. Enable diagnostics logs for remote sessions and use these logs to view which users connected to which workloads, at what time, from where, and other such relevant logging information. Create alerts for certain logged Bastion sessions using Azure Monitor to be notified when there are anomalies detected in the logs. 
 
-- [You can find more information about how to enable diagnostics logging here ](../../bastion/diagnostic-logs.md)
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [You can find more information about how to enable diagnostics logging here](../../bastion/diagnostic-logs.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -278,7 +274,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39772.).
 
-**Guidance**: Not applicable; Azure Bastion doesn't access any legacy applications.
+**Guidance**: Not applicable; Azure Bastion doesn't host or access any legacy applications.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -415,8 +411,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39799.).
 
-**Guidance**: Not applicable; Azure Bastion doesn't store customer data.
-Not applicable; Azure Bastion doesn't support customer lockbox.
+**Guidance**: Not applicable; Azure Bastion doesn't store customer data, and doesn't support the Customer Lockbox solution.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -515,15 +510,21 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39773.).
 
-**Guidance**: Not applicable; Azure Bastion is a PaaS service and does not allow the Azure Security Center 'Security Reader' role to be configured for the service
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Depending on how security team responsibilities are structured, monitoring for security risks could  be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization. 
 
-**Azure Security Center monitoring**: Not applicable
+Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-**Responsibility**: Not applicable
+Note: Additional permissions might be required to get visibility into workloads and services. 
+
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
+
+- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
@@ -767,15 +768,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39763.).
 
-**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness. Check that your service offering is included in the incident response process, as applicable.
+**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](https://aka.ms/AzSec4) 
+- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Incident Response Reference Guide](https://aka.ms/IRRG) 
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -786,19 +783,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39764.).
 
-**Guidance**: Set up security incident contact information in Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
+**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md) 
+- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
-Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
-
-- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md) 
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -807,20 +796,19 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39765.).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The
-severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
-Additionally, clearly mark subscriptions (for ex. production, non-production) and create a naming system to clearly identify and categorize Azure resources.
+High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md) 
+Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
-- [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md)
+Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [How to configure export](../../security-center/continuous-export.md)
 
-**Azure Security Center monitoring**: Not applicable
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
+
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -829,63 +817,70 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39766.).
 
-**Guidance**: Build out an incident response guide for your organization. Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
-Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-- [How to configure Workflow Automations within Azure Security Center](../../security-center/security-center-planning-and-operations-guide.md) 
+- Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information. 
 
-- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process) 
+- Snapshots of running systems: 
 
-- [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process) 
+    - Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk. 
 
-- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf) 
+    - Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+    - Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
+
+Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
+
+- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
+
+- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
+
+- [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Shared
+**Responsibility**: Customer
 
 ### IR-5: Detection and analysis – prioritize incidents
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39767.).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Additionally, clearly mark subscriptions (such as, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md) 
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md) 
+- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Shared
+**Responsibility**: Customer
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39768.).
 
-**Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
+**Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
+Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [How to configure Workflow Automation and Logic Apps](../../security-center/workflow-automation.md)
+- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-**Azure Security Center monitoring**: Not applicable
+- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Responsibility**: Shared
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ## Posture and Vulnerability Management
 
@@ -941,7 +936,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39785.).
 
-**Guidance**: Not applicable; Azure Bastion doesn't have any resource configurations.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
 
@@ -957,7 +952,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39786.).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -972,7 +967,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39787.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -1018,22 +1013,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39790.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
-
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](../fundamentals/pen-testing.md)  Penetration
+- [Penetration testing in Azure](../fundamentals/pen-testing.md)
 
-For more information, see Security control: Penetration tests and red team exercises.
-
-security-control-penetration-tests-red-team-exercises.md
-
-- [Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1184,7 +1170,6 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
@@ -1240,11 +1225,11 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
-- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://aka.ms/AzSec1)
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://aka.ms/AzSec2)
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://aka.ms/AzSec3)
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1272,8 +1257,7 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
-
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
@@ -1310,7 +1294,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure identity management security overview](../fundamentals/identity-management-overview.md)
 
@@ -1347,7 +1331,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 - [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
