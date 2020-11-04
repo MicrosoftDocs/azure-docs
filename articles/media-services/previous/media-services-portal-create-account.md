@@ -31,7 +31,7 @@ The Media Services account and all associated storage accounts must be in the sa
 This article shows how to create a Media Services account using the Azure portal.
 
 > [!NOTE]
-> For information about availability of Azure Media Services features in different regions, see [AMS features across regions](availability-regions-v2.md).
+> For information about availability of Azure Media Services features in different regions, see [AMS features across regions](availability-regions-v-2.md).
 
 ## Prerequisites
 

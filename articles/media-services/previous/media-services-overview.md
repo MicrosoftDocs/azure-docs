@@ -83,7 +83,7 @@ For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 ## Supported scenarios and availability of Media Services across data centers
 
 For more information about Azure common scenarios, see [AMS scenarios](scenarios-and-availability.md).
-For information about regional availability, see [Media service availability](availability-regions-v2.md).
+For information about regional availability, see [Media service availability](availability-regions-v-2.md).
 
 ## Service Level Agreement (SLA)
 
