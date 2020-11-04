@@ -74,14 +74,13 @@ Take the following steps if returning the device in the UK.
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
     - Affix the label on the device.
-    - Note the DHL waybill number.<!--Verify that this is where they will find it.-->
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 
 3. If you are returning the device with DHL, request pickup by visiting their website and specifying the airway bill number:
-   - Go to the [DHL Express United Kingdom website](https://mydhl.express.dhl/gb/en/schedule-pickup.html#/schedule-pickup).
-   - Under **Do you need a shipping label**, select **No**. Then select **I have a DHL Waybill Number**.
-   - Specify the waybill number, and click **Schedule Pickup** to arrange for pickup. <!--Can't test this with no waybill #. Code and phone fields also are included. It's not clear what is required and what might be pre-filled when a waybill number is entered. I suspect also they might click Next instead of Schedule Pickup to schedule the pickup.-->
+    - Go to the [DHL Express United Kingdom website](https://mydhl.express.dhl/gb/en/schedule-pickup.html#/schedule-pickup).
+    - Under **Do you need a shipping label**, select **No**. Then select **I have a DHL Waybill Number**.
+    - Specify the waybill number, and click **Schedule Pickup** to arrange for pickup. <!--Please verify DHL instructions. With no waybill number, I can't test. I don't see a Schedule Pickup button.-->
 
 ### [Europe](#tab/in-europe)
 
