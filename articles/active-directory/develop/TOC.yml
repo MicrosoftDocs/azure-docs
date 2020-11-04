@@ -576,7 +576,7 @@
     items:
     - name: Configure role claim
       href: active-directory-enterprise-app-role-management.md
-    - name: Customize claims in the Portal
+    - name: Customize claims using Azure portal
       href: active-directory-saml-claims-customization.md
     - name: Customize claims using PowerShell
       href: active-directory-claims-mapping.md
