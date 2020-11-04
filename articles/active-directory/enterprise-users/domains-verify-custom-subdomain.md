@@ -29,6 +29,8 @@ In the Azure AD portal, when the parent domain is federated and the admin tries 
 
 Because subdomains by default inherit the authentication type of the root domain, you must promote the subdomain to a root domain in Azure AD using the Microsoft Graph so you can set the authentication type to your desired type.
 
+### Add the subdomain and view its authentication type
+
 1. Use PowerShell to add the new subdomain, which has its root domain's default authentication type. The Azure AD and Microsoft 365 admin centers don't yet support this operation.
 
 ```powershell
@@ -61,13 +63,17 @@ Return:
      },
 ```
 
-## Use Azure AD Graph Explorer API to make this a root domain
+### Use Azure AD Graph Explorer API to make this a root domain
+
+Use the following command to promote the subdomain:
 
 ```http
 POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?api-version=1.6
 ```
 
-Now Set to a managed domain using Set-MsolDomainAuthentication
+### Change the subdomain authentication type
+
+Use the following command to change the subdomain authentication type:
 
 ```powershell
 Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
