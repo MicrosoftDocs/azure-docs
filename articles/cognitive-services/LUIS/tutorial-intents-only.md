@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: Predict intentions - LUIS"
 description: Create a custom app that predicts a user's intention based on the utterance (text) in this tutorial.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
 ---
@@ -108,9 +110,8 @@ In order to classify an utterance, the intent needs examples of user utterances 
 
     `get a medium vegetarian pizza for delivery`
 
-    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent.
-
-    The last query string parameter is `query`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `OrderPizza` intent as the top scoring intent.
+  
+    The query string parameter is `query`, the utterance **query** is passed in the URI. This utterance is not the same as any of the example utterances. This should be a good test to check if LUIS learns and predicts the `OrderPizza` intent as the top scoring intent.
 
     ```JSON
     {

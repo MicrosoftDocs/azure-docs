@@ -10,7 +10,7 @@ ms.date: 5/11/2020
 ---
 # Using reference data for lookups in Stream Analytics
 
-Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. For example, in an IoT scenario, you could store metadata about sensors (which don’t change often) in reference data and join it with real time IoT data streams. Azure Stream Analytics loads reference data in memory to achieve low latency stream processing. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. 
+Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. For example, in an IoT scenario, you could store metadata about sensors (which don’t change often) in reference data and join it with real time IoT data streams. Azure Stream Analytics loads reference data in memory to achieve low latency stream processing. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. 
 
 ## Example  
 You can have a real time stream of events generated when cars pass a toll booth. The toll booth can capture the license plate in real time and join with a static dataset that has registration details to identify license plates that have expired.  
@@ -90,13 +90,13 @@ With the delta query option, Stream Analytics runs the snapshot query initially 
 
 To configure your SQL Database reference data, you first need to create **Reference Data** input. The table below explains each property that you will need to provide while creating the reference data input with its description. For more information, see [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md).
 
-You can use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) as a reference data input. You have to [configure public endpoint in Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
+You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) as a reference data input. You have to [configure public endpoint in SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
 
 |**Property Name**|**Description**  |
 |---------|---------|
 |Input alias|A friendly name that will be used in the job query to reference this input.|
 |Subscription|Choose your subscription|
-|Database|The Azure SQL Database that contains your reference data. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342*|
+|Database|The Azure SQL Database that contains your reference data. For SQL Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342*|
 |Username|The username associated with your Azure SQL Database.|
 |Password|The password associated with your Azure SQL Database.|
 |Refresh periodically|This option allows you to choose a refresh rate. Choosing "On" will allow you to specify the refresh rate in DD:HH:MM.|
@@ -140,6 +140,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

@@ -15,6 +15,11 @@ ms.custom: seodec2018
 ---
 # What is the Bing News Search API?
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The Bing News Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications. The API provides a similar experience to [Bing News](https://www.bing.com/news), letting you send search queries and receive relevant news articles.
 
 Be aware that the Bing News Search API provides news search results only. Use the [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](../bing-video-search/search-the-web.md) and [Image Search API](../bing-image-search/overview.md) for other types of web content.
@@ -35,10 +40,8 @@ While the Bing News Search API primarily finds and returns relevant news article
 
 The Bing News Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the REST API, or the SDK.
 
-1. Create a Cognitive Services API account with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
-
+1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to the API, with a valid search query.
-
 3. Process the API response by parsing the returned JSON message.
 
 ## Next steps

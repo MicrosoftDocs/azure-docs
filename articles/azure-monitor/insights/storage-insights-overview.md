@@ -3,8 +3,8 @@ title: Monitor Azure Storage services with Azure Monitor for Storage | Microsoft
 description: This article describes the Azure Monitor for Storage feature that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
 ms.subservice: 
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/11/2020
 
 ---
@@ -27,7 +27,7 @@ Combined it delivers:
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md).
+This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
@@ -50,11 +50,11 @@ To view the utilization and availability of your storage accounts across all of 
 
 ### Overview workbook
 
-On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 5 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
-* **Storage Accounts** - by default, 10 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
+* **Storage Accounts** - by default, 5 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
@@ -63,7 +63,7 @@ The counter tile under the drop-down lists rolls-up the total number of storage 
 Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage metrics that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage workbooks](#detailed-storage-workbooks) section below. 
 
 >[!NOTE]
->For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/monitor-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+>For details on which errors can be shown in the report, see [Response Type schema](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 The default **Availability** threshold is:
 
@@ -90,7 +90,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 2. From the list, choose a storage account. In the Monitoring section, choose Insights.
 
-    ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot that shows the Overview workbook page for the storage account.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 On the **Overview** workbook for the storage account, it shows several storage performance metrics that help you quickly assess:
 
@@ -194,7 +194,7 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 1. Select **Column Settings** in the metrics grid.
 
-2. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**. Under the drop-down list **Color palette**, select **Green**.
+2. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**. Under the drop-down list **Color palette**, select **Green**.
 
 3. Select **Save and close** to commit your change.
 
@@ -224,6 +224,8 @@ In this example, we are working with the storage account capacity workbook and d
 
 ## Troubleshooting
 
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Storage. Use the list below to locate the information relevant to your specific issue.
 
 ### Resolving performance, capacity, or availability issues
@@ -234,32 +236,14 @@ To help troubleshoot any storage-related issues you identify with Azure Monitor 
 
 The number of selected storage accounts has a limit of 200, regardless of the number of subscriptions that are selected.
 
-### What happens when I click on a recently pinned tile in the dashboard?
-
-* If you click anywhere on the tile, it will take you to the tab where the tile was pinned from. For example, if you pin a graph in the "Storage Account Overview" tab then when you click that tile in the dashboard it will open up that default view, however if you pin a graph from your own saved copy then it will open up your saved copy's view.
-* The filter icon in the top left of the title opens the "Configure tile settings" tab.
-* The ellipse icon in the top right will give you the options to "Customize title data", "customize", "refresh" and "remove from dashboard".
-
-### What happens when I save a workbook?
-
-* When you save a workbook, it lets you create a new copy of the workbook with your edits and change the title. Saving does not overwrite the workbook, the current workbook will always be the default view.
-* An **unsaved** workbook is just the default view.
-
-
-### Why don’t I see all my subscriptions in the portal?
-
-The portal will show data only for selected subscriptions on portal launch. To change what subscriptions are selected, go to the top right and click on the notebook with a filter icon. This will show the Directory + subscriptions tab.
-
-![Directory + subscription](./media/storage-insights-overview/fqa3.png)
-
 ### How to change the coloring and threshold for availability?
 
-Refer to the [Modify the availability threshold](storage-insights-overview.md#modify-the-availability-threshold)
+Refer to the [Modify the availability threshold](#modify-the-availability-threshold)
 section for the detailed steps on how to change the coloring and thresholds for availability.
 
 ### How to analyze and troubleshoot the data shown in Azure Monitor for Storage?
 
- Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) article for details on how to analyze and troubleshoot the Azure Storage data shown in Azure Monitor for Storage.
+ Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) article for details on how to analyze and troubleshoot the Azure Storage data shown in Azure Monitor for Storage.
 
 ### Why don’t I see all the types of errors in metrics?
 
@@ -270,7 +254,7 @@ Currently, up to three different types of errors are shown and the rest of the e
 
     ![Go to metrics and click on edit then on "Transactions, Sums"](./media/storage-insights-overview/fqa7.png)
 
-1. Then change the Number of Splits.
+3. Then change the Number of Splits.
 
     ![Select Metric Parameters"](./media/storage-insights-overview/fqa7-2.png)
 
@@ -280,41 +264,10 @@ If you want to see n different types of error than specify splitByLimit as n+1, 
 
 Each workbook is saved in the storage account that you saved it in. Try to find the specific Storage Account in which the user saved the workbook. Otherwise, there is no way to find a specific workbook without knowing the resource (storage account).
 
-### What is time range?
-
-Time range shows you data from a certain time frame. For example, if the time range is 24 hours, then it's showing data from the past 24 hours.
-
-### What is time granularity (time grain)?
-
-Time granularity is the time difference between two data points. For example, if the time grain is set to 1 second that means metrics are collected each second.
-
-### What is the time granularity once we pin any part of the workbooks to a dashboard?
-
-The default time granularity is set to automatic, it currently can't be changed at this time.
-
-### How do I change the timespan/ time range of the workbook step on my dashboard?
-
-By default the timespan/time range on your dashboard tile is set to 24 hours, to change this click on the ellipses in the top right, select **Customize tile data**, check "override the dashboard time settings at the title level" box and then pick a timespan using the dropdown menu.  
-
-![Select the ellipses in the right corner of the tile and choose Customize this data](./media/storage-insights-overview/fqa-data-settings.png)
-
-![In Configure tile settings select the timespan dropdown to change the timespan/time range](./media/storage-insights-overview/fqa-timespan.png)
-
-### How do I change the title of the workbook or a workbook step I pinned to a dashboard?
-
-The title of the workbook or workbook step that is pinned to a dashboard retains the same name it had in the workbook. To change the title, you must save your own copy of the workbook. Then you will be able to name the workbook before you press save.
-
-![Select save at the top to save a copy of the workbook and to change the name of it](./media/storage-insights-overview/fqa-change-workbook-name.png)
-
-To change the name of a step in your saved workbook select edit under the step and then select the gear at the very bottom of settings.
-
-![Select edit at the bottom of a workbook step to open up the settings](./media/storage-insights-overview/fqa-edit.png)
-![In settings select the gear at the bottom, to be able to change the step name](./media/storage-insights-overview/fqa-change-name.png)
-
 ## Next steps
 
-* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
+* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
 
 * For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

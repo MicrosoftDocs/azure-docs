@@ -11,12 +11,12 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom:
+ms.custom: devx-track-azurecli
 ---
 
 # Connect virtual networks with virtual network peering using the Azure CLI

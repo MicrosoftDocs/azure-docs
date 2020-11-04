@@ -1,40 +1,48 @@
 ---
 title: Use Azure Table storage or the Azure Cosmos DB Table API from Java
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API from Java.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
+ms.custom: devx-track-java
 ---
+
 # How to use Azure Table storage or Azure Cosmos DB Table API from Java
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## Overview
-This article demonstrates how to perform common scenarios using the Azure Table storage service and Azure Cosmos DB. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
 >
 
 ## Create an Azure service account
+
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### Create an Azure storage account
+**Create an Azure storage account**
+
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### Create an Azure Cosmos DB account
+**Create an Azure Cosmos DB account**
+
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a Java application
+
 In this guide, you will use storage features that you can run in a Java application locally, or in code running in a web role or worker role in Azure.
 
 To use the samples in this article, install the Java Development Kit (JDK), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
 
 ## Configure your application to access table storage
+
 Add the following import statements to the top of the Java file where you want to use Azure storage APIs or the Azure Cosmos DB Table API to access tables:
 
 ```java
@@ -44,8 +52,13 @@ import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
-## Add an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. 
+## Add your connection string
+
+You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+
+### Add an Azure storage connection string
+
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values. 
 
 This example shows how you can declare a static field to hold the connection string:
 
@@ -57,8 +70,9 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-## Add an Azure Cosmos DB Table API connection string
-An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. 
+### Add an Azure Cosmos DB Table API connection string
+
+An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values. 
 
 This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
 
@@ -87,12 +101,13 @@ StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_accoun
 The following samples assume that you have used one of these methods to get the storage connection string.
 
 ## Create a table
-A **CloudTableClient** object lets you get reference objects for tables
-and entities. The following code creates a **CloudTableClient** object
-and uses it to create a new **CloudTable** object which represents a table named "people". 
+
+A `CloudTableClient` object lets you get reference objects for tables
+and entities. The following code creates a `CloudTableClient` object
+and uses it to create a new `CloudTable` object, which represents a table named "people". 
 
 > [!NOTE]
-> There are other ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference]).
+> There are other ways to create `CloudStorageAccount` objects; for more information, see `CloudStorageAccount` in the [Azure Storage Client SDK Reference]).
 >
 
 ```java
@@ -118,6 +133,7 @@ catch (Exception e)
 ```
 
 ## List the tables
+
 To get a list of tables, call the **CloudTableClient.listTables()** method to retrieve an iterable list of table names.
 
 ```java
@@ -145,7 +161,8 @@ catch (Exception e)
 ```
 
 ## Add an entity to a table
-Entities map to Java objects using a custom class implementing **TableEntity**. For convenience, the **TableServiceEntity** class implements **TableEntity** and uses reflection to map properties to getter and setter methods named for the properties. To add an entity to a table, first create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key, and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than those with different partition keys.
+
+Entities map to Java objects using a custom class implementing `TableEntity`. For convenience, the `TableServiceEntity` class implements `TableEntity` and uses reflection to map properties to getter and setter methods named for the properties. To add an entity to a table, first create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key, and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than those with different partition keys.
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -177,7 +194,7 @@ public class CustomerEntity extends TableServiceEntity {
 }
 ```
 
-Table operations involving entities require a **TableOperation** object. This object defines the operation to be performed on an entity, which can be executed with a **CloudTable** object. The following code creates a new instance of the **CustomerEntity** class with some customer data to be stored. The code next calls **TableOperation.insertOrReplace** to create a **TableOperation** object to insert an entity into a table, and associates the new **CustomerEntity** with it. Finally, the code calls the **execute** method on the **CloudTable** object, specifying the "people" table and the new **TableOperation**, which then sends a request to the storage service to insert the new customer entity into the "people" table, or replace the entity if it already exists.
+Table operations involving entities require a `TableOperation` object. This object defines the operation to be performed on an entity, which can be executed with a `CloudTable` object. The following code creates a new instance of the `CustomerEntity` class with some customer data to be stored. The code next calls `TableOperation`.insertOrReplace** to create a `TableOperation` object to insert an entity into a table, and associates the new `CustomerEntity` with it. Finally, the code calls the `execute` method on the `CloudTable` object, specifying the "people" table and the new `TableOperation`, which then sends a request to the storage service to insert the new customer entity into the "people" table, or replace the entity if it already exists.
 
 ```java
 try
@@ -211,7 +228,8 @@ catch (Exception e)
 ```
 
 ## Insert a batch of entities
-You can insert a batch of entities to the table service in one write operation. The following code creates a **TableBatchOperation** object, then adds three insert operations to it. Each insert operation is added by creating a new entity object, setting its values, and then calling the **insert** method on the **TableBatchOperation** object to associate the entity with a new insert operation. Then the code calls **execute** on the **CloudTable** object, specifying the "people" table and the **TableBatchOperation** object, which sends the batch of table operations to the storage service in a single request.
+
+You can insert a batch of entities to the table service in one write operation. The following code creates a `TableBatchOperation` object, then adds three insert operations to it. Each insert operation is added by creating a new entity object, setting its values, and then calling the `insert` method on the `TableBatchOperation` object to associate the entity with a new insert operation. Then the code calls `execute` on the `CloudTable` object, specifying the "people" table and the `TableBatchOperation` object, which sends the batch of table operations to the storage service in a single request.
 
 ```java
 try
@@ -262,10 +280,11 @@ Some things to note on batch operations:
 * You can perform up to 100 insert, delete, merge, replace, insert or merge, and insert or replace operations in any combination in a single batch.
 * A batch operation can have a retrieve operation, if it is the only operation in the batch.
 * All entities in a single batch operation must have the same partition key.
-* A batch operation is limited to a 4MB data payload.
+* A batch operation is limited to a 4-MB data payload.
 
 ## Retrieve all entities in a partition
-To query a table for entities in a partition, you can use a **TableQuery**. Call **TableQuery.from** to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Smith' is the partition key. **TableQuery.generateFilterCondition** is a helper method to create filters for queries. Call **where** on the reference returned by the **TableQuery.from** method to apply the filter to the query. When the query is executed with a call to **execute** on the **CloudTable** object, it returns an **Iterator** with the **CustomerEntity** result type specified. You can then use the **Iterator** returned in a for each loop to consume the results. This code prints the fields of each entity in the query results to the console.
+
+To query a table for entities in a partition, you can use a `TableQuery`. Call `TableQuery.from` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Smith' is the partition key. `TableQuery.generateFilterCondition` is a helper method to create filters for queries. Call `where` on the reference returned by the `TableQuery.from` method to apply the filter to the query. When the query is executed with a call to `execute` on the `CloudTable` object, it returns an `Iterator` with the `CustomerEntity` result type specified. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
 
 ```java
 try
@@ -312,6 +331,7 @@ catch (Exception e)
 ```
 
 ## Retrieve a range of entities in a partition
+
 If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Smith" where the row key (first name) starts with a letter up to 'E' in the alphabet. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise Smith); Jeff Smith is not included.
 
 ```java
@@ -370,7 +390,8 @@ catch (Exception e)
 ```
 
 ## Retrieve a single entity
-You can write a query to retrieve a single, specific entity. The following code calls **TableOperation.retrieve** with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a **TableQuery** and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. The **getResultAsType** method casts the result to the type of the assignment target, a **CustomerEntity** object. If this type is not compatible with the type specified for the query, an exception is thrown. A null value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
+
+You can write a query to retrieve a single, specific entity. The following code calls `TableOperation.retrieve` with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a `Table Query` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. The `getResultAsType` method casts the result to the type of the assignment target, a `CustomerEntity` object. If this type is not compatible with the type specified for the query, an exception is thrown. A null value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
 
 ```java
 try
@@ -410,6 +431,7 @@ catch (Exception e)
 ```
 
 ## Modify an entity
+
 To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation. The following code changes an existing customer's phone number. Instead of calling **TableOperation.insert** as we did to insert, this code calls **TableOperation.replace**. The **CloudTable.execute** method calls the table service, and the entity is replaced, unless another application changed it in the time since this application retrieved it. When that happens, an exception is thrown, and the entity must be retrieved, modified, and saved again. This optimistic concurrency retry pattern is common in a distributed storage system.
 
 ```java
@@ -450,7 +472,8 @@ catch (Exception e)
 ```
 
 ## Query a subset of entity properties
-A query to a table can retrieve just a few properties from an entity. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code uses the **select** method to return only the email addresses of entities in the table. The results are projected into a collection of **String** with the help of an **EntityResolver**, which does the type conversion on the entities returned from the server. You can learn more about projection in [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection]. Note that projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.
+
+A query to a table can retrieve just a few properties from an entity. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code uses the `select` method to return only the email addresses of entities in the table. The results are projected into a collection of `String` with the help of an `Entity Resolver`, which does the type conversion on the entities returned from the server. You can learn more about projection in [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection]. The projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.
 
 ```java
 try
@@ -492,7 +515,8 @@ catch (Exception e)
 ```
 
 ## Insert or Replace an entity
-Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the **TableOperation.insertOrReplace** method. This code then calls **execute** on the **CloudTable** object with the table and the insert or replace table operation as the parameters. To update only part of an entity, the **TableOperation.insertOrMerge** method can be used instead. Note that insert-or-replace is not supported on the local storage emulator, so this code runs only when using an account on the table service. You can learn more about insert-or-replace and insert-or-merge in this [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection].
+
+Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request, which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the **TableOperation.insertOrReplace** method. This code then calls **execute** on the **Cloud Table** object with the table and the insert or replace table operation as the parameters. To update only part of an entity, the **TableOperation.insertOrMerge** method can be used instead. Insert-or-replace is not supported on the local storage emulator, so this code runs only when using an account on the table service. You can learn more about insert-or-replace and insert-or-merge in this [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection].
 
 ```java
 try
@@ -526,7 +550,8 @@ catch (Exception e)
 ```
 
 ## Delete an entity
-You can easily delete an entity after you have retrieved it. After the entity is retrieved, call **TableOperation.delete** with the entity to delete. Then call **execute** on the **CloudTable** object. The following code retrieves and deletes a customer entity.
+
+You can easily delete an entity after you have retrieved it. After the entity is retrieved, call `TableOperation.delete` with the entity to delete. Then call `execute` on the `CloudTable` object. The following code retrieves and deletes a customer entity.
 
 ```java
 try
@@ -562,7 +587,8 @@ catch (Exception e)
 ```
 
 ## Delete a table
-Finally, the following code deletes a table from a storage account. For about 40 seconds after you delete a table, you cannot recreate it. 
+
+Finally, the following code deletes a table from a storage account. Around 40 seconds after you delete a table, you cannot recreate it. 
 
 ```java
 try
@@ -584,6 +610,7 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+
 [!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## Next steps
@@ -601,4 +628,5 @@ For more information, visit [Azure for Java developers](/java/azure).
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: https://azure.github.io/azure-storage-java/
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage REST API]: /rest/api/storageservices/
+[Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

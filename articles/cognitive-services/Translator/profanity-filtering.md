@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ---
 
@@ -18,7 +18,7 @@ Normally the Translator service retains profanity that is present in the source 
 
 If you want to avoid seeing profanity in the translation, even if profanity is present in the source text, use the profanity filtering option available in the Translate() method. This option allows you to choose whether you want to see profanity deleted, marked with appropriate tags, or take no action taken.
 
-The Translate() method takes the “options” parameter, which contains the new element “ProfanityAction”. The accepted values of ProfanityAction are “NoAction”, “Marked” and “Deleted.”
+The Translate() method takes the "options" parameter, which contains the new element "ProfanityAction". The accepted values of ProfanityAction are "NoAction", "Marked" and "Deleted."
 
 ## Accepted values of ProfanityAction and examples
 |ProfanityAction value | Action | Example: Source - Japanese | Example: Target - English|

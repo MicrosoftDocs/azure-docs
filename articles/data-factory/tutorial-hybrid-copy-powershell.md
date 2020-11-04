@@ -1,4 +1,4 @@
-﻿---
+---
 title: Copy data from SQL Server to Blob storage using PowerShell
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
 ---
 
-# Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
+# Tutorial: Copy data from a SQL Server database to Azure Blob storage
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you use Azure PowerShell to create a data-factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
+In this tutorial, you use Azure PowerShell to create a data-factory pipeline that copies data from a SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
 
 > [!NOTE]
 > This article does not provide a detailed introduction to the Data Factory service. For more information, see [Introduction to Azure Data Factory](introduction.md).
@@ -40,12 +40,12 @@ Before you begin, if you don't already have an Azure subscription, [create a fre
 ### Azure roles
 To create data factory instances, the user account you use to sign in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal, select your username at the top-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md) article.
+To view the permissions you have in the subscription, go to the Azure portal, select your username at the top-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md) article.
 
 ### SQL Server 2014, 2016, and 2017
-In this tutorial, you use an on-premises SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to Azure Blob storage (sink). You then create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
+In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Azure Blob storage (sink). You then create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
 
-1. Start SQL Server Management Studio. If it is not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Start SQL Server Management Studio. If it is not already installed on your machine, go to [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connect to your SQL Server instance by using your credentials.
 
@@ -71,7 +71,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 
 
 ### Azure Storage account
-In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md). The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
+In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md). The pipeline in the data factory you that create in this tutorial copies data from the SQL Server database (source) to this Azure Blob storage (sink). 
 
 #### Get storage account name and account key
 You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following:
@@ -304,7 +304,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     Note all the preceding values for later use in this tutorial.
 
 ## Create linked services
-To link your data stores and compute services to the data factory, create linked services in the data factory. In this tutorial, you link your Azure storage account and on-premises SQL Server instance to the data store. The linked services have the connection information that the Data Factory service uses at runtime to connect to them.
+To link your data stores and compute services to the data factory, create linked services in the data factory. In this tutorial, you link your Azure storage account and SQL Server instance to the data store. The linked services have the connection information that the Data Factory service uses at runtime to connect to them.
 
 ### Create an Azure Storage linked service (destination/sink)
 In this step, you link your Azure storage account to the data factory.
@@ -350,7 +350,7 @@ In this step, you link your Azure storage account to the data factory.
     If you receive a "file not found" error, confirm that the file exists by running the `dir` command. If the file name has a *.txt* extension (for example, AzureStorageLinkedService.json.txt), remove it, and then run the PowerShell command again.
 
 ### Create and encrypt a SQL Server linked service (source)
-In this step, you link your on-premises SQL Server instance to the data factory.
+In this step, you link your SQL Server instance to the data factory.
 
 1. Create a JSON file named *SqlServerLinkedService.json* in the *C:\ADFv2Tutorial* folder by using the following code:
 
@@ -427,7 +427,7 @@ In this step, you link your on-premises SQL Server instance to the data factory.
 
 
 ## Create datasets
-In this step, you create input and output datasets. They represent input and output data for the copy operation, which copies data from the on-premises SQL Server database to Azure Blob storage.
+In this step, you create input and output datasets. They represent input and output data for the copy operation, which copies data from the SQL Server database to Azure Blob storage.
 
 ### Create a dataset for the source SQL Server database
 In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, the **emp** table contains the source data.

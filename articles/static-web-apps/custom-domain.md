@@ -24,15 +24,15 @@ When configuring domain names, "A" Records are used to map root domains (for ins
 
 There are a few different types of DNS configurations available for an application.
 
-| If you want to                            | Then                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Support `www.example.com`                 | [Map a CNAME record](#map-a-cname-record)           |
-| Support `example.com`                     | [Configure a root domain](#configure-a-root-domain) |
-| Point all subdomains to `www.example.com` | [Map a wildcard](#map-a-wildcard-domain)                   |
+| If you want to | Then |
+|--|--|
+| Support `www.example.com` or `blog.example.net` | [Map a CNAME record](#map-a-cname-record) |
+| Support `example.com` | [Configure a root domain](#configure-a-root-domain) |
+| Point all subdomains to `www.example.com` | [Map a wildcard](#map-a-wildcard-domain) |
 
 ## Map a CNAME record
 
-A CNAME record maps one domain to another. You can use a CNAME record to map `www.example.com` to the auto-generated domain that is provided by Azure Static Web Apps.
+A CNAME record maps one domain to another. You can use a CNAME record to map `www.example.com`, `blog.example.com`, or any other sub-domain to the auto-generated domain that is provided by Azure Static Web Apps.
 
 1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
@@ -41,6 +41,8 @@ A CNAME record maps one domain to another. You can use a CNAME record to map `ww
 1. On the _Static Web Apps_ page, select the name of your app.
 
 1. Click on **Custom domains** in the menu.
+
+1. Click on the **Add** button
 
 1. In the _Custom domains_ window, copy the URL in the **Value** field.
 
@@ -75,7 +77,7 @@ A CNAME record maps one domain to another. You can use a CNAME record to map `ww
 
 1. Click the **Validate** button.
 
-Now that the custom domain is configured, it may take several hours for the DNS provider to propagate he changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your domain custom domain including the `www`, select CNAME from the drop-down, and select **Start**.
+Now that the custom domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain including the `www`, select CNAME from the drop-down, and select **Start**.
 
 If your DNS changes have populated, the website returns the auto-generated URL of your Static Web App (for instance, _random-name-123456789c.azurestaticapps.net_).
 
@@ -87,7 +89,7 @@ While root domain support is not available during preview, you can see the blog 
 
 ## Map a wildcard domain
 
-Sometimes you want all traffic sent to a subdomain to route to another domain. A common example is mapping all subdomain traffic to `www.example.com`. This way, even if someone types `ww.example.com` instead of `www.example.com`, the request is sent to `www.example.com`.
+Sometimes you want all traffic sent to a subdomain to route to another domain. A common example is mapping all subdomain traffic to `www.example.com`. This way, even if someone types `w.example.com` instead of `www.example.com`, the request is sent to `www.example.com`.
 
 ### Configure DNS provider
 

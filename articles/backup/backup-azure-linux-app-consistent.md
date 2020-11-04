@@ -1,7 +1,6 @@
 ---
 title: Application-consistent backups of Linux VMs
 description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 
@@ -9,7 +8,7 @@ ms.date: 01/12/2018
 
 # Application-consistent backup of Azure Linux VMs
 
-When taking backup snapshots of your VMs, application consistency means your applications start when the VMs boot after being restored. As you can imagine, application consistency is extremely important. To ensure your Linux VMs are application consistent, you can use the Linux pre-script and post-script framework to take application-consistent backups. The pre-script and post-script framework supports Azure Resource Manager-deployed Linux virtual machines. Scripts for application consistency do not support Service Manager-deployed virtual machines or Windows virtual machines.
+When taking backup snapshots of your VMs, application consistency means your applications start when the VMs boot after being restored. As you can imagine, application consistency is extremely important. To ensure your Linux VMs are application consistent, you can use the Linux pre-script and post-script framework to take application-consistent backups. The pre-script and post-script framework supports Azure Resource Manager-deployed Linux virtual machines. Scripts for application consistency don't support Service Manager-deployed virtual machines or Windows virtual machines.
 
 ## How the framework works
 
@@ -49,19 +48,19 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
 
     - **postScriptParams**: Provide the optional parameters that need to be passed to the post-script. All parameters should be in quotes. If you use multiple parameters, separate the parameters with a comma.
 
-    - **preScriptNoOfRetries**: Set the number of times the pre-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
+    - **preScriptNoOfRetries**: Set the number of times the pre-script should be retried if there's any error before terminating. Zero means only one try and no retry if there's a failure.
 
-    - **postScriptNoOfRetries**:  Set the number of times the post-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
+    - **postScriptNoOfRetries**:  Set the number of times the post-script should be retried if there's any error before terminating. Zero means only one try and no retry if there's a failure.
 
     - **timeoutInSeconds**: Specify individual timeouts for the pre-script and the post-script (maximum value can be 1800).
 
-    - **continueBackupOnFailure**: Set this value to **true** if you want Azure Backup to fall back to a file system consistent/crash consistent backup if pre-script or post-script fails. Setting this to **false** fails the backup in case of script failure (except when you have single-disk VM that falls back to crash-consistent backup regardless of this setting).
+    - **continueBackupOnFailure**: Set this value to **true** if you want Azure Backup to fall back to a file system consistent/crash consistent backup if pre-script or post-script fails. Setting this to **false** fails the backup if there's a script failure (except when you have a single-disk VM that falls back to crash-consistent backup regardless of this setting). When the **continueBackupOnFailure** value is set to false, if the backup fails the backup operation will be attempted again based on a retry logic in service (for the stipulated number of attempts).
 
     - **fsFreezeEnabled**: Specify whether Linux fsfreeze should be called while you're taking the VM snapshot to ensure file system consistency. We recommend keeping this setting set to **true** unless your application has a dependency on disabling fsfreeze.
 
     - **ScriptsExecutionPollTimeSeconds**: Set the time the extension has to sleep between each poll to the script execution. For example, if the value is 2, the extension checks whether the pre/post script execution completed every 2 seconds. The minimum and maximum value it can take is 1 and 5 respectively. The value should be strictly an integer.
 
-6. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup is not configured, configure it by using [Back up Azure virtual machines to Recovery Services vaults.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup isn't configured, configure it by using [Back up Azure virtual machines to Recovery Services vaults.](./backup-azure-vms-first-look-arm.md)
 
 ## Troubleshooting
 
@@ -82,4 +81,4 @@ Make sure you add appropriate logging while writing your pre-script and post-scr
 
 ## Next steps
 
-[Configure VM backup to a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configure VM backup to a Recovery Services vault](./backup-azure-vms-first-look-arm.md)

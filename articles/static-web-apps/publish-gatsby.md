@@ -7,6 +7,8 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
+ms.custom: devx-track-js
+
 ---
 
 # Tutorial: Publish a Gatsby site to Azure Static Web Apps Preview
@@ -46,7 +48,7 @@ Create a Gatsby app using the Gatsby Command Line Interface (CLI):
    cd static-web-app
    ```
 
-1. Initialize a git repo
+1. Initialize a Git repo
 
    ```bash
    git init
@@ -90,7 +92,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. In _Resource group_, select **New**. In _New resource group name_, enter **gatsby-static-web-app** and select **OK**.
 
-1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your Static Web App in the format of `https://<YOUR_APP_NAME>.azurestaticapps.net`.
+1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
 
 1. For _Region_, select an available region close to you.
 

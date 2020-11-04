@@ -8,6 +8,15 @@ ms.date: 04/24/2020
 
 # How to stop monitoring your Azure Red Hat OpenShift v3 cluster
 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired June 2022.
+>
+> As of October 2020 you will no longer be able to create new 3.11 clusters.
+> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
+>
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](../../openshift/tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
+
 After you enable monitoring of your Azure Red Hat OpenShift version 3.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this using the Azure Resource Manager template provided.  
 
 ## Azure Resource Manager template
@@ -18,7 +27,7 @@ If you're unfamiliar with the concept of deploying resources by using a template
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create template
 
@@ -124,4 +133,4 @@ ProvisioningState       : Succeeded
 
 ## Next steps
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md).
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../platform/delete-workspace.md).

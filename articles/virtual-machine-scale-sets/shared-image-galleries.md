@@ -14,7 +14,7 @@ ms.custom: akjosh
 
 
 
-# Shared Image Galleries overview
+# Shared Image Galleries for VM images
 
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../includes/virtual-machines-common-shared-image-galleries.md)]

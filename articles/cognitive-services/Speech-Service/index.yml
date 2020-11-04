@@ -36,45 +36,42 @@ conceptualContent:
   items:
     - title: Speech-to-text
       links:
+        - itemType: overview
+          text: About speech-to-text
+          url: speech-to-text.md
         - itemType: quickstart
-          text: Recognize speech from a microphone
-          url: quickstarts/speech-to-text-from-microphone.md
-        - itemType: quickstart
-          text: Recognize speech from an audio file
-          url: quickstarts/speech-to-text-from-file.md
+          text: Get started with speech-to-text
+          url: get-started-speech-to-text.md
         - itemType: how-to-guide
-          text: Speech recognition basics
-          url: speech-to-text-basics.md          
+          text: Improve accuracy with Custom Speech
+          url: how-to-custom-speech.md       
       footerLink:
-        text: See more
+        text: More
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
+        - itemType: overview
+          text: About text-to-speech
+          url: text-to-speech.md
         - itemType: quickstart
-          text: Synthesize speech to a speaker
-          url: quickstarts/text-to-speech.md
-        - itemType: quickstart
-          text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
+          text: Get started with text-to-speech
+          url: get-started-text-to-speech.md
         - itemType: how-to-guide
-          text: Speech synthesis basics
-          url: text-to-speech-basics.md          
+          text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md  
       footerLink:
-        text: See more
+        text: More
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: overview
+        text: About speech translation
+        url: speech-translation.md
       - itemType: quickstart
-        text: Translate speech-to-text
-        url: quickstarts/translate-speech-to-text.md
-      - itemType: quickstart
-        text: Translate speech to multiple languages
-        url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: how-to-guide
-        text: Speech translation basics
-        url: speech-translation-basics.md        
+        text: Get started with speech translation
+        url: get-started-speech-translation.md      
       footerLink:
-        text: See more
+        text: More
         url: index-speech-translation.yml
     - title: Intent recognition
       links:
@@ -88,9 +85,28 @@ conceptualContent:
           text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
       footerLink:
-        text: See more
+        text: More
         url: index-intent-recognition.yml
-    - title: Conversation scenarios
+    - title: Speaker Recognition
+      links:
+        - itemType: overview
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
+          url: speaker-recognition-basics.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: https://docs.microsoft.com/rest/api/speakerrecognition/
+    - title: Custom Keyword
+      links:
+        - itemType: overview
+          text: About Custom Keyword
+          url: custom-keyword-overview.md
+        - itemType: quickstart
+          text: Get started with Custom Keyword       
+          url: custom-keyword-basics.md
+    - title: Scenario deep-dives
       links:
         - itemType: overview
           text: About Conversation Transcription (meetings)
@@ -98,36 +114,28 @@ conceptualContent:
         - itemType: overview
           text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
-        - itemType: how-to-guide
-          text: Call center transcription
-          url: call-center-transcription.md
-      footerLink:
-        text: See more
-        url: index-conversation-scenarios.yml
-    - title: Voice assistants
-      links:
         - itemType: overview
           text: About Voice Assistants
           url: voice-assistants.md
         - itemType: quickstart
           text: Create a voice assistant using Custom Commands
           url: custom-commands.md
-        - itemType: get-started
+        - itemType: quickstart
           text: Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
-      footerLink:
-        text: See more
-        url: index-voice-assistants.yml
+        - itemType: how-to-guide
+          text: Enable call center transcription
+          url: call-center-transcription.md
     - title: Tools
       links:
         - itemType: overview
-          text: About SPX - use the Speech service with no code
+          text: About Speech CLI (no code command line tool)
           url: spx-overview.md
         - itemType: how-to-guide
-          text: SPX basics
+          text: Speech CLI basics (installation and examples)
           url: spx-basics.md
         - itemType: overview
-          text: About Speech Studio - no-code Speech service customization
+          text: About Speech Studio (customizations)
           url: https://speech.microsoft.com
     - title: Hosting
       links:
@@ -141,7 +149,7 @@ conceptualContent:
           text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
       footerLink:
-        text: See more
+        text: More
         url: index-hosting.yml
     - title: Devices
       links:
@@ -155,7 +163,7 @@ conceptualContent:
         text: Use Speech Devices SDK
         url: speech-devices-sdk-quickstart.md
       footerLink:
-        text: See more
+        text: More
         url: index-devices.yml
     - title: Migration
       links:
@@ -204,6 +212,8 @@ additionalContent:
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - title: Resources
         links:
+        - text: What's new in docs?
+          url: whats-new.md
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Regions
@@ -213,10 +223,6 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help
-          url: support.md
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-        - text: Stack Overflow
-          url: https://aka.ms/SOspeechquestions
-        - text: UserVoice
-          url: https://cognitive.uservoice.com/forums/912208-speech-service

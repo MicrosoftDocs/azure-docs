@@ -20,28 +20,20 @@ landingContent:
       links:
       - text: What is text-to-speech?
         url: text-to-speech.md
-      - text: Speech synthesis basics
-        url: text-to-speech-basics.md
-      - text: Use SPX for text-to-speech with no code
+      - text: Use the Speech CLI for text-to-speech with no code
         url: spx-overview.md
     - linkListType: quickstart
       links:
-        - text: Synthesize speech to a speaker
-          url: quickstarts/text-to-speech.md
-        - text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
-        - text: Synthesize speech with long-form audio
-          url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+        - text: Get started with text-to-speech
+          url: get-started-text-to-speech.md
 - title: Develop with text-to-speech
   linkLists:
     - linkListType: how-to-guide
       links:
         - text: Improve synthesis with SSML
           url: speech-synthesis-markup.md
-        - text: Get a list of voices with REST (Python)
-          url: quickstart-python-get-text-to-speech-voices.md
-        - text: Convert text-to-speech with REST (Python)
-          url: quickstart-python-text-to-speech.md
+        - text: Synthesize large text samples with the Long Audio API
+          url: long-audio-api.md
     - linkListType: concept
       links:
         - text: Get started with Custom Voice
@@ -62,3 +54,9 @@ landingContent:
           url: speech-ssml-phonetic-sets.md
         - text: Text-to-speech pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

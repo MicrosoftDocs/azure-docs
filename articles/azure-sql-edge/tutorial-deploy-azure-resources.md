@@ -2,8 +2,8 @@
 title: Set up resources for deploying an ML model in Azure SQL Edge
 description: In part one of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll install the prerequisite software and set up required Azure resources for deploying a machine learning model in Azure SQL Edge.
 keywords: 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
@@ -25,6 +25,7 @@ downloads/). You can find the download under "Tools For Visual Studio 2019".
 4. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
 6. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
+7. Download the [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) and [AMD/ARM Docker Image files](https://www.docker.com/blog/multi-arch-images/) that will be utilized in the tutorial.
 
 ## Deploy Azure resources using PowerShell Script
 
@@ -37,9 +38,12 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
    Import-Module -Name Az -RequiredVersion 3.5.0
    Import-Module Az.IotHub -RequiredVersion 2.1.0
    Import-Module Az.Compute -RequiredVersion 3.5.0
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    az extension add --name azure-cli-ml
    ```
+
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 
 2. Declare the variables required by the PowerShell script.
 

@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid - Enable diagnostic logs for topics or domains
 description: This article provides step-by-step instructions on how to enable diagnostic logs for an Azure event grid topic.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 #  Enable Diagnostic logs for Azure event grid topics or domains
@@ -21,33 +16,69 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
     - Event hub
     - Log Analytics workspace
 
-## Steps for enabling diagnostic logs for a topic
+## Enable diagnostic logs for a custom topic
 
 > [!NOTE]
 > The following procedure provides step-by-step instructions for enabling diagnostic logs for a topic. Steps for enabling diagnostic logs for a domain are very similar. In step 2, navigate to the event grid **domain** in the Azure portal.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the event grid topic for which you want to enable diagnostic log settings. 
-3. Select **Diagnostic settings** under **Monitoring** in the left menu.
-4. On the **Diagnostic settings** page, select **Add New Diagnostic Setting**. 
+    1. In the search bar at the top, search for **Event Grid Topics**. 
+    
+        ![Search for custom topics](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Select the **topic** from the list for which you want to configure diagnostic settings. 
+1. Select **Diagnostic settings** under **Monitoring** in the left menu.
+1. On the **Diagnostic settings** page, select **Add New Diagnostic Setting**. 
     
     ![Add diagnostic setting button](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Specify a **name** for the diagnostic setting. 
-7. Select the **DeliveryFailures** and **PublishFailures** options in the **Log** section. 
+6. Select the **DeliveryFailures** and **PublishFailures** options in the **Log** section. 
     ![Select the failures](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
+7. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
     - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription. 
 
-        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Archive to an Azure storage account" checked and a storage account selected.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy. 
-        ![Stream to an event hub](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - If you select **Send to Log Analytics**, select the Log Analytics workspace.
-        ![Send to Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Send to Log Analytics" checked.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Select **Save**. Then, select **X** in the right-corner to close the page. 
 9. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table. 
-    ![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Screenshot that shows the "Diagnostic settings" page with a new entry highlighted in the "Diagnostics settings" table.](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
 	 You can also enable collection of all metrics for the topic. 
+
+## Enable diagnostic logs for a system topic
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to the event grid topic for which you want to enable diagnostic log settings. 
+    1. In the search bar at the top, search for **Event Grid System Topics**. 
+    
+        ![Search for system topics](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Select the **system topic** for which you want to configure diagnostic settings. 
+    
+        ![Select system topic](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Select **Diagnostic settings** under **Monitoring** on the left menu, and then select **Add diagnostic setting**. 
+
+    ![Add diagnostic settings - button](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Specify a **name** for the diagnostic setting. 
+7. Select the **DeliveryFailures** in the **Log** section. 
+    ![Select delivery failures](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
+    - If you select **Send to Log Analytics**, select the Log Analytics workspace.
+        ![Send to Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription. 
+
+        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy. 
+        ![Stream to an event hub](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Select **Save**. Then, select **X** in the right-corner to close the page. 
+9. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table. 
+    ![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+	 You can also enable collection of all **metrics** for the system topic.
+
+    ![System topic - enable all metrics](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
 
 ## View diagnostic logs in Azure Storage 
 

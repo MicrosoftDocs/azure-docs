@@ -1,44 +1,38 @@
 ---
-title: Using SQL Database DAC packages - Azure SQL Edge (Preview)
-description: Learn about using dacpacs in Azure SQL Edge (Preview)
+title: Using SQL Database DACPAC and BACPAC packages - Azure SQL Edge
+description: Learn about using dacpacs and bacpacs in Azure SQL Edge
 keywords: SQL Edge, sqlpackage
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
+ms.date: 09/03/2020
 ---
 
-# SQL Database DAC packages in SQL Edge
+# SQL Database DACPAC and BACPAC packages in SQL Edge
 
-Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
+Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Edge. SQL Database dacpacs can be deployed to SQL Edge using the SqlPackage parameter exposed via the `module twin's desired properties` option of the SQL Edge module:
+Azure SQL Edge provides native mechanism that enable you to deploy a [SQL Database DACPAC and BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during, or after deploying SQL Edge.
 
-```json
-{
-    "properties.desired":
-    {
-        "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-        "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-    }
-}
-```
-
-|Field | Description |
-|------|-------------|
-| SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
-| ASAJobInfo | Azure Blob storage URI for the ASA Edge job.
+SQL Database dacpac and bacpac packages can be deployed to SQL Edge using the `MSSQL_PACKAGE` environment variable. The environment variable can be configured with any of the following.  
+- A local folder location within the SQL container containing the dacpac and bacpac files. This folder can be mapped to a host volume using either mount points or data volume containers. 
+- A local file path within the SQL container mapping to the dacpac or the bacpac file. This file path can be mapped to a host volume using either mount points or data volume containers. 
+- A local file path within the SQL container mapping to a zip file containing the dacpac or bacpac files. This file path can be mapped to a host volume using either mount points or data volume containers. 
+- An Azure Blob SAS URL to a zip file containing the dacpac and bacpac files.
+- An Azure Blob SAS URL to a dacpac or a bacpac file. 
 
 ## Use a SQL Database DAC package with SQL Edge
 
-To use a SQL Database DAC package (*.dacpac) with SQL Edge, follow these steps:
+To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `(*.bacpac)` using Azure Blob storage and a zip file, follow the steps below. 
 
-1. Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
+1. Create/Extract a DAC package or Export a Bacpac File using the mechanism mentioned below. 
+    - Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
+    - Exporting a deployed DAC package or a database. See [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) for information on how to generate a bacpac file for an existing SQL Server database.
 
-2. Zip the *.dacpac and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Zip the `*.dacpac` or the `*.bacpac` file and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 3. Generate a shared access signature for the zip file by using the Azure portal. For more information, see [Delegate access with shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
@@ -52,34 +46,26 @@ To use a SQL Database DAC package (*.dacpac) with SQL Edge, follow these steps:
 
     4. On the **IoT Edge Device** device page, select **Set Module**.
 
-    5. On the **Set modules** page, select **Configure** against the SQL Edge module.
+    5. On the **Set modules** page, and click on the Azure SQL Edge module.
 
-    6. In the **IoT Edge Custom Modules** pane, select **Set module twin's desired properties**. Update the desired properties to include the URI for the `SQLPackage` option, as shown in the following example.
+    6. On the **Update IoT Edge Module** pane, select **Environment Variables**. Add the `MSSQL_PACKAGE` environment variable and specify the SAS URL generated in Step 3 above as the value for the environment variable. 
 
-        > [!NOTE]
-        > The SAS URI in the following JSON is just an example. Replace the URI with the actual URI from your deployment.
+    7. Select **Update**.
 
-        ```json
-            {
-                "properties.desired":
-                {
-                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac",
-                }
-            }
-        ```
+    8. On the **Set modules** page, select **Review + create**.
 
-    7. Select **Save**.
+    9. On the **Set modules** page, select **Create**.
 
-    8. On the **Set modules** page, select **Next**.
+5. After the module update, the package files are downloaded, unzipped, and deployed against the SQL Edge instance.
 
-    9. On the **Set modules** page, select **Next** and then **Submit**.
+On each restart of the Azure SQL Edge container, SQL Edge attempts to download the zipped file package and evaluate for changes. If a new version of the dacpac file is encountered, the changes are deployed to the database in SQL Edge.
 
-5. After the module update, the DAC package file is downloaded, unzipped, and deployed against the SQL Edge instance.
+## Known Issue
 
-On each restart of the Azure SQL Edge container, the *.dacpac file package is download and evaluated for changes. If a new version of the dacpac file is encountered, the changes are deployed to the database in SQL Edge.
+During some DACPAC or BACPAC deployments users may encounter a command timeouts, resulting in the failure of the dacpac deployment operation. If you encounter this problem, please use the SQLPackage.exe (or SQL Client Tools) to apply the DACPAC or BACPAC maually. 
 
 ## Next steps
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md).
 - [Stream Data](stream-data.md)
-- [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md)
+- [Machine learning and AI with ONNX in SQL Edge](onnx-overview.md)

@@ -102,7 +102,7 @@ As you remove a user, keep in mind the following items:
 
 When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
 
-End-users need to contact administrators of individual web apps to to revoke this information from their systems.
+End-users need to contact administrators of individual web apps to revoke this information from their systems.
 
 To remove personally identifying information from the Azure Static Web Apps platform, and prevent the platform from providing this information on future requests, submit a request using the URL:
 
@@ -113,7 +113,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 To prevent the platform from providing this information on future requests to individual apps, submit a request to the following URL:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## System folder
@@ -149,6 +149,11 @@ You can use a [route rule](routes.md) to map a default provider to a friendly ro
 }
 ```
 
+### Post login redirect
+
+If you want a user to return to a specific page after login, provide a URL in `post_login_redirect_uri` query string parameter.
+
+
 ## Logout
 
 The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
@@ -166,6 +171,10 @@ You can use a [route rule](routes.md) to map a friendly route like _/logout_.
 }
 ```
 
+### Post logout redirect
+
+If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
+
 ## Block an authorization provider
 
 You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
@@ -178,6 +187,10 @@ To block a provider, you can create [route rules](routes.md) to return a 404 for
   "statusCode": "404"
 }
 ```
+
+## Restrictions
+
+See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 ## Next steps
 

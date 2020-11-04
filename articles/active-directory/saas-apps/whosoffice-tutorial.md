@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WhosOffice | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and WhosOffice.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e7de0266-312a-4f8a-a78f-16729ebc8c2f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with WhosOffice
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate WhosOffice with Azure Active Dir
 * Enable your users to be automatically signed-in to WhosOffice with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * WhosOffice supports **SP and IDP** initiated SSO
-* Once you configure WhosOffice you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure WhosOffice you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -138,19 +132,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and select **Company**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration1.png)
+    ![Screenshot shows Company selected from Settings.](./media/whosoffice-tutorial/configuration1.png)
 
 1. Click on **Apps/Integrations**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration2.png)
+    ![Screenshot shows Apps / Integrations selected from Company settings.](./media/whosoffice-tutorial/configuration2.png)
 
 1. Select **Microsoft Azure** from the provider dropdown and click on **Activate Login Provider**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration3.png)
+    ![Screenshot shows Activate Login Provider selected for Microsoft Azure.](./media/whosoffice-tutorial/configuration3.png)
 
 1. Upload the downloaded federation metadata file from Azure portal by clicking on the **Upload** option.
     
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration4.png)
+    ![Screenshot shows the Upload option for a Meta Data file.](./media/whosoffice-tutorial/configuration4.png)
 
 ### Create WhosOffice test user
 
@@ -158,30 +152,30 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and select **Users**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/user1.png)
+    ![Screenshot shows Users selected from Settings.](./media/whosoffice-tutorial/user1.png)
 
 1. Select **Create new User**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/user2.png)
+    ![Screenshot shows Create new User selected.](./media/whosoffice-tutorial/user2.png)
 
 1. Provide the necessary details of the user as per your organization requirement.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/user3.png)
+    ![Screenshot shows the new User dialog box where you can enter user data.](./media/whosoffice-tutorial/user3.png)
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the WhosOffice tile in the Access Panel, you should be automatically signed in to the WhosOffice for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the WhosOffice tile in the Access Panel, you should be automatically signed in to the WhosOffice for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try WhosOffice with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

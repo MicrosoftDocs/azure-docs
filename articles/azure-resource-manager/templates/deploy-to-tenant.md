@@ -2,39 +2,61 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 10/22/2020
 ---
 
-# Create resources at the tenant level
+# Tenant deployments with ARM templates
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
 ## Supported resources
 
-You can deploy the following resource types at the tenant level:
+Not all resource types can be deployed to the tenant level. This section lists which resource types are supported.
 
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to management groups or subscriptions.
-* managementGroups
+For Azure Policies, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### Schema
+For Azure role-based access control (Azure RBAC), use:
+
+* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+
+For nested templates that deploy to management groups, subscriptions, or resource groups, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+For creating management groups, use:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+For managing costs, use:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+## Schema
 
 The schema you use for tenant deployments is different than the schema for resource group deployments.
 
 For templates, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## Required access
@@ -43,7 +65,7 @@ The principal deploying the template must have permissions to create resources a
 
 The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
 
-1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management Groups](../../role-based-access-control/elevate-access-global-admin.md).
+1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 
 1. Assign Owner or Contributor to the principal that needs to deploy the templates.
 
@@ -61,14 +83,18 @@ The principal now has the required permissions to deploy the template.
 
 The commands for tenant deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+# [Azure CLI](#tab/azure-cli)
+
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
+
+# [PowerShell](#tab/azure-powershell)
 
 For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
@@ -76,10 +102,53 @@ For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resourc
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-For REST API, use [Deployments - Create Or Update At Tenant Scope](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+For more detailed information about deployment commands and options for deploying ARM templates, see:
+
+* [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
+* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
+* [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
+* [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
+* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
+* [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
+
+## Deployment scopes
+
+When deploying to a management group, you can deploy resources to:
+
+* the tenant
+* management groups within the tenant
+* subscriptions
+* resource groups (through two nested deployments)
+* [extension resources](scope-extension-resources.md) can be applied to resources
+
+The user deploying the template must have access to the specified scope.
+
+This section shows how to specify different scopes. You can combine these different scopes in a single template.
+
+### Scope to tenant
+
+Resources defined within the resources section of the template are applied to the tenant.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### Scope to management group
+
+To target a management group within the tenant, add a nested deployment and specify the `scope` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### Scope to subscription
+
+You can also target subscriptions within the tenant. The user deploying the template must have access to the specified scope.
+
+To target a subscription within the tenant, use a nested deployment and the `subscriptionId` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## Deployment location and name
 
@@ -89,30 +158,9 @@ You can provide a name for the deployment, or use the default deployment name. T
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
-## Use template functions
-
-For tenant deployments, there are some important considerations when using template functions:
-
-* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
-* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function to get the resource ID for resources that are deployed at tenant level.
-
-  For example, to get the resource ID for a policy definition, use:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  The returned resource ID has the following format:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
-
 ## Create management group
 
-The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) creates a management group.
+The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) creates a management group.
 
 ```json
 {
@@ -138,7 +186,7 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
 
 ## Assign role
 
-The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) assigns a role at the tenant scope.
+The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) assigns a role at the tenant scope.
 
 ```json
 {
@@ -180,5 +228,5 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
 
 ## Next steps
 
-* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * You can also deploy templates at [subscription level](deploy-to-subscription.md) or [management group level](deploy-to-management-group.md).

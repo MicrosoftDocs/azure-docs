@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, fasttrack-edit
 ---
 
 # Application types for Microsoft identity platform
@@ -21,7 +21,7 @@ The Microsoft identity platform (v2.0) endpoint supports authentication for a va
 
 ## The basics
 
-You must register each app that uses the Microsoft identity platform endpoint in the new [App registrations portal](https://go.microsoft.com/fwlink/?linkid=2083908). The app registration process collects and assigns these values for your app:
+You must register each app that uses the Microsoft identity platform endpoint in the Azure portal [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908). The app registration process collects and assigns these values for your app:
 
 * An **Application (client) ID** that uniquely identifies your app
 * A **Redirect URI** that you can use to direct responses back to your app
@@ -38,13 +38,19 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## Single-page apps (JavaScript)
 
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
+Many modern apps have a single-page app front end written primarily in JavaScript, often with a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OpenID Connect](v2-protocols-oidc.md) protocol for authentication and either [OAuth 2.0 implicit grant flow](v2-oauth2-implicit-grant-flow.md) or the more recent [OAuth 2.0 authorization code + PKCE flow](v2-oauth2-auth-code-flow.md) for authorization (see below).
 
-In this flow, the app receives tokens directly from the Microsoft identity platform authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
+The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for tokens and refresh tokens using cross-site web requests. The refresh token expires every 24 hours, and the app must request another code. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
 
-![Shows the implicit authentication flow](./media/v2-app-types/convergence-scenarios-implicit.svg)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
-To see this scenario in action, try one of the single-page app code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
+To see this scenario in action, check out the [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript SPA using auth code flow](tutorial-v2-javascript-auth-code.md).
+
+### Authorization code flow vs. implicit flow
+
+For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-grant-flow.md) was the recommended way to build single-page apps. With the removal of [third-party cookies](reference-third-party-cookies-spas.md) and [greater attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) paid to security concerns around the implicit flow, we've moved to the authorization code flow for single-page apps.
+
+To ensure compatibility of your app in Safari and other privacy-conscious browsers, we no longer recommend use of the implicit flow and instead recommend the authorization code flow.
 
 ## Web apps
 
@@ -73,7 +79,8 @@ You can ensure the user's identity by validating the ID token with a public sign
 
 To see this scenario in action, try one of the web app sign-in code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md). For more information about this scenario, read about [getting started with web apps and web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
+
 
 ## Web APIs
 
@@ -107,6 +114,9 @@ In this flow, the app receives an authorization code from the Microsoft identity
 
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
+> [!NOTE]
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
+
 ## Daemons and server-side apps
 
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow. You can prove the app's identity using a client secret or certificate. For more info, see [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
@@ -116,3 +126,7 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain ac
 ![Shows the daemon app authentication flow](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 To build a daemon app, see the [client credentials documentation](v2-oauth2-client-creds-grant-flow.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## Next steps
+
+Now that you're familiar with the types of applications supported by the Microsoft identity platform, learn more about [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) to gain an understanding of the protocol components used by the different scenarios.

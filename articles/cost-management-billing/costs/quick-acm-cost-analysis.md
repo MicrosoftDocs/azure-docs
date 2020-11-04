@@ -3,11 +3,12 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 10/26/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: seodec18
+ms.custom: contentperfq2
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 
@@ -25,7 +26,7 @@ In this quickstart, you learn how to:
 
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
 
-For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md).
+For information about assigning access to Azure Cost Management data, see [Assign access to data](./assign-access-acm-data.md).
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -35,7 +36,7 @@ If you have a new subscription, you can't immediately use Cost Management featur
 
 ## Review costs in cost analysis
 
-To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope in cost analysis.
 
 The scope you select is used throughout Cost Management to provide data consolidation and control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope, which others roll up to, and then filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
 
@@ -45,7 +46,7 @@ Watch the video [How to use Cost Management in the Azure portal](https://www.you
 
 The initial cost analysis view includes the following areas.
 
-**Accumulated cost view**: Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows accumulated costs for the current billing period, but you can change to other built-in views. For more information, see [Customize cost views](#customize-cost-views).
+**Accumulated cost view**: Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows accumulated costs for the current billing period, but you can change to other built-in views.
 
 **Actual cost**: Shows the total usage and purchase costs for the current month, as they're accrued and will show on your bill.
 
@@ -53,7 +54,7 @@ The initial cost analysis view includes the following areas.
 
 **Budget**: Shows the planned spending limit for the selected scope, if available.
 
-**Accumulated granularity**: Shows the total aggregate daily costs, from the beginning of the billing period. After you [create a budget](tutorial-acm-create-budgets.md) for your billing account or subscription, you can quickly see your spending trend against the budget. Hover over a date to view the accumulated cost for that day.
+**Accumulated granularity**: Shows the total aggregate daily costs, from the beginning of the billing period. After you create a budget for your billing account or subscription, you can quickly see your spending trend against the budget. Hover over a date to view the accumulated cost for that day.
 
 **Pivot (donut) charts**: Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the largest to smallest costs for the current month. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by service (meter category), location (region), and child scope by default. For example, enrollment accounts are under billing accounts, resource groups are under subscriptions, and resources are under resource groups.
 
@@ -101,10 +102,9 @@ When turn off the spending forecast, you don't see projected spending for future
 
 Generally, you can expect to see data or notifications for consumed resources within 8 to 12 hours.
 
-
 **Group by** common properties to break down costs and identify top contributors. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
 
-Most [Azure resources support tagging](../../azure-resource-manager/management/tag-support.md). However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
+Most Azure resources support tagging. However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
 Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using Azure tag policy to improve cost data visibility.
 
@@ -136,42 +136,6 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 ![Data for current view in a table view](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
-
-## Understanding grouping and filtering options
-
-Cost analysis has many grouping and filtering options. To watch a video about grouping and filtering options, watch the [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
-
-The following table lists some of the most common grouping and filtering options and when you should use them.
-
-| Property | When to use | Notes |
-| --- | --- | --- |
-| **Availability zones** | Break down AWS costs by availability zone. | Applicable only to AWS scopes and management groups. Azure data does not include availability zone and will show as **Not applicable**. |
-| **Billing period** | Break down PAYG costs by the month they were (or will be) invoiced. | Use **Billing period** to get an accurate representation of invoiced PAYG charges. Include 2 extra days before and after the billing period if filtering down to a custom date range. Limiting to the exact billing period dates will not match the invoice. Will show costs from all invoices in the billing period. Use **Invoice ID** to filter down to a specific invoice. Applicable only to PAYG subscriptions because EA and MCA are billed by calendar months. EA/MCA accounts can use calendar months in the date picker or monthly granularity to accomplish the same goal. |
-| **Charge type** | Break down usage, purchase, refund, and unused reservation costs. | Reservation purchases and refunds are available only when using actual costs and not when using amortized costs. Unused reservation costs are available only when looking at amortized costs. |
-| **Department** | Break down costs by EA department. | Available only for EA and management groups. PAYG subscriptions do not have a department and will show as **Not applicable** or **unassigned**. |
-| **Enrollment account** | Break down costs by EA account owner. | Available only for EA billing accounts, departments, and  management groups. PAYG subscriptions do not have EA enrollment accounts and will show as **Not applicable** or **unassigned**. |
-| **Frequency** | Break down usage-based, one-time, and recurring costs. | |
-| **Invoice ID** | Break down costs by billed invoice. | Unbilled charges do not have an invoice ID yet and EA costs do not include invoice details and will show as **Not applicable**.  |
-| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **Not applicable**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
-| **Operation** | Break down AWS costs by operation. | Applicable only to AWS scopes and management groups. Azure data does not include operation and will show as **Not applicable** – use **Meter** instead. |
-| **Pricing model** | Break costs down by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases.
-| **Provider** | Break down costs by AWS and Azure. | Available only for management groups. |
-| **Publisher type** | Break down AWS, Azure, and Marketplace costs. |  |
-| **Reservation** | Break down costs by reservation. | Any usage or purchases that aren't associated with a reservation will show as **Not applicable**. Group by **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
-| **Resource** | Break down costs by resource. | Purchases show as **Not applicable**, because they're applied at an EA/PAYG billing account or MCA billing profile level and not associated with a specific resource. Group by **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
-| **Resource group** | Break down costs by resource group. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources do not have a resource group and will show as **others**, **classic services**, **$system**, or **Not applicable**. |
-| **Resource type** | Break down costs by resource type. | Purchases and classic services do not have an Azure Resource Manager resource type and will show as **others**, **classic services**, or **Not applicable**. |
-| **Resource location** | Break down costs by location or region. | Purchases and Marketplace usage may be shown as **unassigned**, **unknown**, **unmapped**, or **Not applicable**. |
-| **Service name** or **Meter category** | Break down cost by Azure service. | Purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
-| **Service tier** or **Meter subcategory** | Break down cost by Azure usage meter subclassification. | Purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
-| **Subscription** | Break down costs by Azure subscription and AWS linked account. | Purchases and tenant resources may show as **Not applicable**. |
-| **Tag** | Break down costs by tag values for a specific tag key. | Tags are not available for purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Note some services do not include tags in usage data. Learn more about [tags support for each resource type](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
-
-For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
-
-
 ## Saving and sharing customized views
 
 Save and share customized views with others by pinning cost analysis to the Azure portal dashboard or by copying a link to cost analysis.
@@ -180,60 +144,20 @@ Watch the video [Sharing and saving views in Azure Cost Management](https://www.
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-To pin cost analysis, select the pin icon in the upper-right corner. Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Note that this shares only the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
+To pin cost analysis, select the pin icon in the upper-right corner or just after the "<Subscription Name> | Cost analysis". Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Note that this shares only the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
 
 To share a link to cost analysis, select **Share** at the top of the blade. A custom URL will show, which opens this specific view for this specific scope. If you don't have cost access and get this URL, you'll see an "access denied" message.
 
-To learn more about granting access to costs for each supported scope, review [Understand and work with scopes](understand-work-scopes.md).
-
-
-
-## Automation and offline analysis
+## Download usage data
 
 There are times when you need to download the data for further analysis, merge it with your own data, or integrate it into your own systems. Cost Management offers a few different options. As a starting point, if you need an ad hoc high-level summary, like what you get within cost analysis, build the view you need. Then download it by selecting **Export** and selecting **Download data to CSV** or **Download data to Excel**. The Excel download provides additional context on the view you used to generate the download, like scope, query configuration, total, and date generated.
 
 If you need the full, unaggregated dataset, download it from the billing account. Then, from the list of services in the portal's left navigation pane, go to **Cost Management + Billing**. Select your billing account, if applicable. Go to **Usage + charges**, and then select the **Download** icon for the desired billing period.
 
-Take a similar approach to automate receiving cost data. Use the [Query API](/rest/api/cost-management/query) for richer analysis with dynamic filtering, grouping, and aggregation, or use the [UsageDetails API](/rest/api/consumption/usageDetails) for the full, unaggregated dataset. The general availability (GA) version of these APIs is 2019-01-01. Use **2019-04-01-preview** to get access to the preview of reservation and Marketplace purchases within these APIs.
+## Clean up resources
 
-For example, following is an aggregated view of amortized costs broken down by charge type (usage, purchase, or refund), publisher type (Azure or Marketplace), resource group (empty for purchases), and reservation (empty if not applicable).
-
-```
-POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
-Content-Type: application/json
-
-{
-  "type": "AmortizedCost",
-  "timeframe": "Custom",
-  "timePeriod": { "from": "2019-04-01", "to": "2019-04-30" },
-  "dataset": {
-    "granularity": "None",
-    "aggregation": {
-      "totalCost": { "name": "PreTaxCost", "function": "Sum" }
-    },
-    "grouping": [
-      { "type": "dimension", "name": "ChargeType" },
-      { "type": "dimension", "name": "PublisherType" },
-      { "type": "dimension", "name": "Frequency" },
-      { "type": "dimension", "name": "ResourceGroup" },
-      { "type": "dimension", "name": "SubscriptionName" },
-      { "type": "dimension", "name": "SubscriptionId" },
-      { "type": "dimension", "name": "ReservationName" },
-      { "type": "dimension", "name": "ReservationId" },
-    ]
-  },
-}
-```
-
-And if you don't need the aggregation and prefer the full, raw dataset:
-
-```
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
-```
-
-If you need actual costs to show purchases as they are accrued, change **type**/**metric** to **ActualCost**. For more information about these APIs, see the [Query](/rest/api/cost-management/query) and [UsageDetails](/rest/api/consumption/usageDetails) API documentation. Note that the published docs are for the GA version. However, they both work the same for the *2019-04-01-preview* API version outside of the new type/metric attribute and changed property names. (Read more about the property names below.)
-
-Cost Management APIs work across all scopes above resources: resource group, subscription, and management group via Azure RBAC access, EA billing accounts (enrollments), departments, and enrollment accounts via EA portal access. Learn more about scopes, including how to determine your scope ID or manage access, in [Understand and work with scopes](understand-work-scopes.md).
+- If you pinned a customized view for cost analysis and you no longer need it, go to the dashboard where you pinned it and and delete the pinned view.
+- If you downloaded usage data files and you no longer need them, be sure to delete them.
 
 ## Next steps
 

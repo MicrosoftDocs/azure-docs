@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files SDKs and CLI tools  | Microsoft Docs
-description: Lists the SDKs and command-line (CLI) tools supported by Azure NetApp Files.
+description: "Learn about supported SDKs for Azure NetApp Files and their published locations in GitHub, and about supported command-line tools: Azure CLI and PowerShell."
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/21/2020
 ms.author: b-juche
 ---
-# Azure NetApp Files SDKs and CLI tools
+# Azure NetApp Files SDKs, CLI tools, and ARM templates
 
-This article lists the SDKs and command-line (CLI) tools supported by Azure NetApp Files.
+This article lists the SDKs, command-line (CLI) tools, and Azure Resource Manager (ARM) templates supported by Azure NetApp Files.
 
 ## Supported SDKs 
 
@@ -39,17 +39,18 @@ The table below lists the supported CLI tools and their command reference.
 
 |    Tool    |    Command reference    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell for Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
+|    PowerShell   |    [Azure PowerShell for Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
 
 ## Code samples
 
-The table below lists code samples for your reference.   
+See [code samples for Azure NetApp Files](/samples/browse/?filter-products=netapp&products=azure-netapp-files).
 
-|    Language/Tool    |    Code sample documentation    |
-|------------------|--------------------------------------------|
-|    .NET   |    [Azure NetApp Files SDK sample for .NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
-|    Python    |    [Azure NetApp Files SDK sample for Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+## Azure Resource Manager templates  
+
+Azure Resource Manager (ARM) allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.   
+
+See [available ARM templates for Azure NetApp Files](https://azure.microsoft.com/resources/templates/?term=anf).
 
 ## Next steps   
  [Download Azure SDKs](https://azure.microsoft.com/downloads/)

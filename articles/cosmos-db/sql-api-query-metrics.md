@@ -4,14 +4,16 @@ description: Learn about how to instrument and debug the SQL query performance o
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Tuning query performance with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB provides a [SQL API for querying data](how-to-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
+Azure Cosmos DB provides a [SQL API for querying data](./sql-query-getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
 * Details on query request and response headers, and client SDK options
@@ -20,7 +22,7 @@ Azure Cosmos DB provides a [SQL API for querying data](how-to-sql-query.md), wit
 
 ## About SQL query execution
 
-In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](partition-data.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [SQL SDKs](sql-api-sdk-dotnet.md).
+In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](partitioning-overview.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [SQL SDKs](sql-api-sdk-dotnet.md).
 
 A brief overview of partitioning: you define a partition key like "city", which determines how data is split across physical partitions. Data belonging to a single partition key (for example, "city" == "Seattle") is stored within a physical partition, but typically a single physical partition has multiple partition keys. When a partition reaches its storage size, the service seamlessly splits the partition into two new partitions, and divides the partition key evenly across these partitions. Since partitions are transient, the APIs use an abstraction of a "partition key range", which denotes the ranges of partition key hashes. 
 
@@ -126,7 +128,7 @@ The key response headers returned from the query include the following:
 | `x-ms-documentdb-query-metrics` | The query statistics for the execution. This is a delimited string containing statistics of time spent in the various phases of query execution. Returned if `x-ms-documentdb-populatequerymetrics` is set to `True`. | 
 | `x-ms-request-charge` | The number of [request units](request-units.md) consumed by the query. | 
 
-For details on the REST API request headers and options, see [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+For details on the REST API request headers and options, see [Querying resources using the REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## Best practices for query performance
 The following are the most common factors that impact Azure Cosmos DB query performance. We dig deeper into each of these topics in this article.
@@ -157,7 +159,7 @@ With Azure Cosmos DB, typically queries perform in the following order from fast
 
 Queries that need to consult all partitions need higher latency, and can consume higher RUs. Since each partition has automatic indexing against all properties, the query can be served efficiently from the index in this case. You can make queries that span partitions faster by using the parallelism options.
 
-To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](partition-data.md).
+To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
 
 ### SDK and query options
 See [Performance Tips](performance-tips.md) and [Performance testing](performance-testing.md) for how to get the best client-side performance from Azure Cosmos DB. This includes using the latest SDKs, configuring platform-specific configurations like default number of connections, frequency of garbage collection, and using lightweight connectivity options like Direct/TCP. 
@@ -269,6 +271,4 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 ## Next steps
 * To learn about the supported SQL query operators and keywords, see [SQL query](sql-query-getting-started.md). 
 * To learn about request units, see [request units](request-units.md).
-* To learn about indexing policy, see [indexing policy](index-policy.md) 
-
-
+* To learn about indexing policy, see [indexing policy](index-policy.md)

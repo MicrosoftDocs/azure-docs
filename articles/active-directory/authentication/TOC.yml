@@ -21,7 +21,19 @@
   expanded: true
   items:
   - name: Authentication methods
-    href: concept-authentication-methods.md
+    items:
+    - name: Overview
+      href: concept-authentication-methods.md
+    - name: Microsoft Authenticator app
+      href: concept-authentication-authenticator-app.md
+    - name: OATH tokens
+      href: concept-authentication-oath-tokens.md
+    - name: Passwordless
+      href: concept-authentication-passwordless.md
+    - name: Phone options
+      href: concept-authentication-phone-options.md
+    - name: Security questions
+      href: concept-authentication-security-questions.md
   - name: Self-service password reset
     items:
     - name: How password reset works
@@ -36,16 +48,16 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Prompts and session lifetime
+      href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
       href: concept-mfa-data-residency.md
     - name: Licenses
       href: concept-mfa-licensing.md
     - name: MFA for Office 365
-      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
+      href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: FAQ
       href: multi-factor-authentication-faq.md
-  - name: Passwordless authentication
-    href: concept-authentication-passwordless.md
   - name: Password protection
     items:
     - name: Eliminate weak passwords in the cloud
@@ -80,10 +92,12 @@
       href: howto-mfa-userstates.md
     - name: Configure authentication providers
       href: concept-mfa-authprovider.md
+    - name: Use app passwords
+      href: howto-mfa-app-passwords.md
     - name: Directory Federation
       items:
       - name: Windows Server 2016 AD FS Adapter
-        href: https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
+        href: /windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
       - name: Federation Services
         href: multi-factor-authentication-get-started-adfs.md
       - name: Use AD FS
@@ -112,10 +126,14 @@
             href: howto-authentication-passwordless-security-key-windows.md
           - name: SSO to on-premises resources
             href: howto-authentication-passwordless-security-key-on-premises.md
+          - name: Hybrid FAQs
+            href: howto-authentication-passwordless-faqs.md
+          - name: Troubleshoot hybrid
+            href: howto-authentication-passwordless-troubleshoot.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
-        href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+        href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
   - name: Security info registration
     items:
     - name: Enable combined registration
@@ -138,6 +156,8 @@
       href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Use SMS-based authentication (preview)
     href: howto-authentication-sms-signin.md
+  - name: Use email address sign-in (preview)
+    href: howto-authentication-use-email-signin.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
@@ -167,6 +187,8 @@
       href: howto-mfaserver-deploy-userportal.md
     - name: Mobile App Web Service
       href: howto-mfaserver-deploy-mobileapp.md
+    - name: Configure settings
+      href: howto-mfa-server-settings.md
     - name: Configure high availability
       href: howto-mfaserver-deploy-ha.md
     - name: Upgrade MFA Server
@@ -201,8 +223,10 @@
         href: howto-mfa-nps-extension-errors.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSPR
-      href: active-directory-passwords-troubleshoot.md
+    - name: Self-service password reset (SSPR)
+      href: troubleshoot-sspr.md
+    - name: SSPR writeback
+      href: troubleshoot-sspr-writeback.md
     - name: SSPR FAQ
       href: active-directory-passwords-faq.md
     - name: MFA FAQ
@@ -212,19 +236,21 @@
 - name: Reference
   items:
   - name: MFA user guide
-    href: ./end-user/current/multi-factor-authentication-end-user.md
+    href: ../user-help/multi-factor-authentication-end-user-first-time.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets
-    href: /powershell/azure/overview
+    href: /powershell/azure/
+  - name: Microsoft Graph REST API beta
+    href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions
     href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Resources
   items:
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates

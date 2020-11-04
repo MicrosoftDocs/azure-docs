@@ -28,7 +28,7 @@ Conditions are what rules trigger on. Currently, when you add multiple condition
 
 In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
 
-![Conditions](media/howto-configure-rules/conditions.png)
+![Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity.](media/howto-configure-rules/conditions.png)
 
 ### Use a cloud property in a value field
 
@@ -48,7 +48,4 @@ A restriction applies to rules that are applied to IoT Edge modules. Rules on te
 
 ## Next steps
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
-
-> [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+Now that you've learned how to configure a rule in your Azure IoT Central application, you can learn how to [Configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.

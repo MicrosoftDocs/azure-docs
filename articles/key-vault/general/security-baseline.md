@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -14,13 +14,13 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for Key Vault contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security Control: Network Security](../../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -186,7 +186,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -318,7 +318,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 ## Identity and Access Control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security Control: Identity and Access Control](../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -408,7 +408,7 @@ Planning a cloud-based Azure Multi-Factor Authentication deployment: https://doc
 
 ### 3.7: Log and alert on suspicious activity from administrative accounts
 
-**Guidance**: Use Azure Active Directory (AAD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use AAD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
+**Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
 
 Enable advanced threat protection (ATP) for Azure Key Vault to generate alerts for suspicious activity.
 
@@ -442,7 +442,7 @@ What is the location condition in Azure Active Directory Conditional Access?: ht
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (AAD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
 
  
 
@@ -457,7 +457,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Review Azure Active Directory (AAD) logs to help discover stale accounts with Azure Key Vault administrative roles. In addition, use AAD access reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Key Vault, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right users have continued access.
+**Guidance**: Review Azure Active Directory (Azure AD) logs to help discover stale accounts with Azure Key Vault administrative roles. In addition, use Azure AD access reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Key Vault, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right users have continued access.
 
 Azure Active Directory reports and monitoring documentation:
 
@@ -516,7 +516,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 ## Data Protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security Control: Data Protection](../../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -564,7 +564,9 @@ Azure Key Vault logging: https://docs.microsoft.com/azure/key-vault/key-vault-lo
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: All traffic to Azure Key Vault for authentication, management, and data plane access, is encrypted and goes over HTTPS: port 443. (However, there will occasionally be HTTP [port 80] traffic for CRL.) 
+**Guidance**: All traffic to Azure Key Vault for authentication, management, and data plane access, is encrypted and goes over HTTPS: port 443. (However, there will occasionally be HTTP [port 80] traffic for CRL.) Azure Key Vault continues to allow TLS 1.1 and TLS 1.0 data to be ingested. Data may be restricted to TLS 1.2 through configuration on the client side.
+
+
 
 Access Azure Key Vault behind a firewall: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
@@ -619,7 +621,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 Supporting documentation:
 
-- [Encryption Model and key management table](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
+- [Encryption Model and key management table](../../security/fundamentals/encryption-atrest.md)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -642,7 +644,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 ## Vulnerability Management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security Control: Vulnerability Management](../../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -693,7 +695,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 ## Inventory and Asset Management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security Control: Inventory and Asset Management](../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -707,7 +709,7 @@ Get subscriptions that the current account can access.:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-What is role-based access control (RBAC) for Azure resources?
+What is Azure role-based access control (Azure RBAC)?
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -862,7 +864,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## Secure Configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security Control: Secure Configuration](../../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1008,11 +1010,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 How to create a Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: 
+How to authenticate to Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -1024,16 +1030,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-How to integrate with Azure Managed Identities: 
+* [How to integrate with Azure Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [How to create a Key Vault](quick-create-portal.md)
 
-How to create a Key Vault: 
+* [How to authenticate to Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-How to provide Key Vault authentication with a managed identity:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [How to assign a Key Vault access policy](assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1052,7 +1055,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## Malware Defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security Control: Malware Defense](../../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1087,7 +1090,7 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
 
 ## Data Recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security Control: Data Recovery](../../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1188,7 +1191,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 ## Incident Response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security Control: Incident Response](../../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1283,7 +1286,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1303,5 +1306,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../../security/benchmarks/security-baselines-overview.md)

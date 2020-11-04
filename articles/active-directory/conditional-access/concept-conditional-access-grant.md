@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,7 +25,7 @@ Within a Conditional Access policy, an administrator can make use of access cont
 
 Block takes into account any assignments and prevents access based on the Conditional Access policy configuration.
 
-Block is a powerful control that should be wielded with appropriate knowledge. It is something administrators should use [Report-only mode](concept-conditional-access-report-only.md) to test before enabling.
+Block is a powerful control that should be wielded with appropriate knowledge. Policies with block statements can have unintended side effects. Proper testing and validation are vital before enabling at scale. Administrators should utilize tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 
 ## Grant access
 
@@ -36,6 +36,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
 - [Require app protection policy](app-protection-based-conditional-access.md)
+- [Require password change](#require-password-change)
 
 When administrators choose to combine these options, they can choose the following methods:
 
@@ -60,11 +61,13 @@ Devices must be registered in Azure AD before they can be marked as compliant. M
 
 Organizations can choose to use the device identity as part of their Conditional Access policy. Organizations can require that devices are hybrid Azure AD joined using this checkbox. For more information about device identities, see the article [What is a device identity?](../devices/overview.md).
 
+When using the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the require managed device grant control or a device state condition are not supported. This is because the device performing authentication cannot provide its device state to the device providing a code and the device state in the token is locked to the device performing authentication. Use the require multi-factor authentication grant control instead.
+
 ### Require approved client app
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be either the Microsoft Authenticator for iOS, or the Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the app store to install the broker app.
+In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the appropriate app/play store to install the required broker app.
 
 This setting applies to the following iOS and Android apps:
 
@@ -74,8 +77,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Flow
-- Microsoft Intune Managed Browser
+- Microsoft Power Automate
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -117,9 +119,22 @@ In order to leverage this grant control, Conditional Access requires that the de
 This setting applies to the following client apps:
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- MultiLine for Intune
+- Nine Mail - Email & Calendar
+
+> [!NOTE]
+> Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
 
 **Remarks**
 
@@ -129,6 +144,21 @@ This setting applies to the following client apps:
     - A broker app is required to register the device. On iOS, the broker app is Microsoft Authenticator and on Android, it is Intune Company Portal app.
 
 See the article, [How to: Require app protection policy and an approved client app for cloud app access with Conditional Access](app-protection-based-conditional-access.md) for configuration examples.
+
+### Require password change 
+
+When user risk is detected, using the user risk policy conditions, administrators can choose to have the user securely change the password using Azure AD self-service password reset. If user risk is detected, users can perform a self-service password reset to self-remediate, this will close the user risk event to prevent unnecessary noise for administrators. 
+
+When a user is prompted to change their password, they will first be required to complete multi-factor authentication. You’ll want to make sure all of your users have registered for multi-factor authentication, so they are prepared in case risk is detected for their account.  
+
+> [!WARNING]
+> Users must have previously registered for self-service password reset before triggering the user risk policy. 
+
+There exist a couple restriction in place when you configure a policy using the password change control.  
+
+1. The policy must be assigned to ‘all cloud apps’. This prevents an attacker from using a different app to change the user’s password and reset account risk, by simply signing into a different app. 
+1. Require password change cannot be used with other controls, like requiring a compliant device.  
+1. The password change control can only be used with the user and group assignment condition, cloud app assignment condition (which must be set to all) and user risk conditions. 
 
 ### Terms of use
 

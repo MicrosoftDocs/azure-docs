@@ -3,14 +3,16 @@ title: LINQ to SQL translation in Azure Cosmos DB
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 7/29/2020
 ms.author: tisande
 
 ---
 # LINQ to SQL translation
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. The following description assumes a basic familiarity with LINQ.
+The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 The query provider type system supports only the JSON primitive types: numeric, Boolean, string, and null.
 
@@ -27,7 +29,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade; //n is an int variable
   ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](sql-query-system-functions.md).
   
   ```
     2 * family.children[0].grade;
@@ -49,31 +51,52 @@ The query provider supports the following scalar expressions:
     new int[] { 3, child.grade, 5 };
   ```
 
+## Using LINQ
+
+You can create a LINQ query with `GetItemLinqQueryable`. This example shows LINQ query generation and asynchronous execution with a `FeedIterator`:
+
+```csharp
+using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
+                      .Where(b => b.Title == "War and Peace")
+                      .ToFeedIterator<Book>())
+ {
+     //Asynchronous query execution
+     while (setIterator.HasMoreResults)
+     {
+         foreach(var item in await setIterator.ReadNextAsync()){
+         {
+             Console.WriteLine(item.cost);
+         }
+       }
+     }
+ }
+```
+
 ## <a id="SupportedLinqOperators"></a>Supported LINQ operators
 
 The LINQ provider included with the SQL .NET SDK supports the following operators:
 
-- **Select**: Projections translate to SQL SELECT, including object construction.
-- **Where**: Filters translate to SQL WHERE, and support translation between `&&`, `||`, and `!` to the SQL operators
-- **SelectMany**: Allows unwinding of arrays to the SQL JOIN clause. Use to chain or nest expressions to filter on array elements.
-- **OrderBy** and **OrderByDescending**: Translate to ORDER BY with ASC or DESC.
-- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
-- **CompareTo**: Translates to range comparisons. Commonly used for strings, since they’re not comparable in .NET.
-- **Skip** and **Take**: Translates to SQL OFFSET and LIMIT for limiting results from a query and doing pagination.
-- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent SQL built-in functions.
-- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent SQL built-in functions.
-- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent SQL built-in functions.
-- **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent SQL built-in functions.
-- **User-Defined Function Extension function**: Supports translation from the stub method `UserDefinedFunctionProvider.Invoke` to the corresponding user-defined function.
-- **Miscellaneous**: Supports translation of `Coalesce` and conditional operators. Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or SQL IN, depending on context.
+- **Select**: Projections translate to [SELECT](sql-query-select.md), including object construction.
+- **Where**: Filters translate to [WHERE](sql-query-where.md), and support translation between `&&`, `||`, and `!` to the SQL operators
+- **SelectMany**: Allows unwinding of arrays to the [JOIN](sql-query-join.md) clause. Use to chain or nest expressions to filter on array elements.
+- **OrderBy** and **OrderByDescending**: Translate to [ORDER BY](sql-query-order-by.md) with ASC or DESC.
+- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](sql-query-aggregates.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
+- **CompareTo**: Translates to range comparisons. Commonly used for strings, since they're not comparable in .NET.
+- **Skip** and **Take**: Translates to [OFFSET and LIMIT](sql-query-offset-limit.md) for limiting results from a query and doing pagination.
+- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](sql-query-mathematical-functions.md).
+- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](sql-query-string-functions.md).
+- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](sql-query-array-functions.md).
+- **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent [built-in geospatial functions](sql-query-geospatial-query.md).
+- **User-Defined Function Extension function**: Supports translation from the stub method `UserDefinedFunctionProvider.Invoke` to the corresponding [user-defined function](sql-query-udfs.md).
+- **Miscellaneous**: Supports translation of `Coalesce` and conditional [operators](sql-query-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.
 
 ## Examples
 
-The following examples illustrate how some of the standard LINQ query operators translate to Cosmos DB queries.
+The following examples illustrate how some of the standard LINQ query operators translate to queries in Azure Cosmos DB.
 
 ### Select operator
 
-The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
+The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression. The `input`, in this case, would be an `IQueryable` object.
 
 **Select operator, example 1:**
 
@@ -90,7 +113,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
       FROM Families f
     ```
   
-**Select operator, example 2:** 
+**Select operator, example 2:**
 
 - **LINQ lambda expression**
   
@@ -117,7 +140,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
     });
   ```
   
-- **SQL** 
+- **SQL**
   
   ```sql
       SELECT VALUE {"name":f.children[0].familyName,
@@ -315,7 +338,6 @@ A nested query applies the inner query to each element of the outer container. O
       JOIN c IN f.children
       WHERE c.familyName = f.parents[0].familyName
   ```
-
 
 ## Next steps
 

@@ -3,11 +3,13 @@ title: Supported cluster versions in Azure Service Fabric
 description: Learn about cluster versions in Azure Service Fabric, including a link to the newest releases from the Service Fabric team blog.
 
 ms.topic: troubleshooting
-ms.date: 05/06/2020
+ms.date: 06/15/2020
 ---
 # Supported Service Fabric versions
 
 Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://azure.microsoft.com/updates/?product=service-fabric).
+
+For a given version of the Service Fabric runtime you can use the specified or older versions of the SDK/NuGet packages. Newer versions of the packages are not supported and may have issues targeting older clusters as they may have feature or protocol changes not supported by those environments.
 
 Refer to the following documents for details on how to keep your cluster running a supported Service Fabric version:
 
@@ -32,11 +34,18 @@ The following table lists the versions of Service Fabric and their support end d
 | 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |March 31, 2019  |
 | 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |September 15, 2019 |
 | 6.5.* | 6.4.617.* |Less than or equal to version  3.4 |August 1, 2020 |
-| 7.0.466.* | 6.4.664.* |Less than or equal to version  4.0|August 1, 2020  |
-| 7.0.466.* | 6.5.* |Less than or equal to version  4.0|August 1, 2020 |
-| 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |August 1, 2020  |
-| 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |August 1, 2020  |
-| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.0 |Current version, so no end date |
+| 7.0.466.* | 6.4.664.* |Less than or equal to version  4.0|January 31, 2021  |
+| 7.0.466.* | 6.5.* |Less than or equal to version  4.0|January 31, 2021 |
+| 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
+| 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
+| 7.0.478.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
+| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.456.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.458.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.459.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.2.413.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -105,4 +114,12 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
 | 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
 | 7.0 CU6 | 7.0.472.9590 | 7.0.471.1 |
+| 7.0 CU9 | 7.0.478.9590 | 7.0.472.1 |
 | 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
+| 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
+| 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
+| 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
+| 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
+| 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
+| 7.2 RTO | 7.2.413.9590 | NA |
+

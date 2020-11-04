@@ -8,9 +8,9 @@ ms.date: 02/21/2020
 ms.author: cshoe
 ---
 
-# Azure Event Hubs bindings for Azure Functions
+# Azure Event Hubs trigger for Azure Functions
 
-This article explains how to work with [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) trigger for Azure Functions. Azure Functions supports trigger and [output bindings](functions-bindings-event-hubs-output.md) for Event Hubs.
+This article explains how to work with [Azure Event Hubs](../event-hubs/event-hubs-about.md) trigger for Azure Functions. Azure Functions supports trigger and [output bindings](functions-bindings-event-hubs-output.md) for Event Hubs.
 
 For information on setup and configuration details, see the [overview](functions-bindings-event-hubs.md).
 

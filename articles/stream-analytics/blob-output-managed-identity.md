@@ -4,7 +4,7 @@ description: This article describes how to use managed identities to authenticat
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ---
 
@@ -28,7 +28,7 @@ This article shows you how to enable Managed Identity for the Blob output(s) of 
 
 ## Azure Resource Manager deployment
 
-Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
 
 
 1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:

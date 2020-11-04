@@ -17,6 +17,9 @@
       href: container-registry-get-started-portal.md
     - name: Create container registry - PowerShell
       href: container-registry-get-started-powershell.md
+    - name: Create container registry - ARM template
+      displayName: Resource Manager
+      href: container-registry-get-started-geo-replication-template.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
     - name: Build and push Java images - CLI
@@ -32,16 +35,14 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
-  - name: Samples
-    items:
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
   - name: Concepts
     expanded: false
     items:
     - name: Security
       items:
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Container registry tiers and limits
@@ -58,6 +59,8 @@
       href: container-registry-geo-replication.md
     - name: Registry best practices
       href: container-registry-best-practices.md
+    - name: Manage public images
+      href: buffer-gate-public-content.md
   - name: How-to guides
     expanded: false
     items:
@@ -91,7 +94,7 @@
       items:
       - name: Restrict access using private endpoint
         href: container-registry-private-link.md
-      - name: Configure service firewall rules
+      - name: Configure public registry access
         href: container-registry-access-selected-networks.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
@@ -107,6 +110,8 @@
           href: container-registry-auth-service-principal.md
         - name: Authenticate with managed identity
           href: container-registry-authentication-managed-identity.md
+        - name: Authenticate with token (preview)
+          href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
         - name: Authenticate from Kubernetes with pull secret
@@ -115,12 +120,13 @@
           href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
         - name: Authenticate with repository-scoped token (preview)
           href: container-registry-repository-scoped-permissions.md
-      - name: Role-based access control
+      - name: Azure role-based access control
         href: container-registry-roles.md
+        displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
       - name: Image scanning with Security Center
-        href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+        href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -135,11 +141,17 @@
       items:
         - name: Diagnostic and audit logs
           href: container-registry-diagnostics-audit-logs.md  
-        - name: Audit compliance using Azure Policy (preview)
+        - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md 
     - name: Troubleshoot
       expanded: false
       items:
+        - name: Troubleshoot login
+          href: container-registry-troubleshoot-login.md
+        - name: Troubleshoot network issues
+          href: container-registry-troubleshoot-access.md
+        - name: Troubleshoot registry performance
+          href: container-registry-troubleshoot-performance.md
         - name: Detect common issues
           href: container-registry-check-health.md
         - name: FAQ
@@ -198,6 +210,10 @@
           href: container-registry-tasks-authentication-key-vault.md
       - name: Quick task run with Resource Manager template 
         href: container-registry-task-run-template.md
+      - name: Run task on dedicated agent pool (preview)
+        href: tasks-agent-pools.md
+      - name: Consume and maintain public content
+        href: tasks-consume-public-content.md
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
       - name: View task logs
@@ -229,6 +245,9 @@
     href: ../event-grid/event-schema-container-registry.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
   - name: Health check errors
     href: container-registry-health-error-reference.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   expanded: false
   items:

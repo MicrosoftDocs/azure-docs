@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 05/05/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
 ---
@@ -15,133 +15,161 @@ The name of each built-in links to the policy definition in Azure portal. Use th
 **category** property in **metadata**. To jump to a specific **category**, use the menu on the right
 side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
 
+## API for FHIR
+
+[!INCLUDE [azure-policy-reference-policies-api-for-fhir](../../../../includes/policy/reference/bycat/policies-api-for-fhir.md)]
+
+## API Management
+
+[!INCLUDE [azure-policy-reference-policies-api-management](../../../../includes/policy/reference/bycat/policies-api-management.md)]
+
 ## App Configuration
 
-[!INCLUDE [azure-policy-samples-policies-app-configuration](../../../../includes/policy/samples/bycat/policies-app-configuration.md)]
+[!INCLUDE [azure-policy-reference-policies-app-configuration](../../../../includes/policy/reference/bycat/policies-app-configuration.md)]
 
 ## App Platform
 
-[!INCLUDE [azure-policy-samples-policies-app-platform](../../../../includes/policy/samples/bycat/policies-app-platform.md)]
+[!INCLUDE [azure-policy-reference-policies-app-platform](../../../../includes/policy/reference/bycat/policies-app-platform.md)]
 
 ## App Service
 
-[!INCLUDE [azure-policy-samples-policies-app-service](../../../../includes/policy/samples/bycat/policies-app-service.md)]
+[!INCLUDE [azure-policy-reference-policies-app-service](../../../../includes/policy/reference/bycat/policies-app-service.md)]
+
+## Automanage
+
+[!INCLUDE [azure-policy-reference-policies-automanage](../../../../includes/policy/reference/bycat/policies-automanage.md)]
 
 ## Automation
 
-[!INCLUDE [azure-policy-samples-policies-automation](../../../../includes/policy/samples/bycat/policies-automation.md)]
+[!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
 
 ## Backup
 
-[!INCLUDE [azure-policy-samples-policies-backup](../../../../includes/policy/samples/bycat/policies-backup.md)]
+[!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
 
 ## Batch
 
-[!INCLUDE [azure-policy-samples-policies-batch](../../../../includes/policy/samples/bycat/policies-batch.md)]
+[!INCLUDE [azure-policy-reference-policies-batch](../../../../includes/policy/reference/bycat/policies-batch.md)]
 
 ## Cache
 
-[!INCLUDE [azure-policy-samples-policies-cache](../../../../includes/policy/samples/bycat/policies-cache.md)]
+[!INCLUDE [azure-policy-reference-policies-cache](../../../../includes/policy/reference/bycat/policies-cache.md)]
+
+## Cognitive Services
+
+[!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
 ## Compute
 
-[!INCLUDE [azure-policy-samples-policies-compute](../../../../includes/policy/samples/bycat/policies-compute.md)]
+[!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
 ## Container Registry
 
-[!INCLUDE [azure-policy-samples-policies-container-registry](../../../../includes/policy/samples/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-policies-container-registry](../../../../includes/policy/reference/bycat/policies-container-registry.md)]
 
 ## Cosmos DB
 
-[!INCLUDE [azure-policy-samples-policies-cosmos-db](../../../../includes/policy/samples/bycat/policies-cosmos-db.md)]
+[!INCLUDE [azure-policy-reference-policies-cosmos-db](../../../../includes/policy/reference/bycat/policies-cosmos-db.md)]
 
 ## Custom Provider
 
-[!INCLUDE [azure-policy-samples-policies-custom-provider](../../../../includes/policy/samples/bycat/policies-custom-provider.md)]
+[!INCLUDE [azure-policy-reference-policies-custom-provider](../../../../includes/policy/reference/bycat/policies-custom-provider.md)]
 
 ## Data Lake
 
-[!INCLUDE [azure-policy-samples-policies-data-lake](../../../../includes/policy/samples/bycat/policies-data-lake.md)]
+[!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
+
+## Event Grid
+
+[!INCLUDE [azure-policy-reference-policies-event-grid](../../../../includes/policy/reference/bycat/policies-event-grid.md)]
 
 ## Event Hub
 
-[!INCLUDE [azure-policy-samples-policies-event-hub](../../../../includes/policy/samples/bycat/policies-event-hub.md)]
+[!INCLUDE [azure-policy-reference-policies-event-hub](../../../../includes/policy/reference/bycat/policies-event-hub.md)]
 
 ## General
 
-[!INCLUDE [azure-policy-samples-policies-general](../../../../includes/policy/samples/bycat/policies-general.md)]
+[!INCLUDE [azure-policy-reference-policies-general](../../../../includes/policy/reference/bycat/policies-general.md)]
 
 ## Guest Configuration
 
-[!INCLUDE [azure-policy-samples-policies-guest-configuration](../../../../includes/policy/samples/bycat/policies-guest-configuration.md)]
+[!INCLUDE [azure-policy-reference-policies-guest-configuration](../../../../includes/policy/reference/bycat/policies-guest-configuration.md)]
 
 ## Internet of Things
 
-[!INCLUDE [azure-policy-samples-policies-internet-of-things](../../../../includes/policy/samples/bycat/policies-internet-of-things.md)]
+[!INCLUDE [azure-policy-reference-policies-internet-of-things](../../../../includes/policy/reference/bycat/policies-internet-of-things.md)]
 
 ## Key Vault
 
-[!INCLUDE [azure-policy-samples-policies-key-vault](../../../../includes/policy/samples/bycat/policies-key-vault.md)]
+[!INCLUDE [azure-policy-reference-policies-key-vault](../../../../includes/policy/reference/bycat/policies-key-vault.md)]
 
 ## Kubernetes
 
-[!INCLUDE [azure-policy-samples-policies-kubernetes](../../../../includes/policy/samples/bycat/policies-kubernetes.md)]
-
-## Kubernetes service
-
-[!INCLUDE [azure-policy-samples-policies-kubernetes-service](../../../../includes/policy/samples/bycat/policies-kubernetes-service.md)]
+[!INCLUDE [azure-policy-reference-policies-kubernetes](../../../../includes/policy/reference/bycat/policies-kubernetes.md)]
 
 ## Lighthouse
 
-[!INCLUDE [azure-policy-samples-policies-lighthouse](../../../../includes/policy/samples/bycat/policies-lighthouse.md)]
+[!INCLUDE [azure-policy-reference-policies-lighthouse](../../../../includes/policy/reference/bycat/policies-lighthouse.md)]
 
 ## Logic Apps
 
-[!INCLUDE [azure-policy-samples-policies-logic-apps](../../../../includes/policy/samples/bycat/policies-logic-apps.md)]
+[!INCLUDE [azure-policy-reference-policies-logic-apps](../../../../includes/policy/reference/bycat/policies-logic-apps.md)]
+
+## Machine Learning
+
+[!INCLUDE [azure-policy-reference-policies-machine-learning](../../../../includes/policy/reference/bycat/policies-machine-learning.md)]
 
 ## Managed Application
 
-[!INCLUDE [azure-policy-samples-policies-managed-application](../../../../includes/policy/samples/bycat/policies-managed-application.md)]
+[!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
 
 ## Monitoring
 
-[!INCLUDE [azure-policy-samples-policies-monitoring](../../../../includes/policy/samples/bycat/policies-monitoring.md)]
+[!INCLUDE [azure-policy-reference-policies-monitoring](../../../../includes/policy/reference/bycat/policies-monitoring.md)]
 
 ## Network
 
-[!INCLUDE [azure-policy-samples-policies-network](../../../../includes/policy/samples/bycat/policies-network.md)]
+[!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
 ## Search
 
-[!INCLUDE [azure-policy-samples-policies-search](../../../../includes/policy/samples/bycat/policies-search.md)]
+[!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
 
 ## Security Center
 
-[!INCLUDE [azure-policy-samples-policies-security-center](../../../../includes/policy/samples/bycat/policies-security-center.md)]
+[!INCLUDE [azure-policy-reference-policies-security-center](../../../../includes/policy/reference/bycat/policies-security-center.md)]
 
 ## Service Bus
 
-[!INCLUDE [azure-policy-samples-policies-service-bus](../../../../includes/policy/samples/bycat/policies-service-bus.md)]
+[!INCLUDE [azure-policy-reference-policies-service-bus](../../../../includes/policy/reference/bycat/policies-service-bus.md)]
 
 ## Service Fabric
 
-[!INCLUDE [azure-policy-samples-policies-service-fabric](../../../../includes/policy/samples/bycat/policies-service-fabric.md)]
+[!INCLUDE [azure-policy-reference-policies-service-fabric](../../../../includes/policy/reference/bycat/policies-service-fabric.md)]
+
+## SignalR
+
+[!INCLUDE [azure-policy-reference-policies-signalr](../../../../includes/policy/reference/bycat/policies-signalr.md)]
 
 ## SQL
 
-[!INCLUDE [azure-policy-samples-policies-sql](../../../../includes/policy/samples/bycat/policies-sql.md)]
+[!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
 
 ## Storage
 
-[!INCLUDE [azure-policy-samples-policies-storage](../../../../includes/policy/samples/bycat/policies-storage.md)]
+[!INCLUDE [azure-policy-reference-policies-storage](../../../../includes/policy/reference/bycat/policies-storage.md)]
 
 ## Stream Analytics
 
-[!INCLUDE [azure-policy-samples-policies-stream-analytics](../../../../includes/policy/samples/bycat/policies-stream-analytics.md)]
+[!INCLUDE [azure-policy-reference-policies-stream-analytics](../../../../includes/policy/reference/bycat/policies-stream-analytics.md)]
 
 ## Tags
 
-[!INCLUDE [azure-policy-samples-policies-tags](../../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
+
+## VM Image Builder
+
+[!INCLUDE [azure-policy-reference-policies-vm-image-builder](../../../../includes/policy/reference/bycat/policies-vm-image-builder.md)]
 
 ## Next steps
 

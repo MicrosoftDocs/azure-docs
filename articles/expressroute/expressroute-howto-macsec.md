@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Configure MACsec'
 description: This article helps you configure MACsec to secure the connections between your edge routers and Microsoft's edge routers.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: cherylmc
+ms.author: duau
 
 ---
 
@@ -44,7 +44,7 @@ To start the configuration, sign in to your Azure account and select the subscri
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    If you already have a key vault or a resource group, you can reuse them. However, it is critical that you enable the [**soft-delete** feature](../key-vault/general/overview-soft-delete.md) on your existing key vault. If soft-delete is not enabled, you can use the following commands to enable it:
+    If you already have a key vault or a resource group, you can reuse them. However, it is critical that you enable the [**soft-delete** feature](../key-vault/general/soft-delete-overview.md) on your existing key vault. If soft-delete is not enabled, you can use the following commands to enable it:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

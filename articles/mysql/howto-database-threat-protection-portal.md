@@ -4,7 +4,7 @@ description: Learn how to configure Advanced Threat Protection to detect anomalo
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MySQL
@@ -28,7 +28,7 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
    - Enable Advanced Threat Protection on the server.
    - In **Advanced Threat Protection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
   
-   ![Set up threat detection](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
+   :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Set up threat detection":::
 
 ## Explore anomalous database activities
 
@@ -36,15 +36,15 @@ You receive an email notification upon detection of anomalous database activitie
  
 1. Click the **View recent alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
     
-    ![Anomalous activity report](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Anomalous activity report":::
 
     View active threats:
 
-    ![Active threats](./media/howto-database-threat-protection-portal/active-threats.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Active threats":::
 
 2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
     
-    ![Specific alert](./media/howto-database-threat-protection-portal/specific-alert.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Specific alert":::
 
 ## Explore threat detection alerts
 
@@ -52,10 +52,10 @@ SQL Database Threat Detection integrates its alerts with [Azure Security Center]
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 
-   ![Threat detection alert](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Threat detection alert":::
    
 
 ## Next steps
 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more information on pricing, see the [Azure Database for MySQL Pricing page](https://azure.microsoft.com/pricing/details/mysql/)  
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
+* For more information on pricing, see the [Azure Database for MySQL Pricing page](https://azure.microsoft.com/pricing/details/mysql/)

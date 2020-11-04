@@ -4,7 +4,8 @@ description: This tutorial describes how to create an Azure Managed Application 
 ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
-ms.date: 06/20/2019
+ms.date: 06/20/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create managed application with custom actions and resources
@@ -333,11 +334,11 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 * Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Screenshot shows the Add button selected from Users.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Go to "Users" page, select a "users" resource and click "Custom Context Action":
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Screenshot shows Custom Context Action selected.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 
@@ -347,6 +348,6 @@ If you have questions about Azure Managed Applications, try asking on [Stack Ove
 
 ## Next steps
 
-To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 Learn more about [Azure Custom Providers](../custom-providers/overview.md).

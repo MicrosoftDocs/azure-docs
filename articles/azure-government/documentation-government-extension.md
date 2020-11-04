@@ -4,21 +4,17 @@ description: This article lists virtual machine extensions available in Azure Go
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: 729197f0-c531-493f-a55b-3df950327d67
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/11/2018
-ms.author: gsacavdm
 
 ---
 # Azure Government virtual machine extensions
-This document contains a list of available [virtual machine extensions](../virtual-machines/windows/extensions-features.md) in Azure Government. If you'd like to see other extensions in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
+This document contains a list of available [virtual machine extensions](../virtual-machines/extensions/features-windows.md) in Azure Government. If you'd like to see other extensions in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -1,10 +1,10 @@
-﻿---
-title: CLI example-restore-backup-Azure SQL database 
-description: Azure CLI example script to restore an Azure SQL single database to an earlier point in time from automatic backups
+---
+title: "Azure CLI: Restore a backup"  
+description: Azure CLI example script to restore a database in Azure SQL Database to an earlier point in time from automatic backups. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
-ms.custom: 
+ms.subservice: operations
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
@@ -12,9 +12,9 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ---
-# Use CLI to restore an Azure SQL single database to an earlier point in time
+# Use CLI to restore a single database in Azure SQL Database to an earlier point in time
 
-This Azure CLI example restores an Azure SQL database to a specific point in time.  
+This Azure CLI example restores a single database in Azure SQL Database to a specific point in time.  
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Restore database command. |
 
@@ -54,4 +54,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

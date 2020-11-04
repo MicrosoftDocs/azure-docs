@@ -20,7 +20,7 @@ ms.date: 01/10/2018
 ## Overview
 While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.
 
-Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate on-premises SQL Server database. The company wants to build a single data warehouse in the cloud for ad hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments.
+Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate SQL Server database. The company wants to build a single data warehouse in the cloud for ad hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments.
 
 In this case, a task needs to be repeated within the same environment, but with different values across the 10 data factories for each manufacturing plant. In effect, **repetition** is present. Templating allows the abstraction of this generic flow (that is, pipelines having the same activities in each data factory), but uses a separate parameter file for each manufacturing plant.
 
@@ -36,14 +36,14 @@ See the following tutorials for step-by-step instructions to create Data Factory
 * [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md)
 
 ## Data Factory templates on GitHub
-Check out the following Azure quick start templates on GitHub:
+Check out the following Azure quickstart templates on GitHub:
 
 * [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
 * [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
 * [Create a Data factory that chains activities: copies data from an FTP server to Azure Blobs, invokes a hive script on an on-demand HDInsight cluster to transform the data, and copies result into Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-Feel free to share your Azure Data Factory templates at [Azure Quick start](https://azure.microsoft.com/documentation/templates/). Refer to the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) while developing templates that can be shared via this repository.
+Feel free to share your Azure Data Factory templates at [Azure quickstart](https://azure.microsoft.com/documentation/templates/). Refer to the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) while developing templates that can be shared via this repository.
 
 The following sections provide details about defining Data Factory resources in a Resource Manager template.
 
@@ -223,7 +223,7 @@ Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) fo
 }
 ```
 ## Parameterizing Data Factory template
-For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/resource-manager-template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
+For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
 
 * Settings vary by environment (example: development, test, and production)
 * Secrets (such as passwords)

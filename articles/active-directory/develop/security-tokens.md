@@ -74,7 +74,7 @@ Depending on how your client is built, it can use one (or several) of the authen
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Implicit flow](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Hybrid OIDC flow](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Hybrid OIDC flow](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Refresh token redemption](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | refresh token | x | x | x| |
 |[On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
 |[Client credentials](v2-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |

@@ -15,6 +15,11 @@ ms.author: aahi
 
 # What is the Bing Custom Search API?
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The Bing Custom Search API enables you to create tailored ad-free search experiences for topics that you care about. You can specify the domains and webpages for Bing to search, as well as pin, boost, or demote specific content to create a custom view of the web and help your users quickly find relevant search results. 
 
 ## Features
@@ -25,7 +30,7 @@ The Bing Custom Search API enables you to create tailored ad-free search experie
 |[Custom image search experiences](get-images-from-instance.md)     | Enable your users to search for images from the domains and websites specified in your custom search instance.        |        
 |[Custom video search experiences](get-videos-from-instance.md)     | Enable your users to search for videos from the domains and sites specified in your custom search instance.        |    
 |[Share your custom search instance](share-your-custom-search.md)     | Collaboratively edit and test your search instance by sharing it with members of your team.        | 
-|[Configure a UI for your applications and websites](hosted-ui.md)     | Collaboratively edit and test your search instance by sharing it with members of your team.        | 
+|[Configure a UI for your applications and websites](hosted-ui.md)     | Provides a hosted UI that you can easily integrate into your webpages and web applications as a JavaScript code snippet.        | 
 ## Workflow
 
 You can create a customized search instance by using the [Bing Custom Search portal](https://customsearch.ai). The portal enables you to create a custom search instance that specifies the domains, websites, and webpages that you want Bing to search, along with the ones that you don’t want it to search. You can also use the portal to: preview the search experience, adjust the search rankings that the API provides, and optionally configure a searchable user interface to be rendered in your websites and applications.

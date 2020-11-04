@@ -23,8 +23,6 @@ Account failover is available for general-purpose v1, general-purpose v2, and Bl
 
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover](storage-initiate-account-failover.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Choose the right redundancy option
@@ -52,9 +50,9 @@ It's important to design your application for high availability from the start. 
 Additionally, keep in mind these best practices for maintaining high availability for your Azure Storage data:
 
 - **Disks:** Use [Azure Backup](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines. Also consider using [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to protect your VMs in the event of a regional disaster.
-- **Block blobs:** Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](storage-use-data-movement-library.md).
-- **Files:** Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region.
-- **Tables:** use [AzCopy](storage-use-azcopy.md) to export table data to another storage account in a different region.
+- **Block blobs:** Turn on [soft delete](../blobs/soft-delete-blob-overview.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](storage-use-data-movement-library.md).
+- **Files:** Use [AzCopy](./storage-use-azcopy-v10.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region.
+- **Tables:** use [AzCopy](./storage-use-azcopy-v10.md) to export table data to another storage account in a different region.
 
 ## Track outages
 
@@ -100,6 +98,8 @@ The **Last Sync Time** property indicates the most recent time that data from th
 
 As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you are logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes have not been synced to the secondary.
 
+For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
 ### Use caution when failing back to the original primary
 
 After you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can then configure the account for geo-redundancy again. When the account is configured for geo-redundancy again after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the primary is fully copied to the new secondary.
@@ -128,7 +128,7 @@ Because the Azure Storage resource provider does not fail over, the [Location](/
 
 ### Azure virtual machines
 
-Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends the following [high availability](../../virtual-machines/windows/manage-availability.md) and [disaster recovery](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) guidance specific to virtual machines in Azure.
+Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends the following [high availability](../../virtual-machines/manage-availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
 
 ### Azure unmanaged disks
 
@@ -158,7 +158,7 @@ The following features and services are not supported for account failover:
 
 ## Copying data as an alternative to failover
 
-If your storage account is configured for read access to the secondary, then you can design your application to read from the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](../common/storage-use-data-movement-library.md) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
+If your storage account is configured for read access to the secondary, then you can design your application to read from the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](../common/storage-use-data-movement-library.md) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
 
 > [!CAUTION]
 > An account failover should not be used as part of your data migration strategy.
@@ -171,4 +171,5 @@ In extreme circumstances where a region is lost due to a significant disaster, M
 
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
+- [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)

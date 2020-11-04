@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 06/11/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.reviewer: artek
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Initiate a storage account failover
@@ -40,16 +41,16 @@ For more information about Azure Storage redundancy, see [Azure Storage redundan
 To initiate an account failover from the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-2. Under **Settings**, select **Geo-replication**. The following image shows the geo-replication and failover status of a storage account.
+1. Under **Settings**, select **Geo-replication**. The following image shows the geo-replication and failover status of a storage account.
 
-    ![Screenshot showing geo-replication and failover status](media/storage-initiate-account-failover/portal-failover-prepare.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing geo-replication and failover status":::
 
-3. Verify that your storage account is configured for geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). If it's not, then select **Configuration** under **Settings** to update your account to be geo-redundant. 
-4. The **Last Sync Time** property indicates how far the secondary is behind from the primary. **Last Sync Time** provides an estimate of the extent of data loss that you will experience after the failover is completed.
-5. Select **Prepare for failover**.
-6. Review the confirmation dialog. When you are ready, enter **Yes** to confirm and initiate the failover.
+1. Verify that your storage account is configured for geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). If it's not, then select **Configuration** under **Settings** to update your account to be geo-redundant.
+1. The **Last Sync Time** property indicates how far the secondary is behind from the primary. **Last Sync Time** provides an estimate of the extent of data loss that you will experience after the failover is completed. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+1. Select **Prepare for failover**.
+1. Review the confirmation dialog. When you are ready, enter **Yes** to confirm and initiate the failover.
 
-    ![Screenshot showing confirmation dialog for an account failover](media/storage-initiate-account-failover/portal-failover-confirm.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot showing confirmation dialog for an account failover":::
 
 ## [PowerShell](#tab/azure-powershell)
 
@@ -90,7 +91,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 To use Azure CLI to initiate an account failover, execute the following commands:
 
-```azurecli
+```azurecli-interactive
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
@@ -101,7 +102,9 @@ az storage account failover \ --name accountName
 
 When you initiate an account failover for your storage account, the DNS records for the secondary endpoint are updated so that the secondary endpoint becomes the primary endpoint. Make sure that you understand the potential impact to your storage account before you initiate a failover.
 
-To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property using the `Get-AzStorageAccount` PowerShell cmdlet, and include the `-IncludeGeoReplicationStats` parameter. Then check the `GeoReplicationStats` property for your account.
+To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
+The time it takes to failover after initiation can vary though typically less than one hour.
 
 After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -110,5 +113,6 @@ After you re-enable GRS for your storage account, Microsoft begins replicating t
 ## Next steps
 
 - [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
+- [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)

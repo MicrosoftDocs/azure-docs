@@ -22,7 +22,7 @@ To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also monitor the health of your cluster and resources.
+For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access control (RBAC). You can also monitor the health of your cluster and resources.
 
 ### Identity and security management
 
@@ -59,6 +59,12 @@ To learn more about lifecycle versions, see [Supported Kubernetes versions in AK
 AKS supports the creation of GPU enabled node pools. Azure currently provides single or multiple GPU enabled VMs. GPU enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads.
 
 For more information, see [Using GPUs on AKS][aks-gpu].
+
+### Confidential computing nodes (public preview)
+
+AKS supports the creation of Intel SGX based confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware based trusted and isolated execution environment (enclaves). Isolation between containers combined with code integrity through attestation can help with your defense-in-depth container security strategy. Confidential computing nodes supports both confidential containers (existing docker apps) and enclave aware containers.
+
+For more information, see [Confidential computing nodes on AKS][conf-com-node]
 
 ### Storage volume support
 
@@ -120,7 +126,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
-[aks-aad]: ./azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
@@ -128,14 +134,15 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
+[azure-dev-spaces]: ../dev-spaces/index.yml
+[azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
-[container-health]: ../monitoring/monitoring-container-health.md
+[container-health]: ../azure-monitor/insights/container-insights-overview.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

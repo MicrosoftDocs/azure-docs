@@ -1,6 +1,6 @@
 ---
 title: Rehydrate blob data from the archive tier
-description: Rehydrate your blobs from archive storage so you can access the data.
+description: Rehydrate your blobs from archive storage so you can access the blob data. Copy an archived blob to an online tier.
 services: storage
 author: mhopkins-msft
 
@@ -90,10 +90,10 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to Hot using Standard priority rehydrate
-$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 ```
 ---
 

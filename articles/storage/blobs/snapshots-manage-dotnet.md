@@ -1,26 +1,27 @@
 ---
 title: Create and manage a blob snapshot in .NET
 titleSuffix: Azure Storage
-description: Learn how to create a read-only snapshot of a blob to back up blob data at a given moment in time.
+description: Learn how to use the .NET client library to create a read-only snapshot of a blob to back up blob data at a given moment in time.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Create and manage a blob snapshot in .NET
 
-A snapshot is a read-only version of a blob that's taken at a point in time. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+A snapshot is a read-only version of a blob that's taken at a point in time. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
-For more information about blob snapshots in Azure Storage, see [Create and manage a blob snapshot in .NET](snapshots-overview.md).
+For more information about blob snapshots in Azure Storage, see [Blob snapshots](snapshots-overview.md).
 
 ## Create a snapshot
 
-# [.NET version 12.x](#tab/v12)
+# [.NET v12](#tab/dotnet)
 
 To create a snapshot of a block blob using version 12.x of the Azure Storage client library for .NET, use one of the following methods:
 
@@ -73,7 +74,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# [.NET version 11.x](#tab/v11)
+# [.NET v11](#tab/dotnet11)
 
 To create a snapshot of a block blob using version 11.x of the Azure Storage client library for .NET, use one of the following methods:
 
@@ -122,7 +123,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 To delete a blob, you must first delete any snapshots of that blob. You can delete a snapshot individually, or specify that all snapshots be deleted when the source blob is deleted. If you attempt to delete a blob that still has snapshots, an error results.
 
-# [.NET version 12.x](#tab/v12)
+# [.NET v12](#tab/dotnet)
 
 To delete a blob and its snapshots using version 12.x of the Azure Storage client library for .NET, use one of the following methods, and include the [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) enum:
 
@@ -137,7 +138,7 @@ The following code example shows how to delete a blob and its snapshots in .NET,
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# [.NET version 11.x](#tab/v11)
+# [.NET v11](#tab/dotnet11)
 
 To delete a blob and its snapshots using version 11.x of the Azure Storage client library for .NET, use one of the following blob deletion methods, and include the [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) enum:
 
@@ -157,5 +158,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## Next steps
 
 - [Blob snapshots](snapshots-overview.md)
-- [Blob versions (preview)](versioning-overview.md)
+- [Blob versions](versioning-overview.md)
 - [Soft delete for blobs](storage-blob-soft-delete.md)

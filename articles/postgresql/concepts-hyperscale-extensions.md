@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/09/2020
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -35,6 +35,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. |
 
 ### Full-text search extensions
@@ -68,7 +69,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Functions for implementing time travel. |
 > | [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). |
 
-### Hyperscale extensions
+### Hyperscale (Citus) extensions
 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** |
@@ -133,11 +134,22 @@ The following tables list the standard PostgreSQL extensions that are currently 
 ## pg_stat_statements
 The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you with a means of tracking execution statistics of SQL statements.
 
-The setting `pg_stat_statements.track` controls what statements are counted by the extension. It defaults to `top`, which means that all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+The setting `pg_stat_statements.track` controls what statements are counted by the extension. It defaults to `top`, which means that all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](./howto-configure-server-parameters-using-portal.md) or the [Azure CLI](./howto-configure-server-parameters-using-cli.md).
 
 There's a tradeoff between the query execution information pg_stat_statements provides and the effect on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
 ## dblink and postgres_fdw
-You can use dblink and postgres_fdw to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. To use these extensions to connect between Azure Database for PostgreSQL servers, set **Allow access to Azure services** to ON. You also need to turn this setting ON if you want to use the extensions to loop back to the same server. The **Allow access to Azure services** setting can be found in the Azure portal page for the Postgres server under **Connection Security**. Turning **Allow access to Azure services** ON whitelists all Azure IPs.
 
-Currently, outbound connections from Azure Database for PostgreSQL aren't supported, except for connections to other Azure Database for PostgreSQL servers.
+You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
+another, or to another database in the same server.  The receiving server needs
+to allow connections from the sending server through its firewall.  To use
+these extensions to connect between Azure Database for PostgreSQL servers or
+Hyperscale (Citus) server groups, set **Allow Azure services and resources to
+access this server group (or server)** to ON.  You also need to turn this
+setting ON if you want to use the extensions to loop back to the same server.
+The **Allow Azure services and resources to access this server group** setting
+can be found in the Azure portal page for the Hyperscale (Citus) server group
+under **Networking**.  Currently, outbound connections from Azure Database for
+PostgreSQL Single server and Hyperscale (Citus) aren't supported, except for
+connections to other Azure Database for PostgreSQL servers and Hyperscale
+(Citus) server groups.

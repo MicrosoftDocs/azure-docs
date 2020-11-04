@@ -1,32 +1,30 @@
 ---
 title: Problems signing in to a Microsoft application | Microsoft Docs
-description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Office 365)
+description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Microsoft 365).
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-
 ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to a Microsoft application
 
-Microsoft Applications (like Office 365 Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
+Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
 
 There are three main ways that a user can get access to a Microsoft-published application.
 
--   For applications in the Office 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
+-   For applications in the Microsoft 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
 
 -   For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 
@@ -58,7 +56,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
   * Make sure the **user’s account exists** in Azure Active Directory. [Check if a user account exists in Azure Active Directory](#problems-with-the-users-account)
 
-  * Make sure the user’s account is **enabled** for sign ins. [Check a user’s account status](#problems-with-the-users-account)
+  * Make sure the user’s account is **enabled** for sign-ins. [Check a user’s account status](#problems-with-the-users-account)
 
   * Make sure the user’s **password is not expired or forgotten.** [Reset a user’s password](#reset-a-users-password) or [Enable self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
@@ -435,7 +433,7 @@ To check or validate a single Conditional Access policy:
 7. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
    >[!NOTE]
-   >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
+   >You may wish to temporarily disable this policy to ensure it is not affecting sign-ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
    >
    >
 
@@ -467,7 +465,7 @@ To check or validate a single application’s currently configured Conditional A
 9.  Review that there are no specific conditions, assignments, or other settings which may be blocking user access.
 
      >[!NOTE]
-     >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
+     >You may wish to temporarily disable this policy to ensure it is not affecting sign-ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
      >
      >
 

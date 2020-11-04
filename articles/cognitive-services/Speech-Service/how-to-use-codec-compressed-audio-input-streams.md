@@ -10,14 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
+ms.custom: devx-track-csharp
+zone_pivot_groups: programming-languages-set-twenty-two
 ---
 
 # Use codec compressed audio input with the Speech SDK
 
 The Speech service SDK **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using either a `PullStream` or `PushStream`.
 
-Streaming compressed input audio is currently supported for C#, C++, Java on Windows (UWP applications aren't supported) and Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). It is also supported for Java in Android and Objective-C in iOS platform.
+Platform | Languages | Supported GStreamer version
+| :--- | ---: | :---:
+Windows (excluding UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md)
+Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
+
+## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
 * Speech SDK version 1.11.0 or later is required for for Windows.
 
@@ -37,8 +44,8 @@ Streaming compressed input audio is currently supported for C#, C++, Java on Win
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
 ## Example code using codec compressed audio input
@@ -55,8 +62,8 @@ Streaming compressed input audio is currently supported for C#, C++, Java on Win
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## Next steps

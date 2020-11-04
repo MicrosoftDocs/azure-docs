@@ -10,10 +10,11 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 06/04/2020
 ms.author: jingwang
 ---
-# Quickstart: Create a data factory by using the Azure Data Factory UI
+
+# Quickstart: Create a data factory by using the Azure Data Factory UI 
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -24,7 +25,7 @@ ms.author: jingwang
 This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline that you create in this data factory *copies* data from one folder to another folder in Azure Blob storage. To *transform* data by using Azure Data Factory, see [Mapping data flow](concepts-data-flow-overview.md) and [Wrangling data flow (Preview)](wrangling-data-flow-overview.md).
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) before doing this quickstart. 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -37,8 +38,6 @@ Watching this video helps you understand the Data Factory UI:
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. From the Azure portal menu, select **Create a resource**.
-   
-   ![Select Create a resource from Azure portal menu](./media/doc-common-process/create-a-resource.png)
 1. Select **Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -59,6 +58,8 @@ Watching this video helps you understand the Data Factory UI:
 
    The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. The associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
 
+1. Select **Next: Git configuration**, and then select **Configure Git later**.
+
 1. Select **Create**. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
 1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
@@ -75,9 +76,12 @@ Watching this video helps you understand the Data Factory UI:
 ## Create a linked service
 In this procedure, you create a linked service to link your Azure Storage account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
-1. Select **Connections**, and then select the **New** button on the toolbar (**Connections** button is located
-at the bottom of the left column under **Factory Resources**). 
+1. Open [Manage tab](./author-management-hub.md) from the left pane.
 
+1. On the Linked services page, select **+New** to create a new linked service.
+
+   ![New linked service](./media/doc-common-process/new-linked-service.png)
+   
 1. On the **New Linked Service** page, select **Azure Blob Storage**, and then select **Continue**. 
 
 1. On the New Linked Service (Azure Blob Storage) page, complete the following steps: 
@@ -90,7 +94,7 @@ at the bottom of the left column under **Factory Resources**).
 
    d. Select **Create** to save the linked service. 
 
-      ![New linked service](./media/quickstart-create-data-factory-portal/linked-service.png)
+      ![Linked service](./media/quickstart-create-data-factory-portal/linked-service.png)
 
 
 ## Create datasets
@@ -139,12 +143,13 @@ In the linked service settings, you specified the Azure Storage account that con
     f. Select **OK**.   
 
     ![Set properties for OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## Create a pipeline 
 In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
 
 1. Select the **+** (plus) button, and then select **Pipeline**. 
 
-1. In the **General** tab, specify **CopyPipeline** for **Name**. 
+1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** toolbox, expand **Move & Transform**. Drag the **Copy Data** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
    ![Creating a copy data activity](./media/quickstart-create-data-factory-portal/copy-activity.png)
@@ -217,4 +222,4 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
 1. Confirm that an output file is created for every pipeline run until the specified end date and time in the **output** folder. 
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md). 
+The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md).

@@ -6,9 +6,20 @@ ms.date: 03/25/2020
 ms.author: trbye
 ---
 
+In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
+
+* Getting responses as in-memory streams
+* Customizing output sample rate and bit rate
+* Submitting synthesis requests using SSML (speech synthesis markup language)
+* Using neural voices
+
+## Skip to samples on GitHub
+
+If you want to skip straight to sample code, see the [C++ quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/text-to-speech) on GitHub.
+
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -47,7 +58,7 @@ There are a few ways that you can initialize a [`SpeechConfig`](https://docs.mic
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) using a subscription key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```cpp
 int wmain()

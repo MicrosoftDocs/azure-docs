@@ -1,6 +1,6 @@
 ---
 title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
-description: Learn how to import an OpenAPI specification with API Management.
+description: Learn how to import an OpenAPI specification with API Management, and then test the API in the Azure and Developer portals.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,7 +10,7 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 
@@ -38,7 +38,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 2. Select **OpenAPI specification** from the **Add a new API** list.
 
     ![OpenAPI specification](./media/import-api-from-oas/oas-api.png)
-3. Enter API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+3. Enter API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 4. Select **Create**.
 
 > [!NOTE]

@@ -1,19 +1,19 @@
 ---
-title: Create and use external tables in SQL on-demand (preview)
-description: In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+title: Create and use external tables in serverless SQL pool (preview)
+description: In this section, you'll learn how to create and use external tables in serverless SQL pool (preview).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
-# Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
+# Create and use external tables using serverless SQL pool (preview) in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand. External tables can access two types of storage:
+In this section, you'll learn how to create and use [external tables](develop-tables-external-tables.md) in serverless SQL pool (preview). External tables are useful when you want to control access to external data in serverless SQL pool and if you want to use tools, such as Power BI, in conjunction with serverless SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
 - Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
@@ -56,7 +56,11 @@ The queries in this article will be executed on your sample database and use the
 
 ## Create an external table on protected data
 
-You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
+
+The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. 
+
+Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. 
@@ -76,7 +80,6 @@ WITH (
     DATA_SOURCE = sqlondemanddemo,
     FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
-GO
 ```
 
 ## Create an external table on public data
@@ -100,11 +103,11 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
-## Use a external table
+## Use an external table
 
-You can use external tables in your queries the same way you use them in SQL Server queries.
+You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
 
-The following query demonstrates this using the *population* external table we created in previous section. It returns country names with their population in 2019 in descending order.
+The following query demonstrates this using the *population* external table we created in previous section. It returns country/region names with their population in 2019 in descending order.
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created.
@@ -124,4 +127,4 @@ ORDER BY
 
 ## Next steps
 
-For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql/create-external-table-as-select.md).
+For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql/create-external-table-as-select.md) article.

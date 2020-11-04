@@ -1,17 +1,13 @@
 ---
 title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
-description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a SQL Data Warehouse. It uses an Azure Function to retrieve a Capture file.'
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
+description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a Azure Synapse Analytics. It uses an Azure Function to retrieve a Capture file.'
 ms.topic: tutorial
-ms.date: 11/05/2019
-ms.author: spelluru
+ms.date: 07/07/2020
+ms.custom: devx-track-csharp
 ---
+
 # Tutorial: Stream big data into a data warehouse
-Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications (events) from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Azure Data Lake Storage, and migrate the data to other data repositories. This [Event Hubs and Event Grid integration sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows you how to use Event Hubs with Event Grid to seamlessly migrate captured Event Hubs data from blob storage to a SQL Data Warehouse.
+Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications (events) from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Azure Data Lake Storage, and migrate the data to other data repositories. This [Event Hubs and Event Grid integration sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows you how to use Event Hubs with Event Grid to seamlessly migrate captured Event Hubs data from blob storage to a Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 ![Application overview](media/event-grid-event-hubs-integration/overview.png)
 
@@ -21,12 +17,12 @@ This diagram depicts the workflow of the solution you build in this tutorial:
 2. When the data capture is complete, an event is generated and sent to an Azure event grid. 
 3. The event grid forwards this event data to an Azure function app.
 4. The function app uses the blob URL in the event data to retrieve the blob from the storage. 
-5. The function app migrates the blob data to an Azure SQL data warehouse. 
+5. The function app migrates the blob data to an Azure Synapse Analytics. 
 
 In this article, you take the following steps:
 
 > [!div class="checklist"]
-> * Use an Azure Resource Manager template to deploy the infrastructure: an event hub, a storage account, a function app, a SQL data warehouse.
+> * Use an Azure Resource Manager template to deploy the infrastructure: an event hub, a storage account, a function app, a Synapse Analytics.
 > * Create a table in the data warehouse.
 > * Add code to the function app.
 > * Subscribe to the event. 
@@ -51,7 +47,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 * App service plan for hosting the function app
 * Function app for processing the event
 * SQL Server for hosting the data warehouse
-* SQL Data Warehouse for storing the migrated data
+* Azure Synapse Analytics for storing the migrated data
 
 ### Launch Azure Cloud Shell in Azure portal
 
@@ -65,7 +61,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 4. In the Cloud Shell, if you see an option to select between **Bash** and **PowerShell**, select **Bash**. 
 5. If you are using the Cloud Shell for the first time, create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files. 
 
-    ![Create storage for cloud shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Screenshot that shows the "You have no storage mounted" dialog with the "Create storage" button selected.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Wait until the Cloud Shell is initialized. 
 
     ![Create storage for cloud shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -74,12 +70,11 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 ### Use Azure CLI
 
 1. Create an Azure resource group by running the following CLI command: 
-    1. Copy and paste the following command into the Cloud Shell window
+    1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
 
         ```azurecli
-        az group create -l eastus -n <Name for the resource group>
+        az group create -l eastus -n rgDataMigration
         ```
-    1. Specify a name for the **resource group**
     2. Press **ENTER**. 
 
         Here is an example:
@@ -97,12 +92,12 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
           "tags": null
         }
         ```
-2. Deploy all the resources mentioned in the previous section (event hub, storage account, functions app, SQL data warehouse) by running the following CLI command: 
+2. Deploy all the resources mentioned in the previous section (event hub, storage account, functions app, Azure Synapse Analytics) by running the following CLI command: 
     1. Copy and paste the command into the Cloud Shell window. Alternatively, you may want to copy/paste into an editor of your choice, set values, and then copy the command to the Cloud Shell. 
 
         ```azurecli
         az group deployment create \
-            --resource-group rgDataMigrationSample \
+            --resource-group rgDataMigration \
             --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
         ```
@@ -112,7 +107,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
         3. Name for the event hub. You can leave the value as it is (hubdatamigration).
         4. Name for the SQL server.
         5. Name of the SQL user and password. 
-        6. Name for the SQL data warehouse
+        6. Name for the Azure Synapse Analytics
         7. Name of the storage account. 
         8. Name for the function app. 
     3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you are creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
@@ -127,11 +122,11 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     1. Copy and paste the following command into the Cloud Shell window.
 
         ```powershell
-        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location eastus
         ```
     2. Specify a name for the **resource group**.
     3. Press ENTER. 
-3. Deploy all the resources mentioned in the previous section (event hub, storage account, functions app, SQL data warehouse) by running the following command:
+3. Deploy all the resources mentioned in the previous section (event hub, storage account, functions app, Azure Synapse Analytics) by running the following command:
     1. Copy and paste the command into the Cloud Shell window. Alternatively, you may want to copy/paste into an editor of your choice, set values, and then copy the command to the Cloud Shell. 
 
         ```powershell
@@ -143,7 +138,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
         3. Name for the event hub. You can leave the value as it is (hubdatamigration).
         4. Name for the SQL server.
         5. Name of the SQL user and password. 
-        6. Name for the SQL data warehouse
+        6. Name for the Azure Synapse Analytics
         7. Name of the storage account. 
         8. Name for the function app. 
     3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you are creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
@@ -162,14 +157,14 @@ Close the cloud shell by selecting the **Cloud Shell** button in the portal (or)
 
     ![Resources in the resource group](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
-### Create a table in SQL Data Warehouse
+### Create a table in Azure Synapse Analytics
 Create a table in your data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script. To run the script, you can use Visual Studio or the Query Editor in the portal. The following steps show you how to use the Query Editor: 
 
-1. In the list of resources in the resource group, select your SQL data warehouse. 
-2. In the SQL data warehouse page, select **Query editor (preview)** in the left menu. 
+1. In the list of resources in the resource group, select your **dedicated SQL pool**. 
+2. In the Azure Synapse Analytics page, select **Query editor (preview)** in the left menu. 
 
-    ![SQL data warehouse page](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Enter the name of **user** and **password** for the SQL server, and select **OK**. 
+    ![Azure Synapse Analytics page](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+2. Enter the name of **user** and **password** for the SQL server, and select **OK**. You may need to add your client IP address to the firewall to successfully log in to SQL server. 
 
     ![SQL server authentication](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. In the query window, copy and run the following SQL script: 
@@ -188,6 +183,17 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
     ![Run SQL query](media/event-grid-event-hubs-integration/run-sql-query.png)
 5. Keep this tab or window open so that you can verify that the data is created at the end of the tutorial. 
 
+### Update the function runtime version
+
+1. In the Azure portal, select **Resource groups** on the left menu.
+2. Select the resource group in which the function app exists. 
+3. Select the function app of type **App Service** in the list of resources in the resource group.
+4. Select **Configuration** under **Settings** on the left menu. 
+5. Switch to the **Function runtime settings** tab in the right pane. 
+5. Update the **runtime version** to **~3**. 
+
+    ![Update function runtime version](media/event-grid-event-hubs-integration/function-runtime-version.png)
+    
 
 ## Publish the Azure Functions app
 
@@ -198,14 +204,21 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
    ![Publish function app](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. If you see the following screen, select **Start**. 
 
-   ![Start publish button](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. In the **Pick a publish target** page, select the **Select existing** option, and select **Create Profile**. 
+   ![Screenshot that shows Visual Studios with the "Start" button in the Publish section.](media/event-grid-event-hubs-integration/start-publish-button.png) 
+5. In the **Publish** dialog box, select **Azure** for **Target**, and select **Next**. 
 
-   ![Pick a publish target](media/event-grid-event-hubs-integration/publish-select-existing.png)
-6. In the App Service page, select your **Azure subscription**, select the **function app** in your resource group, and select **OK**. 
+   ![Start publish button](media/event-grid-event-hubs-integration/publish-select-azure.png)
+6. Select **Azure Function App (Windows)**, and select **Next**. 
 
-   ![App Service page](media/event-grid-event-hubs-integration/publish-app-service.png) 
-1. When Visual Studio has configured the profile, select **Publish**.
+   ![Select Azure Function App - Windows](media/event-grid-event-hubs-integration/select-azure-function-windows.png)
+7. On the **Functions instance** tab, select your Azure subscription, expand the resource group, and select you function app, and then select **Finish**. You need to sign into your Azure account if you haven't already done so. 
+
+   ![Select your function app](media/event-grid-event-hubs-integration/publish-select-function-app.png)
+8. In the **Service Dependencies** section, select **Configure**.
+9. On the **Configure dependency** page, select the storage account you created earlier, and then select **Next**. 
+10. Keep the settings for connection string name and value, and select **Next**.
+11. Clear the **Secrets store** option, and then select **Finish**.  
+8. When Visual Studio has configured the profile, select **Publish**.
 
    ![Select publish](media/event-grid-event-hubs-integration/select-publish.png)
 
@@ -219,25 +232,28 @@ After publishing the function, you're ready to subscribe to the event.
 4. Select your resource group in the list.
 
     ![Select your resource group](media/event-grid-event-hubs-integration/select-resource-group.png)
-4. Select the App Service plan in the list. 
+4. Select the App Service plan (not the App Service) in the list of resources in the resource group. 
 5. In the App Service Plan page, select **Apps** in the left menu, and select the function app. 
 
     ![Select your functions app](media/event-grid-event-hubs-integration/select-function-app-app-service-plan.png)
 6. Expand the function app, expand functions, and then select your function. 
+7. Select **Add Event Grid subscription** on the toolbar. 
 
     ![Select your Azure function](media/event-grid-event-hubs-integration/select-function-add-button.png)
-7. Select **Add Event Grid subscription** on the toolbar. 
 8. In the **Create Event Grid Subscription** page, do the following actions: 
-    1. In the **TOPIC DETAILS** section, do the following actions:
-        1. Select your Azure subscription.
+    1. In the **EVENT SUBSCRIPTION DETAILS** page, enter a name for the subscription (for example: captureEventSub), and select **Create**. 
+    2. In the **TOPIC DETAILS** section, do the following actions:
+        1. Select **Event Hubs Namespaces** for **Topic Types**. 
+        2. Select your Azure subscription.
         2. Select the Azure resource group.
-        3. Select the Event Hubs namespace.
-    2. In the **EVENT SUBSCRIPTION DETAILS** page, enter a name for the subscription (for example: captureEventSub), and select **Create**. 
-
+        3. Select your Event Hubs namespace.
+    3. In the **EVENT TYPES** section, confirm that the **Capture File Created** is selected for **Filter to Event Types**. 
+    4. In the **ENDPOINT DETAILS** section, confirm that the **Endpoint type** is set to **Azure Function** and **Endpoint** is set to the Azure function. 
+    
         ![Create Event Grid subscription](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## Run the app to generate data
-You've finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. Before running an application that generates data for event hub, you need to configure a few values.
+You've finished setting up your event hub, Azure Synapse Analytics, Azure function app, and event subscription. Before running an application that generates data for event hub, you need to configure a few values.
 
 1. In the Azure portal, navigate to your resource group as you did earlier. 
 2. Select the Event Hubs namespace.

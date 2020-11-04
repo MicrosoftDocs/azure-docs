@@ -2,27 +2,26 @@
 title: Resources for migrating apps to Azure Active Directory | Microsoft Docs
 description: Resources to help you migrate application access and authentication to Azure Active Directory (Azure AD). 
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/29/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: baselden
-
-ms.collection: M365-identity-device-management
 ---
 
 # Resources for migrating applications to Azure Active Directory
 
-Resources to help you migrate application access and authentication to Azure Active Directory (Azure AD). Take this short survey (https://aka.ms/AppsMigrationFeedback) to provide feedback on your experience migrating apps to Azure AD (including blockers to migration, need for tooling / guidance, or reasons for retaining your on-premises IDP). 
+Resources to help you migrate application access and authentication to Azure Active Directory (Azure AD).
 
 | Resource  | Description  |
 |:-----------|:-------------|
 |[Migrating your apps to Azure AD](https://aka.ms/migrateapps/whitepaper) | This white paper presents the benefits of migration, and describes how to plan for migration in four clearly-outlined phases: discovery, classification, migration, and ongoing management. You’ll be guided through how to think about the process and break down your project into easy-to-consume pieces. Throughout the document are links to important resources that will help you along the way. |
 |[Solution guide: Migrating apps from Active Directory Federation Services (AD FS) to Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | This solution guide walks you through the same four phases of planning and executing an application migration project described at a higher level in the migration whitepaper. In this guide, you’ll learn how to apply those phases to the specific goal of moving an application from Azure Directory Federated Services (AD FS) to Azure AD.|
+|[Developer tutorial: AD FS to Azure AD application migration playbook for developers](https://aka.ms/adfsplaybook) | This set of ASP.NET code samples and accompanying tutorials will help you learn how to safely and securely migrate your applications integrated with Active Directory Federation Services (AD FS) to Azure Active Directory (Azure AD). This tutorial is focused towards developers who not only need to learn configuring apps on both AD FS and Azure AD, but also become aware and confident of changes their code base will require in this process.|
 | [Tool: Active Directory Federation Services Migration Readiness Script](https://aka.ms/migrateapps/adfstools) | This is a script you can run on your on-premises Active Directory Federation Services (AD FS) server to determine the readiness of apps for migration to Azure AD.|
 | [Deployment plan: Migrating from AD FS to password hash sync](https://aka.ms/ADFSTOPHSDPDownload) | With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. This allows Azure AD to authenticate users without interacting with the on-premises Active Directory.| 
 | [Deployment plan: Migrating from AD FS to pass-through authentication](https://aka.ms/ADFSTOPTADPDownload)|Azure AD pass-through authentication helps users sign in to both on-premises and cloud-based applications by using the same password. This feature provides your users with a better experience since they have one less password to remember. It also reduces IT helpdesk costs because users are less likely to forget how to sign in when they only need to remember one password. When people sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.|

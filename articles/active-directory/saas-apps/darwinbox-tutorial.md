@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Darwinbox | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Darwinbox.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3614b11f-e3de-4abf-8e29-22a3c4971ee8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Darwinbox
@@ -27,8 +20,7 @@ In this tutorial, you'll learn how to integrate Darwinbox with Azure Active Dire
 * Control in Azure AD who has access to Darwinbox.
 * Enable your users to be automatically signed-in to Darwinbox with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,6 +28,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Darwinbox single sign-on (SSO) enabled subscription.
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 
 ## Scenario description
 
@@ -80,14 +75,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.darwinbox.in/`
+   1. In the **Sign on URL** text box, type a URL using the following pattern:
+      `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+      `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Darwinbox Client support team](https://darwinbox.com/contact-us.php) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+      > [!NOTE]
+      > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Darwinbox Client support team](https://darwinbox.com/contact-us.php) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -139,15 +134,36 @@ In this section, you create a user called B.Simon in Darwinbox. Work with [Darw
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Darwinbox tile in the Access Panel, you should be automatically signed in to the Darwinbox for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Darwinbox tile in the Access Panel, you should be automatically signed in to the Darwinbox for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+
+## Test SSO for Darwinbox (Mobile)
+
+1. Open Darwinbox mobile application. Click on **Enter Organization URL** now enter your organization URL in the textbox and click on Arrow button.
+
+    ![Screenshot that shows the "Darwinbox" mobile app with the "Enter Organization U R L" selected, and an example organization and "Arrow" button highlighted.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. If you have multiple domain, then click on your domain.
+
+    ![Screenshot that shows the "Choose your domain" screen with an example domain selected.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Enter your Azure AD email into the Darwinbox application and click **Next**.
+
+    ![Screenshot that shows the "Sign in" screen with the "Next" button highlighted.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Enter your Azure AD password into the Darwinbox application and click **Sign in**.
+
+    ![Screenshot that shows the "Enter password" screen with the "Next" button highlighted.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. Finally after successful sign in, the application homepage will be displayed.
+
+    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Darwinbox with Azure AD](https://aad.portal.azure.com/)
-

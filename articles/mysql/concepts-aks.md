@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 07/14/2020
 ---
 
 
@@ -37,13 +37,7 @@ The output will be the generated resource group that AKS creates containing the 
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## Open Service Broker for Azure 
-[Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) lets you provision Azure services directly from Kubernetes or Cloud Foundry. It is an [Open Service Broker API](https://www.openservicebrokerapi.org/) implementation for Azure.
-
-With OSBA, you can create an Azure Database for MySQL server and bind it to your AKS cluster using Kubernetes' native language. Learn about how to use OSBA and Azure Database for MySQL together on the [OSBA GitHub page](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
-
-
 
 ## Next steps
 - [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough.md)
-- Learn how to [Install WordPress from a Helm chart using OSBA and Azure Database for MySQL](../aks/integrate-azure.md)
+- Learn how to [Install WordPress from a Helm chart using OSBA and Azure Database for MySQL](../aks/index.yml)

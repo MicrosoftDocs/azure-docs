@@ -16,7 +16,7 @@ ms.date: 04/09/2020
 ---
 
 # Tutorial: Create a labeling project for multi-class image classification 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
 
@@ -40,7 +40,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -75,13 +75,13 @@ Azure Machine Learning datastores are used to store connection information, like
 
 ### Create a labeling project
 
-Now that you have your list of labelers and access to the data you want to have labeled, create your labeling project.
+Now that you have access to the data you want to have labeled, create your labeling project.
 
 1. At the top of the page, select **Projects**.
 
 1. Select **+ Add project**.
 
-    ![Create a project](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Create a project":::
 
 ### Project details
 
@@ -108,6 +108,12 @@ Now that you have your list of labelers and access to the data you want to have 
 
 1. Select **Next** to continue creating the project.
 
+### Incremental refresh
+
+If you plan to add new images to your dataset,  incremental refresh will find these new images and add them to your project.  When you enable this feature, the project will periodically check for new images.  You won't be adding new images to the datastore for this tutorial, so leave this feature unchecked.
+
+Select **Next** to continue.
+
 ### Label classes
 
 1. On the **Label classes** form, type a label name, then select **+Add label** to type the next label.  For this project, the labels are **Cat**, **Dog**, and **Uncertain**.
@@ -122,7 +128,7 @@ Now that you have your list of labelers and access to the data you want to have 
 
 1. Select **Next**.
 
-1. On the **ML assisted labeling** form, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
+1. In the **ML assisted labeling** section, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 
@@ -138,9 +144,7 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
-1. Select the project name in the list.
-
-1. Below the project name, select **Label data**.
+1. Select **Label link** for the project.
 
 1. Read the instructions, then select **Tasks**.
 

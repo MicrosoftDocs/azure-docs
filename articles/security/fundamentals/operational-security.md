@@ -1,6 +1,6 @@
 ---
 title: Azure Operational Security | Microsoft Docs
-description: Learn about Microsoft Azure Monitor logs, its services, and how it works.
+description: Introduce yourself to Microsoft Azure Monitor logs, its services, and how it works by reading this overview.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -78,7 +78,7 @@ The core functionality of Azure Monitor logs is provided by a set of services th
 This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 
-![Azure Monitor logs](./media/operational-security/azure-operational-security-fig2.png)
+![Diagram that shows data consolidation from various sources, so you can combine data from your Azure services with your existing on-premises environment.](./media/operational-security/azure-operational-security-fig2.png)
 
 The Azure Monitor service manages your cloud-based data securely by using the following methods:
 -	data segregation
@@ -105,7 +105,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
 
-A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/automation-update-management.md). This solution uses the [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
+A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/update-management/update-mgmt-overview.md). This solution uses the [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
 
 When you create a deployment, runbooks in [Azure Automation](../../automation/automation-intro.md) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 

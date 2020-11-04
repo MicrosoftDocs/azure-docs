@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Web Services (AWS) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Web Services (AWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 11/03/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Web Services (AWS)
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Amazon Web Services (AWS) with A
 * Enable your users to be automatically signed-in to Amazon Web Services (AWS) with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![Diagram of Azure AD and AWS relationship](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
@@ -62,7 +56,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Amazon Web Services (AWS) supports **SP and IDP** initiated SSO
-* Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protect exfiltration and infiltration of your organization's sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -78,7 +71,7 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
 1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Amazon Web Services (AWS)
+## Configure and test Azure AD SSO for Amazon Web Services (AWS)
 
 Configure and test Azure AD SSO with Amazon Web Services (AWS) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS).
 
@@ -102,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured, and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by selecting **Save**.
+1. In the **Basic SAML Configuration** section, update both **Identifier (Entity ID)** and **Reply URL** with the same default value: `https://signin.aws.amazon.com/saml`. You must select **Save** to save the configuration changes.
 
 1. When you are configuring more than one instance, provide an identifier value. From second instance onwards, use the following format, including a **#** sign to specify a unique SPN value.
 
@@ -116,15 +109,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name  | Source attribute  | Namespace |
 	| --------------- | --------------- | --------------- |
-	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  https://aws.amazon.com/SAML/Attributes |
+	| RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
+	| Role 			  | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
+	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** (Step 3) dialog box, select **Add a certificate**.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![Create new SAML Certificate](common/add-saml-certificate.png)
 
-1. On the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
+1. Generate a new SAML signing certificate, and then select **New Certificate**. Enter an email address for certificate notifications.
+   
+    ![New SAML Certificate](common/new-saml-certificate.png) 
+
+1. In the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+
+    ![The Certificate download link](./media/amazon-web-service-tutorial/certificate.png)
+
+1. In the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -297,7 +298,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 18. Create a new policy for this user.
 
-    ![Screenshot of Add user](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Screenshot shows the Add user page where you can create a policy for the user.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Select **Attach existing policies directly**.
 
@@ -315,7 +316,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 20. Download the user credentials of a user.
 
-    ![Screenshot of Add user](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Screenshot shows the Add user page with a Download c s v button to get user credentials.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copy the user **Access key ID** and **Secret access key**.
 
@@ -357,9 +358,20 @@ The objective of this section is to create a user called B.Simon in Amazon Web S
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Amazon Web Services (AWS) tile in the Access Panel, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to Amazon Web Services (AWS) Sign on URL where you can initiate the login flow.  
+
+* Go to Amazon Web Services (AWS) Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Amazon Web Services (AWS) for which you set up the SSO 
+
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Amazon Web Services (AWS) tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## Known issues
 
@@ -374,22 +386,12 @@ When you click the Amazon Web Services (AWS) tile in the Access Panel, you shoul
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
+  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 120 characters
 
-  * The combined length of the role ARN and the saml-provider ARN for a role being imported must be 119 characters or less
+## Next steps
 
-## Additional resources
+Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Try Amazon Web Services (AWS) with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Amazon Web Services (AWS) with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

@@ -1,4 +1,4 @@
-- name: DNS Documentation
+- name: DNS documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,6 +17,9 @@
       href: dns-getstarted-powershell.md
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
+    - name: Create a public zone - ARM Template
+      displayName: Resource Manager
+      href: dns-get-started-template.md
   - name: Private DNS
     items:
     - name: Create a private zone - portal
@@ -33,6 +36,8 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
+    - name: Creating a new Child DNS zone
+      href: tutorial-public-dns-zones-child.md
     - name: Alias records for Traffic Manager
       href: tutorial-alias-tm.md
     - name: Alias records for Public IP addresses
@@ -41,6 +46,10 @@
       href: tutorial-alias-rr.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Public DNS
     items:
     - name: Zones and records
@@ -71,7 +80,7 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: FAQ
       href: dns-faq-private.md
-- name: How to
+- name: How-to guides
   items:
   - name: Public DNS
     items:
@@ -142,7 +151,7 @@
     - name: Ruby
       href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
     - name: Python
-      href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
+      href: https://azure.github.io/azure-sdk-for-python/ref/DNS.html
     - name: REST
       href: /rest/api/dns/
     - name: Resource Manager template
@@ -163,8 +172,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Feature requests
     href: https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing

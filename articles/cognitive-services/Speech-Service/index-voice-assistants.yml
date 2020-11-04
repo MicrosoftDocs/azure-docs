@@ -38,24 +38,20 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Create a Custom Commands app
-          url: quickstart-custom-speech-commands-create-new.md
-        - text: Create a custom command with parameters
-          url: quickstart-custom-speech-commands-create-parameters.md
-        - text: Use Custom Commands with Custom Voice
-          url: quickstart-custom-speech-commands-select-custom-voice.md
-        - text: Use Custom Commands with the Speech SDK
-          url: quickstart-custom-speech-commands-speech-sdk.md
+        - text: Create a voice assistant using Custom Commands
+          url: quickstart-custom-commands-application.md
     - linkListType: how-to-guide
       links:
-      - text: Fulfill commands from a client
-        url: how-to-custom-speech-commands-fulfill-sdk.md
-      - text: Add parameter validation
-        url: how-to-custom-speech-commands-validations.md
-      - text: Add a confirmation
-        url: how-to-custom-speech-commands-confirmations.md
-      - text: Add a one-step correction
-        url: how-to-custom-speech-commands-one-step-correction.md
+        - text: Create application with simple commands
+          url: how-to-custom-commands-create-application-with-simple-commands.md
+        - text: Add parameters to your commands
+          url: how-to-custom-commands-add-parameters-to-commands.md
+        - text: Add validations to parameters and prompts for correction
+          url: how-to-custom-commands-add-parameter-configuration.md
+        - text: Integrate using the Speech SDK
+          url: how-to-custom-commands-setup-speech-sdk.md
+        - text: Setup Continuous Deployment for your Custom Commands app using Azure DevOps
+          url: how-to-custom-commands-deploy-cicd.md
 - title: Develop with Direct Line Speech
   linkLists:
     - linkListType: quickstart
@@ -80,3 +76,9 @@ landingContent:
       links:
         - text: Custom Keyword naming guidelines
           url: speech-devices-sdk-kws-guidelines.md
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

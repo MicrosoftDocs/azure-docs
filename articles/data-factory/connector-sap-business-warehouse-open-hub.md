@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.date: 06/12/2020
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory
@@ -20,7 +20,7 @@ ms.date: 03/24/2020
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW) via Open Hub. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -33,10 +33,11 @@ You can copy data from SAP Business Warehouse via Open Hub to any supported sink
 
 Specifically, this SAP Business Warehouse Open Hub connector supports:
 
-- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**.
+- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**. SAP BW4/HANA is not supported by this connector.
 - Copying data via Open Hub Destination local table which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
-- Connecting to Application Server.
+- Connecting to an SAP application server or SAP message server.
+- Retrieving data via RFC.
 
 ## SAP BW Open Hub Integration 
 
@@ -107,6 +108,10 @@ The following properties are supported for SAP Business Warehouse Open Hub linke
 | type | The type property must be set to: **SapOpenHub** | Yes |
 | server | Name of the server on which the SAP BW instance resides. | Yes |
 | systemNumber | System number of the SAP BW system.<br/>Allowed value: two-digit decimal number represented as a string. | Yes |
+| messageServer | The host name of the SAP message server.<br/>Use to connect to an SAP message server. | No |
+| messageServerService | The service name or port number of the message server.<br/>Use to connect to an SAP message server. | No |
+| systemId | The ID of the SAP system where the table is located.<br/>Use to connect to an SAP message server. | No |
+| logonGroup | The logon group for the SAP system.<br/>Use to connect to an SAP message server. | No |
 | clientId | Client ID of the client in the SAP W system.<br/>Allowed value: three-digit decimal number represented as a string. | Yes |
 | language | Language that the SAP system uses. | No (default value is **EN**)|
 | userName | Name of the user who has access to the SAP server. | Yes |

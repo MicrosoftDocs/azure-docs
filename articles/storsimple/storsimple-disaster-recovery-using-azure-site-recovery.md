@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
@@ -290,7 +290,7 @@ Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-activ
 1. In the Azure portal, select **Recovery services** vault &gt; **Recovery plans (Site Recovery)** &gt; **recoveryplan_name** created for the file server VM.
 1. On the Recovery plan blade, Click **More** &gt;  **Planned failover**.
 
-   ![Recovery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Screenshot that highlights the Planned failover and Failover options.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. On the **Confirm Planned Failover** blade, choose the source and target locations and select target network and click the check icon ✓ to start the failover process.
 1. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
 1. After replication is complete, the virtual machines start up at the secondary location.

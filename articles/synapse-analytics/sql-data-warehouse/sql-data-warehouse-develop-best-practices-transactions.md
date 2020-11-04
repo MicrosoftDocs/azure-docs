@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -414,4 +414,4 @@ The best scenario is to let in flight data modification transactions complete pr
 
 ## Next steps
 
-See [Transactions in Synapse SQL](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](sql-data-warehouse-best-practices.md).
+See [Transactions in Synapse SQL](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Azure Synapse Analytics Best Practices](sql-data-warehouse-best-practices.md).

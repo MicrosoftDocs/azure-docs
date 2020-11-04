@@ -1,6 +1,6 @@
 ---
 title: Trusted Internet Connections guidance for Azure
-description: Trusted Internet Connections guidance for Azure and SaaS services
+description: Learn about Trusted Internet Connections (TIC) guidance for Azure and software-as-a-service (SaaS) services.
 services: azure-government
 author: femila
 
@@ -43,9 +43,9 @@ The medium is public because it traverses a site's standard internet connection,
 
 There are several ways to meet the TIC Appendix H (Cloud Considerations) requirements, as specified in the Department of Homeland Security's, "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0." In this article, DHS TIC guidance is referred to as **TIC 2.0**.
 
-To enable the connection from the **Department or Agency (D/A)** to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
+To enable the connection from the **Department or Agency (D/A)** to Azure or Microsoft 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
 
-Office 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Office 365 is blocked and routes through the agency. The D/A can also connect to Office 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
+Microsoft 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](../../expressroute/expressroute-circuit-peerings.md) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Microsoft 365 is blocked and routes through the agency. The D/A can also connect to Microsoft 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
 
 For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the internet.
 
@@ -70,7 +70,7 @@ To configure a TIC-compliant architecture with Azure, you must first prevent dir
 
 Azure IaaS networking is conducted via virtual networks that are composed of subnets to which the network interface controllers (NICs) of virtual machines are associated.
 
-The simplest scenario to support TIC compliance is to assure that a virtual machine, or a collection of virtual machines, can't connect to any external resources. Assure the disconnection from external networks by using network security groups (NSGs). Use NSGs to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. You can change the rules of an NSG at any time, and changes are applied to all associated instances. To learn more about how to create an NSG, see [Filter network traffic with a network security group](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+The simplest scenario to support TIC compliance is to assure that a virtual machine, or a collection of virtual machines, can't connect to any external resources. Assure the disconnection from external networks by using network security groups (NSGs). Use NSGs to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. You can change the rules of an NSG at any time, and changes are applied to all associated instances. To learn more about how to create an NSG, see [Filter network traffic with a network security group](../../virtual-network/tutorial-filter-network-traffic.md).
 
 #### Force internet traffic through an on-premises network
 
@@ -81,7 +81,7 @@ Azure automatically creates system routes and assigns the routes to each subnet 
 
 ![TIC force tunneling](media/tic-diagram-c.png)
 
-All traffic that leaves the virtual network needs to route through the on-premises connection, to ensure that all traffic traverses the D/A TIC. You create custom routes by creating user-defined routes, or by exchanging Border Gateway Protocol (BGP) routes between your on-premises network gateway and an Azure VPN gateway. For more information about user-defined routes, see [Virtual network traffic routing: User-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). For more information about the BGP, see [Virtual network traffic routing: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+All traffic that leaves the virtual network needs to route through the on-premises connection, to ensure that all traffic traverses the D/A TIC. You create custom routes by creating user-defined routes, or by exchanging Border Gateway Protocol (BGP) routes between your on-premises network gateway and an Azure VPN gateway. For more information about user-defined routes, see [Virtual network traffic routing: User-defined routes](../../virtual-network/virtual-networks-udr-overview.md#user-defined). For more information about the BGP, see [Virtual network traffic routing: Border Gateway Protocol](../../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).
 
 #### Add user-defined routes
 
@@ -99,7 +99,7 @@ Azure offers several ways to audit TIC compliance.
 
 #### View effective routes
 
-Confirm that your default route is propagated by observing the _effective routes_ for a particular virtual machine, a specific NIC, or a user-defined route table in [the Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#diagnose-using-azure-portal) or in [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell#diagnose-using-powershell). The **Effective Routes** show the relevant user-defined routes, BGP advertised routes, and system routes that apply to the relevant entity, as shown in the following figure:
+Confirm that your default route is propagated by observing the _effective routes_ for a particular virtual machine, a specific NIC, or a user-defined route table in [the Azure portal](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-azure-portal) or in [Azure PowerShell](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-powershell). The **Effective Routes** show the relevant user-defined routes, BGP advertised routes, and system routes that apply to the relevant entity, as shown in the following figure:
 
 ![Effective routes](media/tic-screen-1.png)
 
@@ -108,7 +108,7 @@ Confirm that your default route is propagated by observing the _effective routes
 
 #### Use Azure Network Watcher
 
-Azure Network Watcher offers several tools to audit TIC compliance. For more information, see [this overview about Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
+Azure Network Watcher offers several tools to audit TIC compliance. For more information, see [this overview about Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ##### Capture network security group flow logs 
 
@@ -116,7 +116,7 @@ Use Network Watcher to capture network flow logs that indicate the metadata that
 
 ## Azure platform as a service offerings
 
-Azure PaaS services, such as Azure Storage, are accessible through an internet-reachable URL. Anyone with approved credentials can access the resource, such as a storage account, from any location without traversing a TIC. For this reason, many government customers incorrectly conclude that Azure PaaS services aren't compliant with TIC policies. Many Azure PaaS services can be compliant with TIC policy. A service is compliant when the architecture is the same as the TIC-compliant IaaS environment ([as previously described](https://docs.microsoft.com/azure/security/compliance/compliance-tic#azure-infrastructure-as-a-service-offerings)) and the service is attached to an Azure virtual network.
+Azure PaaS services, such as Azure Storage, are accessible through an internet-reachable URL. Anyone with approved credentials can access the resource, such as a storage account, from any location without traversing a TIC. For this reason, many government customers incorrectly conclude that Azure PaaS services aren't compliant with TIC policies. Many Azure PaaS services can be compliant with TIC policy. A service is compliant when the architecture is the same as the TIC-compliant IaaS environment ([as previously described](#azure-infrastructure-as-a-service-offerings)) and the service is attached to an Azure virtual network.
 
 When Azure PaaS services are integrated with a virtual network, the service is privately accessible from that virtual network. You can apply custom routing for 0.0.0.0/0 via user-defined routes or BGP. Custom routing ensures that all internet-bound traffic routes on-premises to traverse the TIC. Integrate Azure services into virtual networks by using the following patterns:
 
@@ -138,7 +138,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Data Lake                | Private preview  |
 |Azure Database for PostgreSQL  | Private preview  |
 |Azure Database for MySQL       | Private preview  |
-|Azure SQL Data Warehouse       | Public preview   |
+|Azure Synapse Analytics       | Public preview   |
 |Azure SQL Database             | General availability (GA) |
 |Azure Storage                  | GA               |
 
@@ -146,7 +146,7 @@ Services that support deployment of dedicated instances into a virtual network o
 
 |Service                               |Availability      |
 |--------------------------------------|------------------|
-|Azure SQL Database Managed Instance   | Public preview   |
+|Azure SQL Managed Instance   | Public preview   |
 |Azure Kubernetes Service (AKS)        | Public preview   |
 |Azure Service Fabric                  | GA               |
 |Azure API Management                  | GA               |
@@ -161,7 +161,7 @@ Services that support deployment of dedicated instances into a virtual network o
 
 ### Virtual network integration details
 
-The following diagram shows the general network flow for access to PaaS services. Access is shown from both virtual network injection and virtual network service tunneling. For more information about network service gateways, virtual networks, and service tags, see [Network and application security groups: Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+The following diagram shows the general network flow for access to PaaS services. Access is shown from both virtual network injection and virtual network service tunneling. For more information about network service gateways, virtual networks, and service tags, see [Network and application security groups: Service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 ![PaaS connectivity options for TIC](media/tic-diagram-e.png)
 
@@ -228,7 +228,7 @@ Networks in regions that are monitored by Network Watcher can conduct next hop t
 
 ## Conclusions
 
-You can easily configure access for Microsoft Azure, Office 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
+You can easily configure access for Microsoft Azure, Microsoft 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
 
 ## Appendix: Trusted Internet Connections patterns for common workloads
 
@@ -243,10 +243,10 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Web and mobile | API applications | | App Service Environment | |
 | Containers | Azure Container Service | | | Yes |
 | Containers | Azure Kubernetes Service (AKS) \* | | | Yes |
-| Database | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
+| Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
 | Database | Azure Database for MySQL | | | Yes |
 | Database | Azure Database for PostgreSQL | | | Yes |
-| Database | Azure SQL Data Warehouse | | | Yes |
+| Database | Azure Synapse Analytics | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
 | Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |

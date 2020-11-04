@@ -4,16 +4,17 @@ description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) support
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
 ---
 
 # Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Protocol Support
 
@@ -101,7 +102,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |top     |    No     |
 |whatsmyuri     |   Yes      |
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
 
@@ -132,7 +133,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$lookup    |    Yes|
 |$out        |Yes|
 |$indexStats|        No|
-|$facet    |No|
+|$facet    |Yes|
 |$bucket|    No|
 |$bucketAuto|    No|
 |$sortByCount|    Yes|
@@ -490,10 +491,10 @@ $nearSphere |  Yes |
 $geometry |  Yes |
 $minDistance | Yes |
 $maxDistance | Yes |
-$center | Yes |
-$centerSphere | Yes |
-$box | Yes |
-$polygon |  Yes |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## Cursor methods
 
@@ -537,7 +538,32 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 
 ## Unique indexes
 
-Unique indexes ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique' constraint.
+[Unique indexes](mongodb-indexing.md#unique-indexes) ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create unique indexes in Cosmos DB by using the `createIndex` command with the `unique` constraint parameter:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## Compound indexes
+
+[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to 8 fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index you need to specify more than one property as the parameter:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## Time-to-live (TTL)
 

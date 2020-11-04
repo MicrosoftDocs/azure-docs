@@ -1,32 +1,32 @@
 ---
-title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) 
-description: Maximum values allowed for various components of Synapse SQL pool in Azure Synapse.
+title: Capacity limits for dedicated SQL pool
+description: Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Azure Synapse Analytics (formerly SQL DW) capacity limits
+# Capacity limits for dedicated SQL pool in Azure Synapse Analytics
 
-Maximum values allowed for various components of Azure Synapse.
+Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
 
 ## Workload management
 
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU for a single SQL pool (data warehouse) unit | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU for a single dedicated SQL pool (data warehouse) unit | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Default DTU per server |54,000<br></br>By default, each SQL server (for example, myserver.database.windows.net) has a DTU Quota of 54,000, which allows up to DW5000c. This quota is simply a safety limit. You can increase your quota by [creating a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed, or multiply 9.5 by the total cDWU needed. For example:<br></br>DW6000 x 7.5 = 45,000 DTUs<br></br>DW5000c x 9.5 = 47,500 DTUs.<br></br>You can view your current DTU consumption from the SQL server option in the portal. Both paused and unpaused databases count toward the DTU quota. |
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU600c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
-| [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. Therefore at DWU1000c, tempdb is sized to 3.99 TB. |
+| [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more information on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. At DWU1000c, tempdb is sized to 3.99 TB. |
 ||||
 
 ## Database objects
@@ -38,7 +38,7 @@ Maximum values allowed for various components of Azure Synapse.
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
-| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
 | Index |Non-clustered indexes per table. |50<br/><br/>Applies to rowstore tables only. |
@@ -56,8 +56,8 @@ Maximum values allowed for various components of Azure Synapse.
 
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
-||||
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/> |
+|Polybase Loads|Total number of files|1,000,000<br/><br/>Polybase loads can not exceed more than 1M files. You may experience the following error: **Operation failed as split count exceeding upper bound of 1000000**.|
 
 ## Queries
 

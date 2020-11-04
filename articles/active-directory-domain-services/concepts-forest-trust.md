@@ -2,15 +2,15 @@
 title: How trusts work for Azure AD Domain Services | Microsoft Docs
 description: Learn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 ---
 
 # How trust relationships work for resource forests in Azure Active Directory Domain Services
@@ -22,6 +22,10 @@ To check for this trust relationship, the Windows security system computes a tru
 The access control mechanisms provided by AD DS and the Windows distributed security model provide an environment for the operation of domain and forest trusts. For these trusts to work properly, every resource or computer must have a direct trust path to a DC in the domain in which it is located.
 
 The trust path is implemented by the Net Logon service using  an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
+
+For an overview of how trusts apply to Azure AD DS, see [Resource forest concepts and features][create-forest-trust].
+
+To get started using trusts in Azure AD DS, [create a managed domain that uses forest trusts][tutorial-create-advanced].
 
 ## Trust relationship flows
 
@@ -54,7 +58,7 @@ Transitivity determines whether a trust can be extended outside of the two domai
 
 Each time you create a new domain in a forest, a two-way, transitive trust relationship is automatically created between the new domain and its parent domain. If child domains are added to the new domain, the trust path flows upward through the domain hierarchy extending the initial trust path created between the new domain and its parent domain. Transitive trust relationships flow upward through a domain tree as it is formed, creating transitive trusts between all domains in the domain tree.
 
-Authentication requests follow these trust paths, so accounts from any domain in the forest can be authenticated by any other domain in the forest. With a single logon process, accounts with the proper permissions can access resources in any domain in the forest.
+Authentication requests follow these trust paths, so accounts from any domain in the forest can be authenticated by any other domain in the forest. With a single sign in process, accounts with the proper permissions can access resources in any domain in the forest.
 
 ## Forest trusts
 
@@ -66,7 +70,7 @@ A forest trust can only be created between a forest root domain in one forest an
 
 The following diagram shows two separate forest trust relationships between three AD DS forests in a single organization.
 
-![Diagram of forest trusts relationships within a single organization](./media/concepts-forest-trust/forest-trusts.png)
+![Diagram of forest trusts relationships within a single organization](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 This example configuration provides the following access:
 
@@ -91,12 +95,12 @@ For example, when a one-way, forest trust is created between *Forest 1* (the tru
 Before you can create a forest trust, you need to verify you have the correct Domain Name System (DNS) infrastructure in place. Forest trusts can only be created when one of the following DNS configurations is available:
 
 * A single root DNS server is the root DNS server for both forest DNS namespaces - the root zone contains delegations for each of the DNS namespaces and the root hints of all DNS servers include the root DNS server.
-* Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace use DNS conditional forwarders for each DNS namespace to route queries for names in the other namespace.
+* When there is no shared root DNS server and the root DNS servers in each forest DNS namespace use DNS conditional forwarders for each DNS namespace to route queries for names in the other namespace.
 
     > [!IMPORTANT]
     > Azure AD Domain Services resource forest must use this DNS configuration. Hosting a DNS namespace other than the resource forest DNS namespace is not a feature of Azure AD Domain Services. Conditional forwarders is the proper configuration.
 
-* Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace are use DNS secondary zones are configured in each DNS namespace to route queries for names in the other namespace.
+* When there is no shared root DNS server and the root DNS servers in each forest DNS namespace are use DNS secondary zones are configured in each DNS namespace to route queries for names in the other namespace.
 
 To create a forest trust, you must be a member of the Domain Admins group (in the forest root domain) or the Enterprise Admins group in Active Directory. Each trust is assigned a password that the administrators in both forests must know. Members of Enterprise Admins in both forests can create the trusts in both forests at once and, in this scenario, a password that is cryptographically random is automatically generated and written for both forests.
 
@@ -124,7 +128,7 @@ If the client uses Kerberos V5 for authentication, it requests a ticket to the s
 
 2. Does a transitive trust relationship exist between the current domain and the next domain on the trust path?
     * If yes, send the client a referral to the next domain on the trust path.
-    * If no, send the client a logon-denied message.
+    * If no, send the client a sign-in denied message.
 
 ### NTLM referral processing
 
@@ -148,7 +152,7 @@ When two forests are connected by a forest trust, authentication requests made u
 
 When a forest trust is first established, each forest collects all of the trusted namespaces in its partner forest and stores the information in a [trusted domain object](#trusted-domain-object). Trusted namespaces include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces used in the other forest. TDO objects are replicated to the global catalog.
 
-Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following:
+Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following names:
 
 * The DNS name of a host.
 * The DNS name of a domain.
@@ -158,9 +162,9 @@ When a workstation in one forest attempts to access data on a resource computer 
 
 The following diagram and steps provide a detailed description of the Kerberos authentication process that's used when computers running Windows attempt to access resources from a computer located in another forest.
 
-![Diagram of the Kerberos process over a forest trust](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagram of the Kerberos process over a forest trust](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
-1. *User1* logs on to *Workstation1* using credentials from the *europe.tailspintoys.com* domain. The user then attempts to access a shared resource on *FileServer1* located in the *usa.wingtiptoys.com* forest.
+1. *User1* signs in to *Workstation1* using credentials from the *europe.tailspintoys.com* domain. The user then attempts to access a shared resource on *FileServer1* located in the *usa.wingtiptoys.com* forest.
 
 2. *Workstation1* contacts the Kerberos KDC on a domain controller in its domain, *ChildDC1*, and requests a service ticket for the *FileServer1* SPN.
 
@@ -168,7 +172,7 @@ The following diagram and steps provide a detailed description of the Kerberos a
 
     The global catalog then checks its database for information about any forest trusts that are established with its forest. If found, it compares the name suffixes listed in the forest trust trusted domain object (TDO) to the suffix of the target SPN to find a match. Once a match is found, the global catalog provides a routing hint back to *ChildDC1*.
 
-    Routing hints help direct authentication requests toward the destination forest. Hints are only used when all traditional authentication channels, such as local domain controller and then global catalog, fail to locate a SPN.
+    Routing hints help direct authentication requests toward the destination forest. Hints are only used when all traditional authentication channels, such as local domain controller and then global catalog, fail to locate an SPN.
 
 4. *ChildDC1* sends a referral for its parent domain back to *Workstation1*.
 
@@ -224,7 +228,7 @@ A password change isn't finalized until authentication using the password succee
 
 If authentication using the new password fails because the password is invalid, the trusting domain controller tries to authenticate using the old password. If it authenticates successfully with the old password, it resumes the password change process within 15 minutes.
 
-Trust password updates need to replicate to the domain controllers of both sides of the trust within 30 days. If the trust password is changed after 30 days and a domain controller then only has the N-2 password, it cannot use the trust from the trusting side and cannot create a secure channel on the trusted side.
+Trust password updates need to replicate to the domain controllers of both sides of the trust within 30 days. If the trust password is changed after 30 days and a domain controller only has the N-2 password, it cannot use the trust from the trusting side and cannot create a secure channel on the trusted side.
 
 ## Network ports used by trusts
 
@@ -272,7 +276,7 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 To learn more about resource forests, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+To get started with creating a managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

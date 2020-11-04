@@ -1,6 +1,6 @@
 ---
 title: Use Azure Table Storage and Azure Cosmos DB Table API with C++
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API by using C++.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
@@ -10,6 +10,7 @@ author: sakash279
 ms.author: akshanka
 ---
 # How to use Azure Table storage and Azure Cosmos DB Table API with C++
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -72,7 +73,7 @@ This example shows how to declare a static field to hold the Azure Storage conne
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Use the name of your Storage account for `<your_storage_account>`. For <your_storage_account_key>, use the access key for the Storage account listed in the [Azure portal](https://portal.azure.com). For information on Storage accounts and access keys, see [Create a storage account](../storage/common/storage-create-storage-account.md).
+Use the name of your Storage account for `<your_storage_account>`. For <your_storage_account_key>, use the access key for the Storage account listed in the [Azure portal](https://portal.azure.com). For information on Storage accounts and access keys, see [Create a storage account](../storage/common/storage-account-create.md).
 
 ### Set up an Azure Cosmos DB connection string
 
@@ -85,14 +86,14 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 
 Use the name of your Azure Cosmos DB account for `<your_cosmos_db_account>`. Enter your primary key for `<your_cosmos_db_account_key>`. Enter the endpoint listed in the [Azure portal](https://portal.azure.com) for `<your_cosmos_db_endpoint>`.
 
-To test your application in your local Windows-based computer, you can use the Azure storage emulator that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how to declare a static field to hold the connection string to your local storage emulator:  
+To test your application in your local Windows-based computer, you can use the Azure Storage Emulator that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The Storage Emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how to declare a static field to hold the connection string to your local storage emulator:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure storage emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../storage/common/storage-use-emulator.md).
 
 ### Retrieve your connection string
 
@@ -132,7 +133,7 @@ table.create_if_not_exists();
 
 ### Add an entity to a table
 
-To add an entity to a table, create a new `table_entity` object and pass it to `table_operation::insert_entity`. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than entities with different partition keys. Using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
+To add an entity to a table, create a new `table_entity` object and pass it to `table_operation::insert_entity`. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than entities with different partition keys. Using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure storage performance and scalability checklist](../storage/blobs/storage-performance-checklist.md).
 
 The following code creates a new instance of `table_entity` with some customer data to store. The code next calls `table_operation::insert_entity` to create a `table_operation` object to insert an entity into a table, and associates the new table entity with it. Finally, the code calls the `execute` method on the `cloud_table` object. The new `table_operation` sends a request to the Table service to insert the new customer entity into the `people` table.  
 

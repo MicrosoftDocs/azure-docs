@@ -1,13 +1,13 @@
 ---
 title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell'
-description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using PowerShell.
+description: Create an IPsec site-to-site VPN Gateway connection from your on-premises network to an Azure virtual network over the public internet using PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 01/15/2020
+ms.topic: how-to
+ms.date: 09/03/2020
 ms.author: cherylmc
 
 ---
@@ -233,7 +233,7 @@ There are a few different ways to verify your VPN connection.
 
 ## <a name="connectVM"></a>To connect to a virtual machine
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 
 ## <a name="modify"></a>To modify IP address prefixes for a local network gateway

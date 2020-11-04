@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with E Sales Manager Remix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and E Sales Manager Remix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Integrate Azure Active Directory with E Sales Manager Remix
 
@@ -122,7 +115,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 1. Under **E Sales Manager Remix Configuration**, select **Configure E Sales Manager Remix**.
 
-	![E Sales Manager Remix Configuration](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+	![Screenshot that shows the "E Sales Manager Remix Configuration" section with "Configure E Sales Manager Remix" selected.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     The **Configure sign-on** window opens.
 
@@ -264,7 +257,7 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the E Sales Manager Remix tile in the Access Panel, you should be signed in automatically to your E Sales Manager Remix application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md). 
 
 ## Additional resources
 
@@ -284,4 +277,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/esalesmanagerremix-tutorial/tutorial_general_201.png
 [202]: ./media/esalesmanagerremix-tutorial/tutorial_general_202.png
 [203]: ./media/esalesmanagerremix-tutorial/tutorial_general_203.png
-

@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # SAP workload on Azure virtual machine supported scenarios
-Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens a lot of different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported non-high-availability configurations and high-availability configurations and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), check the article [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
+Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens a lot of different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported non-high-availability configurations and high-availability configurations and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](./hana-overview-architecture.md), check the article [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md). 
 
 
 ## 2-Tier configuration
@@ -31,7 +31,7 @@ A graphical representation of such a configuration can look like:
 
 ![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/two-tier-simple-configuration.png)
 
-Such configurations are supported with Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, maxDB, and SAP ASE for production and non-production cases. For SAP HANA as DBMS, such type of configurations is supported for non-production cases only. This includes the deployment case of [Azure HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) as well.
+Such configurations are supported with Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, maxDB, and SAP ASE for production and non-production cases. For SAP HANA as DBMS, such type of configurations is supported for non-production cases only. This includes the deployment case of [Azure HANA Large Instances](./hana-overview-architecture.md) as well.
 For all OS/DBMS combinations supported on Azure, this type of configuration is supported. However, it is mandatory that you set the configuration of the DBMS and the SAP components in a way that DBMS and SAP components don't compete for memory and CPU resources and thereby exceed the physical available resources. This needs to be done by restricting the memory the DBMS is allowed to allocate. You also need to limit the SAP Extended Memory on application instances. You also need to monitor CPU consumption of the VM overall to make sure that the components are not maximizing the CPU resources. 
 
 > [!NOTE]
@@ -43,9 +43,9 @@ In such configurations, you separate the SAP application layer and the DBMS laye
 
 The graphical representation looks like:
 
-![Simple 2-Tier configuration](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Diagram that shows a simple 3-Tier configuration.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
-This type of configuration is supported on Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, SAP HANA, maxDB, and SAP ASE for production and non-production cases. This is the default deployment configuration for [Azure HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services.
+This type of configuration is supported on Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, SAP HANA, maxDB, and SAP ASE for production and non-production cases. This is the default deployment configuration for [Azure HANA Large Instances](./hana-overview-architecture.md). For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services.
 
 > [!NOTE]
 > For production SAP systems, we recommend additional high availability and eventual disaster recovery configurations as described later in this document
@@ -69,7 +69,7 @@ This type of DBMS deployment is supported for:
 Running multiple database instances on one host, you need to make sure that the different instances are not competing for resources and thereby exceed the physical resource limits of the VM. This is especially true for memory where you need to cap the memory anyone of the instances sharing the VM can allocate. That also might be true for the CPU resources the different database instances can leverage. All the DBMS mentioned have configurations that allow limiting memory allocation and CPU resources on an instance level.
 In order to have support for such a configuration for Azure VMs, it is expected that the disks or volumes that are used for the data and log/redo log files of the databases managed by the different instances are separate. Or in other words data or log/redo log files of databases managed by different DBMS instance are not supposed to share the same disks or volumes. 
 
-The disk configuration for HANA Large Instances is delivered configured and is detailed in [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos). 
+The disk configuration for HANA Large Instances is delivered configured and is detailed in [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md#single-node-mcos). 
 
 > [!NOTE]
 > For production SAP systems, we recommend additional high availability and eventual disaster recovery configurations as described later in this document. VMs with multiple DBMS instances are not supported with the high availability configurations described later in this document.
@@ -80,7 +80,7 @@ In a lot of cases, multiple dialog instances got deployed on bare metal servers 
 
 At 3-Tier configuration where multiple SAP dialog instances are run within Azure VMs can look like:
 
-![Multiple DBMS instances in one unit](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagram that shows a 3-Tier configuration where multiple SAP dialog instances are run within Azure VMs.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 For simplification, we did not distinguish between SAP Central Services and SAP dialog instances in the SAP application layer. In this simple 3-Tier configuration, there would be no high availability protection for SAP Central Services. For production systems, it is not recommended to leave SAP Central Services unprotected. For specifics on so called multi-SID configurations around SAP Central Instances and high-availability of such multi-SID configurations, see later sections of this document.
 
@@ -89,33 +89,33 @@ As you look to deploy SAP production systems, you need to consider hot standby t
 
 In general Microsoft supports only high availability configurations and software packages that are described under the SAP workload section in docs.microsoft.com. You can read the same statement in SAP note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Microsoft will not provide support for other high availability third-party software frameworks that are not documented by Microsoft in conjunction with SAP workload. In such cases, the third-party supplier of the high availability framework is the supporting party for the high availability configuration who needs to be engaged by you as a customer into the support process. Exceptions are going to be mentioned in this article. 
 
-In general Microsoft supports a limited set of high availability configurations on Azure VMs or HANA Large Instances units. For the supported scenarios of HANA Large Instances, read the document [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
+In general Microsoft supports a limited set of high availability configurations on Azure VMs or HANA Large Instances units. For the supported scenarios of HANA Large Instances, read the document [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
 
 For Azure VMs, the following high availability configurations are supported on DBMS level:
 
 - SAP HANA System Replication based on Linux Pacemaker on SUSE and Red Hat. See the detailed articles:
-	- [High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-	- [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+	- [High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
+	- [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 - SAP HANA scale-out n+m configurations using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) on SUSE and Red Hat. Details are listed in these articles:
-	- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server}](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-	- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+	- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server}](./sap-hana-scale-out-standby-netapp-files-suse.md)
+	- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - SQL Server Failover cluster based on Windows Scale-Out File Services. Though recommendation for production systems is to use SQL Server Always On instead of clustering. SQL Server Always On provides better availability using separate storage. Details are described in this article: 
-	- [Configure a SQL Server failover cluster instance on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster)
+	- [Configure a SQL Server failover cluster instance on Azure virtual machines](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 - SQL Server Always On is supported with the Windows operating system for SQL Server on Azure. This is the default recommendation for production SQL Server instances on Azure. Details are described in these articles:
-	- [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
-	- [Configure an Always On availability group on Azure virtual machines in different regions](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr).
-	- [Configure a load balancer for an Always On availability group in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+	- [Introducing SQL Server Always On availability groups on Azure virtual machines](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
+	- [Configure an Always On availability group on Azure virtual machines in different regions](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions.md).
+	- [Configure a load balancer for an Always On availability group in Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 - Oracle Data Guard for Windows and Oracle Linux. Details for Oracle Linux can be found in this article:
-	- [Implement Oracle Data Guard on an Azure Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+	- [Implement Oracle Data Guard on an Azure Linux virtual machine](../oracle/configure-oracle-dataguard.md)
 - IBM Db2 HADR on SUSE and RHEL Detailed documentation for SUSE and RHEL using Pacemaker is provided here:
-	- [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
-	- [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw)
+	- [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](./dbms-guide-ha-ibm.md)
+	- [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)
 - SAP ASE and SAP maxDB configuration as detailed in these documents:
-	- [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
-	- [SAP MaxDB, liveCache, and Content Server deployment on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
+	- [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
+	- [SAP MaxDB, liveCache, and Content Server deployment on Azure VMs](./dbms_guide_maxdb.md)
 - HANA Large Instances high availability scenarios are detailed in:
-	- [Supported scenarios for HANA Large Instances- HSR with STONITH for high availability](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability)
-	- [Supported scenarios for HANA Large Instances - Host auto failover (1+1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11)
+	- [Supported scenarios for HANA Large Instances- HSR with STONITH for high availability](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability)
+	- [Supported scenarios for HANA Large Instances - Host auto failover (1+1)](./hana-supported-scenario.md#host-auto-failover-11)
 
 > [!IMPORTANT]
 > For none of the scenarios described above, we support configurations of multiple DBMS instances in one VM. Means in each of the cases, only one database instance can be deployed per VM and protected with the described high availability methods. Protecting multiple DBMS instances under the same Windows or Pacemaker failover cluster is **NOT** supported at this point in time. Also Oracle Data Guard is supported for single instance per VM deployment cases only. 
@@ -143,23 +143,23 @@ Other high availability frameworks are known to exist and are known to run on Mi
 SAP Central Services is a second single point of failure of your SAP configuration. As a result, you would need to protect these Central Services processes as well. The offer supported and documented for SAP workload reads like:
 
 - Windows Failover Cluster Server using Windows Scale-out File Services for sapmnt and global transport directory. Details are described in the article:
-	- [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-	- [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
+	- [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](./sap-high-availability-guide-wsfc-file-share.md)
+	- [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md)
 - Windows Failover Cluster Server using SMB share based on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) for sapmnt and global transport directory. Details are listed in the article:
-	- [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
+	- [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md)
 - Windows Failover Cluster Server based on SIOS `Datakeeper`. Though documented by Microsoft, you need a support relationship with SIOS, so, that you can engage with SIOS support when using this solution. Details are described in the article:
-	- [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-	- [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
+	- [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md)
+	- [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md)
 - Pacemaker on SUSE operating system with creating a highly available NFS share using two SUSE VMs and `drdb` for file replication. Details are documented in the article
-	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-	- [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications](./high-availability-guide-suse.md)
+	- [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md)
 - Pacemaker SUSE operating system with leveraging NFS shares provided by [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Details are documented in
-	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md)
 - Pacemaker on Red Hat operating system with NFS share hosted on a `glusterfs` cluster. Details can be found in the articles
-	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
-	- [`GlusterFS` on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
+	- [`GlusterFS` on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md)
 - Pacemaker on Red Hat operating system with NFS share hosted on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Details are described in the article
-	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 
 Of the listed solutions, you need a support relationship with SIOS to support the `Datakeeper` product and to engage with SIOS directly in case of issues. Dependent on the way you licensed the Windows, Red Hat, and/or SUSE OS, you could also be required to have a support contract with your OS provider to have full support of the listed high availability configurations.
 
@@ -192,8 +192,8 @@ To reduce the number of VMs that are needed in large SAP landscapes, SAP allows 
 
 On Azure, a multi-SID cluster configuration is supported for the Windows operating system with ENSA1 and ENSA2. Recommendation is not to combine the older Enqueue Replication Service architecture (ENSA1) with the new architecture (ENSA2) on one multi-SID cluster. Details about such an architecture are documented in the articles
 
-- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk) 
-- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share) 
+- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) 
+- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md) 
 
 For SUSE, a multi-SID cluster based on Pacemaker is supported as well. So far the configuration is supported for:
 
@@ -201,40 +201,40 @@ For SUSE, a multi-SID cluster based on Pacemaker is supported as well. So far th
 - The old enqueue replication server ice architecture (ENSA1)
 - Two node Pacemaker cluster configurations
 
-The configuration is documented in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+The configuration is documented in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
 
 A multi-SID cluster with Enqueue Replication server schematically looks like
 
-![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagram that shows a  multi-SID cluster with Enqueue Replication server.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## SAP HANA scale-out scenarios
 SAP HANA scale-out scenarios are supported for a subset of the HANA certified Azure VMs as listed in the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). All the VMs marked with 'Yes' in the column 'Clustering' can be used for either OLAP or S/4HANA scale-out. Configurations without standby are supported with the Azure Storage types of: 
 
 - Azure Premium Storage, including Azure Write accelerator for the /hana/log volume
-- [Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Ultra disk](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 SAP HANA scale-out configurations for OLAP or S/4HANA with standby node(s) are exclusively supported with NFS shared hosted on Azure NetApp Files.
 
 For further information on exact storage configurations with or without standby node, check the articles:
 
-- [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 
-- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) 
+- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md)
+- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [SAP support note #2080991](https://launchpad.support.sap.com/#/notes/2080991)
 
 For details of HANA Large Instances supported HANA scale-out configurations, the following documentation applies:
 
-- [Supported scenarios for HANA Large Instances scale-out with standby](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby)
-- [Supported scenarios for HANA Large Instances scale-out without standby](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby)
+- [Supported scenarios for HANA Large Instances scale-out with standby](./hana-supported-scenario.md#scale-out-with-standby)
+- [Supported scenarios for HANA Large Instances scale-out without standby](./hana-supported-scenario.md#scale-out-without-standby)
 
 
 ## Disaster Recovery Scenario
 There is a variety of disaster recovery scenarios that are supported. We define Disaster architectures as architectures which should compensate for a complete Azure regions going off the grid. This means we need the disaster recovery target to be a different Azure region as target to run your SAP landscape. We separate methods and configurations in DBMS layer and non-DBMS layer. 
 
 ### DBMS layer
-For the DBMS layer, configurations using the DBMS native replication mechanisms, like Always On, Oracle Data Guard, Db2 HADR, SAP ASE Always-On, or HANA System Replication are supported. It is mandatory that the replication stream in such cases is asynchronous, instead of synchronous as in typical high availability scenarios that are deployed within a single Azure region. A typical example of such a supported DBMS disaster recovery configuration is described in the article [SAP HANA availability across Azure regions](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions#combine-availability-within-one-region-and-across-regions). The second graphic in that section describes a scenario with HANA as an example. The main databases supported for SAP applications are all able to be deployed in such a scenario.
+For the DBMS layer, configurations using the DBMS native replication mechanisms, like Always On, Oracle Data Guard, Db2 HADR, SAP ASE Always-On, or HANA System Replication are supported. It is mandatory that the replication stream in such cases is asynchronous, instead of synchronous as in typical high availability scenarios that are deployed within a single Azure region. A typical example of such a supported DBMS disaster recovery configuration is described in the article [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions). The second graphic in that section describes a scenario with HANA as an example. The main databases supported for SAP applications are all able to be deployed in such a scenario.
 
 It is supported to use a smaller VM as target instance in the disaster recovery region since that VM does not experience the full workload traffic. Doing so, you need to keep the following considerations in mind:
 
@@ -243,22 +243,22 @@ It is supported to use a smaller VM as target instance in the disaster recovery 
 - Re-sizing across VM families can be a problem when the Different VMs are collected in one Azure Availability Set or when the re-sizing should happen between the M-Series family and Mv2 family of VMs
 - CPU and memory consumption for the database instance being able to receive the stream of changes with minimal delay and enough CPU and memory resources to apply these changes with minimal delay to the data  
 
-More details on limitations of different VM sizes can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) 
+More details on limitations of different VM sizes can be found [here](../../sizes.md) 
 
 Another supported method of deploying a DR target is to have a second DBMS instance installed on a VM that runs a non-production DBMS instance of a non-production SAP instance. This can be a bit more challenging since you need to figure out what on memory, CPU resources, network bandwidth, and storage bandwidth is needed for the particular target instances that should function as main instance in the DR scenario. Especially in HANA it is highly recommended that you are configuring the instance that functions as DR target on a shared host so that the data is not pre-loaded into the DR target instance.
 
 For HANA Large Instance DR scenarios check these documents:
 
-- [Single node with DR using storage replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication)
-- [Single node with DR (multipurpose) using storage replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
-- [Single node with DR (multipurpose) using storage replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
-- [High availability with HSR and DR with storage replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication)
-- [Scale-out with DR using storage replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication)
-- [Single node with DR using HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr)
-- [Single node HSR to DR (cost optimized)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized)
-- [High availability and disaster recovery with HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr)
-- [High availability and disaster recovery with HSR (cost optimized)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized)
-- [Scale-out with DR using HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr)
+- [Single node with DR using storage replication](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication)
+- [Single node with DR (multipurpose) using storage replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication)
+- [Single node with DR (multipurpose) using storage replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication)
+- [High availability with HSR and DR with storage replication](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication)
+- [Scale-out with DR using storage replication](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication)
+- [Single node with DR using HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr)
+- [Single node HSR to DR (cost optimized)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized)
+- [High availability and disaster recovery with HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr)
+- [High availability and disaster recovery with HSR (cost optimized)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized)
+- [Scale-out with DR using HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr)
 
 > [!NOTE]
 > Usage of [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) has not been tested for DBMS deployments under SAP workload. As a result it is not supported for the DBMS layer of SAP systems at this point in time. Other methods of replications by Microsoft and SAP that are not listed are not supported. Using third party software for replicating the DBMS layer of SAP systems between different Azure Regions, needs to be supported by the vendor of the software and will not be supported through Microsoft and SAP support channels. 
@@ -266,7 +266,7 @@ For HANA Large Instance DR scenarios check these documents:
 ## Non-DBMS layer
 For the SAP application layer and eventual shares or storage locations that are needed, the two major scenarios are leveraged by customers:
 
-- The disaster recovery targets in the second Azure region are not being used for any production or non-production purposes. In this scenario, the VMs that function as disaster recovery target are ideally not deployed and the image and changes to the images of the production SAP application layer is replicated to the disaster recovery region. A functionality that can perform such a task is [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-move-overview). Azure Site Recovery support an Azure-to-Azure replication scenarios like this. 
+- The disaster recovery targets in the second Azure region are not being used for any production or non-production purposes. In this scenario, the VMs that function as disaster recovery target are ideally not deployed and the image and changes to the images of the production SAP application layer is replicated to the disaster recovery region. A functionality that can perform such a task is [Azure Site Recovery](../../../site-recovery/azure-to-azure-move-overview.md). Azure Site Recovery support an Azure-to-Azure replication scenarios like this. 
 - The disaster recovery targets are VMs that are actually in use by non-production systems. The whole SAP landscape is spread across two different Azure regions with production systems usually in one region and non-production systems in another region. In a lot of customer deployments, the customer has a non-production system that is equivalent to a production system. The customer has production application instances pre-installed on the application layer non-production systems. In case of a failover, the non-production instances would be shutdown, the virtual names of the production VMs moved to the non-production VMs (after assigning new IP addresses in DNS), and the pre-installed production instances are getting started
 
 ### SAP Central Services clusters
@@ -301,12 +301,9 @@ Scenario(s) that we did not test and therefore have no experience with list like
  
 
 ## Next Steps
-Read next steps in the [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+Read next steps in the [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
 
 
 
 
   
-
-
-

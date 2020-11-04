@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -35,7 +35,7 @@ Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
 This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
 
-* You cannot use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
+* You cannot use blob API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
 
 * When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -48,50 +48,35 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
-## File system support in SDKs, PowerShell, and Azure CLI
+## Support for setting access control lists (ACLs) recursively
 
-- Get and set ACL operations are not currently recursive.
+The ability to apply ACL changes recursively from parent directory to child items is in [public preview](recursive-access-control-lists.md). In the current release of this capability, you can apply ACL changes by using PowerShell, the .NET SDK, and Python SDK. Support is not yet available for the Java SDK, Azure CLI, the Azure portal, or Azure Storage Explorer.
 
-
-## Lifecycle management policies
-
-The deletion of blob snapshots is not yet supported. 
-
-## Archive Tier
-
-There is currently a bug that affects the archive access tier.
-
-## Blobfuse
-
-Blobfuse is not supported.
-
-<a id="known-issues-tools" />
+<a id="known-issues-tools"></a>
 
 ## AzCopy
 
 Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
-<a id="storage-explorer" />
+<a id="storage-explorer"></a>
 
 ## Azure Storage Explorer
 
 Use only versions `1.6.0` or higher.
 
-<a id="explorer-in-portal" />
+<a id="explorer-in-portal"></a>
 
 ## Storage Explorer in the Azure portal
 
 ACLs are not yet supported.
 
-<a id="third-party-apps" />
+<a id="third-party-apps"></a>
 
 ## Third party applications
 
@@ -102,38 +87,17 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-## Premium-performance block blob storage accounts
+## Diagnostic logs
 
-### Diagnostic logs
+The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
-Diagnostics logs can't yet be enabled by using the Azure portal. You can enable them by using PowerShell. For example:
+## Lifecycle management policies with premium tier for Azure Data Lake Storage
 
-```powershell
-#To login
-Connect-AzAccount
+You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
 
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+## Dremio support with premium-performance BlockBlobStorage storage accounts
 
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### Lifecycle management policies
-
-- Lifecycle management policies aren't yet supported in premium block blob storage accounts. 
-
-- Data can't be moved from the premium tier to lower tiers. 
-
-- The **Delete Blob** action is currently not supported. 
-
-### HDInsight support
-
-When you create a n HDInsight cluster, you can't yet select a block blob storage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
-
-### Dremio support
-
-Dremio doesn't yet connect to a block blob storage account that has the hierarchical namespace feature enabled on it. 
+Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
 
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 

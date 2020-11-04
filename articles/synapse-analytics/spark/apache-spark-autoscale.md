@@ -1,12 +1,13 @@
 ---
-title: Automatically scale Azure Synapse Apache Spark instances
-description: Use the Azure Synapse Autoscale feature to automatically scale Apache Spark Instances
+title: Automatically scale Apache Spark instances
+description: Use the Azure Synapse autoscale feature to automatically scale Apache Spark Instances
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
 services: synapse-analytics 
 ms.service:  synapse-analytics 
 ms.topic: conceptual
+ms.subservice: spark
 ms.date: 03/31/2020
 ---
 
@@ -43,7 +44,7 @@ For scale-down, based on the number of executors, application masters per node a
 
 ## Get started
 
-### Create a Spark pool with Autoscaling
+### Create a serverless Apache Spark pool with Autoscaling
 
 To enable the Autoscale feature, complete the following steps as part of the normal pool creation process:
 
@@ -53,7 +54,7 @@ To enable the Autoscale feature, complete the following steps as part of the nor
     * **Min** number of nodes.
     * **Max** number of nodes.
 
-The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can not be less than three.
+The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can't be fewer than three.
 
 ## Best practices
 
@@ -61,12 +62,12 @@ The initial number of nodes will be the minimum. This value defines the initial 
 
 It can take 1 to 5 minutes for a scaling operation to complete.
 
-### Preparation for scaling down
+### Prepare for scaling down
 
-During instance scaling down process, Autoscale will put the nodes in decommissioning state so that no new executors can launch on that node.
+During the instance scaling down process, Autoscale will put the nodes in decommissioning state so that no new executors can launch on that node.
 
 The running jobs will continue to run and finish. The pending jobs will wait to be scheduled as normal with fewer available nodes.
 
 ## Next steps
 
-Quickstart to set up a new Spark pool [Create a Spark pool](..\quickstart-create-apache-spark-pool.md)
+Quickstart to set up a new Spark pool [Create a Spark pool](../quickstart-create-apache-spark-pool-portal.md)

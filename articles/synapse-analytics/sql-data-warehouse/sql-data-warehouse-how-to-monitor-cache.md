@@ -5,7 +5,7 @@ services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
@@ -23,11 +23,11 @@ The Gen2 storage architecture automatically tiers your most frequently queried c
 
 You can use Azure Monitor to view Gen2 cache metrics to troubleshoot query performance. First go to the Azure portal and click on **Monitor**, **Metrics** and **+ Select a scope**:
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Screenshot shows Select a scope selected from Metrics in the Azure portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
 Use the search and drop down bars to locate your data warehouse. Then select apply.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![Screenshot shows the Select a scope pane where you can select your data warehouse.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
 The key metrics for troubleshooting the Gen2 cache are **Cache hit percentage** and **Cache used percentage**. Select **Cache hit percentage** then use the **add metric** button to add **Cache used percentage**. 
 

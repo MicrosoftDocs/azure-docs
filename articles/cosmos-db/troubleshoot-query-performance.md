@@ -4,44 +4,44 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb-troubleshoot-query.md)
 
-You can broadly categorize query optimizations in Azure Cosmos DB:
+Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
 - Optimizations that reduce the Request Unit (RU) charge of the query
 - Optimizations that just reduce latency
 
-If you reduce the RU charge of a query, you'll almost certainly decrease latency as well.
+If you reduce the RU charge of a query, you'll typically decrease latency as well.
 
-This article provides examples that you can re-create by using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## Common SDK issues
 
 Before reading this guide, it is helpful to consider common SDK issues that aren't related to the query engine.
 
-- For best performance, follow these [Performance tips](performance-tips.md).
-    > [!NOTE]
-    > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
+- Follow these [SDK Performance tips](performance-tips.md).
+    - [.NET SDK troubleshooting guide](troubleshoot-dot-net-sdk.md)
+    - [Java SDK troubleshooting guide](troubleshoot-java-sdk-v4-sql.md)
 - The SDK allows setting a `MaxItemCount` for your queries but you can't specify a minimum item count.
     - Code should handle any page size, from zero to the `MaxItemCount`.
-    - The number of items in a page will always be less or equal to the specified `MaxItemCount`. However, `MaxItemCount` is strictly a maximum and there could be fewer results than this amount.
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
     - The query might be taking a long time to retrieve the documents.
-- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
+- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Learn more about [handling multiple pages of results](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## Get query metrics
 
 When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](profile-sql-api-query.md) for your query. These metrics are also available through the Azure portal. Once you run your query in the Data Explorer, the query metrics are visible next to the **Results** tab:
 
-[ ![Getting query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+:::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Getting query metrics" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 After you get the query metrics, compare the **Retrieved Document Count** with the **Output Document Count** for your query. Use this comparison to identify the relevant sections to review in this article.
 
@@ -186,7 +186,7 @@ Updated indexing policy:
 
 **RU charge:** 2.98 RUs
 
-You can add properties to the indexing policy at any time, with no effect on write availability or performance. If you add a new property to the index, queries that use the property will immediately use the new available index. The query will use the new index while it's being built. So query results might be inconsistent while the index rebuild is in progress. If a new property is indexed, queries that use only existing indexes won't be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### Understand which system functions use the index
 
@@ -194,7 +194,8 @@ If an expression can be translated into a range of string values, it can use the
 
 Here's the list of some common string functions that can use the index:
 
-- STARTSWITH(str_expr, str_expr)
+- STARTSWITH(str_expr1, str_expr2, bool_expr)  
+- CONTAINS(str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
 
@@ -202,7 +203,6 @@ Following are some common system functions that don't use the index and must loa
 
 | **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Use Azure Search for full-text search.                        |
 | UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
@@ -465,7 +465,7 @@ Here's the relevant composite index:
 
 ## Optimizations that reduce query latency
 
-In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. But query latency might vary between query executions.
+In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will typically have the same RU charge each time. But query latency might vary between query executions.
 
 ### Improve proximity
 
@@ -487,5 +487,5 @@ Queries are designed to pre-fetch results while the current batch of results is 
 See the following articles for information on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
-* [Tuning query performance with Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Tuning query performance with Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)

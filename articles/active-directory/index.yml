@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
+  ms.date: 10/22/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -42,15 +42,15 @@ conceptualContent:
   items:
     - title: Application management
       links:
-        - url: ./manage-apps/what-is-single-sign-on.md
-          itemType: concept
-          text: What is single sign-on (SSO)?
-        - url: ./manage-apps/user-provisioning.md
-          itemType: tutorial
-          text: Automatic user provisioning
-        - url: ./manage-apps/application-proxy.md
-          itemType: concept
-          text: Application Proxy for on-premises apps
+        - url: ./manage-apps/what-is-application-management.md
+          itemType: overview
+          text: What is application management?
+        - url: ./manage-apps/view-applications-portal.md
+          itemType: quickstart
+          text: View the apps that are using your tenant for identity management
+        - url: ./manage-apps/add-application-portal-setup-sso.md
+          itemType: quickstart
+          text: Set up SAML-based SSO
       footerLink:
         url: ./manage-apps/index.yml
         text: See more
@@ -115,21 +115,6 @@ conceptualContent:
         url: ./conditional-access/index.yml
         text: See more
 
-    - title: Developers
-      links:
-        - url: ./develop/v2-overview.md
-          itemType: overview
-          text:  About Microsoft identity platform
-        - url: ./develop/v2-oauth2-auth-code-flow.md
-          itemType: concept
-          text:  OAuth 2.0 code flow grant
-        - url: ./develop/quickstart-register-app.md
-          itemType: quickstart
-          text:  Register an app with the Microsoft identity platform
-      footerLink:
-        url: ./develop/index.yml
-        text: See more
-
     - title: Device management
       links:
         - url: ./devices/overview.md
@@ -162,17 +147,17 @@ conceptualContent:
 
     - title: Enterprise users
       links:
-        - url: ./users-groups-roles/groups-create-rule.md
+        - url: ./enterprise-users/groups-create-rule.md
           itemType: how-to-guide
           text:  Create a dynamic group
-        - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
+        - url: ./enterprise-users/groups-settings-v2-cmdlets.md
           itemType: how-to-guide
           text:  PowerShell for Azure AD groups
-        - url: ./users-groups-roles/directory-service-limits-restrictions.md
+        - url: ./enterprise-users/directory-service-limits-restrictions.md
           itemType: reference
           text:  Azure AD service limits and restrictions
       footerLink:
-        url: ./users-groups-roles/index.yml
+        url: ./enterprise-users/index.yml
         text: See more
 
     - title: External Identities
@@ -250,6 +235,21 @@ conceptualContent:
         url: ./managed-identities-azure-resources/index.yml
         text: See more
 
+    - title: Microsoft identity platform
+      links:
+        - url: ./develop/v2-overview.md
+          itemType: overview
+          text:  About Microsoft identity platform
+        - url: ./develop/v2-oauth2-auth-code-flow.md
+          itemType: concept
+          text:  OAuth 2.0 code flow grant
+        - url: ./develop/quickstart-register-app.md
+          itemType: quickstart
+          text:  Register an app with the Microsoft identity platform
+      footerLink:
+        url: ./develop/index.yml
+        text: See more
+
     - title: Privileged identity management (PIM)
       links:
         - url: ./privileged-identity-management/pim-getting-started.md
@@ -279,6 +279,36 @@ conceptualContent:
       footerLink:
         url: ./reports-monitoring/index.yml
         text: See more
+
+    - title: Roles
+      links:
+        - url: ./roles/groups-assign-role.md
+          itemType: how-to-guide
+          text:  Assign a role to a cloud group
+        - url: ./roles/custom-create.md
+          itemType: how-to-guide
+          text:  Create a custom role
+        - url: ./roles/groups-view-assignments.md
+          itemType: reference
+          text:  View roles assigned to a group
+      footerLink:
+        url: ./roles/index.yml
+        text: See more
+
+    - title: Third-party applications
+      links:
+        - url: ./saas-apps/amazon-web-service-tutorial.md
+          itemType: tutorial
+          text: Azure AD single sign-on integration with Amazon Web Services
+        - url: ./saas-apps/workday-inbound-tutorial.md
+          itemType: tutorial
+          text: Configure Workday for automatic user provisioning
+        - url: ./develop/v2-howto-app-gallery-listing.md
+          itemType: get-started
+          text: Request to add your app to the Gallery
+      footerLink:
+        url: ./saas-apps/tutorial-list.md
+        text: See more apps
 
 additionalContent:
   sections:

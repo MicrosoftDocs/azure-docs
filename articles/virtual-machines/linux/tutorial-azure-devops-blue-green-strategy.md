@@ -23,11 +23,11 @@ ms.custom: devops
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 
-This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](https://aka.ms/AA7jlh8) and [canary](https://aka.ms/AA7jdrz).
+This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](./tutorial-devops-azure-pipelines-classic.md) and [canary](./tutorial-azure-devops-canary-strategy.md).
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
+You can add virtual machines as targets to a [deployment group](/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
 
 ### Blue-green deployments
 
@@ -71,8 +71,8 @@ Using the continuous-delivery option, you can configure blue-green deployments t
 
 ## Other deployment strategies
 
-- [Configure the rolling deployment strategy](https://aka.ms/AA7jlh8)
-- [Configure the canary deployment strategy](https://aka.ms/AA7jdrz)
+- [Configure the rolling deployment strategy](./tutorial-devops-azure-pipelines-classic.md)
+- [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
 
 ## Azure DevOps Projects
 
@@ -86,5 +86,5 @@ You can get started with Azure easily. With Azure DevOps Projects, start running
 
 ## Additional resources
 
-- [Deploy to Azure virtual machines by using Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implement continuous deployment of your app to an Azure virtual machine scale set](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Deploy to Azure virtual machines by using Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implement continuous deployment of your app to an Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

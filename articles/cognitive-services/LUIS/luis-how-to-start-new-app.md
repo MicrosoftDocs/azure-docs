@@ -3,14 +3,14 @@ title: Create a new app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: diberry
+ms.topic: how-to
+ms.date: 05/18/2020
+
 ---
 
 # Create a new LUIS app in the LUIS portal
@@ -40,10 +40,10 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 ## Create new app in LUIS
 
-1. On **My Apps** page, select your subscription, and authoring resource then **+ Create**. If you are using free trial key, learn how to [create an authoring resource](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. 
 
-    ![LUIS apps list](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![LUIS apps list](./media/create-app-in-portal.png)
 
 1. In the dialog box, enter the name of your application, such as `Pizza Tutorial`.
 
@@ -59,7 +59,7 @@ You can create a new app with the authoring APIs in a couple of ways:
     > [!div class="mx-imgBorder"]
     > ![Intents list with None intent created with no example utterances.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## Other actions available
+## Other actions available on My Apps page
 
 The context toolbar provides other actions:
 

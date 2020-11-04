@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Windows update agent issues in Azure Automation Update Management
-description: Learn how to troubleshoot and resolve issues with the Windows update agent by using the Update Management solution.
+title: Troubleshoot Windows update agent issues in Azure Automation
+description: This article tells how to troubleshoot and resolve issues with the Windows update agent during Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -13,11 +13,11 @@ manager: carmonm
 
 # Troubleshoot Windows update agent issues
 
-There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. You can check the health of a Windows Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
+There can be many reasons why your machine isn't showing up as ready (healthy) during an Update Management deployment. You can check the health of a Windows Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
 * Ready: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
 * Disconnected: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
-* Not configured: The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
+* Not configured: The Hybrid Runbook Worker isn't found or hasn't finished the deployment.
 
 > [!NOTE]
 > There can be a slight delay between what the Azure portal shows and the current state of a machine.
@@ -29,7 +29,7 @@ This article discusses how to run the troubleshooter for Azure machines from the
 
 ## Start the troubleshooter
 
-For Azure machines, you can launch the Troubleshoot Update Agent page by selecting the **Troubleshoot** link under the **Update Agent Readiness** column in the portal. For non-Azure machines, the link brings you to this article. See the [offline instructions](#troubleshoot-offline) to troubleshoot a non-Azure machine.
+For Azure machines, you can launch the Troubleshoot Update Agent page by selecting the **Troubleshoot** link under the **Update Agent Readiness** column in the portal. For non-Azure machines, the link brings you to this article. See [Troubleshoot offline](#troubleshoot-offline) to troubleshoot a non-Azure machine.
 
 ![Screenshot of the Update Management list of virtual machines](../media/update-agent-issues/vm-list.png)
 
@@ -105,7 +105,7 @@ The Crypto folder access check determines whether the local system account has a
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter on a Hybrid Runbook Worker offline, by running the script locally. Get the following script from the PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). To run the script, you must have WMF 4.0 or later installed. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. Get the following script from the PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). To run the script, you must have WMF 4.0 or later installed. To download the latest version of PowerShell, see [Installing various versions of PowerShell](/powershell/scripting/install/installing-powershell).
 
 The output of this script looks like the following example:
 
@@ -203,4 +203,4 @@ CheckResultMessageArguments : {}
 
 ## Next steps
 
-[Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md)
+[Troubleshoot Hybrid Runbook Worker issues](hybrid-runbook-worker.md).

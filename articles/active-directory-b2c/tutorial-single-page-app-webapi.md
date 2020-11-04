@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -70,14 +70,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### Configure the web API
 
-1. Open the *config.js* file in your code editor.
+1. Open the *config.json* file in your code editor.
 1. Modify the variable values to reflect those of the application registration you created earlier. Also update the `policyName` with the user flow you created as part of the prerequisites. For example, *B2C_1_signupsignin1*.
-
-    ```javascript
-    const clientID = "<your-webapi-application-ID>"; // Application (client) ID
-    const b2cDomainHost = "<your-tenant-name>.b2clogin.com";
-    const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
-    const policyName = "B2C_1_signupsignin1";
+    
+    ```json
+    "credentials": {
+        "tenantName": "<your-tenant-name>",
+        "clientID": "<your-webapi-application-ID>"
+    },
+    "policies": {
+        "policyName": "B2C_1_signupsignin1"
+    },
+    "resource": {
+        "scope": ["demo.read"] 
+    },
     ```
 
 #### Enable CORS

@@ -40,15 +40,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/dotnet-sdk.md
-          - text: Using the REST API (Python)
-            url: quickstarts/python-train-extract.md
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
-      - linkListType: tutorial
-        links:
-          - text: Use Form Recognizer with Logic Apps
-            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:
@@ -74,15 +74,48 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Using the REST API (Python)
-            url: quickstarts/python-receipts.md
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-receipts.md
+      - linkListType: concept
+        links:
+          - text: Receipt concepts
+            url: concept-receipts.md?
+
+  - title: Extract data from business cards
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API
+            url: quickstarts/python-business-cards.md?
+      - linkListType: concept
+        links:
+          - text: Business card concepts
+            url: concept-business-cards.md?
 
   - title: Get text layout information
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
           - text: Using the REST API (Python)
             url: quickstarts/python-layout.md
 
@@ -106,21 +139,23 @@ landingContent:
       - linkListType: reference
         links:
           - text: Form Recognizer API v2.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
-          - text: Form Recognizer API v1.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+            url: /dotnet/api/overview/azure/ai.formrecognizer-readme
+          - text: Python SDK
+            url: /python/api/azure-ai-formrecognizer/?view=azure-python
+          - text: Java SDK
+            url: /java/api/overview/azure/ai-formrecognizer-readme
+          - text: JavaScript SDK
+            url: /javascript/api/overview/azure/ai-form-recognizer-readme
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://go.microsoft.com/fwlink/?linkid=2090535
-          - text: Stack Overflow
-            url: https://go.microsoft.com/fwlink/?linkid=2087186
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context

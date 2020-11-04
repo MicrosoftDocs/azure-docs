@@ -19,7 +19,7 @@ In distributed training the workload to train a model is split up and shared amo
 
 ## Deep learning and distributed training 
 
-There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). For distributed training on deep learning models, the [Azure Machine Learning SDK in Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) supports integrations with popular frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and can leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
+There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). For distributed training on deep learning models, the [Azure Machine Learning SDK in Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) supports integrations with popular frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and can leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
 
 * [Distributed training with PyTorch](how-to-train-pytorch.md#distributed-training)
 
@@ -45,7 +45,7 @@ In model parallelism, worker nodes only need to synchronize the shared parameter
 
 ## Next steps
 
-* Learn how to [set up training environments](how-to-set-up-training-targets.md) with the Python SDK.
-* For a technical example, see the [reference architecture  scenario](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
+* Learn how to [use compute targets for model training](how-to-set-up-training-targets.md) with the Python SDK.
+* For a technical example, see the [reference architecture  scenario](/azure/architecture/reference-architectures/ai/training-deep-learning).
 * [Train ML models with TensorFlow](how-to-train-tensorflow.md).
-* [Train ML models with PyTorch](how-to-train-pytorch.md). 
+* [Train ML models with PyTorch](how-to-train-pytorch.md).

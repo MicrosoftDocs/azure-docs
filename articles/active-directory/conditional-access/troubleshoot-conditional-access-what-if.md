@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,7 +34,7 @@ The following additional information is optional but will help to narrow the sco
 
 * Cloud apps or actions
 * IP address 
-* Country
+* Country/Region
 * Device platform
 * Client apps (preview)
 * Device state (preview) 
@@ -64,7 +64,7 @@ Many organizations create policies based on network locations, permitting truste
 
 To validate that a configuration has been made appropriately, an administrator could use the What If tool to mimic access, from a location that should be allowed and from a location that should be denied.
 
-![What If tool showing results with Block access](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[ ![What If tool showing results with Block access](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 In this instance, the user would be blocked from accessing any cloud app on their trip to North Korea as Contoso has blocked access from that location.
 
@@ -73,6 +73,6 @@ This test could be expanded to incorporate other data points to narrow the scope
 ## Next steps
 
 * [What is Conditional Access?](overview.md)
-* [What is Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
+* [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [What is a device identity?](../devices/overview.md)
 * [How it works: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

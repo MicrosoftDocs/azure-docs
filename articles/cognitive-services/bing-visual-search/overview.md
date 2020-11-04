@@ -15,6 +15,11 @@ ms.author: scottwhi
 
 # What is the Bing Visual Search API?
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images. 
 
 If you use the [Bing Image Search API](../bing-image-search/overview.md), you can use insight tokens from that API's search results for your Bing Visual Search instead of uploading an image.
@@ -44,7 +49,7 @@ Bing Visual Search results also include bounding boxes for regions of interest i
 
 The Bing Visual Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use either the REST API or the SDK for the service.
 
-1. Create a [Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to access the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/). You can get your subscription key from the [Azure portal](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) after creating your account, or [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis) after activating a free trial.
+1. Create a [Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to access the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/cognitive-services/).
 2. Send a request to the API with a valid search query.
 3. Process the API response by parsing the returned JSON message.
 
@@ -53,7 +58,15 @@ The Bing Visual Search API is a RESTful web service, making it easy to call from
 First, try the Bing Visual Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
 The demo shows how you can quickly customize a search query and scour the web for images.
 
-To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+To get started quickly with your first request, see the quickstarts:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 ## See also
 

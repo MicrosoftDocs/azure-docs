@@ -1,7 +1,7 @@
 ---
 title: Language support - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages, countries and regions that are supported by the Bing News Search API.
+description: A list of natural languages, countries and regions that are supported by the Bing Web Search API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,6 +13,11 @@ ms.author: aahi
 ---
 
 # Language and region support for the Bing Web Search API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 The Bing Web Search API supports over three dozen countries or regions, many with more than one language. Specifying a country or region with a query helps refine search results based on that country or regions interests. The results may include links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 

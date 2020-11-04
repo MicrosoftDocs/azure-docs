@@ -3,14 +3,14 @@ title: Trigger ML pipeline for new data
 titleSuffix: Azure Machine Learning
 description: Learn how to trigger the run of an ML pipeline by using Azure Logic Apps.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
 ms.date: 02/07/2020
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: how-to, contperfq4
 
 ---
 # Trigger a run of a Machine Learning pipeline from a Logic App
@@ -89,3 +89,17 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
     > ![HTTP settings](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Select **Save** and your schedule is now ready.
+
+> [!IMPORTANT]
+> If you are using role-based access control (RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
+
+## Next steps
+
+For more information, see:
+
+> [!div class="nextstepaction"]
+> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
+
+* Learn more about [pipelines](concept-ml-pipelines.md)
+* Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)
+

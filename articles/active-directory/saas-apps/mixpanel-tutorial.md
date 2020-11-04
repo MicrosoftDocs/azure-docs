@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mixpanel | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mixpanel.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Mixpanel
 
@@ -27,7 +21,7 @@ Integrating Mixpanel with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Mixpanel (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -131,15 +125,15 @@ To configure Azure AD single sign-on with Mixpanel, perform the following steps:
 
 3. Click the **Access security** tab, and then click **Change settings**.
    
-    ![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![Screenshot shows the Access security tab where you can change settings.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. On the **Change your certificate** dialog page, click **Choose file** to upload your downloaded certificate, and then click **NEXT**.
    
-    ![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![Screenshot shows the Change your certificate dialog box where you can choose a certificate file.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  In the authentication URL textbox on the **Change your authentication  URL** dialog page, paste the value of **Login URL** which you have copied from Azure portal, and then click **NEXT**.
    
-	![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+	![Screenshot shows the Change your authentication U R L pane where you can copy your Login U R L.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Click **Done**.
 
@@ -206,7 +200,7 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 
 4. In the **team member** textbox, type Britta's email address in the Azure.
    
-    ![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![Screenshot shows the Team tab where you add an address to Invite.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Click **Invite**. 
 
@@ -217,13 +211,12 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Mixpanel tile in the Access Panel, you should be automatically signed in to the Mixpanel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Mixpanel tile in the Access Panel, you should be automatically signed in to the Mixpanel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

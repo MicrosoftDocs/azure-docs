@@ -2,11 +2,13 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 09/15/2020
 ---
 # Property iteration in ARM templates
 
-This article shows you how to create more than one instance of a property in your Azure Resource Manager (ARM) template. By adding the **copy** element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
+This article shows you how to create more than one instance of a property in your Azure Resource Manager template (ARM template). By adding the **copy** element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
+
+You can only use copy with top-level resources, even when applying copy to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](copy-resources.md#iteration-for-a-child-resource).
 
 You can also use copy with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
@@ -49,7 +51,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "numberOfDataDisks": {

@@ -1,10 +1,10 @@
 ---
-title: Upgrade from Basic Public to Standard Public - Azure Load Balancer
+title: Upgrade from Basic Internal to Standard Public - Azure Load Balancer
 description: This article shows you how to upgrade Azure Basic Internal Load Balancer to Standard Public Load Balancer
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ---

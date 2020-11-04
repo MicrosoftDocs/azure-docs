@@ -1,7 +1,9 @@
 ---
 title: Data extraction - LUIS
 description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
-author: diberry
+ms.service: cognitive-services
+ms.subservice: language-understanding
+
 ms.topic: conceptual
 ms.date: 05/01/2020
 ---
@@ -9,7 +11,7 @@ ms.date: 05/01/2020
 # Extract data from utterance text with intents and entities
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
-The hardest data to extract is the machine-learned data because it isn't an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
+The hardest data to extract is the machine-learning data because it isn't an exact text match. Data extraction of the machine-learning [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
 
 ## Data location and key usage
 LUIS extracts data from the user's utterance at the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
@@ -240,7 +242,7 @@ Some apps need to be able to find new and emerging names such as products or com
 
 ## Pattern.any entity data
 
-[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. The entity used in the pattern must be found in order for the pattern to be applied. 
+[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. The entity used in the pattern must be found in order for the pattern to be applied.
 
 ## Sentiment analysis
 If Sentiment analysis is configured while [publishing](luis-how-to-publish-app.md#sentiment-analysis), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.

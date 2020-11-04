@@ -2,15 +2,14 @@
 title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ---
@@ -58,11 +57,11 @@ After the admin consent workflow is enabled, users can request admin approval fo
 
 2. The **Approval required** message appears. The user types a justification for needing access to the app, and then selects **Request approval**.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Screenshot shows an Approval required dialog box where you can Request approval.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. A **Request sent** message confirms that the request was submitted to the admin. If the user sends several requests, only the first request is submitted to the admin.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Screenshot shows the Request sent confirmation.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. The user receives an email notification when their request is approved, denied, or blocked. 
 

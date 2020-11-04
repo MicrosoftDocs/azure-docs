@@ -4,10 +4,11 @@ description: View, download, and run sample code and applications for Azure Stor
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 02/19/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.custom: devx-track-js
 ---
 
 # Azure Storage samples using v12 JavaScript client libraries
@@ -423,4 +424,5 @@ For information on samples for other languages:
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
+* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

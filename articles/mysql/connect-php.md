@@ -1,15 +1,15 @@
 ---
-title: Connect using PHP - Azure Database for MySQL
+title: 'Quickstart: Connect using PHP - Azure Database for MySQL'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 5/26/2020
 ---
 
-# Azure Database for MySQL: Use PHP to connect and query data
+# Quickstart: Use PHP to connect and query data in Azure Database for MySQL
 This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
@@ -17,10 +17,13 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
+
 ## Install PHP
 Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
 
-### MacOS
+### macOS
 - Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).
 - Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration.
 
@@ -39,7 +42,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement. 
@@ -220,6 +223,16 @@ mysqli_stmt_close($stmt);
 //Close the connection
 mysqli_close($conn);
 ?>
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ---
@@ -14,7 +14,7 @@ ms.date: 01/14/2020
 
 In this article, you do the following steps.
 
-1. Run a custom script to install [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) on an Azure HDInsight Spark cluster.
+1. Run a custom script to install [Microsoft Cognitive Toolkit](/cognitive-toolkit/) on an Azure HDInsight Spark cluster.
 
 2. Upload a [Jupyter Notebook](https://jupyter.org/) to the [Apache Spark](https://spark.apache.org/) cluster to see how to apply a trained Microsoft Cognitive Toolkit deep learning model to files in an Azure Blob Storage Account using the [Spark Python API (PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)
 

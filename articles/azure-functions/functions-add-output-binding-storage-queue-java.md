@@ -2,6 +2,7 @@
 title: Connect your Java function to Azure Storage 
 description: Learn how to connect an HTTP-triggered Java function to Azure Storage by using a Queue storage output binding.
 author: KarlErickson
+ms.custom: devx-track-java
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
@@ -12,13 +13,13 @@ zone_pivot_groups: java-build-tools-set
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-java-maven.md) with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
+This article shows you how to integrate the function you created in the [previous quickstart article](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make this connection easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
 ## Prerequisites
 
-Before you start this article, complete the steps in [part 1 of the Java quickstart](functions-create-first-java-maven.md).
+Before you start this article, complete the steps in [part 1 of the Java quickstart](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser).
 
 ## Download the function app settings
 
@@ -106,7 +107,7 @@ You've updated your HTTP-triggered function to write data to a Storage queue. To
 Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
-> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Enable Application Insights integration](configure-monitoring.md#add-to-an-existing-function-app)
 
 
 [Azure Storage Explorer]: https://storageexplorer.com/

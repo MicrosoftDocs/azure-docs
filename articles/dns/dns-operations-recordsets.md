@@ -4,12 +4,9 @@ description: Managing DNS record sets and records on Azure DNS when hosting your
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-
-ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services

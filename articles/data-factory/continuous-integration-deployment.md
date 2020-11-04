@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 09/23/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -21,14 +21,10 @@ ms.date: 04/30/2020
 
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
+In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
 
--    Automated deployment using Data Factory's integration with [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 -    Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
-
-For a nine-minute introduction to this feature and a demonstration, watch this video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -44,7 +40,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
 
-1.  When the team is ready to deploy the changes to a test or UAT factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
+1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 
 1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the pipelines release.
 
@@ -61,7 +57,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 ### Requirements
 
--   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   A data factory configured with Azure Repos Git integration.
 
@@ -93,7 +89,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     ![Stage view](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Create a new task. Search for **Azure Resource Group Deployment**, and then select **Add**.
+    b.  Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
 
     c.  In the Deployment task, select the subscription, resource group, and location for the target data factory. Provide credentials if necessary.
 
@@ -108,13 +104,13 @@ The following is a guide for setting up an Azure Pipelines release that automate
     h. Select **Incremental** for the **Deployment mode**.
 
     > [!WARNING]
-    > If you select **Complete** for the **Deployment mode**, existing resources might be deleted, including all resources in the target resource group that aren't defined in the Resource Manager template.
+    > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Data Factory Prod Deployment](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Save the release pipeline.
 
-1. To trigger a release, select **Create release**. To automate the creation of releases, see [Azure DevOps release triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. To trigger a release, select **Create release**. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Select Create release](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -150,7 +146,7 @@ There are two ways to handle secrets:
 
     The parameters file needs to be in the publish branch as well.
 
-1. Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
+1. Add an [Azure Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
 
     1.  On the **Tasks** tab, create a new task. Search for **Azure Key Vault** and add it.
 
@@ -207,13 +203,17 @@ If your development factory has an associated git repository, you can override t
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-To override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
+To override the default parameterization template, go to the management hub and select **Parameterization template** in the source control section. Select **Edit template** to open the parameterization template code editor. 
 
-   ![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
+![Manage custom parameters](media/author-management-hub/management-hub-custom-parameters.png)
+
+Creating a custom parameterization template creates a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
+
+![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
 
 When publishing from the collaboration branch, Data Factory will read this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
 
-When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
+When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
 
 > [!NOTE]
 > A custom parameterization template doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties.
@@ -330,6 +330,16 @@ Below is the current default parameterization template. If you need to add only 
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -356,6 +366,14 @@ Below is the current default parameterization template. If you need to add only 
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -377,7 +395,6 @@ Below is the current default parameterization template. If you need to add only 
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -390,6 +407,7 @@ Below is the current default parameterization template. If you need to add only 
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -408,8 +426,13 @@ Below is the current default parameterization template. If you need to add only 
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
-                    "connectionString": "|:-connectionString:secureString"
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -432,7 +455,13 @@ Below is the current default parameterization template. If you need to add only 
                     "fileName": "="
                 }
             }
-        }}
+        }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
+    }
 }
 ```
 
@@ -442,6 +471,16 @@ The following example shows how to add a single value to the default parameteriz
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -515,7 +554,7 @@ The following example shows how to add a single value to the default parameteriz
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -559,33 +598,13 @@ If you've configured Git, the linked templates are generated and saved alongside
 
 The linked Resource Manager templates usually consist of a master template and a set of child templates that are linked to the master. The parent template is called ArmTemplate_master.json, and child templates are named with the pattern ArmTemplate_0.json, ArmTemplate_1.json, and so on. 
 
-To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so Azure can access them during deployment. For more info, see [Deploying linked Resource Manager templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so Azure can access them during deployment. For more info, see [Deploying linked Resource Manager templates with VSTS](/archive/blogs/najib/deploying-linked-arm-templates-with-vsts).
 
 Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
 
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
-## Exclude Azure-SSIS integration runtimes from CI/CD
-
-If your development factory has Azure-SSIS integration runtime, you can exclude all Azure-SSIS Integration runtimes from CI/CD process in below scenario:
-
-- Azure-SSIS IR infrastructure is complex, and varies in each environment.  
-- Azure-SSIS IR is set up manually for each environment with the same name. Otherwise publish will fail if there is activity depending on Azure-SSIS IR.
-
-To exclude Azure-SSIS integration runtime:
-
-1. Add a publish_config.json file to the root folder in the collaboration branch, if not exists.
-1. Add below setting to publish_config.json: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-When publishing from the collaboration branch, Azure-SSIS integration runtimes will be excluded from the Resource Manager template generated.
-
-## Hotfix production branch
+## Hotfix production environment
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
@@ -619,14 +638,20 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
+-   **Managed private endpoint deployment**. If a private endpoint already exists in a factory and you try to deploy an ARM template that contains a private endpoint with the same name but with modified properties, the deployment will fail. In other words, you can successfully deploy a private endpoint as long as it has the same properties as the one that already exists in the factory. If any property is different between environments, you can override it by parameterizing that property and providing the respective value during deployment.
+
 -   **Key Vault**. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
+
+-  **Resource naming** Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
 
 ## Unsupported features
 
 - By design, Data Factory doesn't allow cherry-picking of commits or selective publishing of resources. Publishes will include all changes made in the data factory.
 
     - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
-    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production branch](#hotfix-production-branch).
+    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production environment](#hotfix-production-environment).
+
+- The Azure Data Factory team doesn’t recommend assigning Azure RBAC controls to individual entities (pipelines, datasets, etc) in a data factory. For example, if a developer has access to a pipeline or a dataset, they should be able to access all pipelines or datasets in the data factory. If you feel that you need to implement many Azure roles within a data factory, look at deploying a second data factory.
 
 -   You can't publish from private branches.
 
@@ -729,8 +754,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }
@@ -790,25 +817,44 @@ $resources = $templateJson.resources
 
 #Triggers 
 Write-Host "Getting triggers"
-$triggersADF = Get-SortedTriggers -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-$triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
-$triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$deletedtriggers = $triggersADF | Where-Object { $triggerNames -notcontains $_.Name }
-$triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).name -contains $_ }
+$triggersInTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
+$triggerNamesInTemplate = $triggersInTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
+
+$triggersDeployed = Get-SortedTriggers -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+
+$triggersToStop = $triggersDeployed | Where-Object { $triggerNamesInTemplate -contains $_.Name } | ForEach-Object { 
+    New-Object PSObject -Property @{
+        Name = $_.Name
+        TriggerType = $_.Properties.GetType().Name 
+    }
+}
+$triggersToDelete = $triggersDeployed | Where-Object { $triggerNamesInTemplate -notcontains $_.Name } | ForEach-Object { 
+    New-Object PSObject -Property @{
+        Name = $_.Name
+        TriggerType = $_.Properties.GetType().Name 
+    }
+}
+$triggersToStart = $triggersInTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object { 
+    New-Object PSObject -Property @{
+        Name = $_.name.Substring(37, $_.name.Length-40)
+        TriggerType = $_.Properties.type
+    }
+}
 
 if ($predeployment -eq $true) {
     #Stop all triggers
-    Write-Host "Stopping deployed triggers"
-    $triggerstostop | ForEach-Object { 
-        Write-host "Disabling trigger " $_
-        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
-    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-    while ($status.Status -ne "Disabled"){
-            Start-Sleep -s 15
-            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-    }
-    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    Write-Host "Stopping deployed triggers`n"
+    $triggersToStop | ForEach-Object {
+        if ($_.TriggerType -eq "BlobEventsTrigger") {
+            Write-Host "Unsubscribing" $_.Name "from events"
+            $status = Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
+            while ($status.Status -ne "Disabled"){
+                Start-Sleep -s 15
+                $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
+            }
+        }
+        Write-Host "Stopping trigger" $_.Name
+        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force
     }
 }
 else {
@@ -845,10 +891,18 @@ else {
 
     #Delete resources
     Write-Host "Deleting triggers"
-    $deletedtriggers | ForEach-Object { 
+    $triggersToDelete | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
         $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
+            if ($_.TriggerType -eq "BlobEventsTrigger") {
+                Write-Host "Unsubscribing trigger" $_.Name "from events"
+                $status = Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
+                while ($status.Status -ne "Disabled"){
+                    Start-Sleep -s 15
+                    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
+                }
+            }
             Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
         }
         Remove-AzDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
@@ -899,15 +953,17 @@ else {
 
     #Start active triggers - after cleanup efforts
     Write-Host "Starting active triggers"
-    $activeTriggerNames | ForEach-Object { 
-        Write-host "Enabling trigger " $_
-        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
-    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-    while ($status.Status -ne "Enabled"){
-            Start-Sleep -s 15
-            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-    }
-    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    $triggersToStart | ForEach-Object { 
+        if ($_.TriggerType -eq "BlobEventsTrigger") {
+            Write-Host "Subscribing" $_.Name "to events"
+            $status = Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
+            while ($status.Status -ne "Enabled"){
+                Start-Sleep -s 15
+                $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
+            }
+        }
+        Write-Host "Starting trigger" $_.Name
+        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force
     }
 }
 ```

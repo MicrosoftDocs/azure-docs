@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy multiple tables using PowerShell
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL Database.
+description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/30/2020
+ms.date: 06/10/2020
 ---
 
-# Incrementally load data from multiple tables in SQL Server to an Azure SQL Database
+# Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL Database.    
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.    
 
 You perform the following steps in this tutorial:
 
@@ -64,12 +64,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **SQL Server**. You use an on-premises SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one. 
+* **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a SQL database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
-1. Open [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), and connect to your on-premises SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
 
 2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
 
@@ -108,11 +108,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create destination tables in your Azure SQL Database
 
-1. Open [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), and connect to your on-premises SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
 
 2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
 
-3. Run the following SQL command against your SQL database to create tables named `customer_table` and `project_table`:  
+3. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:  
 
     ```sql
     create table customer_table
@@ -129,9 +129,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     );
 	```
 
-### Create another table in the Azure SQL Database to store the high watermark value
+### Create another table in Azure SQL Database to store the high watermark value
 
-1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
+1. Run the following SQL command against your database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
     create table watermarktable
@@ -154,7 +154,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create a stored procedure in the Azure SQL Database 
 
-Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
+Run the following command to create a stored procedure in your database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -170,9 +170,9 @@ END
 
 ```
 
-### Create data types and additional stored procedures in the Azure SQL Database
+### Create data types and additional stored procedures in Azure SQL Database
 
-Run the following query to create two stored procedures and two data types in your SQL database. 
+Run the following query to create two stored procedures and two data types in your database. 
 They're used to merge the data from source tables into destination tables. 
 
 In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge the them into destination store. Be cautious it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
@@ -279,17 +279,17 @@ Note the following points:
 
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
 
-* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, SQL Database, SQL Managed Instance, and so on) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## Create linked services
 
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and Azure SQL Database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your SQL Server database and your database in Azure SQL Database. 
 
 ### Create the SQL Server linked service
 
-In this step, you link your on-premises SQL Server database to the data factory.
+In this step, you link your SQL Server database to the data factory.
 
 1. Create a JSON file named **SqlServerLinkedService.json** in the C:\ADFTutorials\IncCopyMultiTableTutorial folder (create the local folders if they don't already exist) with the following content. Select the right section based on the authentication you use to connect to SQL Server.  
 
@@ -368,7 +368,7 @@ In this step, you link your on-premises SQL Server database to the data factory.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### Create the SQL database linked service
+### Create the SQL Database linked service
 
 1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;servername&gt;, &lt;database name&gt;, &lt;user name&gt;, and &lt;password&gt; with the name of your SQL Server database, name of your database, user name, and password before you save the file. 
 
@@ -817,11 +817,11 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 4. On the **Data factory** page, select **Author & Monitor** to launch Azure Data Factory in a separate tab.
 
 5. On the **Let's get started** page, select **Monitor** on the left side. 
-![Pipeline Runs](media/doc-common-process/get-started-page-monitor-button.png)    
+![Screenshot shows the Let's get started page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 
-    ![Pipeline Runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. When you select the link in the **Actions** column, you see all the activity runs for the pipeline. 
 
 8. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**. 
@@ -990,5 +990,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

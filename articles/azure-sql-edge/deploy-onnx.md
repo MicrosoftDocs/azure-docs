@@ -1,34 +1,42 @@
 ---
-title: Deploy and make predictions with ONNX in Azure SQL Edge (Preview)
-description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (Preview), and then run native PREDICT on data using the uploaded ONNX model.
+title: Deploy and make predictions with ONNX
+titleSuffix: SQL machine learning
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge or Azure SQL Managed Instance (preview), and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
-ms.subservice:
+ms.prod: sql
+ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 05/19/2020
+ms.date: 10/13/2020
 ---
 
-# Deploy and make predictions with an ONNX model in Azure SQL Edge (Preview)
+# Deploy and make predictions with an ONNX model and SQL machine learning
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (Preview), and then run native PREDICT on data using the uploaded ONNX model. For more information, see [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md).
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md) or [Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 
-* If you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge (Preview) using the Azure portal](deploy-portal.md).
+* If you're using Azure SQL Edge, and you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge using the Azure portal](deploy-portal.md).
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
-* Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
+* Install Python packages needed for this quickstart:
 
-    1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
-    1. Click **Manage Packages** and under **Add New**, search for **scikit-learn**, and install the scikit-learn package. 
-    1. Also, install the **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc**, and **sqlalchemy** packages.
-    
+  1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
+  1. Click **Manage Packages**
+  1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and click **Install**.
+     - **scikit-learn**
+     - **numpy**
+     - **onnxmltools**
+     - **onnxruntime**
+     - **pyodbc**
+     - **setuptools**
+     - **skl2onnx**
+     - **sqlalchemy**
+
 * For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
 
 ## Train a pipeline
@@ -164,7 +172,7 @@ Using `skl2onnx`, convert the LinearRegression model to the ONNX format and save
 
 ```python
 # Convert the scikit model to onnx format
-onnx_model = skl2onnx.convert_sklearn(model, 'Boston Data', convert_dataframe_schema(x_train))
+onnx_model = skl2onnx.convert_sklearn(model, 'Boston Data', convert_dataframe_schema(x_train), final_types=[('variable1',FloatTensorType([1,1]))])
 # Save the onnx model locally
 onnx_model_path = 'boston1.model.onnx'
 onnxmltools.utils.save_model(onnx_model, onnx_model_path)
@@ -214,7 +222,7 @@ MSE are equal
 
 ## Insert the ONNX model
 
-Store the model in Azure SQL Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address**, **username**, and **password**.
+Store the model in Azure SQL Edge or Azure SQL Managed Instance, in a `models` table in a database `onnx`. In the connection string, specify the **server address**, **username**, and **password**.
 
 ```python
 import pyodbc
@@ -272,7 +280,7 @@ conn.commit()
 
 ## Load the data
 
-Load the data into Azure SQL Edge.
+Load the data into SQL.
 
 First, create two tables, **features** and **target**, to store subsets of the Boston housing dataset.
 
@@ -345,7 +353,7 @@ Now you can view the data in the database.
 
 ## Run PREDICT using the ONNX model
 
-With the model in Azure SQL Edge, run native PREDICT on the data using the uploaded ONNX model.
+With the model in SQL, run native PREDICT on the data using the uploaded ONNX model.
 
 > [!NOTE]
 > Change the notebook kernel to SQL to run the remaining cell.
@@ -375,13 +383,14 @@ AS (
         , PTRATIO
         , B
         , LSTAT
-    FROM [onnx].[dbo].[features]
+    FROM [dbo].[features]
     )
 SELECT predict_input.id
     , p.variable1 AS MEDV
-FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
+FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p;
 ```
 
 ## Next Steps
 
 * [Machine Learning and AI with ONNX in SQL Edge](onnx-overview.md)
+* [Machine Learning Services in Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md)

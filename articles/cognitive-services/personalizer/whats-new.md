@@ -2,20 +2,26 @@
 title: What's new - Personalizer
 titleSuffix: Azure Cognitive Services
 description: This article contains news about Personalizer.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: diberry
+ms.topic: overview
+ms.date: 07/17/2020
 ---
 # What's new in Personalizer
 
 Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
+
+### July 2020
+
+* New tutorial - [using Personalizer in a chat bot](tutorial-use-personalizer-chat-bot.md)
+
+### June 2020
+
+* New tutorial - [using Personalizer in a web app](tutorial-use-personalizer-web-app.md)
 
 ### May 2020 - //Build conference
 
@@ -42,7 +48,7 @@ The following preview features were released at the Build 2019 Conference:
 
 ### 2019 Build videos
 
-* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## Service updates
 

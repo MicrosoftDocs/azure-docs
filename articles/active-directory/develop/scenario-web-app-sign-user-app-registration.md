@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
@@ -38,9 +38,9 @@ You can use these links to bootstrap the creation of your web application:
 > The portal to use is different depending on whether your application runs in the Microsoft Azure public cloud or in a national or sovereign cloud. For more information, see [National clouds](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account. Alternatively, sign in to the Azure portal of choice for the national cloud.
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
-1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account. Alternatively, sign in to the [Azure portal of choice](./authentication-national-cloud.md#app-registration-endpoints) for the national cloud.
+2. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
+3. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -48,12 +48,14 @@ You can use these links to bootstrap the creation of your web application:
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **AspNetCore-WebApp**.
    1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. For example, enter **https://localhost:44321**. Then, select **Register**.
+   ![Screenshot shows the Register an application page where you can select Register.](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Select the **Authentication** menu, and then add the following information:
    1. For **Reply URL**, add **https://localhost:44321/signin-oidc** of type **Web**.
    1. In the **Advanced settings** section, set **Logout URL** to **https://localhost:44321/signout-oidc**.
    1. Under **Implicit grant**, select **ID tokens**.
    1. Select **Save**.
-
+  ![Screenshot shows the Authentication options, where you can make the changes described.](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+ 
 # [ASP.NET](#tab/aspnet)
 
 1. When the **Register an application page** appears, enter your application's registration information:
@@ -116,7 +118,7 @@ and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**,
 > - MyOrg (accounts in this organizational directory only)
 > - AnyOrg (accounts in any organizational directory)
 >
-> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the `signInAudience` property in the application manifest from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
+> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) property to **2** and the [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) property to `AzureADandPersonalMicrosoftAccount` in the [application manifest](./reference-app-manifest.md) from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 - name: Keys
   href: index.yml
 
-- name: Overview 
+- name: Overview
   items:
   - name: About Key Vault keys
     href: about-keys.md
@@ -16,22 +16,25 @@
   - name: Portal
     href: quick-create-portal.md
   - name: Python
-
     href: quick-create-python.md
-- name: Tutorials 
+  - name: ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
+
+- name: Tutorials
   items:
-  - name: Import HSM-protected keys
+  - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
-  - name: Import HSM-protected keys (preview)
-    href: hsm-protected-keys-vendor-agnostic-byok.md
-  - name: Import HSM-protected keys(legacy)
-    href: hsm-protected-keys-legacy.md
+  - name: Import HSM-protected keys (BYOK)
+    href: hsm-protected-keys-byok.md
+  - name: Import HSM-protected keys (nCipher)
+    href: hsm-protected-keys-ncipher.md
+
 
 - name: Samples
   items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: Key Vault Code Samples
+    href: /samples/browse/?expanded=azure&products=azure-key-vault
 
 - name: Reference
   items:
@@ -40,18 +43,23 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/security.keyvault.keys-readme?view=azure-dotnet
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
   - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
+    href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+  - name: Bring your own key specification
+    href: byok-specification.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Resources
   items:
@@ -70,6 +78,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: https://blogs.technet.com/b/kv/
+    href: /archive/blogs/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

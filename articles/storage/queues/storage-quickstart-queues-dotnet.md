@@ -4,18 +4,16 @@ description: Learn how to use the Azure Queue .NET v12 library to create a queue
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Queue storage client library v12 for .NET
 
 Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
-
-> [!NOTE]
-> To get started with the previous SDK version, see [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](storage-quickstart-queues-dotnet-legacy.md).
 
 Use the Azure Queue storage client library v12 for .NET to:
 
@@ -27,12 +25,17 @@ Use the Azure Queue storage client library v12 for .NET to:
 * Delete messages from a queue
 * Delete a queue
 
-[API reference documentation](/dotnet/api/azure.storage.queues) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Additional resources:
+
+* [API reference documentation](/dotnet/api/azure.storage.queues)
+* [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+* [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+* [Samples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
@@ -70,7 +73,7 @@ From the project directory:
 1. Open the *Program.cs* file in your editor
 1. Remove the `Console.WriteLine("Hello World!");` statement
 1. Add `using` directives
-1. Update the `Main` method declaration to [support async code](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+1. Update the `Main` method declaration to [support async code](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -327,7 +330,7 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for .NET and .NET Core developers](https://docs.microsoft.com/dotnet/azure/)
+> [Azure for .NET and .NET Core developers](/dotnet/azure/)
 
 * To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).

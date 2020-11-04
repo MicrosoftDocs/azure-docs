@@ -3,7 +3,7 @@ title: Configuration error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with configuration error codes. 
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
@@ -11,18 +11,6 @@ ms.service: stream-analytics
 # Azure Stream Analytics configuration error codes
 
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every configuration error code. Configuration errors are related to your job configuration, or input and output configurations.
-
-## KafkaInvalidPermission
-
-* **Cause**: The Stream Analytics job doesn't have the proper permission to perform certain actions.
-
-## KafkaInvalidConfiguration
-
-* **Cause**: Certain configurations on the Kafka adapter are invalid.
-
-## KafkaInvalidTimestampType
-
-* **Cause**: The timestamp type used by Kafka is invalid.
 
 ## EventHubUnauthorizedAccess
 
@@ -101,7 +89,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 ## SQLDWOutputInvalidServiceEdition
 
 * **Cause**: SQL Database is not supported.
-* **Recommendation**: Use Synapse SQL pool.
+* **Recommendation**: Use dedicated SQL pool.
 
 ## Next steps
 

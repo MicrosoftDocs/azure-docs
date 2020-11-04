@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Sky reflections
@@ -22,8 +23,8 @@ The images below show results of lighting different surfaces only with a sky tex
 
 | Roughness  | 0                                        | 0.25                                          | 0.5                                          | 0.75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Non-Metal  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| Non-Metal  | ![Dielectric, Roughness=0](media/dielectric-0.png)   | ![Dielectric, Roughness=0.25](media/dielectric-0.25.png)  | ![Dielectric, Roughness=0.5](media/dielectric-0.5.png)  | ![Dielectric, Roughness=0.75](media/dielectric-0.75.png)  | ![Dielectric, Roughness=1](media/dielectric-1.png)  |
+| Metal      | ![Metal, Roughness=0](media/metallic-0.png)  | ![Metal, Roughness=0.25](media/metallic-0.25.png)    | ![Metal, Roughness=0.5](media/metallic-0.5.png)    | ![Metal, Roughness=0.75](media/metallic-0.75.png)    | ![Metal, Roughness=1](media/metallic-1.png)    |
 
 For more information on the lighting model, see the [materials](../../concepts/materials.md) chapter.
 
@@ -34,7 +35,7 @@ For more information on the lighting model, see the [materials](../../concepts/m
 
 To change the environment map, all you need to do is [load a texture](../../concepts/textures.md) and change the session's `SkyReflectionSettings`:
 
-``` cs
+```cs
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -59,6 +60,30 @@ void ChangeEnvironmentMap(AzureSession session)
             }
         };
 }
+```
+
+```cpp
+void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::CubeMap;
+    params.TextureUrl = "builtin://VeniceSunset";
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+
+    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+        {
+            if (res->GetIsRanToCompletion())
+            {
+                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
+                settings->SetSkyReflectionTexture(res->GetResult());
+            }
+            else
+            {
+                printf("Texture loading failed!\n");
+            }
+        });
+}
+
 ```
 
 Note that the `LoadTextureFromSASAsync` variant is used above because a built-in texture is loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant.
@@ -91,20 +116,25 @@ Azure Remote Rendering provides a few built-in environment maps that are always 
 
 |Identifier                         | Description                                              | Illustration                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Variety of stripe lights, bright indoor base lighting    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | Bright indoor light setting, multiple window lights      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | Varyingly colored lights in medium light indoor setting  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Moderately bright ambient hall light                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Dim indoor setting with light-dark contrast              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Daytime ambient room light, bright window area light     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Dark night sky and ground with many surrounding lights   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | Bright sunlight and shadow contrast                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Clear sky light with moderate ground lighting            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Moderately varying sun and shade                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Evening sunset light approaching dusk                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Bright, lush-green, and white light tones, dimmed ground | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Daytime with bright ambient ground light                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | Same as TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Variety of stripe lights, bright indoor base lighting    | ![Autoshop skybox used to light an object](media/autoshop.png)
+|builtin://BoilerRoom               | Bright indoor light setting, multiple window lights      | ![BoilerRoom skybox used to light an object](media/boiler-room.png)
+|builtin://ColorfulStudio           | Varyingly colored lights in medium light indoor setting  | ![ColorfulStudio skybox used to light an object](media/colorful-studio.png)
+|builtin://Hangar                   | Moderately bright ambient hall light                     | ![SmallHangar skybox used to light an object](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Dim indoor setting with light-dark contrast              | ![IndustrialPipeAndValve skybox used to light an object](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Daytime ambient room light, bright window area light     | ![Lebombo skybox used to light an object](media/lebombo.png)
+|builtin://SataraNight              | Dark night sky and ground with many surrounding lights   | ![SataraNight skybox used to light an object](media/satara-night.png)
+|builtin://SunnyVondelpark          | Bright sunlight and shadow contrast                      | ![SunnyVondelpark skybox used to light an object](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Clear sky light with moderate ground lighting            | ![Syferfontein skybox used to light an object](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Moderately varying sun and shade                         | ![TearsOfSteelBridge skybox used to light an object](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Evening sunset light approaching dusk                    | ![VeniceSunset skybox used to light an object](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Bright, lush-green, and white light tones, dimmed ground | ![WhippleCreekRegionalPark skybox used to light an object](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Daytime with bright ambient ground light                 | ![WinterRiver skybox used to light an object](media/winter-river.png)
+|builtin://DefaultSky               | Same as TearsOfSteelBridge                               | ![DefaultSky skybox used to light an object](media/tears-of-steel-bridge.png)
+
+## API documentation
+
+* [C# RemoteManager.SkyReflectionSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C++ RemoteManager::SkyReflectionSettings()](/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## Next steps
 

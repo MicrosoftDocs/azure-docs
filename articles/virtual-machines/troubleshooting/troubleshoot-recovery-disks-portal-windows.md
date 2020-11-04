@@ -116,15 +116,15 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
     ![Set the data disk as offline in Server Manager](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
 3. Now detach the virtual hard disk from the VM. Select your VM in the Azure portal and click **Disks**. 
-4. Select **Edit**, select the OS disk you attached and then click **Detach**:
+4. Select **Edit**, select the OS disk you attached and then click **Delete**:
 
     ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Wait until the VM has successfully detached the data disk before continuing.
+    Wait until the VM has successfully deleted in the VM ie., detached the data disk before continuing.
 
 ## Swap the OS disk for the VM
 
-Azure portal now supports change the OS disk of the VM. To do this, follow these steps:
+Azure portal now supports changing the OS disk of the VM. To do this, follow these steps:
 
 1. Go to [Azure portal](https://portal.azure.com). Select **Virtual machines** from the sidebar, and then select the VM that has problem.
 1. On the left pane, select **Disks**, and then select **Swap OS disk**.

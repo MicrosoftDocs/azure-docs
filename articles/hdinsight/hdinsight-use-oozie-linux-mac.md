@@ -5,7 +5,7 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ---
@@ -30,7 +30,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An SSH client**. See [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
+* **An Azure SQL Database**.  See [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).  This article uses a database named **oozietest**.
 
 * The URI scheme for your clusters primary storage. `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -42,9 +42,11 @@ The workflow used in this document contains two actions. Actions are definitions
 
 1. A Hive action runs an HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     The Hive script used in this document counts the total visits for each platform, such as Android or iPhone, and stores the counts to a new Hive table.
 
@@ -227,7 +229,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
+2. Edit the code below to replace `<serverName>` with your [logical SQL server](../azure-sql/database/logical-servers.md) name, and `<sqlLogin>` with the server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -235,11 +237,13 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
     You receive output like the following text:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. At the `1>` prompt, enter the following lines:
 
@@ -263,8 +267,10 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
     You see output like the following text:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Exit the tsql utility by entering `exit` at the `1>` prompt.
 
@@ -296,9 +302,9 @@ The job definition describes where to find the workflow.xml. It also describes w
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
-    |serverName| Azure SQL database server name.|
-    |sqlLogin| Azure SQL database server login.|
-    |sqlPassword| Azure SQL database server login password.|
+    |serverName| Azure SQL Database server name.|
+    |sqlLogin| Azure SQL Database server login.|
+    |sqlPassword| Azure SQL Database server login password.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -419,20 +425,22 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     This returns information like the following text:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     This job has a status of `PREP`. This status indicates that the job was created, but not started.
 
@@ -444,7 +452,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
 
-6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
+6. Edit the code below to replace `<serverName>` with your server name, and `<sqlLogin>` with the server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -459,14 +467,16 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     The information returned is like the following text:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 For more information on the Oozie command, see [Apache Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 

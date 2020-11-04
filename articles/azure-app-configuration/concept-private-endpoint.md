@@ -19,9 +19,6 @@ Using private endpoints for your App Configuration store enables you to:
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
 - Securely connect to the App Configuration store from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
-> [!NOTE]
-> Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.
-
 ## Conceptual overview
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
@@ -43,17 +40,13 @@ When creating a private endpoint, you must specify the App Configuration store t
 Azure relies upon DNS resolution to route connections from the VNet to the configuration store over a private link. You can quickly find connections strings in the Azure portal by selecting your App Configuration store, then selecting **Settings** > **Access Keys**.  
 
 > [!IMPORTANT]
-> Use the same connection string to connect to your App Configuration store using private endpoints as you would use for a public endpoint. Don't connect to the storage account using its `privatelink` subdomain URL.
+> Use the same connection string to connect to your App Configuration store using private endpoints as you would use for a public endpoint. Don't connect to the store using its `privatelink` subdomain URL.
 
 ## DNS changes for private endpoints
 
 When you create a private endpoint, the DNS CNAME resource record for the configuration store is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
-When you resolve the endpoint URL from outside the VNet, it resolves to the public endpoint of the store. When resolved from within the VNet hosting the private endpoint, the endpoint URL resolves to the private endpoint.
-
-You can control access for clients outside the VNet through the public endpoint using the Azure Firewall service.
-
-This approach enables access to the store **using the same connection string** for clients on the VNet hosting the private endpoints as well as clients outside the VNet.
+When you resolve the endpoint URL from within the VNet hosting the private endpoint, it resolves to the private endpoint of the store. When resolved from outside the VNet, the endpoint URL resolves to the public endpoint. When you create a private endpoint, the public endpoint is disabled.
 
 If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the service endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `AppConfigInstanceA.privatelink.azconfig.io` with the private endpoint IP address.
 
@@ -74,5 +67,5 @@ Learn more about creating a private endpoint for your App Configuration store, r
 
 Learn to configure your DNS server with private endpoints:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

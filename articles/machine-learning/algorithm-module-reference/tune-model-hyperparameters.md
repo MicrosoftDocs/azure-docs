@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
+ms.date: 10/10/2020
 ---
 # Tune Model Hyperparameters
 
-This article describes how to use the Tune Model Hyperparameters module in Azure Machine Learning designer (preview). The goal is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
+This article describes how to use the Tune Model Hyperparameters module in Azure Machine Learning designer. The goal is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
 
 The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the right pane of the module. Basically, this module performs a *parameter sweep* over the specified parameter settings. It learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
 
@@ -38,43 +38,45 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 2.  Connect an untrained model to the leftmost input. 
 
+    > [!NOTE] 
+    > **Tune Model Hyperparameters** can only be connect to built-in machine learning algorithm modules, and cannot support customized model built in **Create Python Model**.
 
 
-4.  Add the dataset that you want to use for training, and connect it to the middle input of Tune Model Hyperparameters.  
+3.  Add the dataset that you want to use for training, and connect it to the middle input of Tune Model Hyperparameters.  
 
     Optionally, if you have a tagged dataset, you can connect it to the rightmost input port (**Optional validation dataset**). This lets you measure accuracy while training and tuning.
 
-5.  In the right panel of Tune Model Hyperparameters, choose a value for **Parameter sweeping mode**. This option controls how the parameters are selected.
+4.  In the right panel of Tune Model Hyperparameters, choose a value for **Parameter sweeping mode**. This option controls how the parameters are selected.
 
     - **Entire grid**: When you select this option, the module loops over a grid predefined by the system, to try different combinations and identify the best learner. This option is useful when you don't know what the best parameter settings might be and want to try all possible combinations of values.
 
     - **Random sweep**: When you select this option, the module will randomly select parameter values over a system-defined range. You must specify the maximum number of runs that you want the module to execute. This option is useful when you want to increase model performance by using the metrics of your choice but still conserve computing resources.    
 
-6.  For **Label column**, open the column selector to choose a single label column.
+5.  For **Label column**, open the column selector to choose a single label column.
 
-7.  Choose the number of runs:
+6.  Choose the number of runs:
 
-    1. **Maximum number of runs on random sweep**: If you choose a random sweep, you can specify how many times the model should be trained, by using a random combination of parameter values.
+    - **Maximum number of runs on random sweep**: If you choose a random sweep, you can specify how many times the model should be trained, by using a random combination of parameter values.
 
-8.  For **Ranking**, choose a single metric to use for ranking the models.
+7.  For **Ranking**, choose a single metric to use for ranking the models.
 
     When you run a parameter sweep, the module calculates all applicable metrics for the model type and returns them in the **Sweep results** report. The module uses separate metrics for regression and classification models.
 
     However, the metric that you choose determines how the models are ranked. Only the top model, as ranked by the chosen metric, is output as a trained model to use for scoring.
 
-9.  For **Random seed**, enter a number to use for starting the parameter sweep. 
+8.  For **Random seed**, enter a number to use for starting the parameter sweep. 
 
-10. Submit the pipeline.
+9. Submit the pipeline.
 
 ## Results of hyperparameter tuning
 
 When training is complete:
 
-+ To view a set of accuracy metrics for the best model, right-click the module, and then select **Visualize**.
++ To view the sweep results, you could either right-click the module, and then select **Visualize**, or right-click left output port of the module to visualize.
 
-    The output includes all accuracy metrics that apply to the model type, but the metric that you selected for ranking determines which model is considered "best."
+    The **Sweep results** includes all parameter sweep and accuracy metrics that apply to the model type, and the metric that you selected for ranking determines which model is considered "best."
 
-+ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
++ To save a snapshot of the trained model, select the **Outputs+logs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 
 ## Technical notes

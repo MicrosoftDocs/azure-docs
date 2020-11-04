@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.custom: seodec18
 ---
 # How to sign up for Translator
 
 ## Sign in to the Azure portal
 
-- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
+- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/cognitive-services) to experiment at no charge.
 - Already have an account? [Sign in](https://ms.portal.azure.com/)
 
 ## Create a subscription for Translator

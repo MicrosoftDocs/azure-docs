@@ -19,7 +19,7 @@ Most bindings require a stored connection string that Functions uses to access t
 
 Before you start this article, you must: 
 
- - Complete [part 1 of the Visual Studio quickstart](./functions-create-first-function-vs-code.md). 
+ - Complete [part 1 of the Visual Studio quickstart](./functions-create-your-first-function-visual-studio.md). 
 
 - Sign in to your Azure subscription from Visual Studio.
 
@@ -102,7 +102,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. To
 Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
-> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Enable Application Insights integration](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [previous quickstart article]: functions-create-your-first-function-visual-studio.md

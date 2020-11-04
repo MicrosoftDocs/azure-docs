@@ -15,7 +15,7 @@ ms.author: martinco
 
 # Five steps to securing your identity infrastructure
 
-If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Security Intelligence report](https://go.microsoft.com/fwlink/p/?linkid=2073747).
+If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Security Intelligence report](https://www.microsoft.com/security/business/security-intelligence-report).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to inoculate your organization against cyber-attacks.
 
@@ -30,7 +30,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 Make sure you keep track of which features and steps are complete while reading this checklist.
 
 > [!NOTE]
-> Many of the recommendations in this document apply only to applications that are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) is the foundation - on which all these recommendations are based.
+> Many of the recommendations in this document apply only to applications that are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Azure AD Application Management](../../active-directory/manage-apps/what-is-application-management.md) is the foundation - on which all these recommendations are based.
 
 The recommendations in this document are aligned with the [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), an automated assessment of your Azure AD tenant’s identity security configuration. Organizations can use the Identity Secure Score page in the Azure AD portal to find gaps in their current security configuration to ensure they follow current Microsoft [best practices](identity-management-best-practices.md) for security. Implementing each recommendation in the Secure Score page will increase your score and allow you to track your progress, plus help you compare your implementation against other similar size organizations or your industry.
 
@@ -77,7 +77,7 @@ You can use [PowerShell to prevent passwords from expiring](../../active-directo
 If your organization uses a hybrid identity solution with pass-through authentication or federation, then you should enable password hash sync for the following two reasons:
 
 * The [Users with leaked credentials](../../active-directory/reports-monitoring/concept-risk-events.md) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* In the event of an on-premises outage (for example, in a ransomware attack) you can switch over to using [cloud authentication using password hash sync](choose-ad-authn.md). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365. In this case, IT staff won't need to resort to personal email accounts to share data until the on-premises outage is resolved.
+* In the event of an on-premises outage (for example, in a ransomware attack) you can switch over to using [cloud authentication using password hash sync](choose-ad-authn.md). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Microsoft 365. In this case, IT staff won't need to resort to personal email accounts to share data until the on-premises outage is resolved.
 
 Learn more about how [password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) works.
 
@@ -102,7 +102,7 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 1. Block [legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online and Exchange Online to use modern authentication](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. If you have Azure AD Premium, use [Conditional Access policies](../../active-directory/conditional-access/overview.md) to block legacy authentication, otherwise use [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. If you have Azure AD Premium, use Conditional Access policies to [block legacy authentication](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md), otherwise use [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### Block invalid authentication entry points
 
@@ -110,9 +110,9 @@ Using the assume breach mentality, you should reduce the impact of compromised u
 
 ### Restrict user consent operations
 
-It’s important to understand the various [Azure AD application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), the [types of permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent), and their implications on your organization’s security posture. By default, all users in Azure AD can grant applications that leverage the Microsoft identity platform to access your organization’s data. While allowing users to consent by themselves does allow users to easily acquire useful applications that integrate with Microsoft 365, Azure and other services, it can represent a risk if not used and monitored carefully.
+It’s important to understand the various [Azure AD application consent experiences](../../active-directory/develop/application-consent-experience.md), the [types of permissions and consent](../../active-directory/develop/v2-permissions-and-consent.md), and their implications on your organization’s security posture. By default, all users in Azure AD can grant applications that leverage the Microsoft identity platform to access your organization’s data. While allowing users to consent by themselves does allow users to easily acquire useful applications that integrate with Microsoft 365, Azure and other services, it can represent a risk if not used and monitored carefully.
 
-Microsoft recommends [disabling future user consent operations](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) to help reduce your surface area and mitigate this risk. If end-user consent is disabled, previous consent grants will still be honored but all future consent operations must be performed by an administrator. Admin consent can be requested by users through an integrated [admin consent request workflow](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) or through your own support processes. Before disabling end-user consent, use our [recommendations](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) to plan this change in your organization. For applications you wish to allow all users to access, consider [granting consent on behalf of all users](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), making sure users who have not yet consented individually will be able to access the app. If you do not want these applications to be available to all users in all scenarios, use [application assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) and [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to restrict user access to apps.
+Microsoft recommends restricting user consent to help reduce your surface area and mitigate this risk. You may also use [app consent policies (preview)](../../active-directory/manage-apps/configure-user-consent.md) to restrict end-user consent to only verified publishers and only for permissions you select. If end-user consent is restricted, previous consent grants will still be honored but all future consent operations must be performed by an administrator. For restricted cases, admin consent can be requested by users through an integrated [admin consent request workflow](../../active-directory/manage-apps/configure-admin-consent-workflow.md) or through your own support processes. Before restricting end-user consent, use our [recommendations](../../active-directory/manage-apps/manage-consent-requests.md) to plan this change in your organization. For applications you wish to allow all users to access, consider [granting consent on behalf of all users](../../active-directory/develop/v2-admin-consent.md), making sure users who have not yet consented individually will be able to access the app. If you do not want these applications to be available to all users in all scenarios, use [application assignment](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) and Conditional Access to restrict user access to [specific apps](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md).
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consented permissions on a regular basis.
 
@@ -130,7 +130,7 @@ Another impact of "assume breach" is the need to minimize the likelihood a compr
 
 Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely, with the necessary change control.
 
-As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) to make sure you still have access to Azure AD if you lock yourself out.
+As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/roles/security-planning.md) to make sure you still have access to Azure AD if you lock yourself out.
 
 ## Step 3 - Automate threat response
 
@@ -140,7 +140,7 @@ Azure Active Directory has many capabilities that automatically intercept attack
 
 User risk indicates the likelihood a user's identity has been compromised and is calculated based on the [user risk detections](../../active-directory/identity-protection/overview.md) that are associated with a user's identity. A user risk policy is a Conditional Access policy that evaluates the risk level to a specific user or group. Based on Low, Medium, High risk-level, a policy can be configured to block access or require a secure password change using multi-factor authentication. Microsoft's recommendation is to require a secure password change for users on high risk.
 
-![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Screenshot shows Users flagged for risk, with a user selected.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### Implement sign-in risk policy using Azure AD Identity Protection
 
@@ -170,7 +170,7 @@ Azure AD Identity Protection provides two important reports you should monitor d
 1. Risky sign-in reports will surface user sign-in activities you should investigate, the legitimate owner may not have performed the sign-in.
 2. Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event.
 
-![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Screenshot shows the Azure A D Identity Protection pane with users and their risk levels.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### Audit apps and consented permissions
 
@@ -188,7 +188,7 @@ Azure AD's [self-service password reset (SSPR)](../../active-directory/authentic
 
 ### Implement self-service group and application access
 
-Azure AD provides the ability to non-administrators to manage access to resources, using security groups, Office 365 groups, application roles, and access package catalogs.  [Self-service group management](../../active-directory/users-groups-roles/groups-self-service-management.md) enables group owners to manage their own groups, without needing to be assigned an administrative role. Users can also create and manage Office 365 groups without relying on administrators to handle their requests, and unused groups expire automatically.  [Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md) further enables delegation and visibility, with comprehensive access request workflows and automatic expiration.  You can delegate to non-administrators the ability to configure their own access packages for groups, Teams, applications, and SharePoint Online sites they own, with custom policies for who is required to approve access, including configuring employee's managers and business partner sponsors as approvers.
+Azure AD provides the ability to non-administrators to manage access to resources, using security groups, Microsoft 365 groups, application roles, and access package catalogs.  [Self-service group management](../../active-directory/enterprise-users/groups-self-service-management.md) enables group owners to manage their own groups, without needing to be assigned an administrative role. Users can also create and manage Microsoft 365 groups without relying on administrators to handle their requests, and unused groups expire automatically.  [Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md) further enables delegation and visibility, with comprehensive access request workflows and automatic expiration.  You can delegate to non-administrators the ability to configure their own access packages for groups, Teams, applications, and SharePoint Online sites they own, with custom policies for who is required to approve access, including configuring employee's managers and business partner sponsors as approvers.
 
 ### Implement Azure AD access reviews
 

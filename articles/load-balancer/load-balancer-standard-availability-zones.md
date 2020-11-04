@@ -46,7 +46,9 @@ A single frontend IP address will survive zone failure. The frontend IP may be u
 
 The frontend's IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones. Any retries or reestablishment will succeed in other zones not affected by the zone failure. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Zone redundant" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" alt="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration." width="512" title="Virtual Network NAT">
+</p>
 
 *Figure: Zone redundant load balancer*
 
@@ -56,7 +58,12 @@ You can choose to have a frontend guaranteed to a single zone, which is known as
 
 Additionally, the use of zonal frontends directly for load balanced endpoints within each zone is supported. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Zone redundant" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network NAT">
+</p>
+
+*Figure: Zonal load balancer*
 
 If you wish to blend these concepts (zone-redundant and zonal for same backend), review [multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -94,7 +101,7 @@ Other zones who can reach this VM can continue to serve the VM from their respec
 
 Load balancer is flexible in the context of availability zones. You can choose to align to zones or be zone-redundant for each rule. Increased availability can come at the price of increased complexity. Design for availability for optimal performance.
 
-### Automatic zone-redundancy
+### Zone-redundancy
 
 Load Balancer makes it simple to have a single IP as a zone-redundant frontend. A zone-redundant IP address can serve a zonal resource in any zone.  The IP can survive one or more zone failures as long as one zone remains healthy within the region.  Instead, a zonal frontend is a reduction of the service to a single zone and shares fate with the respective zone.
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -22,7 +22,7 @@ To use a claim resolver in an input or output claim, you define a string **Claim
 
 In the following example, a claim type named `correlationId` is defined with a **DataType** of `string`.
 
-```XML
+```xml
 <ClaimType Id="correlationId">
   <DisplayName>correlationId</DisplayName>
   <DataType>string</DataType>
@@ -32,7 +32,7 @@ In the following example, a claim type named `correlationId` is defined with a *
 
 In the technical profile, map the claim resolver to the claim type. Azure AD B2C populates the value of the claim resolver `{Context:CorrelationId}` into the claim `correlationId` and sends the claim to the technical profile.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
@@ -109,6 +109,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | Claim | Description | Example |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | The access token. | N/A |
+| {oauth2:refresh_token} | The refresh token. | N/A |
 
 
 ### SAML
@@ -122,6 +123,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
 | {SAML:RelayState} | The `RelayState` query string parameter.| 
+| {SAML:Subject} | The `Subject` from the NameId element of the SAML AuthN request.| 
 
 ## Using claim resolvers
 
@@ -153,7 +155,7 @@ In a [RESTful](restful-technical-profile.md) technical profile, you may want to 
 
 The following example shows a RESTful technical profile with this scenario:
 
-```XML
+```xml
 <TechnicalProfile Id="REST">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -183,7 +185,7 @@ Azure AD B2C enables you to pass query string parameters to your HTML content de
 
 The following example passes in the query string parameter named **campaignId** with a value of `Hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 
-```XML
+```xml
 <UserJourneyBehaviors>
   <ContentDefinitionParameters>
     <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -203,7 +205,7 @@ As a result, Azure AD B2C sends the above parameters to the HTML content page:
 
 In a [ContentDefinition](contentdefinitions.md) `LoadUri`, you can send claim resolvers to pull content from different places, based on the parameters used.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
@@ -214,7 +216,7 @@ In a [ContentDefinition](contentdefinitions.md) `LoadUri`, you can send claim re
 
 With Azure Application Insights and claim resolvers you can gain insights on user behavior. In the Application Insights technical profile, you send input claims that are persisted to Azure Application Insights. For more information, see [Track user behavior in Azure AD B2C journeys by using Application Insights](analytics-with-application-insights.md). The following example sends the policy ID, correlation ID, language, and the client ID to Azure Application Insights.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureInsights-Common">
   <DisplayName>Alternate Email</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -232,7 +234,7 @@ With Azure Application Insights and claim resolvers you can gain insights on use
 
 In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, or correlation ID to the relying party application within the JWT.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">

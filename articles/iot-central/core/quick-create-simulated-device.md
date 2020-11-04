@@ -3,7 +3,7 @@ title: Quickstart - Add a simulated device to Azure IoT Central
 description: This quickstart shows how to create a device template and add a simulated device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -61,7 +61,7 @@ The following steps show you how to use the device catalog to import the capabil
 
 ### Add cloud properties
 
-A device template can include cloud properties. Cloud properties only exist in the IoT Central application and are never sent to, or received from, a device.
+A device template can include cloud properties. Cloud properties only exist in the IoT Central application and are never sent to, or received from, a device. To add a cloud property:
 
 1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
 
@@ -125,23 +125,25 @@ To add a simulated device to your application, you use the **MXChip IoT DevKit**
 
 1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **MXChip IoT DevKit** device template. Select **MXChip IoT DevKit**.
 
-1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
+1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own. A device ID can contain letters, numbers, and the `-` character. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
 
     ![Simulated device](./media/quick-create-simulated-device/simulated-device.png)
 
 Now you can interact with the views that were created by the builder for the device template using simulated data:
 
-1. Select your simulated device on the **Devices** page.
+1. Select your simulated device on the **Devices** page
 
-1. The **Overview** view shows a plot of the simulated telemetry:
+    * The **Overview** view shows a plot of the simulated telemetry:
 
-    ![Overview view](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![Overview view](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. The **About** view shows property values, including the cloud properties you added to the view.
+    * The **About** view shows property values, including the cloud properties you added to the view.
 
-1. The **Commands** view lets you run commands, such as **blink** on the device.
+    * The **Commands** view lets you run commands, such as **blink** on the device.
 
-1. The **Manage devices** view is the form you created for the operator to manage the device.
+    * The **Manage devices** view is the form you created for the operator to manage the device.
+
+    * The **Raw data** view lets you view the raw telemetry and property values sent by the device. This view is useful for debugging devices.
 
 ## Use a simulated device to improve views
 

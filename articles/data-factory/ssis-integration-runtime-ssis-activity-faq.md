@@ -23,7 +23,7 @@ This article includes the most common errors that you might find when you're exe
 
 Use the Azure Data Factory portal to check the output of the SSIS package execution activity. The output includes the execution result, error messages, and operation ID. For details, see [Monitor the pipeline](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
 
-Use the SSIS catalog (SSISDB) to check the detail logs for the execution. For details, see [Monitor Running Packages and Other Operations](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
+Use the SSIS catalog (SSISDB) to check the detail logs for the execution. For details, see [Monitor Running Packages and Other Operations](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
 
 ## Common errors, causes, and solutions
 
@@ -52,7 +52,7 @@ The potential cause is that the ADO.NET provider used in the package isn't insta
 
 ### Error message: "The connection '...' is not found"
 
-A known issue in older versions of SQL Server Management Studio (SSMS) can cause this error. If the package contains a custom component (for example, SSIS Azure Feature Pack or partner components) that isn't installed on the machine where SSMS is used to do the deployment, SSMS will remove the component and cause the error. Upgrade [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
+A known issue in older versions of SQL Server Management Studio (SSMS) can cause this error. If the package contains a custom component (for example, SSIS Azure Feature Pack or partner components) that isn't installed on the machine where SSMS is used to do the deployment, SSMS will remove the component and cause the error. Upgrade [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
 
 ### Error message：“SSIS Executor exit code: -1073741819.”
 
@@ -87,17 +87,17 @@ This error means the local disk is used up in the SSIS integration runtime node.
 This error occurs when package execution can't find a file in the local disk in the SSIS integration runtime. Try these actions:
 * Don't use the absolute path in the package that's being executed in the SSIS integration runtime. Use the current execution working directory (.) or the temp folder (%TEMP%) instead.
 * If you need to persist some files on SSIS integration runtime nodes, prepare the files as described in [Customize setup](how-to-configure-azure-ssis-ir-custom-setup.md). All the files in the working directory will be cleaned up after the execution is finished.
-* Use Azure Files instead of storing the file in the SSIS integration runtime node. For details, see [Use Azure file shares](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* Use Azure Files instead of storing the file in the SSIS integration runtime node. For details, see [Use Azure file shares](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
 
 ### Error message: "The database 'SSISDB' has reached its size quota"
 
-A potential cause is that the SSISDB database created in the Azure SQL database, or a managed instance when you're creating an SSIS integration runtime, has reached its quota. Try these actions:
-* Consider increasing the DTU of your database. You can find details in [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
+* Consider increasing the DTU of your database. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
 * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### Error message: "The request limit for the database is ... and has been reached."
 
-If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
 
 ### Error message: "SSIS Operation failed with unexpected operation status: ..."
 
@@ -110,7 +110,7 @@ The error is mostly caused by a transient problem, so try to rerun the package e
 
 ### Error message: "There is no active worker."
 
-This error usually means the SSIS integration runtime has an unhealthy status. Check the Azure portal for the status and detailed errors. For more information, see [Azure-SSIS integration runtime](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime).
+This error usually means the SSIS integration runtime has an unhealthy status. Check the Azure portal for the status and detailed errors. For more information, see [Azure-SSIS integration runtime](./monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
 ### Error message: "Your integration runtime cannot be upgraded and will eventually stop working, since we cannot access the Azure Blob container you provided for custom setup."
 
@@ -120,7 +120,7 @@ This error occurs when the SSIS integration runtime can't access the storage con
 
 One potential cause is that the username or password with Azure Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
 
-1. Prepare a service principal as described in [Automation with service principals](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
+1. Prepare a service principal as described in [Automation with service principals](../analysis-services/analysis-services-service-principal.md).
 2. In Connection Manager, configure **Use a specific user name and password**: set **AppID** as the username and **clientSecret** as the password.
 
 ### Error message: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" when using a managed identity
@@ -129,7 +129,7 @@ Make sure you don't configure the authentication method of Connection Manager as
 
 ### Error message: "0xC020801F at ..., OData Source [...]: Cannot acquire a managed connection from the run-time connection manager"
 
-One potential cause is that the Transport Layer Security (TLS) is not enable in SSIS integration runtime which is required by your OData source. You can enable TLS in SSIS integration runtime by using Customize setup. More detail can be found at [Can't connect Project Online Odata from SSIS](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) and [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+One potential cause is that the Transport Layer Security (TLS) is not enable in SSIS integration runtime which is required by your OData source. You can enable TLS in SSIS integration runtime by using Customize setup. More detail can be found at [Can't connect Project Online Odata from SSIS](/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) and [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ### Error message: "Request staging task with operation guid ... fail since error: Failed to dispatch staging operation with error message: Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException: Failed to load data proxy."
 
@@ -151,7 +151,7 @@ One potential cause is your Self-Hosted integration runtime is not installed or 
 
 * Potential cause & recommended action:
   * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
-  * Execution log can be found in [SSMS report](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) or in the log folder you specified in SSIS package execution activity.
+  * Execution log can be found in [SSMS report](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) or in the log folder you specified in SSIS package execution activity.
   * vNet can also be used to access on-premises data as an alternative. More detail can be found at [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
@@ -162,7 +162,7 @@ Make sure Visual C++ runtime is installed on Self-Hosted integration runtime mac
 
 * Potential cause & recommended action:
   * ADF stored procedure activity or Lookup activity are used to trigger SSIS package execution. The t-sql command may hit transient issue and trigger the rerun which would cause multiple package executions.
-  * Use ExecuteSSISPackage activity instead which ensures package execution won’t rerun unless user set retry count in activity. Detail can be found at [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Use ExecuteSSISPackage activity instead which ensures package execution won’t rerun unless user set retry count in activity. Detail can be found at [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](./how-to-invoke-ssis-package-ssis-activity.md)
   * Refine your t-sql command to be able to rerun by checking if an execution has already been triggered
 
 ### Package execution takes too long
@@ -185,7 +185,7 @@ Try these actions:
 
 * Make sure the SSIS integration runtime is in the same region as the data source and destination.
 
-* Set the logging level of package execution to **Performance** to collect duration information for each component in the execution. For details, see [Integration Services (SSIS) logging](https://docs.microsoft.com/sql/integration-services/performance/integration-services-ssis-logging).
+* Set the logging level of package execution to **Performance** to collect duration information for each component in the execution. For details, see [Integration Services (SSIS) logging](/sql/integration-services/performance/integration-services-ssis-logging).
 
 * Check IR node performance in the Azure portal:
   * For information about how to monitor the SSIS integration runtime, see [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).

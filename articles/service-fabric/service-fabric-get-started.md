@@ -3,15 +3,15 @@ title: Set up a Windows development environment
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.custom: sfrev
+ms.date: 06/16/2020
+ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Prepare your development environment on Windows
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
@@ -36,7 +36,7 @@ The following operating system versions are supported for development:
 
 ## Install the SDK and tools
 
-Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 > [!NOTE]
 > Local Service Fabric development cluster upgrades are not supported.
@@ -62,8 +62,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 4.1.409
-* Service Fabric runtime 7.1.409
+* Service Fabric SDK and Tools 4.1.458
+* Service Fabric runtime 7.1.458
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
@@ -88,8 +88,9 @@ Now that you've finished setting up your development environment, start building
 
 * [Learn how to create, deploy, and manage applications](service-fabric-tutorial-create-dotnet-app.md)
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
-* [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
+* [Check out the Service Fabric code samples on GitHub](/samples/browse/?products=azure)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"

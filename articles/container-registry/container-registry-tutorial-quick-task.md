@@ -3,7 +3,7 @@ title: Tutorial - Quick container image build
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: "seodec18, mvc"
+ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to quickly build
 # container images in Azure, without having to install dependencies like Docker
 # Engine, so that I can simplify my inner-loop development pipeline.
@@ -174,7 +174,7 @@ All production scenarios should use [service principals][service-principal-auth]
 
 #### Create a key vault
 
-If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](../key-vault/index.yml), create one with the Azure CLI using the following commands.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault

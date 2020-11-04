@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/16/2020
+ms.date: 10/19/2020
 ms.author: tamram
 ---
 
@@ -31,7 +31,7 @@ To create a container in the Azure portal, follow these steps:
 5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 6. Select **OK** to create the container.
 
-    ![Screenshot showing how to create a container in the Azure portal](media/storage-quickstart-blobs-portal/create-container.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Screenshot showing how to create a container in the Azure portal":::
 
 ## Upload a block blob
 
@@ -41,9 +41,9 @@ To upload a block blob to your new container in the Azure portal, follow these s
 
 1. In the Azure portal, navigate to the container you created in the previous section.
 1. Select the container to show a list of blobs it contains. This container is new, so it won't yet contain any blobs.
-1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the advanced section to configure other settings for the upload operation.
+1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the **Advanced** section to configure other settings for the upload operation.
 
-    ![Screenshot showing how to upload a blob from your local drive](media/storage-quickstart-blobs-portal/upload-blob.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Screenshot showing how to upload a blob from your local drive via the Azure portal":::
 
 1. Select the **Upload** button to upload the blob.
 1. Upload as many blobs as you like in this way. You'll see that the new blobs are now listed within the container.
@@ -55,9 +55,23 @@ You can download a block blob to display in the browser or save to your local fi
 1. Navigate to the list of blobs that you uploaded in the previous section.
 1. Right-click the blob you want to download, and select **Download**.
 
+    :::image type="content" source="media/storage-quickstart-blobs-portal/download-blob.png" alt-text="Screenshot showing how to download a blob in the Azure portal":::
+
+## Delete a block blob
+
+To delete one or more blobs in the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the container.
+1. Display the list of blobs in the container.
+1. Use the checkbox to select one or more blobs from the list.
+1. Select the **Delete** button to delete the selected blobs.
+1. In the dialog, confirm the deletion, and indicate whether you also want to delete blob snapshots.
+
+:::image type="content" source="media/storage-quickstart-blobs-portal/delete-blobs.png" alt-text="Screenshot showing how to delete blobs from the Azure portal":::
+
 ## Clean up resources
 
-To remove the resources you created in this quickstart, you can delete the container. All blobs in the container will also be deleted.
+To remove all the resources you created in this quickstart, you can simply delete the container. All blobs in the container will also be deleted.
 
 To delete the container:
 
@@ -68,7 +82,7 @@ To delete the container:
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage with Azure portal. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to create a container and upload a blob with Azure portal. To learn about working with Blob storage from a web app, continue to a tutorial that shows how to upload images to a storage account.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
+> [Tutorial: Upload image data in the cloud with Azure Storage](storage-upload-process-images.md)

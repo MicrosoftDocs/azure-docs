@@ -3,13 +3,13 @@ title: Regions in which Video Indexer is available - Azure
 titleSuffix: Azure Media Services
 description: This article talks about Azure regions in which Azure Media Services Video Indexer is available.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: anzaman
+ms.date: 09/14/2020
+ms.author: juliako
 ---
 
 # Azure regions in which Video Indexer exists
@@ -18,7 +18,18 @@ Video Indexer APIs contain a **location** parameter that you should set to the A
 
 ## Locations
 
-The `location` parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](/cli/azure):
+The `location` parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can use the Azure portal or run a [Azure CLI](/cli/azure) command.
+
+### Azure portal
+
+1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
+1. Select **User accounts** from the top-right corner of the page.
+1. Find the location of your account in the top-right corner.  
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/location/location1.png" alt-text="Location":::
+    
+###  CLI command
 
 ```azurecli-interactive
 az account list-locations
@@ -31,7 +42,7 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
 ```json
    {
       "displayName": "West US 2",
-      "id": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/locations/westus2",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/locations/westus2",
       "latitude": "47.233",
       "longitude": "-119.852",
       "name": "westus2",

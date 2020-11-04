@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
+ms.date: 08/06/2020
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
@@ -58,6 +58,9 @@ Select **Next: Storage >>** to advance to the next tab.
 
 ## Storage
 
+> [!WARNING] 
+> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
+
 ![HDInsight create cluster storage](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creating a new cluster in the Azure portal - storage")
 
 ### Primary storage
@@ -77,6 +80,9 @@ Optional: Select **Add Azure Storage** for additional cluster storage. Using an 
 ### Metastore Settings
 
 Optional: Specify an existing SQL Database to save Apache Hive, Apache Oozie, and, or Apache Ambari metadata outside of the cluster. The Azure SQL Database that's used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. When you create a metastore, don't name a database with dashes or hyphens. These characters can cause the cluster creation process to fail.
+
+> [!IMPORTANT]
+> For cluster shapes that support metastores, the default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
 Select **Next: Security + networking >>** to advance to the next tab.
 

@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
@@ -31,19 +31,21 @@ This environment is composed of several Azure services used to provide a secure,
 enterprise-ready workload infrastructure based on ISO 27001 standards. This environment is
 composed of:
 
-- [Role-based access control](../../../../role-based-access-control/overview.md) (RBAC) role named
-  DevOps that has rights to deploy and manage resources in an [Azure App Service Environments](../../../../app-service/environment/intro.md)
-  deployed by the blueprint sample
-- [Azure Policies](../../../policy/overview.md) to lock down what services can be deployed to the
-  environment and denying the creation of any public IP address (PIP) resource
-- A virtual network containing a single subnet and peered back to a pre-existing [shared services](../iso27001-shared/index.md)
-  environment and forcing all traffic to pass by the [shared services](../iso27001-shared/index.md)
-  firewall. The virtual network hosts the following resources:
+- [Azure role](../../../../role-based-access-control/overview.md) named DevOps that has rights to
+  deploy and manage resources in an
+  [Azure App Service Environments](../../../../app-service/environment/intro.md) deployed by the
+  blueprint sample
+- [Azure Policy](../../../policy/overview.md) definitions to lock down what services can be deployed
+  to the environment and denying the creation of any public IP address (PIP) resource
+- A virtual network containing a single subnet and peered back to a pre-existing
+  [shared services](../iso27001-shared/index.md) environment and forcing all traffic to pass by the
+  [shared services](../iso27001-shared/index.md) firewall. The virtual network hosts the following
+  resources:
   - An [Azure App Service Environments](../../../../app-service/environment/intro.md) that can be
     used to host one or more web applications, web APIs, or functions
   - An [Azure Key Vault](../../../../key-vault/general/overview.md) instance using a VNet service
     endpoint, for storing secrets used by applications running in the workload environment
-  - An [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md) server
+  - An [Azure SQL Database](../../../../azure-sql/database/sql-database-paas-overview.md) server
     instance using a VNet service endpoint, for hosting databases used for applications in the
     workload environment
 

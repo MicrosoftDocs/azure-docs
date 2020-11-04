@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 03/18/2020 
+ms.date: 06/10/2020 
 ---
 
 # Quickstart: Use the Copy Data tool to copy data

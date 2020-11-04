@@ -6,16 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 
+ms.custom: contperfq1
+
 ms.collection: M365-identity-device-management
 ---
-# What is Azure Active Directory Identity Protection?
+# What is Identity Protection?
 
 Identity Protection is a tool that allows organizations to accomplish three key tasks:
 
@@ -48,9 +50,10 @@ Identity Protection identifies risks in the following classifications:
 | Atypical travel | Sign in from an atypical location based on the user's recent sign-ins. |
 | Anonymous IP address | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs). |
 | Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
-| Malware linked IP address | Sign in from a malware linked IP address |
-| Leaked Credentials | This risk detection indicates that the user's valid credentials have been leaked |
-| Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern |
+| Malware linked IP address | Sign in from a malware linked IP address. |
+| Leaked Credentials | Indicates that the user's valid credentials have been leaked. |
+| Password spray | Indicates that multiple usernames are being attacked using common passwords in a unified, brute-force manner. |
+| Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern. |
 
 More detail on these risks and how/when they are calculated can be found in the article, [What is risk](concept-identity-protection-risks.md).
 
@@ -66,9 +69,15 @@ Administrators can review detections and take manual action on them if needed. T
 
 More information can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk.md).
 
+### Risk levels
+
+Identity Protection categorizes risk into three tiers: low, medium, and high. 
+
+While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
+
 ## Exporting risk data
 
-Data from Identity Protection can be exported to other tools for archive and further investigation and corelation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
+Data from Identity Protection can be exported to other tools for archive and further investigation and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Information about integrating Identity Protection information with Azure Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 
@@ -83,23 +92,27 @@ Identity Protection requires users be a Security Reader, Security Operator, Secu
 | Security operator | View all Identity Protection reports and Overview blade <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
 | Security reader | View all Identity Protection reports and Overview blade | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
 
-Conditional Access administrators can also create policies that factor in sign-in risk as a condition, find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Currently, the security operator role cannot access the Risky sign-ins report.
+
+Conditional Access administrators can also create policies that factor in sign-in risk as a condition. Find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## License requirements
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| Capability | Details  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk policies | User risk policy (via Identity Protection) | Yes | No | No |
-| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | Yes | No | No |
-| Security reports | Overview | Yes | No | No |
-| Security reports | Risky users | Full access | Limited Information | Limited Information |
-| Security reports | Risky sign-ins | Full access | Limited Information | Limited Information |
-| Security reports | Risk detections | Full access | Limited Information | No |
-| Notifications | Users at risk detected alerts | Yes | No | No |
-| Notifications | Weekly digest | Yes | No | No |
-| | MFA registration policy | Yes | No | No |
+| Risk policies | User risk policy (via Identity Protection)  | No | No |Yes | 
+| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access)  | No |  No |Yes |
+| Security reports | Overview |  No | No |Yes |
+| Security reports | Risky users  | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Full access|
+| Security reports | Risky sign-ins  | Limited Information. No risk detail or risk level is shown. | Limited Information. No risk detail or risk level is shown. | Full access|
+| Security reports | Risk detections   | No | Limited Information. No details drawer.| Full access|
+| Notifications | Users at risk detected alerts  | No | No |Yes |
+| Notifications | Weekly digest| No | No | Yes | 
+| | MFA registration policy | No | No | Yes |
+
+More information on these rich reports can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## Next steps
 

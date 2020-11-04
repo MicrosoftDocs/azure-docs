@@ -1,6 +1,6 @@
 ---
 title: Best Practices to use Key Vault - Azure Key Vault | Microsoft Docs
-description: This document explains some of the best practices to use Key Vault
+description: Learn about best practices for Azure Key Vault, including controlling access, when to use separate key vaults, backing up, logging, and recovery options.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -33,11 +33,24 @@ Our recommendation is to use a vault per application per environment (Developmen
 
 Make sure you take regular back ups of your vault on update/delete/create of objects within a Vault.
 
+### Azure PowerShell Backup Commands
+
+* [Backup Certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Backup Key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Backup Secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+
+### Azure CLI Backup Commands
+
+* [Backup Certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Backup Key](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Backup Secret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+
+
 ## Turn on Logging
 
 [Turn on logging](logging.md) for your Vault. Also set up alerts.
 
 ## Turn on recovery options
 
-1. Turn on [Soft Delete](overview-soft-delete.md).
+1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.

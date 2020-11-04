@@ -28,7 +28,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Connectors for Azure Logic Apps
-            url: /azure/connectors/apis-list
+            url: ../connectors/apis-list.md
           - text: Schedule recurring workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration
@@ -36,7 +36,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
-            url: https://docs.microsoft.com/learn/modules/intro-to-logic-apps/
+            url: /learn/modules/intro-to-logic-apps/
       - linkListType: video
         links:
           - text: Introducing Azure Logic Apps
@@ -60,7 +60,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Route and process data automatically
-            url: https://docs.microsoft.com/learn/modules/route-and-process-data-logic-apps
+            url: /learn/modules/route-and-process-data-logic-apps
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -80,7 +80,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: What is an on-premises data gateway?
-            url: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
+            url: /data-integration/gateway/service-gateway-onprem
           - text: What is an integration service environment?
             url: connect-virtual-network-vnet-isolated-environment-overview.md
       - linkListType: how-to-guide
@@ -110,11 +110,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: "Sample: Connect to integration account and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/
+            url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
 
   # Card (optional)
   - title: Manage and secure logic apps
@@ -143,14 +143,16 @@ landingContent:
             url: logic-apps-create-azure-resource-manager-templates.md
           - text: Deploy logic app templates
             url: logic-apps-deploy-azure-resource-manager-templates.md
+          - text: Call logic apps from Power Automate and Power Apps
+            url: call-from-power-automate-power-apps.md
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates
-            url: https://docs.microsoft.com/learn/modules/create-deploy-logic-apps-using-arm-templates/
+            url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Connect to Azure Storage and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
+            url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
           - text: "Sample: Connect to Azure Service Bus and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
+            url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
 
   # Card (optional)
   - title: More information
@@ -164,6 +166,6 @@ landingContent:
           - text: Workflow Definition Language schema
             url: logic-apps-workflow-definition-language.md
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.logicapp/
+            url: /powershell/module/az.logicapp/
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/logic/
+            url: /rest/api/logic/

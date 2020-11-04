@@ -6,8 +6,28 @@
     href: overview-iot-central.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md
+  - name: Connect and develop devices
+    href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: September 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/
+    - name: August 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/
+    - name: July 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
+    - name: June 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/
+    - name: June 2020 UI and documentation updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/
+    - name: May 2020 jobs and metrics updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
+    - name: May 2020 dashboard updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/
+    - name: April 2020 new features
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
+    - name: April 2020 updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/
     - name: March 2020
       href: https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/
 - name: Quickstarts
@@ -23,14 +43,12 @@
       href: quick-monitor-devices.md
 - name: Tutorials
   items:
-    - name: Get connected
+    - name: Connect and develop devices
       items:
       - name: Connect a  device (Node.js)
         href: tutorial-connect-device-nodejs.md
       - name: Connect a  device (Python)
         href: tutorial-connect-device-python.md
-      - name: Connect a Plug and Play (preview) device
-        href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
@@ -44,31 +62,37 @@
         - name: Create a rule
           href: tutorial-create-telemetry-rules.md
         - name: Explore the IoT Central APIs
-          href: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/
+          href: /learn/modules/manage-iot-central-apps-with-rest-api/
 - name: Concepts
   items:
     - name: Architecture
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
+    - name: What are device templates?
+      href: concepts-device-templates.md
+    - name: Message payloads
+      href: concepts-telemetry-properties-commands.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
       href: concepts-iot-edge.md
 - name: How-to guides
   items:
-    - name: Get connected
+    - name: Connect and develop devices
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
-        - name: Prepare and connect an MXChip IoT DevKit
-          href: howto-connect-devkit.md
+        - name: How to use properties
+          href: howto-use-properties.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Connect devices using X.509
+          href: how-to-connect-devices-x509.md
         - name: Connect other IoT clouds
           href: howto-build-iotc-device-bridge.md
     - name: Stay connected
@@ -91,16 +115,24 @@
           href: howto-run-a-job.md
     - name: Transform
       items:
-        - name: Export data to destinations in Azure
+        - name: Export data to cloud destinations
           href: howto-export-data.md
+        - name: Export data to cloud destinations (legacy)
+          href: howto-export-data-legacy.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
+        - name: Use workflows to integrate with other services
+          href: howto-configure-rules-advanced.md
         - name: Connect Azure Monitor action groups on rules
           href: howto-use-action-groups.md
         - name: Create custom rules
           href: howto-create-custom-rules.md
         - name: Create custom analytics with Databricks
           href: howto-create-custom-analytics.md
+        - name: Visualize your data in Power BI
+          href: howto-connect-powerbi.md
+        - name: Configure and use file uploads
+          href: howto-configure-file-uploads.md
     - name: Administration
       items:
         - name: Manage your application
@@ -115,6 +147,12 @@
               href: howto-customize-ui.md
             - name: Export your application
               href: howto-use-app-templates.md
+            - name: Monitor application health
+              href: howto-monitor-application-health.md
+            - name: About your application
+              href: howto-get-app-info.md
+            - name: Roll X.509 certificates
+              href: how-to-roll-x509-certificates.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
@@ -123,6 +161,8 @@
               href: howto-manage-iot-central-from-cli.md
             - name: Manage from Azure PowerShell
               href: howto-manage-iot-central-from-powershell.md
+            - name: Manage programmatically
+              href: howto-manage-iot-central-programmatically.md
             - name: Manage from CSP portal
               href: howto-create-and-manage-applications-csp.md
         - name: Personalize application
@@ -131,11 +171,20 @@
               href: howto-manage-preferences.md
             - name: Toggle live chat
               href: howto-show-hide-chat.md
-
+    - name: Troubleshoot
+      items:
+      - name: Device connections
+        href: troubleshoot-connection.md
+    - name: FAQ
+      href: howto-faq.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/iot-support-help
+    href: ../../iot-fundamentals/iot-support-help.md
   - name: Industry application templates
     items:
     - name: Retail
@@ -149,32 +198,34 @@
   - name: Azure IoT services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub
+      href: ../../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
+      href: ../../iot-dps/index.yml
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /microsoft-iot-central/
     - name: IoT Edge
-      href: /azure/iot-edge
+      href: ../../iot-edge/index.yml
     - name: IoT solution accelerators
-      href: /azure/iot-accelerators
+      href: ../../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: /azure/iot-pnp
+      href: ../../iot-pnp/index.yml
     - name: Azure Maps
-      href: /azure/azure-maps
+      href: ../../azure-maps/index.yml
     - name: Time Series Insights
-      href: /azure/time-series-insights
+      href: ../../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: IoT Central API reference
-    href: https://docs.microsoft.com/rest/api/iotcentral/
+    href: /rest/api/iotcentral/
+  - name: Customer data residency
+    href: iot-central-customer-data-residency.md
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
   - name: Supported browsers
     href: iot-central-supported-browsers.md
   - name: Azure IoT Central (legacy templates)
-    href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central
+    href: /previous-versions/azure/iot-central/core/overview-iot-central

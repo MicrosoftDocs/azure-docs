@@ -30,11 +30,11 @@ robots: noindex
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
 
-This tutorial shows you how to use the **Copy Wizard** to copy data from an Azure blob storage to an Azure SQL database. 
+This tutorial shows you how to use the **Copy Wizard** to copy data from an Azure blob storage to Azure SQL Database. 
 
 The Azure Data Factory **Copy Wizard** allows you to quickly create a data pipeline that copies data from a supported source data store to a supported destination data store. Therefore, we recommend that you use the wizard as a first step to create a sample pipeline for your data movement scenario. For a list of data stores supported as sources and as destinations, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
-This tutorial shows you how to create an Azure data factory, launch the Copy Wizard, go through a series of steps to provide details about your data ingestion/movement scenario. When you finish steps in the wizard, the wizard automatically creates a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database. For more information about Copy Activity, see [data movement activities](data-factory-data-movement-activities.md).
+This tutorial shows you how to create an Azure data factory, launch the Copy Wizard, go through a series of steps to provide details about your data ingestion/movement scenario. When you finish steps in the wizard, the wizard automatically creates a pipeline with a Copy Activity to copy data from an Azure blob storage to Azure SQL Database. For more information about Copy Activity, see [data movement activities](data-factory-data-movement-activities.md).
 
 ## Prerequisites
 Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article before performing this tutorial.
@@ -97,10 +97,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    1. Double-click **adftutorial** (folder).
    2. Select **emp.txt**, and click **Choose**
       
-      ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Screenshot shows the Choose option for your input file.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. On the **Choose the input file or folder** page, click **Next**. Do not select **Binary copy**. 
    
-    ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Screenshot shows the Binary copy option for your input.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file. You can also enter the delimiters manually for the copy wizard to stop auto-detecting or to override. Click **Next** after you review the delimiters and preview data. 
    
     ![Copy Tool - File format settings](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -116,7 +116,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    5. Enter **User name** and **Password**.
    6. Click **Next**.  
       
-      ![Copy Tool - specify Azure SQL database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
+      ![Copy Tool - specify Azure SQL Database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. On the **Table mapping** page, select **emp** for the **Destination** field from the drop-down list, click **down arrow** (optional) to see the schema and to preview the data.
     
      ![Copy Tool - Table mapping](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
@@ -125,10 +125,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
     ![Copy Tool - schema mapping](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. On the **Performance settings** page, click **Next**. 
     
-    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Screenshot shows the Performance settings page where you can select Next.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
     
-    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Screenshot shows the Summary page where you can select Next.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Launch Monitor and Manage application
 1. On the **Deployment** page, click the link: `Click here to monitor copy pipeline`.
@@ -147,7 +147,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	For more information on using this application, see [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) article.
 
 ## Next steps
-In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
+In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

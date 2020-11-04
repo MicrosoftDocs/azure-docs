@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: Batch testing to find issues - LUIS"
 description: This tutorial demonstrates how to use batch testing to validate the quality of your Language Understanding (LUIS) app.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2020
 ---
@@ -44,13 +46,13 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 
 ## What should the batch file utterances include
 
-The batch file should include utterances with top-level machine-learned entities labeled including start and end position. The utterances should not be part of the examples already in the app. They should be utterances you want to positively predict for intent and entities.
+The batch file should include utterances with top-level machine-learning entities labeled including start and end position. The utterances should not be part of the examples already in the app. They should be utterances you want to positively predict for intent and entities.
 
 You can separate out tests by intent and/or entity or have all the tests (up to 1000 utterances) in the same file.
 
 ## Batch file
 
-The example JSON includes one utterance with a labeled entity to illustrate what a test file looks like. In your own tests, you should have many utterances with correct intent and machine-learned entity labeled.
+The example JSON includes one utterance with a labeled entity to illustrate what a test file looks like. In your own tests, you should have many utterances with correct intent and machine-learning entity labeled.
 
 1. Create `pizza-with-machine-learned-entity-test.json` in a text editor or [download](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true) it.
 

@@ -11,7 +11,7 @@ ms.date: 03/12/2020
 
 # How to query logs from Azure Monitor for VMs
 
-Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
 
@@ -450,7 +450,7 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 | Namespace | Name | Description | Unit | Tags |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Computer Heartbeat                        | | |
-| Memory      | AvailableMB           | Memory Available Bytes                    | Bytes          | memorySizeMB - Total memory size|
+| Memory      | AvailableMB           | Memory Available Bytes                    | Megabytes      | memorySizeMB - Total memory size|
 | Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - Id of the device<br>bytes - Total sent bytes |
 | Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - Id of the device<br>bytes - Total received bytes |
 | Processor   | UtilizationPercentage | Processor Utilization Percentage          | Percent        | totalCpus - Total CPUs |
@@ -463,12 +463,13 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 | LogicalDisk | ReadLatencyMs         | Logical Disk Read Latency Millisecond     | MilliSeconds   | mountId - Mount ID of the device |
 | LogicalDisk | ReadBytesPerSecond    | Logical Disk Read Bytes Per Second        | BytesPerSecond | mountId - Mount ID of the device |
 | LogicalDisk | FreeSpacePercentage   | Logical Disk Free Space Percentage        | Percent        | mountId - Mount ID of the device |
-| LogicalDisk | FreeSpaceMB           | Logical Disk Free Space Bytes             | Bytes          | mountId - Mount ID of the device<br>diskSizeMB - Total disk size |
+| LogicalDisk | FreeSpaceMB           | Logical Disk Free Space Bytes             | Megabytes      | mountId - Mount ID of the device<br>diskSizeMB - Total disk size |
 | LogicalDisk | BytesPerSecond        | Logical Disk Bytes Per Second             | BytesPerSecond | mountId - Mount ID of the device |
 
 
 ## Next steps
 
-* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write log queries.
+* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write log queries.
 
-* Learn about [writing search queries](../../azure-monitor/log-query/search-queries.md).
+* Learn about [writing search queries](../log-query/search-queries.md).
+

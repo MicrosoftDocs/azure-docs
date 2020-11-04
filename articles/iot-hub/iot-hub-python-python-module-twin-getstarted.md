@@ -8,6 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
+ms.custom: devx-track-python
 ---
 
 # Get started with IoT Hub module identity and module twin (Python)
@@ -264,4 +265,4 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
 
-* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Getting started with IoT Edge](../iot-edge/quickstart-linux.md)

@@ -1,18 +1,19 @@
 ---
-title: Retrain models by using Azure Machine Learning designer (preview)
+title: Retrain models by using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Learn how to retrain models with published pipelines in Azure Machine Learning designer (preview).
+description: Learn how to retrain models with published pipelines in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
-# Retrain models with Azure Machine Learning designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# Retrain models with Azure Machine Learning designer
+
 
 In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model. You will use published pipelines to automate your workflow and set parameters to train your model on new data. 
 
@@ -26,14 +27,16 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace with the Enterprise SKU.
-* Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md).
+* An Azure Machine Learning workspace
+* Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md)
 
-This article also assumes that you have basic knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
+This article also assumes that you have some knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of [Sample 3: Income prediction](samples-designer.md#classification). The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
 
 ![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -75,7 +78,8 @@ The designer saves all pipeline output, including trained models, to the default
 1. You can find your model in **Other outputs** along with run logs.
 1. Alternatively, select the **View output** icon. From here, you can follow the instruction in the dialog to navigate directly to your datastore. 
 
-![Screenshot that shows how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## Publish a training pipeline
 
@@ -93,9 +97,9 @@ Publish a pipeline to a pipeline endpoint to easily reuse your pipelines in the 
 
 Now that you have a published training pipeline, you can use it to retrain your model on new data. You can submit runs from a pipeline endpoint from the studio workspace or programmatically.
 
-### Submit runs by using the designer
+### Submit runs by using the studio portal
 
-Use the following steps to submit a parameterized pipeline endpoint run from the designer:
+Use the following steps to submit a parameterized pipeline endpoint run from the studio portal:
 
 1. Go to the **Endpoints** page in your studio workspace.
 1. Select the **Pipeline endpoints** tab. Then, select your pipeline endpoint.

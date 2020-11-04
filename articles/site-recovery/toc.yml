@@ -62,6 +62,8 @@
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
       href: hyper-v-azure-failover-failback-tutorial.md
+    - name: Enable on-premises replication with private endpoints
+      href: ./hybrid-how-to-enable-replication-private-endpoints.md
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
@@ -158,6 +160,10 @@
       href: hyper-v-vmm-secondary-support-matrix.md
     - name: Architecture for Hyper-V VM to a secondary site
       href: hyper-v-vmm-architecture.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
@@ -186,6 +192,8 @@
         href: azure-to-azure-how-to-enable-replication-s2d-vms.md
       - name: Enable replication for an added disk
         href: azure-to-azure-enable-replication-added-disk.md
+      - name: Enable replication with private endpoints
+        href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
       - name: Exclude disks
         href: azure-to-azure-exclude-disks.md
       - name: Reprotect Azure VMs after failover
@@ -242,6 +250,8 @@
         href: vmware-azure-set-up-target.md
       - name: Configure replication settings
         href: vmware-azure-set-up-replication.md
+      - name: Enable on-premises replication with private endpoints
+        href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
         - name: Mobility service overview and installation
@@ -308,6 +318,8 @@
         href: physical-azure-set-up-source.md
       - name: Set up the target environment
         href: vmware-azure-set-up-target.md
+      - name: Enable on-premises replication with private endpoints
+        href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
         - name: About Mobility service installation
@@ -388,7 +400,8 @@
         href: service-updates-how-to.md
       - name: Delete a vault
         href: delete-vault.md
-
+  - name: Site Recovery for Proximity Placement Groups
+    href: how-to-enable-replication-proximity-placement-groups.md 
   - name: Disaster recovery for apps
     items:
     - name: About disaster recovery for on-premises apps
@@ -457,6 +470,8 @@
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Monitor Site Recovery with Azure Monitor Logs
     href: monitor-log-analytics.md
+  - name: Monitoring churn patterns on Virtual Machines
+    href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
 - name: Troubleshooting
@@ -508,15 +523,15 @@
 - name: Related
   items:
   - name: Azure Automation
-    href: /azure/automation/
+    href: ../automation/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-site-recovery.html
   - name: Learning path
     href: /learn/azure/
   - name: Pricing

@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -35,7 +35,7 @@ The web API is defined by its `scopes`. Whatever the experience you provide in y
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -102,7 +102,7 @@ if not result:
     result = app.acquire_token_by_xxx(scopes=config["scope"])
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
 
@@ -128,18 +128,18 @@ guard let account = try? application.account(forIdentifier: accountIdentifier) e
 let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
 application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
-	guard let authResult = result, error == nil else {
+    guard let authResult = result, error == nil else {
 
-	let nsError = error! as NSError
+    let nsError = error! as NSError
 
-		if (nsError.domain == MSALErrorDomain &&
-			nsError.code == MSALError.interactionRequired.rawValue) {
+        if (nsError.domain == MSALErrorDomain &&
+            nsError.code == MSALError.interactionRequired.rawValue) {
 
-			// Interactive auth will be required, call acquireToken()
-			return
-		}
-		return
-	}
+            // Interactive auth will be required, call acquireToken()
+            return
+        }
+        return
+    }
 }
 ```
 ---
@@ -172,7 +172,7 @@ catch(MsalUiRequiredException)
 
 ### Mandatory parameters
 
-`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](https://docs.microsoft.com/graph/api/user-list-contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](/graph/api/user-list-contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 On Android, you also need to specify the parent activity by using `.WithParentActivityOrWindow`, as shown, so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception is thrown when calling `.ExecuteAsync()`.
 
@@ -180,7 +180,7 @@ On Android, you also need to specify the parent activity by using `.WithParentAc
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform.
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appear on the screen. This would be applicable for applications which are command line based , used to pass calls to any other backend service and do not need any windows for user interaction. 
 
 ```csharp
 // net45
@@ -210,7 +210,7 @@ Remarks:
 
 `WithPrompt()` is used to control the interactivity with the user by specifying a prompt.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Image showing the fields in the Prompt structure. These constant values control interactivity with the user by defining the type of prompt displayed by the WithPrompt() method.](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 The class defines the following constants:
 
@@ -275,7 +275,7 @@ The MSAL.NET team has rewritten the UI tests to use this extensibility mechanism
 
 ##### Provide a great experience with SystemWebViewOptions
 
-From MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), you can specify:
+From MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), you can specify:
 
 - The URI to go to (`BrowserRedirectError`) or the HTML fragment to display (`HtmlMessageError`) in case of sign-in or consent errors in the system web browser.
 - The URI to go to (`BrowserRedirectSuccess`) or the HTML fragment to display (`HtmlMessageSuccess`) in case of successful sign-in or consent.
@@ -367,11 +367,11 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
 
@@ -380,14 +380,14 @@ Objective-C:
 ```objc
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-	if (!error)
-	{
-		// You'll want to get the account identifier to retrieve and reuse the account
-		// for later acquireToken calls
-		NSString *accountIdentifier = result.account.identifier;
+    if (!error)
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
 
-		NSString *accessToken = result.accessToken;
-	}
+        NSString *accessToken = result.accessToken;
+    }
 }];
 ```
 
@@ -397,13 +397,13 @@ Swift:
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
 
-	guard let authResult = result, error == nil else {
-		print(error!.localizedDescription)
-		return
-	}
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
 
-	// Get access token from result
-	let accessToken = authResult.accessToken
+    // Get access token from result
+    let accessToken = authResult.accessToken
 })
 ```
 ---
@@ -416,9 +416,9 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 
 - Integrated Windows Authentication is usable for *federated+* users only, that is, users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
 - IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Platform (UWP) platforms.
-- IWA doesn't bypass multifactor authentication (MFA). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
+- IWA doesn't bypass [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
   > [!NOTE]
-  > This one is tricky. IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
+  > This one is tricky. IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
 
 - The authority passed in `PublicClientApplicationBuilder` needs to be:
   - Tenanted of the form `https://login.microsoftonline.com/{tenant}/`, where `tenant` is either the GUID that represents the tenant ID or a domain associated with the tenant.
@@ -430,13 +430,13 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
   - Or, the tenant admin must have previously consented to all users in the tenant to use the application.
   - In other words:
     - Either you as a developer selected the **Grant** button in the Azure portal for yourself.
-    - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
+    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - This flow is enabled for .NET desktop, .NET Core, and UWP apps.
 
-For more information on consent, see [Microsoft identity platform permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+For more information on consent, see [Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
 
 ### Learn how to use it
 
@@ -587,9 +587,9 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
 This flow isn't yet supported in MSAL Python.
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
-This flow doesn't apply to MacOS.
+This flow doesn't apply to macOS.
 
 ---
 
@@ -612,7 +612,7 @@ This flow is *not recommended* because having your application ask a user for th
 
 The following constraints also apply:
 
-- The username and password flow isn't compatible with conditional access and multifactor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multifactor authentication, you can't use this flow. Many organizations do that.
+- The username and password flow isn't compatible with conditional access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - It works only for work and school accounts (not MSA).
 - The flow is available on .NET desktop and .NET Core, but not on UWP.
 
@@ -684,7 +684,7 @@ static async Task GetATokenForGraph()
  if (accounts.Any())
  {
   result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-                    .ExecuteAync();
+                    .ExecuteAsync();
  }
  else
  {
@@ -910,7 +910,7 @@ if not result:
         config["username"], config["password"], scopes=config["scope"])
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 This flow isn't supported on MSAL for macOS.
 
@@ -922,9 +922,9 @@ This flow isn't supported on MSAL for macOS.
 
 If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, you need to use the device code flow.
 
-Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or OSes. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
+Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or operating systems. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
 
-1. Whenever user authentication is required, the app provides a code for the user. The user is asked to use another device, such as an internet-connected smartphone, to go to a URL, for instance, `https://microsoft.com/devicelogin`. Then the user is prompted to enter the code. That done, the web page leads the user through a normal authentication experience, which includes consent prompts and multifactor authentication, if necessary.
+1. Whenever user authentication is required, the app provides a code for the user. The user is asked to use another device, such as an internet-connected smartphone, to go to a URL, for instance, `https://microsoft.com/devicelogin`. Then the user is prompted to enter the code. That done, the web page leads the user through a normal authentication experience, which includes consent prompts and multi-factor authentication, if necessary.
 
 2. Upon successful authentication, the command-line app receives the required tokens through a back channel and uses them to perform the web API calls it needs.
 
@@ -951,7 +951,7 @@ The following sample code presents the most current case, with explanations of t
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -966,7 +966,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)
@@ -975,7 +975,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
@@ -1141,9 +1141,9 @@ if not result:
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
-This flow doesn't apply to MacOS.
+This flow doesn't apply to macOS.
 
 ---
 

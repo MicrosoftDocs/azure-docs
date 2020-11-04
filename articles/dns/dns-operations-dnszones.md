@@ -4,16 +4,14 @@ description: You can manage DNS zones using Azure Powershell. This article descr
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-
-ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 ---
 # How to manage DNS Zones using PowerShell
 

@@ -1,26 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and F5.
+title: 'Tutorial: Azure Active Directory single sign-on integration with F5 | Microsoft Docs'
+description: In this article, learn the steps you need to perform to integrate F5 with Azure Active Directory (Azure AD).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9c5fb47a-1c5d-437a-b4c1-dbf739eaf5e3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with F5
+# Tutorial: Azure Active Directory (AD) single sign-on (SSO) integration with F5
 
 In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (Azure AD). When you integrate F5 with Azure AD, you can:
 
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (
 * Enable your users to be automatically signed-in to F5 with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,8 +34,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* F5 supports **SP and IDP** initiated SSO
-* F5 SSO can be configured in three different ways.
+F5 supports **SP and IDP** initiated SSO.
+
+F5 SSO can be configured in three different ways:
 
 - [Configure F5 single sign-on for Advanced Kerberos application](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
@@ -150,38 +144,38 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. You need to import the Metadata Certificate into the F5 (Advanced Kerberos) which will be used later in the setup process. Go to **System > Certificate Management > Traffic Certificate Management >> SSL Certificate List**. Click on **Import** of the right-hand corner.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure01.png)
+    ![Screenshot that highlights the Import button for importing the Metadata Certificate.](./media/advance-kerbf5-tutorial/configure01.png)
  
 1. To setup the SAML IDP, go to **Access > Federation > SAML Service Provider > Create > From Metadata**.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure02.png)
+    ![Screenshot that highlights how to create the SAML IDP from metadata.](./media/advance-kerbf5-tutorial/configure02.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure03.png)
+    ![Screenshot that shows the Create New SAML IdP Connector screen.](./media/advance-kerbf5-tutorial/configure03.png)
  
     ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Screenshot that shows the Single Sign On Service Settings screen. ](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Specify the Certificate uploaded from Task 3
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure06.png)
+    ![Screenshot that shows the Edit SAML IdP Connector screen.](./media/advance-kerbf5-tutorial/configure06.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure07.png)
+    ![Screenshot that shows the Single Logout Service Settings screen.](./media/advance-kerbf5-tutorial/configure07.png)
 
  1. To setup the SAML SP, go to **Access > Federation > SAML Service Federation > Local SP Services > Create**.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure08.png)
+    ![Screenshot that shows the screen where you create a local SP service.](./media/advance-kerbf5-tutorial/configure08.png)
  
 1. Click **OK**.
 
 1. Select the SP Configuration and Click **Bind/UnBind IdP Connectors**.
 
-     ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure09.png)
+     ![Screenshot that shows the SAML Service Provider.](./media/advance-kerbf5-tutorial/configure09.png)
  
  
 1. Click on **Add New Row** and Select the **External IdP connector** created in previous step.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure10.png)
+    ![Screenshot that highlights the Add New Row button.](./media/advance-kerbf5-tutorial/configure10.png)
  
 1. For configuring Kerberos SSO, **Access > Single Sign-on > Kerberos**
 
@@ -194,54 +188,54 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     •	User Realm Source
     `session.logon.last.domain`
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure11.png)
+    ![Screenshot that highlights Access > Single Sign On.](./media/advance-kerbf5-tutorial/configure11.png)
 
 1. For configuring Access Profile, **Access > Profile/Policies > Access Profile (per session policies)**.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure12.png)
+    ![Screenshot that highlights the Properties tab under the Profiles/Policies menu option.](./media/advance-kerbf5-tutorial/configure12.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure13.png)
+    ![Screenshot that shows the SSO/Auth Domains tab.](./media/advance-kerbf5-tutorial/configure13.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure14.png)
+    ![Screenshot that shows the Access Policy tab.](./media/advance-kerbf5-tutorial/configure14.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure15.png)
+    ![Screenshot that shows the Properties tab on the Access Policy.](./media/advance-kerbf5-tutorial/configure15.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure16.png)
+    ![Screenshot that shows the properties for Variable Assign.](./media/advance-kerbf5-tutorial/configure16.png)
  
     * session.logon.last.usernameUPN   expr {[mcget {session.saml.last.identity}]}
 
     * session.ad.lastactualdomain  TEXT superdemo.live
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure17.png)
+    ![Screenshot that shows the AD Query properties.](./media/advance-kerbf5-tutorial/configure17.png)
 
     * (userPrincipalName=%{session.logon.last.usernameUPN})
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure18.png)
+    ![Screenshot that shows the Branch Rules tab and the Check Account rule.](./media/advance-kerbf5-tutorial/configure18.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure19.png)
+    ![Screenshot that shows the custom variable and custom expression text boxes.](./media/advance-kerbf5-tutorial/configure19.png)
 
     * session.logon.last.username  expr { "[mcget {session.ad.last.attr.sAMAccountName}]" }
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure20.png)
+    ![Screenshot that shows the values in the SSO Token Name and SSO Token Password fields.](./media/advance-kerbf5-tutorial/configure20.png)
 
     * mcget {session.logon.last.username}
     * mcget {session.logon.last.password}
 
 1. For adding new node, go to **Local Traffic > Nodes > Node List > +**.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure21.png)
+    ![Screenshot that highlights Local Traffic > Nodes.](./media/advance-kerbf5-tutorial/configure21.png)
  
 1. To create a new Pool, go to **Local Traffic > Pools > Pool List > Create**.
 
-     ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure22.png)
+     ![Screenshot that highlights Local Traffic > Pools.](./media/advance-kerbf5-tutorial/configure22.png)
 
  1. To create a new virtual server, go to **Local Traffic > Virtual Servers > Virtual Server List > +**.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure23.png)
+    ![Screenshot that highlights Local Traffic > Virtual Servers.](./media/advance-kerbf5-tutorial/configure23.png)
 
 1. Specify the Access Profile Created in Previous Step.
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure24.png) 
+    ![Screenshot that shows where you specify the access profile that you created.](./media/advance-kerbf5-tutorial/configure24.png) 
 
 ### Setting up Kerberos Delegation 
 
@@ -270,20 +264,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     * Setup the appropriate Delegation for the F5 Delegation Account.
     * In the example below, APM Delegation account is being configured for KCD for FRP-App1.superdemo.live app.
 
-        ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure25.png)
+        ![Screenshot that shows the APM Delegatio Account Properties > Delegation tab.](./media/advance-kerbf5-tutorial/configure25.png)
 
 1. Provide the details as mentioned in the above reference document under [this](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 1. Appendix- SAML – F5 BIG-IP Variable mappings shown below:
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure26.png)
+    ![Screenshot that shows the Overview > Active Sessions tab.](./media/advance-kerbf5-tutorial/configure26.png)
 
-    ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure27.png) 
+    ![Screenshot that shows the variables and session keys.](./media/advance-kerbf5-tutorial/configure27.png) 
 
 1. Below is the whole list of default SAML Attributes. GivenName is represented using the following string.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-| | |
+| Session | Attribute |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.assertionIssueInstant	| `<ID>` |
@@ -326,19 +320,18 @@ In this section, you create a user called B.Simon in F5. Work with [F5 Client s
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try F5 with Azure AD](https://aad.portal.azure.com/)
 
 - [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 
 - [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
-

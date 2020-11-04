@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 10/16/2020
 ms.author: aahi
 ---
 
@@ -19,97 +19,32 @@ The Text Analytics API lets you takes unstructured text and returns a list of di
 
 ### Entity Linking
 
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "Mars" refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
 
 ### Named Entity Recognition (NER)
 
 Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
 
-Starting in version 3, this feature of the Text Analytics API can also identify personal and sensitive information types such as: phone number, Social Security Number, email address, and bank account number.  Identifying these entities can help in classifying sensitive documents, and redacting personal information.
-
 ## Named Entity Recognition versions and features
 
-The Text Analytics API offers two versions of Named Entity Recognition - v2 and v3. Version 3 (Public preview) provides increased detail in the entities that can be detected and categorized.
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Feature                                                         | NER v2 | NER v3 |
-|-----------------------------------------------------------------|--------|--------|
-| Methods for single, and batch requests                          | X      | X      |
-| Basic entity recognition across several categories              | X      | X      |
-| Expanded classification for recognized entities                 |        | X      |
-| Separate endpoints for sending entity linking and NER requests. |        | X      |
-| Model versioning                                                |        | X      |
+| Feature                                                         | NER v3.0 | NER v3.1-preview.2 |
+|-----------------------------------------------------------------|--------|----------|
+| Methods for single, and batch requests                          | X      | X        |
+| Expanded entity recognition across several categories           | X      | X        |
+| Separate endpoints for sending entity linking and NER requests. | X      | X        |
+| Recognition of personal (`PII`) and health (`PHI`) information entities        |        | X        |
 
-See [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) for information.
+See [language support](../language-support.md) for information.
 
+## Entity types
 
-#### [Version 3.0-preview](#tab/version-3)
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-### Entity types
+Named Entity Recognition v3.1-preview.2 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.2/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
-Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities:
-
-* General
-* Personal Information 
-
-For a detailed list of supported entities and languages, see the [NER v3 supported entity types](../named-entity-types.md) article.
-
-### Request endpoints
-
-Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
-
-NER
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* Personal information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
-
-Entity linking
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
-
-### Model versioning
-
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
-
-#### [Version 2.1](#tab/version-2)
-
-### Entity types
-
-> [!NOTE]
-> Named Entity Recognition(NER) version 2 only supports the following entities. NER v3 is in public preview, and greatly expands the number and depth of the entities recognized in text.   
-
-| Type  | SubType | Example |
-|:-----------   |:------------- |:---------|
-| Person        | N/A\*         | "Jeff", "Bill Gates"     |
-| Location      | N/A\*         | "Redmond, Washington", "Paris"  |
-| Organization  | N/A\*         | "Microsoft"   |
-| Quantity      | Number        | "6", "six"     |
-| Quantity      | Percentage    | "50%", "fifty percent"|
-| Quantity      | Ordinal       | "2nd", "second"     |
-| Quantity      | Age           | "90 day old", "30 years old"    |
-| Quantity      | Currency      | "$10.99"     |
-| Quantity      | Dimension     | "10 miles", "40 cm"     |
-| Quantity      | Temperature   | "32 degrees"    |
-| DateTime      | N/A\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | Time          | "8am", "8:00"  |
-| DateTime      | DateRange     | "May 2nd to May 5th"    |
-| DateTime      | TimeRange     | "6pm to 7pm"     |
-| DateTime      | Duration      | "1 minute and 45 seconds"   |
-| DateTime      | Set           | "every Tuesday"     |
-| URL           | N/A\*         | "https:\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
-| US Phone Number  | N/A\*         | (US phone numbers only) "(312) 555-0176" |
-| IP Address    | N/A\*         | "10.0.0.100" |
-
-\* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages.
-
-### Request endpoints
-
-Named Entity Recognition v2 uses a single endpoint for NER and entity linking requests:
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
----
 
 ## Sending a REST API request
 
@@ -126,27 +61,46 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 > [!NOTE]
 > You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-#### [Version 3.0-preview](#tab/version-3)
 
-[Named Entity Recognition v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
+### Request endpoints
 
-Version 3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+#### [Version 3.1-preview.2](#tab/version-3-preview)
 
-NER
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* Personal information entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
 
 Entity linking
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
 
-#### [Version 2.1](#tab/version-2)
+[Named Entity Recognition version 3.1-preview reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
 
-[Named Entity Recognition (NER) v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+NER
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
 
-Version 2 uses the following endpoint for entity linking and NER requests: 
+[Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+
+You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+
+Please note the addition of the `redactedText` property in the response JSON which contains the modified input text where the detected PII entities are replaced by an * for each character of the entities.
+
+[Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+
+#### [Version 3.0](#tab/version-3)
+
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+Entity linking
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
+
+[Named Entity Recognition version 3.0 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
+NER
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+
+[Named Entity Recognition version 3.0 reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
 ---
 
@@ -160,12 +114,13 @@ The following is an example of content you might send to the API. The request fo
 {
   "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "I had a wonderful trip to Seattle last week."
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
     }
   ]
 }
+
 ```
 
 ## Post the request
@@ -180,107 +135,162 @@ All POST requests return a JSON formatted response with the IDs and detected ent
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
 
-#### [Version 3.0-preview)](#tab/version-3)
+### Example responses
 
-### Example v3 responses
+Version 3 provides separate endpoints for general NER, PII and entity linking. The responses for both operations are below. 
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
+#### [Version 3.1-preview](#tab/version-3-preview)
 
-#### Example NER response
-
+Example of a PII response:
 ```json
 {
-    "documents": [{
-    "id": "1",
-    "entities": [{
-        "text": "Seattle",
-        "type": "Location",
-        "offset": 26,
-        "length": 7,
-        "score": 0.80624294281005859
-    }, {
-        "text": "last week",
-        "type": "DateTime",
-        "subtype": "DateRange",
-        "offset": 34,
-        "length": 9,
-        "score": 0.8
-    }]
-    }],
-    "errors": [],
-    "modelVersion": "2019-10-01"
-}
-```
-
-#### Example entity linking response
-
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7,
-        "score": 0.15046201222847677
-      }],
-      "language": "en",
-      "id": "Seattle",
-      "url": "https://en.wikipedia.org/wiki/Seattle",
-      "dataSource": "Wikipedia"
-    }]
-  }],
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
   "errors": [],
-  "modelVersion": "2019-10-01"
+  "modelVersion": "2020-07-01"
 }
 ```
 
-#### [Version 2.1](#tab/version-2)
+Example of an Entity linking response:
 
-### Example NER v2 response
 ```json
 {
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
+          "name": "Space Needle",
+          "matches": [
+            {
+              "text": "Space Needle",
+              "offset": 30,
+              "length": 12,
+              "confidenceScore": 0.4
+            }
+          ],
+          "language": "en",
+          "id": "Space Needle",
+          "url": "https://en.wikipedia.org/wiki/Space_Needle",
+          "dataSource": "Wikipedia"
+        },
+        {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+          "name": "Seattle",
+          "matches": [
+            {
+              "text": "Seattle",
+              "offset": 62,
+              "length": 7,
+              "confidenceScore": 0.25
+            }
+          ],
+          "language": "en",
+          "id": "Seattle",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "dataSource": "Wikipedia"
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-02-01"
+}
+```
+
+
+#### [Version 3.0](#tab/version-3)
+
+Example of a general NER response:
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 
 ---
 
+
 ## Summary
 
 In this article, you learned concepts and workflow for entity linking using Text Analytics in Cognitive Services. In summary:
 
-* Named Entity Recognition is available for selected languages in two versions.
 * JSON documents in the request body include an ID, text, and language code.
 * POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
 * Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application

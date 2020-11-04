@@ -17,7 +17,7 @@ ms.author: memildin
 
 # Archive for what's new in Azure Security Center?
 
-The primary [What's new in Azure Active Directory?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
+The primary [What's new in Azure Security Center?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
 
 This page provides you with information about:
 
@@ -25,9 +25,172 @@ This page provides you with information about:
 - Bug fixes
 - Deprecated functionality
 
+
+## April 2020
+
+Updates in April include:
+- [Dynamic compliance packages are now generally available](#dynamic-compliance-packages-are-now-generally-available)
+- [Identity recommendations now included in Azure Security Center free tier](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### Dynamic compliance packages are now generally available
+
+The Azure Security Center regulatory compliance dashboard now includes **dynamic compliance packages** (now generally available) to track additional industry and regulatory standards.
+
+Dynamic compliance packages can be added to your subscription or management group from the Security Center security policy page. When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. A summary report for any of the standards that have been onboarded will be available to download.
+
+Now, you can add standards such as:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official and UK NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
+
+In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+ 
+Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+
+### Identity recommendations now included in Azure Security Center free tier
+
+Security recommendations for identity and access on the Azure Security Center free tier are now generally available. This is part of the effort to make the cloud security posture management (CSPM) features free. Until now, these recommendations were only available on the standard pricing tier.
+
+Examples of identity and access recommendations include:
+
+- "Multifactor authentication should be enabled on accounts with owner permissions on your subscription."
+- "A maximum of three owners should be designated for your subscription."
+- "Deprecated accounts should be removed from your subscription."
+
+If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
+
+Learn more about [identity and access recommendations](recommendations-reference.md#recs-identity).
+
+Learn more about [monitoring identity and access](security-center-identity-access.md).
+
+
+
+## March 2020
+
+Updates in March include:
+
+- [Workflow automation is now generally available](#workflow-automation-is-now-generally-available)
+- [Integration of Azure Security Center with Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
+- [Protection for Azure Kubernetes Service](#protection-for-azure-kubernetes-service)
+- [Improved just-in-time experience](#improved-just-in-time-experience)
+- [Two security recommendations for web applications deprecated](#two-security-recommendations-for-web-applications-deprecated)
+
+
+### Workflow automation is now generally available
+
+The workflow automation feature of Azure Security Center is now generally available. Use it to automatically trigger Logic Apps on security alerts and recommendations. In addition, manual triggers are available for alerts and all recommendations that have the quick fix option available.
+
+Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead and can improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
+
+For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
+
+Learn more about [creating Logic Apps](../logic-apps/logic-apps-overview.md).
+
+
+### Integration of Azure Security Center with Windows Admin Center
+
+It’s now possible to move your on-premises Windows servers from the Windows Admin Center directly to the Azure Security Center. Security Center then becomes your single pane of glass to view security information for all your Windows Admin Center resources, including on-premises servers, virtual machines, and additional PaaS workloads.
+
+After moving a server from Windows Admin Center to Azure Security Center, you’ll be able to:
+
+- View security alerts and recommendations in the Security Center extension of the Windows Admin Center.
+- View the security posture and retrieve additional detailed information of your Windows Admin Center managed servers in the Security Center within the Azure portal (or via an API).
+
+Learn more about [how to integrate Azure Security Center with Windows Admin Center](windows-admin-center-integration.md).
+
+
+### Protection for Azure Kubernetes Service
+
+Azure Security Center is expanding its container security features to protect Azure Kubernetes Service (AKS).
+
+The popular, open-source platform Kubernetes has been adopted so widely that it’s now an industry standard for container orchestration. Despite this widespread implementation, there’s still a lack of understanding regarding how to secure a Kubernetes environment. Defending the attack surfaces of a containerized application requires expertise to ensuring the infrastructure is configured securely and constantly monitored for potential threats.
+
+The Security Center defense includes:
+
+- **Discovery and visibility** - Continuous discovery of managed AKS instances within the subscriptions registered to Security Center.
+- **Security recommendations** - Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they’re viewed as a part of your organization’s security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster".
+- **Threat protection** - Through continuous analysis of your AKS deployment, Security Center alerts you to threats and malicious activity detected at the host and AKS cluster level.
+
+Learn more about [Azure Kubernetes Services' integration with Security Center](defender-for-kubernetes-introduction.md).
+
+Learn more about [the container security features in Security Center](container-security.md).
+
+
+### Improved just-in-time experience
+
+The features, operation, and UI for Azure Security Center’s just-in-time tools that secure your management ports have been enhanced as follows: 
+
+- **Justification field** - When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log. 
+- **Automatic cleanup of redundant just-in-time (JIT) rules** - Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed anymore. The cleaner never deletes rules that you've created. 
+
+Learn more about [the JIT access feature](security-center-just-in-time.md).
+
+
+### Two security recommendations for web applications deprecated
+
+Two security recommendations related to web applications are being deprecated: 
+
+- The rules for web applications on IaaS NSGs should be hardened.
+    (Related policy: The NSGs rules for web applications on IaaS should be hardened)
+
+- Access to App Services should be restricted.
+    (Related policy: Access to App Services should be restricted [preview])
+
+These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
+
+Learn more about [security recommendations](recommendations-reference.md).
+
+
+
+
+## February 2020
+
+### Fileless attack detection for Linux (preview)
+
+As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques:
+
+- minimize or eliminate traces of malware on disk
+- greatly reduce the chances of detection by disk-based malware scanning solutions
+
+To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
+
+
+
+## January 2020
+
+### Enhanced secure score (preview)
+
+An enhanced version of the secure score feature of Azure Security Center is now available in preview. In this version, multiple recommendations are grouped into Security Controls that better reflect your vulnerable attack surfaces (for example, restrict access to management ports).
+
+Familiarize yourself with the secure score changes during the preview phase and determine other remediations that will help you to further secure your environment.
+
+Learn more about [enhanced secure score (preview)](secure-score-security-controls.md).
+
+
+
 ## November 2019
 
-### Threat Protection for Azure Key Vault in Public Preview in North America Regions
+Updates in November include:
+ - [Threat Protection for Azure Key Vault in North America regions (preview)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [Threat Protection for Azure Storage includes Malware Reputation Screening](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Workflow automation with Logic Apps (preview)](#workflow-automation-with-logic-apps-preview)
+ - [Quick Fix for bulk resources generally available](#quick-fix-for-bulk-resources-generally-available)
+ - [Scan container images for vulnerabilities (preview)](#scan-container-images-for-vulnerabilities-preview)
+ - [Additional regulatory compliance standards (preview)](#additional-regulatory-compliance-standards-preview)
+ - [Threat Protection for Azure Kubernetes Service (preview)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Virtual machine vulnerability assessment (preview)](#virtual-machine-vulnerability-assessment-preview)
+ - [Advanced data security for SQL servers on Azure Virtual Machines (preview)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Support for custom policies (preview)](#support-for-custom-policies-preview)
+ - [Extending Azure Security Center coverage with platform for community and partners](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Advanced integrations with export of recommendations and alerts (preview)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Onboard on-prem servers to Security Center from Windows Admin Center (preview)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### Threat Protection for Azure Key Vault in North America Regions (preview)
 
 Azure Key Vault is an essential service for protecting data and improving performance of cloud applications by offering the ability to centrally manage keys, secrets, cryptographic keys and policies in the cloud. Since Azure Key Vault stores sensitive and business critical data, it requires maximum security for the key vaults and the data stored in them.
 
@@ -47,7 +210,7 @@ Today we are introducing a new capability in Security Center that allows custome
 
 For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
 
-To learn about creating Logic Apps, see [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+To learn about creating Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### Quick Fix for bulk resources generally available
@@ -94,18 +257,18 @@ The new capabilities in this public preview release include:
 
 ### Virtual machine vulnerability assessment (preview)
 
-Applications that are installed in virtual machines could often have vulnerabilities that could lead to a breach of the virtual machine. We are announcing that the Security Center Standard tier includes built-in vulnerability assessment for virtual machines for no additional fee. The vulnerability assessment, powered by Qualys in the public preview, will allow you to continuously scan all the installed applications on a virtual machine to find vulnerable applications and present the findings in the Security Center portal’s experience. Security Center takes care of all deployment operations so that no extra work is required from the user. Going forward we are planning to provide vulnerability assessment options to support our customers’ unique business needs.
+Applications that are installed in virtual machines could often have vulnerabilities that could lead to a breach of the virtual machine. We are announcing that the Security Center standard tier includes built-in vulnerability assessment for virtual machines for no additional fee. The vulnerability assessment, powered by Qualys in the public preview, will allow you to continuously scan all the installed applications on a virtual machine to find vulnerable applications and present the findings in the Security Center portal’s experience. Security Center takes care of all deployment operations so that no extra work is required from the user. Going forward we are planning to provide vulnerability assessment options to support our customers’ unique business needs.
 
-[Learn more about vulnerability assessments for your Azure Virtual Machines](security-center-vulnerability-assessment-recommendations.md).
+[Learn more about vulnerability assessments for your Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 
 ### Advanced data security for SQL servers on Azure Virtual Machines (preview)
 
 Azure Security Center’s support for threat protection and vulnerability assessment for SQL DBs running on IaaS VMs is now in preview.
 
-[Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security posture as part of Azure secure score and includes the steps to resolve security issues and enhance your database fortifications.
+[Vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security posture as part of Azure secure score and includes the steps to resolve security issues and enhance your database fortifications.
 
-[Advanced threat protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
+[Advanced threat protection](../azure-sql/database/threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
 
 
 ### Support for custom policies (preview)
@@ -142,6 +305,11 @@ With this new experience users will be to onboard a WAC server to Azure Security
 
 ## September 2019
 
+Updates in September include:
+
+ - [Managing rules with adaptive application controls improvements](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Control container security recommendation using Azure Policy](#control-container-security-recommendation-using-azure-policy)
+
 ### Managing rules with adaptive application controls improvements
 
 The experience of managing rules for virtual machines using adaptive application controls has improved. Azure Security Center's adaptive application controls help you control which applications can run on your virtual machines. In addition to a general improvement to rule management, a new benefit enables you to control which file types will be protected when you add a new rule.
@@ -158,6 +326,12 @@ To view your enabled security policies, from Security Center open the Security P
 
 ## August 2019
 
+Updates in August include:
+
+ - [Just-in-time (JIT) VM access for Azure Firewall](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Single click remediation to boost your security posture (preview)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Cross-tenant management](#cross-tenant-management)
+
 ### Just-in-time (JIT) VM access for Azure Firewall 
 
 Just-in-time (JIT) VM access for Azure Firewall is now generally available. Use it to secure your Azure Firewall protected environments  in addition to your NSG protected environments.
@@ -168,7 +342,7 @@ When you enable JIT for your VMs, you create a policy that determines the ports 
 
 Requests are logged in the Azure Activity Log, so you can easily monitor and audit access. The just-in-time page also helps you quickly identify existing VMs that have JIT enabled and VMs where JIT is recommended.
 
-[Learn more about Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
+[Learn more about Azure Firewall](../firewall/overview.md).
 
 
 ### Single click remediation to boost your security posture (preview)

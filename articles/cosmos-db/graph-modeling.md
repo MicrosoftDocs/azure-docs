@@ -1,15 +1,16 @@
 ---
 title: 'Graph data modeling for Azure Cosmos DB Gremlin API'
 description: Learn how to model a graph database by using Azure Cosmos DB Gremlin API. This article describes when to use a graph database and best practices to model entities and relationships. 
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
+ms.author: jasonh
 ---
 
 # Graph data modeling for Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 The following document is designed to provide graph data modeling recommendations. This step is vital in order to ensure the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important with large-scale graphs.
 
@@ -32,7 +33,7 @@ A graph database solution can be optimally applied if the entities and relations
 
 If the above criteria is satisfied, it's likely that a graph database approach will provide advantages for **query complexity**, **data model scalability**, and **query performance**.
 
-The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
+The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](./spark-connector.md) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
 
 ## How to use graph objects
 
@@ -68,11 +69,11 @@ One common pitfall is to map properties of a single entity as separate vertices.
 
 * **Vertex-based properties**: In this approach, the entity uses three separate vertices and two edges to describe its properties. While this approach might reduce redundancy, it increases model complexity. An increase in model complexity can result in added latency, query complexity, and computation cost. This model can also present challenges in partitioning.
 
-![Entity model with vertices for properties.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Entity model with vertices for properties." border="false":::
 
 * **Property-embedded vertices**: This approach takes advantage of the key-value pair list to represent all the properties of the entity inside a vertex. This approach provides reduced model complexity, which will lead to simpler queries and more cost-efficient traversals.
 
-![Entity model with vertices for properties.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram shows the Luis vertex from the previous diagram with i d, label, and properties." border="false":::
 
 > [!NOTE]
 > The above examples show a simplified graph model to only show the comparison between the two ways of dividing entity properties.
@@ -100,7 +101,7 @@ Using descriptive relationship labels can improve the efficiency of edge resolut
 * Use non-generic terms to label a relationship.
 * Associate the label of the source vertex to the label of the target vertex with the relationship name.
 
-![Relationship labeling examples.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Relationship labeling examples." border="false":::
 
 The more specific the label that the traverser will use to filter the edges, the better. This decision can have a significant impact on query cost as well. You can evaluate the query cost at any time [using the executionProfile step](graph-execution-profile.md).
 

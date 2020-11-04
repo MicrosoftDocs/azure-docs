@@ -1,15 +1,17 @@
 ---
 title: Use Azure Cosmos DB resource tokens with the Gremlin SDK
 description: Learn how to create resource tokens and use them to access the Graph database. 
-author: luisbosquez
-ms.author: lbosq
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2019
+ms.custom: devx-track-csharp
 ---
 
 # Use Azure Cosmos DB resource tokens with the Gremlin SDK
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 This article explains how to use [Azure Cosmos DB resource tokens](secure-access-to-data.md) to access the Graph database through the Gremlin SDK.
 
@@ -31,7 +33,7 @@ A resource token uses the following format: `"type=resource&ver=1&sig=<base64 st
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
 DocumentClient client = new DocumentClient(
   new Uri("https://contoso.documents.azure.com:443/"), 
-  "<master key>", 
+  "<primary key>", 
   new ConnectionPolicy 
   {
     EnableEndpointDiscovery = false, 
@@ -57,7 +59,7 @@ You can use resource tokens directly as a "password" property when you construct
 // You can obtain the token for a given permission by using the Azure Cosmos DB SDK, or you can pass it into the application as a command line argument or configuration value.
 string resourceToken = GetResourceToken();
 
-// Configure the Gremlin server to use a resource token rather than a master key.
+// Configure the Gremlin server to use a resource token rather than a primary key.
 GremlinServer server = new GremlinServer(
   "contoso.gremlin.cosmosdb.azure.com",
   port: 443,
@@ -97,5 +99,5 @@ With a single Gremlin account, you can issue an unlimited number of tokens. Howe
 A common error that applications encounter while they're using resource tokens is, "Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header." This error is returned when a Gremlin traversal attempts to write an edge or a vertex but the resource token grants *Read* permissions only. Inspect your traversal to see whether it contains any of the following steps: *.addV()*, *.addE()*, *.drop()*, or *.property()*.
 
 ## Next steps
-* [Role-based access control](role-based-access-control.md) in Azure Cosmos DB
+* [Azure role-based access control (Azure RBAC)](role-based-access-control.md) in Azure Cosmos DB
 * [Learn how to secure access to data](secure-access-to-data.md) in Azure Cosmos DB

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,9 +25,9 @@ There are two common reasons for why the Azure AD extension is not working for y
 
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
-### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
+### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Microsoft 365?
 
-Azure AD B2C can't be used to authenticate users for Microsoft Office 365. Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access. Azure AD B2C provides an identity and access management platform for building web and mobile applications. When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
+Azure AD B2C can't be used to authenticate users for Microsoft 365. Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access. Azure AD B2C provides an identity and access management platform for building web and mobile applications. When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
 
@@ -130,41 +130,40 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 
 Follow these steps to delete your Azure AD B2C tenant.
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+You can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
-1. Delete all the **Applications** you registered in your Azure AD B2C tenant.
-1. Select **Azure Active Directory** on the left-hand menu.
-1. Under **Manage**, select **Users**.
-1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
-1. Under **Manage**, select **App registrations** (or **App registrations (Legacy)**).
-1. Select **View all applications**
-1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
-1. Under **Manage**, select **User settings**.
-1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
-1. Under **Manage**, select **Properties**
-1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
-1. Sign out of the Azure portal and then sign back in to refresh your access.
-1. Select **Azure Active Directory** on the left-hand menu.
-1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
+#### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
-1. Select **App registrations (Preview)**, then select the **All applications** tab.
+1. Select **App registrations**, then select the **All applications** tab.
 1. Delete all applications that you registered.
 1. Delete the **b2c-extensions-app**.
 1. Under **Manage**, select **Users**.
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
 1. Select **Azure Active Directory** on the left-hand menu.
+1. Under **Manage**, select **User settings**.
+1. Under **Manage**, select **Properties**
+1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
+1. Sign out of the Azure portal and then sign back in to refresh your access.
+1. Select **Azure Active Directory** on the left-hand menu.
+1. On the **Overview** page, select **Delete tenant**. Follow the on-screen instructions to complete the process.
+
+#### [Applications (Legacy)](#tab/applications-legacy/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
+1. Delete all the **Applications (Legacy)** you registered in your Azure AD B2C tenant.
+1. Select **Azure Active Directory** on the left-hand menu.
+1. Under **Manage**, select **Users**.
+1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
+1. Under **Manage**, select **App registrations**.
+1. Select **View all applications**
+1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
 1. Under **Manage**, select **User settings**.
 1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**

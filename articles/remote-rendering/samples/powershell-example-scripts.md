@@ -4,7 +4,8 @@ description: Examples that show how to use the front end via PowerShell scripts
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Example PowerShell scripts
@@ -16,28 +17,34 @@ Azure Remote Rendering provides the following two REST APIs:
 
 The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains sample scripts in the *Scripts* folder for interacting with the REST APIs of the service. This article describes their usage.
 
+> [!TIP]
+> There is also a [UI-based tool called ARRT](azure-remote-rendering-asset-tool.md) to interact with the service, which is a convenient alternative to using scripts. ![ARRT](./media/azure-remote-rendering-asset-tool.png "ARRT screenshot")
+
+> [!CAUTION]
+> Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The http failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+
 ## Prerequisites
 
-To execute the sample scripts, you need a functional setup of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+To execute the sample scripts, you need a functional setup of [Azure PowerShell](/powershell/azure/).
 
 1. Install Azure PowerShell:
-    1. Open a PowerShell with admin rights
+    1. Open a PowerShell window with admin rights.
     1. Run: `Install-Module -Name Az -AllowClobber`
 
-1. If you get errors about running scripts, ensure your [execution policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) is set appropriately:
-    1. Open a PowerShell with admin rights
+1. If you get errors about running scripts, ensure your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) is set appropriately:
+    1. Open a PowerShell window with admin rights.
     1. Run: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
 1. Log into your subscription containing your Azure Remote Rendering account:
-    1. Open a PowerShell
+    1. Open a PowerShell window.
     1. Run: `Connect-AzAccount` and follow the on-screen directions.
 
-> [!NOTE]
-> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > [!NOTE]
+    > In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](/powershell/module/az.accounts/connect-azaccount).
 
-1. Download the *Scripts* folder from the [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering).
+1. Download the *Scripts* folder from the [Azure Remote Rendering GitHub repository](https://github.com/Azure/azure-remote-rendering).
 
 ## Configuration file
 
@@ -71,6 +78,9 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
 > [!CAUTION]
 > Make sure to properly escape backslashes in the LocalAssetDirectoryPath path by using double backslashes: "\\\\" and use forward slashes "/" in all other paths like inputFolderPath and inputAssetPath.
 
+> [!CAUTION]
+> Optional values need to be filled out or you need to remove the key and value altogether. For example, if you do not use the  `"outputAssetFileName"` parameter, you need to delete the whole line inside `arrconfig.json`.
+
 ### accountSettings
 
 For `arrAccountId` and `arrAccountKey`, see [Create an Azure Remote Rendering account](../how-tos/create-an-account.md).
@@ -78,9 +88,9 @@ For `region` see the [list of available regions](../reference/regions.md).
 
 ### renderingSessionSettings
 
-This structure must be filled out if you want to run **RenderingSession.ps1**.
+This structure must be filled out if you want to run **RenderingSession.ps1**:
 
-- **vmSize:** Selects the size of the virtual machine. Select *standard* or *premium*. Shut down rendering sessions when you don't need them anymore.
+- **vmSize:** Selects the size of the virtual machine. Select [*standard*](../reference/vm-sizes.md) or [*premium*](../reference/vm-sizes.md). Shut down rendering sessions when you don't need them anymore.
 - **maxLeaseTime:** The duration for which you want to lease the VM. It will be shut down when the lease expires. The lease time can be extended later (see below).
 
 ### assetConversionSettings
@@ -181,10 +191,10 @@ Using a linked storage account is the preferred way to use the conversion servic
 .\Conversion.ps1
 ```
 
-1. Upload all files contained in the `assetConversionSettings.modelLocation` to the input blob container under the given `inputFolderPath`
+1. Upload all files contained in the `assetConversionSettings.modelLocation` to the input blob container under the given `inputFolderPath`..
 1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md)
-1. Poll the conversion status until the conversion succeeded or failed
-1. Output details of the converted file location (storage account, output container, file path in the container)
+1. Poll the conversion status until the conversion succeeded or failed.
+1. Output details of the converted file location (storage account, output container, file path in the container).
 
 ### Access to storage via Shared Access Signatures
 
@@ -194,13 +204,13 @@ Using a linked storage account is the preferred way to use the conversion servic
 
 This will:
 
-1. Upload the local file from the `assetConversionSettings.localAssetDirectoryPath` to the input blob container
-1. Generate a SAS URI for the input container
-1. Generate a SAS URI for the output container
-1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md)
-1. Poll the conversion status until the conversion succeeded or failed
-1. Output details of the converted file location (storage account, output container, file path in the container)
-1. Output a SAS URI to the converted model in the output blob container
+1. Upload the local file from the `assetConversionSettings.localAssetDirectoryPath` to the input blob container.
+1. Generate a SAS URI for the input container.
+1. Generate a SAS URI for the output container.
+1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md).
+1. Poll the conversion status until the conversion succeeded or failed.
+1. Output details of the converted file location (storage account, output container, file path in the container).
+1. Output a SAS URI to the converted model in the output blob container.
 
 ### Additional command-line options
 
@@ -241,7 +251,7 @@ For example you can combine a number of the given options like this:
 
 If you want to run individual steps of the process, you can use:
 
-Only upload data from the given LocalAssetDirectoryPath
+Only upload data from the given LocalAssetDirectoryPath.
 
 ```PowerShell
 .\Conversion.ps1 -Upload

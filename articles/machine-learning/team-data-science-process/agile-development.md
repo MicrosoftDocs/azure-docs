@@ -47,7 +47,7 @@ Here are the definitions for the work item types:
   
 - **Task**: Tasks are assignable work items that need to be done to complete a specific User Story. For example, Tasks in the User Story *Get data* could be:
   - Get SQL Server credentials
-  - Upload data to SQL Data Warehouse
+  - Upload data to Azure Synapse Analytics
   
 - **Bug**: Bugs are issues in existing code or documents that must be fixed to complete a Task. If Bugs are caused by missing work items, they can escalate to be User Stories or Tasks. 
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SAP Cloud Platform | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud Platform.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAP Cloud Platform
 
@@ -28,7 +21,7 @@ Integrating SAP Cloud Platform with Azure AD provides you with the following ben
 * You can enable your users to be automatically signed-in to SAP Cloud Platform (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -38,7 +31,7 @@ To configure Azure AD integration with SAP Cloud Platform, you need the followin
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * SAP Cloud Platform single sign-on enabled subscription
 
-After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 >[!IMPORTANT]
 >You need to deploy your own application or subscribe to an application on your SAP Cloud Platform account to test single sign on. In this tutorial, an application is deployed in the account.
@@ -110,35 +103,29 @@ To configure Azure AD single sign-on with SAP Cloud Platform, perform the follow
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP Cloud Platform application. The URL is based on the following pattern: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
-     >[!NOTE]
-     >This is the URL in your SAP Cloud Platform application that requires the user to authenticate.
-     > 
+    >[!NOTE]
+    >This is the URL in your SAP Cloud Platform application that requires the user to authenticate.
+    > 
 
-    | |
-    |--|
-    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
 
 	b. In the **Identifier** textbox you will provide your SAP Cloud Platform's type a URL using one of the following patterns: 
 
-	| |
-	|--|
-	| `https://hanatrial.ondemand.com/<instancename>` |
-	| `https://hana.ondemand.com/<instancename>` |
-	| `https://us1.hana.ondemand.com/<instancename>` |
-	| `https://ap1.hana.ondemand.com/<instancename>` |
+    - `https://hanatrial.ondemand.com/<instancename>`
+    - `https://hana.ondemand.com/<instancename>`
+    - `https://us1.hana.ondemand.com/<instancename>`
+    - `https://ap1.hana.ondemand.com/<instancename>`
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-	| `https://<subdomain>.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SAP Cloud Platform Client support team](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) to get Sign-On URL and Identifier. Reply URL you can get from trust management section which is explained later in the tutorial.
@@ -157,7 +144,7 @@ To configure Azure AD single sign-on with SAP Cloud Platform, perform the follow
 
 3. In the Trust Management section, under **Local Service Provider**, perform the following steps:
 
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
+    ![Screenshot that shows the "Trust Management" section with the "Local Service Provider" tab selected and all text boxes highlighted.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
    
     a. Click **Edit**.
 
@@ -185,7 +172,7 @@ To configure Azure AD single sign-on with SAP Cloud Platform, perform the follow
 
 5. Click the **Trusted Identity Provider** tab, and then click **Add Trusted Identity Provider**.
    
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
+    ![Screenshot that shows the "Trust Management" page with the "Trusted Identity Provider" tab selected.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
    
     >[!NOTE]
     >To manage the list of trusted identity providers, you need to have chosen the Custom configuration type in the Local Service Provider section. For Default configuration type, you have a non-editable and implicit trust to the SAP ID Service. For None, you don't have any trust settings.
@@ -309,13 +296,12 @@ In order to enable Azure AD users to log in to SAP Cloud Platform, you must assi
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SAP Cloud Platform tile in the Access Panel, you should be automatically signed in to the SAP Cloud Platform for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SAP Cloud Platform tile in the Access Panel, you should be automatically signed in to the SAP Cloud Platform for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

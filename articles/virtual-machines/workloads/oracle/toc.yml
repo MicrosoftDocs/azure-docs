@@ -4,6 +4,10 @@
     href: oracle-overview.md
   - name: Solutions on Azure VMs
     href: oracle-vm-solutions.md
+  - name: What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?
+    href: oracle-weblogic.md
+  - name: What are solutions for running Oracle WebLogic Server on Azure Kubernetes Service?
+    href: weblogic-aks.md    
   - name: Solutions with OCI
     href: oracle-oci-overview.md
 - name: Quickstarts
@@ -26,8 +30,6 @@
     href: oracle-reference-architecture.md
   - name: Architect an Oracle DB
     href: oracle-design.md
-  - name: Backup strategy for Oracle DB
-    href: oracle-backup-recovery.md
   - name: Oracle disaster recovery options
     href: oracle-disaster-recovery.md
 - name: How-to guides

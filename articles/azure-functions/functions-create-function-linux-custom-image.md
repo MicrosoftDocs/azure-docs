@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -11,7 +11,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this tutorial, you create and deploy your code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
-You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](functions-create-first-azure-function-azure-cli-linux.md). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
+Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md#features) or a [Dedicated (App Service) plan](functions-scale.md#app-service-plan) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+
+You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 In this tutorial, you learn how to:
 
@@ -26,7 +28,7 @@ In this tutorial, you learn how to:
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
 
-You can follow this tutorial on any computer running Windows, macOS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
+You can follow this tutorial on any computer running Windows, macOS, or Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -76,17 +78,22 @@ In an empty folder, run the following command to generate the Functions project 
 
 # [bash](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
 # [PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 # [Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 ---
+
+The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want your functions to run on Java 11. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
 
 Maven asks you for values needed to finish generating the project on deployment.   
 Provide the following values when prompted:
@@ -151,7 +158,7 @@ Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
-(Optional) Examine the *Dockerfile" in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+(Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
     
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `azurefunctionsimage`, and tag, `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
@@ -236,7 +243,7 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features). We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+    We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
     The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
@@ -247,7 +254,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<storage_name>` with the name you used in the previous section for the storage account. Also replace `<app_name>` with a globally unique name appropriate to you, and `<docker_id>` with your Docker ID.
 
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
     The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image.
@@ -296,17 +303,17 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
 
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+        ![Choose your function in the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
     1. Select **Get Function Url**.
 
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+        ![Get the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
     1. In the pop-up window, select **default (function key)** and then copy the URL to the clipboard. The key is the string of characters following `?code=`.
 
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+        ![Choose the default function access key](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
 
     > [!NOTE]  
@@ -377,7 +384,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
     ::: zone pivot="programming-language-csharp"
     ```Dockerfile
-    FROM microsoft/dotnet:2.2-sdk-appservice AS installer-env
+    FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice
     ```
     ::: zone-end
 
@@ -404,9 +411,7 @@ SSH enables secure communication between a container and a client. With SSH enab
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    The differences between the base images are described in the [App Services - Custom docker images tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Rebuild the image by using the `docker build` command again, replacing `<docker_id>` with your Docker ID:
 
     ```
@@ -431,7 +436,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 ## Write to an Azure Storage queue
 
-Azure Functions lets you connect your functions to other Azure services and resources having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Azure Functions lets you connect your functions to other Azure services and resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 
@@ -483,7 +488,7 @@ With the queue binding defined, you can now update your function to receive the 
 1. In the root folder, run `docker build` again, and this time update the version in the tag to `v1.0.1`. As before, replace `<docker_id>` with your Docker Hub account ID:
 
     ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Push the updated image back to the repository with `docker push`:

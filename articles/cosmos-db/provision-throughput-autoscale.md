@@ -1,96 +1,86 @@
 ---
-title: Create Azure Cosmos containers and databases in autoscale provisioned throughput.
-description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autoscale provisioned throughput.
+title: Create Azure Cosmos containers and databases in autoscale mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autoscale mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ---
 
-# Create Azure Cosmos containers and databases with autoscale provisioned throughput
+# Create Azure Cosmos containers and databases with autoscale throughput
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB allows you to configure your containers with standard (manual) provisioned throughput or autoscale provisioned throughput. This article describes the benefits and use cases of autoscale.
+Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
 
-> [!NOTE]
-> You can [enable autoscale for new databases and containers](#create-db-container-autoscale) only. It is not available for existing containers and databases.
+Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. 
 
-In addition to standard provisioning of throughput, you can now configure Azure Cosmos containers with autoscale provisioned throughput. Containers and databases configured in autoscale provisioned throughput will **automatically and instantly scale the provisioned throughput based on your application needs without impacting the availability, latency, throughput, or performance of the workload globally.**
+With autoscale, Azure Cosmos DB **automatically and instantly scales the throughput (RU/s)** of your database or container based on usage, without impacting the availability, latency, throughput, or performance of the workload. 
 
-When configuring containers and databases in autoscale, you need to specify the maximum throughput `Tmax` not to be exceeded. Containers can then scale their throughput so that `0.1*Tmax < T < Tmax`. In other words, containers and databases scale instantly based on the workload needs, from as low as 10% of the maximum throughput value that you have configured up to the configured maximum throughput value. After configuring autoscale, you can change the maximum throughput (`Tmax`) setting on a database or container at any point in time. With the autoscale option, the 400 RU/s minimum throughput per container or database is no longer applicable.
+## Benefits of autoscale
 
-For the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autoscale, the number of containers allowed within a database is calculated as: `0.001*TMax`. For example, if you provision 20,000 autoscale RU/s, then the database can have 20 containers.
+Azure Cosmos databases and containers that are configured with autoscale provisioned throughput have the following benefits:
 
-## <a id="autoscale-benefits"></a> Benefits of autoscale provisioned throughput
+* **Simple:** Autoscale removes the complexity of managing RU/s with custom scripting or manually scaling capacity. 
 
-Azure Cosmos containers that are configured with autoscale have the following benefits:
+* **Scalable:** Databases and containers automatically scale the provisioned throughput as needed. There is no disruption to client connections, applications, or impact to Azure Cosmos DB SLAs.
 
-* **Simple:** Containers with autoscale remove the complexity to manage provisioned throughput (RUs) and capacity manually for various containers.
+* **Cost-effective:** Autoscale helps optimize your RU/s usage and cost usage by scaling down when not in use. You only pay for the resources that your workloads need on a per-hour basis. Of all hours in a month, if you set autoscale max RU/s(Tmax) and use the full amount Tmax for 66% of the hours or less, you'll save with autoscale. To learn more, see the [how to choose between standard (manual) and autoscale provisioned throughput](how-to-choose-offer.md) article.
 
-* **Scalable:** Containers with autoscale seamlessly scale the provisioned throughput capacity as needed. There is no disruption to client connections, applications and they don’t impact any existing SLAs.
+* **Highly available:** Databases and containers using autoscale use the same globally distributed, fault-tolerant, highly available Azure Cosmos DB backend to ensure data durability and high availability.
 
-* **Cost-effective:** When you use containers configured with autoscale, you only pay for the resources that your workloads need on a per-hour basis.
+## Use cases of autoscale
 
-* **Highly available:** Containers with autoscale use the same globally distributed, fault-tolerant, highly available backend to ensure data durability and high availability.
+The use cases of autoscale include:
 
-## <a id="autoscale-usecases"></a> Use cases of autoscale provisioned throughput
+* **Variable or unpredictable workloads:** When your workloads have variable or unpredictable spikes in usage, autoscale helps by automatically scaling up and down based on usage. Examples include retail websites that have different traffic patterns depending on seasonality; IOT workloads that have spikes at various times during the day; line of business applications that see peak usage a few times a month or year, and more. With autoscale, you no longer need to manually provision for peak or average capacity. 
 
-The use cases for Azure Cosmos containers configured with autoscale include:
+* **New applications:** If you're developing a new application and not sure about the throughput (RU/s) you need, autoscale makes it easy to get started. You can start with the autoscale entry point of 400 - 4000 RU/s, monitor your usage, and determine the right RU/s over time.
 
-* **Variable workloads:** When you are running a lightly used application with peak usage of 1 hour to several hours a few times each day or several times per year. Examples include applications for human resources, budgeting, and operational reporting. For such scenarios, containers configured with autoscale can be used, and you no longer need to manually provision for either peak or average capacity.
+* **Infrequently used applications:** If you have an application that's only used for a few hours several times a day, week, or month — such as a low-volume application/web/blog site — autoscale adjusts the capacity to handle peak usage and scales down when it's over. 
 
-* **Unpredictable workloads:** When you are running workloads where there is database usage throughout the day, but also peaks of activity that are hard to predict. An example includes a traffic site that sees a surge of activity when weather forecast changes. Containers configured with autoscale adjust the capacity to meet the needs of the application's peak load and scale back down when the surge of activity is over.
+* **Development and test workloads:** If you or your team use Azure Cosmos databases and containers during work hours, but don't need them on nights or weekends, autoscale helps save cost by scaling down to a minimum when not in use. 
 
-* **New applications:** If you are deploying a new application and are unsure about how much provisioned throughput (i.e., how many RUs) you need. With containers configured with autoscale, you can automatically scale to the capacity needs and requirements of your application.
+* **Scheduled production workloads/queries:** If you have a series of scheduled requests, operations, or queries that you want to run during idle periods, you can do that easily with autoscale. When you need to run the workload, the throughput will automatically scale to what's needed and scale down afterward. 
 
-* **Infrequently used applications:** If you have an application that is only used for a few hours several times per day or week or month, such as a low-volume application/web/blog site.
+Building a custom solution to these problems not only requires an enormous amount of time, but also introduces complexity in your application's configuration or code. Autoscale enables the above scenarios out of the box and removes the need for custom or manual scaling of capacity. 
 
-* **Development and test databases:** If you have developers using containers during work hours but don't need them on nights or weekends. With containers configured with autoscale, they scale down to a minimum when not in use.
+## How autoscale provisioned throughput works
 
-* **Scheduled production workloads/queries:** When you have a series of scheduled requests/operations/queries on a single container, and if there are idle periods where you want to run at an absolute low throughput, you can now do that easily. When a scheduled query/request is submitted to a container configured with autoscale, it will automatically scale up as much as needed and run the operation.
+When configuring containers and databases with autoscale, you specify the maximum throughput `Tmax` required. Azure Cosmos DB scales the throughput `T` such `0.1*Tmax <= T <= Tmax`. For example, if you set the maximum throughput to 20,000 RU/s, the throughput will scale between 2000 to 20,000 RU/s. Because scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
 
-Solutions to the previous problems not only require an enormous amount of time in implementation, but they also introduce complexity in configuration or your code, and frequently require manual intervention to address them. Autoscale enables the above scenarios out of the box, so that you do not need to worry about these problems anymore.
+Each hour, you will be billed for the highest throughput `T` the system scaled to within the hour.
 
-## Comparison – standard (manual) Vs. autoscale provisioned throughput
+The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, which scales between 400 - 4000 RU/s. You can set `Tmax` in increments of 1000 RU/s and change the value at any time.  
 
-|  | Containers configured with standard provisioned throughput  | Containers configured with autoscale provisioned throughput |
-|---------|---------|---------|
-| **Provisioned throughput** | Manually provisioned. | Automatically and instantaneously scaled based on the workload usage patterns. |
-| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if the throughput consumed is within the max throughput that you choose with autoscale.   |
-| **Capacity planning** |  You have to do an initial capacity planning and provision of the throughput you need. |    You don’t have to worry about capacity planning. The system automatically takes care of capacity planning and capacity management. |
-| **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autoscale RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autoscale. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
-| **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
+## Enable autoscale on existing resources
 
-## <a id="create-db-container-autoscale"></a> Create a database or a container with autoscale
-
-You can configure autoscale for new databases or containers when creating them through the Azure portal. Use the following steps to create a new database or container, enable autoscale, and specify the maximum throughput (RU/s).
-
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB explorer.](https://cosmos.azure.com/)
-
-1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
-
-1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **Autoscale** option, and choose the maximum throughput (RU/s) that the database or container cannot exceed when using the autoscale option.
-
-   ![Creating a container and configuring autoscale throughput](./media/provision-throughput-autoscale/create-container-autoscale-mode.png)
-
-1. Select **OK**.
-
-You can create a shared throughput database with autoscale by selecting the **Provision database throughput** option.
+Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information. Currently, for all APIs, you can only use the Azure portal to enable autoscale on existing resources.
 
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
-The following table shows the maximum throughout and storage limits for different options in autoscale:
+For any value of `Tmax`, the database or container can store a total of `0.01 * Tmax GB`. After this amount of storage is reached, the maximum RU/s will be automatically increased based on the new storage value, with no impact to your application. 
 
-|Maximum throughput limit  |Maximum storage limit  |
-|---------|---------|
-|4000 RU/s  |   50 GB    |
-|20,000 RU/s  |  200 GB  |
-|100,000 RU/s    |  1 TB   |
-|500,000 RU/s    |  5 TB  |
+For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
+
+When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s), as long as you don't exceed 40 GB of storage. See this [documentation](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) for more information.
+
+## Comparison – containers configured with manual vs autoscale throughput
+For more detail, see this [documentation](how-to-choose-offer.md) on how to choose between standard (manual) and autoscale throughput.  
+
+|| Containers with standard (manual) throughput  | Containers with autoscale throughput |
+|---------|---------|---------|
+| **Provisioned throughput (RU/s)** | Manually provisioned. | Automatically and instantaneously scaled based on the workload usage patterns. |
+| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if you consume RU/s within the autoscale throughput range that you've set.    |
+| **Capacity planning** |  You have to do capacity planning and provision the exact throughput you need. |    The system automatically takes care of capacity planning and capacity management. |
+| **Pricing** | You pay for the manually provisioned RU/s per hour, using the [standard (manual) RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). | You pay per hour for the highest RU/s the system scaled up to within the hour. <br/><br/> For single write region accounts, you pay for the RU/s used on an hourly basis, using the [autoscale RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>For accounts with multiple write regions, there is no extra charge for autoscale. You pay for the throughput used on hourly basis using the same [multi-region write RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
 ## Next steps
 
 * Review the [autoscale FAQ](autoscale-faq.md).
-* Learn more about [logical partitions](partition-data.md).
-* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+* Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
+* Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
+* Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
+
+

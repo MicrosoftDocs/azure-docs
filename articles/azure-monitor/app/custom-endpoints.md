@@ -3,7 +3,7 @@ title: Azure Application Insights override default SDK endpoints
 description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-
+ms.custom: references_regions, devx-track-js
 ---
 
 # Application Insights overriding default endpoints
@@ -11,7 +11,7 @@ ms.date: 07/26/2019
 To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
 > [!NOTE]
-> [Connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
+> [Connection strings](./sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
 
 ---
 
@@ -72,7 +72,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # [Azure Functions](#tab/functions)
 
-For Azure Functions it is now recommended to use [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
+For Azure Functions it is now recommended to use [connection strings](./sdk-connection-string.md?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
 
 Name: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 Value: `Connection String Value`
@@ -152,7 +152,7 @@ For guidance on modifying the ingestion endpoint for the opencensus-python SDK c
 
 ## Regions that require endpoint modification
 
-Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
 
 |Region |  Endpoint Name | Value |
 |-----------------|:------------|:-------------|
@@ -176,5 +176,5 @@ If you currently use the [Application Insights REST API](https://dev.application
 
 ## Next steps
 
-- To learn more about the custom modifications for Azure Government, consult the detailed guidance for [Azure monitoring and management](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-- To learn more about Azure China, consult the [Azure China Playbook](https://docs.microsoft.com/azure/china/).
+- To learn more about the custom modifications for Azure Government, consult the detailed guidance for [Azure monitoring and management](../../azure-government/compare-azure-government-global-azure.md#application-insights).
+- To learn more about Azure China, consult the [Azure China Playbook](/azure/china/).

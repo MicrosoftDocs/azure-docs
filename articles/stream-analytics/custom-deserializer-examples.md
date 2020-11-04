@@ -7,6 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
+ms.custom: devx-track-csharp
 ---
 
 # Read input in any format using .NET custom deserializers
@@ -107,7 +108,7 @@ message MessageBodyProto {
 }
 ```
 
-Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here.
+Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here. You must ensure that the version of Protobuf Nuget you use in your Stream Analytics project matches the Protobuf version that was used to generate the input. 
 
 The following code snippet is the deserializer implementation assuming the generated file is included in the project. This implementation is just a thin wrapper over the generated file.
 
@@ -195,7 +196,7 @@ namespace ExampleCustomCode.Serialization
 
 ## Serialization format for REST APIs
 
-Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) documentation.
+Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](./stream-analytics-define-inputs.md) documentation.
 
 The following Javascript code is an example of the .NET deserializer serialization format when using the REST API:
 
@@ -233,7 +234,7 @@ You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 
 ### When will this feature be available in all Azure regions?
 
-This feature is available in [6 regions](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
+This feature is available in [6 regions](#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 

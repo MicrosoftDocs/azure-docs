@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
-## JTW token lifetimes and claims configuration
+## JWT token lifetimes and claims configuration
 
 To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
 
@@ -26,7 +26,7 @@ Insert the ClaimsProviders element between the BasePolicy element and the Relyin
 
 Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <DisplayName>Token Issuer</DisplayName>
@@ -57,7 +57,7 @@ The following values are set in the previous example:
 
     In the **ClaimsSchema** element, add this element:
 
-    ```XML
+    ```xml
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
@@ -66,7 +66,7 @@ The following values are set in the previous example:
 
     In your **OutputClaims** element, add this element:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
@@ -74,15 +74,57 @@ The following values are set in the previous example:
 
 - **Subject (sub) claim** - This option defaults to ObjectID, if you would like to switch this setting to `Not Supported`, replace this line:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
     with this line:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
+
+> [!NOTE]
+> Single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+## Provide optional claims to your app
+
+The [Relying party policy technical profile](relyingparty.md#technicalprofile) output claims are values that are returned to an application. Adding output claims will issue the claims into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the desired claims as an output claim.
+
+1. Open your custom policy file. For example, SignUpOrSignin.xml.
+1. Find the OutputClaims element. Add the OutputClaim you want to be included in the token. 
+1. Set the output claim attributes. 
+
+The following example adds the `accountBalance` claim. The accountBalance claim is sent to the application as a balance. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+The OutputClaim element contains the following attributes:
+
+  - **ClaimTypeReferenceId** - The identifier of a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy file or parent policy file.
+  - **PartnerClaimType** - Allows you to change the name of the claim in the token. 
+  - **DefaultValue** - A default value. You can also set the default value to a [claim resolver](claim-resolver-overview.md), such as tenant ID.
+  - **AlwaysUseDefaultValue** - Force the use of the default value.
 
 ## Next steps
 

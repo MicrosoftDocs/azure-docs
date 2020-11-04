@@ -4,23 +4,23 @@ description: Create an Azure Cosmos account with virtual network service endpoin
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 07/29/2020
 ---
 
 # Create an Azure Cosmos account with virtual network service endpoints using Azure CLI
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this command requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sample script
 
-This sample creates a new virtual network with a front and back end subnet and enables service endpoints for `Microsoft.AzureCosmosDB`. It then retrieves the resource id for this subnet and applies it to the Azure Cosmos account and enables service endpoints for the account.
+This sample creates a new virtual network with a front and back end subnet and enables service endpoints for `Microsoft.AzureCosmosDB`. It then retrieves the resource ID for this subnet and applies it to the Azure Cosmos account and enables service endpoints for the account.
 
 > [!NOTE]
-> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+> This sample demonstrates using a Core (SQL) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints.sh "Create an Azure Cosmos account with service endpoints.")]
 

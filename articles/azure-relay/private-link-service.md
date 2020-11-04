@@ -1,25 +1,14 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: Learn how to integrate Azure Relay with Azure Private Link Service
-services: service-bus-relay
-author: spelluru
-ms.author: spelluru
-ms.date: 05/07/2020
-ms.service: service-bus-relay
+ms.date: 09/24/2020
 ms.topic: article
-
 ---
 
 # Integrate Azure Relay with Azure Private Link (Preview)
 Azure **Private Link Service** enables you to access Azure services (for example, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a private endpoint in your virtual network. For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
 
 A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
-
-
-> [!IMPORTANT]
-> This feature is currently in **preview**. 
->
-> We currently support private link connections on sender clients. 
 
 
 ## Add a private endpoint using Azure portal
@@ -207,7 +196,7 @@ There are four provisioning states:
 3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list. 
 
 ## Validate that the private link connection works
-You should validate that resources within the same subnet of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
+You should validate that resources within the virtual network of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
 
 For this test, create a virtual machine by following the steps in the [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 

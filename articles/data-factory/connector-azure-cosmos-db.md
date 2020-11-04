@@ -38,7 +38,7 @@ This Azure Cosmos DB (SQL API) connector is supported for the following activiti
 
 For Copy activity, this Azure Cosmos DB (SQL API) connector supports:
 
-- Copy data from and to the Azure Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Copy data from and to the Azure Cosmos DB [SQL API](../cosmos-db/introduction.md).
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import and export JSON documents](#import-and-export-json-documents).
 
@@ -199,7 +199,7 @@ When copy data from Cosmos DB, unless you want to [export JSON documents as-is](
 
 To copy data to Azure Cosmos DB (SQL API), set the **sink** type in Copy Activity to **DocumentDbCollectionSink**. 
 
-The following properties are supported in the Copy Activity **source** section:
+The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

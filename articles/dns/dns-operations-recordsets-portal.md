@@ -4,7 +4,7 @@ description: Azure DNS provides the capability to manage DNS record sets and rec
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ---

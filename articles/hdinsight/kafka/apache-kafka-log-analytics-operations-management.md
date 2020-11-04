@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ---
@@ -99,7 +99,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
 
 ## Next steps
 
-For more information on Azure Monitor, see [Azure Monitor overview](../../log-analytics/log-analytics-get-started.md), and [Query Azure Monitor logs to monitor HDInsight clusters](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+For more information on Azure Monitor, see [Azure Monitor overview](../../azure-monitor/overview.md), and [Query Azure Monitor logs to monitor HDInsight clusters](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 For more information on working with Apache Kafka, see the following documents:
 

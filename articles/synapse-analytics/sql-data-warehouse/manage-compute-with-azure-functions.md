@@ -6,7 +6,7 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
@@ -24,7 +24,7 @@ In order to use Azure Function App with SQL pool, you must create a [Service Pri
 To deploy the template, you need the following information:
 
 - Name of the resource group your SQL pool instance is in
-- Name of the logical server your SQL pool instance is in
+- Name of the server your SQL pool instance is in
 - Name of your SQL pool instance
 - Tenant ID (Directory ID) of your Azure Active Directory
 - Subscription ID
@@ -33,9 +33,7 @@ To deploy the template, you need the following information:
 
 Once you have the preceding information, deploy this template:
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption-based Function App plan, and a storage account that handles the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
@@ -51,7 +49,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
 3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
 
-4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up.
+4. In the schedule area, add the time the CRON expression you would like to reflect how often you want Azure Synapse Analytics to be scaled up.
 
    ![Change function schedule](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -94,9 +92,9 @@ Currently, there are only two scaling functions included within the template. Wi
 
 1. Create a new blank function. Select the *+* button near your Functions location to show the function template pane.
 
-   ![Create new function](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Screenshot that shows the "Function Apps" menu with the "Plus" icon next to "Functions" selected.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. From Language, select *Javascript*, then select *TimerTrigger*.
+2. From Language, select *JavaScript*, then select *TimerTrigger*.
 
    ![Create new function](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -110,7 +108,7 @@ Currently, there are only two scaling functions included within the template. Wi
 
 5. Set your operation variable to the desired behavior as follows:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
@@ -121,10 +119,10 @@ Currently, there are only two scaling functions included within the template. Wi
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600
+   // Scale the SQL pool instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
-       "ServiceLevelObjective": "DW600"
+       "ServiceLevelObjective": "DW600c"
    }
    ```
 
@@ -134,33 +132,33 @@ This section briefly demonstrates what is necessary to get more complex scheduli
 
 ### Example 1
 
-Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
+Daily scale up at 8am to DW600c and scale down at 8pm to DW200c.
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
-| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
+| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### Example 2
 
-Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm, and scale down at 10pm to DW200.
+Daily scale up at 8am to DW1000c, scale down once to DW600 at 4pm, and scale down at 10pm to DW200c.
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
-| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
+| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### Example 3
 
-Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pauses Friday 11pm, resumes 7am Monday morning.
+Scale up at 8am to DW1000c , scale down once to DW600c at 4pm on the weekdays. Pauses Friday 11pm, resumes 7am Monday morning.
 
 | Function  | Schedule       | Operation                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
-| Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
+| Function4 | 0 0 7 * * 1    | `var operation = {"operationType": "ResumeDw"}` |
 
 ## Next steps
 

@@ -1,28 +1,37 @@
 ---
-title: Azure PowerShell samples for Azure Cosmos DB - Table API
-description:  Get the Azure PowerShell samples to perform various common tasks in Azure Cosmos DB table API accounts
+title: Azure PowerShell samples for Azure Cosmos DB Table API
+description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB Table API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 10/13/2020
 ms.author: mjbrown
 ---
 
-# Azure PowerShell samples for Azure Cosmos DB - Table API
+# Azure PowerShell samples for Azure Cosmos DB Table API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB for Table API.
+The following table includes links to commonly used Azure PowerShell scripts for Azure Cosmos DB. Use the links on the right to navigate to API specific samples. Common samples are the same across all APIs. Reference pages for all Azure Cosmos DB PowerShell cmdlets are available in the [Azure PowerShell Reference](/powershell/module/az.cosmosdb). Please check for updates to `Az.CosmosDB` regularly. You can also fork these PowerShell samples for Cosmos DB from our GitHub repository, [Cosmos DB PowerShell Samples on GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 
-> [!NOTE]
-> The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please note that the `Az.CosmosDB` cmdlets are still in preview and may change before release. Please check for updates to `Az.CosmosDB` regularly.
+## Common Samples
 
-| | |
+|Task | Description |
 |---|---|
-|[Create an account and table](scripts/powershell/table/ps-table-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table. |
-|[List or get tables](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get tables. |
-|[Get RU/s](scripts/powershell/table/ps-table-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get RU/s for a table. |
-|[Update RU/s](scripts/powershell/table/ps-table-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update RU/s for a table. |
-|[Update an account or add a region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Add a region to a Cosmos account. Can also be used to modify other account properties but these must be separate from changes to regions. |
-|[Change failover priority or trigger failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the regional failover priority of an Azure Cosmos account or trigger a manual failover. |
-|[Account keys or connection strings](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get primary and secondary keys, connection strings or regenerate an account key of an Azure Cosmos account. |
-|[Create a Cosmos Account with IP Firewall](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos account with IP Firewall enabled. |
+|[Update an account](scripts/powershell/common/account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update a Cosmos DB account's default consistency level. |
+|[Update an account's regions](scripts/powershell/common/update-region.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update a Cosmos DB account's regions. |
+|[Change failover priority or trigger failover](scripts/powershell/common/failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the regional failover priority of an Azure Cosmos account or trigger a manual failover. |
+|[Account keys or connection strings](scripts/powershell/common/keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get primary and secondary keys, connection strings or regenerate an account key of an Azure Cosmos DB account. |
+|[Create a Cosmos Account with IP Firewall](scripts/powershell/common/firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos DB account with IP Firewall enabled. |
+|||
+
+## Table API Samples
+
+|Task | Description |
+|---|---|
+|[Create an account and table](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table. |
+|[Create an account and table with autoscale](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table autoscale. |
+|[List or get tables](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get tables. |
+|[Throughput operations](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a table including get, update and migrate between autoscale and standard throughput. |
+|[Lock resources from deletion](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

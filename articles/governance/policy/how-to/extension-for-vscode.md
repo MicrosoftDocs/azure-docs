@@ -1,17 +1,17 @@
 ---
 title: Azure Policy extension for Visual Studio Code
-description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Resource Manager aliases.
-ms.date: 03/07/2020
+description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
+ms.date: 10/20/2020
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
 
-> Applies to Azure Policy extension version **0.0.21** and newer
+> Applies to Azure Policy extension version **0.1.0** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code to look up
-[aliases](../concepts/definition-structure.md#aliases) and review resources and policies. First,
-we'll describe how to install the Azure Policy extension in Visual Studio Code. Then we'll walk
-through how to look up aliases.
+[aliases](../concepts/definition-structure.md#aliases), review resources and policies, export
+objects, and evaluate policy definitions. First, we'll describe how to install the Azure Policy
+extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
 Azure Policy extension for Visual Studio Code can be installed on all platforms that are supported
 by Visual Studio Code. This support includes Windows, Linux, and macOS.
@@ -53,7 +53,7 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 1. Select the nation cloud from the list:
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Set default Azure cloud sign in for Visual Studio Code" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Screenshot of selecting the nation Azure cloud sign in for Visual Studio Code." border="false":::
 
 ## Connect to an Azure account
 
@@ -66,13 +66,13 @@ to connect to Azure from Visual Studio Code:
 
      From the Azure Policy extension, select **Sign in to Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Azure cloud sign in for Visual Studio Code from Azure Policy extension" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot of Visual Studio Code and the icon for the Azure Policy extension." border="false":::
 
    - Command Palette
 
      From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Sign In**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Azure cloud sign in for Visual Studio Code from Command Palette" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot of the Azure cloud sign in options for Visual Studio Code from the Command Palette." border="false":::
 
 1. Follow the sign in instructions to sign in to Azure. After you're connected, your Azure account
    name is shown on the status bar at the bottom of the Visual Studio Code window.
@@ -87,11 +87,13 @@ these steps:
 
    - Command Palette: 
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select Subscriptions**.
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select
+     Subscriptions**.
 
    - Window footer
 
-     In the window footer at the bottom of the screen, select the segment that matches **Azure: \<your account\>**.
+     In the window footer at the bottom of the screen, select the segment that matches **Azure:
+     \<your account\>**.
 
 1. Use the filter box to quickly find subscriptions by name. Then, check or remove the check from
    each subscription to set the subscriptions shown by the Azure Policy extension. When done adding
@@ -142,7 +144,7 @@ resource with the following steps:
 
 When a resource is selected, whether through the search interface or by selecting it in the
 treeview, the Azure Policy extension opens the JSON file representing that resource and all its
-Resource Manager property values.
+Azure Resource Manager property values.
 
 Once a resource is open, hovering over the Resource Manager property name or value displays the
 Azure Policy alias if one exists. In this example, the resource is a
@@ -150,7 +152,11 @@ Azure Policy alias if one exists. In this example, the resource is a
 **properties.storageProfile.imageReference.offer** property is hovered over. Hovering shows the
 matching aliases.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension hover shows Resource Manager property alias" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
+
+> [!NOTE]
+> The VS Code extension only exposes Resource Manager mode properties and doesn't display any
+> [Resource Provider mode](../concepts/definition-structure.md#mode) properties.
 
 ## Search for and view policies and assignments
 
@@ -185,6 +191,64 @@ When selecting a policy or assignment, whether through the search interface or b
 the treeview, the Azure Policy extension opens the JSON that represents the policy or assignment and
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
+
+## Export objects
+
+Objects from your subscriptions can be exported to a local JSON file. In either the **Resources** or
+**Policies** pane, hover over or select an exportable object. At the end of the highlighted row,
+select the save icon and select a folder to save that resources JSON.
+
+The following objects can be exported locally:
+
+- Resources pane
+  - Resource groups
+  - Individual resources (either in a resource group or under a Resource Provider)
+- Policies pane
+  - Policy assignments
+  - Built-in policy definitions
+  - Custom policy definitions
+  - Initiatives
+
+## On-demand evaluation scan
+
+An evaluation scan can be started with the Azure Policy extension for Visual Studio Code. To start
+an evaluation, select and pin each of the following objects: a resource, a policy definition, and a
+policy assignment.
+
+1. To pin each object, find it in either the **Resources** pane or the **Policies** pane and select
+   the pin to an edit tab icon. Pinning an object adds it to the **Evaluation** pane of the
+   extension.
+1. In the **Evaluation** pane, select one of each object and use the select for evaluation icon to
+   mark it as included in the evaluation.
+1. At the top of the **Evaluation** pane, select the run evaluation icon. A new pane in Visual
+   Studio Code opens with the resulting evaluation details in JSON form.
+
+> [!NOTE]
+> If the selected policy definition is either an
+> [AuditIfNotExists](../concepts/effects.md#auditifnotexists) or
+> [DeployIfNotExists](../concepts/effects.md#deployifnotexists), in the **Evaluation** pane use the
+> plus icon to selected a _related_ resource for the existence check.
+
+The evaluation results provide information about the policy definition and policy assignment along
+with the **policyEvaluations.evaluationResult** property. The output looks similar to the following
+example:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## Sign out
 

@@ -24,11 +24,14 @@ To run Functions on your Kubernetes cluster, you must install the KEDA component
 
 ### Installing with Helm
 
-There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/deploy/).
+There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/1.4/deploy/).
 
 ## Deploying a function app to Kubernetes
 
 You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
+
+> [!NOTE]
+> The Core Tools automatically create the Dockerfile for Azure Functions written in .NET, Node, Python, or PowerShell. For function apps written in Java, the Dockerfile must be created manually. Use the Azure Functions [image list](https://github.com/Azure/azure-functions-docker) to find the correct image to base the Azure Function.
 
 ```cli
 func init --docker-only
@@ -45,7 +48,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Replace `<name-of-function-deployment>` with the name of your function app.
 
-This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
+The deploy command executes a series of actions:
+1. The Dockerfile created earlier is used to build a local image for the function app.
+2. The local image is tagged and pushed to the container registry where the user is logged in.
+3. A manifest is created and applied to the cluster that defines a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
 ### Deploying a function app from a private registry
 
@@ -63,7 +69,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/deploy/).
+Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/1.4/deploy/).
 
 ## Supported triggers in KEDA
 

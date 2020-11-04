@@ -112,6 +112,11 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -133,7 +138,7 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
+Controls options for Application Insights, including [sampling options](./configure-monitoring.md#configure-sampling).
 
 For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
@@ -157,11 +162,11 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | isEnabled | true | Enables or disables sampling. | 
 | maxTelemetryItemsPerSecond | 20 | The target number of telemetry items logged per second on each server host. If your app runs on many hosts, reduce this value to remain within your overall target rate of traffic. | 
 | evaluationInterval | 01:00:00 | The interval at which the current rate of telemetry is reevaluated. Evaluation is performed as a moving average. You might want to shorten this interval if your telemetry is liable to sudden bursts. |
-| initialSamplingPercentage| 1.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
+| initialSamplingPercentage| 100.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to raise sampling percentage again to capture more data. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to lower sampling percentage again to capture less data. |
 | minSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the minimum allowed sampling percentage. |
-| maxSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
+| maxSamplingPercentage | 100.0 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
 | movingAverageRatio | 1.0 | In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes. |
 | excludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 | includedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `excludedTypes` override types listed here. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`. Instances of the specified types are sampled; the types that aren't specified or implied are transmitted without sampling. |
@@ -176,7 +181,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](../azure-monitor/app/snapshot-debugger.md) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -237,11 +242,16 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
+Indicates the timeout duration for all functions. It follows the timespan string format. 
 
-In the Premium plan, the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+| Plan type | Default (min) | Maximum (min) |
+| -- | -- | -- |
+| Consumption | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (unbounded)<sup>2</sup> |
+| Dedicated (App Service) | 30 | -1 (unbounded)<sup>2</sup> |
 
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+<sup>1</sup> Premium plan execution is only guaranteed for 60 minutes, but technically unbounded.   
+<sup>2</sup> A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
@@ -300,7 +310,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) in the ASP.NET Core documentation. |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
@@ -339,6 +349,28 @@ Managed dependency is a feature that is currently only supported with PowerShell
 ## queues
 
 Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
+
+## retry
+
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies) options for all executions in the app.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|strategy|null|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
+|maxRetryCount|null|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|delayInterval|null|The delay that's used between retries with a `fixedDelay` strategy.|
+|minimumInterval|null|The minimum retry delay when using `exponentialBackoff` strategy.|
+|maximumInterval|null|The maximum retry delay when using `exponentialBackoff` strategy.| 
 
 ## sendGrid
 

@@ -5,7 +5,7 @@ summary: Use the Azure Data Box devices for offline data transfer when you are l
 
 metadata:
   title: Azure Data Box Documentation - Offline Transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Use Data Box devices for offline data transfer to Azure when limited by time, network, or cost. # Required; article description that is displayed in search results. < 160 chars.
+  description: Explore Azure Data Box, a storage device for offline data migration to the cloud. Learn more about data transfer services using a secure proprietary storage device. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: pod
@@ -14,6 +14,8 @@ metadata:
   author: alkohli #Required; your GitHub user alias, with correct capitalization.
   ms.author: alkohli #Required; microsoft alias of author; optional team alias.
   ms.date: 08/16/2019 #Required; mm/dd/yyyy format.
+  ms.custom: seo-azure-migrate
+  keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -34,7 +36,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
-            url: /azure/storage/common/storage-choose-data-transfer-solution
+            url: ../storage/common/storage-choose-data-transfer-solution.md
 
   # Card
   - title: Get started
@@ -50,7 +52,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Import data offline with Data Box 
-            url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+            url: /learn/modules/move-data-with-azure-data-box/
 
   # Card
   - title: View requirements
@@ -105,5 +107,3 @@ landingContent:
             url: data-box-disk-faq.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
-
-

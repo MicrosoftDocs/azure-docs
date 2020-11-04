@@ -1,10 +1,10 @@
 ---
 title: Performance tuning - Storm with Azure Data Lake Storage Gen1
-description: Learn about performance tuning guidelines for a Storm cluster on Azure Data Lake Storage Gen1.
+description: Understand the factors that should be considered when you tune the performance of an Azure Storm topology, including troubleshooting common issues.
 
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 
@@ -18,8 +18,8 @@ Understand the factors that should be considered when you tune the performance o
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **An Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-* **Running a Storm cluster on Data Lake Storage Gen1**. For more information, see [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Running a Storm cluster on Data Lake Storage Gen1**. For more information, see [Storm on HDInsight](../hdinsight/storm/apache-storm-overview.md).
+* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](./data-lake-store-performance-tuning-guidance.md).  
 
 ## Tune the parallelism of the topology
 
@@ -126,6 +126,6 @@ To check if you are getting throttled, enable the debug logging on the client si
 2. Monitor the Storm topology logs on worker nodes (under /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log) for Data Lake Storage Gen1 throttling exceptions.
 
 ## Next steps
-Additional performance tuning for Storm can be referenced in [this blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+Additional performance tuning for Storm can be referenced in [this blog](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 For an additional example to run, see [this one on GitHub](https://github.com/hdinsight/storm-performance-automation).

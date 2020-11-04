@@ -57,7 +57,7 @@ It is not uncommon for 35 percent of a support call to be what we call non-talk 
 
 ### Translation
 
-Some companies are experimenting with providing translated transcripts from foreign language support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](translation.md) capabilities are unsurpassed. We can translate audio-to-audio or audio-to-text for a large number of locales.
+Some companies are experimenting with providing translated transcripts from foreign language support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](/azure/cognitive-services/speech-service/speech-translation) capabilities are unsurpassed. We can translate audio-to-audio or audio-to-text for a large number of locales.
 
 ### Text to Speech
 
@@ -94,7 +94,7 @@ A typical solution uses these services:
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to start a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
 
 Internally we are using the above technologies to support Microsoft customer calls in Batch mode.
-![Batch Architecture](media/scenarios/call-center-batch-pipeline.png)
+:::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Technologies used to support Microsoft customer calls in Batch mode.":::
 
 ## Real-time transcription for call center data
 
@@ -139,9 +139,9 @@ Sample code is available on GitHub for each of the Speech service features. Thes
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: Speech-to-text](rest-speech-to-text.md)
 - [REST API: Text-to-speech](rest-text-to-speech.md)
-- [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+- [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get a Speech service subscription key for free](get-started.md)
+> [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)

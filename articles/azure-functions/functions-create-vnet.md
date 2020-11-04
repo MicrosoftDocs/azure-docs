@@ -1,11 +1,9 @@
 ---
 title: Integrate Azure Functions with an Azure virtual network
 description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
-author: alexkarcher-msft
 ms.topic: article
 ms.date: 4/23/2020
-ms.author: alkarche
-ms.reviewer: glenga
+
 #Customer intent: As an enterprise developer, I want create a function that can connect to a virtual network so that I can manage a WordPress app running on a VM in the virtual network.
 ---
 

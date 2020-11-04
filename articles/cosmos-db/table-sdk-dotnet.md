@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API .NET SDK & Resources
-description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
+description: Learn all about the Azure Cosmos DB Table API for .NET including release dates, retirement dates, and changes made between each version.
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -8,9 +8,11 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
+ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -34,40 +36,40 @@ ms.date: 08/17/2018
 
 ## Release notes
 
-### <a name="2.1.2"/>2.1.2
+### <a name="2.1.2"></a>2.1.2
 
 * Bug fixes
 
-### <a name="2.1.0"/>2.1.0
+### <a name="2.1.0"></a>2.1.0
 
 * Bug fixes
 
-### <a name="2.0.0"/>2.0.0
+### <a name="2.0.0"></a>2.0.0
 
 * Added Multi-region write support
 * Fixed NuGet package dependencies on Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
-### <a name="1.1.3"/>1.1.3
+### <a name="1.1.3"></a>1.1.3
 
 * Fixed NuGet package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
 * Bug fixes on table serialization when JsonConvert.DefaultSettings are configured.
 
-### <a name="1.1.1"/>1.1.1
+### <a name="1.1.1"></a>1.1.1
 
 * Added validation for malformed ETAGs in Direct Mode.
 * Fixed LINQ query bug in Gateway Mode.
 * Synchronous APIs now run on the thread pool with SynchronizationContext.
 
-### <a name="1.1.0"/>1.1.0
+### <a name="1.1.0"></a>1.1.0
 
 * Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism, and TableQueryContinuationTokenLimitInKb to TableRequestOptions
 * Bug Fixes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 
 * General availability release
 
-### <a name="0.1.0-preview"/>0.9.0-preview
+### <a name="0.1.0-preview"></a>0.9.0-preview
 
 * Initial preview release
 
@@ -77,10 +79,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 The `Microsoft.Azure.CosmosDB.Table` library is currently available for .NET Framework only, and is in maintenance mode and will be deprecated soon. New features and functionalities and optimizations are only added to the .NET Standard library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), as such it is recommended that you upgrade to [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15, 2018, at which time requests to the retired SDK will not be permitted. 
-
-Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
-<br/>
+The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15, 2018, at which time requests to the retired SDK will not be permitted.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

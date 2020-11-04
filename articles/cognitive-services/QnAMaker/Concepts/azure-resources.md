@@ -1,6 +1,8 @@
 ---
 title: Azure resources - QnA Maker
 description: QnA Maker uses several Azure sources, each with a different purpose. Understanding how they are used individually allows you to plan for and select the correct pricing tier or know when to change your pricing tier. Understanding how they are used in combination allows you to find and fix problems when they occur.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/25/2020
 ---
@@ -39,11 +41,11 @@ Typically there are three parameters you need to consider:
 
 The following table gives you some high-level guidelines.
 
-|                        | QnA Maker Management | App Service | Azure Cognitive Search | Limitations                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Experimentation        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
-| Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
-| Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
+|                            | QnA Maker Management | App Service | Azure Cognitive Search | Limitations                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Experimentation**        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
+| **Dev/Test Environment**   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
+| **Production Environment** | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
 ## Recommended Settings
 
@@ -169,7 +171,7 @@ Use these keys when making requests to the service through APIs.
 
 |Name|Location|Purpose|
 |--|--|--|
-|Authoring key|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys** page.|
+|Authoring key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys** page.|
 |Query endpoint key|[QnA Maker portal](https://www.qnamaker.ai)|These keys are used to query the published knowledge base endpoint to get a response for a user question. You typically use this query endpoint in your chat bot or in the client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base.<br><br>Find these keys in the **Service settings** page. Find this page from the user's menu in the upper right of the page on the drop-down menu.|
 
 ### Subscription keys
@@ -177,6 +179,14 @@ Use these keys when making requests to the service through APIs.
 The terms authoring and query endpoint key are corrective terms. The previous term was **subscription key**. If you see other documentation referring to subscription keys, these are equivalent to authoring and query endpoint keys (used in the runtime).
 
 You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
+
+## Recommended settings for network isolation
+
+* Protect  Cognitive Service Resource from public access by [configuring the virtual network](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Protect App Service (QnA Runtime) from public access:
+    * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag "CognitiveServicesManagement". This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly.
+    * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
+    * Check out [more information about service tags.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## Next steps
 

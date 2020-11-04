@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
-description: Frequently asked questions covering different topics on Azure Dedicated HSM 
+description: Find answers to common questions about Azure Dedicated Hardware Security Module, such as basic information, interoperability, high availability, and support.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
@@ -111,7 +111,7 @@ Yes, if you have on-premises Gemalto SafeNet HSMs. There are multiple methods. R
 ### Q: What operating systems are supported by Dedicated HSM client software?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtual: VMware, hyperv, Xen, KVM
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSMs?
 
@@ -238,7 +238,7 @@ Microsoft does not have the ability to connect to HSMs allocated to customers. C
 
 ### Q: What if I need to reboot my HSM?
 
-The HSM has a command-line reboot option, however, we are experiencing reboot hang issues intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
+The HSM has a command-line reboot option, however, we are experiencing issues where the reboot stops responding intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
 
 ## Cryptography and standards
 

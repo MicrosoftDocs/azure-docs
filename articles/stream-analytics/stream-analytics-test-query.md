@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ---
@@ -74,11 +74,11 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 4. To test your query with a local file, select **Upload sample input** on the **Input preview** tab. 
 
-   ![Azure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![Screenshot shows the Upload sample input option.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
 5. Upload your local file to test the query. You can only upload files with the JSON, CSV, or AVRO formats. Select **OK**.
 
-   ![Azure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![Screenshot shows the Upload sample data dialog box where you can select a file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
 6. As soon as you upload the file, you can also see the file contents in the form as a table or in it's raw format. If you select **Reset**, the sample data will return to the incoming input data explained in the previous section. You can upload any other file to test the query at any time.
 
@@ -92,10 +92,25 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 10. After you verify the results shown in the browser, you can **Start** the job.
 
-## Next steps
-* [Build an IoT solution by using Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
+## Limitations
 
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+1.	Time policy is not supported in portal testing:
+
+   * Out-of-order: all incoming events will be ordered.
+   * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
+   
+2.	C# UDF is not supported.
+
+3.	All testing will be run with a job that has one Streaming Unit.
+
+4.	The timeout size is one minute. So any query with a window size greater than one minute cannot get any data.
+
+5.	Machine learning is not supported.
+
+## Next steps
+* [Build an IoT solution by using Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
+
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
 

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: ARM template documentation
-summary: Azure Resource Manager templates are a JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
+summary: Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
 
 metadata:
   title: ARM template documentation
@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 03/09/2020
+  ms.date: 10/26/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,14 +29,18 @@ landingContent:
         links:
           - text: Best practices
             url: template-best-practices.md
+          - text: Frequently asked questions
+            url: frequently-asked-questions.md
+          - text: Template specs
+            url: template-specs.md
           - text: Deployment modes
             url: deployment-modes.md
           - text: Linked templates
             url: linked-templates.md
       - linkListType: video
         links:
-          - text: What's new?
-            url: https://youtu.be/3D-JIKShrws
+          - text: Build 2020 presentation
+            url: https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions
 
   # Card (optional)
   - title: Get started
@@ -47,27 +51,36 @@ landingContent:
             url: quickstart-create-templates-use-the-portal.md
           - text: Create templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
-          - text: Create templates - Visual Studio
-            url: create-visual-studio-deployment-project.md
+          - text: Create & deploy template specs
+            url: quickstart-create-template-specs.md
 
       - linkListType: tutorial
         links:
           - text: Beginner tutorials
             url: template-tutorial-create-first-template.md
-          - text: Deploy multiple instances
-            url: template-tutorial-create-multiple-instances.md
-          - text: Set deployment order
-            url: template-tutorial-create-templates-with-dependent-resources.md
-          - text: Integrate key vault
-            url: template-tutorial-use-key-vault.md
-
+          - text: Deployment
+            url: deployment-tutorial-local-template.md
+          - text: Template specs
+            url: template-specs-create-linked.md
+          - text: Advanced templates
+            url: template-tutorial-use-template-reference.md
+          - text: Deployment Manager
+            url: deployment-manager-tutorial.md
+      - linkListType: learn
+        links:
+          - text: Consistent infrastructure
+            url: /learn/modules/create-azure-resource-manager-template-vs-code/
+          - text: Multiple environments
+            url: /learn/modules/modify-azure-resource-manager-template-reuse/
+          - text: Validate deployments
+            url: /learn/modules/arm-template-test/
+          - text: Deploy templates
+            url: /learn/modules/deploy-templates-command-line-github-actions/
   # Card
   - title: Develop templates
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use VS Code
-            url: use-vs-code-to-create-template.md
           - text: Use functions
             url: template-functions.md
           - text: Define parameters
@@ -98,20 +111,31 @@ landingContent:
             url: deploy-portal.md
           - text: REST API
             url: deploy-rest.md
+          - text: Deploy to Azure button
+            url: deploy-to-azure-button.md
+          - text: Cloud Shell
+            url: deploy-cloud-shell.md
           - text: What-if deployment
             url: template-deploy-what-if.md
-          
+
   # Card
   - title: Scoped deployments
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Resource group
+            url: deploy-to-resource-group.md
           - text: Subscription
             url: deploy-to-subscription.md
           - text: Management group
             url: deploy-to-management-group.md
           - text: Tenant
             url: deploy-to-tenant.md
+          - text: Scoping extension resource
+            url: scope-extension-resources.md
+          - text: Template functions across scopes
+            url: scope-functions.md
+          
 
   # Card
   - title: Explore reference content
@@ -139,6 +163,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Test toolkit
+            url: test-toolkit.md
           - text: Export templates
             url: export-template-portal.md
           - text: CI/CD

@@ -15,6 +15,11 @@ ms.custom: seodec2018
 
 # Search for GIF images 
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The Bing Image Search API enables you to also search across the entire Web for the most relevant .gif images.  Developers can integrate engaging gifs in various conversation scenarios. 
 
 The following URL is a query for animated .gif images.
@@ -41,7 +46,7 @@ For more information about query parameters and options, see the [Image Search A
 - See [mkt](supported-countries-markets.md) for full list of languages and locations supported.
 - *AnimatedGifHttps* only returns animated gif images that are from an https address. For security, many applications require connection to external web links over https. For example, the Apple App Store requires connection to web services over HTTPS, which encrypts user data secure while in transit.
 
-<a name="gifExample" />
+<a name="gifExample"></a>
 
 ## Example search for animated gif using Java
 

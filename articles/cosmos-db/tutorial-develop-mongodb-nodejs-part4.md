@@ -8,11 +8,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Cosmos account
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
@@ -30,7 +31,7 @@ Part 4 of the tutorial builds on [Part 3](tutorial-develop-mongodb-nodejs-part3.
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 3](tutorial-develop-mongodb-nodejs-part3.md) of the tutorial. 
 
-In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installed locally.
+In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [the Azure CLI](/cli/azure/install-azure-cli) installed locally.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -56,14 +57,14 @@ It may take a minute or two for the command to complete. When it's done, the ter
 
 Once the Azure Cosmos DB account has been created:
 1. Open a new browser window and go to [https://portal.azure.com](https://portal.azure.com)
-1. Click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Azure Cosmos DBs you have.
+1. Click the Azure Cosmos DB logo :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: on the left bar, and it shows you all the Azure Cosmos DBs you have.
 1. Click on the Azure Cosmos DB account you just created, select the **Overview** tab and scroll down to view the map where the database is located. 
 
-    ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Screenshot shows the Overview of an Azure Cosmos D B Account.":::
 
 4. Scroll down on the left navigation and click the **Replicate data globally** tab, this displays a map where you can see the different areas you can replicate into. For example, you can click Australia Southeast or Australia East and replicate your data to Australia. You can learn more about global replication in [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md). For now, let's just keep the once instance and when we want to replicate, we know how.
 
-    ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Screenshot shows an Azure Cosmos D B Account with Replicate data globally selected.":::
 
 ## Next steps
 

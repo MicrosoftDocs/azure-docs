@@ -1,74 +1,132 @@
 ---
-title: "Quickstart: Register apps with Microsoft identity platform | Azure"
-description: In this quickstart, you learn how to add and register an application with the Microsoft identity platform.
+title: "Quickstart: Register an app in the Microsoft identity platform | Azure"
+description: In this quickstart, you learn how to register an application with the Microsoft identity platform.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/12/2020
-ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-#Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
+# Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to
+# know how to register my application with the Microsoft identity platform so that the security
+# token service can issue ID and/or access tokens to clients that want to access it.
 ---
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-In this quickstart, you register an application using the **App registrations** experience in the Azure portal. 
+In this quickstart, you register an app in the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application and its users.
 
-Your app is integrated with the Microsoft identity platform by registering it with an Azure Active Directory tenant. Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform. Integration provides secure sign-in and authorization for such services.
+Each application you want the Microsoft identity platform to perform identity and access management (IAM) for needs to be registered. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* An [Azure AD tenant](quickstart-create-new-tenant.md).
+* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Completion of [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
 
-## Register a new application using the Azure portal
+## Register an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the upper right corner. Set your portal session to the Azure AD tenant that you want.
-1. Search for and select **Azure Active Directory**. Under **Manage**, select **App registrations**.
-1. Select **New registration**.
-1. In **Register an application**, enter a meaningful application name to display to users.
-1. Specify who can use the application, as follows:
+Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
+
+Follow these steps to create the app registration:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**, then **New registration**.
+1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
+1. Specify who can use the application, sometimes referred to as the *sign-in audience*.
 
     | Supported account types | Description |
     |-------------------------|-------------|
-    | **Accounts in this organizational directory only** | Select this option if you're building a line-of-business (LOB) application. This option isn't available if you're not registering the application in a directory.<br><br>This option maps to Azure AD only single-tenant.<br><br>This option is the default unless you're registering the app outside of a directory. In cases where the app is registered outside of a directory, the default is Azure AD multi-tenant and personal Microsoft accounts. |
-    | **Accounts in any organizational directory** | Select this option if you would like to target all business and educational customers.<br><br>This option maps to an Azure AD only multi-tenant.<br><br>If you registered the app as Azure AD only single-tenant, you can update it to be Azure AD multi-tenant and back to single-tenant through the **Authentication** page. |
-    | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>This option maps to Azure AD multi-tenant and personal Microsoft accounts.<br><br>If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change this setting in the UI. Instead, you must use the application manifest editor to change the supported account types. |
+    | **Accounts in this organizational directory only** | Select this option if you're building an application for use only by users (or guests) in *your* tenant.<br><br>Often called a *line-of-business* (LOB) application, this is a **single-tenant** application in the Microsoft identity platform. |
+    | **Accounts in any organizational directory** | Select this option if you'd like users in *any* Azure AD tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This is known as a **multi-tenant** application in the Microsoft identity platform. |
+    | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a **multi-tenant** application that can also support users with personal **Microsoft accounts** (MSA). |
+    | **Personal Microsoft accounts** | Select this option if you're building an application for use only by users with personal Microsoft accounts. Personal Microsoft accounts include Skype, Xbox, Live, and Hotmail accounts. |
 
-1. Under **Redirect URI (optional)**, select the type of app you're building: **Web** or **Public client (mobile & desktop)**. Then enter the redirect URI, or reply URL, for your application.
+1. Don't enter anything for **Redirect URI (optional)**, you'll configure one in the next section.
+1. Select **Register** to complete the initial app registration.
 
-    * For web applications, provide the base URL of your app. For example, `https://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
-    * For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
+    :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser showing the Register an application pane.":::
 
-    For examples for web applications or native applications, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+When registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to as just *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
 
-1. When finished, select **Register**.
+Your application's code, or more typically an authentication library used in your application, also uses the client ID as one aspect in validating the security tokens it receives from the identity platform.
 
-    ![Shows the screen to register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration.png)
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser showing an app registration's Overview pane.":::
 
-Azure AD assigns a unique application, or client, ID to your app. The portal opens your application's **Overview** page. To add  capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
+## Add a redirect URI
 
-![Example of a newly registered app overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
+A redirect URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
+
+In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response` or `http://localhost/auth-response`.
+
+You add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
+
+### Configure platform settings
+
+Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms like mobile and desktop, you can select from redirect URIs generated for you when you configure their other settings.
+
+To configure application settings based on the platform or device you're targeting:
+
+1. Select your application in **App registrations** in the Azure portal.
+1. Under **Manage**, select **Authentication**.
+1. Under **Platform configurations**, select **Add a platform**.
+1. In **Configure platforms**, select the tile for your application type (platform) to configure its settings.
+
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot of the Platform configuration pane in the Azure portal" border="false":::
+
+    | Platform | Configuration settings |
+    | -------- | ---------------------- |
+    | **Web** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform for standard web applications that run on a server. |
+    | **Single-page application** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform if you're building a client-side web app in JavaScript or with a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
+    | **iOS / macOS** | Enter the app **Bundle ID**, found in XCode in *Info.plist* or Build Settings.<br/><br/>A redirect URI is generated for you when you specify a Bundle ID. |
+    | **Android** | Enter the app **Package name**, which you can find in the *AndroidManifest.xml* file, and generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings. |
+    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/>For desktop applications, we recommend:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or are not using a broker. Also select this platform for desktop applications. |
+1. Select **Configure** to complete the platform configuration.
+
+### Redirect URI restrictions
+
+There are certain restrictions on the format of the redirect URIs you add to an app registration. For details on these restrictions, see [Redirect URI (reply URL) restrictions and limitations](reply-url.md).
+
+## Add credentials
+
+Credentials are used by confidential client applications that access a web API. Examples of confidential clients are web apps, other web APIs, or service- and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+
+You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
+
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of Azure portal showing the Certificates and secrets pane in an App registration":::
+
+### Add a certificate
+
+Sometimes called a *public key*, certificates are the recommended credential type as they provide a higher level of assurance than a client secret.
+
+1. Select your application in **App registrations** in the Azure portal.
+1. Select **Certificates & secrets** > **Upload certificate**.
+1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
+1. Select **Add**.
+
+### Add a client secret
+
+The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production.
+
+1. Select your application in **App registrations** in the Azure portal.
+1. Select **Certificates & secrets** >  **New client secret**.
+1. Add a description for your client secret.
+1. Select a duration.
+1. Select **Add**.
+1. **Record the secret's value** for use in your client application code - it's *never displayed again* after you leave this page.
 
 ## Next steps
 
-* To access web APIs, see [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
+Client applications typically need to access resources in a web API. In addition to protecting your client application with the Microsoft identity platform, you can use the platform for authorizing scoped, permissions-based access to your web API.
 
-* To learn about the permissions, see [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md).
+Move on to the next quickstart in the series to create another app registration for your web API and expose its scopes.
 
-* To expose web APIs, see [Quickstart: Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md).
-
-* To manage supported accounts, see [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md).
-
-* To build an app and add functionality, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
-
-* To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-* To learn more about the branding guidelines you should use when developing apps, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)

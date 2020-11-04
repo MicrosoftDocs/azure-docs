@@ -3,14 +3,15 @@ title: Azure Table Storage support in Azure Cosmos DB
 description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work together by sharing the same table data model an operations
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: overview
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 05/21/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ---
 
 # Developing with Azure Cosmos DB Table API and Azure Table storage
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB Table API and Azure Table storage share the same table data model and expose the same create, delete, update, and query operations through their SDKs.
 
@@ -35,7 +36,7 @@ Additional information about working with the Table API is available in the [FAQ
 
 Azure Table storage has these SDKs available for development:
 
-- [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). This library enables you to work with the storage Table service.
+- The [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/), [Microsoft.Azure.Storage.File](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/), [Microsoft.Azure.Storage.Queue](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/), and [Microsoft.Azure.Storage.Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) libraries allow you to work with the Azure Table storage service. If you are using the Table API in Azure Cosmos DB, you can instead use the [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) library.
 - [Python SDK](https://github.com/Azure/azure-cosmos-table-python). The Azure Cosmos DB Table SDK for Python supports the Table Storage service (because Azure Table Storage and Cosmos DB's Table API share the same features and functionalities, and in an effort to factorize our SDK development efforts, we recommend to use this SDK).
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). This Azure Storage SDK provides a client library in Java to consume Azure Table storage.
 - [Node.js SDK](https://github.com/Azure/azure-storage-node). This SDK provides a Node.js package and a browser-compatible JavaScript client library to consume the storage Table service.

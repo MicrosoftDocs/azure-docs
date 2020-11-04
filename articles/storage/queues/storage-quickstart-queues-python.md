@@ -8,6 +8,7 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Azure Queue storage client library v12 for Python
@@ -24,12 +25,17 @@ Use the Azure Queue storage client library v12 for Python to:
 * Delete messages from a queue
 * Delete a queue
 
-[API reference documentation](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Additional resources:
+
+* [API reference documentation](/python/api/azure-storage-queue/index)
+* [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+* [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
+* [Samples](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * [Python](https://www.python.org/downloads/) for your operating system - 2.7, 3.5 or above
 
 ## Setting up
@@ -101,9 +107,9 @@ The following diagram shows the relationship between these resources.
 
 Use the following Python classes to interact with these resources:
 
-* [QueueServiceClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
-* [QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-* [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [receive_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) on a queue.
+* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) on a queue.
 
 ## Code examples
 
@@ -139,9 +145,9 @@ Add this code inside the `try` block:
 Decide on a name for the new queue. The code below appends a UUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Create an instance of the [QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient) class. Then, call the [create_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) method to create the queue in your storage account.
+Create an instance of the [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class. Then, call the [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) method to create the queue in your storage account.
 
 Add this code to the end of the `try` block:
 
@@ -161,7 +167,7 @@ Add this code to the end of the `try` block:
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method. It also saves the [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) returned from the third `send_message` call. The `saved_message` is used to update the message content later in the program.
+The following code snippet adds messages to queue by calling the [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method. It also saves the [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) returned from the third `send_message` call. The `saved_message` is used to update the message content later in the program.
 
 Add this code to the end of the `try` block:
 
@@ -176,7 +182,7 @@ Add this code to the end of the `try` block:
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. The `peek_messages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. The `peek_messages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `try` block:
 
@@ -193,7 +199,7 @@ Add this code to the end of the `try` block:
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. The `update_message` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
+Update the contents of a message by calling the [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. The `update_message` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -205,7 +211,7 @@ Update the contents of a message by calling the [update_message](https://docs.mi
 
 ### Receive messages from a queue
 
-Download previously added messages by calling the [receive_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) method.
+Download previously added messages by calling the [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) method.
 
 Add this code to the end of the `try` block:
 
@@ -239,7 +245,7 @@ Add this code to the end of the `try` block:
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​delete_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) method.
+The following code cleans up the resources the app created by deleting the queue using the [​delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) method.
 
 Add this code to the end of the `try` block and save the file:
 
@@ -304,7 +310,7 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for Python Developers](https://docs.microsoft.com/azure/python/)
+> [Azure for Python Developers](/azure/python/)
 
 * To learn more, see the [Azure Storage libraries for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 Python client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

@@ -3,7 +3,7 @@ title: External error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with external error codes. 
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
@@ -19,10 +19,6 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 ## AdapterFailedToWriteEvents
 
 * **Cause**: An error occurred while writing data to an adapter.
-
-## KafkaServerError
-
-* **Cause**: The Kafka server returned an error:
 
 ## AzureFunctionHttpError
 
@@ -84,11 +80,11 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## SQLDWOutputInitializationError
 
-* **Cause**: An error occurred when initializing a Synapse SQL pool output.
+* **Cause**: An error occurred when initializing a dedicated SQL pool output.
 
 ## SQLDWOutputWriteError
 
-* **Cause**: An error occurred when writing output to a Synapse SQL pool.
+* **Cause**: An error occurred when writing output to a dedicated SQL pool.
 
 ## Next steps
 

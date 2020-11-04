@@ -3,8 +3,9 @@ title: Debug Rendering
 description: Overview of server-side debugging rendering effects
 author: jumeder
 ms.author: jumeder
-ms.date: 04/09/2020
+ms.date: 06/15/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Debug Rendering
@@ -21,7 +22,7 @@ The debug rendering API provides a range of global options to alter server-side 
 
 The following code enables these debugging effects:
 
-``` cs
+```cs
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
@@ -34,6 +35,22 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 
     // Enable wireframe rendering of object geometry on the server
     settings.RenderWireframe = true;
+}
+```
+
+```cpp
+void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<DebugRenderingSettings> settings = session->Actions()->GetDebugRenderingSettings();
+
+    // Enable frame counter text overlay on the server side rendering
+    settings->SetRenderFrameCount(true);
+
+    // Enable polygon count text overlay on the server side rendering
+    settings->SetRenderPolygonCount(true);
+
+    // Enable wireframe rendering of object geometry on the server
+    settings->SetRenderWireframe(true);
 }
 ```
 
@@ -52,6 +69,10 @@ However, the provided effects do no give any detailed introspection into service
 
 * Enabling the text overlays incurs little to no performance overhead.
 * Enabling the wireframe mode does incur a non-trivial performance overhead, though it may vary depending on the scene. For complex scenes, this mode can cause the frame rate to drop below the 60-Hz target.
+
+## API documentation
+
+* [C++ RemoteManager::DebugRenderingSettings()](/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## Next steps
 

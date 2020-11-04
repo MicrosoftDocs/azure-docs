@@ -1,19 +1,20 @@
 ---
-title: Model interpretability in Azure Machine Learning
+title: Model interpretability in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: mesameki
-author: mesameki
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
+ms.date: 07/09/2020
 ---
 
-# Model interpretability in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Model interpretability in Azure Machine Learning (preview)
+
 
 ## Overview of model interpretability
 
@@ -33,22 +34,11 @@ Enabling the capability of explaining a machine learning model is important duri
 
 ## Interpretability with Azure Machine Learning
 
-The interpretability classes are made available through multiple SDK packages: (Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+The interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
-* `azureml.interpret`, the main package, containing functionalities supported by Microsoft.
+* `azureml.interpret`, contains functionalities supported by Microsoft.
 
-* `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
-
-* `azureml.train.automl.automlexplainer` package for interpreting automated machine learning models.
-
-Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-interpret-contrib` for AutoML use to get the interpretability packages.
-
-
-> [!IMPORTANT]
-> Content in the `contrib` namespace is not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main namespace.
-.
-
-
+Use `pip install azureml-interpret` for general use.
 
 ## How to interpret your model
 

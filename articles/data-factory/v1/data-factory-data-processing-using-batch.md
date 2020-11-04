@@ -11,6 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
+ms.custom: devx-track-csharp
 ---
 
 # Process large-scale datasets by using Data Factory and Batch
@@ -33,10 +34,10 @@ With the Batch service, you define Azure compute resources to execute your appli
 
  If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Batch](../../batch/batch-technical-overview.md)
-* [Batch feature overview](../../batch/batch-api-basics.md)
+* [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Batch feature overview](../../batch/batch-service-workflow-features.md)
 
-Optionally, to learn more about Batch, see [the Batch documentation](https://docs.microsoft.com/azure/batch/).
+Optionally, to learn more about Batch, see [the Batch documentation](../../batch/index.yml).
 
 ## Why Azure Data Factory?
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. You can use Data Factory to create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store. An example is Azure Blob storage. You can use Data Factory to process/transform data by using services such as Azure HDInsight and Azure Machine Learning. You also can schedule data pipelines to run in a scheduled manner (for example, hourly, daily, and weekly). You can monitor and manage the pipelines at a glance to identify issues and take action.
@@ -46,7 +47,7 @@ Data Factory is a cloud-based data integration service that orchestrates and aut
 * [Introduction to Data Factory](data-factory-introduction.md)
 * [Build your first data pipeline](data-factory-build-your-first-pipeline.md)   
 
-Optionally, to learn more about Data Factory, see [the Data Factory documentation](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
+Optionally, to learn more about Data Factory, see [the Data Factory documentation](/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## Data Factory and Batch together
 Data Factory includes built-in activities. For example, the Copy activity is used to copy/move data from a source data store to a destination data store. The Hive activity is used to process data by using Hadoop clusters (HDInsight) on Azure. For a list of supported transformation activities, see [Data transformation activities](data-factory-data-transformation-activities.md).
@@ -89,7 +90,7 @@ If you don't have an Azure subscription, you can create a free trial account qui
 You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-account-create.md). The sample solution uses blob storage.
 
 #### Azure Batch account
-Create a Batch account by using the [Azure portal](https://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Create a Batch account by using the [Azure portal](https://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzBatchAccount](/powershell/module/az.batch/new-azbatchaccount) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 The sample solution uses Batch (indirectly via a data factory pipeline) to process data in a parallel manner on a pool of compute nodes (a managed collection of VMs).
 
@@ -402,7 +403,7 @@ The method has a few key components that you need to understand:
 #### Execute method
 This section provides more details about the code in the Execute method.
 
-1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
+1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](/java/api/com.microsoft.azure.storage.blob) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md). A basic loop is shown here:
 
     ```csharp
     // Initialize the continuation token.
@@ -425,7 +426,7 @@ This section provides more details about the code in the Execute method.
     } while (continuationToken != null);
 
     ```
-   For more information, see the documentation for the [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented) method.
+   For more information, see the documentation for the [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented) method.
 
 1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
 
@@ -921,7 +922,7 @@ Debugging consists of a few basic techniques.
    >
 1. The custom activity doesn't use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it doesn't work at runtime. The best practice when you use Batch is to hold any secrets in Azure Key Vault. Then use a certificate-based service principal to protect the key vault and distribute the certificate to the Batch pool. The .NET custom activity can access secrets from the key vault at runtime. This generic solution can scale to any type of secret, not just a connection string.
 
-    There is an easier workaround, but it's not a best practice. You can create a SQL database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
+    There is an easier workaround, but it's not a best practice. You can create a SQL Database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
 
 #### Extend the sample
 You can extend this sample to learn more about Data Factory and Batch features. For example, to process slices in a different time range, take the following steps:
@@ -948,7 +949,7 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 
    For more information, see [Automatically scale compute nodes in a Batch pool](../../batch/batch-automatic-scaling.md).
 
-   If the pool uses the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service might take 15 to 30 minutes to prepare the VM before running the custom activity. If the pool uses a different autoScaleEvaluationInterval, the Batch service might take autoScaleEvaluationInterval plus 10 minutes.
+   If the pool uses the default [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), the Batch service might take 15 to 30 minutes to prepare the VM before running the custom activity. If the pool uses a different autoScaleEvaluationInterval, the Batch service might take autoScaleEvaluationInterval plus 10 minutes.
 
 1. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the **Calculate** method call in the **Execute** method with a call to your method.
 
@@ -956,7 +957,7 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 After you process data, you can consume it with online tools such as Power BI. Here are links to help you understand Power BI and how to use it in Azure:
 
 * [Explore a dataset in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Get started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Get started with Power BI Desktop](/power-bi/fundamentals/desktop-getting-started)
 * [Refresh data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure and Power BI: Basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -968,10 +969,10 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Basics of Batch](../../batch/batch-technical-overview.md)
-  * [Overview of Batch features](../../batch/batch-api-basics.md)
+  * [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Overview of Batch features](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: /archive/blogs/windowshpc/azure-batch-explorer-sample-walkthrough

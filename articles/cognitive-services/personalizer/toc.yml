@@ -15,6 +15,10 @@
     href: sdk-learning-loop.md
 - name: Tutorials
   items:
+  - name: Use Web app
+    href: tutorial-use-personalizer-web-app.md
+  - name: Use Chat bot
+    href: tutorial-use-personalizer-chat-bot.md
   - name: Use Azure Notebook
     href: tutorial-use-azure-notebook-generate-loop-data.md
     displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
@@ -105,6 +109,8 @@
         href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Regional availability
@@ -117,7 +123,3 @@
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing
     href: https://go.microsoft.com/fwlink/?linkid=2092154
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/personalizer
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/921562-personalizer

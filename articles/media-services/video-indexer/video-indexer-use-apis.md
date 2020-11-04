@@ -9,8 +9,9 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 09/03/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Use the Video Indexer API
@@ -31,7 +32,6 @@ This article shows how the developers can take advantage of the [Video Indexer A
    > * You must use the same provider you used when you signed up for Video Indexer.
    > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
    > * There can be only one active account per email. If a user tries to sign in with user@gmail.com for LinkedIn and later with user@gmail.com for Google, the latter will display an error page, saying the user already exists.
-
 2. Subscribe.
 
 	Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe.
@@ -41,7 +41,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
     > [!NOTE]
     > New users are automatically subscribed to Authorization.
 	
-	Once you subscribe, you can see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
+	After you subscribe, you can find your subscription under **Products** -> **Authorization**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
 	![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api03.png)
 
@@ -112,7 +112,7 @@ The following C# code snippet demonstrates the usage of all the Video Indexer AP
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
 var accountId = "..."; 
-var location = "westus2";
+var location = "westus2"; // replace with the account's location, or with “trial” if this is a trial account
 var apiKey = "..."; 
 
 System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;

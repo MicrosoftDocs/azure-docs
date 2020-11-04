@@ -23,17 +23,13 @@
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
   - name: Use SDK
-    items:
-    - name: Authoring app
-      href: sdk-authoring.md
-    - name: Query prediction endpoint
-      href: sdk-query-prediction-endpoint.md
+    href: azure-sdk-quickstart.md
   - name: Use REST APIs
     items:
     - name: Get intent
-      href: luis-get-started-get-intent-from-rest.md
+      href: luis-get-started-rest-get-intent.md
     - name: Change model
-      href: get-started-get-model-rest-apis.md
+      href: luis-get-started-rest-get-model.md
 - name: Tutorials
   items:
   - name: Build decomposable app
@@ -43,8 +39,6 @@
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
       displayName: n-depth, constraint, descriptor, phrase list, entity, feature
-    - name: 3. Get sentiment from user utterances
-      href: tutorial-publish-settings.md
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -63,6 +57,8 @@
       href: luis-nodejs-tutorial-bf-v4.md
 - name: Concepts
   items:
+  - name: Artificial intelligence
+    href: artificial-intelligence.md
   - name: Development lifecycle
     href: luis-concept-app-iteration.md
   - name: Plan your app
@@ -106,9 +102,6 @@
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
-  - name: Authoring and runtime keys
-    displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md
   - name: Data management
     items:
     - name: Altering data
@@ -128,8 +121,18 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
+  - name: Applying DevOps practices with LUIS
+    items:
+    - name: Source control and branch strategies for LUIS
+      href: luis-concept-devops-sourcecontrol.md
+    - name: Testing for DevOps
+      href: luis-concept-devops-testing.md
+    - name: CI/CD workflows
+      href: luis-concept-devops-automation.md
 - name: How-to guides
   items:
+  - name: Sign in to LUIS portal
+    href: sign-in-luis-portal.md
   - name: Start a new app
     href: luis-how-to-start-new-app.md
     displayName: import, export, container
@@ -184,14 +187,12 @@
     href: luis-get-started-get-intent-from-browser.md
   - name: Migrate
     items:
+    - name: Overview
+      href: migration.md
     - name: Migrate from composite entity
       href: migrate-from-composite-entity.md
     - name: Migrate to authoring resource
-      items:
-      - name: Overview
-        href: luis-migration-authoring.md
-      - name: How to Migrate
-        href: luis-migration-authoring-steps.md
+      href: luis-migration-authoring.md
     - name: Migrate to V3 API
       href: luis-migration-api-v3.md
   - name: Manage app
@@ -202,11 +203,7 @@
     - name: App and version settings
       href: how-to-application-settings-portal.md
     - name: Migrate to authoring resource
-      items:
-        - name: Overview
-          href: luis-migration-authoring.md
-        - name: How to Migrate
-          href: luis-migration-authoring-steps.md
+      href: luis-migration-authoring.md
     - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
@@ -227,6 +224,12 @@
       href: luis-migration-api-v3.md
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
+  - name: Use REST APIs
+    items:
+    - name: Get intent
+      href: luis-get-started-get-intent-from-rest.md
+    - name: Change model
+      href: get-started-get-model-rest-apis.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -239,6 +242,10 @@
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
+  - name: Use DevOps
+    href: luis-how-to-devops-with-github.md
   - name: Related services
     items:
     - name: Azure Bot Service
@@ -380,7 +387,7 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items:
-    - name: Machine-learned entity
+    - name: Machine-learning entity
       href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md
@@ -398,6 +405,8 @@
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
   - name: Code samples
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
   - name: Regional availability
@@ -418,15 +427,12 @@
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
     href: luis-encryption-of-data-at-rest.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/LUIS
-  - name: UserVoice
-    href: https://go.microsoft.com/fwlink/?linkid=2092090
+  - name: Configure virtual networks
+    maintainContext: true
+    href: ../cognitive-services-virtual-networks.md
   - name: Search
     href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
 - name: LUIS portal
   href: https://www.luis.ai

@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ms.custom: seodec18
 ---
 # Change feed in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing.
 
@@ -28,7 +29,7 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 
 ## Change feed and different operations
 
-Today, you see all inserts and updates in the change feed. You can't filter the change feed for for a specific type of operation. One possible alternative, is to add a "soft marker" on the item for updates and filter based on that when processing items in the change feed.
+Today, you see all inserts and updates in the change feed. You can't filter the change feed for a specific type of operation. One possible alternative, is to add a "soft marker" on the item for updates and filter based on that when processing items in the change feed.
 
 Currently change feed doesn't log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. You can read the change feed as far back as the origin of your container but if an item is deleted, it will be removed from the change feed.
 
@@ -50,8 +51,7 @@ If a TTL (Time to Live) property is set on an item to -1, change feed will persi
 
 ### Change feed and _etag, _lsn or _ts
 
-The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch ID that is added for change feed only; it represents the transaction ID. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the 
-version of the item, whereas ETag is used for sequencing the feed.
+The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch ID that is added for change feed only; it represents the transaction ID. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and it is used for concurrency control. The _etag property tells about the version of the item, whereas the ETag property is used for sequencing the feed.
 
 ## Working with change feed
 
@@ -62,7 +62,7 @@ You can work with change feed using the following options:
 
 Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
 
-![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/changefeedvisual.png)
+:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Distributed processing of Azure Cosmos DB change feed" border="false":::
 
 ## Features of change feed
 

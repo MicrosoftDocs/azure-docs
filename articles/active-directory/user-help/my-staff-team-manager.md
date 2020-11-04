@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
@@ -99,7 +99,7 @@ If sign-in using a phone number as a username (SMS sign-in) is enabled in your o
 
 1. Select **OK** when you're done.
 
-    ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/enableforms2.png)
+    ![Screenshot that shows the "Enable phone number for sign in?" window with the "OK" button selected.](media/my-staff-team-manager/enableforms2.png)
 
 ### Remove a phone number
 

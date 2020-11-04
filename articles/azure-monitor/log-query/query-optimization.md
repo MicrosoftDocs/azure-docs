@@ -49,6 +49,8 @@ The following query performance indicators are available for every query that is
 ## Total CPU
 The actual compute CPU that was invested to process this query across all the query processing nodes. Since most queries are executed on large numbers of nodes, this will usually be much larger than the duration the query actually took to execute. 
 
+Query that utilizes more than 100 seconds of CPU is considered a query that consumes excessive resources. Query that utilizes more than 1,000 seconds of CPU is considered an abusive query and might be throttled.
+
 Query processing time is spent on:
 - Data retrieval – retrieval of old data will consume more time than retrieval of recent data.
 - Data processing – logic and evaluation of the data. 
@@ -69,8 +71,8 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
-| summarize count() by FileHash, FilePath
 | where FileHash != "" and FilePath !startswith "%SYSTEM32"  // Problem: irrelevant results are filtered after all processing and parsing is done
+| summarize count() by FileHash, FilePath
 ```
 ```Kusto
 //more efficient
@@ -80,6 +82,7 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
+| where FileHash != "" and FilePath !startswith "%SYSTEM32"  // exact removal of results. Early filter is not accurate enough
 | summarize count() by FileHash, FilePath
 | where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
@@ -91,18 +94,34 @@ For example, the following queries produce exactly the same result but the secon
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count() by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+In some cases the evaluated column is created implicitly by the query processing engine since the filtering is done not just on the field:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### Use effective aggregation commands and dimensions in summarize and join
 
@@ -153,7 +172,7 @@ Heartbeat
 > This indicator presents only CPU from the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
 
 ### Avoid full XML and JSON parsing when string parsing works
-Full parsing of an XML or JSON object may consume high CPU and memory resources. In many cases, when only one or two parameters are needed and the XML or JSON objects are simple, it is easier to parse them as strings using the [parse operator](/azure/kusto/query/parseoperator) or other [text parsing techniques](/azure/azure-monitor/log-query/parse-text). The performance boost will be more significant as the number of records in the XML or JSON object increases. It is essential when the number of records reaches tens of millions.
+Full parsing of an XML or JSON object may consume high CPU and memory resources. In many cases, when only one or two parameters are needed and the XML or JSON objects are simple, it is easier to parse them as strings using the [parse operator](/azure/kusto/query/parseoperator) or other [text parsing techniques](./parse-text.md). The performance boost will be more significant as the number of records in the XML or JSON object increases. It is essential when the number of records reaches tens of millions.
 
 For example, the following query will return exactly the same results as the queries above without performing full XML parsing. Note that it makes some assumptions on the XML file structure such as that FilePath element comes after FileHash and none of them has attributes. 
 
@@ -171,6 +190,8 @@ SecurityEvent
 ## Data used for processed query
 
 A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
+
+Query that processes more than 2,000KB of data is considered a query that consumes excessive resources. Query that is processing more than 20,000KB of data is considered an abusive query and might be throttled.
 
 In Azure Monitor Logs, the **TimeGenerated** column is used as a way to index the data. Restricting the **TimeGenerated** values to as narrow a range as possible will make a significant improvement to query performance by significantly limiting the amount of data that has to be processed.
 
@@ -216,6 +237,64 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
+### Avoid multiple scans of same source data using conditional aggregation functions and materialize function
+When a query has several sub-queries that are merged using join or union operators, each sub-query scans the entire source separately and then merge the results. This multiples the number of times data is scanned - critical factor in very large data sets.
+
+A technique to avoid this is by using the conditional aggregation functions. Most of the [aggregation functions](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) that are used in summary operator has a conditioned version that allow you to use a single summarize operator with multiple conditions. 
+
+For example, the following queries show the number of login events and the number of process execution events for each account. They return the same results but the first is scanning the data twice, the second scan it only once:
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Another case where sub-queries are unnecessary is pre-filtering for [parse operator](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) to make sure that it processes only records that match specific pattern. This is unnecessary as the parse operator and other similar operators return empty results when the pattern doesn't match. Here are two queries that return exactly the same results while the second query scan data only once. In the second query, each parse command is relevant only for its events. The extend operator afterwards shows how to refer to empty data situation.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query. Materialize is effective when the output of the sub-query is much smaller than the input. The query engine will cache and reuse the output in all occurrences.
+
+
+
 ### Reduce the number of columns that is retrieved
 
 Since Azure Data Explorer is a columnar data store, retrieval of every column is independent of the others. The number of columns that are retrieved directly influences the overall data volume. You should only include the columns in the output that are needed by [summarizing](/azure/kusto/query/summarizeoperator) the results or [projecting](/azure/kusto/query/projectoperator) the specific columns. Azure Data Explorer has several optimizations to reduce the number of retrieved columns. If it determines that a column isn't needed, for example if it's not referenced in the [summarize](/azure/kusto/query/summarizeoperator) command, it won't retrieve it.
@@ -236,6 +315,8 @@ SecurityEvent
 ## Time span of the processed query
 
 All logs in Azure Monitor Logs are partitioned according to the **TimeGenerated** column. The number of partitions that are accessed are directly related to the time span. Reducing the time range is the most efficient way of assuring a prompt query execution.
+
+Query with time span of more than 15 days is considered a query that consumes excessive resources. Query with time span of more than 90 days is considered an abusive query and might be throttled.
 
 The time range can be set using the time range selector in the Log Analytics screen as described in [Log query scope and time range in Azure Monitor Log Analytics](scope.md#time-range). This is the recommended method as the selected time range is passed to the backend using the query metadata. 
 
@@ -326,6 +407,9 @@ There are several cases where the system cannot provide an accurate measurement 
 ## Age of processed data
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
 
+Query that processes data than is more than 14 days old is considered a query that consumes excessive resources.
+
+
 While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover long time ranges and thus data that is as old as the data retention period.
 
 Such cases can be for example:
@@ -345,6 +429,8 @@ There are several situations where a single query might be executed across diffe
 Cross-region query execution requires the system to serialize and transfer in the backend large chunks of intermediate data that are usually much larger than the query final results. It also limits the system's ability to perform optimizations, heuristics, and utilize caches.
 If there is no real reason to scan all these regions, you should adjust the scope so it covers fewer regions. If the resource scope is minimized but still many regions are used, it might happen due to misconfiguration. For example, audit logs and diagnostic settings are sent to different workspaces in different regions or there are multiple diagnostic settings configurations. 
 
+Query that spans more than 3 regions is considered a query that consumes excessive resources. Query that spans more than 6 regions is considered an abusive query and might be throttled.
+
 > [!IMPORTANT]
 > When a query is run across several regions, the CPU and data measurements will not be accurate and will represent the measurement only on one of the regions.
 
@@ -357,6 +443,8 @@ Usage of multiple workspaces can result from:
 - When a resource-scoped query is fetching data and the data is stored in multiple workspaces.
  
 Cross-region and cross-cluster execution of queries requires the system to serialize and transfer in the backend large chunks of intermediate data that are usually much larger than the query final results. It also limits the system ability to perform optimizations, heuristics and utilizing caches.
+
+Query that spans more than 5 workspace is considered a query that consumes excessive resources. Queries cannot span to to more than 100 workspaces.
 
 > [!IMPORTANT]
 > In some multi-workspace scenarios, the CPU and data measurements will not be accurate and will represent the measurement only to few of the workspaces.
@@ -371,7 +459,7 @@ Query behaviors that can reduce parallelism include:
 - Use of serialization and window functions such as the [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction), and the [row](/azure/kusto/query/rowcumsumfunction) functions. Time series and user analytics functions can be used in some of these cases. Inefficient serialization may also happen if the following operators are used not at the end of the query: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    Usage of [dcount()](/azure/kusto/query/dcount-aggfunction) aggregation function force the system to have central copy of the distinct values. When the scale of data is high, consider using the dcount function optional parameters to reduced accuracy.
 -    In many cases, the [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) operator lowers overall parallelism. Examine shuffle join as an alternative when performance is problematic.
--    In resource-scope queries, the pre-execution RBAC checks may linger in situations where there is very large number of RBAC assignments. This may lead to longer checks that would result in lower parallelism. For example, a query is executed on a subscription where there are thousands of resources and each resource has many role assignments in the resource level, not on the subscription or resource group.
+-    In resource-scope queries, the pre-execution RBAC checks may linger in situations where there is very large number of Azure role assignments. This may lead to longer checks that would result in lower parallelism. For example, a query is executed on a subscription where there are thousands of resources and each resource has many role assignments in the resource level, not on the subscription or resource group.
 -    If a query is processing small chunks of data, its parallelism will be low as the system will not spread it across many compute nodes.
 
 

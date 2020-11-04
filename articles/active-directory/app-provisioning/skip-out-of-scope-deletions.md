@@ -2,26 +2,25 @@
 title: Skip deletion of out of scope users
 description: Learn how to override the default behavior of de-provisioning out of scope users.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
 ---
 # Skip deletion of user accounts that go out of scope
 
-By default, the Azure AD provisioning engine soft deletes or disables users that go out of scope. However, for certain scenarios like Workday to AD User Inbound Provisioning this behavior may not be the expected and you may want to override this default behavior.  
+By default, the Azure AD provisioning engine soft deletes or disables users that go out of scope. However, for certain scenarios like Workday to AD User Inbound Provisioning, this behavior may not be the expected and you may want to override this default behavior.  
 
-This guide describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to set the flag ***SkipOutOfScopeDeletions*** that controls the processing of accounts that go out of scope. 
-* If ***SkipOutOfScopeDeletions*** is set to 0 (false), then accounts that go out of scope will get disabled in the target
-* If ***SkipOutOfScopeDeletions*** is set to 1 (true), then accounts that go out of scope will get not be disabled in the target
-This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
+This article describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to set the flag ***SkipOutOfScopeDeletions*** that controls the processing of accounts that go out of scope. 
+* If ***SkipOutOfScopeDeletions*** is set to 0 (false), accounts that go out of scope will be disabled in the target.
+* If ***SkipOutOfScopeDeletions*** is set to 1 (true), accounts that go out of scope will not be disabled in the target. This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
-As this configuration is widely used with the *Workday to Active Directory user provisioning* app, the steps below include screenshots of the Workday application. However this can also be used with **all other apps** such (ServiceNow, Salesforce, Dropbox, etc.).
+Because this configuration is widely used with the *Workday to Active Directory user provisioning* app, the following steps include screenshots of the Workday application. However, the configuration can also be used with *all other apps*, such as ServiceNow, Salesforce, and Dropbox.
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
@@ -85,7 +84,7 @@ You should get the output as "Success – Status Code 204".
 
 You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example below, we are excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
 
-   ![Scoping example](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Screenshot that shows the "Add Scoping Filter" section with an example user highlighted.](./media/skip-out-of-scope-deletions/skip-07.png)
 
 In the next provisioning cycle, the Azure AD provisioning service will identify that the user 21173 has gone out of scope and if the SkipOutOfScopeDeletions property is enabled, then the synchronization rule for that user will display a message as shown below: 
 

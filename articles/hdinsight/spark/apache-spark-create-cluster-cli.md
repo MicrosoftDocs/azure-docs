@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 02/03/2020 
+ms.custom: devx-track-azurecli
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster.
 ---
 
@@ -19,7 +20,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), if you don't want to use Azure Cloud Shell.
+- [Azure CLI](/cli/azure/install-azure-cli), if you don't want to use Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

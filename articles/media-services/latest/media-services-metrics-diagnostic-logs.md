@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,13 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 11/02/2020
+ms.author: inhenkel
 
 ---
 
-# Monitor Media Services metrics and diagnostic logs via Azure Monitor
+# Monitor Media Services metrics and diagnostic logs with Azure Monitor
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure Monitor](../../azure-monitor/overview.md) lets you monitor metrics and diagnostic logs that help you understand how your apps are performing. All data collected by Azure Monitor fits into one of two fundamental types: metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use third-party services.
 
@@ -55,15 +57,17 @@ You should also review [account quotas and limits](limits-quotas-constraints.md)
 
 ### Streaming Endpoint
 
-The following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are supported:
+The following Media Services [Streaming Endpoints](/rest/api/media/streamingendpoints) metrics are supported:
 
 |Metric name|Display name|Description|
 |---|---|---|
 |Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
 |Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
 |SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
+|CPU usage| CPU usage for premium streaming endpoints. This data is not available for standard streaming endpoints. |
+|Egress bandwidth | Egress bandwidth in bits per second.|
 
-### Why would I want to use metrics?
+### Metrics are useful
 
 Here are examples of how monitoring Media Services metrics can help you understand how your apps are performing. Some questions that can be addressed with Media Services metrics are:
 
@@ -74,6 +78,8 @@ Here are examples of how monitoring Media Services metrics can help you understa
 * How can I see the breakdown of requests failing and what is causing the failure?
 * How can I see how many HLS or DASH requests are being pulled from the packager?
 * How do I set an alert to know when the threshold value of # of failed requests was hit?
+
+Concurrency becomes a concern for the number of Streaming Endpoints used in a single account over time. You need to keep in mind the relationship between the number of concurrent streams with complex publishing parameters like dynamic packaging to multiple protocols, multiple DRM encryptions etc. Each additional published live stream adds to the CPU and output bandwidth on the Streaming Endpoint. With that in mind, you should use Azure Monitor to closely watch the Streaming Endpoint's utilization (CPU and Egress capacity) to make certain that you are scaling it appropriately (or split traffic out between multiple Streaming Endpoints if you are getting into very high concurrency).
 
 ### Example
 

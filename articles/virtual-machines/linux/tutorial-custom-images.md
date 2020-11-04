@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
 
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
@@ -26,7 +26,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Share an image gallery
 
 
-This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -65,7 +65,7 @@ az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-## Get infornation about the VM
+## Get information about the VM
 
 You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az-vm-list). 
 
@@ -87,11 +87,11 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS image. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -131,7 +131,7 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type  standard_zrs` when you create the image version.
+> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
  
@@ -173,11 +173,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Azure Image Builder
 
-Azure also offers a service, built on Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Simply describe your customizations in a template, and it will handle the image creation. 
+Azure also offers a service, built on Packer, [Azure VM Image Builder](./image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
 
 ## Next steps
 
@@ -193,5 +193,4 @@ In this tutorial, you created a custom VM image. You learned how to:
 Advance to the next tutorial to learn about highly available virtual machines.
 
 > [!div class="nextstepaction"]
-> [Create highly available VMs](tutorial-availability-sets.md).
-
+> [Create highly available VMs](tutorial-availability-sets.md)

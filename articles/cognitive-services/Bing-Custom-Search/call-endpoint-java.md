@@ -10,10 +10,16 @@ ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using Java
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use this quickstart to learn how to request search results from your Bing Custom Search instance. Although this application is written in Java, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
@@ -59,8 +65,8 @@ Use this quickstart to learn how to request search results from your Bing Custom
 
 3. Create another class named `SearchResults` to contain the response from your Bing Custom Search instance.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {

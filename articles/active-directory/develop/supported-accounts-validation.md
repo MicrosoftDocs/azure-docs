@@ -5,7 +5,7 @@ description: Learn about the validation differences of various properties for di
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/12/2019
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev 
@@ -35,9 +35,9 @@ See the following table for the validation differences of various properties for
 | Certificates (`keyCredentials`) | Symmetric signing key | Symmetric signing key | Encryption and asymmetric signing key | 
 | Client secrets (`passwordCredentials`) | No limit* | No limit* | If liveSDK is enabled: Maximum of 2 client secrets | 
 | Redirect URIs (`replyURLs`) | See [Redirect URI/reply URL restrictions and limitations](reply-url.md) for more info. | | | 
-| API permissions (`requiredResourceAccess`) | No limit* | No limit* | Maximum of 30 permissions per resource allowed (e.g. Microsoft Graph) | 
+| API permissions (`requiredResourceAccess`) | No limit* | No limit* | Maximum of 50 resources per application and 30 permissions per resource (e.g. Microsoft Graph). Total limit of 200 per application (resources x permissions). | 
 | Scopes defined by this API (`oauth2Permissions`) | Maximum scope name length of 120 characters <br><br> No limit* on the number of scopes defined | Maximum scope name length of 120 characters <br><br> No limit* on the number of scopes defined |  Maximum scope name length of 40 characters <br><br> Maximum of 100 scopes defined | 
-| Authorized client applications (`preautorizedApplications`) | No limit* | No limit* | Total maximum of 500 <br><br> Maximum of 100 client apps defined <br><br> Maximum of 30 scopes defined per client | 
+| Authorized client applications (`preAuthorizedApplications`) | No limit* | No limit* | Total maximum of 500 <br><br> Maximum of 100 client apps defined <br><br> Maximum of 30 scopes defined per client | 
 | appRoles | Supported <br> No limit* | Supported <br> No limit* | Not supported | 
 | Logout URL | http://localhost is allowed <br><br> Maximum length of 255 characters | http://localhost is allowed <br><br> Maximum length of 255 characters | <br><br> https://localhost is allowed, http://localhost fails for MSA <br><br> Maximum length of 255 characters <br><br> HTTP scheme is not allowed <br><br> Wildcards are not supported | 
 

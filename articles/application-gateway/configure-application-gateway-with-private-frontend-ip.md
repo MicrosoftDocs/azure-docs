@@ -5,7 +5,7 @@ description: This article provides information on how to configure Application G
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
 ---
@@ -105,7 +105,7 @@ To do this, you:
 ### Install IIS
 
 1. Open the Cloud Shell and ensure that it's set to **PowerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Screenshot shows an open Azure Cloud Shell console window that uses PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Run the following command to install IIS on the virtual machine:
 
    ```azurepowershell
@@ -139,13 +139,13 @@ To do this, you:
 2. Select **Backend pools**. Select **appGatewayBackendPool**.
 3. Under **Target type** select **Virtual machine**  and under **Target**, select the vNIC associated with myVM.
 4. Repeat to add MyVM2.
-   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Screenshot shows the Edit backend pool pane with Target types and Targets highlighted.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. select **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** page in the portal.
-    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Screenshot shows the Frontend IP configurations pane with the Private type highlighted.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the browser address bar in a VM in the same VNet or on-premises that has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

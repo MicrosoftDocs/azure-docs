@@ -1,17 +1,12 @@
 ---
 title: Update inventory using Azure portal and topics/subscriptions
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-
 ms.author: spelluru
-ms.date: 01/21/2020
+ms.date: 06/23/2020
 ms.topic: tutorial
-ms.service: service-bus-messaging
-ms.custom: mvc
+ms.custom: devx-track-csharp
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
-
 ---
 
 # Tutorial: Update inventory using Azure portal and topics/subscriptions
@@ -53,7 +48,7 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 
 After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-### Send and receive messages
+## Send and receive messages
 
 To run the code, do the following:
 
@@ -411,7 +406,7 @@ For more examples of sending and receiving messages, get started with the [Servi
 Advance to the next tutorial to learn more about using the publish/subscribe capabilities of Service Bus.
 
 > [!div class="nextstepaction"]
-> [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Respond to events via Event Grid](service-bus-to-event-grid-integration-example.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
