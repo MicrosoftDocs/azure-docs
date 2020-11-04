@@ -60,9 +60,9 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### Mac OS
+### macOS
 
-1. Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
+1. Enter the following commands to install **brew**, an easy-to-use package manager for macOS and **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -313,6 +313,16 @@ function deleteData(){
 				else  console.log('Done.') 
 		});
 };
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps
