@@ -58,7 +58,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -352,7 +352,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
