@@ -116,7 +116,7 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 `DAEMON` mode transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing batch-kit container processing files in daemon mode.":::
 
 1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
 2. Invoke the container on an input directory. The batch client will begin monitoring the directory for incoming files. 
