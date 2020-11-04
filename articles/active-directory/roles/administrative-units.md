@@ -25,7 +25,7 @@ For example, you might delegate to regional support specialists the [Helpdesk Ad
 
 ## Deployment scenario
 
-It can be useful to restrict administrative scope by using administrative units in organizations that are made up of independent divisions of any kind. Consider the example of a large university that's made up of many autonomous schools (School of Business, School of Engineering, and so on). Each school has a team of IT admins who control access, manage users, and set policies for their school. 
+It can be useful to restrict administrative scope by using administrative units in organizations that are made up of independent divisions of any kind. Consider the example of a large university that's made up of many autonomous schools (School of Business, School of Engineering, and so on). Each school has a team of IT admins who control access, manage users, and set policies for their school.
 
 A central administrator could:
 
@@ -62,19 +62,22 @@ You can expect the creation of administrative units in the organization to go th
 
 As a Global Administrator or a Privileged Role Administrator, you can use the Azure AD portal to create administrative units, add users as members of administrative units, and then assign IT staff to administrative unit-scoped administrator roles. Administrative unit-scoped admins can then use the Microsoft 365 admin center for basic management of users in their administrative units.
 
-Additionally, you can add groups as members of an administrative unit. An administrative unit-scoped group administrator can manage them by using PowerShell, Microsoft Graph, and the Azure AD portal.
+Additionally, you can add groups as members of an administrative unit. An administrative unit-scoped group administrator can manage them by using PowerShell, Microsoft Graph, and the Azure AD or Microsoft 365 admin centers.
 
-The following tables describe current support for administrative unit scenarios:
+>[!Note]
+>Only the features described in this section are available in the Microsoft 365 admin center. No organization-level features are available for an Azure AD role with administrative unit scope.
+
+The following sections describe current support for administrative unit scenarios.
 
 ### Administrative unit management
 
-| Permissions |   Graph/PowerShell   | Azure AD portal | Microsoft 365 admin center | 
+| Permissions |   Graph/PowerShell   | Azure AD portal | Microsoft 365 admin center |
 | -- | -- | -- | -- |
-| Creating and deleting administrative units   |    Supported    |   Supported   |    Not supported | 
-| Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported | 
-| Adding and removing administrative unit members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support | 
-| Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported | 
-| Adding and removing administrative unit members dynamically based on attributes | Not supported | Not supported | Not supported 
+| Creating and deleting administrative units   |    Supported    |   Supported   |    Not supported |
+| Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported |
+| Adding and removing administrative unit members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support |
+| Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported |
+| Adding and removing administrative unit members dynamically based on attributes | Not supported | Not supported | Not supported
 
 ### User management
 
