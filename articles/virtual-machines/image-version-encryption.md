@@ -130,7 +130,7 @@ For data disks, You need to add  the `-DiskEncryptionSetId $setID` parameter whe
 
 ## CLI 
 
-For the public preview, you first need to register the feature.
+For the public preview, you first need to register for the feature. Registration takes approximately 30 minutes.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption
