@@ -1,6 +1,6 @@
 ---
-title: Monitor Java applications running in any environment - Azure Monitor Application Insights
-description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
+title: Telemetry processors - Azure Monitor Application Insights Java
+description: Telemetry processors for Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 10/29/2020
 
