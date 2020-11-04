@@ -2,7 +2,7 @@
 title: Query the knowledge base - QnA Maker
 description: A knowledge base must be published. Once published, the knowledge base is queried at the runtime prediction endpoint using the generateAnswer API.
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 11/09/2020
 ---
 
 # Query the knowledge base for answers
@@ -10,7 +10,8 @@ ms.date: 01/27/2020
 A knowledge base must be published. Once published, the knowledge base is queried at the runtime prediction endpoint using the generateAnswer API. The query includes the question text, and other settings, to help QnA Maker select the best possible match to an answer.
 
 ## How QnA Maker processes a user query to select the best answer
-# [QnAMaker GA](#tab/v1)
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
 
@@ -33,7 +34,8 @@ The process is explained in the following table.
 
 Features used include but aren't limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
 
-# [QnAMaker managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
+
 The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
 
 ![The ranking model process for a user query](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
