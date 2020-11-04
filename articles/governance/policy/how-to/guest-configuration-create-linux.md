@@ -25,9 +25,14 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
 
@@ -54,8 +59,11 @@ Operating Systems where the module can be installed:
 - Windows
 
 > [!NOTE]
-> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on
+> The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
+>
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
 
@@ -185,7 +193,7 @@ The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of th
 - **Configuration**: Compiled configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is created
   in current directory.
-- **ChefProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
+- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
   content to audit Linux.
 
 Run the following command to create a package using the configuration given in the previous step:
@@ -223,7 +231,7 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`

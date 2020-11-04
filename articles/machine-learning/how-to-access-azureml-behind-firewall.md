@@ -1,7 +1,7 @@
 ---
 title: Use a firewall
 titleSuffix: Azure Machine Learning
-description: 'Control access to Azure Machine Learning workspaces with Azure Firewalls. Learn about the hosts that you must allow through the firewall for Azure Machine Learning to function correctly.'
+description: 'Control access to Azure Machine Learning workspaces with Azure Firewalls. Learn about the hosts that you must allow through the firewall.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

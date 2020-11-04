@@ -228,7 +228,8 @@
     - name: Configure Azure Defender for SQL on Azure VMs
       href: defender-for-sql-usage.md
       displayName: hybrid, arc
-    - name: Customize the information protection policy
+    - name: Customize your SQL information protection policy
+      displayName: sql, database, data discovery
       href: security-center-info-protection-policy.md
   - name: Use Azure Defender for container registries
     items:

@@ -190,7 +190,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the Mobility Service Installer:
     ```
-   UnifiedAgent.exe /Role "MS" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -208,7 +208,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the installer script:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q
     ```
 3. Register the agent with the replication appliance:
     ```
