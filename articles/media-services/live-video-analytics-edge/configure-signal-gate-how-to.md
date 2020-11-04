@@ -115,7 +115,7 @@ A signal gate processor receiving one event would result in a recording that sta
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/configure-signal-gate-how-to/normal-act.svg" alt-text="Normal Activation":::
+> :::image type="content" source="./media/configure-signal-gate-how-to/normal-activation.svg" alt-text="Normal Activation":::
 
 * Duration of Recording = -offset + minimumActivationTime = [E1+offset, E1+minimumActivationTime]
 
@@ -126,7 +126,7 @@ A signal gate processor receiving two events would result in a recording that st
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/configure-signal-gate-how-to/retrig-act.svg" alt-text="Retriggered Activation":::
+> :::image type="content" source="./media/configure-signal-gate-how-to/retriggering-activation.svg" alt-text="Retriggered Activation":::
 
 * Duration of Recording = -offset + (arrival of 2nd event - arrival of 1st event) + minimumActivationTime
 
@@ -137,7 +137,7 @@ A signal gate processor receiving N events would result in a recording that star
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/configure-signal-gate-how-to/max-act.svg" alt-text="Max Activation":::
+> :::image type="content" source="./media/configure-signal-gate-how-to/maximum-activation.svg" alt-text="Max Activation":::
  
 * Duration of Recording = -offset + maximumActivationTime
 
