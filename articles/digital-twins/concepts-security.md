@@ -73,7 +73,7 @@ For more information about how built-in roles are defined, see [*Understand role
 When referring to roles in automated scenarios, it's recommended to refer to them by their **IDs** rather than their names. The names may change between releases, but the IDs will not, making them a more stable reference in automation.
 
 > [!TIP]
-> If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
+> If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
 
 ### Permission scopes
 
@@ -89,6 +89,32 @@ The following list describes the levels at which you can scope access to Azure D
 ### Troubleshooting permissions
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
+
+## Service tags
+
+A **service tag** represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [*Virtual network tags*](../virtual-network/service-tags-overview.md). 
+
+You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md), by using service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (in this case, **AzureDigitalTwins**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
+
+Below are the details of the **AzureDigitalTwins** service tag.
+
+| Tag | Purpose | Can use inbound or outbound ? | Can be regional? | Can use with Azure Firewall? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins<br>Note: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for [event routes](concepts-route-events.md). | Inbound | No | Yes |
+
+### Using service tags for accessing event route endpoints 
+
+Here are the steps to access [event route](concepts-route-events.md) endpoints using service tags with Azure Digital Twins.
+
+1. First, download this JSON file reference showing Azure IP ranges and service tags: [*Azure IP Ranges and Service Tags*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Look for "AzureDigitalTwins" IP ranges in the JSON file.  
+
+3. Refer to the documentation of the external resource connected to the endpoint (for example, the [Event Grid](../event-grid/overview.md), [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), or [Azure Storage](../storage/blobs/storage-blobs-overview.md) for [dead-letter events](concepts-route-events.md#dead-letter-events)) to see how to set IP filters for that resource.
+
+4. Set IP filters on the external resource(s) using the IP ranges from *Step 2*.  
+
+5. Update the IP ranges periodically as required. The ranges may change over time, so it's a good idea to check these regularly and refresh them when needed. The frequency of these updates can vary, but it's a good idea to check them once a week.
 
 ## Encryption of data at rest
 

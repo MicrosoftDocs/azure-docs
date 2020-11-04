@@ -81,9 +81,8 @@ Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure
 
 Next, set up and configure permissions for ADT Explorer. To do this, follow the instructions in the [*Set up Azure Digital Twins and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
 1. Set up an Azure Digital Twins instance (you can skip this part since you have an instance already)
-2. Set up an **Azure AD app registration** to provide access to your instance
-3. Set up permissions for ADT Explorer to run on your machine
-4. Run ADT Explorer and configure it to connect to your instance. You will use the **hostname** of your original Azure Digital Twins instance that you are moving, and the **client ID** and **tenant ID** from the app registration.
+2. Set up local Azure credentials to provide access to your instance
+3. Run ADT Explorer and configure it to connect to your instance. You will use the **hostname** of your original Azure Digital Twins instance that you are moving.
 
 Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
@@ -138,7 +137,7 @@ Currently, ADT Explorer is connected to your original Azure Digital Twins instan
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
 
-You can reuse the same app registration, so you only need to replace the *ADT URL* to reflect your new instance. Change this value to that it reads *https://{new instance hostname}*.
+Replace the *ADT URL* to reflect your new instance. Change this value to that it reads *https://{new instance hostname}*.
 
 Hit *Connect*. You may be asked to log in again with your Azure credentials, and/or grant this application consent for your instance.
 
@@ -211,6 +210,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Maps
 * Device Provisioning Service (DPS)
 * Personal or company apps outside of Azure, such as the **client app** created in [*Tutorial: Code a client app*](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs
+* Azure AD app registrations do **not need** to be recreated. If you are using an [app registration](how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After completing this step, your new instance in the target region should be a copy of the original instance.
 

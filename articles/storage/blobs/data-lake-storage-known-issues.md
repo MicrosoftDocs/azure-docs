@@ -35,7 +35,7 @@ Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
 This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
 
-* You cannot use both API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
+* You cannot use blob API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
 
 * When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -56,7 +56,7 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Support for setting access control lists (ACLs) recursively
 
-The ability to apply ACL changes recursively from parent directory to child items is in [public preview](recursive-access-control-lists.md). In the current release of this capability, you can apply ACL changes by using PowerShell, the .NET SDK, and Python SDK. Support is not yet available for the Java SDK, Azure CLI, the Azure portal, or Azure Storage Explorer.
+The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal, or Azure Storage Explorer.
 
 <a id="known-issues-tools"></a>
 

@@ -134,8 +134,6 @@ You can use Azure Security Center and Azure Policy to enable resource logs and l
 
 - [Understand Azure Security Center data collection](../../security-center/security-center-enable-data-collection.md)
 
-- [Enable and configure antimalware monitoring](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
-
 **Responsibility**: Shared
 
 **Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):

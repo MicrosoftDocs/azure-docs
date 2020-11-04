@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
@@ -14,9 +14,6 @@ ms.custom: devx-track-csharp
 # Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
 
 ACL inheritance is already available for new child items that are created under a parent directory. You can also now add, update, and remove ACLs recursively for existing child items of a parent directory without having to make these changes individually for each child item.
-
-> [!NOTE]
-> The ability to set access lists recursively is in public preview and is available in all regions.  
 
 [Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines) | [Give feedback](#provide-feedback)
 
@@ -842,7 +839,7 @@ You might encounter runtime or permission errors. For runtime errors, restart th
 
 ### [PowerShell](#tab/azure-powershell)
 
-Return results to the variable. Pipe failed entries to a formatted table.
+This example return results to the variable, and then pipes failed entries to a formatted table.
 
 ```powershell
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
@@ -965,19 +962,16 @@ If you want the process to complete uninterrupted by permission errors, you can 
 
 ### [PowerShell](#tab/azure-powershell)
 
-To ensure that the process completes uninterrupted, pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
-
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the results (including the number of failures) to the console. 
+This example uses the `ContinueOnFailure` parameter so that execution continues even if the operation encounters a permission error. 
 
 ```powershell
-$ContinueOnFailure = $true
 
 $TotalDirectoriesSuccess = 0
 $TotalFilesSuccess = 0
 $totalFailure = 0
 $FailedEntries = New-Object System.Collections.Generic.List[System.Object]
 
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
 
 echo "[Result Summary]"
 echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
