@@ -200,7 +200,7 @@ When a real device connects to your IoT Central application, its device status c
 
 ## Best practices
 
-Don't persist or cache the device connection string that DPS returns when you first connect the device. To reconnect a device, go through the standard device registration flow to get the correct device connection string. If the device caches the connection string, the device software runs into the risk of having a stale connection string. Ff IoT Central updates the underlying Azure IoT hub it uses, a device with a stale connection string can't connect.
+Don't persist or cache the device connection string that DPS returns when you first connect the device. To reconnect a device, go through the standard device registration flow to get the correct device connection string. If the device caches the connection string, the device software runs into the risk of having a stale connection string. If IoT Central updates the underlying Azure IoT hub it uses, a device with a stale connection string can't connect.
 
 ## SDK support
 
