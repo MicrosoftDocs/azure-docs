@@ -1,11 +1,13 @@
 ---
-title: Create a function in Azure with TypeScript using VS Code
-description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code by using TypeScript.
+title: Create a TypeScript function using Visual Studio Code - Azure Functions
+description: Learn how to create a TypeScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 11/04/2020
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code
+
+[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
 In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
@@ -27,7 +29,7 @@ Before you get started, make sure you have the following requirements in place:
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in your chosen language. Later in this article, you'll publish your function code to Azure. 
+In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you'll publish your function code to Azure. 
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
 
@@ -97,38 +99,16 @@ In this section, you create a function app and related resources in your Azure s
 
     ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
-## Run the function in Azure
-
-1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (macOS) on **HttpExample**, and then choose **Copy function URL**.
-
-    ![Copy the function URL for the new HTTP trigger](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
-
-1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
-
-    ```http
-    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
-    ```
-
-    The following example shows the response in the browser to the remote GET request returned by the function:
-
-    ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
-
-## Clean up resources
-
-When you continue to the next step, [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md), you'll need to keep all your resources in place to build on what you've already done.
-
-Otherwise, you can use the following steps to delete the function app and its related resources to avoid incurring any further costs.
+[!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-To learn more about Functions costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
-
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. 
 
 > [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-typescript)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
