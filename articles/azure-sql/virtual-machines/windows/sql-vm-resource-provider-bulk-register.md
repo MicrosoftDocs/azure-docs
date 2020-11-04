@@ -18,7 +18,7 @@ ms.reviewer: jroth
 # Register multiple SQL virtual machines in Azure with the SQL VM resource provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet.
+This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet. Registering with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md).
 
 This article teaches you to register SQL Server VMs in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-vm-resource-provider-automatic-registration.md) or [individual SQL Server VMs](sql-vm-resource-provider-register.md). 
 
@@ -28,7 +28,7 @@ The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a g
 
 The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
-For more information about the resource provider, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
+For more information, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
 
 ## Prerequisites
 
@@ -222,7 +222,7 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 When you register SQL Server VMs with the resource provider by using the provided script, consider the following:
 
-- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-vm-resource-provider-register.md#management-modes).
+- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script

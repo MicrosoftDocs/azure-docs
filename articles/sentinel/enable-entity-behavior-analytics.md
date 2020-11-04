@@ -19,7 +19,14 @@ ms.author: yelevin
 ---
 # Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 
 
-
+> [!IMPORTANT]
+>
+> - The UEBA feature is now in **General Availability** in the following Azure Sentinel geographies and regions:
+>    - United States geography
+>    - Europe West region
+>    - Australia geography
+>
+> - In all other geographies and regions, this feature remains for the time being in **public preview**, and is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -37,7 +44,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 ## How to enable User and Entity Behavior Analytics
 
-1. From the Azure Sentinel navigation menu, select **Entity behavior (preview)**.
+1. From the Azure Sentinel navigation menu, select **Entity behavior**.
 
 1. Under the heading **Turn it on**, switch the toggle to **On**.
 
