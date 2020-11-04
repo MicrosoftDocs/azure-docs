@@ -25,9 +25,15 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> The use of secrets or confidential information with custom content packages in
+> Guest Configuration is not supported.
 
 ## Install the PowerShell module
 
@@ -205,6 +211,10 @@ integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
 Test- cmdlet on the same OS platform as you plan to audit.
+
+> [!IMPORTANT]
+> Running the cmdlet `Test-GuestConfiguration` is not supported on Linux
+> operating systems for Guest Configuration module version 2.1.0.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 

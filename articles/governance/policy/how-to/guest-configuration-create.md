@@ -25,9 +25,15 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines.
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 > `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> The use of secrets or confidential information with custom content packages in
+> Guest Configuration is not supported.
 
 ## Install the PowerShell module
 
