@@ -17,19 +17,19 @@ ms.custom: how-to, devx-track-python
 
 Learn how to configure a development environment in Azure Machine Learning that uses Azure Databricks and automated ML.
 
-[Azure Databricks](#aml-databricks) is ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform in the Azure cloud. It provides a collaborative Notebook-based environment with a CPU or GPU-based compute cluster.
+Azure Databricks is ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform in the Azure cloud. It provides a collaborative Notebook-based environment with a CPU or GPU-based compute cluster.
 
 For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment.md).
 
 
 ## Prerequisite
 
-* Azure Machine Learning workspace. If you don't have one you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
+* Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
 
 ## Azure Databricks with Azure Machine Learning and autoML
 
-Azure Databricks integrates with Azure Machine Learning and its autoML capabilties. 
+Azure Databricks integrates with Azure Machine Learning and its autoML capabilities. 
 
 You can use Azure Databricks:
 

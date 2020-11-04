@@ -211,5 +211,5 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 
 ## Next steps
 
-- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
-- View the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference
+- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
+- See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). 
