@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
 ---
 # Kubernetes storage management on your Azure Stack Edge Pro GPU device
@@ -99,6 +99,26 @@ spec:
 ```
 
 For more information, see [Deploy a stateful application via static provisioning on your Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+For the same statically provisioned storage, the corresponding mount options for storage bindings for IoT would be as follows:
+
+```yml
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "smbshare1",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "nfsshare1",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro also has a builtin `StorageClass` called `ase-node-local` that uses a data disk storage attached to the Kubernetes node. This `StorageClass` supports dynamic provisioning. You can make a `StorageClass` reference in the pod applications and a PV is automatically created for you. For more information, see the [Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) to query for `ase-node-local StorageClass`.
 
