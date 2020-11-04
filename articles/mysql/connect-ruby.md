@@ -34,7 +34,7 @@ Install Ruby, Gem, and the MySQL2 library on your own computer.
 5. Test the Gem installation by running the command `gem -v` to see the version installed.
 6. Build the Mysql2 module for Ruby using Gem by running the command `gem install mysql2`.
 
-### MacOS
+### macOS
 1. Install Ruby using Homebrew by running the command `brew install ruby`. For more installation options, see the Ruby [installation documentation](https://www.ruby-lang.org/en/documentation/installation/#homebrew).
 2. Test the Ruby installation by running the command `ruby -v` to see the version installed.
 3. Test the Gem installation by running the command `gem -v` to see the version installed.
