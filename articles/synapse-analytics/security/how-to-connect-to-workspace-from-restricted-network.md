@@ -100,11 +100,11 @@ Now, you can access the linked storage resource from your workstation within you
 
 If your workspace has "**Enable managed virtual network**" during your workspace creation as below,
 
-![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+![Creating private endpoint for Synapse studio workspace linked storage 1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
 
 And you'd like your Notebook to access the linked storage resources under certain storage account, you need to add a "**Managed private endpoints**" under your Synapse Studio. The "**Storage account name**" should be the one your notebook needs to access.
 
-![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/mgd-pe-creation.png)
+![Creating private endpoint for Synapse studio workspace linked storage 2](./media/how-to-connect-to-workspace-from-restricted-network/mgd-pe-creation.png)
 
 After this endpoint is created, the "**Approval state**" will be "**Pending**", you need to request the owner of this storage account to approve it in the "**Private endpoint connections**" tab of this storage account in Azure portal. After it's approved, your Notebook will be able to access the linked storage resources under this storage account.
 
