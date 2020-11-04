@@ -183,7 +183,7 @@
             href: ./rest-api-authorization-index.md
             items:
               - name: Azure Active Directory authorization
-                href: rest-api-authorization-aad.md
+                href: rest-api-authorization-azure-ad.md
               - name: HMAC authorization
                 href: rest-api-authorization-hmac.md
           - name: Consistency model

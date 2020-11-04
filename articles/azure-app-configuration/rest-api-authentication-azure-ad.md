@@ -14,7 +14,7 @@ HTTP requests may be authenticated using the **Bearer** authentication scheme wi
 
 ## Prerequisites
 
-The principal that will be used to request an Azure AD token must be assigned to one of the applicable [App Configuration roles](./rest-api-authorization-aad.md)
+The principal that will be used to request an Azure AD token must be assigned to one of the applicable [App Configuration roles](./rest-api-authorization-azure-ad.md)
 
 Provide each request with all HTTP headers required for Authentication. The minimum required are:
 
