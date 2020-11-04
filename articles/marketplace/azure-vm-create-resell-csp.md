@@ -18,7 +18,7 @@ On the **Resell through CSPs** page (select from the left-nav menu in Partner Ce
 Select which partners should be able to resell your offer:
 
 - Any partner in the CSP program
-- Specific partners in teh CSP program I select
+- Specific partners in the CSP program I select
 - No partners in the CSP program
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Test drive**.

@@ -14,7 +14,7 @@ ms.date: 10/19/2020
 On the **Offer listing** page (select from the left-nav menu in Partner Center), you define the offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
-> Your offer listing content, such as the description, documents, screenshots, and terms of use, doesn't have to be in English, as long as the offer description begins with the phrase, "This application is available only in \<non-English language>." You can also provide an web address to link to a site that offers content in a language other than the one that's used in the offer listing content.
+> Your offer listing content, such as the description, documents, screenshots, and terms of use, doesn't have to be in English, as long as the offer description begins with the phrase, "This application is available only in \<non-English language>." You can also provide a web address to link to a site that offers content in a language other than the one that's used in the offer listing content.
 
 ## Marketplace details
 
