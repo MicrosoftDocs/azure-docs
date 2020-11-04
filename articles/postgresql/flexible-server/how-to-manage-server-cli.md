@@ -122,7 +122,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 > - English uppercase letters
 > - English lowercase letters
 > - Numbers
-> - Non-alphanumeric characters.
+> - Non-alphanumeric characters
 
 ## Delete a server
 
