@@ -8,7 +8,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
+ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: curtand

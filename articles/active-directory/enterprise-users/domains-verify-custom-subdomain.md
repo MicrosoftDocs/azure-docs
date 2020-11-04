@@ -8,7 +8,7 @@ manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
+ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: curtand
@@ -27,9 +27,9 @@ In the Azure AD portal, when the parent domain is federated and the admin tries 
 
 ## How to verify a custom subdomain
 
-Because subdomains by default inherit the authentication type of the root domain, you must promote the subdomain to a root domain instead of a child subdomain in Azure AD using Graph API so you can set the authenticationType to your desired type.
+Because subdomains by default inherit the authentication type of the root domain, you must promote the subdomain to a root domain in Azure AD using the Microsoft Graph so you can set the authentication type to your desired type.
 
-1. Verify the new child domain with its root domain's default authentication type using PowerShell.
+1. Use PowerShell to add the new subdomain, which has its root domain's default authentication type. The Azure AD and Microsoft 365 admin centers don't yet support this operation.
 
 ```powershell
 New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
@@ -108,4 +108,5 @@ Return:
 ## Next steps
 
 - [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+- [Manage domain names](domains-manage.md)
 - [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta)
