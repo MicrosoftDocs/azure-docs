@@ -43,9 +43,7 @@ In the Azure environment, Service Fabric uses the fault domain information provi
 
 In the following graphic, we color all the entities that contribute to fault domains and list all the different fault domains that result. In this example, we have datacenters ("DC"), racks ("R"), and blades ("B"). If each blade holds more than one virtual machine, there might be another layer in the fault domain hierarchy.
 
-<center>
 ![Nodes organized via fault domains][Image1]
-</center>
 
 During runtime, Service Fabric Cluster Resource Manager considers the fault domains in the cluster and plans layouts. The stateful replicas or stateless instances for a service are distributed so they're in separate fault domains. Distributing the service across fault domains ensures that the availability of the service isn't compromised when a fault domain fails at any level of the hierarchy.
 
@@ -58,9 +56,7 @@ It's best if the same number of nodes is at each level of depth in the fault dom
 
 What do imbalanced domains look like? The following diagram shows two different cluster layouts. In the first example, the nodes are distributed evenly across the fault domains. In the second example, one fault domain has many more nodes than the other fault domains.
 
-<center>
 ![Two different cluster layouts][Image2]
-</center>
 
 In Azure, the choice of which fault domain contains a node is managed for you. But depending on the number of nodes that you provision, you can still end up with fault domains that have more nodes in them than in others.
 
@@ -74,9 +70,7 @@ Upgrade domains are a lot like fault domains, but with a couple key differences.
 
 The following diagram shows three upgrade domains striped across three fault domains. It also shows one possible placement for three different replicas of a stateful service, where each ends up in different fault and upgrade domains. This placement allows the loss of a fault domain while in the middle of a service upgrade and still have one copy of the code and data.  
 
-<center>
 ![Placement With fault and upgrade domains][Image3]
-</center>
 
 There are pros and cons to having large numbers of upgrade domains. More upgrade domains mean each step of the upgrade is more granular and affects a smaller number of nodes or services. Fewer services have to move at a time, introducing less churn into the system. This tends to improve reliability, because less of the service is affected by any issue introduced during the upgrade. More upgrade domains also mean that you need less available buffer on other nodes to handle the impact of the upgrade.
 
@@ -94,9 +88,7 @@ There’s no real limit to the total number of fault or upgrade domains in an en
 * One upgrade domain per node (physical or virtual OS instance)
 * A “striped” or “matrix” model where the fault domains and upgrade domains form a matrix with machines usually running down the diagonals
 
-<center>
 ![Layouts of fault and upgrade domains][Image4]
-</center>
 
 There’s no best answer for which layout to choose. Each has pros and cons. For example, the 1FD:1UD model is simple to set up. The model of one upgrade domain per node model is most like what people are used to. During upgrades, each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past.
 
@@ -355,9 +347,7 @@ Service Fabric expects that in some cases, particular workloads might need to ru
 
 To support these sorts of configurations, Service Fabric includes tags that you can apply to nodes. These tags are called *node properties*. *Placement constraints* are the statements attached to individual services that you select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible. Any key/value pair can work.
 
-<center>
 ![Different workloads for a cluster layout][Image5]
-</center>
 
 ### Built-in node properties
 
@@ -365,9 +355,7 @@ Service Fabric defines some default node properties that can be used automatical
 
 For example, you can write a placement constraint as `"(NodeType == NodeType03)"`. **NodeType** is a commonly used property. It's useful because it corresponds 1:1 with a type of a machine. Each type of machine corresponds to a type of workload in a traditional n-tier application.
 
-<center>
 ![Placement constraints and node properties][Image6]
-</center>
 
 ## Placement constraints and node property syntax
 
@@ -487,9 +475,7 @@ Both the capacity and the consumption at the service level are expressed in term
 
 During runtime, Cluster Resource Manager tracks remaining capacity in the cluster and on nodes. To track capacity, Cluster Resource Manager subtracts each service's usage from a node's capacity where the service runs. With this information, Cluster Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
 
-<center>
 ![Cluster nodes and capacity][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();

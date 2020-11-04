@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -20,11 +20,9 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 
 ## Deprecation of login.microsoftonline.com
 
-On 04 December 2019, we announced the scheduled retirement of login.microsoftonline.com support in Azure AD B2C on **04 December 2020**:
+**October 2020 update:** We're extending a grace period for tenants who are unable to meet the originally announced deprecation date of 04 December 2020. Retirement of login.microsoftonline.com will now occur no earlier than **14 January 2021.**
 
-[Azure Active Directory B2C is deprecating login.microsoftonline.com](https://azure.microsoft.com/updates/b2c-deprecate-msol/)
-
-The deprecation of login.microsoftonline.com goes into effect for all Azure AD B2C tenants on 04 December 2020, providing existing tenants one (1) year to migrate to b2clogin.com. New tenants created after 04 December 2019 will not accept requests from login.microsoftonline.com. All functionality remains the same on the b2clogin.com endpoint.
+**Background**: On 04 December 2019, we originally [announced](https://azure.microsoft.com/updates/b2c-deprecate-msol/) the scheduled retirement of login.microsoftonline.com support in Azure AD B2C on 04 December 2020. This provided existing tenants one (1) year to migrate to b2clogin.com. New tenants created after 04 December 2019 will not accept requests from login.microsoftonline.com. All functionality remains the same on the b2clogin.com endpoint.
 
 The deprecation of login.microsoftonline.com does not impact Azure Active Directory tenants. Only Azure Active Directory B2C tenants are affected by this change.
 
