@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 11/04/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -104,14 +104,23 @@ If you generate an Azure Resource Manager template for your logic app, this sett
 
 Here are the limits for a single logic app run:
 
+### Loops
+
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Trigger concurrency | - Unlimited when the concurrency control is turned off <p><p>- 25 is the default limit when the concurrency control is turned on, which you can't undo after you enable concurrency. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maximum waiting runs | - Without concurrency, the minimum number of waiting runs is 1, while the maximum number is 50. <p><p>- With concurrency, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
-| Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn items | - 100,000 without trigger concurrency <p><p>- 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
-| Until iterations | - Default: 60 <p><p>- Maximum: 5,000 | |
+| Foreach concurrency | With concurrency off: 20 <p><p>With concurrency on: <p><p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change this limit, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Until iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | The highest number of cycles that an "Until" loop can have during a logic app run. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Count** property. |
+| Until timeout | - Default: PT1H (1 hour) | The most amount of time that the "Until" loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
+||||
+
+### Concurrency and debatching
+
+| Name | Limit | Notes |
+| ---- | ----- | ----- |
+| Trigger concurrency | With concurrency off: Unlimited <p><p>With concurrency on, which you can't undo after enabling: <p><p>- Default: 25 <br>- Min: 1 <br>- Max: 50 | This limit is the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change this limit, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maximum waiting runs | With concurrency off: <p><p>- Min: 1 <br>- Max: 50 <p><p>With concurrency on: <p><p>- Min: 10 plus the number of concurrent runs (trigger concurrency) <br>- Max: 100 | This limit is the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change this limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| SplitOn items | With concurrency off: 100,000 <p><p>With concurrency on: 100 | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
 ||||
 
 <a name="throughput-limits"></a>
