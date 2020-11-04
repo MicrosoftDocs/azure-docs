@@ -101,6 +101,7 @@ For Databricks Runtime 7.0 and lower, install the Azure Machine Learning SDK usi
 ### AutoML config settings
 
 In AutoML config, when using Azure Databricks add the following parameters:
+
     1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster.
     2. ```spark_context=sc``` is based on the default spark context.
 
