@@ -3,6 +3,7 @@ title: Frequently asked questions about the Azure Cosmos DB's API for MongoDB
 description: Get answers to Frequently asked questions about the Azure Cosmos DB's API for MongoDB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
