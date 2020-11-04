@@ -114,6 +114,8 @@
     items:
     - name: Create, Import and Export Glossary Terms
       href: how-to-create-import-export-glossary.md
+    - name: Manage Term Templates
+      href: how-to-manage-term-templates.md
   - name: Classify
     items: 
     - name: Use classifications

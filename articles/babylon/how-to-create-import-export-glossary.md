@@ -40,8 +40,7 @@ This guide outlines how to create a business glossary term, import terms using .
    - **Expired**: This term should no longer be used
    - **Alert**: This term needs attention
 
-   These statuses are currently not wired up into any workflow, they are provided to help you manage your glossary. Eventually, these will be used with a workflow engine to help you manage the state of your glossary. 
-   
+  
    
 6. You can also add  **Resources**, **Acronym** if desired. If the term is part of hierarchy you can add parent terms at **Parent** in the overview tab.
 
@@ -63,8 +62,7 @@ This guide outlines how to create a business glossary term, import terms using .
 Data Catalog provides a template .csv file for you to import your terms
 into your Babylon Glossary.
 
--   You can import terms any time you need, be aware that duplicate
-    terms will be overwritten.
+-   You can import terms in the catalog. The duplicate terms in file will be overwritten.
 
 -   Term names are case sensitive. **Example**: \"Sample\" and
     \"saMple\" could both exist in the glossary
@@ -73,7 +71,7 @@ into your Babylon Glossary.
 
 >  ![Screenshot](./media/manage-glossary-terms/Import-button.png)
 
-2.	You will be presented with a blase to select the term template that matches with .CSV you want to import 
+2.	You will be presented with a blade to select the term template that matches with .CSV you want to import 
 
 >  ![Screenshot](./media/manage-glossary-terms/select-term-template-for-import.png)
 
@@ -81,9 +79,9 @@ into your Babylon Glossary.
     like to add.
 
 -   \[!IMPORTANT\] The system only supports importing columns that are
-    available in the template. The "System Default" template will have all the out of the box attributes.
+    available in the template. The "System Default" template will have all the default attributes.
 	However, custom term templates will have out of the box attributes and additional custom attributes defined in the template.
-	Hence, the .CSV file differs both from total number of columns and column names depending on the term template selected.
+	Therefore, the .CSV file differs both from total number of columns and column names depending on the term template selected.
 	You can also review the file for issues after upload.
     
 >    ![Screenshot](./media/manage-glossary-terms/select-file-for-import.png)
