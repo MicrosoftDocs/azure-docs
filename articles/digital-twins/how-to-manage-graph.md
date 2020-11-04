@@ -450,7 +450,7 @@ In practical use cases, twin hierarchies will often be created from data stored 
 
 Consider the following data table, describing a set of digital twins and relationships.
 
-|  Model ID    | Twin ID (must be unique) |  Relationship name  |  Target twin ID  | Twin init data |
+|  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |
 | dtmi:example:Floor;1    | Floor1 | contains | Room1 | |
 | dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
@@ -462,7 +462,6 @@ One way to get this data into Azure Digital Twins is to convert the table to a C
 In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 ```csharp
-
 namespace creating_twin_graph_from_csv
 {
     class Program
