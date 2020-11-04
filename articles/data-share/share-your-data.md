@@ -95,6 +95,8 @@ Create an Azure Data Share resource in an Azure resource group.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
+Use these commands to create the resource:
+
 1. Use the [az account set]( /cli/azure/account #az_account_set) command to set your subscription to be the current default subscription:
 
    ```azurecli
@@ -116,7 +118,7 @@ Create an Azure Data Share resource in an Azure resource group.
 1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account #ext_datashare_az_datashare_account_create) to create a Data Share account:
 
    ```azurecli
-   az datashare account create --resource-group test-resource-group --location "East US 2" --name datashareaccount
+   az datashare account create --resource-group test-resource-group --name datashareaccount --location "East US 2" 
    ```
 
    Run the [az datashare account list](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) command to see your Data Share accounts:
@@ -196,7 +198,7 @@ Create an Azure Data Share resource in an Azure resource group.
 1. Use the [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create)
 
    ```azurecli
-   az datashare invitation create --resource-group test-resource-group --name DataShareInvite --share-name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount --target-email "<consumer_email>"
+   az datashare invitation create --resource-group test-resource-group --name DataShareInvite --share-name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
    ```
 
 ---
