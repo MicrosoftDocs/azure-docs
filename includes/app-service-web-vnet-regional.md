@@ -94,13 +94,11 @@ After your app integrates with your VNet, it uses the same DNS server that your 
 
 ### Private endpoints
 
-If you want to make calls to [Private Endpoints][privateendpoints], then you need to;
+If you want to make calls to [Private Endpoints][privateendpoints], then you need to ensure that your DNS lookups will resolve to the private endpoint. To ensure that the DNS lookups from your app will point to your private endpoints you can:
 
-* integrate with Azure DNS Private Zones 
-* manage the private endpoint in the DNS server used by your app
+* integrate with Azure DNS Private Zones. If your VNet doesn't have a custom DNS server, this will be automatic
+* manage the private endpoint in the DNS server used by your app. To do this you need to know the private endpoint address and then point the endpoint you are trying to reach to that address with an A record.
 * configure your own DNS server to forward to Azure DNS private zones
-
-If you 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
