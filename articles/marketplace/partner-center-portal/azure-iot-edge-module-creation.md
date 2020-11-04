@@ -487,4 +487,4 @@ We'll send you an email to let you know when a preview version of the offer is a
 
 ## Next steps
 
-- [Update an existing offer in the commercial marketplace](//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)
