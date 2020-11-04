@@ -94,55 +94,67 @@ A positive score of 1.0 expresses the highest possible confidence level of the a
 
 ```json
 {
-    "documents": [
-        {
-            "id": "1",
-            "detectedLanguage": {
-                "name": "English",
-                "iso6391Name": "en",
-                "confidenceScore": 1.0
-            },
-            "warnings": []
-        },
-        {
-            "id": "2",
-            "detectedLanguage": {
-                "name": "Spanish",
-                "iso6391Name": "es",
-                "confidenceScore": 1.0
-            },
-            "warnings": []
-        },
-        {
-            "id": "3",
-            "detectedLanguage": {
-                "name": "French",
-                "iso6391Name": "fr",
-                "confidenceScore": 1.0
-            },
-            "warnings": []
-        },
-        {
-            "id": "4",
-            "detectedLanguage": {
-                "name": "Chinese_Simplified",
-                "iso6391Name": "zh_chs",
-                "confidenceScore": 1.0
-            },
-            "warnings": []
-        },
-        {
-            "id": "5",
-            "detectedLanguage": {
-                "name": "Russian",
-                "iso6391Name": "ru",
-                "confidenceScore": 1.0
-            },
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2019-10-01"
+   "documents":[
+      {
+         "detectedLanguage":{
+            "confidenceScore":0.99,
+            "iso6391Name":"en",
+            "name":"English"
+         },
+         "id":"1",
+         "warnings":[
+            
+         ]
+      },
+      {
+         "detectedLanguage":{
+            "confidenceScore":1.0,
+            "iso6391Name":"es",
+            "name":"Spanish"
+         },
+         "id":"2",
+         "warnings":[
+            
+         ]
+      },
+      {
+         "detectedLanguage":{
+            "confidenceScore":1.0,
+            "iso6391Name":"fr",
+            "name":"French"
+         },
+         "id":"3",
+         "warnings":[
+            
+         ]
+      },
+      {
+         "detectedLanguage":{
+            "confidenceScore":1.0,
+            "iso6391Name":"zh_chs",
+            "name":"Chinese_Simplified"
+         },
+         "id":"4",
+         "warnings":[
+            
+         ]
+      },
+      {
+         "detectedLanguage":{
+            "confidenceScore":1.0,
+            "iso6391Name":"ru",
+            "name":"Russian"
+         },
+         "id":"5",
+         "warnings":[
+            
+         ]
+      }
+   ],
+   "errors":[
+      
+   ],
+   "modelVersion":"2020-09-01"
 }
 ```
 
@@ -175,46 +187,60 @@ The service now has additional context to make a better judgment:
 **Output**
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "detectedLanguage": [
-                    {
-                        "name": "English",
-                        "iso6391Name": "en",
-                        "confidenceScore": 1
-                    }
-                ]
-            },
-            {
-                "id": "2",
-                "detectedLanguage": [
-                    {
-                        "name": "French",
-                        "iso6391Name": "fr",
-                        "confidenceScore": 1
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+{
+   "documents":[
+      {
+         "detectedLanguage":{
+            "confidenceScore":0.62,
+            "iso6391Name":"en",
+            "name":"English"
+         },
+         "id":"1",
+         "warnings":[
+            
+         ]
+      },
+      {
+         "detectedLanguage":{
+            "confidenceScore":1.0,
+            "iso6391Name":"fr",
+            "name":"French"
+         },
+         "id":"2",
+         "warnings":[
+            
+         ]
+      }
+   ],
+   "errors":[
+      
+   ],
+   "modelVersion":"2020-09-01"
+}
 ```
 
 If the analyzer can't parse the input, it returns `(Unknown)`. An example is if you submit a text block that consists solely of Arabic numerals.
 
 ```json
-    {
-        "id": "5",
-        "detectedLanguage": [
-            {
-                "name": "(Unknown)",
-                "iso6391Name": "(Unknown)",
-                "confidenceScore": "NaN"
-            }
-        ]
-    }
+{
+   "documents":[
+      {
+         "detectedLanguage":{
+            "confidenceScore":0.0,
+            "iso6391Name":"(Unknown)",
+            "name":"(Unknown)"
+         },
+         "id":"1",
+         "warnings":[
+            
+         ]
+      }
+   ],
+   "errors":[
+      
+   ],
+   "modelVersion":"2020-09-01"
+}
 ```
 
 ### Mixed-language content
@@ -239,21 +265,25 @@ Mixed-language content within the same document returns the language with the la
 The resulting output consists of the predominant language, with a score of less than 1.0, which indicates a weaker level of confidence.
 
 ```json
-    {
-      "documents": [
-        {
-          "id": "1",
-          "detectedLanguage": [
-            {
-              "name": "Spanish",
-              "iso6391Name": "es",
-              "confidencescore": 0.94
-            }
-          ]
-        }
-      ],
-      "errors": []
-    }
+{
+   "documents":[
+      {
+         "detectedLanguage":{
+            "confidenceScore":0.94,
+            "iso6391Name":"es",
+            "name":"Spanish"
+         },
+         "id":"1",
+         "warnings":[
+            
+         ]
+      }
+   ],
+   "errors":[
+      
+   ],
+   "modelVersion":"2020-09-01"
+}
 ```
 
 ## Summary
