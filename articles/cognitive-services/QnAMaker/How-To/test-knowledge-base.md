@@ -9,7 +9,7 @@ ms.date: 03/05/2020
 # Test your knowledge base in QnA Maker
 
 Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
-
+# [QnAMaker GA](#tab/v1)
 ## Interactively test in QnA Maker portal
 
 1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
@@ -57,6 +57,58 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 
 > [!NOTE]
 > All edits to your knowledge base only get saved when you press the **Save and Train** button.
+
+# [QnAMaker managed (Preview)](#tab/v2)
+## Interactively test in QnA Maker portal
+
+1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
+1. To access the Test slide-out panel, select **Test** in your application's top panel. 
+1. You will see a checkbox on the top **Display short answer**, which is selected by default. This option is used to enable MRC based answer span detection in your test panel. 
+1. Enter a query in the text box and select Enter. 
+1. For every query, if there is a precise answer/short answer present in the answer passage then along with best-matched answer passage which is present in the knowledge base you will also have a short answer for your query.
+    ![MRC enabled test pane](../media/qnamaker-how-to-test-kb/test-pane-with-mrc2.png)
+1. If you unselect the **Display short answer**, then only the best-matched answer passage from the knowledge base is returned as the response.
+
+### Clear test panel
+
+To clear all the entered test queries and their results from the test console, select **Start over** at the upper-left corner of the Test panel.
+
+### Close test panel
+
+To close the Test panel, select the **Test** button again. While the Test panel is open, you cannot edit the Knowledge Base contents.
+
+### Inspect score
+
+You inspect details of the test result in the Inspect panel.
+
+1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
+
+    ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect-with-mrc.png)
+
+2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+3. The panel shows the confidence score of answer passage along with score of answer span detected.
+
+### Correct the top scoring answer
+
+If the top scoring answer is incorrect, select the correct answer from the list and select **Save and Train**.
+
+![Correct the top scoring answer](../media/qnamaker-how-to-test-kb/chose-answer-mrc.png)
+
+### Add alternate questions
+
+You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and click enter to add them. Select **Save and Train** to store the updates.
+
+![Add alternate questions](../media/qnamaker-how-to-test-kb/add-alternate-question-with-mrc.png)
+
+### Add a new answer
+
+You can add a new answer if any of the existing answers that were matched are incorrect or the answer does not exist in the knowledge base (no good match found in the KB).
+
+At the bottom of the answers list, use the text box to enter a new answer and press enter to add it.
+
+Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
+
+---
 
 ### Test the published knowledge base
 
