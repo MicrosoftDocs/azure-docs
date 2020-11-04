@@ -76,25 +76,37 @@ When the extension resource is applied to a **management group**, the format is:
 
 The following example returns the resource ID for a resource group lock.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "lockName":{
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "lockResourceId": {
-            "type": "string",
-            "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "lockName": {
+      "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "lockResourceId": {
+      "type": "string",
+      "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param lockName string
+
+output lockResourceId string = extensionResourceId(resourceGroup().Id, 'Microsoft.Authorization/locks', lockName)
+```
+
+---
 
 A custom policy definition deployed to a management group is implemented as an extension resource. To create and assign a policy, deploy the following template to a management group.
 
@@ -266,6 +278,7 @@ To determine which resource types have a list operation, you have the following 
   ```powershell
   Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
+
 * Use the following Azure CLI command to filter only the list operations:
 
   ```azurecli
@@ -305,30 +318,51 @@ If you use a **list** function in a resource that is conditionally deployed, the
 
 The following example uses listKeys when setting a value for [deployment scripts](deployment-script-template.md).
 
+# [JSON](#tab/json)
+
 ```json
 "storageAccountSettings": {
-    "storageAccountName": "[variables('storageAccountName')]",
-    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+  "storageAccountName": "[variables('storageAccountName')]",
+  "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
 }
 ```
 
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
+
 The next example shows a list function that takes a parameter. In this case, the function is **listAccountSas**. Pass an object for the expiry time. The expiry time must be in the future.
 
+# [JSON](#tab/json)
 ```json
 "parameters": {
-    "accountSasProperties": {
-        "type": "object",
-        "defaultValue": {
-            "signedServices": "b",
-            "signedPermission": "r",
-            "signedExpiry": "2020-08-20T11:00:00Z",
-            "signedResourceTypes": "s"
-        }
+  "accountSasProperties": {
+    "type": "object",
+    "defaultValue": {
+      "signedServices": "b",
+      "signedPermission": "r",
+      "signedExpiry": "2020-08-20T11:00:00Z",
+      "signedResourceTypes": "s"
     }
+  }
 },
 ...
 "sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
 
 ## pickZones
 
@@ -377,30 +411,40 @@ When the resource type or region doesn't support zones, an empty array is return
 
 The following template shows three results for using the pickZones function.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "functions": [],
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "supported": {
-            "type": "array",
-            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
-        },
-        "notSupportedRegion": {
-            "type": "array",
-            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
-        },
-        "notSupportedType": {
-            "type": "array",
-            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "supported": {
+      "type": "array",
+      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+    },
+    "notSupportedRegion": {
+      "type": "array",
+      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+    },
+    "notSupportedType": {
+      "type": "array",
+      "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
 
 The output from the preceding examples returns three arrays.
 
@@ -414,7 +458,7 @@ You can use the response from pickZones to determine whether to provide null for
 
 ```json
 "zones": {
-    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+  "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
 },
 ```
 
@@ -437,9 +481,9 @@ Each supported type is returned in the following format:
 
 ```json
 {
-    "resourceType": "{name of resource type}",
-    "locations": [ all supported locations ],
-    "apiVersions": [ all supported API versions ]
+  "resourceType": "{name of resource type}",
+  "locations": [ all supported locations ],
+  "apiVersions": [ all supported API versions ]
 }
 ```
 
@@ -449,27 +493,38 @@ Array ordering of the returned values isn't guaranteed.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) shows how to use the provider function:
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "providerNamespace": {
-            "type": "string"
-        },
-        "resourceType": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "providerNamespace": {
+      "type": "string"
     },
-    "resources": [],
-    "outputs": {
-        "providerOutput": {
-            "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]",
-            "type" : "object"
-        }
+    "resourceType": {
+      "type": "string"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "providerOutput": {
+      "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]",
+      "type": "object"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 For the **Microsoft.Web** resource provider and **sites** resource type, the preceding example returns an object in the following format:
 
@@ -519,14 +574,14 @@ Typically, you use the **reference** function to return a particular value from 
 
 ```json
 "outputs": {
-    "BlobUri": {
-        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]",
-        "type" : "string"
-    },
-    "FQDN": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]",
-        "type" : "string"
-    }
+  "BlobUri": {
+    "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]",
+    "type": "string"
+  },
+  "FQDN": {
+    "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]",
+    "type": "string"
+  }
 }
 ```
 
@@ -623,14 +678,16 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) deploys a resource, and references that resource.
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageAccountName": {
-          "type": "string"
-      }
+    "storageAccountName": {
+        "type": "string"
+    }
   },
   "resources": [
     {
@@ -659,6 +716,15 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 The preceding example returns the two objects. The properties object is in the following format:
 
@@ -719,23 +785,23 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageResourceGroup": {
-            "type": "string"
-        },
-        "storageAccountName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageResourceGroup": {
+      "type": "string"
     },
-    "resources": [],
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
-            "type": "object"
-        }
+    "storageAccountName": {
+      "type": "string"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "ExistingStorage": {
+      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
+      "type": "object"
+    }
+  }
 }
 ```
 
@@ -774,10 +840,10 @@ A common use of the resourceGroup function is to create resources in the same lo
 
 ```json
 "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
 }
 ```
 
@@ -789,17 +855,19 @@ When using nested templates to deploy to multiple resource groups, you can speci
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returns the properties of the resource group.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "resourceGroupOutput": {
-            "value": "[resourceGroup()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "resourceGroupOutput": {
+      "value": "[resourceGroup()]",
+      "type" : "object"
     }
+  }
 }
 ```
 
@@ -816,6 +884,15 @@ The preceding example returns an object in the following format:
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 ## resourceId
 
@@ -900,40 +977,43 @@ Often, you need to use this function when using a storage account or virtual net
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "virtualNetworkName": {
-          "type": "string"
-      },
-      "virtualNetworkResourceGroup": {
-          "type": "string"
-      },
-      "subnet1Name": {
-          "type": "string"
-      },
-      "nicName": {
-          "type": "string"
-      }
+    "virtualNetworkName": {
+      "type": "string"
+    },
+    "virtualNetworkResourceGroup": {
+      "type": "string"
+    },
+    "subnet1Name": {
+      "type": "string"
+    },
+    "nicName": {
+      "type": "string"
+    }
   },
   "variables": {
-      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
+    "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
-  {
+    {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[parameters('nicName')]",
       "location": "[parameters('location')]",
       "properties": {
-          "ipConfigurations": [{
-              "name": "ipconfig1",
-              "properties": {
-                  "privateIPAllocationMethod": "Dynamic",
-                  "subnet": {
-                      "id": "[variables('subnet1Ref')]"
-                  }
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[variables('subnet1Ref')]"
               }
-          }]
-       }
-  }]
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
@@ -941,31 +1021,42 @@ Often, you need to use this function when using a storage account or virtual net
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returns the resource ID for a storage account in the resource group:
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "sameRGOutput": {
-            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        },
-        "differentRGOutput": {
-            "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        },
-        "differentSubOutput": {
-            "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        },
-        "nestedResourceOutput": {
-            "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "sameRGOutput": {
+      "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
+      "type": "string"
+    },
+    "differentRGOutput": {
+      "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+      "type": "string"
+    },
+    "differentSubOutput": {
+      "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+      "type": "string"
+    },
+    "nestedResourceOutput": {
+      "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
+      "type": "string"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 The output from the preceding example with the default values is:
 
@@ -988,10 +1079,10 @@ The function returns the following format:
 
 ```json
 {
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
+  "id": "/subscriptions/{subscription-id}",
+  "subscriptionId": "{subscription-id}",
+  "tenantId": "{tenant-id}",
+  "displayName": "{name-of-subscription}"
 }
 ```
 
@@ -1003,19 +1094,30 @@ When using nested templates to deploy to multiple subscriptions, you can specify
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) shows the subscription function called in the outputs section.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "subscriptionOutput": {
-            "value": "[subscription()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "subscriptionOutput": {
+      "value": "[subscription()]",
+      "type" : "object"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 ## subscriptionResourceId
 
@@ -1050,54 +1152,66 @@ You use this function to get the resource ID for resources that are [deployed to
 
 The following template assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the subscriptionResourceId function to get the resource ID for built-in roles.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "principalId": {
-            "type": "string",
-            "metadata": {
-                "description": "The principal to assign the role to"
-            }
-        },
-        "builtInRoleType": {
-            "type": "string",
-            "allowedValues": [
-                "Owner",
-                "Contributor",
-                "Reader"
-            ],
-            "metadata": {
-                "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "The principal to assign the role to"
+      }
     },
-    "variables": {
-        "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-        "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-        "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    "builtInRoleType": {
+      "type": "string",
+      "allowedValues": [
+        "Owner",
+        "Contributor",
+        "Reader"
+      ],
+      "metadata": {
+        "description": "Built-in role to assign"
+      }
     },
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
-            "name": "[parameters('roleNameGuid')]",
-            "properties": {
-                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-                "principalId": "[parameters('principalId')]"
-            }
-        }
-    ]
+    "roleNameGuid": {
+      "type": "string",
+      "defaultValue": "[newGuid()]",
+      "metadata": {
+        "description": "A new GUID used to identify the role assignment"
+      }
+    }
+  },
+  "variables": {
+    "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+    "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+    "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
+      "name": "[parameters('roleNameGuid')]",
+      "properties": {
+        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
 }
 ```
+
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 ## tenantResourceId
 
@@ -1130,6 +1244,8 @@ You use this function to get the resource ID for a resource that is deployed to 
 ### tenantResourceId example
 
 Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the tenantResourceId function.
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -1164,6 +1280,15 @@ Built-in policy definitions are tenant level resources. To deploy a policy assig
   ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+```
+
+---
+
 
 ## Next steps
 

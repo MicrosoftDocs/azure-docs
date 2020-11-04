@@ -585,7 +585,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+param stringToTest string = 'One Two Three'
+param objectToTest object = {
+  'propA': 'one'
+  'propB': 'two'
+  'propC': 'three'
+  'propD': {
+      'propD-1': 'sub'
+      'propD-2': 'sub'
+  }
+}
 
+output arrayLength int = length(arrayToTest)
+output stringLength int = length(stringToTest)
+output objectLength int = length(objectToTest)
 ```
 
 ---
@@ -635,6 +653,9 @@ The following example uses the null function.
 # [Bicep](#tab/bicep)
 
 ```bicep
+
+>[!NOTE]
+> null() doesn't exist in bicep.
 
 ```
 
@@ -718,6 +739,31 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c1'
+}
+
+param secondObject object = {
+  'three': 'c2'
+  'four': 'd'
+  'five': 'e'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'three'
+  'four'
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
 
 ```
 
