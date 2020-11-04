@@ -4,8 +4,8 @@ description: Get a Log Analytics query into Excel and refresh results inside Exc
 ms.subservice: logs
 ms.topic: conceptual
 author: roygalMS
-ms.author: robb
-ms.date: 09/29/2020
+ms.author: roygal
+ms.date: 11/03/2020
 
 ---
 

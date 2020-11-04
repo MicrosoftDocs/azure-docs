@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
-ms.date: 10/13/2020
+ms.date: 11/03/2020
 
 ---
 # Log Analytics integration with Power BI
