@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/5/2020
 ms.author: wgries
 ms.subservice: files
 ---
