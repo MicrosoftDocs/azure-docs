@@ -44,7 +44,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
-+ Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
++ Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -54,7 +54,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
-+ Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
++ Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
 
 ---
 
