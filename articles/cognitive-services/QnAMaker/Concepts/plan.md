@@ -4,7 +4,7 @@ description: Learn how to plan your QnA Maker app. Understand how QnA Maker work
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/24/2020
+ms.date: 11/09/2020
 ---
 
 # Plan your QnA Maker app
@@ -15,7 +15,7 @@ To plan your QnA Maker app, you need to understand how QnA Maker works and inter
 
 Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.
 
-# [QnAMaker GA](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 | Resource | Purpose |
 |--|--|
@@ -24,7 +24,7 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 | [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource | Query prediction endpoint |
 | [Application Insights](azure-resources.md#application-insights) resource | Query prediction telemetry |
 
-# [QnAMaker managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
 | Resource | Purpose |
 |--|--|
@@ -70,20 +70,20 @@ A knowledge base is directly tied its QnA Maker resource. It holds the question 
 
 ### Language considerations
 
-# [QnAMaker GA](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 The first knowledge base created on your QnA Maker resource sets the language for the resource. You can only have one language for a QnA Maker resource.
 
 You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
-# [QnAMaker managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
-You can now have knowledge bases in different language within the same QnA Maker resource. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or  multiple languages.
+You can now have knowledge bases in different languages within the same QnA Maker resource. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
 ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamakerv2-select-multilanguage-kb.png)
 
 > [!NOTE]
-> If you enable language setting per knowledge base, you can create fewer number of knowledge bases in your QnA Maker resource. See [here](./azure-resource.md) for more details.
+> If you enable language settings per knowledge base, you cannot create as many knowledge bases in your QnA Maker resource. For [more details on language settings limitations](./azure-resources.md).
 
 ---
 
@@ -170,11 +170,11 @@ There's a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-proce
 
 ### Service updates
 
-# [QnAMaker GA](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 Apply the [latest runtime updates](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to automatically manage service updates.
 
-# [QnAMaker managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
 In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
 
@@ -186,13 +186,14 @@ Scaling, throughput, and resiliency are determined by the [Azure resources](../h
 
 ### Analytics with Application Insights
 
-# [QnAMaker GA](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 All queries to your knowledge base are stored in Application Insights. Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
-# [QnAMaker managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
-In the managed deployment, telemetry is offered through the Azure Monitoring service. Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+In the managed deployment, telemetry is offered through the [Azure Monitor service](https://docs.microsoft.com/azure/azure-monitor/). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+
 
 ---
 
@@ -211,7 +212,7 @@ Each pair can contain:
 
 ### DevOps development
 
-Developing a knowledge base to insert into a DevOps pipeline requires that the knowledge base be isolated during [batch testing](../quickstarts/batch-testing.md).
+Developing a knowledge base to insert into a DevOps pipeline requires that the knowledge base is isolated during [batch testing](../quickstarts/batch-testing.md).
 
 A knowledge base shares the Cognitive Search index with all other knowledge bases on the QnA Maker resource. While the knowledge base is isolated by partition, sharing the index can cause a difference in the score when compared to the published knowledge base.
 
