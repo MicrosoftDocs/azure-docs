@@ -1,5 +1,5 @@
 ---
-title: Configure a signal gate for Event-based Video Recording
+title: Configure a signal gate for event-based video recording - Azure
 description: This article provides guidance on how to configure a signal gate in a media graph.
 ms.topic: how-to
 ms.date: 11/3/2020
@@ -19,7 +19,7 @@ In this article, you will learn the details about how to configure a signal gate
 ## Problem:
 The user may want to start recording a particular time before or after the gate was triggered by an event. The user knows the acceptable latency within their system, so the user wants to specify the latency of the signal gate processor. The user wants to specify the shortest and longest that the duration of their recording can be no matter how many new events are received.
  
-### Use Case Scenario:
+### Use case scenario:
 Suppose you want to record video every time the front door of your building opens. You want the **X** seconds prior to the door being opened included in the recording. You want the recording to last at least **Y** seconds, if the door is not opened again. You want the recording to last at most **Z** seconds, if the door is repeatedly opened. You know that your door sensor has a latency of **K** seconds and want to decrease the chance of events being disregarded ("late arrivals"), so you want to allow at least **K** seconds for the events to arrive.
 
 
@@ -52,7 +52,7 @@ When the signal gate processor is triggered, it will stay open for the minimum a
 > [!NOTE]
 > A late arrival is any event that arrives once the activation evaluation window has passed but this event arrived before the initial event in media time.
 
-### Limits of Parameters:
+### Limits of parameters:
 
 * **activationEvaluationWindow: 0 seconds to 10 seconds**
 
@@ -122,7 +122,7 @@ Example Diagram:
 
 **2 Events from 1 Source (*Retriggered Activation*)**
 
-A signal gate processor receiving two events would result in a recording that starts “activation signal offset” (5) seconds before the 1st event arrived at the gate. The 2nd event arrives 5 seconds after the 1st event, which is before the “minimum activation time” (20) seconds from the 1st event completes, therefore the gate is retriggered to stay open. The remainder of the recording is “minimum activation time” (20) seconds long, since no other events arrive before the minimum activation time from the 2nd event completes to retrigger the gate again.
+A signal gate processor receiving two events would result in a recording that starts “activation signal offset” (five) seconds before the first event arrived at the gate. The seconnd event arrives fiv seconds after the first event, which is before the “minimum activation time” (20) seconds from the first event completes, therefore the gate is retriggered to stay open. The remainder of the recording is “minimum activation time” (20) seconds long, since no other events arrive before the minimum activation time from the 2nd event completes to retrigger the gate again.
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
@@ -133,7 +133,7 @@ Example Diagram:
 
 **N Events from 1 Source (*Maximum Activation*)**
 
-A signal gate processor receiving N events would result in a recording that starts “activation signal offset” (5) seconds before the 1st event arrived at the gate. As each event arrives before the completion of the “minimum activation time” (20) seconds from the previous event, the gate would continuously be retriggered and remain open until “maximum activation time” (40) seconds after the 1st event, in which the gate would close and no longer accept any new events.
+A signal gate processor receiving N events would result in a recording that starts “activation signal offset” (5) seconds before the first event arrived at the gate. As each event arrives before the completion of the “minimum activation time” (20) seconds from the previous event, the gate would continuously be retriggered and remain open until “maximum activation time” (40) seconds after the first event, in which the gate would close and no longer accept any new events.
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
@@ -144,8 +144,9 @@ Example Diagram:
 > [!IMPORTANT]
 > Diagrams assume every event arrives at the same instance in physical and media time. (No late arrivals)
 
+## Next steps
 
-## Try It Out:
+### Try It Out:
 
 [Event-based video recording tutorial](event-based-video-recording-tutorial.md)
 
