@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a server - Azure portal - Azure Database for MySQL'
-description: This article steps you through using the Azure portal to quickly create a sample Azure Database for MySQL server in about five minutes. 
+description: This quickstart steps you through using the Azure portal to quickly create a sample Azure Database for MySQL server in about five minutes. 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -11,7 +11,9 @@ ms.date: 7/15/2020
 
 # Quickstart: Create an Azure Database for MySQL server in the Azure portal
 
-Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL Databases in the cloud. This Quickstart shows you how to create an Azure Database for MySQL server in about five minutes using the Azure portal.  
+Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL Databases in the cloud. This Quickstart shows you how to create an Azure Database for MySQL server in about five minutes using the Azure portal.
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -136,5 +138,3 @@ To delete the server, you can click on **Delete** button on **Overview** page of
 ## Next steps
 > [!div class="nextstepaction"]
 >[Build a PHP app on Windows with MySQL](../app-service/tutorial-php-mysql-app.md)
->[Build PHP app on Linux with MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[Build Java based Spring App with MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
