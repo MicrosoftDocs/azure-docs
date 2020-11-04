@@ -115,7 +115,7 @@ For **Grant** access, perform the following steps:
 
 1. Switch **Enable policy** to **On**.
 
-1. Select **Save**
+1. Select **Save**.
 
 ## Set up device compliance policy
 
