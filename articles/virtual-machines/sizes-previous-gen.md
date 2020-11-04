@@ -370,7 +370,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) card and the Intel Xeon E5-2690 v3 (Haswell) processor. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!NOTE]
-> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
+> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
@@ -402,7 +402,7 @@ NCv2-series VMs are powered by NVIDIA Tesla P100 GPUs. These GPUs can provide mo
 The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!NOTE]
-> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
+> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -432,7 +432,7 @@ ance-and-updates.md): Not Supported<br>
 The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
 > [!NOTE]
-> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
+> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
