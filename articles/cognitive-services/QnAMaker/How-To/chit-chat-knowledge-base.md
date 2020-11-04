@@ -55,7 +55,15 @@ During knowledge base creation, after adding your source URLs and files, there i
 ## Add Chit-chat to an existing KB
 Select your KB, and navigate to the **Settings** page. There is a link to all the chit-chat datasets in the appropriate **.tsv** format. Download the personality you want, then upload it as a file source. Make sure not to edit the format or the metadata when you download and upload the file.
 
+# [QnAMaker GA](#tab/v1)
+
 ![Add chit-chat to existing KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+
+# [QnAMaker managed (Preview)](#tab/v2)
+
+![Add chit-chat to existing KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+
+---
 
 ## Edit your chit-chat questions and answers
 When you edit your KB, you will see a new source for chit-chat, based on the personality you selected. You can now add altered questions or edit the responses, just like with any other source.
