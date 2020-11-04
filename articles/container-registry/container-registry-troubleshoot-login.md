@@ -92,7 +92,9 @@ Related links:
 
 Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` Azure role to pull images from the registry, or the `AcrPush` role to push images. 
 
-Access to a registry in the portal or registry management using the Azure CLI requires at least the `Reader` role to perform Azure Resource Manager operations.
+Access to a registry in the portal or registry management using the Azure CLI requires at least the `Reader` role or equivalent permissions to perform Azure Resource Manager operations.
+
+If your permissions recently changed to allow registry access though the portal, you might need to try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 You or a registry owner must have sufficient privileges in the subscription to add or remove role assignments.
 
