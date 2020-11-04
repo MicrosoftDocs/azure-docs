@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 11/04/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -110,8 +110,8 @@ Here are the limits for a single logic app run:
 | ---- | ----- | ----- |
 | Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | With concurrency off: 20 <p><p>With concurrency on: <p><p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change this limit, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Until iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | The highest number of cycles that an "Until" loop can have during a logic app run. To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Count** property. |
-| Until timeout | - Default: PT1H (1 hour) | The most amount of time that the "Until" loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). <p><p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
+| Until iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | The highest number of cycles that an "Until" loop can have during a logic app run. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Count** property. |
+| Until timeout | - Default: PT1H (1 hour) | The most amount of time that the "Until" loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
 ||||
 
 ### Concurrency and debatching
