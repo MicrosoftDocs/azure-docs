@@ -46,7 +46,7 @@ The IoT Hub [resource logs connections category](monitor-iot-hub-reference.md#co
 
 We recommend creating a diagnostic setting as early as possible after you create your IoT hub, because, although IoT Hub always emits resource logs, they aren't collected by Azure Monitor until you route them to a destination.
 
-To learn more about routing logs to a destination, see [Collection and routing](monitor-iot-hub.md#collection-and-routing). For detailed instructions to create a diagnostic setting, see the [Use metrics and logs tutorial](totorial-use-metrics-and-diags.md).
+To learn more about routing logs to a destination, see [Collection and routing](monitor-iot-hub.md#collection-and-routing). For detailed instructions to create a diagnostic setting, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md).
 
 ## Azure Monitor: Set up metric alerts for device disconnect at scale
 
