@@ -156,7 +156,7 @@ This will give you a `xcappdata` file. Right-click on this file and select “Sh
 
 # [Android](#tab/android)
 
-When developing for Android, your logs are stored in `.blog` files. 
+When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request. 
    
