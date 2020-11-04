@@ -4,6 +4,7 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun

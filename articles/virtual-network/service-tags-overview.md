@@ -79,7 +79,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
-| **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
