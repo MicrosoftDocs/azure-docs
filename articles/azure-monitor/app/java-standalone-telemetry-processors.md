@@ -6,14 +6,14 @@ ms.date: 10/29/2020
 
 ---
 
-# Telemetry processors with Java In Process Agent - preview
+# Telemetry processors with Java Standalone Agent - preview
 
-Java In Process Agent now has the capabilities to process telemetry data before the data is exported.
+Java 3.0 Agent for Application Insights now has the capabilities to process telemetry data before the data is exported.
 
 ### Some Use Cases:
- * Mask sensitive data.
- * Filter data to control cost.
- * Static attributes for all telemetry, e.g. applying "k8spod=abc" to all telemetry data.
+ * Mask sensitive data
+ * Filter data to control cost
+ * Static attributes for all telemetry, for example applying "k8spod=abc" to all telemetry data
 
 ### Supported Processors:
  * Attribute Processor
@@ -47,16 +47,19 @@ Create a configuration file named `applicationinsights.json`, and place it in th
 
 ## Include/Exclude Spans
 
-The attribute processor and the span processor expose the option to provide a set of properties of a span to match against to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified, but all of the specified conditions must evaluate to true for a match to occur. 
+The attribute processor and the span processor expose the option to provide a set of properties of a span to match against, to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least one `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified condition. All of the specified conditions must evaluate to true for a match to occur. 
 
-`matchType` controls how items in `spanNames` and `attributes` arrays are interpreted. Possible values are `regexp` or `strict`. This is a required field.
-`spanNames` must match at least one of the items. This is an optional field.
-`attributes` specifies the list of attributes to match against. All of these attributes must match exactly for a match to occur. This is an optional field.
+**Required field**: 
+* `matchType` controls how items in `spanNames` and `attributes` arrays are interpreted. Possible values are `regexp` or `strict`. 
+
+**Optional fields**: 
+* `spanNames` must match at least one of the items. 
+* `attributes` specifies the list of attributes to match against. All of these attributes must match exactly for a match to occur.
 
 > [!NOTE]
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties.
 
-#### Sample Usage
+### Sample Usage
 
 The following demonstrates specifying the set of span properties to
 indicate which spans this processor should be applied to. The `include` of
@@ -102,7 +105,7 @@ further filter out spans that shouldn't be processed.
 }
 ```
 
-With the above configuration the following spans match the properties and processor actions are applied.
+With the above configuration, the following spans match the properties and processor actions are applied:
 
 * Span1 Name: 'svcB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
 
