@@ -19,7 +19,7 @@ Basic vs Standard:
 - Standard tests can be triggered on a faster frequency.
 - Standard tests can have custom headers or request body.
 - Standard tests can use any HTTP request method while basic can only use `GET`.
-- SSL certificate lifetime check alerts you of a set period of time before your certificate expires.
+- SSL certificate lifetime check alerts you of a set period time before your certificate expires.
 - Standard test are a paid feature.
 
 > [!NOTE]
@@ -33,15 +33,14 @@ To create your first availability request, open the Availability pane and select
 
 ![Screenshot of create a basic url ping test in Azure Portal](./media/monitor-web-app-availability/create-basic-test.png)
 
-### Create a test
 
 |Setting | Explanation |
 |--------|-------------|
 |**URL** |  The URL can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.|
 |**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources cannot be successfully downloaded within the timeout for the whole test. If the option is not checked, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which may not be noticeable when manually browsing the site. |
-|**Enable retries**|when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. **We recommend this option**. On average, about 80% of failures disappear on retry.|
+|**Enable retries**| When the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. **We recommend this option**. On average, about 80% of failures disappear on retry.|
 | **SSL Test** | You can verify the SSL certificate on your website to make sure it is correctly installed, valid, trusted and doesn't give any errors to any of your users. |
-| **SSL certificate lifetime check** | This enables you to choose a time period and be alerted before your SSL certificate expires.|
+| **SSL certificate lifetime check** | This enables you to define a set time period before your SSL certificate expires. Once it expires your test will fail. |
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
 |**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** in order to insure that you can distinguish problems in your website from network issues. You can select more than five locations with standard test and up to 16 locations.|
 
@@ -50,7 +49,7 @@ To create your first availability request, open the Availability pane and select
 > [!NOTE]
 > We strongly recommend testing from multiple locations with **a minimum of five locations**. This is to prevent false alarms that may result from transient issues with a specific location. In addition we have found that the optimal configuration is to have the **number of test locations be equal to the alert location threshold + 2**.
 
-### Standard Test
+## Standard Test
 
 ![Screenshot of standard test info tab](./media/monitor-web-app-availability/standard-test-post.png)
 
@@ -60,7 +59,7 @@ To create your first availability request, open the Availability pane and select
 | **HTTP request verb** | Indicate what action you would like to take with your request. IF your chosen verb is not available in the UI you can deploy a standard test using Azure Resource Monitor with the desired choice. |
 | **Request body** | Custom data associated with your HTTP request. You can upload type own files type in your content, or disable this feature. For raw body content we support TEXT, JSON, HTML, XML, and JavaScript. |
 
-### Success criteria
+## Success criteria
 
 |Setting| Explanation
 |----|----|----|
@@ -68,7 +67,7 @@ To create your first availability request, open the Availability pane and select
 | **HTTP response** | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.|
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are supported with content match** |
 
-### Alerts
+## Alerts
 
 |Setting| Explanation
 |----|----|----|
@@ -76,7 +75,7 @@ To create your first availability request, open the Availability pane and select
 |**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
-### Location population tags
+## Location population tags
 
 The following population tags can be used for the geo-location attribute when deploying an availability URL ping test using Azure Resource Manager.
 
