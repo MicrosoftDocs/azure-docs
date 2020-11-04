@@ -87,7 +87,7 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
   - If you don't see it assigned, assign it.
   - The MSI has the same name as the workspace. In this case, it would be &quot;WS1&quot;.
 
-## STEP 5: Configure admin access for SQL pools
+## STEP 5: Configure admin access for Synapse SQL
 
 - Open the Azure portal
 - Navigate to WS1
@@ -109,11 +109,11 @@ Users in each role need to complete the following steps:
 | Number | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
-| 2 | Read the parquet file using SQL on-demand | YES | NO | YES |
-| 3 | Create a Spark pool | YES [1] | YES [1] | NO  |
+| 2 | Read the parquet file using serverless SQL pool | YES | NO | YES |
+| 3 | Create a serverless Apache Spark pool | YES [1] | YES [1] | NO  |
 | 4 | Reads the parquet file with a Notebook | YES | YES | NO |
 | 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
-| 6 | Create a SQL pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
+| 6 | Create a dedicated SQL pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
@@ -143,8 +143,8 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Data Hub / See linked ADLS Gen2 accounts and containers | YES [1] | YES[1] | YES[1] |
 | Data Hub / See Databases | YES | YES | YES |
 | Data Hub / See objects in databases | YES | YES | YES |
-| Data Hub / Access data in SQL pool databases | YES   | NO   | YES   |
-| Data Hub / Access data in SQL on-demand databases | YES [2]  | NO  | YES [2]  |
+| Data Hub / Access data in Synapse SQL databases | YES   | NO   | YES   |
+| Data Hub / Access data in serverless SQL pool databases | YES [2]  | NO  | YES [2]  |
 | Data Hub / Access data in Spark databases | YES [2] | YES [2] | YES [2] |
 | Use the Develop hub | YES | YES | YES |
 | Develop Hub / author SQL Scripts | YES | NO | YES |
@@ -154,7 +154,7 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Use the Orchestrate hub | YES | YES | YES |
 | Orchestrate hub / use Pipelines | YES | NO | NO |
 | Use the Manage Hub | YES | YES | YES |
-| Manage Hub / SQL pools | YES | NO | YES |
+| Manage Hub / Synapse SQL | YES | NO | YES |
 | Manage Hub / Spark pools | YES | YES | NO |
 | Manage Hub / Triggers | YES | NO | NO |
 | Manage Hub / Linked services | YES | YES | YES |

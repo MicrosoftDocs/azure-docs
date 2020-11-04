@@ -18,8 +18,8 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. Options for deploying a model into a production environment may include:
 
 - [Azure Machine Learning](../index.yml)
-- [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
+- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
@@ -72,7 +72,7 @@ After multiple models have been built, you usually need to have a system for reg
 1. [Azure Machine Learning - model management service](../index.yml)
 2. [ModelDB from MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Deployment
 
@@ -83,8 +83,8 @@ There are various approaches and platforms to put models into production. Here a
 
 
 - [Model deployment in Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Deployment of a model in SQL-server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
 > Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
