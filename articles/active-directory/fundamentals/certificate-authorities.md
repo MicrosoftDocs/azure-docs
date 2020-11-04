@@ -27,7 +27,7 @@ Certificate Authorities can be classified into root CAs and intermediate CAs. Ty
 
 ## CAs used in Azure Public and Azure US Government clouds
 
-Different services may use different root or intermediate CAs.
+Different services may use different root or intermediate CAs. Therefore all entries listed below may be required.
 
 ### DigiCert Global Root G2
 
@@ -74,9 +74,8 @@ Different services may use different root or intermediate CAs.
 | Issuing and Intermediate CA| Serial Number| Issue Date Expiration Date| SHA1 Thumbprint| URIs |
 | - | - | - | - | - |
 | DigiCert SHA2 Secure Server CA| 01fda3eb6eca75c 888438b724bcfbc91| March 8, 2013 March 8, 2023| 1fb86b1168ec743154062 e8c9cc5b171a4b7ccb4| [AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.crt)<br>[CDP](http://crl3.digicert.com/ssca-sha2-g6.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| DigiCert SHA2 Secure Server CA |02742eaa17ca8e21 c717bb1ffcfd0ca0 |September 22, 2020<br>September 22, 2030|626d44e704d1ceabe3bf 0d53397464ac8080142c|[AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA-2.crt)<br>[CDP](http://crl3.digicert.com/DigiCertSHA2SecureServerCA.crl)<br>[OCSP](http://ocsp.digicert.com/)|
 
-
- 
 
 ## CAs used in Azure China 21Vianet cloud
 
