@@ -256,6 +256,8 @@ Yes. This option is currently available via powershell only. Virtual WAN portal 
 
 IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported. 
 
+For the point to site (user) VPN scenario with internet breakout via Azure Firewall, you will likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices by default use IPv6 addresses by default.
+
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 
 A minimum version of 05-01-2020 (May 1 2020) is required. 

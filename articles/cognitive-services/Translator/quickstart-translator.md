@@ -100,7 +100,7 @@ When calling the Translator service via REST, you'll need to make sure the follo
   <th>Description</th>
   <tr>
     <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
+    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -186,6 +186,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -212,6 +215,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -464,6 +468,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -489,6 +496,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -737,6 +745,10 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";   
+
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
 
@@ -760,6 +772,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1015,6 +1028,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";   
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -1040,6 +1056,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1292,6 +1309,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
@@ -1318,6 +1338,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1563,6 +1584,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -1588,6 +1612,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -1845,6 +1870,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
@@ -1868,6 +1896,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -2106,6 +2135,9 @@ import (
 
 func main() {
     subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
@@ -2131,6 +2163,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -2397,9 +2430,12 @@ import (
 )
 
 func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
-    subscriptionKey := "YOUR_SUBSCRIPTION_KEY"
 
     // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
@@ -2427,6 +2463,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator Text API

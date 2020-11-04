@@ -91,9 +91,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your AlertMedia **Tenant URL** as one of the following.
-      * (no custom domain) https://docs.gitlab.com/ee/api/scim.html
+      * (no custom domain) https://dashboard.alertmedia.com/api/scim/v3
 
-      * (custom domain) https://developer.github.com/v3/scim/
+      * (custom domain) https://subdomain.alertmedia.com/api/scim/v3
 
       Input the **Secret Token** as retrieved earlier in Step 2. Click **Test Connection** to ensure Azure AD can connect to AlertMedia. If the connection fails, ensure your AlertMedia account has Admin permissions and try again.
 

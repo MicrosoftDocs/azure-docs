@@ -208,3 +208,6 @@ Based on the standard deployment architecture, Horizon infrastructure VMs are ma
 | Windows file share               | D4sv3          |         | *Optional*                               |
 
 The infrastructure VM cost amounts to \$0.36 per user per month for the 2,000-desktop deployment in the example above. This example uses US East Azure instance June 2020 pricing. Your pricing may vary depending on region, options selected, and timing.
+
+## Next steps
+To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

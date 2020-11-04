@@ -5,6 +5,7 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
