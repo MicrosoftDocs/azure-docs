@@ -19,7 +19,7 @@ Language for the service is selected when you create the first knowledge base in
 
 The language determines the relevance of the results QnA Maker provides in response to user queries. The QnA Maker resource, and all the knowledge bases inside that resource, support a single language. The single language is necessary to provide the best answer results for a query.
 
-# [QnA Maker managed (preview release)](#tab/v2))
+# [QnA Maker managed (preview release)](#tab/v2)
 
 In QnA Maker managed, you get the choice to make language settings at the individual knowledge-base level. This setting can be enabled only with the knowledge-base of the service. Once set, language settings cannot be changed for the service. 
 
