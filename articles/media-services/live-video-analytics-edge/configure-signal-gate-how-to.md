@@ -42,11 +42,8 @@ When the signal gate processor is triggered, it will stay open for the minimum a
 ### Parameters: (Based on when events arrive in physical time to the signal gate)
 
 * **minimumActivationTime (shortest possible duration of a recording)** = the minimum number of seconds that the signal gate processor will remain open after being triggered to receive new events, unless interrupted by the **maximumActivationTime**
-
 * **maximumActivationTime (longest possible duration of a recording)** = the maximum number of seconds from the initial event that the signal gate processor will remain open after being triggered to receive new events, regardless of what events are received
-
 * **activationSignalOffset** = the number of seconds between the activation of the signal gate processor and when the video recording begins, typically this value is negative, in order to start the recording before the triggering event
-
 * **activationEvaluationWindow** = the number of seconds starting from the initial triggering event, in which an event that occurred before the initial event, in media time, must arrive to the signal gate processor before being disregarded and considered a “late arrival”
 
 > [!NOTE]
