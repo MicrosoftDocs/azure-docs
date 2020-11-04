@@ -25,8 +25,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Concurrent Request limit (Base and Custom models)** |  |  |
-| Default value | 1 | 20 |
+| **Concurrent Request limit (Base and Custom models)** | 1 | 20 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 #### Batch Transcription
