@@ -253,8 +253,11 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: 
 Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
+
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
+
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
+
 - [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md) 
 
 **Azure Security Center monitoring**: Not applicable
