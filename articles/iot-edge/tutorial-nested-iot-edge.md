@@ -29,6 +29,7 @@ To accomplish this goal, this tutorial walks you through creating a hierarchy of
 > * Add workloads to the devices in your hierarchy.
 > * Install consistent certificates across your device hierarchy.
 > * Use an API proxy module to securely route HTTP traffic over a single port from your lower layer devices.
+
 In this tutorial, the following network layers are defined:
 
 * **Top layer**: IoT Edge devices at this layer can connect directly to the cloud.
@@ -200,17 +201,17 @@ Install IoT Edge by following these steps on both devices.
 
 ### Configure the IoT Edge runtime
 
-Configure the IoT Edge runtime by following these steps on both your devices. Configuring the IoT Edge runtime for your devices consists of three steps, all accomplished by editing the IoT Edge configuration file:
+Configure the IoT Edge runtime by following these steps on both your devices. Configuring the IoT Edge runtime for your devices consists of four steps, all accomplished by editing the IoT Edge configuration file:
 
-1. Manually provision each device by providing adding that device's connection string to the configuration file.
+* Manually provision each device by providing adding that device's connection string to the configuration file.
 
-1. Finish setting up your devices certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
+* Finish setting up your devices certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
 
-1. Bootstrap the system using the Edge Agent.
+* Bootstrap the system using the IoT Edge Agent.
 
-1. Set up your devices hostname to point to the **top layer** device.
+* Update the **hostname** parameter for your **top layer** device, and update both the **hostname** parameter and **parent_hostname** parameter for your **lower layer** devices.
 
-Complete these three steps and restart the IoT Edge service to configure your devices.
+Complete these steps and restart the IoT Edge service to configure your devices.
 
 1. On each device, open the IoT Edge configuration file.
 
@@ -254,10 +255,10 @@ Complete these three steps and restart the IoT Edge service to configure your de
    parent_hostname: <parent device fqdn or IP>
    ```
 
-[!NOTE]
-> For hierarchies with more than one lower layer, update the *parent_hostname* field with the FQDN of the device in the layer immediately above.
+   > [!NOTE]
+   > For hierarchies with more than one lower layer, update the *parent_hostname* field with the FQDN of the device in the layer immediately above.
 
-1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the Edge Agent. In this case, we will point the top layer's Edge Agent at the Azure Container Registry with the public preview version of Edge Agent image available. <!-- BUG BASH STEPS - Update for release -->
+1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the Edge Agent. In this case, we will point the top layer's IoT Edge Agent at the Azure Container Registry with the public preview version of IoT Edge Agent image available. <!-- BUG BASH STEPS - Update for release -->
 
    ```yml
    agent:
@@ -266,19 +267,25 @@ Complete these three steps and restart the IoT Edge service to configure your de
      env: {}
      config:
        image: "iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview"
-       auth: {}
+       auth:
+         username: 2ad19b50-7a8a-45c4-8d11-20636732495f
+         password: bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_
+         serveraddress: iotedgeforiiot.azurecr.io
    ```
 
-1. For IoT Edge devices in **lower layers**, update the **image** value to the **parent_hostname or IP:8000**. 8000 refers to an IoT Edge API Proxy module port, which you will deploy to your devices in the next section.
+1. Bootstrap IoT Edge devices in **lower layers** in the same way. <!-- BUG BASH STEPS - Update for release -->
 
    ```yml
-      agent:
+   agent:
      name: "edgeAgent"
      type: "docker"
      env: {}
      config:
-       image: "<parent device fqdn or IP>:8000/azureiotedge-agent:public-preview"
-       auth: {}
+       image: "iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview"
+       auth:
+         username: 2ad19b50-7a8a-45c4-8d11-20636732495f
+         password: bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_
+         serveraddress: iotedgeforiiot.azurecr.io
    ```
 
 1. Save and close the file.
@@ -332,15 +339,13 @@ In the [Azure portal](https://ms.portal.azure.com/):
 1. Under **Edge Agent**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview`. Select **Save**. <!-- BUG BASH STEPS - Update for release -->
 
 
-1. Add the Docker registry module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your Docker registry module and enter `registry:latest` for the image URI. Next, add environment variables and create options to point your local registry module at your Azure Container Registry to download container images from and to serve these images at {registry_module_name}:5000.
+1. Add the Docker registry module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your Docker registry module and enter `registry:latest` for the image URI. Next, add environment variables and create options to point your local registry module at the Microsoft container registry to download container images from and to serve these images at {registry_module_name}:5000.
 
 1. Under the environment variables tab, enter the following environment variable name-value pair: <!-- BUG BASH STEPS - Update for release -->
 
     | Name | Value |
     | - | - |
-    | `REGISTRY_PROXY_REMOTEURL` | `https://iotedgeforiiot.azurecr.io:443` |
-    | `REGISTRY_PROXY_USERNAME` | `2ad19b50-7a8a-45c4-8d11-20636732495f` |
-    | `REGISTRY_PROXY_PASSWORD` | `bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_` |
+    | `REGISTRY_PROXY_REMOTEURL` | `mcr.microsoft.com` |
 
 1. Under the container create options tab, enter the following JSON:
 
@@ -533,7 +538,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. Select **Runtime Settings**, next to the gear icon.
 
-1. Under **Edge Hub**, in the image field, enter `$upstream:8000/azureiotedge-hub:public-preview`. <!-- BUG BASH STEPS - Update for release -->
+1. Under **Edge Hub**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-hub:public-preview`. <!-- BUG BASH STEPS - Update for release -->
 
 1. Add the following environment variables to your Edge Hub module: <!-- BUG BASH STEPS - Update for release -->
 
@@ -542,7 +547,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
     | `experimentalFeatures:enabled` | `true` |
     | `experimentalFeatures:nestedEdgeEnabled` | `true` |
 
-1. Under **Edge Agent**, in the image field, enter `$upstream:8000/azureiotedge-agent:public-preview`. Select **Save**. <!-- BUG BASH STEPS - Update for release -->
+1. Under **Edge Agent**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview`. Select **Save**. <!-- BUG BASH STEPS - Update for release -->
 
 1. Add the temperature sensor module. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your temperature sensor module and enter `$upstream:8000/azureiotedge-simulated-temperature-sensor:latest` for the image URI. <!-- Change once Marketplace flow incident is fixed -->
 
