@@ -378,7 +378,7 @@ When the VM has restarted, perform the following steps:
 
 1. You will see the details informing the partition type. Ensure it is GPT. Identify the root partition. Do not change or delete the boot partition (BIOS boot partition) and the system partition ('EFI System Partition')
 
-1. Use the following command to start the paritioning for the first time. 
+1. Use the following command to start the partitioning for the first time. 
     ```
     gdisk /dev/sda
     ```
@@ -420,12 +420,12 @@ correct this problem? (Y/N):". You have to press 'Y'
    ```
     ![Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
 
-1. Press 'd' to delete the partition and select the parition number assigned to boot (in this example it is '3')
+1. Press 'd' to delete the partition and select the partition number assigned to boot (in this example it is '3')
    ```
    d
    3
    ```
-1. Press 'd' to delete the partition and select the parition number assigned to boot (in this example it is '2')
+1. Press 'd' to delete the partition and select the partition number assigned to boot (in this example it is '2')
    ```
    d
    2
