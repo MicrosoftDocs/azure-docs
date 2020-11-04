@@ -19,20 +19,34 @@ This article contains a quick reference and the **detailed description** of Azur
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### Speech-to-Text Quotas and Limits per Speech resource
-In the table below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+
+#### Online Transcription
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Online Transcription Concurrent Request limit (Base and Custom models)** |  |  |
+| **Concurrent Request limit (Base and Custom models)** |  |  |
 | Default value | 1 | 20 |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
-| **REST API Request limit ([API Management](../../api-management/api-management-key-concepts.md) endpoints)** | 100 requests per 10 seconds | 100 requests per 10 seconds |
-| **Max dataset file size for Data Import** | 2 GB | 2 GB |
-| **Max input blob size for Batch Transcription** | N/A | 2.5 GB |
-| **Max blob container size for Batch Transcription** | N/A | 5 GB |
-| **Max number of blobs per container for Batch Transcription** | N/A | 10000 |
-| **Max number of files per Transcription request for Batch Transcription (when using multiple content URLs as input)** | N/A | 1000  |
-| **Max number of simultaneously running jobs for Batch Transcription** | N/A | 2000  |
+
+#### Batch Transcription
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| **REST API Request limit** | 100 requests per 10 seconds | 100 requests per 10 seconds |
+| **Max input blob size** | N/A | 2.5 GB |
+| **Max blob container size** | N/A | 5 GB |
+| **Max number of blobs per container** | N/A | 10000 |
+| **Max number of files per Transcription request (when using multiple content URLs as input)** | N/A | 1000  |
+| **Max number of simultaneously running jobs** | N/A | 2000  |
+
+#### Model Customization
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| **Max number of speech datasets** | 2 | 500 |
+| **Max acoustic dataset file size for Data Import** | 2 GB | 2 GB |
+| **Max language dataset file size for Data Import** | 200 MB | 1.5 GB |
+| **Max pronunciation dataset file size for Data Import** | 1 KB | 1 MB |
+| **Max language model text size** | 200 KB | 500 KB |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
