@@ -100,7 +100,7 @@ spec:
 
 For more information, see [Deploy a stateful application via static provisioning on your Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
-To access the same statically provisioned storage, the corresponding volume mount options for storage bindings for IoT are as follows:
+To access the same statically provisioned storage, the corresponding volume mount options for storage bindings for IoT are as follows. The `/home/input` is the path at which the volume is accessible within the container.
 
 ```
 {
@@ -108,12 +108,12 @@ To access the same statically provisioned storage, the corresponding volume moun
 "Mounts": [
 {
 "Target": "/home/input",
-"Source": "smbshare1",
+"Source": "<nfs-or-smb-share-name-here>",
 "Type": "volume"
 },
 {
 "Target": "/home/output",
-"Source": "nfsshare1",
+"Source": "<nfs-or-smb-share-name-here>",
 "Type": "volume"
 }]
 }
