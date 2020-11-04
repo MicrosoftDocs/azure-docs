@@ -115,7 +115,7 @@ A signal gate processor receiving one event would result in a recording that sta
 
 Example Diagram:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/configure-signal-gate-how-to/normAct.svg" alt-text="Normal Activation":::
+> :::image type="content" source="./media/configure-signal-gate-how-to/normalAct.svg" alt-text="Normal Activation":::
 
 * Duration of Recording = -offset + minimumActivationTime = [E1+offset, E1+minimumActivationTime]
 
