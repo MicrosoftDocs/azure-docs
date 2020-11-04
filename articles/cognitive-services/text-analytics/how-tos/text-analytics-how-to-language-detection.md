@@ -94,67 +94,67 @@ A positive score of 1.0 expresses the highest possible confidence level of the a
 
 ```json
 {
-   "documents":[
-      {
-         "detectedLanguage":{
-            "confidenceScore":0.99,
-            "iso6391Name":"en",
-            "name":"English"
-         },
-         "id":"1",
-         "warnings":[
-            
-         ]
-      },
-      {
-         "detectedLanguage":{
-            "confidenceScore":1.0,
-            "iso6391Name":"es",
-            "name":"Spanish"
-         },
-         "id":"2",
-         "warnings":[
-            
-         ]
-      },
-      {
-         "detectedLanguage":{
-            "confidenceScore":1.0,
-            "iso6391Name":"fr",
-            "name":"French"
-         },
-         "id":"3",
-         "warnings":[
-            
-         ]
-      },
-      {
-         "detectedLanguage":{
-            "confidenceScore":1.0,
-            "iso6391Name":"zh_chs",
-            "name":"Chinese_Simplified"
-         },
-         "id":"4",
-         "warnings":[
-            
-         ]
-      },
-      {
-         "detectedLanguage":{
-            "confidenceScore":1.0,
-            "iso6391Name":"ru",
-            "name":"Russian"
-         },
-         "id":"5",
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2020-09-01"
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.99,
+                "iso6391Name":"en",
+                "name":"English"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"es",
+                "name":"Spanish"
+            },
+            "id":"2",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
+            },
+            "id":"3",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"zh_chs",
+                "name":"Chinese_Simplified"
+            },
+            "id":"4",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"ru",
+                "name":"Russian"
+            },
+            "id":"5",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
 }
 ```
 
@@ -188,34 +188,34 @@ The service now has additional context to make a better judgment:
 
 ```json
 {
-   "documents":[
-      {
-         "detectedLanguage":{
-            "confidenceScore":0.62,
-            "iso6391Name":"en",
-            "name":"English"
-         },
-         "id":"1",
-         "warnings":[
-            
-         ]
-      },
-      {
-         "detectedLanguage":{
-            "confidenceScore":1.0,
-            "iso6391Name":"fr",
-            "name":"French"
-         },
-         "id":"2",
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2020-09-01"
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.62,
+                "iso6391Name":"en",
+                "name":"English"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
+            },
+            "id":"2",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
 }
 ```
 
@@ -223,23 +223,23 @@ If the analyzer can't parse the input, it returns `(Unknown)`. An example is if 
 
 ```json
 {
-   "documents":[
-      {
-         "detectedLanguage":{
-            "confidenceScore":0.0,
-            "iso6391Name":"(Unknown)",
-            "name":"(Unknown)"
-         },
-         "id":"1",
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2020-09-01"
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.0,
+                "iso6391Name":"(Unknown)",
+                "name":"(Unknown)"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
 }
 ```
 
@@ -266,23 +266,23 @@ The resulting output consists of the predominant language, with a score of less 
 
 ```json
 {
-   "documents":[
-      {
-         "detectedLanguage":{
-            "confidenceScore":0.94,
-            "iso6391Name":"es",
-            "name":"Spanish"
-         },
-         "id":"1",
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2020-09-01"
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.94,
+                "iso6391Name":"es",
+                "name":"Spanish"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
 }
 ```
 
