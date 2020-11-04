@@ -77,6 +77,50 @@ Provisioning issues can include the following failure scenarios:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
+
+## VHD specifications
+
+### Conectix cookie and other VHD specifications
+The “conectix” string is part of the VHD specification, and defined as the 8 byte “cookie” in the VHD footer below that identifies the file creator. All vhd files created by Microsoft have this cookie. 
+
+A VHD formatted blob should have a 512 byte footer; this is the VHD footer format:
+
+|Hard disk footer fields|Size (bytes)|
+|---|---|
+Cookie|8
+Features|4
+File Format Version|4
+Data Offset|8
+Time Stamp|4
+Creator Application|4
+Creator Version|4
+Creator Host OS|4
+Original Size|8
+Current Size|8
+Disk Geometry|4
+Disk Type|4
+Checksum|4
+Unique Id|16
+Saved State|1
+Reserved|427
+
+
+### VHD specifications
+To ensure a seamless publishing experience, ensure that <b>VHD meets the following criteria :
+1. The cookie must contain the string “conectix”
+1. The disk type must be Fixed
+1. The VHD’s virtual size is at least 20MB
+1. The VHD is aligned (i.e. the virtual size must be a multiple of 1 MB)
+1. The VHD blob length = virtual size + VHD footer length (512)
+
+</b>
+
+You can download the VHD specification here: https://www.microsoft.com/en-us/download/details.aspx?id=23850
+
+
+### 
+
+
 ## Software compliance for Windows
 
 If your Windows image request is rejected because of a software compliance issue, you might have created a Windows image with the installed SQL server instance instead of taking the relevant SQL version base image from Azure Marketplace.
