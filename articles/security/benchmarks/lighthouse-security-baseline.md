@@ -406,19 +406,19 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40263.).
 
-**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center.
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
-Depending on how security team responsibilities are structured, monitoring for security risks could be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization.
+Depending on how security team responsibilities are structured, monitoring for security risks could  be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization. 
 
-Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions.
+Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services.
+Note: Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader) 
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
 
 - [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -605,9 +605,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40253.).
 
-**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness. Check that your service offering is included in the incident response process, as applicable.
+**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](https://aka.ms/AzSec4) 
+- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 - [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
@@ -620,7 +620,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40254.).
 
-**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
+**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
 - [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
@@ -633,19 +633,19 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40255.).
 
-**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives.
+**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
-High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources.
+High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation.
+Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-- [How to configure export](../../security-center/continuous-export.md) 
+- [How to configure export](../../security-center/continuous-export.md)
 
 - [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -654,25 +654,25 @@ Export your Azure Security Center alerts and recommendations using the export fe
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40256.).
 
-**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots. You should also ensure insights and learnings are captured for other analysts and for future historical reference.
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
 The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information.
+- Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information. 
 
-Snapshots of running systems:
+- Snapshots of running systems: 
 
-Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk.
+    - Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk. 
 
-Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
+    - Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
 
-Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
+    - Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
 
-Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes.
+Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine’s disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 
+- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Snapshot a Linux machine’s disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md) 
+- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
@@ -687,17 +687,17 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40257.).
 
-**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity.
+**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md) 
+- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -706,17 +706,16 @@ Additionally, mark resources using tags and create a naming system to identify a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40258.).
 
-**Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks.
+**Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
+Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks.
+- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
 
-- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md) 
-
-- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts) 
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
 - [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -825,18 +824,17 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40280.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
-
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](../fundamentals/pen-testing.md)  Penetration
+- [Penetration testing in Azure](../fundamentals/pen-testing.md)
 
-- [Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ## Endpoint Security
 
@@ -953,7 +951,6 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
@@ -1009,11 +1006,11 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
-- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://aka.ms/AzSec1)
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://aka.ms/AzSec2)
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://aka.ms/AzSec3)
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1041,8 +1038,7 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
-
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
@@ -1079,7 +1075,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure identity management security overview](../fundamentals/identity-management-overview.md)
 
@@ -1116,7 +1112,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 - [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
