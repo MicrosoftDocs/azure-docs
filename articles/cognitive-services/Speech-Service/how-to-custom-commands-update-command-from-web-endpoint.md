@@ -91,7 +91,7 @@ module.exports = async function (context, req) {
 
 When we call this Azure Function from Custom Commands, we'll send the current values of the conversation and we'll return the parameters we want to update or if we want to cancel the current command.
 
-# Update the existing Custom Commands app
+## Update the existing Custom Commands app
 
 Now let's hook up the Azure Function with the existing Custom Commands app.
 
@@ -103,14 +103,14 @@ Now let's hook up the Azure Function with the existing Custom Commands app.
     > ![set web endpoint with remote updates](media/custom-commands/set-web-endpoint-with-remote-updates.png)
 1. Create a new Interaction rule called "IncrementRule" and add a Call web endpoint action.
     > [!div class="mx-imgBorder"]
-    > ![set increment counter call endpoint](media/custom-commands/increment-rule-web-endpoint.png)
+    > ![increment rule](media/custom-commands/increment-rule-web-endpoint.png)
 
 1. In the action configuration, select the IncrementEndpoint, configure On success to Send speech response with the value of counter and On failure with an error message.
     > [!div class="mx-imgBorder"]
     > ![set increment counter call endpoint](media/custom-commands/set-increment-counter-call-endpoint.png)
 1. Set the post-execution state of the rule to Wait for user's input
 
-# Test it
+## Test it
 
 1. Save and Train your app
 1. Click Test
@@ -124,4 +124,4 @@ Notice how the value of the Counter parameter is incremented on each turn by the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-update-command-from-client.md)
+> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)

@@ -63,7 +63,7 @@ You can test this in the Custom Commands portal.
 1. Open the side panel and click Activity editor.
 1. Type and send the RemoteCommand event specified in the previous section.
     > [!div class="mx-imgBorder"]
-    > ![Send activity on success](media/custom-commands/send-remote-command-activity.png)
+    > ![Send remote command](media/custom-commands/send-remote-command-activity.png)
 
 Note how the value for the parameter "OnOff" was set to "on" using an activity from the client instead of speech or text.
 
@@ -99,7 +99,7 @@ In case you require to add new entries to the parameter's catalog per conversati
 With this activity we are adding an entry for "stereo" to the catalog of the parameter "SubjectDevice" in the command "TurnOnOff".
 
 [!div class="mx-imgBorder"]
-![Send activity on success](media/custom-commands/update-catalog-wiith-remote-activity.png)
+![Update catalog](media/custom-commands/update-catalog-wiith-remote-activity.png)
 
 Please note a couple of things.
 1. You only need to send this activity once (ideally right after you started a connection).
@@ -116,11 +116,11 @@ To test this, let's create a new command in our current application.
 1. Add an example sentence with "get device info".
 1. In the completion rule "Done" add a Send Speech Response Action.
     > [!div class="mx-imgBorder"]
-    > ![Send activity on success](media/custom-commands/send-speech-response-context.png)
+    > ![Send speech response with context](media/custom-commands/send-speech-response-context.png)
 1. Save and Train your application.
 1. Test your application.
     > [!div class="mx-imgBorder"]
-    > ![Send activity on success](media/custom-commands/send-client-context-activity.png)
+    > ![Send client context activity](media/custom-commands/send-client-context-activity.png)
 
 Please note a couple of things.
 1. You only need to send this activity once (ideally right after you started a connection).
