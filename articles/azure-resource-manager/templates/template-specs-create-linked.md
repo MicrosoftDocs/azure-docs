@@ -2,13 +2,13 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/03/2020
 
 ---
 
 # Tutorial: Create a template spec with linked templates (Preview)
 
-Learn how to create a [template spec](template-specs.md) with a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
+Learn how to create a [template spec](template-specs.md) with a main template and a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
 
 ## Prerequisites
 
