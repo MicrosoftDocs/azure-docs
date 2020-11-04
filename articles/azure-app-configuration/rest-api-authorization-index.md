@@ -18,4 +18,4 @@ The [authorization model](./rest-api-authorization-hmac.md) model associated wit
 
 ## Azure Active Directory
 
-The [authorization model](./rest-api-authorization-azure-ad.md) associated with Azure Active Directory (Azure AD) authentication uses Azure RBAC to control permissions. See the [Azure AD authorization](./rest-api-authorization-aad.md) page for details.
+The [authorization model](./rest-api-authorization-azure-ad.md) associated with Azure Active Directory (Azure AD) authentication uses Azure RBAC to control permissions. See the [Azure AD authorization](./rest-api-authorization-azure-ad.md) page for details.
