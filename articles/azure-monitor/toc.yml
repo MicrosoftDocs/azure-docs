@@ -314,7 +314,7 @@
       - name: Send to Excel
         href: log-query/log-excel.md
       - name: Send to Power BI
-        href: log-query/log-powerbi-excel.md
+        href: log-query/log-powerbi.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer

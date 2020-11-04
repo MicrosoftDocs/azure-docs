@@ -1,6 +1,6 @@
 ---
 title: Log Analytics integration with Power BI and Excel
-description: Answers common questions related to log queries and gets you started in using them.
+description: How to send results from Log Analytics to PowerBI
 ms.subservice: logs
 ms.topic: conceptual
 author: roygalMS
