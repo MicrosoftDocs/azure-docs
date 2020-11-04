@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Babylon (preview)
+title: Introduction to Azure Babylon
 description: This article provides an overview of Azure Babylon, including its features and the problems it addresses. Azure Babylon enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
@@ -9,34 +9,13 @@ ms.topic: overview
 ms.date: 09/10/2020
 ---
 
-# What is Azure Babylon (preview)?
+# What is Azure Babylon?
 
 Azure Babylon is a new cloud service for use by data users. You use Azure Babylon to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
 
 With the UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
 
-Subject-matter experts, owners, and security administrators can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification and autolabeling policies, based on metadata and content inspection.
-
-The Azure Babylon preview provides customers early access to preview releases in their Azure subscriptions for evaluation. You get product support and can provide feedback directly to the product team.
-
-## Transition from ADC Gen 2 to Azure Babylon
-
-The service ADC Gen 2 is being rolled into a broader data governance offering named Azure Babylon.
-
-Based on the feedback from our customers who used the ADC Gen 2 preview, we're making the following changes.
-
-### Enhancements to the catalog UX
-
-* Business and technical users can find relevant data more easily.
-* Data stewards can manage the governance of data assets more effectively.
-
-### Enhancements to the data map platform powering the catalog UX
-
-* Powered additional data governance scenarios for data officers and consumers.
-* Made the catalog more ambient by integrating with Azure data sources such as Synapse.
-* Added classifications and increased the coverage of data sources that can be scanned.
-
-We released the first version of Azure Babylon under a preview in April to a handful of customers. These customers successfully provisioned Azure Babylon and used its cataloging capability. The Azure Babylon April release is at functional parity with the latest release of ADC Gen 2.
+Subject-matter experts, owners, and security administrators can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification and auto-labeling policies, based on metadata and content inspection.
 
 ## Discovery challenges for data consumers
 

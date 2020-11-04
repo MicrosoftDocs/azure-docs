@@ -46,21 +46,11 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
    You can add only one Azure Babylon account at a time.
 
-1. If necessary, change the **Subscription** to a subscription that's in the allow list for your preview access.
-
-   :::image type="content" source="./media/create-catalog-portal/change-subscription.png" alt-text="Screenshot showing the New Babylon account page with the allow-listed subscription selected.":::
-
 1. Select a **Resource group**, and then enter a **Babylon account name** for your catalog. Spaces and symbols aren't allowed.
 
-   > [!IMPORTANT]
-   > Don't name your catalog with your company name or use sensitive information during the preview. DNS names are not private, and your company's participation in the preview might be disclosed via the DNS name.
 1. Make a choice for **Location**, and then select **Next: Tags**.
-1. Optionally, add one or more tags.
-
-   These tags are for use only in the Azure portal, not the catalog. They don't affect the catalog for the purposes of the preview.
-1. Select **Review & Create**, and then select **Create**.
-
-   It takes a few minutes to complete the catalog creation. The newly created Azure Babylon account instance appears in the list on your **Babylon accounts** page.
+1. Optionally, add one or more tags. These tags are for use only in the Azure portal, not the catalog.
+1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the catalog creation. The newly created Azure Babylon account instance appears in the list on your **Babylon accounts** page.
 1. When the new account is ready, select **Go to resource**.
 
 1. Select **Launch babylon account**.
