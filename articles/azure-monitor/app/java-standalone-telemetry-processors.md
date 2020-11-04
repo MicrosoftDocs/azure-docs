@@ -59,7 +59,7 @@ The attribute processor and the span processor expose the option to provide a se
 > [!NOTE]
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties.
 
-### Sample Usage
+#### Sample Usage
 
 The following demonstrates specifying the set of span properties to
 indicate which spans this processor should be applied to. The `include` of
@@ -120,12 +120,12 @@ The following spans do not match the include properties and processor actions ar
 ## Attribute Processor 
 
 The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans.
-It takes a list of actions which are performed in order specified in the config. The supported actions are:
+It takes a list of actions which are performed in order specified in the configuration file. The supported actions are:
 
-* `insert` : Inserts a new attribute in spans where the key does not already exist.
-* `update` : Updates an attribute in spans where the key does exist.
-* `delete` : Deletes an attribute from a span.
-* `hash`   : Hashes (SHA1) an existing attribute value.
+* `insert` : Inserts a new attribute in spans where the key does not already exist
+* `update` : Updates an attribute in spans where the key does exist
+* `delete` : Deletes an attribute from a span
+* `hash`   : Hashes (SHA1) an existing attribute value
 
 For the actions `insert` and `update`
 * `key` is required
@@ -144,7 +144,7 @@ The list of actions can be composed to create rich scenarios, such as back filli
 
 #### Sample Usage
 
-The following example demonstrates inserting keys/values into spans.
+The following example demonstrates inserting keys/values into spans:
 
 ```json
 {
@@ -171,7 +171,7 @@ The following example demonstrates inserting keys/values into spans.
 }
 ```
 
-The following demonstrates configuring the processor to only update existing keys in an attribute.
+The following example demonstrates configuring the processor to only update existing keys in an attribute:
 
 ```json
 {
@@ -201,7 +201,7 @@ The following demonstrates configuring the processor to only update existing key
 }
 ```
 
-The following demonstrates how to process spans that have a span name that match regexp patterns. This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.*" 
+The following example demonstrates how to process spans that have a span name that match regexp patterns. This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.*" 
 and where span name does not match "login.*".
 
 ```json
@@ -244,7 +244,7 @@ and where span name does not match "login.*".
 
 The span processor modifies either the span name or attributes of a span based on the span name. It optionally supports the ability to include/exclude spans.
 
-#### Name a span
+### Name a span
 
 The following setting is required as part of the name section:
 
@@ -256,9 +256,9 @@ The following setting can be optionally configured:
 > [!NOTE]
 > If renaming is dependent on attributes being modified by the attributes processor, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
-##### Sample Usage
+#### Sample Usage
 
-The following specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
+The following example specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -280,17 +280,17 @@ The following specifies the values of attribute "db.svc", "operation", and "id" 
 }
 ```
 
-#### Extract attributes from span name
+### Extract attributes from span name
 
 Takes a list of regular expressions to match span name against and extract attributes from it based on subexpressions. Must be specified under the `toAttributes` section.
 
 The following settings are required:
 
-`rules` : A list of rules to extract attribute values from span name. The values in the span name are replaced by extracted attribute names. Each rule in the list is regex pattern string. Span name is checked against the regex and if the regex matches then all named subexpressions of the regex are extracted as attributes and are added to the span. Each subexpression name becomes an attribute name and subexpression matched portion becomes the attribute value. The matched portion in the span name is replaced by extracted attribute name. If the attributes already exist in the span then they will be overwritten. The process is repeated for all rules in the order they are specified. Each subsequent rule works on the span name that is the output after processing the previous rule.
+`rules` : A list of rules to extract attribute values from span name. The values in the span name are replaced by extracted attribute names. Each rule in the list is regex pattern string. Span name is checked against the regex. If the regex matches, all named subexpressions of the regex are extracted as attributes and are added to the span. Each subexpression name becomes an attribute name and subexpression matched portion becomes the attribute value. The matched portion in the span name is replaced by extracted attribute name. If the attributes already exist in the span, they will be overwritten. The process is repeated for all rules in the order they are specified. Each subsequent rule works on the span name that is the output after processing the previous rule.
 
-##### Sample Usage
+#### Sample Usage
 
-Let's assume the input span name is /api/v1/document/12345678/update. Applying the following results in the output span name /api/v1/document/{documentId}/update and this will add a new attribute "documentId"="12345678" to the span.
+Let's assume the input span name is /api/v1/document/12345678/update. Applying the following results in the output span name /api/v1/document/{documentId}/update will add a new attribute "documentId"="12345678" to the span.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
