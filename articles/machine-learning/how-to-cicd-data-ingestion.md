@@ -211,7 +211,7 @@ The values in the JSON file are default values configured in the pipeline defini
 
 The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running tests. If successful, it continues to the next environment. 
 
-The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) that perform the following steps:
+The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) that perform the following steps:
 
 * Deploy a Python Notebook to Azure Databricks workspace
 * Deploy an Azure Data Factory pipeline 
