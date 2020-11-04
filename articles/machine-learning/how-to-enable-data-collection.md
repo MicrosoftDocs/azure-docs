@@ -10,7 +10,7 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, data4ml
 
 ---
 # Collect data from models in production
