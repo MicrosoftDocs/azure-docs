@@ -132,7 +132,7 @@ Use these Azure CLI commands to create a Data Box Disk job.
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Use the [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) command to list credentials for a databox job:
+1. Use the [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) command to list credentials for a Data Box job:
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
