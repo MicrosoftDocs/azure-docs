@@ -285,7 +285,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
+        href: ../prepay-reserved-vm-instances.md
       - name: Prepay for Dedicated Hosts
         href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: What are Azure reservations?
