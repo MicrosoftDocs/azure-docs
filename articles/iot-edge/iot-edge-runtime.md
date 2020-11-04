@@ -222,8 +222,9 @@ To authenticate with a MQTT client, you first need to send a CONNECT packet to t
 
 Once authenticated, the IoT Edge hub has two ways to authorize client connections:
 
-1. By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
-2. By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.
+- By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
+
+- By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.
 
 
 ### Remote configuration
