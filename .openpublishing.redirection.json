@@ -35828,6 +35828,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/portal-create-fqdn.md",
+      "redirect_url": "/azure/virtual-machines/create-fqdn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/portal-create-fqdn.md",
+      "redirect_url": "/azure/virtual-machines/create-fqdn",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/media-services-protect-hls-with-fairplay.md",
       "redirect_url": "/azure/media-services/previous/media-services-protect-hls-with-fairplay",
       "redirect_document_id": false
