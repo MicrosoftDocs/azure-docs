@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMERNAME>.s.cequence.cloud`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Cequence Application Security application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Cequence Application Security application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| --------------- | --------- |
