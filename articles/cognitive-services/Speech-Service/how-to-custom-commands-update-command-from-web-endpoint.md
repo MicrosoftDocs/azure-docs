@@ -3,7 +3,7 @@ title: 'Update a command from a web endpoint'
 titleSuffix: Azure Cognitive Services
 description: update a command from a web endpoint
 services: cognitive-services
-author: encoronams
+author: encorona-ms
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -14,6 +14,8 @@ ms.author: encorona
 
 # Update a command from a web endpoint
 
+If your client application requires to update the state of an ongoing command without voice input you can use a call to a web endpoint to update the command.
+
 In this article, you will learn how update an ongoing command from a web endpoint.
 
 ## Prerequisites
@@ -22,7 +24,7 @@ In this article, you will learn how update an ongoing command from a web endpoin
 
 ## Create an Azure Function 
 
-For this example we'll need an HTTP-Triggered Azure Function that supports the following input (or a subset of this input).
+For this example we'll need an HTTP-Triggered [Azure Function](https://docs.microsoft.com/azure/azure-functions/) that supports the following input (or a subset of this input).
 
 ```JSON
 {
@@ -43,26 +45,28 @@ For this example we'll need an HTTP-Triggered Azure Function that supports the f
 
 Lets review the key attributes of this input.
 
-* "conversationId" is the unique identifier of the conversation, note that this id can be generated from the client app
-* "currentCommand" is the command currently active in the conversation
-* "name" is the name of the command and "parameters" is a map with the current values of the parameters
-* "currentGlobalParameters" is also a map like "parameters" but is used for global parameters
+| Attribute | Explanation |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **conversationId** | "conversationId" is the unique identifier of the conversation, note that this id can be generated from the client app. |
+| **currentCommand** | "currentCommand" is the command currently active in the conversation. |
+| **name** | "name" is the name of the command and "parameters" is a map with the current values of the parameters. |
+| **currentGlobalParameters** | "currentGlobalParameters" is also a map like "parameters" but is used for global parameters. |
 
 The output of the Azure Function needs to support the following format.
 
 ```JSON
 {
-    "updatedCommand": {
-      "name": "SomeCommandName",
-      "updatedParameters": {
-        "SomeParameterName": "SomeParameterValue"
-      },
-      "cancel": false
+  "updatedCommand": {
+    "name": "SomeCommandName",
+    "updatedParameters": {
+      "SomeParameterName": "SomeParameterValue"
     },
-    "updatedGlobalParameters": {
-      "SomeGlobalParameterName": "SomeGlobalParameterValue"
-    }
+    "cancel": false
+  },
+  "updatedGlobalParameters": {
+    "SomeGlobalParameterName": "SomeGlobalParameterValue"
   }
+}
 ```
 
 You might recognize this format since is the same one used when [updating a command from the client](./how-to-custom-commands-update-command-from-client.md). 
@@ -98,6 +102,9 @@ Now let's hook up the Azure Function with the existing Custom Commands app.
     > [!div class="mx-imgBorder"]
     > ![set web endpoint with remote updates](media/custom-commands/set-web-endpoint-with-remote-updates.png)
 1. Create a new Interaction rule called "IncrementRule" and add a Call web endpoint action.
+    > [!div class="mx-imgBorder"]
+    > ![set increment counter call endpoint](media/custom-commands/increment-rule-web-endpoint.png)
+
 1. In the action configuration, select the IncrementEndpoint, configure On success to Send speech response with the value of counter and On failure with an error message.
     > [!div class="mx-imgBorder"]
     > ![set increment counter call endpoint](media/custom-commands/set-increment-counter-call-endpoint.png)
