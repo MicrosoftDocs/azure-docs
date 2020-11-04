@@ -19,8 +19,10 @@
   items:
     - name: Share data
       href: share-your-data.md
+      displayName: Azure CLI, az datashare account create, az datashare create
     - name: Accept and receive data
       href: subscribe-to-data-share.md
+      displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
 - name: Concepts
   items:
   - name: Azure Data Share terminology

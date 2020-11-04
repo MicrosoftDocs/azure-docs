@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 11/09/2020
 ---
 # Tutorial: Share data using Azure Data Share  
 
@@ -97,7 +97,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 Use these commands to create the resource:
 
-1. Use the [az account set]( /cli/azure/account #az_account_set) command to set your subscription to be the current default subscription:
+1. Use the [az account set](/cli/azure/account#az_account_set) command to set your subscription to be the current default subscription:
 
    ```azurecli
    az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -115,7 +115,7 @@ Use these commands to create the resource:
    az group create --name test-resource-group --location "East US 2"
    ```
 
-1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account #ext_datashare_az_datashare_account_create) to create a Data Share account:
+1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) to create a Data Share account:
 
    ```azurecli
    az datashare account create --resource-group test-resource-group --name datashareaccount --location "East US 2" 
@@ -192,13 +192,17 @@ Use these commands to create the resource:
 1. Run the [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) command to create your Data Share.
 
    ```azurecli
-   az datashare create --resource-group test-resource-group --name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
+   az datashare create --resource-group test-resource-group \
+     --name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount \
+     --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
 
 1. Use the [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create)
 
    ```azurecli
-   az datashare invitation create --resource-group test-resource-group --name DataShareInvite --share-name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
+   az datashare invitation create --resource-group test-resource-group \
+     --name DataShareInvite --share-name ContosoMarketplaceDataShare \
+     --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
    ```
 
 ---

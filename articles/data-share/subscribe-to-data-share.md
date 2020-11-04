@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 11/09/2020
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -119,7 +119,10 @@ Copy your invitation ID for use in the next section.
 Use the [az datashare consumer share-subscription create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) command to create the Data Share.
 
 ```azurecli
-az datashare consumer share-subscription create --resource-group share-rg --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 --source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
+az datashare consumer share-subscription create --resource-group share-rg \
+  --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount \
+  --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 \
+--source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
 ```
 
 ---
@@ -151,61 +154,82 @@ Use these commands to configure where you want to receive data.
 1. Run the [az datashare consumer share-subscription list-source-dataset](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) command to get the data set ID:
 
    ```azurecli
-   az datashare consumer share-subscription list-source-dataset --resource-group "share-rg" --account-name "FabrikamDataShareAccount" --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111 --query "[0].dataSetId"
+   az datashare consumer share-subscription list-source-dataset \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "[0].dataSetId"
    ```
 
 1. Run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a storage account for this Data Share:
 
    ```azurecli
-   az storage account create --resource-group "share-rg" --name "FabrikamDataShareAccount"  --subscription 11111111-1111-1111-1111-111111111111
+   az storage account create --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --subscription 11111111-1111-1111-1111-111111111111
    ```
 
 1. Use the [az storage account show](/cli/azure/storage/account#az_storage_account_show) to get the storage account ID:
 
    ```azurecli
-   az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" --subscription 11111111-1111-1111-1111-111111111111 --query "id"
+   az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "id"
    ```
 
 1. Use the following command to get the account principal ID:
 
    ```azurecli
-   az datashare account show --resource-group "share-rg" --name "cli_test_consumer_account" --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
+   az datashare account show --resource-group "share-rg" --name "cli_test_consumer_account" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
    ```
 
 1. Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to create a role assignment for the account principal:
 
    ```azurecli
-   az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 --assignee-principal-type ServicePrincipal --scope 456789ab-cdef-0123-4567-89abcdef0123 --subscription 11111111-1111-1111-1111-111111111111
+   az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" \
+     --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 
+     --assignee-principal-type ServicePrincipal --scope 456789ab-cdef-0123-4567-89abcdef0123 \
+     --subscription 11111111-1111-1111-1111-111111111111
    ```
 
 1. Create a variable for the mapping based on the dataset ID:
 
    ```azurecli
-   $mapping='{\"data_set_id\":\"' + $dataset_id + '\",\"container_name\":\"newcontainer\",\"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
+   $mapping='{\"data_set_id\":\"' + $dataset_id + '\",\"container_name\":\"newcontainer\",
+     \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
 1. Use the [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) the dataset mapping:
 
    ```azurecli
-   az datashare consumer dataset-mapping create --resource-group "share-rg" --name "consumer-data-set-mapping" --account-name "FabrikamDataShareAccount" --share-subscription-name "Fabrikam Solutions" --mapping $mapping --subscription 11111111-1111-1111-1111-111111111111
+   az datashare consumer dataset-mapping create --resource-group "share-rg" \
+     --name "consumer-data-set-mapping" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" --mapping $mapping \
+     --subscription 11111111-1111-1111-1111-111111111111
    ```
 
 1. Run the [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) to start dataset synchronization.
 
    ```azurecli
-   az datashare consumer share-subscription synchronization start --resource-group "share-rg" --account-name "FabrikamDataShareAccount"  --share-subscription-name "Fabrikam Solutions" --synchronization-mode "Incremental" --subscription 11111111-1111-1111-1111-111111111111
+   az datashare consumer share-subscription synchronization start \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount"  \
+     --share-subscription-name "Fabrikam Solutions" --synchronization-mode "Incremental" \
+     --subscription 11111111-1111-1111-1111-111111111111
    ```
 
    Run the [az datashare consumer share-subscription synchronization list](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) command to see a list of your synchronizations:
 
    ```azurecli
-   az datashare consumer share-subscription synchronization list --resource-group "share-rg" --account-name "FabrikamDataShareAccount"  --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111
+   az datashare consumer share-subscription synchronization list \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" \
+     --subscription 11111111-1111-1111-1111-111111111111
    ```
 
    Use the [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) command to see synchronization settings set on your share.
 
    ```azurecli
-   az datashare consumer share-subscription list-source-share-synchronization-setting --resource-group "share-rg" --account-name "FabrikamDataShareAccount" --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111
+   az datashare consumer share-subscription list-source-share-synchronization-setting \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111
    ```
 
 ---
@@ -229,7 +253,11 @@ These steps only apply to snapshot-based sharing.
 Run the [az datashare consumer trigger create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) command to trigger a snapshot:
 
 ```azurecli
-az datashare consumer trigger create --resource-group "share-rg" --name "share_test_trigger" --account-name "FabrikamDataShareAccount" --share-subscription-name "Fabrikam Solutions" --recurrence-interval "Day" --synchronization-time "2020-04-23 18:00:00 +00:00" --kind ScheduleBased --subscription 11111111-1111-1111-1111-111111111111
+az datashare consumer trigger create --resource-group "share-rg" \
+  --name "share_test_trigger" --account-name "FabrikamDataShareAccount" \
+  --share-subscription-name "Fabrikam Solutions" --recurrence-interval "Day" \
+  --synchronization-time "2020-04-23 18:00:00 +00:00" --kind ScheduleBased \
+  --subscription 11111111-1111-1111-1111-111111111111
 ```
 
 > [!NOTE]
