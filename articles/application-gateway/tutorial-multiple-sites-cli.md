@@ -120,7 +120,7 @@ Add listeners that are needed to route traffic using [az network application-gat
 
 >[!NOTE]
 > With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) for more information.
->To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as space-separated values. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
+>To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to five host names as space-separated values. For example, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
