@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 Adding chit-chat to your bot makes it more conversational and engaging. The chit-chat feature in QnA maker allows you to easily add a pre-populated set of the top chit-chat, into your knowledge base (KB). This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
 
-This dataset has about 100 scenarios of chit-chat in the voice of multiple personas, like Professional,Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, QnA Maker tries to match it with the closest known chit-chat QnA.
+This dataset has about 100 scenarios of chit-chat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, QnA Maker tries to match it with the closest known chit-chat QnA.
 
 Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) along with details of the personalities.
 
@@ -55,11 +55,11 @@ During knowledge base creation, after adding your source URLs and files, there i
 ## Add Chit-chat to an existing KB
 Select your KB, and navigate to the **Settings** page. There is a link to all the chit-chat datasets in the appropriate **.tsv** format. Download the personality you want, then upload it as a file source. Make sure not to edit the format or the metadata when you download and upload the file.
 
-# [QnAMaker GA](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 ![Add chit-chat to existing KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-# [QnAMaker managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
 ![Add chit-chat to existing KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 
