@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how to integrate industry-standard models into DTDL for Azure Digital Twins, either by using special DTDL ontologies or converting existing ontologies
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/28/2020
+ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
 
