@@ -37,7 +37,7 @@ The total used capacity in a capacity pool against its provisioned amount is the
 The capacity consumption of snapshots in Azure NetApp Files is charged against the quota of the parent volume.  As a result, it shares the same billing rate as the capacity pool to which the volume belongs.  However, unlike the active volume, snapshot consumption is measured based on the incremental capacity consumed.  Azure NetApp Files snapshots are differential in nature. Depending on the change rate of the data, the snapshots often consume much less capacity than the logical capacity of the active volume. For example, assume that you have a snapshot of a 500-GiB volume that only contains 10 GiB of differential data. 
 The capacity consumption that is counted towards the volume quota for the active filesystem and snapshot would be 510 GiB, not 1000 GiB. As a general rule, a recommended 20% of capacity can be assumed to retain a week's worth of snapshot data (depending on snapshot frequency and application daily block level change rates). 
 
-The following diagram illustrates these concepts. 
+The following diagram illustrates the concepts. 
 
 * Assume a capacity pool with 40 TiB of provisioned capacity. The pool contains three volumes:    
     * Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12 TiB active, 1 TiB snapshots) of consumption.
