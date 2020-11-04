@@ -16,7 +16,7 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
 **Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](request-units.md) with a latency under 10 ms. Point reads return a single item.
 
-Here are some examples of how to do point reads with each SDK:
+Here are some examples of how to do **point reads** with each SDK:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
@@ -28,24 +28,24 @@ Here are some examples of how to do point reads with each SDK:
 
 Most read-heavy workloads on Azure Cosmos DB use a combination of both point reads and SQL queries. If you just need to read a single item, point reads are cheaper and faster than queries. Point reads don't need to use the query engine to access data and can read the data directly. Of course, it's not possible for all workloads to exclusively read data using point reads, so support of SQL as a query language and [schema-agnostic indexing](index-overview.md) provide a more flexible way to access your data.
 
-Here are some examples of how to do point reads with each SDK:
+Here are some examples of how to do **SQL queries** with each SDK:
 
-- [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?view=azure-dotnet)
+- [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.queryitems?view=azure-java-stable)
 - [Node.js SDK](/javascript/api/@azure/cosmos/queryiterator?view=azure-node-latest)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#query-items-query--parameters-none--partition-key-none--enable-cross-partition-query-none--max-item-count-none--enable-scan-in-query-none--populate-query-metrics-none----kwargs-)
-
-
 
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, create a container called `Families`. Create two simple JSON items in the container. You can run most of the sample queries in the Azure Cosmos DB query documentation using this data set.
+In your SQL API Cosmos DB account, open the [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) to create a container called `Families`. After the container is created, use the data structures browser, or menu, to find and open the container you just created. In your container, you will see the `Items` option. Open this option and you'll see a button in the center of the screen to create a 'New Item'. You will use this option to create the 2 JSON items below.
 
 ### Create JSON items
 
-The following code creates two simple JSON items about families. The simple JSON items for the Andersen and Wakefield families include parents, children and their pets, address, and registration information. The first item has strings, numbers, Booleans, arrays, and nested properties.
+The following JSON items are documents about the Andersen and Wakefield families. They include parents, children and their pets, address, and registration information. 
+
+The first item has strings, numbers, Booleans, arrays, and nested properties:
 
 ```json
 {
@@ -69,7 +69,7 @@ The following code creates two simple JSON items about families. The simple JSON
 }
 ```
 
-The second item uses `givenName` and `familyName` instead of `firstName` and `lastName`.
+The second item uses `givenName` and `familyName` instead of `firstName` and `lastName`:
 
 ```json
 {
