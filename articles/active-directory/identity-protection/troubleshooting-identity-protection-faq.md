@@ -25,17 +25,6 @@ ms.collection: M365-identity-device-management
 
 There is a current known issue causing latency in the user risk dismissal flow. If you have a "User risk policy", this policy will stop applying to dismissed users within minutes of clicking on "Dismiss user risk". However, there are known delays with the UX refreshing the "Risk state" of dismissed users. As a workaround, refresh the page on the browser level to see the latest user "Risk state".
 
-## Risky users report known issues
-
-Queries on the **username** field are case-sensitive, while queries on the **Name** field are case-agnostic.
-
-Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the column click **Columns** at the top of the Risky Users blade.
-
-**Dismiss all events** in classic Identity Protection sets the status of the risk detections to **Closed (resolved)**.
-
-## Risky sign-ins report known issues
-
-**Resolve** on a risk detection sets the status to **Users passed MFA driven by risk-based policy**.
 
 ## Frequently asked questions
 

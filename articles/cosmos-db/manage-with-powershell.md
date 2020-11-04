@@ -3,6 +3,7 @@ title: Manage Azure Cosmos DB Core (SQL) API resources using using PowerShell
 description: Manage Azure Cosmos DB Core (SQL) API resources using using PowerShell. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
@@ -10,6 +11,7 @@ ms.custom: seodec18
 ---
 
 # Manage Azure Cosmos DB Core (SQL) API resources using PowerShell
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB Core (SQL) API resources, including the Cosmos account, database, container, and throughput. For PowerShell cmdlets for other APIs see [PowerShell Samples for Cassandra](powershell-samples-cassandra.md), [PowerShell Samples for MongoDB API](powershell-samples-mongodb.md), [PowerShell Samples for Gremlin](powershell-samples-gremlin.md), [PowerShell Samples for Table](powershell-samples-table.md)
 
