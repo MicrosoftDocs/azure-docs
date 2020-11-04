@@ -15,8 +15,6 @@ ms.author: jushiman
 
 This section provides information on previous generations of virtual machine sizes. These sizes can still be used, but there are newer generations available.
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 ## F-series
 
 F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  
@@ -59,11 +57,32 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size, and striping of the attached disk(s).  For details, see [Design for high performance](premium-storage-performance.md).
 
+
+## NVv2-series
+
+**Newer size recommendation**: [NVv3-series](nvv3-series.md)
+
+The NVv2-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology with Intel Broadwell CPUs. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv2 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with its predecessor NV-series.  
+
+Each GPU in NVv2 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
+| Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
+| Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Older generations of virtual machine sizes
+
+This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
+
+For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
+
 <br>
 
-
-
-## Basic A  
+### Basic A  
 
 **Newer size recommendation**: [Av2-series](av2-series.md)
 
@@ -83,7 +102,7 @@ The basic tier sizes are primarily for development workloads and other applicati
 
 <br>
 
-## Standard A0 - A4 
+### Standard A0 - A4 using CLI and PowerShell
 
 In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
@@ -93,7 +112,7 @@ In the classic deployment model, some VM size names are slightly different in CL
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-## A-series  
+### A-series  
 
 **Newer size recommendation**: [Av2-series](av2-series.md)
 
@@ -118,7 +137,7 @@ Premium Storage caching:  Not Supported
 
 <br>
 
-## A-series (compute intensive)  
+### A-series - compute-intensive instances  
 
 **Newer size recommendation**: [Av2-series](av2-series.md)
 
@@ -145,7 +164,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 <br>
 
-## D-series  
+### D-series  
 
 **Newer size recommendation**: [Dav4-series](dav4-dasv4-series.md), [Dv4-series](dv4-dsv4-series.md) and [Ddv4-series](ddv4-ddsv4-series.md)
 
@@ -166,7 +185,7 @@ Premium Storage caching:  Not Supported
 
 <br>
 
-## D-series (memory optimized) 
+### D-series - memory optimized  
 
 **Newer size recommendation**: [Dav4-series](dav4-dasv4-series.md), [Dv4-series](dv4-dsv4-series.md) and [Ddv4-series](ddv4-ddsv4-series.md)
 
@@ -204,10 +223,10 @@ The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor 
 
 > [!IMPORTANT]
 >
-> DC-series VMs are [generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
+> DC-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 
 
-## DS-series  
+### DS-series  
 
 **Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
@@ -228,7 +247,7 @@ Premium Storage caching:  Supported
 
 <br>
 
-### DS-series (memory optimized)
+### DS-series - memory optimized  
 
 **Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
@@ -250,7 +269,7 @@ Premium Storage caching:  Supported
 
 <br>
 
-## Ls-series
+### Ls-series
 
 **Newer size recommendation**: [Lsv2-series](lsv2-series.md)
 
@@ -275,7 +294,7 @@ The maximum disk throughput possible with Ls-series VMs may be limited by the nu
 
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 
-## GS-series
+### GS-series
 
 **Newer size recommendation**: [Easv4-series](eav4-easv4-series.md), [Esv4-series](ev4-esv4-series.md), [Edsv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
 
@@ -301,7 +320,7 @@ Premium Storage caching:  Supported
 
 <br>
 
-## G-series
+### G-series
 
 **Newer size recommendation**: [Eav4-series](eav4-easv4-series.md), [Ev4-series](ev4-esv4-series.md) and [Edv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
 
@@ -346,29 +365,8 @@ Memory Preserving Updates: Not Supported
 1 GPU = one-half M60 card.
 <br>
 
-
-## NVv2-series
-
-**Newer size recommendation**: [NVv3-series](nvv3-series.md)
-
-The NVv2-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology with Intel Broadwell CPUs. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv2 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with its predecessor NV-series.  
-
-Each GPU in NVv2 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
-| Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
-| Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
-
-
-<br>
-
-## NC series
+# NC series
 **Newer size recommendation**: [NC T4 v3-series](nct4-v3-series.md)
-
-> [!NOTE]
-> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) card and the Intel Xeon E5-2690 v3 (Haswell) processor. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
@@ -394,11 +392,8 @@ NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/conte
 <br>
 
 
-## NCv2 series
+# NCv2 series
 **Newer size recommendation**: [NC T4 v3-series](nct4-v3-series.md) and [NC V100 v3-series](ncv3-series.md)
-
-> [!NOTE]
-> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 NCv2-series VMs are powered by NVIDIA Tesla P100 GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. In addition to the GPUs, the NCv2-series VMs are also powered by Intel Xeon E5-2690 v4 (Broadwell) CPUs.
 
@@ -406,8 +401,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](mainten
-ance-and-updates.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 
@@ -426,11 +420,8 @@ ance-and-updates.md): Not Supported<br>
 
 <br>
 
-## ND series
+# ND series
 **Newer size recommendation**: [NDv2-series](ndv2-series.md) and [NC V100 v3-series](ncv3-series.md)
-
-> [!NOTE]
-> This sizes is still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
