@@ -26,7 +26,7 @@ Now that you know how to protect your web API, here's how you can move it to pro
 
 Learn how to call a downstream API.
 
-[Scenario-web-api-call-api-overview](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-web-api-call-api-overview)
+[Scenario-web-api-call-api-overview](scenario-web-api-call-api-overview.md)
 
 Learn more with tutorials and samples.
 
