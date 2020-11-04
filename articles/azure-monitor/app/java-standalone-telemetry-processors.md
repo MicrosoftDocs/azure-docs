@@ -8,7 +8,7 @@ ms.date: 10/29/2020
 
 # Telemetry processors with Java In Process Agent - preview
 
-Java In Process Agent has now the capabilities to process telemetry data before the data is exported.
+Java In Process Agent now has the capabilities to process telemetry data before the data is exported.
 
 ### Some Use Cases:
  * Mask sensitive data.
@@ -19,7 +19,7 @@ Java In Process Agent has now the capabilities to process telemetry data before 
  * Attribute Processor
  * Span Processor
 
-## Quick Start
+## To get started
 
 Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-***.jar`, with the following template.
 
@@ -45,9 +45,7 @@ Create a configuration file named `applicationinsights.json`, and place it in th
 }
 ```
 
-## Processor Configuration Options:
-
-### Include/Exclude Spans
+## Include/Exclude Spans
 
 The attribute processor and the span processor expose the option to provide a set of properties of a span to match against to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified, but all of the specified conditions must evaluate to true for a match to occur. 
 
@@ -55,7 +53,8 @@ The attribute processor and the span processor expose the option to provide a se
 `spanNames` must match at least one of the items. This is an optional field.
 `attributes` specifies the list of attributes to match against. All of these attributes must match exactly for a match to occur. This is an optional field.
 
-Note: If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties.
+> [!NOTE]
+> If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties.
 
 #### Sample Usage
 
@@ -63,20 +62,6 @@ The following demonstrates specifying the set of span properties to
 indicate which spans this processor should be applied to. The `include` of
 properties say which ones should be included and the `exclude` properties
 further filter out spans that shouldn't be processed.
-
-Ex. The following are spans match the properties and the actions are applied.
-Note this span is processed because the value type of redact_trace is a string instead of a boolean.
-
-Span1 Name: 'svcB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
-
-Span2 Name: 'svcA' Attributes: {env: staging, test_request: false, redact_trace: true}
-
-The following spans do not match the include properties and the
-processor actions are not applied:
-
-Span3 Name: 'svcB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
-
-Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
 
 ```json
 {
@@ -117,7 +102,19 @@ Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
 }
 ```
 
-### Attribute Processor 
+With the above configuration the following spans match the properties and processor actions are applied.
+
+* Span1 Name: 'svcB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
+
+* Span2 Name: 'svcA' Attributes: {env: staging, test_request: false, redact_trace: true}
+
+The following spans do not match the include properties and processor actions are not applied:
+
+* Span3 Name: 'svcB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
+
+* Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
+
+## Attribute Processor 
 
 The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans.
 It takes a list of actions which are performed in order specified in the config. The supported actions are:
@@ -240,21 +237,21 @@ and where span name does not match "login.*".
 }
 ```
 
-### Span Processors
+## Span Processors
 
 The span processor modifies either the span name or attributes of a span based on the span name. It optionally supports the ability to include/exclude spans.
 
 #### Name a span
 
-The following settings are required as part of the name section:
+The following setting is required as part of the name section:
 
-`fromAttributes`: The attribute value for the keys are used to create a new name in the order specified in the configuration. All attribute keys needs to be specified in the span for the processor to rename it.
+* `fromAttributes`: The attribute value for the keys are used to create a new name in the order specified in the configuration. All attribute keys needs to be specified in the span for the processor to rename it.
 
-The following settings can be optionally configured:
+The following setting can be optionally configured:
 
-`separator`: A string, which is specified will be used to split values
-
-Note: If renaming is dependent on attributes being modified by the attributes processor, ensure the span processor is specified after the attributes processor in the pipeline specification.
+* `separator`: A string, which is specified will be used to split values
+> [!NOTE]
+> If renaming is dependent on attributes being modified by the attributes processor, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
 ##### Sample Usage
 
@@ -290,7 +287,7 @@ The following settings are required:
 
 ##### Sample Usage
 
-Let's assume input span name is /api/v1/document/12345678/update. Applying the following results in output span name /api/v1/document/{documentId}/update and will add a new attribute "documentId"="12345678" to the span.
+Let's assume the input span name is /api/v1/document/12345678/update. Applying the following results in the output span name /api/v1/document/{documentId}/update and this will add a new attribute "documentId"="12345678" to the span.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
