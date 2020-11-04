@@ -25,9 +25,14 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
 
@@ -54,8 +59,11 @@ Operating Systems where the module can be installed:
 - Windows
 
 > [!NOTE]
-> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on
+> The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
+>
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
 
