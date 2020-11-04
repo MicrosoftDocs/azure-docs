@@ -106,9 +106,9 @@ Guest Configuration and Baseline Management modules.
 1. The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
 
-```azurepowershell-interactive
-Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
-```
+   ```azurepowershell-interactive
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
+   ```
 
 1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
    Configuration policy definition. Use the `New-GuestConfigurationPolicy` cmdlet to create the
