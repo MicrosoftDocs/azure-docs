@@ -34,30 +34,30 @@ You must have JSON documents in this format: ID and text.
 The document size must be under 5,120 characters per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following sample is an example of content you might submit for language detection:
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "text": "This document is in English."
-            },
-            {
-                "id": "2",
-                "text": "Este documento está en inglés."
-            },
-            {
-                "id": "3",
-                "text": "Ce document est en anglais."
-            },
-            {
-                "id": "4",
-                "text": "本文件为英文"
-            },
-            {
-                "id": "5",
-                "text": "Этот документ на английском языке."
-            }
-        ]
-    }
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "This document is in English."
+        },
+        {
+            "id": "2",
+            "text": "Este documento está en inglés."
+        },
+        {
+            "id": "3",
+            "text": "Ce document est en anglais."
+        },
+        {
+            "id": "4",
+            "text": "本文件为英文"
+        },
+        {
+            "id": "5",
+            "text": "Этот документ на английском языке."
+        }
+    ]
+}
 ```
 
 ## Step 1: Structure the request
@@ -167,19 +167,19 @@ For example, "Impossible" is common to both English and French and if given with
 **Input**
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "text": "impossible"
-            },
-            {
-                "id": "2",
-                "text": "impossible",
-                "countryHint": "fr"
-            }
-        ]
-    }
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "impossible"
+        },
+        {
+            "id": "2",
+            "text": "impossible",
+            "countryHint": "fr"
+        }
+    ]
+}
 ```
 
 The service now has additional context to make a better judgment: 
@@ -250,14 +250,14 @@ Mixed-language content within the same document returns the language with the la
 **Input**
 
 ```json
+{
+    "documents": [
     {
-      "documents": [
-        {
-          "id": "1",
-          "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
-        }
-      ]
+        "id": "1",
+        "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
     }
+    ]
+}
 ```
 
 **Output**
