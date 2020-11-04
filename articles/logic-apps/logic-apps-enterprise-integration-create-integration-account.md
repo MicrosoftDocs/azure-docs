@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/04/2020
 ---
 
 # Create and manage integration accounts for B2B enterprise integrations in Azure Logic Apps
