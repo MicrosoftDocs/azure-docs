@@ -697,8 +697,10 @@
             - name: Overview
               href: app/java-in-process-agent.md
             - name: Configuration options
-              href: app/java-standalone-config.md 
-            - name: JVM arguments setup 
+              href: app/java-standalone-config.md
+            - name: Telemetry processors
+              href: app/java-standalone-telemetry-processors.md
+            - name: JVM arguments setup
               href: app/java-standalone-arguments.md
       - name: On-Premises servers
         items:
