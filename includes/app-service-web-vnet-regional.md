@@ -88,7 +88,7 @@ If you want to route all outbound traffic on-premises, you can use a route table
 
 Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic will be affected. By default, BGP routes affect only your RFC1918 destination traffic. If WEBSITE_VNET_ROUTE_ALL is set to 1, all outbound traffic can be affected by your BGP routes.
 
-### DNS 
+### Azure DNS Private Zones 
 
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. You can override this behavior on your app by configuring the app setting WEBSITE_DNS_SERVER with the address of your desired DNS server. If you had a custom DNS server configured with your VNet but wanted to have your app use Azure DNS private zones, you should set WEBSITE_DNS_SERVER with value 168.63.129.16. 
 
