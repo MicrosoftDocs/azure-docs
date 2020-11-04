@@ -255,6 +255,9 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore, georestore, geo-restore, outage
+      - name: Restore a dropped server
+        href: howto-restore-dropped-server.md
+        displayName: restore server,dropped, recover
     - name: Enable authentication
       items:
         - name: Create users
