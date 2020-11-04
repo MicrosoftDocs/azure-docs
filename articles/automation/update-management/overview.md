@@ -22,7 +22,7 @@ Before deploying Update Management and enabling your machines for management, ma
 Machines that are managed by Update Management rely on the following to perform assessment and to deploy updates:
 
 * [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux
-* PowerShell Desired State Configuration (DSC) for Linux (automatically installed when you enable Update Management on the machine)
+* PowerShell Desired State Configuration (DSC) for Linux
 * Automation Hybrid Runbook Worker (automatically installed when you enable Update Management on the machine)
 * Microsoft Update or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) for Windows machines
 * Either a private or public update repository for Linux machines
