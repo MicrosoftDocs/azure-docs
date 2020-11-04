@@ -33,7 +33,7 @@ This article focuses on managing digital twins; to work with relationships and t
 To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 To create a digital twin, you need to provide:
