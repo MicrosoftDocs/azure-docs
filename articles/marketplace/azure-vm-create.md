@@ -17,13 +17,13 @@ Before you start, [create a commercial marketplace account in Partner Center](pa
 
 ## Before you begin
 
-If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer. 
+If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer.
 
 ## Create a new offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. On the left pane, select **Commercial Marketplace** > **Overview**.
-3. On the **Overview** page, select **New offer** > **Azure Virtual Machine**.
+3. On the **Overview** page, select **+ New offer** > **Azure Virtual Machine**.
 
     ![Screenshot showing the left pane menu options and the "New offer" button.](./media/create-vm/new-offer-azure-virtual-machine.png)
 
@@ -40,6 +40,8 @@ Enter an **Offer alias**. The offer alias is the name that's used for the offer 
 
 - This name isn't used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
 
+Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
+
 ## Enable a test drive (optional)
 
 A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
@@ -47,16 +49,14 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-**To enable a test drive**
-1.	Under **Test drive**, select the **Enable a test drive** check box.
-1.	Select the test drive type from the list that appears.
+To enable a test drive, select the **Enable a test drive** check box. You will configure the test drive later. With test drive, configuring a CRM is required (see next section).
 
-## Configure lead management
+## Configure customer leads management
 
-When you're publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
+When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
 1.Under **Customer leads**, select the **Connect** link.
-1. In the **Connection details** dialog box, select a lead destination from the list.
+1. In the **Connection details** dialog box, select a lead destination.
 1. Complete the fields that appear. For detailed steps, see the following articles:
 
    - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
@@ -66,15 +66,11 @@ When you're publishing your offer to the commercial marketplace with Partner Cen
    - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. To validate the configuration you provided, select the **Validate** link.
-1. To close the dialog box, select **OK**.
+1. Select **Connect**.
 
-## Resell through CSPs
-
-Expand the reach of your offer by making it available to partners in the [Cloud Solution Provider (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) program. All Bring-your-own-license (BYOL) plans are automatically opted in to the program. You can also choose to opt in your non-BYOL plans.
-
-Select **Create** to generate the offer and continue.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 
-- [Configure virtual machine offer properties](azure-vm-create-properties.md)
+- [How to configure virtual machine offer properties](azure-vm-create-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
