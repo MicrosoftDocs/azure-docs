@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Troubleshooting in Azure Communication Services
 
-This document will help you gather the information you need to troubleshoot your Communication Services solution.
+This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
@@ -30,6 +30,8 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages. 
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
+* **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
+
 
 ## Access your MS-CV ID
 
@@ -123,6 +125,44 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## Enable and access call logs
+
+
+
+
+# [JavaScript](#tab/javascript)
+
+The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript client library:
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# [iOS](#tab/ios)
+
+When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container". 
+
+This will give you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
+
+# [Android](#tab/android)
+
+When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request. 
+   
+
+---
+
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
