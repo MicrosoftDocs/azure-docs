@@ -30,7 +30,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39534.).
 
-**Guidance**: Azure Advisor does not support deploying directly into a virtual network, because of this you can not leverage certain networking features with the offering's resources such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall.
+**Guidance**: Not applicable; Azure Advisor does not support deploying directly into a virtual network, because of this you can not leverage certain networking features with the offering such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -85,9 +85,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39539.).
 
-**Guidance**: Not applicable; 
-
-Azure Advisor does not currently support service tags or representing its public IP range as a grouping of service IPs for reference in network security rules.
+**Guidance**: Not Applicable; Azure Advisor does not currently support service tags or representing its public IP range as a grouping of service IPs for reference in network security rules.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -114,9 +112,8 @@ Azure Advisor does not currently support service tags or representing its public
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39520.).
 
 **Guidance**: Azure Advisor uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
-Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
-
-Your organization's resources, such as applications on Azure or your corporate network resources.
+- Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+- Your organization's resources, such as applications on Azure or your corporate network resources.
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
@@ -132,14 +129,14 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-2: Manage application identities securely and automatically
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39521.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't use any identities or manage any secrets for identities.
+**Guidance**: Not applicable; Azure Advisor uses Azure Active Directory for identity and authentication. Advisor doesn't host applications and does not use any application-level identities or manage any secrets.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -162,11 +159,14 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39523.).
 
 **Guidance**: Azure Advisor uses Azure Active Directory that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
-Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
-
-Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
+- Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
+- Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
 For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
+
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
+
+- [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -178,13 +178,10 @@ For administrator and privileged users, ensure the highest level of the strong a
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39524.).
 
 **Guidance**: Azure Advisor is integrated with Azure Active Directory in which provides the following data sources:
-Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
-
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
-
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
-
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+- Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
 These data sources can be integrated with Azure Monitor, Azure Sentinel or third party SIEM systems.
 
@@ -222,7 +219,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39526.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't allow customer to deploy any persisted data into the running environment.
+**Guidance**: Not applicable; Azure Advisor uses Azure Active Directory for authentication and Azure RBAC to manage access. Advisor doesn't use keys for authenticating to the service, this control is focused on credentials in code.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -233,7 +230,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39562.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't access any legacy applications.
+**Guidance**: Not applicable; Azure Advisor is not intended to host customer applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -265,11 +262,11 @@ Ensure that you also restrict access to the management, identity, and security s
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151 
+- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-Management Group Access ../../governance/management-groups/overview.md#management-group-access 
+- [Management Group Access](../../governance/management-groups/overview.md#management-group-access)
 
-Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md
+- [Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -299,7 +296,7 @@ Note: Some Azure services support local users and roles which not managed throug
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39530.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't support emergency accounts or doesn't need emergency accounts.
+**Guidance**: Not applicable; Azure Advisor doesn't support emergency accounts or doesn't need service-specific emergency accounts set up.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -425,18 +422,28 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39563.).
 
-**Guidance**: Not applicable; The Azure Security Center 'Security Reader' role does not provide risk visibility for Azure Advisor
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
-**Azure Security Center monitoring**: Not applicable
+Depending on how security team responsibilities are structured, monitoring for security risks could  be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization. 
 
-**Responsibility**: Not applicable
+Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
+
+Note: Additional permissions might be required to get visibility into workloads and services. 
+
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
+
+- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39564.).
 
-**Guidance**: Not applicable; Azure Advisor does not allow for automated asset discovery for access by security teams. Thus it cannot be used with any asset inventory and metadata processes.
+**Guidance**: Not applicable; Azure Advisor does not deploy assets, it simply scans and surfaces recommendations based on the findings. For this reason it does not allow for automated asset discovery for access by security teams, and cannot be used with any asset inventory and metadata processes.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -447,7 +454,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39565.).
 
-**Guidance**: Not applicable; Azure Advisor does not have assets under management that the customer can configure.
+**Guidance**: Not applicable; Azure Advisor does not deploy assets that the customer can manage or configure. Advisor provides recommendations based on other Azure resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -458,7 +465,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39566.).
 
-**Guidance**: Not applicable; customer can not use Azure Advisor capabilities to inventory and manage assets.
+**Guidance**: Not applicable; Azure Advisor does not deploy assets that the customer can manage or configure. Advisor provides recommendations based on other Azure resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -469,18 +476,20 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39567.).
 
-**Guidance**: Not applicable; Azure Advisor does not provide capabilities to customers to limit their users' ability to access Azure Resource Manager. The customer should restrict this access with other means or methods.
+**Guidance**: Azure Advisor uses Azure Active Directory for identity and authentication, the management of the service is achieved via the Azure portal and Azure Resource Manager. Because of this design you can use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App if required. Note that this cannot be scoped to individual services, but applies across all of Azure Management.
+
+- [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### AM-6: Use only approved applications in compute resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39568.).
 
-**Guidance**: Not applicable; Azure Advisor is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
+**Guidance**: Not applicable; Azure Advisor does not deploy any customer facing compute resource or allow customers to install applications onto to service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -506,7 +515,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39547.).
 
-**Guidance**: Not applicable; Azure Advisor does not produce any logs related to identity and access management.
+**Guidance**: Not applicable; Azure Advisor is integrated with Azure Active Directory for identity and logging. However, it does not produce any unique logs related to identity and access management.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -517,7 +526,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39548.).
 
-**Guidance**: Not applicable; Azure Advisor either does not: support integrating with networks, or does not expose its network-related activities.
+**Guidance**: Not applicable; Azure Advisor is a PaaS feature used to find and visualize Azure recommendations. Advisor is not designed to integrate with customer virtual networks and does not produce any customer facing network-related logs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -576,9 +585,9 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39553.).
 
-**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness. Check that your service offering is included in the incident response process, as applicable.
+**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](https://aka.ms/AzSec4) 
+- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 - [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
@@ -591,15 +600,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39554.).
 
-**Guidance**: Set up security incident contact information in Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs.
-
-- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md) 
-
-Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
+**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
 - [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -608,16 +613,19 @@ Security incident contact information will be used by Microsoft to contact you i
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39555.).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The
-severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
-Additionally, clearly mark subscriptions (for ex. production, non-production) and create a naming system to clearly identify and categorize Azure resources.
+High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md) 
+Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
-- [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md)
+Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-**Azure Security Center monitoring**: Not applicable
+- [How to configure export](../../security-center/continuous-export.md)
+
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
+
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -626,17 +634,29 @@ Additionally, clearly mark subscriptions (for ex. production, non-production) an
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39556.).
 
-**Guidance**: Build out an incident response guide for your organization. Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
-Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-- [How to configure Workflow Automations within Azure Security Center](../../security-center/security-center-planning-and-operations-guide.md) 
+- Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information. 
 
-- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process) 
+- Snapshots of running systems: 
 
-- [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process) 
+    - Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk. 
 
-- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+    - Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
+
+    - Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
+
+Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
+
+- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
+
+- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
+
+- [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -647,15 +667,17 @@ Ensure that there are written incident response plans that define all roles of p
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39557.).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Additionally, clearly mark subscriptions (such as, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md) 
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md)
+- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -664,10 +686,16 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39558.).
 
-**Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
-- [How to configure Workflow Automation and Logic Apps](../../security-center/workflow-automation.md)
+**Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
+Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-**Azure Security Center monitoring**: Not applicable
+- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
+
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
+
+- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -680,7 +708,7 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39573.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't have any security configurations.
+**Guidance**: Not applicable; Azure Advisor does not deploy any service-specific assets or have any resource-related security configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -691,7 +719,7 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39574.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't have any security configurations.
+**Guidance**: Not applicable; Azure Advisor does not deploy any service-specific assets or have any resource-related security configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -702,7 +730,7 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39575.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't have any security configurations.
+**Guidance**: Not applicable; Azure Advisor does not deploy any service-specific assets or have any resource-related security configurations. It also does not expose any customer facing configurable compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -713,7 +741,7 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39576.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't have any security configurations.
+**Guidance**: Not applicable; Azure Advisor does not deploy any service-specific assets or have any resource-related security configurations. It also does not expose any customer facing configurable compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -735,22 +763,22 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39578.).
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Advisor.
+**Guidance**: Azure Advisor does not expose the underlying service infrastructure to customers, and customers are unable to use their own vulnerability assessment solutions with the service. Microsoft performs vulnerability management on the underlying systems that support Azure Advisor.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39579.).
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Advisor.
+**Guidance**: Azure Advisor does not expose the underlying service infrastructure to customers, and customers are unable to use their own vulnerability assessment solutions with the service. Microsoft performs vulnerability management on the underlying systems that support Azure Advisor.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### PV-8: Conduct regular attack simulation
 
@@ -758,16 +786,17 @@ Additionally, clearly mark subscriptions (such as, production, non-production) a
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39580.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
-
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](../fundamentals/pen-testing.md)  Penetration
+- [Penetration testing in Azure](../fundamentals/pen-testing.md)
 
-- [Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Shared
 
 ## Endpoint Security
 
@@ -815,7 +844,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39569.).
 
-**Guidance**: Not applicable; Azure Advisor uses Cosmos DB as the data storage with a TTL of 24 hours.
+**Guidance**: Not applicable; Azure Advisor does not store customer data or allow for customers to configure backups of underlying service data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -826,7 +855,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39570.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't support any data backup encryption.
+**Guidance**: Not applicable; Azure Advisor does not store customer data or allow for customers to configure backups of underlying service data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -837,7 +866,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39571.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't support any data backup and doesn't include customer managed keys.
+**Guidance**: Not applicable; Azure Advisor does not store customer data or allow for customers to configure backups of underlying service data. No stored customer data means that Advisor does support customer-managed keys.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -848,7 +877,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39572.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't manage any keys.
+**Guidance**: Not applicable; Azure Advisor doesn't use keys for any of the service's capabilities or features.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -884,7 +913,6 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
@@ -940,11 +968,11 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
-- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://aka.ms/AzSec1)
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://aka.ms/AzSec2)
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://aka.ms/AzSec3)
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -972,8 +1000,7 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
-
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
@@ -1010,7 +1037,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure identity management security overview](../fundamentals/identity-management-overview.md)
 
@@ -1047,7 +1074,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 - [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
