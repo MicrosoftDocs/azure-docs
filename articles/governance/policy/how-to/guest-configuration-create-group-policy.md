@@ -27,7 +27,7 @@ machines.
 > definitions:
 > - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 > 
-> Don't use secrets or confidential information in custom content packages
+> Don't use secrets or confidential information in custom content packages.
 
 The DSC community has published the
 [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported

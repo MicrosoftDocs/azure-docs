@@ -32,7 +32,7 @@ non-Azure machine.
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 > `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 > 
-> Don't use secrets or confidential information in custom content packages
+> Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
 
