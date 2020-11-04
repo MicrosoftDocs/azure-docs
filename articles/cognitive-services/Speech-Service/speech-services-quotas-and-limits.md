@@ -32,7 +32,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 #### Batch Transcription
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| REST API Request limit | 100 requests per 10 seconds | 100 requests per 10 seconds |
+| REST API Request limit | Batch transcription is not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit above) | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |
@@ -43,6 +43,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 #### Model Customization
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
+| REST API Request limit | 300 requests per minute | 300 requests per minute |
 | Max number of speech datasets | 2 | 500 |
 | Max acoustic dataset file size for Data Import | 2 GB | 2 GB |
 | Max language dataset file size for Data Import | 200 MB | 1.5 GB |
