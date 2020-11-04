@@ -1,8 +1,13 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-convert-models.md",
+      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/concepts-convert-models.md",
-      "redirect_url": "/azure/digital-twins/how-to-convert-models",
+      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
     },
     {

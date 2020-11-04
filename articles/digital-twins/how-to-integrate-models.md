@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Convert industry-standard models
+title: Integrate industry-standard models
 titleSuffix: Azure Digital Twins
-description: Understand the pattern for converting industry-standard (RDF/OWL) models to DTDL
+description: Understand how to integrate industry-standard models into DTDL for Azure Digital Twins, either by using special DTDL ontologies or converting existing ontologies
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 10/28/2020
@@ -15,27 +15,26 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Convert industry-standard models to DTDL for Azure Digital Twins
+# Integrate industry-standard models with DTDL for Azure Digital Twins
 
-Models in Azure Digital Twins are represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you'll need to **convert them to DTDL** to use them with Azure Digital Twins. The DTDL version will then become the source of truth for the model within Azure Digital Twins.
+Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
 
-This article describes a pattern for converting RDF-based industry or custom models to DTDL. It includes:
-* **Strategy-level guidance** that can be applied to a variety of standards and model types
-* [**Sample code** for an RDF-specific converter](#sample-converter-application)
+To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
 
-## Industry models  
+There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
+* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
+* If you already have existing models that are based on an industry standard, you'll need to **convert them to DTDL** in order to bring them into Azure Digital Twins.
 
-Using industry models provides a rich starting point when designing your Azure Digital Twins model. Using industry models also helps with standardization and information sharing.
+You can also always use the ideas from your industry models to develop your own custom DTDL models from scratch, as described in [*How-to: Manage custom models*](how-to-manage-model.md).
 
-Depending on your needs, there are several ways you can work with industry models in Azure Digital Twins.
+## Use a starter DTDL ontology for your industry 
+
 For some industries, there are starter DTDL ontologies (sets of models) available that help provide common ground for industry standards and DTDL requirements to prevent reinvention. You can also extend or contribute to a starter ontology to customize it to your business. 
 
 Here are the starter DTDL ontologies currently available:
 * For the real estate industry – the [Smart Building DTDL-based ontology](https://github.com/Azure/opendigitaltwins-building) (created in partnership with the RealEstateCore Consortium). Here you can find models for smart buildings, as well as best practices for how to consume and extend the ontology.
 
 For other domains that do not currently offer starter DTDL ontologies, like smart cities and energy grids, you can follow the best practices outlined in this article to convert industry models and create your own solutions.
-
-Finally, you can also use the ideas from your industry models to develop your own [custom DTDL models](how-to-manage-model.md) from scratch.
 
 ## Create and edit models
 
@@ -93,9 +92,13 @@ When working with models in DTDL, you can use the [**DTDL extension**](https://m
 
 You can read more about Azure Digital Twins models and their components in [*Concepts: Custom models*](concepts-models.md) and [*How-to: Manage custom models*](how-to-manage-model.md).
 
-## Convert models to DTDL
+## Convert industry-standard models to DTDL
 
-To use a model with Azure Digital Twins, it must be in DTDL format. This section covers how to convert RDF-based models to DTDL so that they can be used with Azure Digital Twins.
+To use a model with Azure Digital Twins, it must be in DTDL format. This section describes a pattern for converting convert RDF-based models to DTDL so that they can be used with Azure Digital Twins, including...
+* **Strategy-level guidance** that can be applied to a variety of standards and model types
+* [**Sample code** for an RDF-specific converter](#sample-converter-application)
+
+### Conversion pattern
 
 There are several third-party libraries that can be used when converting RDF-based models to DTDL. Some of these libraries allow you to load your model file into a graph. You can loop through the graph looking for specific RDFS and OWL constructs, and convert these to DTDL.   
 
@@ -159,13 +162,7 @@ var json = JsonConvert.SerializeObject(_interfaceList);
 //...
 ``` 
 
-## Validate and upload DTDL models
-
-[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
-
-Once a model is converted and validated, you can **upload it to your Azure Digital Twins instance**. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
-
-## Sample converter application 
+### Sample converter application 
 
 There is a sample application available that converts an RDF-based model file to [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the Azure Digital Twins service. The sample is a .NET Core command-line application called **RdfToDtdlConverter**.
 
@@ -174,6 +171,12 @@ You can get the sample here: [**RdfToDtdlConverter**](https://docs.microsoft.com
 To download the code to your machine, hit the *Download ZIP* button underneath the title on the sample landing page. This will download a *ZIP* file under the name *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, which you can then unzip and explore.
 
 You can use this sample to see the conversion patterns in context, and to have as a building block for your own applications performing model conversions according to your own specific needs.
+
+## Validate and upload DTDL models
+
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+
+Once a model is converted and validated, you can **upload it to your Azure Digital Twins instance**. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
 
 ## Next steps 
 
