@@ -78,9 +78,9 @@ In this section, you'll learn about the validation process that Azure IoT Connec
 
 ## Use Metrics to troubleshoot issues in Azure IoT Connector for FHIR (preview)
 
-Azure IoT Connector for FHIR generates multiple metrics to provide insights into the data flow process. One of the supported metrics is called *Total Errors*. This metrics provides the count for all errors that occur within an instance of Azure IoT Connector for FHIR.
+Azure IoT Connector for FHIR generates multiple metrics to provide insights into the data flow process. One of the supported metrics is called *Total Errors*, which provides the count for all errors that occur within an instance of Azure IoT Connector for FHIR.
 
-Each error is logged with number of associated properties, each providing different aspect about the error that could help you to identify and troubleshoot issues. This section lists different type of error properties captured for each error in the *Total Errors* metric, and possible values for each property.
+Each error gets logged with a number of associated properties. Every property provides a different aspect about the error, which could help you to identify and troubleshoot issues. This section lists different properties captured for each error in the *Total Errors* metric, and possible values for these properties.
 
 > [!NOTE]
 > You can navigate to the *Total Errors* metric for an instance of Azure IoT Connector for FHIR (preview) as described on the [Azure IoT Connector for FHIR (preview) Metrics page](iot-metrics-display.md).
@@ -133,13 +133,13 @@ This property provides the name for a specific error. Here is the list of all er
 |Error name|Description|
 |----------|-----------|
 |MultipleResourceFoundException|Error occurred when multiple patient or device resources are found in the FHIR server for respective identifiers present in the device message|
-|TemplateNotFoundException|A device or FHIR mapping template is not configured with the instance of IoT Connector|
-|CorrelationIdNotDefinedException|Correlation Id is not specified in the device mapping template. This is a conditional error that would occur only when FHIR Observation must group device measurements using a correlation Id but its not configured correctly|
-|PatientDeviceMismatchException|This error occurs when the device resource on the FHIR server, associated with the device identifier present in the message, has a reference to a patient resource which doesn't match with the patient identifier present in the message|
-|PatientNotFoundException|Patient identifer is not present in the device message. Note this error will only occur when IoT Connector instance is configured with *Create* resolution type|
-|DeviceNotFoundException|Device identifer is not present in the device message|
-|PatientIdentityNotDefinedException|This error occurs when expression to parse patient identifier from the device message is not configured on the device mapping template. Note this error occurs only when IoT Connector's resolution type is set to *Create*|
-|DeviceIdentityNotDefinedException|This error occurs when expression to parse device identifier from the device message is not configured on the device mapping template|
+|TemplateNotFoundException|A device or FHIR mapping template isn't configured with the instance of IoT Connector|
+|CorrelationIdNotDefinedException|Correlation ID isn't specified in the device mapping template. CorrelationIdNotDefinedException is a conditional error that would occur only when FHIR Observation must group device measurements using a correlation ID but it's not configured correctly|
+|PatientDeviceMismatchException|This error occurs when the device resource on the FHIR server has a reference to a patient resource, which doesn't match with the patient identifier present in the message|
+|PatientNotFoundException|Patient identifer isn't present in the device message. Note this error will only occur when IoT Connector instance is configured with *Create* resolution type|
+|DeviceNotFoundException|Device identifer isn't present in the device message|
+|PatientIdentityNotDefinedException|This error occurs when expression to parse patient identifier from the device message isn't configured on the device mapping template. Note this error occurs only when IoT Connector's resolution type is set to *Create*|
+|DeviceIdentityNotDefinedException|This error occurs when expression to parse device identifier from the device message isn't configured on the device mapping template|
 |NotSupportedException|Error occurred when device message with unsupported format is received|
 
 ## Creating copies of the Azure IoT Connector for FHIR (preview) conversion mapping JSON
