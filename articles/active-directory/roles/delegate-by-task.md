@@ -348,6 +348,7 @@ Update all properties except User Principal Name | User administrator |
 Update User Principal Name for limited admins (see documentation) | User administrator | 
 Update User Principal Name property on privileged admins (see documentation) | Global Administrator | 
 Update user settings | Global Administrator | 
+Update Authentication methods | Authentication Administrator | Privileged Authentication Administrator, Global Administrator
 
 
 ## Support
