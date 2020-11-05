@@ -376,6 +376,7 @@ This example shows a reource definition for a nested logic app that permits inbo
                      {
                         "addressRange": []
                      }
+                  ]
                }
             },
             "endpointsConfiguration": {}
@@ -422,6 +423,7 @@ This example shows a reource definition for a nested logic app that permits inbo
                      {
                         "addressRange": "192.168.12.0/23"
                      }
+                  ]
                }
             },
             "endpointsConfiguration": {}
