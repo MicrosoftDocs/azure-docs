@@ -1,5 +1,5 @@
 ---
-title: Azure App Configuration REST API - Key-Value Revisions
+title: Azure App Configuration REST API - Key-value revisions
 description: Reference pages for working with key-value revisions using the Azure App Configuration REST API
 author: lisaguthrie
 ms.author: lcozzens

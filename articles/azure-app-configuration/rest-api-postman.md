@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Active Directory REST API - Test Using Postman
+title: Azure Active Directory REST API - Test by using Postman
 description: Use Postman to test the Azure App Configuration REST API
 author: lisaguthrie
 ms.author: lcozzens
