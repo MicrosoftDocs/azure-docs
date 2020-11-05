@@ -1,7 +1,7 @@
 ---
 title: Create automated ML experiments
 titleSuffix: Azure Machine Learning
-description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
+description: Learn how to define data sources, computes and configuration settings for your automated machine learning experiments.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperfq1
+ms.custom: how-to, devx-track-python,contperfq1, automl
 ---
 
 # Configure automated ML experiments in Python

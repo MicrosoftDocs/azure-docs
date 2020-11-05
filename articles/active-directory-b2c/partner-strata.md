@@ -60,13 +60,11 @@ The following architecture diagram shows the implementation.
 | 4. | The IdP challenges the user for credentials. Depending on the IdP, the user may require to do Multi-factor authentication (MFA).|
 | 5. | The IdP sends the authentication response back to Azure AD B2C. Optionally, the user may create a local account in the Azure AD B2C directory during this step.|
 | 6. | Azure AD B2C sends the user request to the endpoint specified during the Orchestrator app's registration in the Azure AD B2C tenant.|
-| 7. | The Orchestrator evaluates access policies and calculates attribute values to be included in HTTP headers forwarded to the app. During this step, the Orchestrator may call out to additional attribute providers to retrieve the information needed to set the header values correctly.|
-| 8. | The Orchestrator sets the header values and sends the request to the app.|
-| 9. | The user is now authenticated and has access to the app.|
+| 7. | The Orchestrator evaluates access policies and calculates attribute values to be included in HTTP headers forwarded to the app. During this step, the Orchestrator may call out to additional attribute providers to retrieve the information needed to set the header values correctly. The Orchestrator sets the header values and sends the request to the app.|
+| 8. | The user is now authenticated and has access to the app.|
 
 ## Get Maverics Identity Orchestrator
 
-To get the software you'll use to integrate your legacy on-premises app with Azure AD B2C, contact [Strata](https://www.strata.io/contact/). After you get the software, follow the steps below to determine Orchestrator-specific prerequisites and perform the required installation and configuration steps.
 
 ## Configure your Azure AD B2C tenant
 
