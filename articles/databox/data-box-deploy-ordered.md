@@ -287,16 +287,17 @@ Do the following steps in the Azure portal to order a device.
 
 11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.<!--What term should be used for a dialog box? Certainly not "blade"?--> 
 
-    For **Key vault**, you can select an existing key vault from the dropdown list. The key vault should be in the same region as the resource.
+    For **Key vault**, you can select an existing key vault from the dropdown list. The key vault should be in the same region as the resource you're creating.
 
     ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/customer-managed-key-03.png)
 
-    If you want to create a new key:
+    If you want to create a new key vault:
 
-    - Select **Create new** to create a new key vault. 
+    - Select **Create new** by **Key vault**. 
     - On the **Create key vault** screen:
       - Enter the resource group and the key vault name. 
-      - Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. 
+      - Ensure that **Soft delete** and **Purge protection** are enabled.
+      - Accept all other defaults. 
       - Select **Review + Create**.
 
       ![Create a new Azure Key Vault settings](./media/data-box-deploy-ordered/customer-managed-key-04.png)
@@ -307,13 +308,16 @@ Do the following steps in the Azure portal to order a device.
 
 12. In **Select key from Azure Key Vault**, you can select an existing key in the key vault.
 
-    ![Select existing key from Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)<!--Test existing key vault and reshoot, customer-managed-key-06-->
+    ![Select existing key from Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-06.png)
 
     If you want to create a new key:
 
-    - Select **Create new** and create a key. RSA key size can be 2048 or greater.
-
-      Enter a name for your new key, accept the other defaults, and select **Create**.
+    - Select **Create new**.
+    - Create a key on the **Create a key** screen.
+      - RSA key size can be 2048 or greater.
+      - Enter a name for your new key.
+      - Accept all other defaults.
+      - Select **Create**.
 
       ![Create a new key option](./media/data-box-deploy-ordered/customer-managed-key-07.png)
 
@@ -321,28 +325,29 @@ Do the following steps in the Azure portal to order a device.
 
     - Select the **Version** for the key, and then choose **Select**.<!--Should we discuss version options?-->
 
-      ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)<!--Reshoot, customer-managed-key-08-->
+      ![New key created in key vault](./media/data-box-deploy-ordered/customer-managed-key-08.png)
 
-    On the **Security** page, the **Encryption type** settings show the key vault and key selected for your customer-managed key.
+    On the **Security** page, the **Encryption type** settings show the key vault and key you selected for your customer-managed key.
 
     ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
-14. Select a user identity to associate this resource with the customer-managed key.
+14. Select a user identity to associate your new resource with the customer-managed key.
 
-    The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview)  
+    The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
+
 
     ![Select a user identity](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 
+    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).<!--Reshoot needed to get a subscription with a selectable user identity, select the user identity, and include the full Select button. Will have to edit out all Microsoft-specific identities.-->
+
     The selected user identity is shown in the **Encryption type** settings.
 
-    ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-11.png)<!--Reshoot in narrow window.-->
-
-    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-11.png)
 
     > [!IMPORTANT]
     > You can disable creation of a Microsoft managed key and move to a customer-managed key at any stage of the Data Box order. However, once you have created a customer-managed key, you cannot switch back to the Microsoft managed key.
 
-14. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password**.
+14. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
