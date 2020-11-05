@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -112,6 +112,14 @@ When your client requests an access token, Azure AD also returns an authenticati
 - The tenant ID contains the tenant in which the user was found. For guest users (Azure AD B2B scenarios), the tenant ID is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, the authentication result also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this user information is null.
 - The scopes for which the token was issued.
 - The unique ID for the user.
+
+## (Advanced) Accessing the signed-in user's token cache from background apps, APIs and services
+
+MSAL's token cache implementation can also be utilized to let background apps, APIs and services use the MSAL's access token cache to continue to act on-behalf of users in their absence. This is especially useful if the background apps and services need to continue to work on behalf of the user after the user has exited the frontend web app.
+
+Today, most background processes that need to work with user's data without them being present to authenticate or re-authenticate make use of [Application Permissions](https://docs.microsoft.com/graph/auth/auth-concepts#microsoft-graph-permissions) which often require an [admin consent](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). This requires an elevation of privilege and is often an unnecessary hassle as the developer originally did not intend to obtain a permission over what a user consents to their app.
+
+The sample, [Accessing the logged\-in user's token cache from background apps, APIs and services](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) shows how to access MSAL's token cache from background apps.
 
 ## Next steps
 
