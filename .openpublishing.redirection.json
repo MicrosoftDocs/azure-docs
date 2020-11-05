@@ -5689,6 +5689,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/prepay-reserved-vm-instances.md",
+      "redirect_url": "/azure/virtual-machines/prepay-reserved-vm-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/prepay-reserved-vm-instances.md",
+      "redirect_url": "/azure/virtual-machines/prepay-reserved-vm-instances",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
       "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
       "redirect_document_id": false
@@ -8619,6 +8629,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-function-vs-code.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-logic/app-service-logic-connector-http.md",
       "redirect_url": "/azure/connectors/connectors-native-http",
       "redirect_document_id": false
@@ -9704,22 +9724,22 @@
     },
     {
       "source_path": "articles/azure-functions/create-cli.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-function-python.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-function-powershell.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-python",
       "redirect_document_id": false
     },
     {
@@ -9739,7 +9759,7 @@
     },
     {
       "source_path": "articles/azure-functions/create-visual-studio-code.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-csharp",
       "redirect_document_id": false
     },
     {
@@ -9764,7 +9784,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-java",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-java",
       "redirect_document_id": false
     },
     {

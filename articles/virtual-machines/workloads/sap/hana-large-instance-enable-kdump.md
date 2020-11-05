@@ -18,7 +18,13 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Enable Kdump service
+# Kdump for SAP HANA on Azure Large Instances (HLI)
+
+Configuring and enabling kdump is a step that is needed to troubleshoot system crashes that do not have a clear cause.
+There are times when a system will unexpectedly crash that cannot be explained by a hardware or infrastructure problem.
+In these cases it can be an operating system or application problem and kdump will allow SUSE to determine why a system crashed.
+
+## Enable Kdump service
 
 This document describes the details on how to enable Kdump service on Azure HANA Large
 Instance(**Type I and Type II**)
@@ -61,6 +67,10 @@ Instance(**Type I and Type II**)
 ## Setup details
 
 - Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> this script is made based on our lab setup and Customer is expected to contact OS vendor for any further tuning.
+> Separate LUN is going to be provisioned for the new and existing servers for saving the dumps and script will take care of configuring the file system out of the LUN.
+> Microsoft will not be responsible for analyzing the dump. Customer has to open a ticket with OS vendor to get it analyzed.
 
 - Run this script on HANA Large Instance using the below command
 
@@ -71,7 +81,7 @@ Instance(**Type I and Type II**)
     sudo bash enable-kdump.sh
     ```
 
-- If the command outputs Kdump is successfully enabled, please reboot the system to apply the change, then the Kdump is successfully enabled. Reboot the system to apply changes.
+- If the command outputs Kdump is successfully enabled, please make sure to reboot the system to apply the changes successfully.
 
 - If the command output is Failed to do certain operation, Exiting!!!!, then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
 
@@ -103,3 +113,6 @@ If the script fails with an error or Kdump isn't enabled, raise service request 
 * OS version
 
 * Kernel version
+
+## Related Documents
+- To know more on [configuring the kdump](https://www.suse.com/support/kb/doc/?id=3374462)
