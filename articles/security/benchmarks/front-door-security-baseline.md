@@ -30,7 +30,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40094.).
 
-**Guidance**: Azure Front door does not support deploying directly into a virtual network
+**Guidance**: Microsoft Azure Front door does not support deploying directly into a virtual network
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -41,7 +41,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40095.).
 
-**Guidance**: Not applicable; AFD is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
+**Guidance**: Not applicable; Azure Front Door is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -52,7 +52,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40096.).
 
-**Guidance**: Not applicable, Azure Front door  is not designed to deploy into or be secured to a virtual network for access
+**Guidance**: Not applicable, Azure Front Door is not designed to deployed into or secured by a virtual network for private network access..
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -63,9 +63,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40097.).
 
-**Guidance**: ../../frontdoor/front-door-waf.md
-
-here is the link to the setup how to enable WAF with Azure Front door.
+**Guidance**: - [Tutorial - How to set up a geo-filtering WAF policy for your Front Door](../../frontdoor/front-door-tutorial-geo-filtering.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -76,7 +74,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40098.).
 
-**Guidance**: Not applicable, Azure Front door  does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
+**Guidance**: Not applicable, Azure Front Door does not support deployment into a virtual network. It cannot be configured with an IDS or IPS solution for network threat detection or prevention.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -87,7 +85,11 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40099.).
 
-**Guidance**: Use Virtual Network Service Tags to define network access controls on Network Security Groups configured for your Azure Front door resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name(AzureFrontDoor.Frontend, AzureFrontDoor.Backend,AzureFrontDoor.FirstParty) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Virtual Network Service tags to define network access controls on network security groups configured for your Azure Front Door offering resources. Service tags can be used in place of specific IP addresses when creating security rules. By specifying the service tag name( AzureFrontDoor.Frontend, AzureFrontDoor.Backend,AzureFrontDoor.FirstParty) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. 
+
+Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+
+- [Understand and use service tags](../../virtual-network/service-tags-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -98,7 +100,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40100.).
 
-**Guidance**: Not applicable; Azure Front door does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
+**Guidance**: Not applicable; Azure Front Door does not expose its underlying DNS configurations; these settings are maintained by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -113,7 +115,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40080.).
 
-**Guidance**: Not applicable; Azure Front door is not integrated with Azure Active Directory.
+**Guidance**: Not applicable; Azure Front Door is not integrated with Azure Active Directory (Azure AD).
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -124,7 +126,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40081.).
 
-**Guidance**: Not applicable; Azure Front Door  doesn't use any identities or manage any secrets for identities.
+**Guidance**: Not applicable; Azure Front Door does not use any identities or manage any secrets for identities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -135,7 +137,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40082.).
 
-**Guidance**: Not applicable; Azure front door doesn't support SSO for authentication to its resources.
+**Guidance**: Not applicable; Azure Front Door doesn't support SSO for authentication to its resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -146,7 +148,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40083.).
 
-**Guidance**: Not applicable; Azure Front door doesn't provide capability to support strong authentication.
+**Guidance**: Not applicable; Azure Front Door doesn't provide capability to support strong authentication.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -170,7 +172,9 @@ here is the link to the setup how to enable WAF with Azure Front door.
 
 **Guidance**: By default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions.
 
-- [here is the link to detail setup](../../frontdoor/front-door-tutorial-geo-filtering.md)
+here is the link to detail setup:
+
+- [Tutorial: How to set up a geo-filtering WAF policy for your Azure Front Door](../../frontdoor/front-door-tutorial-geo-filtering.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -181,7 +185,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40086.).
 
-**Guidance**: Not applicable; Azure Front door doesn't allow customer to deploy any persisted data into the running environment.
+**Guidance**: Not applicable; Azure Front Door doesn't allow customer to deploy any persisted data into the running environment.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -207,7 +211,7 @@ here is the link to the setup how to enable WAF with Azure Front door.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40087.).
 
-**Guidance**: Not applicable; Azure Front Door  doesn't use any administrative accounts.
+**Guidance**: Not applicable; Azure Front Door doesn't use any administrative accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -261,7 +265,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40091.).
 
-**Guidance**: Not applicable; Azure Front Door doesn't support any automation on account or role management.
+**Guidance**: Not applicable; Azure Front Door  doesn't support any automation on account or role management.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -543,11 +547,11 @@ Azure Front door  does not produce or process DNS query logs which would need to
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Front Door resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
+Enable Azure resource logs for  Azure Front Door. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
+
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
 - [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md) 
-
-Enable Azure resource logs for  Azure Front Door. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
 - [Understand Azure Security Center data collection](../../security-center/security-center-enable-data-collection.md)
 
@@ -597,7 +601,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40113.).
 
-**Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
+**Guidance**: Ensure your organization has defined processes to respond to security incidents. Confirm that keeps these processes updated for Azure resources and regularly tests them to ensure readiness.
 
 - [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -779,7 +783,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40138.).
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure front door
+**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Front Door
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -825,7 +829,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40119.).
 
-**Guidance**: Not applicable; Azure Front door is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
+**Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -836,7 +840,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40120.).
 
-**Guidance**: Not applicable; Azure front door does not interact with compute hosts, containers and/or storage which require anti-malware protection.
+**Guidance**: Not applicable; Azure Front Door does not interact with compute hosts, containers and/or storage which require anti-malware protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -847,7 +851,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40121.).
 
-**Guidance**: Azure front door is not comprised of any virtual machines or containers which would require anti-malware protection.
+**Guidance**: Azure Front Door is not comprised of any virtual machines or containers which would require anti-malware protection.
 Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
 **Azure Security Center monitoring**: Not applicable
@@ -863,7 +867,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40129.).
 
-**Guidance**: Not applicable; Azure front door  doesn't support any data backup or have no needs for data backup.
+**Guidance**: Not applicable; Azure Front Door  doesn't support any data backup or have no needs for data backup.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -874,7 +878,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40130.).
 
-**Guidance**: Not applicable; Azure front door doesn't support any data backup encryption.
+**Guidance**: Not applicable; Azure Front Door doesn't support any data backup encryption.
 
 **Azure Security Center monitoring**: Not applicable
 
