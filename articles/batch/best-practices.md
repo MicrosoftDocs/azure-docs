@@ -68,6 +68,9 @@ Pools can be created using third-party images published to Azure Marketplace. Wi
 
 It's advised to not depend on a single Azure region if you have a time-sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up the pool in your primary region *well before your start time*. If that pool scale fails, you can fall back to scaling up a pool in a backup region (or regions). Pools across multiple accounts in different regions provide a ready, easily accessible backup if something goes wrong with another pool. For more information, see [Design your application for high availability](high-availability-disaster-recovery.md).
 
+## In-region data residency
+Azure Batch does not move or store customer data out of the region in which it is deployed. 
+
 ## Jobs
 
 A [job](jobs-and-tasks.md#jobs) is a container designed to contain hundreds, thousands, or even millions of tasks. Follow these guidelines when creating jobs.
