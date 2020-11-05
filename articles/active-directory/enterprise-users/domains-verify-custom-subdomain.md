@@ -33,18 +33,16 @@ Because subdomains by default inherit the authentication type of the root domain
 
 1. Use PowerShell to add the new subdomain, which has its root domain's default authentication type. The Azure AD and Microsoft 365 admin centers don't yet support this operation.
 
-```powershell
-New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
-```
+   ```powershell
+   New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
+   ```
 
 1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain. You can see that  the domain isn't a root domain, so it inherits its root domain authentication type. Your command and results might look as follows, using your organization ID:
 
-```http
-GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
-```
-
-```http
-Return:
+   ```http
+   GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
+   
+   Return:
      {
          "authenticationType": "Federated",
          "availabilityStatus": null,
@@ -61,7 +59,7 @@ Return:
          "passwordValidityPeriodInDays": null,
          "passwordNotificationWindowInDays": null
      },
-```
+   ```
 
 ### Use Azure AD Graph Explorer API to make this a root domain
 
@@ -105,9 +103,6 @@ Return:
          "passwordValidityPeriodInDays": null,
          "passwordNotificationWindowInDays": null }
 ```
-
-> [!Note]
->This process can be used only if the subdomain doesn't already have users referencing the domain. If the subdomain already has users referencing it, open an [Incident Management ticket](https://aka.ms/icm) and transfer it to **Azure AD Distributed Directory Services** > **Customer Escalations**.
 
 ## Next steps
 
