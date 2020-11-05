@@ -87,4 +87,4 @@ spec:
 
 ## Next steps
 
-Learn how to [Use kubectl to run a Kubernetes stateful application with a PersistentVolume on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-stateful-static-provision-kubernetes.md)
+Learn how to [Use kubectl to run a Kubernetes stateful application with a PersistentVolume on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
