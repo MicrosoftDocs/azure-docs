@@ -1,0 +1,25 @@
+### YamlMime:Landing
+
+title: Azure Cloud Services (extended support) documentation
+summary: Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs. Shows how to manage virtual machine hosts and configure, patch, and install software.
+
+metadata:
+  title: Azure Cloud Services (extended support) documentation
+  description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
+  ms.topic: landing-page
+  author: mimckitt
+  ms.author: mimckitt
+  ms.date: 03/06/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Cloud Services (extended support)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Cloud Services (extended support)?
+            url: overview.md
