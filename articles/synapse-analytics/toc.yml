@@ -14,8 +14,9 @@
   - name: Release notes
     href: release-notes.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Introduction
+  - name: Get started
     href: get-started.md
     displayName: get, started, quickstart
   - name: 1 Create a Synapse workspace
@@ -153,6 +154,8 @@
           displayname: links
         - name: Provision and secure a linked service with Managed Vnet
           href: ./data-integration/linked-service.md
+        - name: Connect to Synapse workspace from restricted network
+          href: security/how-to-connect-to-workspace-from-restricted-network.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -541,7 +544,7 @@
       href: ./synapse-link/how-to-query-analytical-store-spark.md
     - name: Copy data from Synapse Link into a dedicated SQL pool using Apache Spark
       href: ./synapse-link/how-to-copy-to-sql-pool.md  
-    - name: Query Azure Cosmos DB analytical store with severless SQL pool
+    - name: Query Azure Cosmos DB analytical store with serverless SQL pool
       href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Pipeline and data flow
   items:
@@ -555,6 +558,8 @@
     items:
     - name: Load data into SQL pools using copy activity
       href: quickstart-copy-activity-load-sql-pool.md
+    - name: Transform data using mapping data flows
+      href: quickstart-data-flow.md
   - name: Concepts
     items:
     - name: Pipeline and activity

@@ -55,13 +55,7 @@ Updates made to the service itself will follow Microsoft Azure's standard change
 
 With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
 
-#### Are Red Hat solutions supported on Azure VMware Solution?
 
-Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
-
-#### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
-
-VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
 
 #### Can Azure VMware Solution VMs be managed by VMRC?
 Yes, provided the system it is installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
@@ -232,6 +226,14 @@ Microsoft delivers support for Azure VMware Solution. You can submit a [support 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
 You'll need an Azure account in an Azure subscription.
+
+#### Are Red Hat solutions supported on Azure VMware Solution?
+
+Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
+
+#### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
+
+VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
 
 #### How do I request a host quota increase for Azure VMware Solution?
 

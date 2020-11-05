@@ -99,6 +99,13 @@ To enable Auditing of Microsoft Support operations (Preview) navigate to **Audit
 
 ![Screenshot of Microsoft Support Operations](./media/auditing-overview/support-operations.png)
 
+To review the audit logs of Microsoft Support operations in your Log Analytics workspace, use the following query:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
+
 ### <a id="audit-storage-destination"></a>Audit to storage destination
 
 To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. Then click **OK**. Logs older than the retention period are deleted.
@@ -199,9 +206,7 @@ If you chose to write audit logs to an Azure storage account, there are several 
 - Additional methods:
 
   - After downloading several files or a subfolder that contains log files, you can merge them locally as described in the SSMS Merge Audit Files instructions described previously.
-  - View blob auditing logs programmatically:
-
-    - [Query Extended Events Files](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
+  - View blob auditing logs programmatically: [Query Extended Events Files](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
 
 ## <a id="production-practices"></a>Production practices
 
