@@ -12,19 +12,16 @@ ms.author: allensu
 
 # Configuring SNAT for Outbound Connections
 
-An Azure public load balancer can be used to perform SNAT for outbound internet connectivity. The load balancer provides the outbound connectivity for the backend instances through its public IP address. 
+The frontend IPs of an Azure public load balancer can be used to provide outbound connectivity to the internet for backend instances.This configuration uses **source network address translation (SNAT)**. SNAT rewrites the IP address of the backend to the public IP address of your load balancer. 
 
-This configuration uses **source network address translation (SNAT)**. SNAT rewrites the IP address of the backend to the public IP address of your load balancer. 
+SNAT enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. Sharing an IP address between backend instances reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
 
-SNAT enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. 
-
-Sharing an IP address between backend instances reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
+[!Note]
+> For applications with that require large numbers of outbound connections or enterprise customers who require a single set of IPs to be used from a given virtual network, [Virtual Network NAT](https://docs.microsoft.com/en-us/azure/virtual-network/nat-overview) is the recommended solution. It's dynamic allocation allows for simple configuration and the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share a load balancer.
 
 ## <a name ="snat"></a> Sharing frontend IP address across backend resources
 
-If the backend resources of a load balancer don't have instance-level public IP (ILPIP) addresses, they establish outbound connectivity via the frontend IP of the public load balancer.
-
-Ports are used to generate unique identifiers used to maintain distinct flows. The internet uses a five-tuple to provide this distinction.
+If the backend resources of a load balancer don't have instance-level public IP (ILPIP) addresses, they establish outbound connectivity via the frontend IP of the public load balancer. Ports are used to generate unique identifiers used to maintain distinct flows. The internet uses a five-tuple to provide this distinction.
 
 The five-tuple consists of:
 
@@ -33,15 +30,16 @@ The five-tuple consists of:
 * Source IP
 * Source port and protocol to provide this distinction.
 
-If a port is used for inbound connections, it will have a **listener** for inbound connection requests on that port and cannot be used for outbound connections. 
+If a port is used for inbound connections, it will have a **listener** for inbound connection requests on that port and cannot be used for outbound connections. To establish an outbound connection, an **ephemeral port** must be used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used to perform SNAT they are called **SNAT ports** 
 
-To establish an outbound connection, an **ephemeral port** must be used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. 
+By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP(Transmission Control Protocol) and UDP(User Datagram Protocol). When an public IP address is added as a frontend IP to a load balancer, Azure gives 64,000 eligible for use as SNAT ports. 
 
-By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP and UDP. Azure gives 64,000 eligible for use as a SNAT port when an IP address is added as a frontend IP configuration to a load balancer. 
+[!NOTE]
+> Each port used for a load-balancing or inbound NAT rule will consume a range of eight ports from these 64,000 ports, reducing the number of ports eligible for SNAT. If a load-balancing or nat rule is in the same range of eight as another it will consume no additional ports. 
 
-Each port used for a load balancing or inbound NAT rule will consume a range of 8 ports from these 64,000 ports, if a load balancing or nat rule is in the same range of 8 as another it will consume no additional ports. Through [outbound rules](https://docs.microsoft.com/azure/load-balancer/outbound-rules) and load balancing rules, these SNAT ports can be distributed to backend instances to enable them to share the public IP(s) of the load balancer for outbound connections.
+Through [outbound rules](https://docs.microsoft.com/azure/load-balancer/outbound-rules) and load-balancing rules, these SNAT ports can be distributed to backend instances to enable them to share the public IPs of the load balancer for outbound connections.
 
-When [scenario 2](#scenario2) below is configured, the host for each backend instance will perform SNAT on packets that are part of an outbound connection. For this the host rewrites the source IP to one of the frontend IPs. To maintain unique flows, the host rewrites the source port of each outbound packet to one of the SNAT ports allocated for the backend instance.
+When [scenario 2](#scenario2) below is configured, the host for each backend instance will perform SNAT on packets that are part of an outbound connection. When performing SNAT on an outbound connection from a backend instance, the host rewrites the source IP to one of the frontend IPs. To maintain unique flows, the host rewrites the source port of each outbound packet to one of the SNAT ports allocated for the backend instance.
 
 ## Outbound connection behavior for different scenarios
   * Virtual machine with public IP.
@@ -77,7 +75,7 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
  #### Description
 
 
- The load balancer resource is configured with an outbound rule or a load balancing rule that enables default SNAT. This rule is used to create a link between the public IP frontend with the backend pool. 
+ The load balancer resource is configured with an outbound rule or a load-balancing rule that enables default SNAT. This rule is used to create a link between the public IP frontend with the backend pool. 
 
 
  If you don't complete this rule configuration, the behavior is as described in scenario 3. 
@@ -92,7 +90,7 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
  Ephemeral ports of the load balancer frontend public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. 
 
 
- In this context, the ephemeral ports used for SNAT are called SNAT ports. It is highly recommend that an [outbound rule](https://docs.microsoft.com/azure/load-balancer/outbound-rules) is explicitly configured. If using default SNAT through a load balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
+ In this context, the ephemeral ports used for SNAT are called SNAT ports. It is highly recommended that an [outbound rule](https://docs.microsoft.com/azure/load-balancer/outbound-rules) is explicitly configured. If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
 
  ### <a name="scenario3"></a>Scenario 3: Virtual machine without public IP and behind Basic Load Balancer
