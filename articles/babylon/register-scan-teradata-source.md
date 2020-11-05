@@ -33,7 +33,7 @@ Specifically, this Teradata connector supports:
 
 2. Make sure the Java Runtime Environment (JRE) is installed on your virtual machine where self-hosted integration runtime is installed.
 
-3. Make sure "Visual C++ Redistributable 2012 Update 4" is installed on the self-hosted integration runtime machine. If you don't yet have it installed, download the [Visual C++ Redistributable 2012 Update 4](https://www.microsoft.com/download/details.aspx?id=30679).
+3. Make sure **Visual C++ Redistributable 2012 Update 4** is installed on the self-hosted integration runtime machine. If you don't yet have it installed, download the [Visual C++ Redistributable 2012 Update 4](https://www.microsoft.com/download/details.aspx?id=30679).
 
 4. You will have to manually install a driver named Teradata JDBC Driver on your on-premises virtual machine. The executable JAR file can be downloaded from the [Teradata website](https://downloads.teradata.com/).
 
