@@ -1,7 +1,7 @@
 ---
 title: Log ML experiments & metrics
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script using run.log, Run.start_logging, or ScriptRunConfig.
+description: Enable logging on your ML training runs to monitor real-time run metrics, and to help diagnose errors and warnings.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-# Enable logging in Azure ML training runs
+# Enable logging in ML training runs
 
 
 The Azure Machine Learning Python SDK lets you log real-time information using both the default Python logging package and SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
