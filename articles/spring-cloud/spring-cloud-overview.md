@@ -45,8 +45,8 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 This documentation includes sections that explain how to get started and leverage Azure Spring Cloud services.
 
 * Get started
-    * **Launch your first app**
-    * **Provision an Azure Spring Cloud service**
+    * [**Launch your first app**](spring-cloud-quickstart.md)
+    * [**Provision an Azure Spring Cloud service**](spring-cloud-quickstart-provision-service-instance.md)
     * **Set up the configuration server**
     * **Build and deploy apps**
     * **Use logs metrics and tracing**
