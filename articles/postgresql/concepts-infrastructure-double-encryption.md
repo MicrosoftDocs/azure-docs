@@ -1,8 +1,8 @@
 ---
 title: Infrastructure double encryption - Azure Database for PostgreSQL
 description: Learn about using Infrastructure double encryption to add a second layer of encryption with a service-managed keys.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
@@ -10,15 +10,12 @@ ms.date: 6/30/2020
 
 # Azure Database for PostgreSQL Infrastructure double encryption
 
-> [!NOTE]
-> At this time, you must request access to use this capability. To do so, please contact AskAzureDBforPostgreSQL@service.microsoft.com.
-
 Azure Database for PostgreSQL uses storage [encryption of data at-rest](concepts-security.md#at-rest) for data using Microsoft's managed keys. Data, including backups, are encrypted on disk and this encryption is always on and can't be disabled. The encryption uses FIPS 140-2 validated cryptographic module and an AES 256-bit cipher for the Azure storage encryption.
 
 Infrastructure double encryption adds a second layer of encryption using service-managed keys. It uses FIPS 140-2 validated cryptographic module, but with a different encryption algorithm. This provides an additional layer of protection for your data at rest. The key used in Infrastructure double encryption is also managed by the Azure Database for PostgreSQL service. Infrastructure double encryption is not enabled by default since the additional layer of encryption can have a performance impact.
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for PostgreSQL supports "General Purpose" and "Memory Optimized" pricing tiers.
+> This feature is only supported for "General Purpose" and "Memory Optimized" pricing tiers in Azure Database for PostgreSQL.
 
 Infrastructure Layer encryption has the benefit of being implemented at the layer closest to the storage device or network wires. Azure Database for PostgreSQL implements the two layers of encryption using service-managed keys. Although still technically in the service layer, it is very close to hardware that stores the data at rest. You can still optionally enable data encryption at rest using [customer managed key](concepts-data-encryption-postgresql.md) for the provisioned PostgreSQL server.  
 
@@ -57,6 +54,12 @@ The encryption capabilities that are provided by Azure Database for PostgreSQL c
 For Azure Database for PostgreSQL, the support for infrastructure double encryption using service-managed key has the following limitations:
 
 * Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
+* You can create a Azure Database for PostgreSQL with infrastructure double encryption enabled in the following regions:
+
+   * East US
+   * South Central US
+   * West US 2
+   
 * This feature is only supported in regions and servers, which support storage up to 16 TB. For the list of Azure regions supporting storage up to 16 TB, refer to the [storage documentation](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

@@ -9,6 +9,8 @@
     href: entitlement-management-overview.md
   - name: What are access reviews?
     href: access-reviews-overview.md
+  - name: What is identity lifecycle management?
+    href: what-is-identity-lifecycle-management.md
 - name: Tutorials
   expanded: true
   items:
@@ -23,6 +25,16 @@
       href: entitlement-management-delegate.md
     - name: Request process and emails
       href: entitlement-management-process.md
+  - name: Identity lifecycle management
+    items:
+    - name: What is provisioning?
+      href: what-is-provisioning.md
+    - name: What is HR-driven provisioning?
+      href: what-is-hr-driven-provisioning.md
+    - name: What is app provisioning?
+      href: what-is-app-provisioning.md
+    - name: What is inter-directory provisioning?
+      href: what-is-inter-directory-provisioning.md
   - name: Access reviews
     items:
     - name: Manage guest access with reviews
@@ -31,6 +43,8 @@
       href: manage-user-access-with-access-reviews.md
     - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
+  - name:  Review and remove users from external organizations
+    href: access-reviews-external-users.md
 - name: How-to guides
   expanded: true
   items:
@@ -58,7 +72,7 @@
         href: entitlement-management-catalog-create.md
       - name: Delegate to access package managers
         href: entitlement-management-delegate-managers.md
-    - name: Access package managers
+    - name: Access package managers and Access package assignment managers
       items:
       - name: Create a new access package
         href: entitlement-management-access-package-create.md
@@ -66,8 +80,10 @@
         href: entitlement-management-access-package-settings.md
       - name: Change resource roles
         href: entitlement-management-access-package-resources.md
-      - name: Change request and approval settings
+      - name: Change request settings
         href: entitlement-management-access-package-request-policy.md
+      - name: Change approval settings
+        href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings
         href: entitlement-management-access-package-lifecycle-policy.md
       - name: View requests
@@ -85,7 +101,10 @@
       - name: Request access
         href: entitlement-management-request-access.md
   - name: Access reviews
-    items:
+    items: 
+
+    - name: Plan Access review deployment
+      href: deploy-access-reviews.md
     - name: Access packages
       items:
         - name: Create an access review
@@ -124,7 +143,6 @@
   expanded: true
   items:
   - name: Access reviews - Graph API
-    href: https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta
+    href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
   - name: Entitlement management - Graph API
-    href: https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
-
+    href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

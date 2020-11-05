@@ -16,7 +16,7 @@ ms.date: 11/27/2018
 ms.author: apimpm
 ---
 # API Management caching policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="CachingPolicies"></a> Caching policies
 
@@ -109,7 +109,7 @@ For more information, see [Policy expressions](api-management-policy-expressions
 | caching-type               | Choose between the following values of the attribute:<br />- `internal` to use the built-in API Management cache,<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
 | downstream-caching-type        | This attribute must be set to one of the following values.<br /><br /> -   none - downstream caching is not allowed.<br />-   private - downstream private caching is allowed.<br />-   public - private and shared downstream caching is allowed.                                                                                                          | No       | none              |
 | must-revalidate                | When downstream caching is enabled this attribute turns on or off  the `must-revalidate` cache control directive in gateway responses.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Set to `true` to cache responses per [subscription key](./api-management-subscriptions.md).                                                                                                                                                                                                                                                                                                         | Yes      |         False          |
+| vary-by-developer              | Set to `true` to cache responses per developer account that owns [subscription key](./api-management-subscriptions.md) included in the request.                                                                                                                                                                                                                                                                                                  | Yes      |         False          |
 | vary-by-developer-groups       | Set to `true` to cache responses per [user group](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Yes      |       False            |
 
 ### Usage
@@ -278,7 +278,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
 
-### <a name="RemoveCacheByKey"></a> Remove value from cache
+## <a name="RemoveCacheByKey"></a> Remove value from cache
 The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 #### Policy statement
@@ -323,4 +323,4 @@ For more information working with policies, see:
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy samples](./policy-reference.md)

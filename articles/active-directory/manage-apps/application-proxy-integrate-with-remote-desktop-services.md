@@ -1,21 +1,16 @@
 ---
-title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
-description: Covers the basics about Azure AD Application Proxy connectors.
+title: Publish Remote Desktop with Azure Active Directory Application Proxy
+description: Covers how to configure App Proxy with Remote Desktop Services (RDS)
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
-ms.custom: it-pro
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy
@@ -130,7 +125,7 @@ The configuration outlined in this article is for access to RDS via RD Web or th
 
 | Authentication method | Supported client configuration |
 | --------------------- | ------------------------------ |
-| Pre-authentication    | RD Web-  Windows 7/10 using Internet Explorer + RDS ActiveX add-on |
+| Pre-authentication    | RD Web-  Windows 7/10 using Internet Explorer or [Edge Chromium IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS ActiveX add-on |
 | Pre-authentication    | RD Web Client- HTML5-compatible web browser such as Microsoft Edge, Internet Explorer 11, Google Chrome, Safari, or Mozilla Firefox (v55.0 and later) |
 | Passthrough | Any other operating system that supports the Microsoft Remote Desktop application |
 
@@ -141,6 +136,6 @@ To use passthrough authentication, there are just two modifications to the steps
 2. In [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy), skip step 8 entirely.
 
 ## Next steps
-
-[Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
-[Security considerations for accessing apps remotely by using Azure AD Application Proxy](application-proxy-security.md)
+- [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
+- [Security considerations for accessing apps remotely by using Azure AD Application Proxy](application-proxy-security.md)
+- [Best practices for load balancing multiple app servers](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)

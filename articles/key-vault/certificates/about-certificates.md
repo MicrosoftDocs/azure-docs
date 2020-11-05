@@ -40,7 +40,9 @@ When a Key Vault certificate is created, it can be retrieved from the addressabl
 
 The addressable key becomes more relevant with non-exportable KV certificates. The addressable KV key's operations are mapped from *keyusage* field of the KV certificate policy used to create the KV Certificate.  
 
-Two types of key are supported – *RSA* or *RSA HSM* with certificates. Exportable is only allowed with RSA, not supported by RSA HSM.  
+ - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+   Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
+
 
 ## Certificate Attributes and Tags
 
@@ -77,10 +79,11 @@ A certificate policy contains information on how to create and manage lifecycle 
 
 When a Key Vault certificate is created from scratch, a policy needs to be supplied. The policy specifies how to create this Key Vault certificate version, or the next Key Vault certificate version. Once a policy has been established, it isn't required with successive create operations for future  versions. There's only one instance of a policy for all the versions of a Key Vault certificate.  
 
-At a high level, a certificate policy contains the following information (their definitions can be found [here](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+At a high level, a certificate policy contains the following information (their definitions can be found [here](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   X509 certificate properties: Contains subject name, subject alternate names, and other properties used to create an x509 certificate request.  
--   Key Properties: contains key type, key length, exportable, and ReuseKeyOnRenewal fields. These fields instruct key vault on how to generate a key.  
+-   Key Properties: contains key type, key length, exportable, and ReuseKeyOnRenewal fields. These fields instruct key vault on how to generate a key. 
+     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Secret properties: contains secret properties such as content type of addressable secret to generate the secret value, for retrieving certificate as a secret.  
 -   Lifetime Actions: contains lifetime actions for the KV Certificate. Each lifetime action contains:  
 
@@ -127,7 +130,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 
-For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](https://aka.ms/kvcertsblog)  
+For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault allows for creation of multiple issuer objects with different issuer provider configuration. Once an issuer object is created, its name can be referenced in one or multiple certificate policies. Referencing the issuer object instructs Key Vault to use configuration as specified in the issuer object when requesting the x509 certificate from CA provider during the certificate creation and renewal.  
 
@@ -135,42 +138,11 @@ Issuer objects are created in the vault and can only be used with KV certificate
 
 ## Certificate contacts
 
-Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault.  
-
-If a certificate's policy is set to auto renewal, then a notification is sent on the following events.  
-
-- Before certificate renewal
-- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
-
-  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it's time to renew the certificate.  
+Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault. For information on how to set Certificate contact, see [here](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## Certificate Access Control
 
- Access control for certificates is managed by Key Vault, and is provided by the Key Vault that contains those certificates. The access control policy for certificates is distinct from the access control policies for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates, to maintain scenario appropriate segmentation and management of certificates.  
-
- The following permissions can be used, on a per-principal basis, in the secrets access control entry on a key vault, and closely mirrors the operations allowed on a secret object:  
-
-- Permissions for certificate management operations
-  - *get*: Get the current certificate version, or any version of a certificate 
-  - *list*: List the current certificates, or versions of a certificate  
-  - *update*: Update a certificate
-  - *create*: Create a Key Vault certificate
-  - *import*: Import certificate material into a Key Vault certificate
-  - *delete*: Delete a certificate, its policy, and all of its versions  
-  - *recover*: Recover a deleted certificate
-  - *backup*: Back up a certificate in a key vault
-  - *restore*: Restore a backed-up certificate to a key vault
-  - *managecontacts*: Manage Key Vault certificate contacts  
-  - *manageissuers*: Manage Key Vault certificate authorities/issuers
-  - *getissuers*: Get a certificate's authorities/issuers
-  - *listissuers*: List a certificate's authorities/issuers  
-  - *setissuers*: Create or update a Key Vault certificate's authorities/issuers  
-  - *deleteissuers*: Delete a Key Vault certificate's authorities/issuers  
- 
-- Permissions for privileged operations
-  - *purge*: Purge (permanently delete) a deleted certificate
-
-For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+ Access control for certificates is managed by Key Vault, and is provided by the Key Vault that contains those certificates. The access control policy for certificates is distinct from the access control policies for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates, to maintain scenario appropriate segmentation and management of certificates.  For more information on certificate access control, see [here](certificate-access-control.md)
 
 ## Next steps
 

@@ -247,7 +247,7 @@ Select VMs for migration.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 
-    ![Replicate VMs](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Screenshot of the Servers screen in Azure Migrate. The Replicate button is selected in Azure Migrate: Server Migration under Migration tools.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
@@ -255,33 +255,42 @@ Select VMs for migration.
 5. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, specify the VM admin account that will be used for push installation of the Mobility service. Then click **Next: Virtual machines**.
 
-    ![Replicate VMs](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Screenshot of the Source settings tab in the Replicate screen. The Guest credentials field is highlighted and the value is set to VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. In **Virtual Machines**, select the machines that you want to replicate.
 
     - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Migrate assessment?**, select the **Yes** option.
     - If you didn't run an assessment, or you don't want to use the assessment settings, select the **No** options.
     - If you selected to use the assessment, select the VM group, and assessment name.
-
-8. Check each VM you want to migrate. Then click **Next: Target settings**.
-9. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
-10. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
-11. In **Azure Hybrid Benefit**:
+8. In **Availability options**, select:
+    -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
+9. Check each VM you want to migrate. Then click **Next: Target settings**.
+10. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
+11. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+12. In **Availability options**, select:
+    -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
+    
+13. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+14. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
+   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
-    - **Availability set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
+    - **Availability Zone**: Specify the Availability Zone to use.
+    - **Availability Set**: Specify the Availability Set to use.
 
-13. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
+15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
-14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+16. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
@@ -378,7 +387,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

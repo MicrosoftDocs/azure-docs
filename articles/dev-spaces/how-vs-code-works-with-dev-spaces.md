@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # How Visual Studio Code works with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 You can use Visual Studio Code and the [Azure Dev Spaces extension][azds-extension] to prepare, run, and debug your services with Azure Dev Spaces. With Visual Studio Code and the Azure Dev Spaces extension, you can:
 
 * Generate assets for running and debugging services in AKS

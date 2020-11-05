@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
@@ -18,16 +18,16 @@ ms.custom: devx-track-python
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to extract and identify relevant information in USA sales receipts.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A URL for an image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
+- An image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a remote receipt accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> This quickstart uses a local file. To use a receipt image accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## Create a Form Recognizer resource
 
@@ -38,10 +38,12 @@ To complete this quickstart, you must have:
 To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API using the Python script below. Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `<your receipt URL>` with the URL address of a receipt image.
+1. Replace `<path to your receipt>` with the path to your local form document.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
-    ```python
+# [v2.0](#tab/v2-0)
+
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -77,7 +79,54 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
-    ```
+```
+    
+# [v2.1-preview.1](#tab/v2-1)    
+```python
+    ########### Python Form Recognizer Async Receipt #############
+
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze"
+    source = r"<path to your receipt>"
+    
+    headers = {
+        # Request headers
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    
+    params = {
+        "includeTextDetails": True
+        "locale": "en-US"
+    }
+    
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
+```
+
+> [!NOTE]
+> **Language input** 
+>
+> The Analzye Receipt 2.1 release operation has an optional request parameter for language, locale of the receipt. Supported locales include: en-AU, en-CA, en-GB, en-IN, en-US. 
+
+---
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-receipts.py*.
 1. Open a command prompt window.
@@ -85,9 +134,15 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example value, the string after `operations/` is the operation ID.
 
+# [v2.0](#tab/v2-0)    
 ```console
 https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
+# [v2.1-preview.1](#tab/v2-1)    
+```console
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+```
+---
 
 ## Get the receipt results
 
@@ -125,13 +180,13 @@ while n_try < n_tries:
 
 ### Examine the response
 
-The script will print responses to the console until the **Analyze Receipt** operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
+The script will print responses to the console until the **Analyze Receipt** operation completes. Then, it will print the extracted text data in JSON format. The `"readResults"` field contains every line of text that was extracted from the receipt, and the `"documentResults"` field contains key/value information for the most relevant parts of the receipt.
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
 ![A receipt from Contoso store](../media/contoso-allinone.jpg)
 
-The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
+The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
 
 ```json
 { 

@@ -3,7 +3,7 @@
 # Horizontals
 
 ## Azure Policy: Samples and Compliance Controls
-articles/**/policy-samples.md @DCtheGeek
+articles/**/policy-reference.md @DCtheGeek
 articles/**/security-controls-policy.md @DCtheGeek
 includes/policy/ @DCtheGeek
 
@@ -11,10 +11,11 @@ includes/policy/ @DCtheGeek
 
 articles/active-directory-b2c/ @msmimart @yoelhor
 articles/active-directory/app-provisioning/ @CelesteDG
+articles/active-directory/develop/ @mmacy
 articles/active-directory/manage-apps/ @CelesteDG
 
 # Cognitive Services
-articles/cognitive-services/ @diberry @erhopf @aahill @trevorbye @patrickfarley @nitinme
+articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle
 
 # DevOps
 articles/ansible/ @TomArcherMsft
@@ -23,9 +24,9 @@ articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
 
 # compute
-articles/virtual-machines/ @cynthn @mimckitt 
-articles/virtual-machine-scale-sets/ @ju-shim @mimckitt 
-articles/cloud-services/ @mimckitt 
+articles/virtual-machines/ @cynthn @mimckitt
+articles/virtual-machine-scale-sets/ @ju-shim @mimckitt
+articles/cloud-services/ @mimckitt
 
 # Requires Internal Review
 articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking

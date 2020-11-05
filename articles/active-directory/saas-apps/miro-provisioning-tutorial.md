@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Miro.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 81eecaff-d888-472b-a1c2-0b7b0c9ccd8d
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
@@ -79,7 +74,7 @@ Before configuring Miro for automatic user provisioning with Azure AD, you need 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Miro based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Miro , following the instructions provided in the [Miro Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Miro , following the instructions provided in the [Miro Single sign-on tutorial](./miro-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 > [!NOTE]
 > To learn more about Miro's SCIM endpoint, refer [this](https://help.miro.com/hc/en-us/articles/360036777814).
@@ -96,11 +91,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://miro.com/api/v1/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Miro. If the connection fails, ensure your Miro account has Admin permissions and try again.
 
@@ -158,4 +153,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-

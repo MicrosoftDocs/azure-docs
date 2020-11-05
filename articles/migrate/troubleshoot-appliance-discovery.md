@@ -23,7 +23,7 @@ This article helps you troubleshoot issues when deploying the [Azure Migrate](mi
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-prepare-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 2. If deployment still fails, and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 3. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
@@ -114,6 +114,28 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
     4. Save and close the hosts file.
     5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
 
+
+## Error 60001: Unable to connect to server 
+
+- Ensure there is connectivity from the appliance to the server
+- If it is a linux server, ensure password-based authentication is enabled using the following steps:
+    1. Log in to the linux machine and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+    2. Set "PasswordAuthentication" option to yes. Save the file.
+    3. Restart ssh service by running "service sshd restart"
+- If it is a windows server, ensure the port 5985 is open to allow for remote WMI calls.
+- If you are discovering a GCP linux server and using a root user, use the following commands to change the default setting for root login
+    1. Log in to the linux machine and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+    2. Set "PermitRootLogin" option to yes.
+    3. Restart ssh service by running "service sshd restart"
+
+## Error: No suitable authentication method found
+
+Ensure password-based authentication is enabled on the linux server using the following steps:
+    1. Log in to the linux machine and open the ssh configuration file using the command 'vi /etc/ssh/sshd_config'
+    2. Set "PasswordAuthentication" option to yes. Save the file.
+    3. Restart ssh service by running "service sshd restart"
+
+
 ## Discovered VMs not in portal
 
 If discovery state is "Discovery in progress", but don't yet see the VMs in the portal, wait a few minutes:
@@ -125,7 +147,7 @@ If you wait and the state doesn't change, select **Refresh** on the **Servers** 
 If this doesn't work and you're discovering VMware servers:
 
 - Verify that the vCenter account you specified has permissions set correctly, with access to at least one VM.
-- Azure Migrate can't discovered VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
+- Azure Migrate can't discover VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
 
 ## VM data not in portal
 
@@ -208,6 +230,7 @@ Typical app discovery errors are summarized in the table.
 9033: Unable to discover as the VM username contains invalid characters.	 | 	 Invalid characters were detected in the username.	 | 	 Provide the VM credential again ensuring there are no invalid characters.
 9034: Username provided is not in UPN format.	 | 	 Username is not in UPN format.	 | 	 Ensure that the username is in User Principal Name (UPN) format.
 9035: Unable to discover as Powershell language mode is not set to 'Full Language'.	 | 	 Language mode for Powershell in guest VM is not set to full language.	 | 	 Ensure that PowerShell language mode is set to 'Full Language'.
+9037: Data collection paused temporarily as VM response time is too high.	 | 	 The discovered VM is taking too long to respond	 | 	 No action required. A retry will be attempted in 24 hours for application discovery and 3 hours for dependency analysis (agentless).
 10000: Operating system type is not supported.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only.
 10001: Script for server discovery is not found on the appliance.	 | 	 Discovery is not working as expected.	 | 	 Contact Microsoft Support for a resolution.
 10002: Discovery task has not completed in time.	 | 	 Discovery agent is not working as expected.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.

@@ -9,30 +9,45 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/27/2020
 ms.author: juliako
 ---
 
-# Examine the Video Indexer output produced by API
+# Examine the Video Indexer output
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Video Indexer poduces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+
+You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. 
+
+You can also use the API by calling the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content.
+
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+
+This article examines the Video Indexer output (JSON content). <br/>For information about what features and insights are available to you, see [Video Indexer insights](video-indexer-overview.md#video-insights).
+
+> [!NOTE]
+> Expiration of all the access tokens in Video Indexer is one hour.
+
+## Get the insights
+
+### Insights/output produced in the website/portal
+
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Find a video the output of which you want to examine.
+1. Press **Play**.
+1. Select the **Insights** tab (summarized insights) or the **Timeline** tab (allows to filter the relevant insights).
+1. Download artifacts and what's in them.
+
+For more information, see [View and edit video insights](video-indexer-view-edit.md).
+
+## Insights/output produced by API
 
 1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
 
 	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
 
-You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
-
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-This article examines the JSON content returned by the  **Get Video Index** API. 
-
-> [!NOTE]
-> Expiration of all the access tokens in Video Indexer is one hour.
-
-
-## Root elements
+## Root elements of the insights
 
 |Name|Description|
 |---|---|
@@ -82,7 +97,7 @@ This section shows the summary of the insights.
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
 |thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
-|faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
+|faces/animatedCharacters|May contain zero or more faces. For more detailed information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
 |audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
@@ -158,7 +173,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |ocr|The [OCR](#ocr) insight.|
 |keywords|The [keywords](#keywords) insight.|
 |blocks|May contain one or more [blocks](#blocks)|
-|faces|The [faces](#faces) insight.|
+|faces/animatedCharacters|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |labels|The [labels](#labels) insight.|
 |shots|The [shots](#shots) insight.|
 |brands|The [brands](#brands) insight.|
@@ -301,7 +316,11 @@ Example:
 }
 ```
 
-#### faces
+#### faces/animatedCharacters
+
+`animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Indexer runs it on keyframes.
+
+If faces (not animated characters) are present, Video Indexer uses Face API on all the video’s frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|

@@ -1,5 +1,5 @@
 ---
-title: Set up Azure IoT Hub Device Provisioning Service using Azure CLI
+title: Quickstart - Set up Azure IoT Hub Device Provisioning Service using Azure CLI
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using Azure CLI
 author: wesmc7777
 ms.author: wesmc
@@ -79,7 +79,11 @@ echo $hubConnectionString
 ```
 
 > [!NOTE]
-> These two commands are valid for a host running under Bash. If you are using a local Windows/CMD shell or a PowerShell host, you need to modify the commands to use  the correct syntax for that environment.
+> These two commands are valid for a host running under Bash.
+> 
+> If you're using a local Windows/CMD shell or a PowerShell host, modify the commands to use the correct syntax for that environment.
+>
+> If you're using Azure Cloud Shell, check that the environment drop-down on the left side of the shell window says **Bash**.
 >
 
 ## Link the IoT hub and the provisioning service

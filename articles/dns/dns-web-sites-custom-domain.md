@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 #Customer intent: As an experienced network administrator I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 ---
@@ -31,15 +31,12 @@ In this tutorial, you learn how to:
 > * Create an A and TXT record for your custom domain
 > * Create a CNAME record for your custom domain
 > * Test the new records
-> * Add custom host names you your web app
+> * Add custom host names to your web app
 > * Test the custom host names
 
+## Prerequisites
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,6 +49,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    2. To delegate your zone to Azure DNS, follow the steps in [DNS domain delegation](dns-delegate-domain-azure-dns.md).
 
 After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create an A record and TXT record
 

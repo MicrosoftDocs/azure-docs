@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
 
 ---
@@ -23,8 +23,6 @@ The values in this article apply VPN gateways (virtual network gateways that use
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gwtype"></a>Gateway types
 
@@ -51,11 +49,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### Configure a gateway SKU
 
-#### Azure portal
+**Azure portal**
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
 
-#### PowerShell
+**PowerShell**
 
 The following PowerShell example specifies the `-GatewaySku` as VpnGw1. When using PowerShell to create a gateway, you have to first create the IP configuration, then use a variable to refer to it. In this example, the configuration variable is $gwipconfig.
 
@@ -65,7 +63,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### Azure CLI
+**Azure CLI**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -80,6 +78,12 @@ If you have a VPN gateway and you want to use a different gateway SKU, your opti
 3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
 #### <a name="resizegwsku"></a>To resize a gateway
+
+**Azure portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
@@ -149,9 +153,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="lng"></a>Local network gateways
 
- A local network gateway is different than a virtual network gateway. When creating a VPN gateway configuration, the local network gateway usually represents your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site.
+A local network gateway is different than a virtual network gateway. When creating a VPN gateway configuration, the local network gateway usually represents your on-premises network and the corresponding VPN device. In the classic deployment model, the local network gateway was referred to as a Local Site.
 
-You give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. You also specify local network gateways for VNet-to-VNet configurations that use a VPN gateway connection.
+You give the local network gateway a name, the public IP address or the fully qualified domain name (FQDN) of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. If you use Border Gateway Protocol (BGP) on your VPN device, you will provide the BGP peer IP address of your VPN device and the autonomous system number (ASN) of your on premises network. You also specify local network gateways for VNet-to-VNet configurations that use a VPN gateway connection.
 
 The following PowerShell example creates a new local network gateway:
 

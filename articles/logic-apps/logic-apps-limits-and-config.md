@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 11/04/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -26,23 +26,24 @@ Here are the limits for a single logic app definition:
 | Triggers per workflow | 10 | When working in code view, not the designer |
 | Switch scope cases limit | 25 | |
 | Variables per workflow | 250 | |
-| Characters per expression | 8,192 | |
-| Maximum size for `trackedProperties` | 16,000 characters |
 | Name for `action` or `trigger` | 80 characters | |
+| Characters per expression | 8,192 | |
 | Length of `description` | 256 characters | |
-| Maximum `parameters` | 50 | |
-| Maximum `outputs` | 10 | |
+| Maximum number of `parameters` | 50 | |
+| Maximum number of `outputs` | 10 | |
+| Maximum size for `trackedProperties` | 16,000 characters |
+| Inline Code action - Maximum number of code characters | 1,024 characters <p>For a 100,000 character limit, create your logic apps with Visual Studio Code and the [preview **Azure Logic Apps** extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
-## Run duration and retention limits
+## Run duration and retention history limits
 
 Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified *at start time* by the workflow setting, [**Run history retention in days**](#change-duration). <p><p>To change the default limit, which is 90 days, see [change run duration](#change-duration). |
-| Run retention in storage | 90 days | 366 days | Run retention is calculated by using a run's start time and the limit that's specified *at the current time* by the workflow setting, [**Run history retention in days**](#change-retention). Whether a run completes or times out, the retention calculation always uses the run's start time. When a run's duration exceeds the *current* retention limit, the run is removed from the runs history. <p><p>If you change this setting, the current limit is always used for calculating retention, no matter the previous limit. For example, if you reduce the retention limit from 90 days to 30 days, a run that's 60 days old is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's 20 days old stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run retention in storage](#change-retention). |
+| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
+| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements. |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -50,17 +51,23 @@ Here are the limits for a single logic app run:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### Change run duration and run retention in storage
+### Change run duration and history retention in storage
 
-To change the default limit for run duration and run retention in storage, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+The same setting controls the maximum number of days that a workflow can run and for keeping run history in storage. To change the default or current limit for these properties, follow these steps.
 
-> [!NOTE]
-> For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
-> For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
+* For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
-1. Go to the [Azure portal](https://portal.azure.com). In the portal search box, find and select **Logic apps**.
+* For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
 
-1. Select and then open your logic app in the Logic App Designer.
+For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
+
+> [!IMPORTANT]
+> If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
+> To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
+
+1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
+
+1. Find and select your logic app. Open your logic app in the Logic App Designer.
 
 1. On the logic app's menu, select **Workflow settings**.
 
@@ -70,20 +77,50 @@ To change the default limit for run duration and run retention in storage, follo
 
 1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
+If you generate an Azure Resource Manager template for your logic app, this setting appears as a property in your workflow's resource definition, which is described in the [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/workflows):
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
+
 <a name="looping-debatching-limits"></a>
 
 ## Concurrency, looping, and debatching limits
 
 Here are the limits for a single logic app run:
 
+### Loops
+
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Trigger concurrency | - Unlimited when the concurrency control is turned off <p><p>- 25 is the default limit when the concurrency control is turned on, which you can't undo after you enable concurrency. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maximum waiting runs | - Without concurrency, the minimum number of waiting runs is 1, while the maximum number is 50. <p><p>- With concurrency, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
-| Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn items | - 100,000 without trigger concurrency <p><p>- 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
-| Until iterations | - Default: 60 <p><p>- Maximum: 5,000 | |
+| Foreach concurrency | With concurrency off: 20 <p><p>With concurrency on: <p><p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change this limit, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Until iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | The highest number of cycles that an "Until" loop can have during a logic app run. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Count** property. |
+| Until timeout | - Default: PT1H (1 hour) | The most amount of time that the "Until" loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <p><p>To change this limit, in the "Until" loop shape, select **Change limits**, and specify the value for the **Timeout** property. |
+||||
+
+### Concurrency and debatching
+
+| Name | Limit | Notes |
+| ---- | ----- | ----- |
+| Trigger concurrency | With concurrency off: Unlimited <p><p>With concurrency on, which you can't undo after enabling: <p><p>- Default: 25 <br>- Min: 1 <br>- Max: 50 | This limit is the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change this limit, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maximum waiting runs | With concurrency off: <p><p>- Min: 1 <br>- Max: 50 <p><p>With concurrency on: <p><p>- Min: 10 plus the number of concurrent runs (trigger concurrency) <br>- Max: 100 | This limit is the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change this limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| SplitOn items | With concurrency off: 100,000 <p><p>With concurrency on: 100 | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
 ||||
 
 <a name="throughput-limits"></a>
@@ -217,12 +254,12 @@ Each Azure subscription has these integration account limits:
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 5 total integration accounts:
+* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 20 total integration accounts:
 
   | ISE SKU | Integration account limits |
   |---------|----------------------------|
-  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
-  | **Developer** | 5 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
+  | **Premium** | 20 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
+  | **Developer** | 20 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -281,7 +318,7 @@ Here are the message size limits that apply to B2B protocols:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Applies to decode and encode |
+| AS2 | v2 - 100 MB<br>v1 - 25 MB | v2 - 200 MB <br>v1 - 25 MB | Applies to decode and encode |
 | X12 | 50 MB | 50 MB | Applies to decode and encode |
 | EDIFACT | 50 MB | 50 MB | Applies to decode and encode |
 ||||
@@ -351,6 +388,8 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | East US 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253 |
 | France Central | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | France South | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
+| Germany North | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
+| Germany West Central | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
 | Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japan West | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
@@ -362,6 +401,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | South Central US | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | South India | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Switzerland North | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209 |
 | UAE Central | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
 | UK South | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
@@ -416,6 +456,8 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 | East US 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100, 104.209.247.23, 52.225.129.144, 40.65.220.25, 40.70.151.96 - 40.70.151.127 |
 | France Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239, 40.79.148.96 - 40.79.148.127 |
 | France South | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154, 40.79.180.224 - 40.79.180.255 |
+| Germany North | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.211.212, 51.116.60.192 - 51.116.60.223, 51.116.59.16 - 51.116.60.31 |
+| Germany West Central | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.236.78, 51.116.158.96 - 51.116.158.127, 51.116.155.80 - 51.116.155.95 |
 | Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
 | Japan West | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24, 40.80.180.64 - 40.80.180.95 |
 | Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |
@@ -427,6 +469,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 | South Central US | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92, 13.73.244.224 - 13.73.244.255 |
 | South India | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225, 13.71.127.26 |
 | Southeast Asia | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69, 13.67.15.32 - 13.67.15.63 |
+| Switzerland North | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 | 51.107.59.16 - 51.107.59.31, 51.107.60.224 - 51.107.60.255, 51.107.86.217, 51.103.142.22 |
 | UAE Central | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.28, 20.45.67.45, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
 | UK South | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150, 51.105.77.96 - 51.105.77.127 |
 | UK West | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185, 51.140.212.224 - 51.140.212.255 |

@@ -6,8 +6,9 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 8/6/2020
 ---
+
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 
 Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
@@ -33,7 +34,10 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 
 2. On the left menu, select **Outputs** under **Job topology**. Then, select **+ Add** and choose **Power BI** from the dropdown menu.
 
-3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
+3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize** to use your own user identity to connect to Power BI (the token is valid for 90 days). 
+
+>[!NOTE]
+>For production jobs, we recommend to connect to [use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](./powerbi-output-managed-identity.md).
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
@@ -59,7 +63,7 @@ The dataset is created with the following settings:
 
 Currently, you can't create datasets with other flags.
 
-For more information about Power BI datasets, see the [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) reference.
+For more information about Power BI datasets, see the [Power BI REST API](/rest/api/power-bi/) reference.
 
 
 ## Write the query
@@ -222,5 +226,6 @@ After the authorization has been refreshed with Power BI, a green alert appears 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics outputs](stream-analytics-define-outputs.md)
-* [Azure Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API reference](/rest/api/streamanalytics/)
+* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](./powerbi-output-managed-identity.md)

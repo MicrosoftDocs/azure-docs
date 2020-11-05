@@ -8,62 +8,42 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 07/23/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ---
 
 # Monitor and collect data from ML web service endpoints
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by querying logs and enabling Azure Application Insights via 
-* [Azure Machine Learning Python SDK](#python)
-* [Azure Machine Learning studio](#studio) at https://ml.azure.com
 
-In addition to collecting an endpoint's output data and response, you can monitor:
-
+In this article, you learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI). Use [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to collect the following data from an endpoint:
+* Output data
+* Responses
 * Request rates, response times, and failure rates
 * Dependency rates, response times, and failure rates
 * Exceptions
 
-[Learn more about Azure Application Insights](../azure-monitor/app/app-insights-overview.md). 
-
-
+The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article.
+ 
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+ 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
+* An Azure subscription - try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md)
+* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
 
-* A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial
-
-## Query logs for deployed models
-
-To retrieve logs from a previously deployed web service, load the service and use the `get_logs()` function. The logs may contain detailed information about any errors that occurred during deployment.
-
-```python
-from azureml.core.webservice import Webservice
-
-# load existing web service
-service = Webservice(name="service-name", workspace=ws)
-logs = service.get_logs()
-```
-
-## Web service metadata and response data
-
-> [!IMPORTANT]
-> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then you may see errors such as out of memory, or no information may be logged.
-
-To log information for a request to the web service, add `print` statements to your score.py file. Each `print` statement results in one entry in the trace table in Application Insights, under the message `STDOUT`. The contents of the `print` statement will be contained under `customDimensions` and then `Contents` in the trace table. If you print a JSON string, it produces a hierarchical data structure in the trace output under `Contents`.
-
-You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
-
+* A trained machine learning model. To learn more, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
 <a name="python"></a>
 
-## Use Python SDK to configure 
+## Configure logging with the Python SDK
+
+In this section, you learn how to enable Application Insight logging by using the Python SDK. 
 
 ### Update a deployed service
+
+Use the following steps to update an existing web service:
 
 1. Identify the service in your workspace. The value for `ws` is the name of your workspace
 
@@ -79,12 +59,17 @@ You can query Azure Application Insights directly to access this data, or set up
 
 ### Log custom traces in your service
 
-If you want to log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then use the following steps:
+> [!IMPORTANT]
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
+>
+> For more complex situations, like model tracking within an AKS deployment, we recommend using a third-party library like [OpenCensus](https://opencensus.io).
 
-1. To send data to Application Insights during inference, update the scoring file by adding print statements. To log more complex information, such as the request data and the response, us a JSON structure. The following example score.py file logs the time the model is initialized, the input and output during inference, and the time any errors occur:
+To log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then, use the following steps:
 
-    > [!IMPORTANT]
-    > Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
+1. Update the scoring file by adding print statements to send data to Application Insights during inference. For more complex information, such as the request data and the response, use a JSON structure. 
+
+    The following example `score.py` file logs when the model was initialized, input and output during inference, and the time any errors occur.
+
     
     ```python
     import pickle
@@ -128,15 +113,14 @@ If you want to log custom traces, follow the standard deployment process for AKS
             return error
     ```
 
-2. Update the service configuration
+2. Update the service configuration, and make sure to enable Application Insights.
     
     ```python
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Build an image and deploy it on [AKS or ACI](how-to-deploy-and-where.md).
+3. Build an image and deploy it on AKS or ACI. For more information, see [How to deploy and where](how-to-deploy-and-where.md).
 
-For more information on logging and data collection, see [Enable logging in Azure Machine Learning](how-to-enable-logging.md) and [Collect data from models in production](how-to-enable-data-collection.md).
 
 ### Disable tracking in Python
 
@@ -149,34 +133,47 @@ To disable Azure Application Insights, use the following code:
 
 <a name="studio"></a>
 
-## Use Azure Machine Learning studio to configure
+## Configure logging with Azure Machine Learning studio
 
-You can also enable Azure Application Insights from Azure Machine Learning studio when you're ready to deploy your model with these steps.
+You can also enable Azure Application Insights from Azure Machine Learning studio. When you're ready to deploy your model as a web service, use the following steps to enable Application Insights:
 
-1. Sign in to your workspace at https://ml.azure.com/
-1. Go to **Models** and select which model you want to deploy
-1. Select  **+Deploy**
-1. Populate the **Deploy model** form
-1. Expand the **Advanced** menu
+1. Sign in to the studio at https://ml.azure.com.
+1. Go to **Models** and select the model you want to deploy.
+1. Select  **+Deploy**.
+1. Populate the **Deploy model** form.
+1. Expand the **Advanced** menu.
 
     ![Deploy form](./media/how-to-enable-app-insights/deploy-form.png)
-1. Select **Enable Application Insights diagnostics and data collection**
+1. Select **Enable Application Insights diagnostics and data collection**.
 
     ![Enable App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 
 ## View metrics and logs
 
-Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
-To view it:
+### Query logs for deployed models
+
+You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
+### View logs in the studio
+
+Azure Application Insights stores your service logs in the same resource group as the Azure Machine Learning workspace. Use the following steps to view your data using the studio:
 
 1. Go to your Azure Machine Learning workspace in the [studio](https://ml.azure.com/).
 1. Select **Endpoints**.
-1. Select your deployed service.
-1. Scroll down to find the **Application Insights url** and select the link.
+1. Select the deployed service.
+1. Select the **Application Insights url** link.
 
     [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. In Application Insights, from the **Overview** tab or the __Monitoring__ section in the list on the left, select __Logs__.
+1. In Application Insights, from the **Overview** tab or the __Monitoring__ section, select __Logs__.
 
     [![Overview tab of monitoring](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -190,27 +187,31 @@ To view it:
 
    [![trace data](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
-To learn more about how to use Azure Application Insights, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
+For more information on how to use Azure Application Insights, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-## Export data for further processing and longer retention
+## Web service metadata and response data
+
+> [!IMPORTANT]
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then you may see errors such as out of memory, or no information may be logged.
+
+To log web service request information, add `print` statements to your score.py file. Each `print` statement results in one entry in the Application Insights trace table under the message `STDOUT`. Application Insights stores the `print` statement outputs in  `customDimensions` and in the `Contents` trace table. Printing JSON strings produces a hierarchical data structure in the trace output under `Contents`.
+
+## Export data for retention and processing
 
 >[!Important]
-> Azure Application Insights only supports exports to blob storage. Additional limits of this export capability are listed in [Export telemetry from App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-You can use Azure Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to send messages to a supported storage account, where a longer retention can be set. The data is stored in JSON format and can be easily parsed to extract model data. 
-
-Azure Data Factory, Azure ML Pipelines, or other data processing tools can be used to transform the data as needed. When you have transformed the data, you can then register it with the Azure Machine Learning workspace as a dataset. To do so, see [How to create and register datasets](how-to-create-register-datasets.md).
+Use Application Insights' [continuous export](../azure-monitor/app/export-telemetry.md) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 
-
-## Example notebook
-
-The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article. 
- 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
-
 ## Next steps
 
-* See [how to deploy a model to an Azure Kubernetes Service cluster](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) or [how to deploy a model to Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) to deploy your models to web service endpoints, and enable Azure Application Insights to leverage data collection and endpoint monitoring
-* See [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process
+In this article, you learned how to enable logging and view logs for web service endpoints. Try these articles for next steps:
+
+
+* [How to deploy a model to an AKS cluster](./how-to-deploy-azure-kubernetes-service.md)
+
+* [How to deploy a model to Azure Container Instances](./how-to-deploy-azure-container-instance.md)
+
+* [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](./concept-model-management-and-deployment.md) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.

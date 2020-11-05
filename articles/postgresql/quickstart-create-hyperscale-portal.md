@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create distributed tables - Hyperscale (Citus) - Azure Database for PostgreSQL'
+title: 'Quickstart: create a server group - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/14/2019
+ms.date: 08/17/2020
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL - Hyperscale (Citus) in the Azure portal
+# Quickstart: create a Hyperscale (Citus) server group in the Azure portal
 
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) server group using the Azure portal. You'll explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
 
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL is a managed service that you use to run, manage, 
 
 Once connected to the hyperscale coordinator node using psql, you can complete some basic tasks.
 
-Within Hyperscale servers there are three types of tables:
+Within Hyperscale (Citus) servers there are three types of tables:
 
 - Distributed or sharded tables (spread out to help scaling for performance and parallelization)
 - Reference tables (multiple copies maintained)
@@ -67,7 +67,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale to shard them across the workers. To do so, we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
+Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale (Citus) to shard them across the workers. To do so, we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -113,7 +113,7 @@ ORDER BY hour;
 
 So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user IDs will be [colocated](concepts-hyperscale-colocation.md) on the same database nodes and can easily be joined.
 
-If we join on `user_id`, Hyperscale can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
+If we join on `user_id`, Hyperscale (Citus) can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
 
 ```sql
 SELECT gu.login, count(*)
@@ -134,6 +134,7 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 In this quickstart, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
 
-Next, follow a tutorial to build scalable multi-tenant applications.
-> [!div class="nextstepaction"]
-> [Design a Multi-Tenant Database](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Follow a tutorial to [build scalable multi-tenant
+  applications](./tutorial-design-database-hyperscale-multi-tenant.md)
+- Determine the best [initial
+  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group

@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/29/2020
+  ms.date: 10/22/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -147,17 +147,17 @@ conceptualContent:
 
     - title: Enterprise users
       links:
-        - url: ./users-groups-roles/groups-create-rule.md
+        - url: ./enterprise-users/groups-create-rule.md
           itemType: how-to-guide
           text:  Create a dynamic group
-        - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
+        - url: ./enterprise-users/groups-settings-v2-cmdlets.md
           itemType: how-to-guide
           text:  PowerShell for Azure AD groups
-        - url: ./users-groups-roles/directory-service-limits-restrictions.md
+        - url: ./enterprise-users/directory-service-limits-restrictions.md
           itemType: reference
           text:  Azure AD service limits and restrictions
       footerLink:
-        url: ./users-groups-roles/index.yml
+        url: ./enterprise-users/index.yml
         text: See more
 
     - title: External Identities
@@ -279,6 +279,36 @@ conceptualContent:
       footerLink:
         url: ./reports-monitoring/index.yml
         text: See more
+
+    - title: Roles
+      links:
+        - url: ./roles/groups-assign-role.md
+          itemType: how-to-guide
+          text:  Assign a role to a cloud group
+        - url: ./roles/custom-create.md
+          itemType: how-to-guide
+          text:  Create a custom role
+        - url: ./roles/groups-view-assignments.md
+          itemType: reference
+          text:  View roles assigned to a group
+      footerLink:
+        url: ./roles/index.yml
+        text: See more
+
+    - title: Third-party applications
+      links:
+        - url: ./saas-apps/amazon-web-service-tutorial.md
+          itemType: tutorial
+          text: Azure AD single sign-on integration with Amazon Web Services
+        - url: ./saas-apps/workday-inbound-tutorial.md
+          itemType: tutorial
+          text: Configure Workday for automatic user provisioning
+        - url: ./develop/v2-howto-app-gallery-listing.md
+          itemType: get-started
+          text: Request to add your app to the Gallery
+      footerLink:
+        url: ./saas-apps/tutorial-list.md
+        text: See more apps
 
 additionalContent:
   sections:

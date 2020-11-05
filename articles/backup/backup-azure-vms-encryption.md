@@ -2,18 +2,23 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/18/2020
 ---
-# Back up and restore encrypted Azure VM
+# Back up and restore encrypted Azure virtual machines
 
-This article describes how to back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service.
+This article describes how to back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service. For more information, see [Encryption of Azure VM backups](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
-If you want to learn more about how Azure Backup interacts with Azure VMs before you begin, review these resources:
+## Encryption using platform-managed keys
 
-- [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the Azure VM backup architecture.
-- [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the Azure Backup extension.
+By default, all the disks in your VMs are automatically encrypted-at-rest using platform-managed keys (PMK) that use [storage service encryption](../storage/common/storage-service-encryption.md). You can back up these VMs using Azure Backup without any specific actions required to support encryption on your end. For more information about encryption with platform-managed keys, [see this article](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
 
-## Encryption support
+![Encrypted disks](./media/backup-encryption/encrypted-disks.png)
+
+## Encryption using customer-managed keys
+
+When you encrypt disks with custom-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. For more information about encryption of managed disks with customer-managed keys, see [this article](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
+
+## Encryption support using ADE
 
 Azure Backup supports backup of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). ADE uses BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. Key Vault Key Encryption Keys (KEKs) can be used to add an additional layer of security, encrypting encryption secrets before writing them to Key Vault.
 
@@ -30,7 +35,7 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 ### Limitations
 
 - You can back up and restore encrypted VMs within the same subscription and region.
-- Azure Backup supports VMs encrypted using standalone keys. Any key that is a part of a certificate used to encrypt a VM isn't currently supported.
+- Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
 - You can back up and restore encrypted VMs within the same subscription and region as the Recovery Services Backup vault.
 - Encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for encrypted VMs. This option is only supported for unencrypted managed disks.
@@ -58,19 +63,19 @@ In addition, there are a couple of things that you might need to do in some circ
 1. In **Backup goal** > **Where is your workload running?** select **Azure**.
 1. In **What do you want to back up?** select **Virtual machine**. Then select **Backup**.
 
-      ![Scenario blade](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Scenario pane](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. In **Backup policy** > **Choose backup policy**, select the policy that you want to associate with the vault. Then select **OK**.
     - A backup policy specifies when backups are taken, and how long they're stored.
     - The details of the default policy are listed under the drop-down menu.
 
-    ![Open Scenario blade](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![Choose backup policy](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 1. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Under **Virtual Machines**, select **Add**.
 
-    ![Open Scenario blade](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+    ![Add virtual machines](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
 1. Choose the encrypted VMs you want to back up using the select policy, and select **OK**.
 
@@ -114,16 +119,11 @@ To set permissions:
 
     ![Add access policy](./media/backup-azure-vms-encryption/add-access-policy.png)
 
-1. Select **Select principal**, and then type **Backup Management**.
-1. Select **Backup Management Service** > **Select**.
-
-    ![Backup service selection](./media/backup-azure-vms-encryption/select-backup-service.png)
-
 1. In **Add access policy** > **Configure from template (optional)**, select **Azure Backup**.
     - The required permissions are prefilled for **Key permissions** and **Secret permissions**.
     - If your VM is encrypted using **BEK only**, remove the selection for **Key permissions** since you only need permissions for secrets.
 
-    ![Azure backup selection](./media/backup-azure-vms-encryption/select-backup-template.png)
+    ![Azure Backup selection](./media/backup-azure-vms-encryption/select-backup-template.png)
 
 1. Select **Add**. **Backup Management Service** is added to **Access policies**.
 

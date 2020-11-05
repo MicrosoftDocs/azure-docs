@@ -1,4 +1,4 @@
-- name: Azure Firewall Manager Documentation
+- name: Azure Firewall Manager documentation
   href: index.yml
 - name: Overview
   items:
@@ -14,6 +14,8 @@
   items:
   - name: Secure your virtual hub - portal
     href: secure-cloud-network.md
+  - name: Secure your virtual hub - PowerShell
+    href: secure-cloud-network-powershell.md
   - name: Secure your hub virtual network - portal
     href: secure-hybrid-network.md
 - name: Concepts
@@ -26,6 +28,8 @@
     href: deployment-overview.md
   - name: Security partner providers
     href: trusted-security-partners.md
+  - name: Secure hubs using Check Point Cloudguard Connect
+    href: check-point-overview.md
   - name: IP Groups
     href: ip-groups.md
   - name: Rule processing logic
@@ -46,6 +50,8 @@
     href: dns-settings.md
   - name: Deploy multiple public IPs - PowerShell
     href: multiple-public-ip-powershell.md
+  - name: Define a rule hierarchy
+    href: rule-hierarchy.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -27,7 +27,7 @@ The appliance has a number of components.
 
 - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.
 - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure. 
-- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.
+- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.
 - **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 - **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 - **Auto update service**: Updates appliance components (runs every 24 hours).
@@ -47,8 +47,8 @@ During appliance setup, you register the appliance with Azure Migrate, and the a
 **Action** | **Details** | **Permissions**
 --- | --- | ---
 **Register source providers** | These resources providers are registered in the subscription you choose during appliance setup: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault.<br/><br/> Registering a resource provider configures your subscription to work with the resource provider. | To register the resource providers, you need a Contributor or Owner role on the subscription.
-**Create Azure AD app-communication** | Azure Migrate creates an Azure Active Directory (Azure AD) app for communication (authentication and authorization) between the agents running on the appliance, and their respective services running on Azure.<br/><br/> This app does not have privileges to make Azure Resource Manager calls, or RBAC access on any resource. | You need [these permissions](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) for Azure Migrate to create the app.
-**Create Azure AD apps-Key vault** | This app is created only for agentless migration of VMware VMs to Azure.<br/><br/> It's used exclusively to access the key vault created in the user's subscription for agentless migration.<br/><br/> It has RBAC access on the Azure key vault (created in customer's tenant), when discovery is initiated from the appliance. | You need [these permissions](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) for Azure Migrate to create the app.
+**Create Azure AD app-communication** | Azure Migrate creates an Azure Active Directory (Azure AD) app for communication (authentication and authorization) between the agents running on the appliance, and their respective services running on Azure.<br/><br/> This app does not have privileges to make Azure Resource Manager calls, or Azure RBAC access on any resource. | You need [these permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) for Azure Migrate to create the app.
+**Create Azure AD apps-Key vault** | This app is created only for agentless migration of VMware VMs to Azure.<br/><br/> It's used exclusively to access the key vault created in the user's subscription for agentless migration.<br/><br/> It has Azure RBAC access on the Azure key vault (created in customer's tenant), when discovery is initiated from the appliance. | You need [these permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) for Azure Migrate to create the app.
 
 
 
@@ -58,17 +58,17 @@ Data collected by the client for all deployment scenarios is summarized in the [
 
 ## Discovery and collection process
 
-![Architecture](./media/migrate-appliance-architecture/architecture.png)
+![Architecture](./media/migrate-appliance-architecture/architecture1.png)
 
 The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using the following process.
 
 1. **Start discovery**:
-    - When you start the discovery on the Hyper-V appliance, it communicates with the Hyper-V hosts on WinRM ports 5985 (HTTP) and 5986 (HTTPS).
+    - When you start the discovery on the Hyper-V appliance, it communicates with the Hyper-V hosts on WinRM port 5985 (HTTP).
     - When you start discovery on the VMware appliance, it communicates with the vCenter server on TCP port 443 by default. IF the vCenter server listens on a different port, you can configure it in the appliance web app.
 2. **Gather metadata and performance data**:
-    - The appliance uses a Common Information Model (CIM) session to gather Hyper-V VM data from the Hyper-V host on ports 5985 and 5986.
+    - The appliance uses a Common Information Model (CIM) session to gather Hyper-V VM data from the Hyper-V host on port 5985.
     - The appliance communicates with port 443 by default, to gather VMware VM data from the vCenter Server.
-3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet, or you can use ExpressRoute with public/Microsoft peering.
+3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet or via ExpressRoute (requires Microsoft peering).
     - For performance data, the appliance collects real-time utilization data.
         - Performance data is collected every 20 seconds for VMware, and every 30 seconds for Hyper-V, for each performance metric.
         - The collected data is rolled up to create a single data point for 10 minutes.
@@ -77,19 +77,13 @@ The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using 
     - For Server Migration, the appliance starts collecting VM data, and replicates it to Azure.
 4. **Assess and migrate**: You can now create assessments from the metadata collected by the appliance using Azure Migrate Server Assessment. In addition, you can also start migrating VMware VMs using Azure Migrate Server Migration to orchestrate agentless VM replication.
 
-
-
-
-
 ## Appliance upgrades
 
 The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically because auto-update is enabled on the appliance by default. You can change this default setting to update the agents manually.
 
 You turn off auto-update in the registry by setting the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" key to 0 (DWORD).
 
- 
 
 ## Next steps
 
 [Review](migrate-appliance.md) the appliance support matrix.
-

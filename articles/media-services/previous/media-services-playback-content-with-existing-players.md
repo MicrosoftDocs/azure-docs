@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Playing your content with existing players
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure Media Services supports many popular streaming formats, such as Smooth Streaming, HTTP Live Streaming, and MPEG-Dash. This topic points you to existing players that you can use to test your streams.
 
 ### The Azure portal Media Services content player
@@ -44,11 +47,11 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 #### PlayReady with Token
 
-[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
+[http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html)
 
 ### DASH Players
 
-[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
+"https://dashplayer.azurewebsites.net"
 
 [https://dashif.org](https://dashif.org)
 

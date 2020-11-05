@@ -51,7 +51,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Maximum number of concurrently connected device streams<sup>1</sup> | 50 | 50 | 50 |
 | Maximum device stream data transfer<sup>1</sup> (aggregate volume per day) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB.
+<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB. Throttling is based on request payload size only.
 
 ### Throttling details
 
@@ -73,7 +73,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 To accommodate burst traffic, IoT Hub accepts requests above the throttle for a limited time. The first few of these requests are processed immediately. However, if the number of requests continues violate the throttle, IoT Hub starts placing the requests in a queue and processed at the limit rate. This effect is called *traffic shaping*. Furthermore, the size of this queue is limited. If the throttle violation continues, eventually the queue fills up, and IoT Hub starts rejecting requests with `429 ThrottlingException`.
 
-For example, you use a simulated device to send 200 device-to-cloud messages per second to your S1 IoT Hub (which has a limit of 100/sec D2C sends). For the first minute or two, the messages are processed immediately. However, since the device continues to send more messages than the throttle limit, IoT Hub begins to only process 100 messages per second and puts the rest in a queue. You start noticing increased latency. Eventually, you start getting `429 ThrottlingException` as the queue fills up, and the "number of throttle errors" in [IoT Hub's metrics](iot-hub-metrics.md) starts increasing.
+For example, you use a simulated device to send 200 device-to-cloud messages per second to your S1 IoT Hub (which has a limit of 100/sec D2C sends). For the first minute or two, the messages are processed immediately. However, since the device continues to send more messages than the throttle limit, IoT Hub begins to only process 100 messages per second and puts the rest in a queue. You start noticing increased latency. Eventually, you start getting `429 ThrottlingException` as the queue fills up, and the ["Number of throttling errors" IoT Hub metric](monitor-iot-hub-reference.md#device-telemetry-metrics) starts increasing. To learn how to create alerts and charts based on metrics, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ### Identity registry operations throttle
 
@@ -103,7 +103,8 @@ IoT Hub enforces other operational limits:
 | Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
 | IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
 | Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. |
-| Shared access policies | Maximum number of shared access policies is 16 |
+| Shared access policies | Maximum number of shared access policies is 16. |
+| x509 CA certificates | Maximum number of x509 CA certificates that can be registered on IoT Hub is 25. |
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 
@@ -130,3 +131,4 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)

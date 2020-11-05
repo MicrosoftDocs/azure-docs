@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 # Azure Active Directory Graph API
 
 > [!IMPORTANT]
-> We strongly recommend that you use [Microsoft Graph](https://developer.microsoft.com/graph) instead of Azure AD Graph API to access Azure Active Directory (Azure AD) resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) blog post and [Migrate Azure AD Graph apps to Microsoft Graph](/graph/migrate-azure-ad-graph-overview).
+> We strongly recommend that you use [Microsoft Graph](https://developer.microsoft.com/graph) instead of Azure AD Graph API to access Azure Active Directory (Azure AD) resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) blog post and [Migrate Azure AD Graph apps to Microsoft Graph](/graph/migrate-azure-ad-graph-planning-checklist).
 
 This article applies to Azure AD Graph API. For similar info related to Microsoft Graph API, see [Use the Microsoft Graph API](/graph/use-the-api).
 

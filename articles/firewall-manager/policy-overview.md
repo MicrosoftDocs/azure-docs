@@ -4,8 +4,8 @@ description: Learn about Azure Firewall Manager policies
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 

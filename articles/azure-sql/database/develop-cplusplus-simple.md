@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer:
@@ -23,7 +23,7 @@ Make sure you have the following items:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). You must install the C++ language components to build and run this sample.
-* [Visual Studio Linux Development](https://docs.microsoft.com/cpp/linux/?view=vs-2019). If you are developing on Linux, you must also install the Visual Studio Linux extension.
+* [Visual Studio Linux Development](/cpp/linux/?view=vs-2019). If you are developing on Linux, you must also install the Visual Studio Linux extension.
 
 ## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
 
@@ -33,7 +33,7 @@ Azure currently has two options for hosting SQL server workloads: Azure SQL Data
 
 ## <a id="ODBC"></a>Data access technologies: ODBC and OLE DB
 
-Connecting to Azure SQL Database is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API.
+Connecting to Azure SQL Database is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API.
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
 
@@ -137,7 +137,7 @@ You can find the GetStarted solution that contains all the samples in this artic
 ## Next steps
 
 * Review the [SQL Database Development Overview](develop-overview.md)
-* More information on the [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* More information on the [ODBC API Reference](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## Additional resources
 

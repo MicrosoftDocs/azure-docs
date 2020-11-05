@@ -1,7 +1,7 @@
 ---
 title: 'Regression tutorial: Automated ML'
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you.
+description: Create an automated machine learning experiment that generates a regression model for you based on the training data and configuration settings you provide.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,11 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, automl
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
@@ -168,7 +168,7 @@ final_df.describe()
 
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -298,7 +298,7 @@ BEST: The best observed score thus far.
 
 ## Explore the results
 
-Explore the results of automatic training with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
+Explore the results of automatic training with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
 
 ```python
 from azureml.widgets import RunDetails

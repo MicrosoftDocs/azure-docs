@@ -206,11 +206,11 @@ The ODBC driver package for SQL Server also comes with two command-line tools:
 
 - **bcp**: The bcp tool bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. You can use the bcp tool to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must use a format file created for that table. Or, you must understand the structure of the table and the types of data that are valid for its columns.
 
-  For more information, see [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  For more information, see [Connecting with bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
 - **sqlcmd**: You can enter Transact-SQL statements by using the sqlcmd tool. You can also enter system procedures and script files at the command prompt. This tool uses ODBC to run Transact-SQL batches.
 
-  For more information, see [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+  For more information, see [Connecting with sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
   > [!NOTE]
   > There are some differences in this tool between Linux and Windows platforms. See the documentation for details.
@@ -226,11 +226,11 @@ Libraries are available in R and Python for database access:
 
 The following Azure tools are installed on the VM:
 
-* **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](/cli/azure/get-started-with-az-cli2).
 * **Azure Storage Explorer**: Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. You can access Storage Explorer from the desktop shortcut icon. You can also open it from a shell prompt by entering **StorageExplorer**. You must be signed in from an X2Go client, or have X11 forwarding set up.
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
-  * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Data Warehouse from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
+  * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
   * **R**: The Azure-related libraries in R are AzureML and RODBC.
   * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
 
@@ -245,8 +245,6 @@ After you sign in to Azure Machine Learning studio, you can use an experimentati
 Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
-
-For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md).
 
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science Virtual Machine. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.

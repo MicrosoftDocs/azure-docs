@@ -1,6 +1,6 @@
 ---
 title: "Web Service Input/Output: Module reference"
-description: Learn about the web service modules in Azure Machine Learning designer (preview)
+description: Learn about the web service modules in Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 04/13/2020
 ---
 # Web Service Input and Web Service Output modules
 
-This article describes the Web Service Input and Web Service Output modules in Azure Machine Learning designer (preview).
+This article describes the Web Service Input and Web Service Output modules in Azure Machine Learning designer.
 
 The Web Service Input module can only connect to an input port with the type **DataFrameDirectory**. The Web Service Output module can only be connected from an output port with the type **DataFrameDirectory**. You can find the two modules in the module tree, under the **Web Service** category. 
 
@@ -21,7 +21,7 @@ The Web Service Input module indicates where user data enters the pipeline. The 
 
 ## How to use Web Service Input and Output
 
-When you [create a real-time inference pipeline](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) from your training pipeline, the Web Service Input and Web Service Output modules will be automatically added to show where user data enters the pipeline and where data is returned. 
+When you [create a real-time inference pipeline](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) from your training pipeline, the Web Service Input and Web Service Output modules will be automatically added to show where user data enters the pipeline and where data is returned. 
 
 > [!NOTE]
 > Automatically generating a real-time inference pipeline is a rule-based, best-effort process. There's no guarantee of correctness. 
@@ -43,6 +43,6 @@ After you submit the pipeline and the run finishes successfully, you can deploy 
 >  In the preceding example, **Enter Data Manually** provides the data schema for web service input and is necessary for deploying the real-time endpoint. Generally, you should always connect a module or dataset to the port where **Web Service Input** is connected to provide the data schema.
    
 ## Next steps
-Learn more about [deploying the real-time endpoint](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Learn more about [deploying the real-time endpoint](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning.

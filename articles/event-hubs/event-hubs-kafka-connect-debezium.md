@@ -1,6 +1,6 @@
 ---
 title: Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture
-description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
+description: This article provides information on how to use Debezium with Azure Event Hubs for Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
@@ -11,7 +11,7 @@ ms.date: 08/11/2020
 
 **Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/1.2/connectors/index.html) that tap into row-level changes in database table(s) and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
 
-This tutorial walks you through how to set up a change data capture based system on Azure using [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Azure Event Hubs
+This tutorial walks you through how to set up a change data capture based system on Azure using [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Azure Event Hubs
 
 In this tutorial, you take the following steps:
 
@@ -93,6 +93,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ### Run Kafka Connect
 In this step, a Kafka Connect worker is started locally in distributed mode, using Event Hubs to maintain cluster state.

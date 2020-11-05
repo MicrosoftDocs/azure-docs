@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/06/2019
  ms.author: mbaldwin
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 ## Create a resource group
 
@@ -142,7 +142,7 @@ Azure Disk Encryption doesn't support specifying port numbers as part of key vau
 Use the Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to generate a new KEK and store it in your key vault.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
 You may instead import a private key using the Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command:

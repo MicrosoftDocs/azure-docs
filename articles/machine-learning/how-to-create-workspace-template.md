@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
+ms.date: 09/30/2020
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -17,7 +17,7 @@ ms.date: 07/27/2020
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 <br>
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
@@ -28,7 +28,14 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+
+* Some scenarios require you to open a support ticket. These scenarios are:
+
+    * __Private Link enabled workspace with a customer-managed key (CMK)__
+    * __Azure Container Registry for the workspace behind your virtual network__
+
+    For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Workspace Resource Manager template
 
@@ -60,7 +67,7 @@ The example template has two **required** parameters:
 > [!TIP]
 > While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. One will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
 >
-> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. However, the container registry you use must have the __admin account__ enabled. For information on enabling the admin account, see [Admin account](/azure/container-registry/container-registry-authentication#admin-account).
+> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. However, the container registry you use must have the __admin account__ enabled. For information on enabling the admin account, see [Admin account](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -68,7 +75,7 @@ For more information on templates, see the following articles:
 
 * [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServices resource types](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## Deploy template
 
@@ -118,7 +125,7 @@ New-AzResourceGroupDeployment `
 By default, all of the resources created as part of the template are new. However, you also have the option of using existing resources. By providing additional parameters to the template, you can use existing resources. For example, if you want to use an existing storage account set the **storageAccountOption** value to **existing** and provide the name of your storage account in the **storageAccountName** parameter.
 
 > [!IMPORTANT]
-> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace.
+> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace. Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 # [Azure CLI](#tab/azcli)
 
@@ -152,9 +159,11 @@ New-AzResourceGroupDeployment `
 
 The following example template demonstrates how to create a workspace with three settings:
 
-* Enable high confidentiality settings for the workspace
-* Enable encryption for the workspace
-* Uses an existing Azure Key Vault to retrieve customer-managed keys
+* Enable high confidentiality settings for the workspace. This creates a new Cosmos DB instance.
+* Enable encryption for the workspace.
+* Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Cosmos DB instance for the workspace.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
@@ -163,158 +172,50 @@ For more information, see [Encryption at rest](concept-enterprise-security.md#en
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
->
-> * The __Azure Machine Learning__ application must be a __contributor__ for your Azure subscription.
 > * You must have an existing Azure Key Vault that contains an encryption key.
-> * You must have an access policy in the Azure Key Vault that grants __get__, __wrap__, and __unwrap__ access to the __Azure Cosmos DB__ application.
 > * The Azure Key Vault must be in the same region where you plan to create the Azure Machine Learning workspace.
+> * You must specify the ID of the Azure Key Vault and the URI of the encryption key.
 
-__To add the Azure Machine Learning app as a contributor__, use the following commands:
+__To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:	
 
-1. Log into your Azure account and get your subscription ID. This subscription must be the same one that contains your Azure Machine Learning workspace.  
+1. To get the Key Vault ID, use the following command:	
 
-    # [Azure CLI](#tab/azcli)
+    # [Azure CLI](#tab/azcli)	
 
-    ```azurecli
-    az account list --query '[].[name,id]' --output tsv
-    ```
+    ```azurecli	
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv	
+    ```	
 
-    > [!TIP]
-    > To select another subscription, use the `az account set -s <subscription name or ID>` command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    # [Azure PowerShell](#tab/azpowershell)	
 
-    # [Azure PowerShell](#tab/azpowershell)
+    ```azurepowershell	
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'	
+    ```	
+    ---	
 
-    ```azurepowershell
-    Get-AzSubscription
-    ```
+    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.	
 
-    > [!TIP]
-    > To select another subscription, use the `Az-SetContext -SubscriptionId <subscription ID>` command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
+1. To get the value for the URI for the customer managed key, use the following command:	
 
-    ---
+    # [Azure CLI](#tab/azcli)	
 
-1. To get the object ID of the Azure Machine Learning app, use the following command. The value may be different for each of your Azure subscriptions:
+    ```azurecli	
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv	
+    ```	
 
-    # [Azure CLI](#tab/azcli)
+    # [Azure PowerShell](#tab/azpowershell)	
 
-    ```azurecli
-    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
+    ```azurepowershell	
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'	
+    ```	
+    ---	
 
-    # [Azure PowerShell](#tab/azpowershell)
+    This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.	
 
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
-    ```
-
-    ---
-    This command returns the object ID, which is a GUID.
-
-1. To add the object ID as a contributor to your subscription, use the following command. Replace `<object-ID>` with the object ID of the service principal. Replace `<subscription-ID>` with the name or ID of your Azure subscription:
-
-    # [Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
-    ```
-
-    ---
-
-1. To generate a key in an existing Azure Key Vault, use one of the following commands. Replace `<keyvault-name>` with the name of the key vault. Replace `<key-name>` with the name to use for the key:
-
-    # [Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
-    ```
-    --- 
-
-__To add an access policy to the key vault, use the following commands__:
-
-1. To get the object ID of the Azure Cosmos DB app, use the following command. The value may be different for each of your Azure subscriptions:
-
-    # [Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
-    ```
-    ---
-
-    This command returns the object ID, which is a GUID. Save it for later
-
-1. To set the policy, use the following command. Replace `<keyvault-name>` with the name of the existing Azure Key Vault. Replace `<object-ID>` with the GUID from the previous step:
-
-    # [Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-    
-    ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
-    ```
-    ---    
-
-__To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:
-
-1. To get the Key Vault ID, use the following command:
-
-    # [Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
-    ```
-    ---
-
-    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.
-
-1. To get the value for the URI for the customer managed key, use the following command:
-
-    # [Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
-    ```
-
-    # [Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
-    ```
-    ---
-
-    This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
-
-> [!IMPORTANT]
+> [!IMPORTANT]	
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-Once you've successfully completed the steps above, deploy your template like you normally would. To enable use of Customer Managed Keys set the following parameters:
+To enable use of Customer Managed Keys, set the following parameters when deploying the template:
 
 * **encryption_status** to **Enabled**.
 * **cmk_keyvault** to the `cmk_keyvault` value obtained in previous steps.
@@ -378,9 +279,7 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
 
 # [Azure CLI](#tab/azcli)
 
@@ -640,7 +539,7 @@ New-AzResourceGroupDeployment `
 
 ## Use the Azure portal
 
-1. Follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **201-machine-learning-advanced** template from the dropdown.
+1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **201-machine-learning-advanced** template from the dropdown.
 1. Select __Select template__ to use the template. Provide the following required information and any other parameters depending on your deployment scenario.
 
    * Subscription: Select the Azure subscription to use for these resources.
@@ -675,7 +574,7 @@ To avoid this problem, we recommend one of the following approaches:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    For more information on using the `accessPolicies` section of the template, see the [AccessPolicyEntry object reference](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    For more information on using the `accessPolicies` section of the template, see the [AccessPolicyEntry object reference](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, to use the existing Key Vault instead of creating a new one, make the following changes to the template:
 

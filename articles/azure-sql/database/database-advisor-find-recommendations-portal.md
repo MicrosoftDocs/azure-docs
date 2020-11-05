@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
@@ -29,7 +29,7 @@ Use the following steps to find performance recommendations on the Azure portal:
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
 
-![Recommendations](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Screenshot shows performance recommendations in a table with action and recommendation description.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Recommendations are sorted by their potential impact on performance into the following categories:
 
@@ -97,7 +97,7 @@ You can set your database to implement recommendations automatically. As recomme
    ![Advisor settings](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Select actions to automate:
 
-   ![Recommended Indexes](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Screenshot that shows where to select the actions to automate.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints.
@@ -108,7 +108,7 @@ Once you have selected your desired configuration, click Apply.
 
 Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
 
-*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). In addition, manually applied recommendations will remain active and shown in the list of recommendations for 24-48 hrs. before the system automatically withdraws them. If you would like to remove a recommendation sooner, you can manually discard it.
+*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). In addition, manually applied recommendations will remain active and shown in the list of recommendations for 24-48 hrs. before the system automatically withdraws them. If you would like to remove a recommendation sooner, you can manually discard it.
 
 ### Canceling recommendations
 
@@ -133,7 +133,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 
 Click an in-process recommendation from the list to see more information:
 
-![Recommended Indexes](./media/database-advisor-find-recommendations-portal/operations.png)
+![Screenshot that shows the list of in-process recommendations.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### Reverting a recommendation
 
@@ -164,6 +164,6 @@ Monitor your recommendations and continue to apply them to refine performance. D
 
 ## Additional resources
 
-* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)

@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-dotnet"
 ---
 # Quickstart: Extract text using the Computer Vision 2.0 REST API OCR operation and C#
 

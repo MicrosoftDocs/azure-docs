@@ -16,7 +16,7 @@ This article shows you how to configure autostart policy for a lab.
 1. Navigate to the home page for your lab. 
 2. Select **Configuration and policies** on the left menu. 
 
-    ![Configuration and policies menu](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![Screenshot that shows the "Configuration and policies" menu in the DevTest Lab.](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. On the **Configuration and policies** page, do the following steps:
     
     1. Select **On** for **Allow virtual machines to be scheduled for automatic start** to enable the autostart feature for this lab. 

@@ -5,13 +5,13 @@ description: Auto-failover groups allow you to manage replication and automatic 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2, devx-track-azurecli
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
+ms.reviewer: mathoma, sstein
+ms.date: 08/28/2020
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -71,9 +71,9 @@ To achieve real business continuity, adding database redundancy between datacent
   
 - **Initial Seeding**
 
-  When adding databases, elastic pools, or managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seed to complete depends on the size of your data, number of replicated databases, and the speed of the link between the entities in the failover group. Under normal circumstances, typical seeding speed is 50-500 GB an hour for SQL Database, and 18-35 GB an hour for a SQL Managed Instance. Seeding is performed for all databases in parallel. You can use the stated seeding speed, along with the number of databases and the total size of data to estimate how long the initial seeding phase will take before data replication starts.
+  When adding databases, elastic pools, or managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seed to complete depends on the size of your data, number of replicated databases, and the speed of the link between the entities in the failover group. Under normal circumstances, possible seeding speed is up to 500 GB an hour for SQL Database, and up to 360 GB an hour for SQL Managed Instance. Seeding is performed for all databases in parallel.
 
-  For SQL Managed Instance, the speed of the Express Route link between the two instances also needs to be considered when estimating the time of the initial seeding phase. If the speed of the link between the two instances is slower than what is necessary, the time to seed is likely be notably impacted. You can use the stated seeding speed, number of databases, total size of data, and the link speed to estimate how long the initial seeding phase will take before data replication starts. For example, for a single 100 GB database, the initial seed phase would take anywhere from 2.8 - 5.5 hours if the link is capable of pushing 35 GB per hour. If the link can only transfer 10 GB per hour, then seeding a 100 GB database will take about 10 hours. If there are multiple databases to replicate, seeding will be executed in parallel, and, when combined with a slow link speed, the initial seeding phase may take considerably longer, especially if the parallel seeding of data from all databases exceeds the available link bandwidth. If the network bandwidth between two instances is limited and you are adding multiple managed instances to a failover group, consider adding multiple managed instances to the failover group sequentially, one by one.
+  For SQL Managed Instance, consider the speed of the Express Route link between the two instances when estimating the time of the initial seeding phase. If the speed of the link between the two instances is slower than what is necessary, the time to seed is likely be notably impacted. You can use the stated seeding speed, number of databases, total size of data, and the link speed to estimate how long the initial seeding phase will take before data replication starts. For example, for a single 100 GB database, the initial seed phase would take about 1.2 hours if the link is capable of pushing 84 GB per hour, and if there are no other databases being seeded. If the link can only transfer 10 GB per hour, then seeding a 100 GB database will take about 10 hours. If there are multiple databases to replicate, seeding will be executed in parallel, and, when combined with a slow link speed, the initial seeding phase may take considerably longer, especially if the parallel seeding of data from all databases exceeds the available link bandwidth. If the network bandwidth between two instances is limited and you are adding multiple managed instances to a failover group, consider adding multiple managed instances to the failover group sequentially, one by one. Given an appropriately sized gateway SKU between the two managed instances, and if corporate network bandwidth allows it, it's possible to achieve speeds as high as 360 GB an hour.  
 
 - **DNS zone**
 
@@ -84,11 +84,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group read-write listener**
 
-  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
+  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.<zone_id>.database.windows.net`.
 
 - **Failover group read-only listener**
 
-  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
+  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 - **Automatic failover policy**
 
@@ -148,7 +148,7 @@ To fail over a failover group, you need RBAC write access to the failover group 
 
 The auto-failover group must be configured on the primary server and will connect it to the secondary server in a different Azure region. The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
 
-![auto failover](./media/auto-failover-group-overview/auto-failover-group.png)
+![Diagram shows a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > See [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md) for a detailed step-by-step tutorial adding a database in SQL Database to a failover group.
@@ -212,7 +212,7 @@ The auto-failover group must be configured on the primary instance and will conn
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
-![auto failover](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![auto failover diagram](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > See [Add managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
@@ -228,13 +228,17 @@ To ensure non-interrupted connectivity to the primary SQL Managed Instance after
 
 For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
+### Using geo-paired regions
+
+Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
+
 ### Enabling replication traffic between two instances
 
 Because each instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See [Azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### Creating a failover group between managed instances in different subscriptions
 
-You can create a failover group between SQL Managed Instances in two different subscriptions, as long as subscriptions are associated to the same [Azure Active Directory Tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). When using PowerShell API, you can do it by specifying the `PartnerSubscriptionId` parameter for the secondary SQL Managed Instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
+You can create a failover group between SQL Managed Instances in two different subscriptions, as long as subscriptions are associated to the same [Azure Active Directory Tenant](../../active-directory/fundamentals/active-directory-whatis.md#terminology). When using PowerShell API, you can do it by specifying the `PartnerSubscriptionId` parameter for the secondary SQL Managed Instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
   
 > [!IMPORTANT]
 > Azure portal does not support the creation of failover groups across different subscriptions. Also, for the existing failover groups across different subscriptions and/or resource groups, failover cannot be initiated manually via portal from the primary SQL Managed Instance. Initiate it from the geo-secondary instance instead.
@@ -252,13 +256,13 @@ When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` a
 
 ### Using read-only listener to connect to the secondary instance
 
-If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `server.secondary.zone_id.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
+If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
 > [!NOTE]
 > In certain service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
 >
-> - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
-> - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
+> - To connect to a read-only replica in the primary location, use `<fog-name>.<zone_id>.database.windows.net`.
+> - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 ### Preparing for performance degradation
 
@@ -333,8 +337,8 @@ If your business continuity plan requires failover using groups with automatic f
 1. [Create a public IP](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Create a public load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) and assign the public IP to it.
 3. [Create a virtual network and the virtual machines](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) for your front-end components
-4. [Create network security group](../../virtual-network/security-overview.md) and configure inbound connections.
-5. Ensure that the outbound connections are open to Azure SQL Database by using ‘Sql’ [service tag](../../virtual-network/security-overview.md#service-tags).
+4. [Create network security group](../../virtual-network/network-security-groups-overview.md) and configure inbound connections.
+5. Ensure that the outbound connections are open to Azure SQL Database by using ‘Sql’ [service tag](../../virtual-network/network-security-groups-overview.md#service-tags).
 6. Create a [SQL Database firewall rule](firewall-configure.md) to allow inbound traffic from the public IP address you create in step 1.
 
 For more information on how to configure outbound access and what IP to use in the firewall rules, see [Load balancer outbound connections](../../load-balancer/load-balancer-outbound-connections.md).
@@ -351,7 +355,11 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 - The two instances of SQL Managed Instance need to be in different Azure regions.
 - The two instances of SQL Managed Instance need to be the same service tier, and have the same storage size.
 - Your secondary instance of SQL Managed Instance must be empty (no user databases).
-- The virtual networks used by the instances of SQL Managed Instance need to be connected through a [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+- The virtual networks used by the instances of SQL Managed Instance need to be connected through a [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is supported with the limitation described in the note below.
+
+   > [!IMPORTANT]
+   > [On 9/22/2020 we announced global virtual network peering for newly created virtual clusters](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). That means that global virtual network peering is supported for SQL Managed Instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL Managed Instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
+
 - The two SQL Managed Instance VNets cannot have overlapping IP addresses.
 - You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the subnet of the other managed instance. This is to allow replication traffic between the instances.
 
@@ -394,7 +402,7 @@ Be aware of the following limitations:
 
 ## Programmatically managing failover groups
 
-As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](/rest/api/sql/) and [Azure PowerShell cmdlets](/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Manage SQL Database failover
 
@@ -423,13 +431,13 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | API | Description |
 | --- | --- |
-| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
-| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Removes a failover group from the server |
-| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Triggers failover from the current primary server to the secondary server with full data synchronization.|
-| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Triggers failover from the current primary server to the secondary server without synchronizing data. This operation may result in data loss. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Retrieves a failover group's configuration. |
-| [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lists the failover groups on a server. |
-| [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group's configuration. |
+| [Create or Update Failover Group](/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
+| [Delete Failover Group](/rest/api/sql/failovergroups/delete) | Removes a failover group from the server |
+| [Failover (Planned)](/rest/api/sql/failovergroups/failover) | Triggers failover from the current primary server to the secondary server with full data synchronization.|
+| [Force Failover Allow Data Loss](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Triggers failover from the current primary server to the secondary server without synchronizing data. This operation may result in data loss. |
+| [Get Failover Group](/rest/api/sql/failovergroups/get) | Retrieves a failover group's configuration. |
+| [List Failover Groups By Server](/rest/api/sql/failovergroups/listbyserver) | Lists the failover groups on a server. |
+| [Update Failover Group](/rest/api/sql/failovergroups/update) | Updates a failover group's configuration. |
 
 ---
 
@@ -461,12 +469,12 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | API | Description |
 | --- | --- |
-| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Creates or updates a failover group's configuration |
-| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Removes a failover group from the instance |
-| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Triggers failover from the current primary instance to this instance with full data synchronization. |
-| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Triggers failover from the current primary instance to the secondary instance without synchronizing data. This operation may result in data loss. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | retrieves a failover group's configuration. |
-| [List Failover Groups - List By Location](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lists the failover groups in a location. |
+| [Create or Update Failover Group](/rest/api/sql/instancefailovergroups/createorupdate) | Creates or updates a failover group's configuration |
+| [Delete Failover Group](/rest/api/sql/instancefailovergroups/delete) | Removes a failover group from the instance |
+| [Failover (Planned)](/rest/api/sql/instancefailovergroups/failover) | Triggers failover from the current primary instance to this instance with full data synchronization. |
+| [Force Failover Allow Data Loss](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Triggers failover from the current primary instance to the secondary instance without synchronizing data. This operation may result in data loss. |
+| [Get Failover Group](/rest/api/sql/instancefailovergroups/get) | retrieves a failover group's configuration. |
+| [List Failover Groups - List By Location](/rest/api/sql/instancefailovergroups/listbylocation) | Lists the failover groups in a location. |
 
 ---
 

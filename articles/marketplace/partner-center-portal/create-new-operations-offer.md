@@ -3,7 +3,7 @@ title: Create a Dynamics 365 for Operations offer in the Commercial Marketplace
 description: How to create a new Dynamics 365 for Operations offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
@@ -16,7 +16,7 @@ This topic explains how to create a new Dynamics 365 for Operations offer. [Micr
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 >[!NOTE]
-> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Ensure that you submit the offer for publication after you make changes.
+> Once an offer is published, edits to the offer will only be updated in Partner Center and the online store after you re-submit the offer for publication.
 
 ## Create a new offer
 
@@ -27,14 +27,15 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
     ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-operations.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1** here, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- The Offer ID combined with the Publisher ID must be under 40 characters in length.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is testpublisherid and you enter **test-offer-1** here, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -51,11 +52,11 @@ Select the option you'd like to use for this offer.
 
 #### Get it now (free)
 
-List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example, `https://contoso.com/my-app`
+List your offer to customers for free.
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with `http` or `https`) where they can get a trial. For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
@@ -181,19 +182,23 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide your offer's logo in two pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-- **Small** (48 x 48)
-- **Large** (216 x 216)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
+
+These logos are used in different places in the listing:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -267,7 +272,7 @@ This page lets you provide additional information about your offer to help us va
 
 ### Validation assets
 
-Upload a [Customization Analysis Report (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) in this section. This report is generated by analyzing your customization and extension models, based on a predefined set of best practice rules.
+Upload a [Customization Analysis Report (CAR)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) in this section. This report is generated by analyzing your customization and extension models, based on a predefined set of best practice rules.
 
 This file must be in .xls or .xlsx format. If you have more than one report, you can upload a .zip file containing all of the reports.
 
@@ -293,7 +298,7 @@ If it's your first time publishing this offer, you can:
     - **Not started** – The section has not been touched and should be completed.
     - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
-- In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app. For more information about testing instructions and completing a first publish, see [AppSource Dynamics 365 Finance and Operations functional validation](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
+- In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app. For more information about testing instructions and completing a first publish, see [AppSource Dynamics 365 Finance and Operations functional validation](../dynamics-365-finance-operations-functional-validation.md).
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 
 ## Next step

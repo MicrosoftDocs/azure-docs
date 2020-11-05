@@ -6,8 +6,9 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -26,7 +27,7 @@ Azure subscriptions with credit such as Free Trial and Visual Studio Enterprise 
 > [!NOTE]
 > If you have a Free Trial subscription and you remove the spending limit, your subscription converts to an individual subscription with pay-as-you-go rates at the end of the Free Trial. You keep your remaining credit for the full 30 days after you created the subscription. You also have access to free services for 12 months.
 
-To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](getting-started.md).
+To monitor and manage billing activity for Azure, see [Plan to manage Azure costs](../understand/plan-manage-costs.md).
 
 
 ## Your bill is past due
@@ -54,4 +55,4 @@ For other subscription types, [contact support](https://portal.azure.com/?#blade
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn how to [Monitor and manage billing activity for Azure](getting-started.md).
+- Learn how to [Plan to manage Azure costs](../understand/plan-manage-costs.md).

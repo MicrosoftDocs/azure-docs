@@ -6,6 +6,7 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
+ms.custom: devx-track-csharp
 ---
 # Configure FabricTransport settings for Reliable Actors
 

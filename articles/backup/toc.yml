@@ -44,17 +44,14 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
+    - name: Backup Center support matrix
+      href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
     - name: DPM/Azure Backup Server (MABS) support matrix
@@ -73,6 +70,8 @@
     items:
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.md
+    - name: FAQ-Backup Center
+      href: backup-center-faq.md
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.md
     - name: FAQ-MARS agent
@@ -93,18 +92,36 @@
     href: guidance-best-practices.md
 - name: How to guides
   items:
-  - name: Recovery Services vault
+  - name: Vaults
+    items:
+    - name: Recovery Services vault
+      items:
+      - name: Overview
+        href: backup-azure-recovery-services-vault-overview.md
+      - name: Create
+        href: backup-create-rs-vault.md
+      - name: Delete
+        href: backup-azure-delete-vault.md
+      - name: Move
+        href: backup-azure-move-recovery-services-vault.md
+      - name: Manage
+        href: backup-azure-manage-windows-server.md
+    - name: Backup vault
+      items:
+      - name: Overview
+        href: backup-vault-overview.md
+  - name: Backup Center
     items:
     - name: Overview
-      href: backup-azure-recovery-services-vault-overview.md
-    - name: Create
-      href: backup-create-rs-vault.md
-    - name: Delete
-      href: backup-azure-delete-vault.md
-    - name: Move
-      href: backup-azure-move-recovery-services-vault.md
-    - name: Manage
-      href: backup-azure-manage-windows-server.md
+      href: backup-center-overview.md
+    - name: Monitor and Operate
+      href: backup-center-monitor-operate.md
+    - name: Obtain insights
+      href: backup-center-obtain-insights.md
+    - name: Govern environment
+      href: backup-center-govern-environment.md
+    - name: Perform actions
+      href: backup-center-actions.md
   - name: Azure VM backup
     items:
     - name: Overview
@@ -155,6 +172,10 @@
       href: restore-sql-database-azure-vm.md
     - name: Manage
       href: manage-monitor-sql-database-backup.md
+  - name: Azure Database for PostgreSQL backup
+    items:
+    - name: Backup
+      href: backup-azure-database-postgresql.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -263,6 +284,8 @@
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
       href: restore-azure-backup-server-vmware.md
+    - name: Back up the MABS server
+      href: backup-the-mabs-server.md
   - name: Azure Backup Server on Azure Stack
     items:
     - name: Install Azure Backup Server
@@ -363,7 +386,7 @@
     items:
     - name: Overview
       href: security-overview.md
-    - name: Role-Based Access Control
+    - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
     - name: Soft delete 
       items:
@@ -383,8 +406,8 @@
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
       href: encryption-at-rest-with-cmk.md
-    - name: Built-in security controls
-      href: backup-security-controls.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -417,7 +440,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
-    href: /cli/azure/backup?view=azure-cli-latest
+    href: /cli/azure/backup
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
   - name: PowerShell – Azure Backup agent
@@ -428,6 +451,9 @@
     href: /rest/api/recoveryservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Compliance 

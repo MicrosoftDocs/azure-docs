@@ -10,10 +10,15 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Create a single-page app using the Bing Web Search API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 This single-page app demonstrates how to retrieve, parse, and display search results from the Bing Web Search API. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript code. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) with quickstart instructions.
 
@@ -438,7 +443,7 @@ Browser security policies, such as Cross-Origin Resource Sharing (CORS), may pre
 > [!NOTE]
 > In a production Web application, you should perform the request server-side anyway. Otherwise, your Bing Search API subscription key must be included in the web page, where it's available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make a request through a CORS proxy. The response from this type of proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make a request through a CORS proxy. The response from this type of proxy has an `Access-Control-Expose-Headers` header that filters response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our sample app to access the client ID header. Run this command:
 

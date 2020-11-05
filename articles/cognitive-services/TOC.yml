@@ -4,11 +4,13 @@
   expanded: true
   items:
   - name: What are Cognitive Services?
-    href: Welcome.md
+    href: what-are-cognitive-services.md
   - name: What's new in Cognitive Services docs?
     href: whats-new-docs.md
   - name: Cognitive Services and Machine learning
     href: cognitive-services-and-machine-learning.md
+  - name: Cognitive Services development options
+    href: cognitive-services-development-options.md 
   - name: Custom subdomains for Cognitive Services
     href: cognitive-services-custom-subdomains.md
   - name: Language support
@@ -19,15 +21,13 @@
     href: cognitive-services-apis-create-account.md
   - name: Create a new resource using the Azure CLI
     href: cognitive-services-apis-create-account-cli.md
+  - name: Create a new resource using the client library
+    href: cognitive-services-apis-create-account-client-library.md
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
-    href: resource-manager-template.md
+    href: create-account-resource-manager-template.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    href: ./policy-samples.md
 - name: Security
   items:
   - name: Cognitive Services security
@@ -66,6 +66,8 @@
       href: ../container-registry/container-registry-get-started-azure-cli.md
     - name: Azure Kubernetes Service (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
+  - name: Cognitive Services containers documentation
+    href: containers/index.yml
 - name: Big data
   items:
   - name: Cognitive Services for Big Data
@@ -84,8 +86,15 @@
       href: ./big-data/recipes/anomaly-detection.md
     - name: "Recipe: Art Explorer"
       href: ./big-data/recipes/art-explorer.md
+- name: Reference
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Support & help options
+    href: cognitive-services-support-options.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
   - name: Pricing
@@ -94,8 +103,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Support & help options
-    href: cognitive-services-support-options.md
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
   - name: Videos

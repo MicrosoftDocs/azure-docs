@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Reward Gateway for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Reward Gateway.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
@@ -23,7 +18,7 @@ ms.author: zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in Reward Gateway and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Reward Gateway.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in public preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -53,15 +48,15 @@ Before configuring Reward Gateway for automatic user provisioning with Azure AD,
 
 1. Sign in to your [Reward Gateway Admin Console](https://rewardgateway.photoshelter.com/login/). Click **Integrations**.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image00.png)
+	![Screenshot of the Reward Gateway Admin Console with the Integrations option called out.](media/reward-gateway-provisioning-tutorial/image00.png)
 
 2.	Select **My Integration**.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image001.png)
+	![Screenshot of the two Integrations options with the My Integrations option called out.](media/reward-gateway-provisioning-tutorial/image001.png)
 
 3.	Copy the values of **SCIM URL (v2)** and **OAuth Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Reward Gateway application in the Azure portal.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image03.png)
+	![Screenshot of the My Integrations panel with the OAuth Bearer Token text box called out.](media/reward-gateway-provisioning-tutorial/image03.png)
 
 ## Add Reward Gateway from the gallery
 
@@ -104,11 +99,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input the **SCIM URL (v2)** and **OAuth Bearer Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to reward gateway. If the connection fails, ensure your reward gateway account has Admin permissions and try again.
 
@@ -122,11 +117,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Reward Gateway**.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/user-mappings.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Reward Gateway option called out.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Reward Gateway in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Reward Gateway for update operations. Select the **Save** button to commit any changes.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/user-attributes.png)
+	![Screenshot of the Attribute Mappings section with six mappings displayed.](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

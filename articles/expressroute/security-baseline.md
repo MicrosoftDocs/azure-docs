@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -16,13 +16,13 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for ExpressRoute contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see the [Azure security baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -36,7 +36,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Not applicable; when working with gateway subnets, you should avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your Virtual Network gateway (VPN, ExpressRoute gateway) to stop functioning as expected.
 
-* [Understand Azure ExpressRoute gateway requirements](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#requirements)
+* [Understand Azure ExpressRoute gateway requirements](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -54,9 +54,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network. While ExpressRoutes are isolated, for extra protection of other resources sharing the same virtual network, you may enable DDoS Protection Standard to guard against DDoS attacks.
 
-* [Understand security controls for Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
 
-* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network.
 
-* [Understand security controls for Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -100,7 +100,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Define and implement standard security configurations for Azure ExpressRoute with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your ExpressRoute.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -114,7 +114,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
-* [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -124,11 +124,11 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your ExpressRoute connections. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+* [How to enable auditing in Azure Sentinel](../sentinel/resources.md)
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -136,7 +136,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -150,7 +150,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -160,7 +160,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -178,7 +178,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure ExpressRoute resources according to your organization's compliance regulations.
 
-* [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -188,9 +188,9 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Azure ExpressRoute.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-* [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+* [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -200,7 +200,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: You can configure to receive alerts based on metrics and activity logs related to your Azure ExpressRoute resources. Azure Monitor allows you to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
 
-* [Understand monitoring and alerts in ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts)
+* [Understand monitoring and alerts in ExpressRoute](./expressroute-monitoring-metrics-alerts.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -232,19 +232,19 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of your Azure ExpressRoute resources.
 
-You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
+You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
 
-Additionally, partners using the ExpressRoute Partner Resource Manager API can apply Role-Based Access Control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+Additionally, partners using the ExpressRoute Partner Resource Manager API can apply role-based access control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
-* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-* [Leverage RBAC in the ExpressRoute Partner Resource Manager API](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Leverage Azure RBAC in the ExpressRoute Partner Resource Manager API](./cross-connections-api-development.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -267,9 +267,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 - Deprecated accounts with owner permissions should be removed from your subscription
 - External accounts with owner permissions should be removed from your subscription
 
-* [How to use Azure Security Center to monitor identity and access (Preview)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)
 
-* [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -287,9 +287,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -299,9 +299,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
-* [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -313,9 +313,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-* [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -325,7 +325,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
-* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -335,7 +335,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -345,9 +345,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
-* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -361,9 +361,9 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -373,11 +373,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-* [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [How to view Azure AD risky sign-in](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -387,7 +387,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Customer Lockbox is not supported for Azure ExpressRoute.
 
-* [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -395,13 +395,13 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -411,9 +411,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production.
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -423,7 +423,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Microsoft manages the underlying infrastructure for Azure ExpressRoute circuits and related resources and has implemented strict controls to prevent the loss or exposure of customer data.
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -433,7 +433,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: IPsec is an IETF standard. It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure.
 
-* [How to configure Site to Site IPSEC over ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
+* [How to configure Site to Site IPSEC over ExpressRoute](./site-to-site-vpn-over-microsoft-peering.md)
 
 How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
@@ -445,25 +445,25 @@ How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.co
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
+**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
 Azure ExpressRoute also has circuit owner and circuit user roles. Circuit users are owners of virtual network gateways that are not within the same subscription as the ExpressRoute circuit. The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked. Circuit users can redeem authorizations (one authorization per virtual network).
 
-Additionally, partners using the ExpressRoute Partner Resource Manager API can apply Role-Based Access Control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+Additionally, partners using the ExpressRoute Partner Resource Manager API can apply role-based access control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
-* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-* [Leverage RBAC in the ExpressRoute Partner Resource Manager API](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Leverage Azure RBAC in the ExpressRoute Partner Resource Manager API](./cross-connections-api-development.md)
 
-* [Understand administration roles in ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
+* [Understand administration roles in ExpressRoute](./expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -473,7 +473,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Sentinel and has implemented strict controls to prevent the loss or exposure of customer data.
 
-* [Azure customer data protection](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure customer data protection](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -483,11 +483,11 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 **Guidance**: MACsec is an IEEE standard. It encrypts data at the Media Access control (MAC) level or Network Layer 2. You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via ExpressRoute Direct. MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in Azure Key Vault. You decide when to rotate the key.
 
-* [Understand point-to-point encryption in Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-about-encryption)
+* [Understand point-to-point encryption in Azure ExpressRoute](./expressroute-about-encryption.md)
 
-* [How to configure MACsec on ExpressRoute Direct ports](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
+* [How to configure MACsec on ExpressRoute Direct ports](./expressroute-howto-macsec.md)
 
-* [Azure security baseline for Key Vault](https://docs.microsoft.com/azure/key-vault/general/security-baseline)
+* [Azure security baseline for Key Vault](../key-vault/general/security-baseline.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -497,7 +497,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure ExpressRoute and other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -505,7 +505,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -549,7 +549,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated Asset Discovery solution
 
@@ -557,11 +557,11 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended that you create and use Azure Resource Manager resources going forward.
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -571,7 +571,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -585,11 +585,11 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -609,9 +609,9 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 
 Use Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -647,9 +647,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 - Not allowed resource types
 - Allowed resource types
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -667,7 +667,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-* [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -691,15 +691,15 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
 **Guidance**: Define and implement standard security configurations for Azure ExpressRoute with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your ExpressRoute.
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -717,9 +717,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -737,9 +737,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -757,9 +757,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Define and implement standard security configurations for Azure ExpressRoute with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your ExpressRoute.
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -777,7 +777,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -795,7 +795,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via ExpressRoute Direct. MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in Azure Key Vault. You decide when to rotate the key.
 
-* [How to create a Key Vault instance to store MACsec secrets in a new resource group](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
+* [How to create a Key Vault instance to store MACsec secrets in a new resource group](./expressroute-howto-macsec.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -805,7 +805,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable; Azure ExpressRoute connections and resources do not make use of managed identities.
 
-* [Azure services that support managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -823,7 +823,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -853,13 +853,13 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -869,7 +869,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: If using Azure Key Vault to store your MACsec secrets, ensure regular automated backups of your keys.
 
-* [How to backup Key Vault Keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+* [How to backup Key Vault Keys](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -879,9 +879,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Test restoration of backed up customer-managed keys.
 
-* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [How to test connectivity of Azure ExpressRoute circuits after configuring MACsec](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
+* [How to test connectivity of Azure ExpressRoute circuits after configuring MACsec](./expressroute-howto-macsec.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -891,7 +891,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
-* [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -899,13 +899,13 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-* [How to configure Workflow Automation within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [How to configure Workflow Automation within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 * [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -941,7 +941,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -951,9 +951,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
-* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [How to configure continuous export](../security-center/continuous-export.md)
 
-* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -963,7 +963,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -971,7 +971,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -985,5 +985,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

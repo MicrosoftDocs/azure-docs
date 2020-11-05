@@ -1,7 +1,7 @@
 ---
 title: Using the Bing Spell Check API
 titleSuffix: Azure Cognitive Services
-description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
+description: Learn about the Bing Spell Check modes, settings, and other information related to the API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,6 +14,11 @@ ms.author: aahi
 ---
 
 # Using the Bing Spell Check API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use this article to learn about using the Bing Spell Check API to perform contextual grammar and spell checking. While most spell-checkers rely on dictionary-based rule sets, the Bing spell-checker leverages machine learning and statistical machine translation to provide accurate and contextual corrections. 
 

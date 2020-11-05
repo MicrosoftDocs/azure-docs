@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a shared query with Azure CLI"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and create a shared query.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Create a Resource Graph shared query using Azure CLI
@@ -26,10 +26,10 @@ before you begin.
 To enable Azure CLI to work with Azure Resource Graph, the extension must be added. This extension
 works wherever Azure CLI can be used, including [bash on Windows 10](/windows/wsl/install-win10),
 [Cloud Shell](https://shell.azure.com) (both standalone and inside the portal), the [Azure CLI
-Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
+Docker image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.8.0**). If it isn't yet installed,
-   follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+   follow [these instructions](/cli/azure/install-azure-cli-windows).
 
 1. In your Azure CLI environment of choice, use
    [az extension add](/cli/azure/extension#az-extension-add) to import the Resource Graph extension
@@ -102,7 +102,7 @@ _location_.
 
 1. Run the shared query in Azure CLI with the `{{shared-query-uri}}` syntax in an
    [az graph query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) command.
-   First, copy the `id` field from the result of the `show` command above. Replace
+   First, copy the `id` field from the result of the previous `show` command. Replace
    `shared-query-uri` text in the example with the value from the `id` field, but leave the
    surrounding `{{` and `}}` characters.
 

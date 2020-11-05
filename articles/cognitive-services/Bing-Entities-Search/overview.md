@@ -1,7 +1,7 @@
 ---
 title: What is the Bing Entity Search API?
 titleSuffix: Azure Cognitive Services
-description: Use the Bing Entity Search API to extract and search for entities and places from search queries.
+description: Learn details about the Bing Entity Search API and how to extract and search for entities and places from search queries.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -14,6 +14,11 @@ ms.author: scottwhi
 ---
 
 # What is Bing Entity Search API?
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. Bing returns places if the query specifies the name of the local business or asks for a type of business (for example, restaurants near me). Bing returns entities if the query specifies well-known people, places (tourist attractions, states, countries/regions, etc.), or things.
 

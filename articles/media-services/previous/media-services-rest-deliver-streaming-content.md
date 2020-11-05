@@ -17,7 +17,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Publish Azure Media Services content using REST 
+# Publish Azure Media Services content using REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)

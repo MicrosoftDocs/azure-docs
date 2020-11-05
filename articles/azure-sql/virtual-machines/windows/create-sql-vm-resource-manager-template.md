@@ -32,7 +32,7 @@ The SQL Server VM ARM template requires the following:
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" highlight="169-310":::
+:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json":::
 
 Five Azure resources are defined in the template: 
 
@@ -115,7 +115,7 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Create and deploy your first ARM template](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 For other ways to deploy a SQL Server VM, see: 
 - [Azure portal](create-sql-vm-portal.md)

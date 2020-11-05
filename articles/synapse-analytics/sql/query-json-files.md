@@ -1,6 +1,6 @@
 ---
-title: Query JSON files using SQL on-demand (preview) 
-description: This section explains how to read JSON files using SQL on-demand in Azure Synapse Analytics.
+title: Query JSON files using serverless SQL pool (preview) 
+description: This section explains how to read JSON files using serverless SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
-# Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics
+# Query JSON files using serverless SQL pool (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
+In this article, you'll learn how to write a query using serverless SQL pool (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
 - Standard JSON files where multiple JSON documents are stored as a JSON array.
 - Line-delimited JSON files, where JSON documents are separated with new-line character. Common extensions for these types of files are `jsonl`, `ldjson`, and `ndjson`.
 
 ## Read JSON documents
 
-The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files, then this is enough. If you have classic JSON file, you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
+The easiest way to see to the content of your JSON file is to provide the file URL to the `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files, then this is enough. If you have classic JSON file, you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
 
 | doc |
 | --- |
@@ -28,7 +28,7 @@ The easiest way to see to the content of your JSON file is to provide file URL t
 |{"date_rep":"2020-07-26","day":26,"month":7,"year":2020,"cases":4,"deaths":0,"geo_id":"AF"}|
 |{"date_rep":"2020-07-27","day":27,"month":7,"year":2020,"cases":8,"deaths":0,"geo_id":"AF"}|
 
-If the file is publicly available, or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following examples.
+If the file is publicly available, or if your Azure AD identity can access this file, you should see the content of the file using the query like the one shown in the following examples.
 
 ### Read JSON files
 
@@ -53,11 +53,11 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-This query will return each JSON document as a separate row of the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+The JSON document in the preceding sample query includes an array of objects. The query returns each object as a separate row in the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
 ### Data source usage
 
-Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
+Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in the `OPENROWSET` function:
 
 ```sql
 create external data source covid

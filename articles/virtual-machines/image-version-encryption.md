@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 11/3/2020
 ms.author: cynthn
 ---
 
@@ -20,11 +20,11 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 ## Prerequisites
 
-This article requires that you already have a disk encryption set to use for your image.
+This article requires that you already have a disk encryption set in each region that you want to replicate your image to.
 
-- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./windows/disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./windows/disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > You must use this link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
 
@@ -32,11 +32,11 @@ This article requires that you already have a disk encryption set to use for you
 
 There are several limitations when using customer managed keys for encrypting shared image gallery images:	
 
-- Encryption key sets must be in the same subscription and region as your image.
+- Encryption key sets must be in the same subscription as your image.
 
-- You cannot share images that use customer managed keys. 
+- Encryption key sets are regional resources so each region requires a different encryption key set.
 
-- You cannot replicate images that use customer managed keys to other regions.
+- You cannot copy or share images that use customer managed keys. 
 
 - Once you have used your own keys to encrypt a disk or image, you cannot go back to using platform-managed keys for encrypting those disks or images.
 
@@ -93,7 +93,19 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @($region1)
+$eastUS2osDiskImageEncryption = @{DiskEncryptionSetId='subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myEastUS2DESet'}
+
+$eastUS2dataDiskImageEncryption1 = @{DiskEncryptionSetId='subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myEastUS2DESet1';Lun=1}
+
+$eastUS2dataDiskImageEncryption2 = @{DiskEncryptionSetId='subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myEastUS2DESet2';Lun=2}
+
+$eastUS2DataDiskImageEncryptions = @($eastUS2dataDiskImageEncryption1,$eastUS2dataDiskImageEncryption2)
+
+$encryption2 = @{OSDiskImage=$eastUS2osDiskImageEncryption;DataDiskImages=$eastUS2DataDiskImageEncryptions}
+
+$region2 = @{Name='East US 2';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption2}
+
+$targetRegion = @($region1, $region2)
 
 
 # Create the image
@@ -118,7 +130,7 @@ For data disks, You need to add  the `-DiskEncryptionSetId $setID` parameter whe
 
 ## CLI 
 
-For the public preview, you first need to register the feature.
+For the public preview, you first need to register for the feature. Registration takes approximately 30 minutes.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption
@@ -145,7 +157,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a space-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 If the source for the OS disk is a managed disk or a VM, use `--managed-image` to specify the source for the image version. In this example, the source is a managed image that has an OS disk as well as a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1 and the data disk will be encrypted with DiskEncryptionSet2.
 
@@ -154,8 +166,8 @@ az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
    --location westus \
-   --target-regions westus=2=standard_lrs \
-   --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
+   --target-regions westus=2=standard_lrs eastus2 \
+   --target-region-encryption WestUSDiskEncryptionSet1,0,WestUSDiskEncryptionSet2 EastUS2DiskEncryptionSet1,0,EastUS2DiskEncryptionSet2 \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
@@ -170,8 +182,8 @@ az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
    --location westus\
-   --target-regions westus=2=standard_lrs \
-   --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
+   --target-regions westus=2=standard_lrs eastus\
+   --target-region-encryption WestUSDiskEncryptionSet1,0,WestUSDiskEncryptionSet2 EastUS2DiskEncryptionSet1,0,EastUS2DiskEncryptionSet2 \
    --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
    --data-snapshot-luns 0 \
    --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \

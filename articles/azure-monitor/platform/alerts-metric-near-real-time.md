@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/16/2020
+ms.date: 9/30/2020
 ms.subservice: alerts
 ---
 
@@ -32,14 +32,16 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Automation/automationAccounts | Yes| No | [Automation Accounts](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | No | No | |
 |Microsoft.Batch/batchAccounts | Yes | No | [Batch Accounts](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Yes | No | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Yes | Yes | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Classic Cloud Services](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.ClassicCompute/virtualMachines | No | No | [Classic Virtual Machines](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Yes | No | [Storage Accounts (classic)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Yes | No | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Yes | No | |
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Yes | No | |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | |
 |Microsoft.CognitiveServices/accounts | Yes | No | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | Yes | Yes | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Virtual machine scale sets](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Container Registries](./metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -107,10 +109,12 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Web/sites | Yes | No | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) and [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Yes | No | [App Service slots](./metrics-supported.md#microsoftwebsitesslots)|
 
+<sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate) and custom metrics.
+
 ## Payload schema
 
 > [!NOTE]
-> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](./alerts-common-schema-definitions.md)​
 
 
 The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](./action-groups.md) is used:
@@ -171,4 +175,3 @@ The POST operation contains the following JSON payload and schema for all near n
 * Learn more about the new [Alerts experience](./alerts-overview.md).
 * Learn about [log alerts in Azure](./alerts-unified-log.md).
 * Learn about [alerts in Azure](./alerts-overview.md).
-

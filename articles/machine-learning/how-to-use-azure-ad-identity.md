@@ -15,13 +15,13 @@ ms.custom: how-to
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service
 
-In this how-to, you learn how to assign an Azure Active Directory (AAD) identity to your deployed machine learning model in Azure Kubernetes Service. The [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) project allows applications to access cloud resources securely with AAD by using a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) and Kubernetes primitives. This allows your web service to securely access your Azure resources without having to embed credentials or manage tokens directly inside your `score.py` script. This article explains the steps to create and install an Azure Identity in your Azure Kubernetes Service cluster and assign the identity to your deployed web service.
+In this how-to, you learn how to assign an Azure Active Directory (AAD) identity to your deployed machine learning model in Azure Kubernetes Service. The [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) project allows applications to access cloud resources securely with AAD by using a [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) and Kubernetes primitives. This allows your web service to securely access your Azure resources without having to embed credentials or manage tokens directly inside your `score.py` script. This article explains the steps to create and install an Azure Identity in your Azure Kubernetes Service cluster and assign the identity to your deployed web service.
 
 ## Prerequisites
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
-- Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+- Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 
 - An Azure Machine Learning web service deployed to your AKS cluster.
 
@@ -121,7 +121,7 @@ Once the pods are up and running, the web services for this deployment will now 
 
 ## Assign the appropriate roles to your Azure Identity
 
-[Assign your Azure Managed Identity with appropriate roles](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) to access other Azure resources. Ensure that the roles you are assigning have the correct **Data Actions**. For example, the [Storage Blob Data Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) will have read permissions to your Storage Blob while the generic [Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) might not.
+[Assign your Azure Managed Identity with appropriate roles](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) to access other Azure resources. Ensure that the roles you are assigning have the correct **Data Actions**. For example, the [Storage Blob Data Reader Role](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) will have read permissions to your Storage Blob while the generic [Reader Role](../role-based-access-control/built-in-roles.md#reader) might not.
 
 ## Use Azure Identity with your machine learning web service
 
@@ -148,7 +148,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Part 4: Retrieve the secret from you Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Assign a Key Vault access policy using the Azure CLI](../key-vault/general/assign-access-policy-cli.md).
 
 ### Access Blob from your web service
 

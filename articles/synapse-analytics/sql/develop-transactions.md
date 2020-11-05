@@ -1,6 +1,6 @@
 ---
 title: Use transactions
-description: Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
+description: Tips for implementing transactions with dedicated SQL pool in Azure Synapse Analytics for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -12,22 +12,22 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Use transactions in SQL pool
+# Use transactions with dedicated SQL pool in Azure Synapse Analytics
 
-Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
+Tips for implementing transactions with dedicated SQL pool in Azure Synapse Analytics for developing solutions.
 
 ## What to expect
 
-As you would expect, SQL pool supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL pool is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others.
+As you would expect, dedicated SQL pool supports transactions as part of the data warehouse workload. However, to ensure the performance of dedicated SQL pool is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others.
 
 ## Transaction isolation levels
 
 SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
 
-Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) for details.
+Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) for details.
 
 ## Transaction size
-A single data modification transaction is limited in size. The limit is applied per distribution. Therefore, the total allocation can be calculated by multiplying the limit by the distribution count. 
+A single data modification transaction is limited in size. The limit is applied per distribution. As such, the total allocation can be calculated by multiplying the limit by the distribution count. 
 
 To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each row. For variable length columns, consider taking an average column length rather than using the maximum size.
 
@@ -76,7 +76,7 @@ In the table below the following assumptions have been made:
 
 The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log.
 
-To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
+To optimize and minimize the amount of data written to the log, refer to the [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
@@ -87,7 +87,7 @@ To optimize and minimize the amount of data written to the log, please refer to 
 SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
-> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
+> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, dedicated SQL pool does not let you do this. If an error occurs inside a dedicated SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
 
 For example, in SQL Server you might see a transaction that looks like the following:
 
@@ -130,11 +130,11 @@ SELECT @xact_state AS TransactionState;
 The preceding code gives the following error message:
 
 Msg 111233, Level 16, State 1, Line 1
-111233; The current transaction has aborted, and any pending changes have been rolled back. Cause: A transaction in a rollback-only state was not explicitly rolled back before a DDL, DML, or SELECT statement.
+111233; The current transaction has aborted, and any pending changes have been rolled back. Cause: A transaction in a rollback-only state wasn't explicitly rolled back before a DDL, DML, or SELECT statement.
 
 You won't get the output of the ERROR_* functions.
 
-In SQL pool the code needs to be slightly altered:
+In dedicated SQL pool, the code needs to be slightly altered:
 
 ```sql
 SET NOCOUNT ON;
@@ -177,21 +177,19 @@ All that has changed is that the ROLLBACK of the transaction had to happen befor
 
 ## Error_Line() function
 
-It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](develop-label.md) article.
+It is also worth noting that dedicated SQL pool does not implement or support the ERROR_LINE() function. If you have this function in your code, you need to remove it to be compliant with dedicated SQL pool. Use query labels in your code instead to implement equivalent functionality. For more information, see the [LABEL](develop-label.md) article.
 
 ## Use of THROW and RAISERROR
 
-THROW is the more modern implementation for raising exceptions in SQL pool but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
+THROW is the more modern implementation for raising exceptions in dedicated SQL pool but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
 
-* User-defined error messages numbers cannot be in the 100,000 - 150,000 range for THROW
+* User-defined error messages numbers can't be in the 100,000 - 150,000 range for THROW
 * RAISERROR error messages are fixed at 50,000
 * Use of sys.messages is not supported
 
 ## Limitations
 
-SQL pool does have a few other restrictions that relate to transactions.
-
-They are as follows:
+SQL pool does have a few other restrictions that relate to transactions. They are as follows:
 
 * No distributed transactions
 * No nested transactions permitted
@@ -202,4 +200,4 @@ They are as follows:
 
 ## Next steps
 
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [SQL on-demand (preview)](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [serverless SQL pool (preview)](best-practices-sql-on-demand.md).
