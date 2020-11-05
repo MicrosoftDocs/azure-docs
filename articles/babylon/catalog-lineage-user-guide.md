@@ -97,7 +97,7 @@ Follow these steps to access the lineage information of an asset:
 
 1. In the Azure portal, go to the [Azure Purview accounts page](https://aka.ms/babylonportal).
 
-1. Select your Azure Purview account from the list, and then select **Launch babylon account** from the **Overview** page.
+1. Select your Azure Purview account from the list, and then select **Launch purview account** from the **Overview** page.
 
 1. On the Azure Purview **Home** page, search for a data asset. In the **Search catalog** box, enter the name of the input used in the ADF Copy or Data Flow activity and press Enter.
 

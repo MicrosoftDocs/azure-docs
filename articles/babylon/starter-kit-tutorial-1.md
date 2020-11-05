@@ -127,11 +127,11 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 
 ### Verify the user running the script has catalog permissions
 
-Follow these steps to add the Catalog admin running the script to the Azure Purview account that was created in [Create a Babylon account](create-catalog-portal.md). If you created the Azure Purview account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
+Follow these steps to add the Catalog admin running the script to the Azure Purview account that was created in [Create a Purview account](create-catalog-portal.md). If you created the Azure Purview account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
 
 1. Browse to the Azure Purview catalog home page by using one of these methods:
    * Go to `https://web.babylon.azure.com/resource/<Your Azure Purview account name>`.
-   * In the [Azure portal](https://portal.azure.com), search for and select your Azure Purview account, and then select **Launch babylon account**.
+   * In the [Azure portal](https://portal.azure.com), search for and select your Azure Purview account, and then select **Launch purview account**.
 1. Select **Management Center** in the left pane, and then select **Assign roles**.
 
 1. Select the **Add user** drop-down list from the top menu, and then select **Catalog administrator**.

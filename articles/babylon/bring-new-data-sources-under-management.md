@@ -1,7 +1,7 @@
 ---
 title: Bring new data sources under management (preview)
 titleSuffix: Azure Purview
-description: Learn how to add, view, edit, and delete data sources from the Babylon Management Center.
+description: Learn how to add, view, edit, and delete data sources from the Purview Management Center.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
@@ -11,7 +11,7 @@ ms.date: 10/12/2020
 ---
 # Bring new data sources under management
 
-In this article, you learn how to add, view, edit, and delete data sources from the Babylon Management Center. A data source is the top-level data store you want to scan, such as:
+In this article, you learn how to add, view, edit, and delete data sources from the Purview Management Center. A data source is the top-level data store you want to scan, such as:
 
 - An ADLS Gen1 account.
 - An ADLS Gen2 account.
@@ -27,7 +27,7 @@ Data sources must be registered before they can be managed in **Management Cente
 
 Select **Management Center** in the left navigation pane.
 
-:::image type="content" source="media/bring-new-data-sources-under-management/image1.png" alt-text="Three Babylon options are shown, with Management Center highlighted." border="true":::
+:::image type="content" source="media/bring-new-data-sources-under-management/image1.png" alt-text="Three Purview options are shown, with Management Center highlighted." border="true":::
 
 The **Data sources** page appears.
 

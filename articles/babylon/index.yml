@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Babylon account
+          - text: Create a Purview account
             url: create-catalog-portal.md
           - text: Add a security principal
             url: add-security-principal.md

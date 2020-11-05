@@ -30,11 +30,11 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 To add a security principal to a Catalog administrator security role in an Azure Purview account:
 
-1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
 1. Select the Azure Purview account you want to modify.
 
-1. On the **Babylon account** page, select **Launch babylon account**.
+1. On the **Purview account** page, select **Launch purview account**.
 
 1. Select **Management Center** in the left pane, and then select **Assign roles**.
 

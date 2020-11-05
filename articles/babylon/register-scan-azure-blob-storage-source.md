@@ -13,7 +13,7 @@ ms.date: 11/05/2020
 
 # Register and scan Azure Blob Storage
 
-This article outlines how to register an Azure Blob Storage account in Babylon and set up a scan.
+This article outlines how to register an Azure Blob Storage account in Purview and set up a scan.
 
 ## Supported capabilities
 
@@ -25,7 +25,7 @@ Azure Blob Storage supports full and incremental scans to capture the metadata a
 
 ## Register an Azure Blob Storage account
 
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 
 2. Click on **Management Center** on the left navigation pane.
 
@@ -81,7 +81,7 @@ have to be real or work.
 
 1. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md)
 
-1. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
+1. Once your Service Principal is set, connect your Purview to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
 
    :::image type="content" source="./media/register-scan-azure-blob-storage-source/service-principal-auth.png" alt-text="Screenshot showing service principal authorization":::
 

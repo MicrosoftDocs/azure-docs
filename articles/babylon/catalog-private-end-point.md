@@ -1,30 +1,30 @@
 ---
-title: Use private endpoints for your Babylon account (Preview)
+title: Use private endpoints for your Purview account (Preview)
 titleSuffix: Azure Purview
-description: This article describes how you can set up a private end point for your Babylon account
+description: This article describes how you can set up a private end point for your Purview account
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/03/2020
-# Customer intent: As a Babylon admin, I want to set up private endpoints for my Babylon account, for secure access.
+# Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
-# Use private endpoints for your Babylon account
+# Use private endpoints for your Purview account
 
 This article describes how to use private endpoints to secure network traffic with Babylon.
 
 ## Introduction
 
-You can use private endpoints for your Babylon accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over a Private Link. The private endpoint uses an IP address from the VNet address space for your Babylon account. Network traffic between the clients on the VNet and the Babylon account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use private endpoints for your Purview accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over a Private Link. The private endpoint uses an IP address from the VNet address space for your Purview account. Network traffic between the clients on the VNet and the Purview account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 > [!NOTE]
-> We currently support only access to the Babylon portal UX, scan APIs and catalog APIs via private endpoints. We don't support scanning data sources behind a private endpoint in Babylon.
+> We currently support only access to the Purview portal UX, scan APIs and catalog APIs via private endpoints. We don't support scanning data sources behind a private endpoint in Babylon.
 
-## Create Babylon account with a gateway service private endpoint
+## Create Purview account with a gateway service private endpoint
 
-1. Navigate to the following link to create your new Babylon account (select the subscription that has been allow-listed for you)
+1. Navigate to the following link to create your new Purview account (select the subscription that has been allow-listed for you)
 
    [https://portal.azure.com/?feature.canmodifystamps=true&feature.customportal=false&Microsoft_Azure_ProjectBabylon=staging&Microsoft_Azure_ProjectBabylon_privateEndpoint=true&feature.showassettypes=Microsoft_Azure_ProjectBabylon_BabylonAccountResource&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ProjectBabylonHidden#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ProjectBabylon%2FAccounts](https://portal.azure.com/?feature.canmodifystamps=true&feature.customportal=false&Microsoft_Azure_ProjectBabylon=staging&Microsoft_Azure_ProjectBabylon_privateEndpoint=true&feature.showassettypes=Microsoft_Azure_ProjectBabylon_BabylonAccountResource&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ProjectBabylonHidden#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ProjectBabylon%2FAccounts)
 
@@ -32,7 +32,7 @@ You can use private endpoints for your Babylon accounts to allow clients and use
 
    :::image type="content" source="media/catalog-private-end-point/create-private-endpoint.png" alt-text="create private endpoint":::
 
-3. In the Create private endpoint page, set Babylon subresource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your won DNS servers or create DNS records using host files on your virtual machines)
+3. In the Create private endpoint page, set Purview subresource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your won DNS servers or create DNS records using host files on your virtual machines)
 
    :::image type="content" source="media/catalog-private-end-point/setup-private-endpoint.png" alt-text="setup private endpoint":::
 
@@ -42,9 +42,9 @@ You can use private endpoints for your Babylon accounts to allow clients and use
 
 6. When you see the Validation passed message, select Create.
 
-## Create a private endpoint for the Babylon web portal
+## Create a private endpoint for the Purview web portal
 
-1. Navigate to the Babylon account you created, select the Private endpoint connections under the Settings section. (You will have to use the same link as above)
+1. Navigate to the Purview account you created, select the Private endpoint connections under the Settings section. (You will have to use the same link as above)
 
 2. Select **+Private** endpoint to create a new private endpoint.
 
@@ -58,7 +58,7 @@ You can use private endpoints for your Babylon accounts to allow clients and use
 
    :::image type="content" source="media/catalog-private-end-point/select-resource-type.png" alt-text="select resource type":::
 
-5. Select the Resource to be the newly created Babylon account and select target subresource to be portal.
+5. Select the Resource to be the newly created Purview account and select target subresource to be portal.
 
 6. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and select **Create** to create the portal private endpoint.
 
@@ -67,9 +67,9 @@ You can use private endpoints for your Babylon accounts to allow clients and use
 ## Enabling access to Azure Active Directory
 
 > [!NOTE]
-> If your VM, VPN gateway or VNET peering gateway has public internet access, it can access Babylon portal and Babylon account enabled with Private endpoints, and you do not have to follow the rest of the instructions below. If your private network has network security group rules set to deny all public Internet traffic, you will need to add some rules to enable Azure Active Directory access. Please follow instructions below to do so.
+> If your VM, VPN gateway or VNET peering gateway has public internet access, it can access Purview portal and Purview account enabled with Private endpoints, and you do not have to follow the rest of the instructions below. If your private network has network security group rules set to deny all public Internet traffic, you will need to add some rules to enable Azure Active Directory access. Please follow instructions below to do so.
 
-The instructions below are for accessing Babylon securely from an Azure VM. Follow similar steps if you are using VPN or other VNET peering gateways.
+The instructions below are for accessing Purview securely from an Azure VM. Follow similar steps if you are using VPN or other VNET peering gateways.
 
 1. Navigate to your VM in the Azure portal, select Networking tab under Settings section. Then Select Outbound port rules and Select Add outbound port rule.
 
@@ -91,20 +91,20 @@ The instructions below are for accessing Babylon securely from an Azure VM. Foll
 
    :::image type="content" source="media/catalog-private-end-point/add-outbound-security-rule.png" alt-text="add outbound security rule":::
 
-6. Once the new rule is created, navigate back to the VM and try logging in using your Azure AD credentials again. If the login succeeds, then Babylon portal is ready to use. But in some cases, Azure AD will redirect to other domains to login based on customer's account type. For example, when using a live.com account, Azure AD will redirect to live.com to login, then those requests would be blocked again. For Microsoft employee accounts, Azure AD will access `msft.sts.microsoft.com` for login information. Check the networking requests in browser networking tab to see which domain's requests are getting blocked, redo the previous step to get its IP and add outbound port rules in network security group to allow requests for that IP (if possible, add the url and IP to VM's host file to fix the DNS resolution). If you know the exact login domain's IP ranges, you can also directly add them into networking rules.
+6. Once the new rule is created, navigate back to the VM and try logging in using your Azure AD credentials again. If the login succeeds, then Purview portal is ready to use. But in some cases, Azure AD will redirect to other domains to login based on customer's account type. For example, when using a live.com account, Azure AD will redirect to live.com to login, then those requests would be blocked again. For Microsoft employee accounts, Azure AD will access `msft.sts.microsoft.com` for login information. Check the networking requests in browser networking tab to see which domain's requests are getting blocked, redo the previous step to get its IP and add outbound port rules in network security group to allow requests for that IP (if possible, add the url and IP to VM's host file to fix the DNS resolution). If you know the exact login domain's IP ranges, you can also directly add them into networking rules.
 
-7. Now login to Azure AD should be successful. Babylon Portal will load successfully but listing all Babylon accounts won't work since it can only access a specific Babylon account. Enter *web.babylon.azure.com/resource/{babylonAccountName}* to directly visit the Babylon account that you successfully set up a private endpoint for.
+7. Now login to Azure AD should be successful. Purview Portal will load successfully but listing all Purview accounts won't work since it can only access a specific Purview account. Enter *web.babylon.azure.com/resource/{babylonAccountName}* to directly visit the Purview account that you successfully set up a private endpoint for.
 
-## Enable private endpoint on existing Babylon accounts
+## Enable private endpoint on existing Purview accounts
 
-There are 2 ways you can add Babylon private endpoints after creating your Babylon account:
+There are 2 ways you can add Purview private endpoints after creating your Purview account:
 
-- Using the Azure portal (Babylon account)
+- Using the Azure portal (Purview account)
 - Using the Private link center
 
-### Using the Azure portal (Babylon account)
+### Using the Azure portal (Purview account)
 
-1. Browse to the Babylon account from the Azure portal. Select the Private endpoint connections under the Settings section. (You will have to use the same link as below; You will not see some tabs if you don't use the feature flag)
+1. Browse to the Purview account from the Azure portal. Select the Private endpoint connections under the Settings section. (You will have to use the same link as below; You will not see some tabs if you don't use the feature flag)
 
    [https://portal.azure.com/?feature.canmodifystamps=true&feature.customportal=false&Microsoft_Azure_ProjectBabylon=staging&Microsoft_Azure_ProjectBabylon_privateEndpoint=true&feature.showassettypes=Microsoft_Azure_ProjectBabylon_BabylonAccountResource&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ProjectBabylonHidden#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ProjectBabylon%2FAccounts](https://portal.azure.com/?feature.canmodifystamps=true&feature.customportal=false&Microsoft_Azure_ProjectBabylon=staging&Microsoft_Azure_ProjectBabylon_privateEndpoint=true&feature.showassettypes=Microsoft_Azure_ProjectBabylon_BabylonAccountResource&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ProjectBabylonHidden#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ProjectBabylon%2FAccounts)
 
@@ -120,7 +120,7 @@ There are 2 ways you can add Babylon private endpoints after creating your Babyl
 
    :::image type="content" source="media/catalog-private-end-point/select-resource-type.png" alt-text="select resource type":::
 
-5. Select the Resource to be the newly created Babylon account and select target subresource to be account.
+5. Select the Resource to be the newly created Purview account and select target subresource to be account.
 
 6. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and select **Create** to create the portal private endpoint.
 
@@ -143,7 +143,7 @@ There are 2 ways you can add Babylon private endpoints after creating your Babyl
 
    :::image type="content" source="media/catalog-private-end-point/fill-in-basic-information.png" alt-text="fill in basic information2":::
 
-4. Select the Resource to be the already created Babylon account and select target subresource to be account.
+4. Select the Resource to be the already created Purview account and select target subresource to be account.
 
 5. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and select **Create** to create the account private endpoint.
 

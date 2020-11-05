@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Add a new starter kit part for Babylon insights'
+title: 'Tutorial: Add a new starter kit part for Purview insights'
 titleSuffix: Azure Purview
 description: This tutorial describes how to view Insights. 
 author: batamig

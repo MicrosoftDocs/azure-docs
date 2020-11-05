@@ -1,7 +1,7 @@
 ---
 title: Register a Teradata Connector and Setup Scans (Preview)
 titleSuffix: Azure Purview
-description: This article outlines how to register a Teradata connector in Babylon and set up a scan.
+description: This article outlines how to register a Teradata connector in Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
@@ -11,7 +11,7 @@ ms.date: 09/19/2020
 ---
 # Register and scan Teradata source (Preview)
 
-This article outlines how to register a Teradata connector in Babylon and set up a scan.
+This article outlines how to register a Teradata connector in Purview and set up a scan.
 
 >[!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback.
@@ -51,7 +51,7 @@ For example, the full URL [https://web.babylon.azure.com/?feature.ext.datasource
 
 ## Register a Teradata source
 
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 
 2. Select **Manage your data** tile on the home page.
 

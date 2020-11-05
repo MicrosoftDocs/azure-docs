@@ -28,4 +28,4 @@ When you enumerate large data stores like Data Lake Storage Gen2, there are mult
 
 ## Next steps
 
-To get started with Azure Purview catalogs, see [Quickstart: Create a Babylon account](create-catalog-portal.md).
+To get started with Azure Purview catalogs, see [Quickstart: Create a Purview account](create-catalog-portal.md).

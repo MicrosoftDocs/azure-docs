@@ -22,7 +22,7 @@ After you've scanned your data sources and classified the assets, map and discov
 
 To access the map and discover insights report, follow these steps:
 
-1. Select **Launch Babylon account** from your Azure Bablyon account page to access your catalog from the Azure Purview portal.
+1. Select **Launch Purview account** from your Azure Bablyon account page to access your catalog from the Azure Purview portal.
 
 1. From the **Home** page of your Azure Purview catalog, select **View insights**.
 

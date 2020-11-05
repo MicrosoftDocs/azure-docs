@@ -15,7 +15,7 @@ ms.date: 10/12/2020
 This article shows how to use Azure Purview portal to register and scan a Power BI tenant.
 
 > [!Note]
-> If the Babylon instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. If the Babylon instance and Power BI tenant are in different Azure tenants, you must authenticate with delegated authentication, and you must use PowerShell to set up your scans. See [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md).
+> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. If the Purview instance and Power BI tenant are in different Azure tenants, you must authenticate with delegated authentication, and you must use PowerShell to set up your scans. See [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md).
 
 ## Create a security group for permissions
 
@@ -64,15 +64,15 @@ To set up authentication, create a security group and add the catalog's managed 
     > When you allow the security group you created (that has your data catalog managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure data catalog, the catalog permissions, not Power BI permissions, determine who can see that metadata.
 
     > [!Note]
-    > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Babylon account. You can delete it separately, if you wish.
+    > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Purview account. You can delete it separately, if you wish.
 
  ## Register your Power BI and set up a scan
 
 Now that you've given the catalog permissions to connect to the Admin API of your Power BI tenant, you can set up your scan from the catalog portal.
 
-First, add a special feature flag to your Babylon URL 
+First, add a special feature flag to your Purview URL 
 
-1. Add the following string to the end of your Babylon instance's uri: `?feature.ext.catalog={"pbi":"true"}`. This enables the Power BI registration option in your catalog.
+1. Add the following string to the end of your Purview instance's uri: `?feature.ext.catalog={"pbi":"true"}`. This enables the Power BI registration option in your catalog.
 
 1. Select the **Management Center** icon.
 

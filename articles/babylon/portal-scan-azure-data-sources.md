@@ -13,9 +13,9 @@ ms.date: 10/12/2020
 
 # Use the portal to scan Azure data sources (preview)
 
-You can use the Babylon portal to set up scans of data sources. Advanced users can use the PowerShell cmdlets to create scans.
+You can use the Purview portal to set up scans of data sources. Advanced users can use the PowerShell cmdlets to create scans.
 
-In this tutorial, you use the Babylon portal. You learn how to:
+In this tutorial, you use the Purview portal. You learn how to:
 
 - Add a data source and work with data sources.
 - Create a scan and authenticate.
@@ -30,14 +30,14 @@ For the tutorial you need:
 > - A [Microsoft Azure](https://azure.microsoft.com/) subscription.
 > - Your own [Azure Active Directory tenant](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
-To set up a Babylon account, you must be the owner or co-owner of the Azure subscription.
+To set up a Purview account, you must be the owner or co-owner of the Azure subscription.
 
 To scan content into the catalog, you must have these permissions:
 
 > [!div class="checklist"]
 >
 > - In the Azure portal, you must be in either the contributor or owner role on the catalog.
-> - In the Babylon portal, you must be in the Catalog Admin or Data Source Admin role.
+> - In the Purview portal, you must be in the Catalog Admin or Data Source Admin role.
 
 ## Add a data source and work with data sources
 
@@ -299,8 +299,8 @@ Then select **Cancel Scan** to stop all the selected scans from running.
 
 ## Next steps
 
-In this tutorial, you scanned Azure data sources using the Babylon portal.
+In this tutorial, you scanned Azure data sources using the Purview portal.
 
-Advance to the next article to learn how to use the Babylon REST APIs to access the contents of your catalog.
+Advance to the next article to learn how to use the Purview REST APIs to access the contents of your catalog.
 > [!div class="nextstepaction"]
 > [Tutorial: Use the REST APIs](tutorial-using-rest-apis.md)

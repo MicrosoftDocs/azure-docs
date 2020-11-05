@@ -20,7 +20,7 @@ Azure Synapse Analytics supports the following:<br />
 * You need to be a Catalog Admin or Data Source Admin
 
 ## Register an Azure Synapse Analytics server
-Navigate to your Babylon catalog.
+Navigate to your Purview catalog.
 
 1. Click on **Management Center** on the left navigation pane.
 

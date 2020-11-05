@@ -11,7 +11,7 @@ ms.date: 10/9/2020
 ---
 
 # Register and Scan Azure Cosmos Database (SQL API)    
-This article outlines how to register an Azure Cosmos Database (SQL API) account in Babylon and set up a scan.
+This article outlines how to register an Azure Cosmos Database (SQL API) account in Purview and set up a scan.
 
 ## Supported capabilities
 Azure Cosmos Database (SQL API) supports the following:
@@ -21,7 +21,7 @@ Azure Cosmos Database (SQL API) supports the following:
 * You need to be a Data Source Administrator to setup and schedule scans
 
 ## Register an Azure Cosmos Database (SQL API) account
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 2. Click on **Management Center** on the left navigation pane.
 
     :::image type="content" source="./media/register-scan-azure-cosmos-database/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center" lightbox="./media/register-scan-azure-cosmos-database/go-to-management-center.png":::

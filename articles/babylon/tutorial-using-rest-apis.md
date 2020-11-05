@@ -78,7 +78,7 @@ To configure Azure Purview to trust your new service principal:
 
 1. Go to the [Azure Purview accounts page](https://aka.ms/babylonportal) in the Azure portal.
 1. Find and select your Azure Purview account in the list.
-1. From your Azure Purview account page, select **Launch Babylon account**.
+1. From your Azure Purview account page, select **Launch Purview account**.
 1. On your Azure Purview catalog page, select **Management Center** from the left pane.
 1. Select **Assign roles** from the left pane.
 1. Select **Add user**, and then select **Catalog administrator**.

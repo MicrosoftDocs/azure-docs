@@ -37,17 +37,17 @@ Depending on the data source type, there are  different sets of supported authen
 
 > [!Note]
 > The user running the PowerShell cmdlets should be the catalog or
-data source admin in the Babylon data plane.
+data source admin in the Purview data plane.
 
 ## Create the self-hosted integration runtime (SHIR)
 
-To create a self-hosted integration runtime (SHIR), run the following command after authenticating to your Babylon account.
+To create a self-hosted integration runtime (SHIR), run the following command after authenticating to your Purview account.
 
 ```PowerShell
 New-AzDataCatalogScanIntegrationRuntime -IntegrationRuntimeName <SHIR_name>
 ```
 
-To delete a SHIR associated with your Babylon account, run the following command.
+To delete a SHIR associated with your Purview account, run the following command.
 
 ```PowerShell
 Remove-AzDataCatalogScanIntegrationRuntime -IntegrationRuntimeName <SHIR_name>

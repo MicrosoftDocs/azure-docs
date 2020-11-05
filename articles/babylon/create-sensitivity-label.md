@@ -14,7 +14,7 @@ ms.date: 10/29/2020
 
 This article describes how to create Microsoft Information Protection (MIP) sensitivity labels, and automatically apply them to your data in Babylon.
 
-Babylon sensitivity labels are created in Microsoft 365. Sensitivity labels enable you to classify and protect your organization's data, while ensuring that user productivity and collaboration can continue to flow.
+Purview sensitivity labels are created in Microsoft 365. Sensitivity labels enable you to classify and protect your organization's data, while ensuring that user productivity and collaboration can continue to flow.
 
 ## What are sensitivity labels? 
 
@@ -22,7 +22,7 @@ To get work done, people in your organization collaborate with others both insid
 
 When your cloud data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies.
 
-Sensitivity labels in Babylon enable you to:
+Sensitivity labels in Purview enable you to:
 
 - **Label data stored in various formats**, such as files in Azure Blob storage, Azure files, and SQL columns.
 
@@ -48,7 +48,7 @@ After scanning your content, you can dive into your data to view the labels auto
 
 #### Supported data types for sensitivity labels in Babylon
 
-Sensitivity labels are supported in Babylon for the following data types:
+Sensitivity labels are supported in Purview for the following data types:
 
 |Data type  |Sources  |
 |---------|---------|
@@ -63,7 +63,7 @@ Existing sensitivity labels will also need to be modified to include the new dat
 
 **Prerequisites**
 
-During public preview, sensitivity labels for Babylon are created and managed using Microsoft 365, and you must have an active Microsoft 365 E5 license.
+During public preview, sensitivity labels for Purview are created and managed using Microsoft 365, and you must have an active Microsoft 365 E5 license.
 
 For more information, see the [Microsoft 365 E5 sales page](https://www.microsoft.com/microsoft-365/enterprise/e5).
 
@@ -142,7 +142,7 @@ For example:
 
 ## Scan your content to apply labels automatically
 
-Scan your Babylon content to apply the labels you've created, based on the autolabeling rules you've defined. 
+Scan your Purview content to apply the labels you've created, based on the autolabeling rules you've defined. 
 
 For more information, see:
 
@@ -158,9 +158,9 @@ For more information, see:
 
 ## Search for files based on labels
 
-Once you've defined autolabeling settings for your labels in Microsoft 365 and scanned your Babylon content, view the labels that were applied automatically.
+Once you've defined autolabeling settings for your labels in Microsoft 365 and scanned your Purview content, view the labels that were applied automatically.
 
-In the Babylon Catalog, use the **Label** filtering options to show files with specific labels only. For example: 
+In the Purview Catalog, use the **Label** filtering options to show files with specific labels only. For example: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results.png" alt-text="Search for assets by label":::
 
@@ -187,9 +187,9 @@ In Babylon, files with sensitivity labeling are marked as **Microsoft extended**
 
 ## View Insight reports for the classifications and sensitivity labels
 
-Find insights on your classified and labeled data in Babylon using the **Sensitivity labeling** and **Classification** reports.
+Find insights on your classified and labeled data in Purview using the **Sensitivity labeling** and **Classification** reports.
 
 For more information see:
 
-- [Classification insights about your data from Project Babylon](classification-insights.md)
-- [Sensitivity label insights about your data from Project Babylon](sensitivity-insights.md)
+- [Classification insights about your data from Azure Purview](classification-insights.md)
+- [Sensitivity label insights about your data from Azure Purview](sensitivity-insights.md)

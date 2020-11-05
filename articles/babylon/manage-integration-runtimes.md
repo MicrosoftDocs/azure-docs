@@ -17,7 +17,7 @@ This article describes how to create and manage a self-hosted integration runtim
 ## Prerequisites
 
 > [!Note]
-> The features in this article require a Babylon account created after 9/15/2020.
+> The features in this article require a Purview account created after 9/15/2020.
 
 ### Feature Flag
 
@@ -27,7 +27,7 @@ To create and manage an SHIR, please append the following to your URL: `?feature
 
 ## Create a self-hosted integration runtime
 
-1. On the home page of Babylon Studio, select Management Center from the leftmost navigation pane.
+1. On the home page of Purview Studio, select Management Center from the leftmost navigation pane.
 
     :::image type="content" source="media/manage-integration-runtimes/image1.png" alt-text="Navigate to management center.":::
 

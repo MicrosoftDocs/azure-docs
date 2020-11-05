@@ -12,7 +12,7 @@ ms.date: 10/9/2020
 ---
 
 # Register and Scan Azure Data Explorer    
-This article outlines how to register an Azure Data Explorer account in Babylon and set up a scan.
+This article outlines how to register an Azure Data Explorer account in Purview and set up a scan.
 
 ## Supported capabilities
 Azure Data Explorer supports the following:
@@ -22,7 +22,7 @@ Azure Data Explorer supports the following:
 * You need to be a Data Source Administrator to setup and schedule scans
 
 ## Register an Azure Data Explorer account
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 2. Click on **Management Center** on the left navigation pane.
 
     :::image type="content" source="./media/register-scan-azure-data-explorer/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center" lightbox="./media/register-scan-azure-data-explorer/go-to-management-center.png":::
@@ -63,7 +63,7 @@ To do this in the Azure portal:
 
     :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Screenshot to add service principal in permissions" border="true":::
 
-12. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the following screenshot.
+12. Once your Service Principal is set, connect your Purview to your Azure Blob store using client ID and secret key and check your connect as shown in the following screenshot.
 
 :::image type="content" source="./media/register-scan-azure-data-explorer/service-principal-auth.png" alt-text="Screenshot showing service principal authorization" border="true":::
 

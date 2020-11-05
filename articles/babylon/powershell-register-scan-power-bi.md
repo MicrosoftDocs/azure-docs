@@ -16,7 +16,7 @@ This article shows how to use PowerShell to set up a scan of a Power BI tenant i
 
 ## Power BI authentication background
 
-The Babylon catalog must connect to the Power BI Admin API to scan artifacts in a Power BI tenant. The Power BI Admin API currently supports two types of authentication:
+The Purview catalog must connect to the Power BI Admin API to scan artifacts in a Power BI tenant. The Power BI Admin API currently supports two types of authentication:
 
 - Managed identity (MSI).
 - Delegated user authentication.
@@ -26,7 +26,7 @@ The Babylon catalog must connect to the Power BI Admin API to scan artifacts in 
 
 ## Create a security group
 
-Every Babylon catalog has its own system-assigned managed identity that must be given access to the Power BI tenant to enable scanning. The catalog name can be used to find its identity on Azure portal.
+Every Purview catalog has its own system-assigned managed identity that must be given access to the Power BI tenant to enable scanning. The catalog name can be used to find its identity on Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), search for Azure Active Directory.
 1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
@@ -71,7 +71,7 @@ Every Babylon catalog has its own system-assigned managed identity that must be 
     > When you allow the security group you created (that has your data catalog managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure data catalog, the catalog permissions, not Power BI permissions, determine who can see that metadata.
 
     > [!Note]
-    > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Babylon account. You can delete it separately.
+    > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Purview account. You can delete it separately.
 
 ## Register Power BI and set up a scan
 
@@ -81,7 +81,7 @@ Now that you've given the catalog permissions to connect to the Admin API of you
 1. Configure your script by providing values for the assignments at the top of the script.
 
     ```PowerShell
-    #Babylon Account Info
+    #Purview Account Info
     $azuretenantId = '<Tenant Id>'
     $azuresubscriptionId = '<Tenant Id>'
     $azureResourceGroupName = '<Resource Group Name>'
@@ -156,7 +156,7 @@ To do delegated authentication, you must have admin user credentials, as well as
 1. Configure your scan in PowerShell. The script will prompt for credentials. You must have at least contributor permissions on the Azure subscription you use.
 
     ```PowerShell
-    # Babylon Account Info
+    # Purview Account Info
     $azuretenantId = '<Tenant Id>'
     $azuresubscriptionId = '<Tenant Id>'
     $azureResourceGroupName = '<Resource Group Name>'

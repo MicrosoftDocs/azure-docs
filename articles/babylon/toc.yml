@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Babylon account
+  - name: Create a Purview account
     href: create-catalog-portal.md
   - name: Add a security principal
     href: add-security-principal.md

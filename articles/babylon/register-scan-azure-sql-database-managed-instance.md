@@ -13,7 +13,7 @@ ms.date: 10/02/2020
 
 # Register and scan an Azure SQL Database Managed Instance
 
-This article outlines how to register an Azure SQL Database Managed Instance data source in Babylon and set up a scan on it.
+This article outlines how to register an Azure SQL Database Managed Instance data source in Purview and set up a scan on it.
 
 ## Supported capabilities
 
@@ -25,14 +25,14 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 ## Prerequisites
 
-- Create a new Babylon account if you don't already have one.
+- Create a new Purview account if you don't already have one.
 
 - [Configure public endpoint in Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
 
-- Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Babylon supports today:
+- Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Purview supports today:
 
     > [!Note]
-    > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Babylon account should have the appropriate permissions to be able to scan the resource(s).
+    > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
     
    a. **SQL authentication:** You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database Managed Instance. 
 
@@ -42,10 +42,10 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 ## Register an Azure SQL Database Managed Instance data source
 
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 
 2. Select on **Manage your data** tile on the home page.
-:::image type="content" source="media/register-scan-azure-sql-database-managed-instance/babylon-home-page.png" alt-text="Babylon home page":::
+:::image type="content" source="media/register-scan-azure-sql-database-managed-instance/babylon-home-page.png" alt-text="Purview home page":::
 
 3. Select on **Data sources** under the Sources and scanning section.
 

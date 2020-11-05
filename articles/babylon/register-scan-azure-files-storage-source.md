@@ -19,7 +19,7 @@ Azure Files supports the following:<br />
 * You need to be a Catalog Admin or Data Source Admin
 
 ## Register an Azure Files storage account
-1. Navigate to your Babylon catalog.<br />
+1. Navigate to your Purview catalog.<br />
 2. Click on **Management Center** on the left navigation pane.<br />
 
 <!---![Screenshot showing how to go to Management Center]--->

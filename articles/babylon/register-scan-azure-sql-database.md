@@ -13,7 +13,7 @@ ms.date: 10/02/2020
 
 # Register and scan an Azure SQL Database
 
-This article outlines how to register an Azure SQL Database data source in Babylon and set up a scan on it.
+This article outlines how to register an Azure SQL Database data source in Purview and set up a scan on it.
 
 ## Supported Capabilities
 
@@ -25,14 +25,14 @@ The Azure SQL Database data source supports the following functionality:
 
 ## Prerequisites
 
-1. Create a new Babylon account if you don't already have one.
+1. Create a new Purview account if you don't already have one.
 
-1. Networking access between the Babylon account and Azure SQL Database.
+1. Networking access between the Purview account and Azure SQL Database.
 
-1. Authentication to scan Azure SQL Database. There are three authentication methods that Babylon supports today:
+1. Authentication to scan Azure SQL Database. There are three authentication methods that Purview supports today:
 
    > [!Note]
-   > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Babylon account should have the appropriate permissions to be able to scan the resource(s).
+   > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
 
    1. **SQL authentication:** You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database. 
 
@@ -47,9 +47,9 @@ The Azure SQL Database data source supports the following functionality:
       ```
 
       > [!Note]
-      > Babylon will need the **Application (client) ID** and the **client secret** in order to scan.
+      > Purview will need the **Application (client) ID** and the **client secret** in order to scan.
 
-   1. **Managed Identity:** Your Babylon account has its own Managed Identity which is basically your Babylon name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
+   1. **Managed Identity:** Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
 
       ```sql
       CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
@@ -63,11 +63,11 @@ The Azure SQL Database data source supports the following functionality:
 
 ## Register an Azure SQL Database data source
 
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 
 2. Select on **Manage your data** tile on the home page.
 
-   :::image type="content" source="media/register-scan-azure-sql-database/babylon-home-page.png" alt-text="Babylon home page":::
+   :::image type="content" source="media/register-scan-azure-sql-database/babylon-home-page.png" alt-text="Purview home page":::
 
 3. Select on **Data sources** under the Sources and scanning section.
 

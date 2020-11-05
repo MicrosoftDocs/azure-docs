@@ -26,7 +26,7 @@ To display the default classifications, select the **System** tab on the **Class
 
 To create a custom classification:
 
-1. From your Azure Purview account page, select **Launch Babylon account**, and then select **Management Center**.
+1. From your Azure Purview account page, select **Launch Purview account**, and then select **Management Center**.
 
    :::image type="content" source="media/create-a-custom-classification/select-management-center.png" alt-text="Screenshot showing how to select Management Center.":::
 

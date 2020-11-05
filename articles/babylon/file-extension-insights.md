@@ -1,23 +1,23 @@
 ---
-title: File extension reporting on your data using Babylon Insights 
+title: File extension reporting on your data using Purview Insights 
 titleSuffix: Azure Purview
-description: This how-to guide describes how to view and use the Babylon Insights file extension reporting on your data.
+description: This how-to guide describes how to view and use the Purview Insights file extension reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/02/2020
-# Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about the file extensions found in my data.
+# Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
-# File extension insights about your data from Project Babylon 
+# File extension insights about your data from Azure Purview 
 
 This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data in Azure Blob Storage, Azure file, ADLS GEN 1, and ADLS GEN 2.
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
-> * Launch your Babylon account from Azure. 
+> * Launch your Purview account from Azure. 
 > * View and filter insights about the file extensions found across your data estate
 
 > [!NOTE]
@@ -25,7 +25,7 @@ In this how-to guide, you'll learn how to:
 
 ## Prerequisites 
 
-Before getting started with Babylon insights, make sure that you've completed the following steps:
+Before getting started with Purview insights, make sure that you've completed the following steps:
 
 - Followed explanations about setting up Azure resources and populating the relevant accounts with your test data
 
@@ -35,23 +35,23 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
 
-## Babylon insights
+## Purview insights
 
-### Use Babylon insights
+### Use Purview insights
 
-Babylon is able to detect the file types found in your data estate, and provide you more details about each file type, including how many files of each type you have, where those files are, and whether they are scannable for sensitive content.
+Purview is able to detect the file types found in your data estate, and provide you more details about each file type, including how many files of each type you have, where those files are, and whether they are scannable for sensitive content.
 
 **To view file extension insights:**
 
-1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Babylon account.
+1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-    :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Babylon from the Azure portal":::
+    :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. With Babylon open, select the **View insights** tile to access your insights area.
+1. With Purview open, select the **View insights** tile to access your insights area.
 
-    :::image type="content" source="./media/insights/view-insights.png" alt-text="Babylon Insights area":::
+    :::image type="content" source="./media/insights/view-insights.png" alt-text="Purview Insights area":::
     
 1. Within **Insights**, select the **File extensions** tab.
 
@@ -96,7 +96,7 @@ On the **File extension analysis** page, use the following toolbar options to fi
 
 ## Next steps
 
-Learn more about from Babylon insights
+Learn more about from Purview insights
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 

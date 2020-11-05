@@ -1,14 +1,14 @@
 ---
 title: Sensitivity label reporting on your data in Azure Blob Storage 
 titleSuffix: Azure Purview
-description: This how-to guide describes how to view and use Babylon sensitivity label reporting on your data in Azure Blob Storage. 
+description: This how-to guide describes how to view and use Purview sensitivity label reporting on your data in Azure Blob Storage. 
 author: batamig
 ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/02/2020
-# Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about sensitive data identified and classified and labeled during scanning.
+# Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Sensitivity label insights about your data in Azure Purview
@@ -18,7 +18,7 @@ This how-to guide describes how to access, view, and filter security insights pr
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> - Launch your Babylon account from Azure.
+> - Launch your Purview account from Azure.
 > - View insights on your data.
 > - View and filter sensitivity labels.
 > - Learn how to review and search sensitivity labeling of your data estate.
@@ -28,7 +28,7 @@ In this how-to guide, you'll learn how to:
 
 ## Prerequisites
 
-Before getting started with Babylon insights, make sure that you've completed the following steps:
+Before getting started with Purview insights, make sure that you've completed the following steps:
 
 - Followed explanations about setting up Azure resources and populating the relevant accounts with your test data
 
@@ -38,25 +38,25 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
 
-## Babylon insights
+## Purview insights
 
-### Use Babylon insights
+### Use Purview insights
 
 In Babylon, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
 
 Sensitivity labels are used to identify classification type categories within your organizational data, as well as the group the policies you want to apply to each category.
 
-Babylon uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
+Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
 
 **To view classification insights:**
 
-1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Babylon account.
+1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Babylon from the Azure portal":::
+   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. With Babylon open, select the **View insights** tile to access your insights area.
+1. With Purview open, select the **View insights** tile to access your insights area.
 
    :::image type="content" source="./media/insights/view-insights.png" alt-text="View sensitivity labeling insights":::
 
@@ -66,7 +66,7 @@ Babylon uses the same sensitive information types as Microsoft 365, allowing you
 
 ### Sensitivity labels
 
-Once you've learned about the classifications that Babylon has identified in your scanned data, review the sensitivity labels applied to your data estate.
+Once you've learned about the classifications that Purview has identified in your scanned data, review the sensitivity labels applied to your data estate.
 
 **To view sensitivity labels**:
 
@@ -102,14 +102,14 @@ After filtering labels to find the data of interest, you can filter the data fur
 
 ## Sensitivity label integration with Microsoft 365 compliance
 
-Close integration with information protection offered in Microsoft 365 means Babylon offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications.
+Close integration with information protection offered in Microsoft 365 means Purview offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications.
 
 > [!NOTE]
 > For sensitivity labels to be active in Babylon, you'll need published global labels, and **auto-classification** in Microsoft 365 must be enabled.
 
 **Review sensitivity labels**:
 
-Sensitivity labels are used to classify emails, documents, site and more. When sensitivity labels are applied to content (whether manually or automatically, such as the labels applied with Babylon scanning) the content is then protected based on the settings you have chosen for each sensitivity label.
+Sensitivity labels are used to classify emails, documents, site and more. When sensitivity labels are applied to content (whether manually or automatically, such as the labels applied with Purview scanning) the content is then protected based on the settings you have chosen for each sensitivity label.
 
 Sensitivity labels can be used to encrypt files, add content marking, control, and prevent user access and much more.
 
@@ -129,7 +129,7 @@ To review your sensitivity labels and their policies:
 
 ## Next steps
 
-Learn more from Babylon reports
+Learn more from Purview reports
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 

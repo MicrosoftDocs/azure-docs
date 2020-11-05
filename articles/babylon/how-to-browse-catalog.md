@@ -26,7 +26,7 @@ A native browsing experience with hierarchical namespace is provided for each of
 
 1. The browse experience can be launched by selecting the "Browse by asset type" tile in homepage.
 
-:::image type="content" source="media/how-to-browse-catalog/home.jpg" alt-text="Babylon home page":::
+:::image type="content" source="media/how-to-browse-catalog/home.jpg" alt-text="Purview home page":::
 
 2. On browse asset types page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
 

@@ -13,7 +13,7 @@ ms.date: 09/28/2020
 
 # Register and scan Azure Data Lake Storage Gen2
 
-This article outlines how to register Azure Data Lake Storage Gen2 as data source in Babylon and set up a scan on it.
+This article outlines how to register Azure Data Lake Storage Gen2 as data source in Purview and set up a scan on it.
 
 ## Supported capabilities
 
@@ -25,15 +25,15 @@ The Azure Data Lake Storage Gen2  data source supports the following functionali
 
 ## Prerequisites
 
-- Create a new Babylon account.
+- Create a new Purview account.
 
 ## Register Azure Data Lake Storage Gen2 data source
 
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 
 2. Select **Manage your data** tile on the home page.
 
-   :::image type="content" source="media/register-scan-adls-gen2/image1.png" alt-text="Babylon home page":::
+   :::image type="content" source="media/register-scan-adls-gen2/image1.png" alt-text="Purview home page":::
 
 3. Select **Data sources** under the Sources and scanning section.
 

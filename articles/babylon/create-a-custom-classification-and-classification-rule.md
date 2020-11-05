@@ -1,7 +1,7 @@
 ---
 title: Create a Custom Classification and classification rule
 titleSuffix: Azure Purview
-description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization as well as create custom classification rules in Babylon that let you find specified data throughout your data estate.
+description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization as well as create custom classification rules in Purview that let you find specified data throughout your data estate.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog

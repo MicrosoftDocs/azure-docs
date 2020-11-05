@@ -17,7 +17,7 @@ This article describes how to use PowerShell cmdlets to set up and run data sour
 
 ## Introduction
 
-Babylon can scan and classify on-premises data at regular intervals, using either the catalog UI or PowerShell cmdlets. This article shows how to use PowerShell cmdlets to connect to a catalog session. It also shows how to use the connection to manage:
+Purview can scan and classify on-premises data at regular intervals, using either the catalog UI or PowerShell cmdlets. This article shows how to use PowerShell cmdlets to connect to a catalog session. It also shows how to use the connection to manage:
 
 - Data sources.
 - Scans.
@@ -27,7 +27,7 @@ Babylon can scan and classify on-premises data at regular intervals, using eithe
 To set up a scan, first create a data source and then create a scan under the data source. The set of supported authentication methods for a scan depends on the data source type. For more information, see the authentication section of [Tutorial: Use the portal to scan Azure data sources](portal-scan-azure-data-sources.md#create-a-scan-and-authenticate). When the scan is created, you can associate a trigger with it.
 
 > [!Note]
-> The user that runs the PowerShell cmdlets should be the catalog or data source admin in the Babylon data plane.
+> The user that runs the PowerShell cmdlets should be the catalog or data source admin in the Purview data plane.
 
 ## The cmdlets
 
@@ -58,9 +58,9 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession] [[-UserAuthentication]]
 
 - *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
 - *DataCatalogAccountName*: The data catalog name.
-- *Environment*: The environment in which the Babylon account is created.
+- *Environment*: The environment in which the Purview account is created.
 
-    > The possible options are **Dogfood** or **Production**. If the Babylon account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
+    > The possible options are **Dogfood** or **Production**. If the Purview account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
 
 After you run the cmdlet, you'll be asked to open the page 'https://microsoft.com/devicelogin' in a web browser and enter the code provided to authenticate.
 
@@ -93,9 +93,9 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession]
 - *ServicePrincipalApplicationId*: The service principal ID that's authorized to access the data source account. Make sure this ID is a catalog administrator.
 - *ServicePrincipalKey*: The service principal key for the principal ID.
 - *DataCatalogAccountName*: The data catalog name.
-- *Environment*: The environment in which the Babylon account is created.
+- *Environment*: The environment in which the Purview account is created.
 
-    > The possible options are **Dogfood** or **Production**. If the Babylon account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
+    > The possible options are **Dogfood** or **Production**. If the Purview account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
 
 Once the code is verified, you'll be asked to use your Active AD credentials to sign in.
 

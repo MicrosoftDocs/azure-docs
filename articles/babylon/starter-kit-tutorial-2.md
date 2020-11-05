@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Follow these steps to explore the home page:
 
-1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your babylon account name>`, and then select **Home**.
+1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your purview account name>`, and then select **Home**.
 
    The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 16,000 assets in total and 189 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
 

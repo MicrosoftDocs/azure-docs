@@ -20,7 +20,7 @@ Read this document carefully. It includes warnings that Azure Purview preview cu
 
 * **Limitation**: The existence of Azure Purview isn't public knowledge, which is why we don't want to expose information about it in the Azure portal. To create a catalog instance, you need to use a special flag. This flag is needed only when you create a catalog. Once a catalog exists, you can view it in the Azure portal without a flag. There are limitations to how many catalogs you can create in the preview.
 
-* **Customer action**: To create a catalog instance, use the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+* **Customer action**: To create a catalog instance, use the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
 * **Solution**: After Microsoft formally announces Azure Purview, this flag won't be necessary.
 

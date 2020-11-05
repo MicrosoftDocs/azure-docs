@@ -25,15 +25,15 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Set up SQL storage behind a firewall
 
-The first step is to add the catalog's MSI to an Azure SQL DB via the [Scan Azure Data Sources with Babylon Portal](https://github.com/Azure/Babylon/blob/master/docs/scan-azure-data-sources-portal.md)
+The first step is to add the catalog's MSI to an Azure SQL DB via the [Scan Azure Data Sources with Purview Portal](https://github.com/Azure/Babylon/blob/master/docs/scan-azure-data-sources-portal.md)
 
 ## Scan storage from Babylon
 
-1. Browse to [https://ms.web.babylon.azure.com/](https://ms.web.babylon.azure.com/) and select the **Babylon Account**.
+1. Browse to [https://ms.web.babylon.azure.com/](https://ms.web.babylon.azure.com/) and select the **Purview Account**.
 
    :::image type="content" source="./media/scan-resource-firewall/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
   
-1. On the Babylon landing page, select **Management Center** (last icon on the left).
+1. On the Purview landing page, select **Management Center** (last icon on the left).
 
    :::image type="content" source="./media/scan-resource-firewall/landing-babylon.png" alt-text="Screenshot of the selection to launch the Azure Purview Management Center.":::
 

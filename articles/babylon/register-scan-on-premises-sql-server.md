@@ -13,7 +13,7 @@ ms.date: 09/18/2020
 
 # Register and scan an on-premises SQL server
 
-This article outlines how to register a SQL server data source in Babylon and set up a scan on it.
+This article outlines how to register a SQL server data source in Purview and set up a scan on it.
 
 ## Supported Capabilities
 
@@ -31,7 +31,7 @@ SQL server on-premises data source supports:
 
 ## Prerequisites
 
-- The features in this article require a Babylon account created after September 15, 2020.
+- The features in this article require a Purview account created after September 15, 2020.
 
 - Set up a [self-hosted integration runtime](manage-integration-runtimes.md) to scan the data source.
 
@@ -41,11 +41,11 @@ Registration and scanning of a SQL server on-premises data source is available b
 
 ## Register a SQL server data source
 
-1. Navigate to your Babylon catalog.
+1. Navigate to your Purview catalog.
 
 2. Select **Manage your data** tile on the home page.
 
-   :::image type="content" source="media/register-scan-on-premises-sql-server/babylon-home-page.png" alt-text="Babylon home page.":::
+   :::image type="content" source="media/register-scan-on-premises-sql-server/babylon-home-page.png" alt-text="Purview home page.":::
 
 3. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
@@ -59,7 +59,7 @@ Registration and scanning of a SQL server on-premises data source is available b
 
 SQL authentication is the only supported authentication method for SQL server on-premises.
 
-The SQL identity must have access to the primary database. This location is where `sys.databases` is stored. The Babylon scanner needs to enumerate `sys.databases` in order to find all the SQL DB instances in the server.
+The SQL identity must have access to the primary database. This location is where `sys.databases` is stored. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL DB instances in the server.
 
 ### Using an existing server administrator
 
