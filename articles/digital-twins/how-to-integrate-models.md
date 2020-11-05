@@ -26,15 +26,15 @@ There are three possible paths to integrating industry-standard models with DTDL
 * **Convert**: If you already have existing models that are not in DTDL, you'll need to convert them to DTDL.
 * **Author**: You can also always develop your own custom DTDL models from scratch, as described in [*How-to: Manage custom models*](how-to-manage-models.md).
 
-## Adopt an open-source DTDL Ontology
+## Adopt an open-source DTDL ontology
 
 It is often easier to start with an open-source DTDL ontology than starting from a blank page. 
 
-For example, Smart Buildings solutions can leverage the open-source [DTDL-based RealEstateCore ontology](https://github.com/Azure/opendigitaltwins-building), which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
+For example, Smart Buildings solutions can leverage the open-source [**DTDL-based RealEstateCore ontology**](https://github.com/Azure/opendigitaltwins-building), which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
 
 These open-source DTDL ontologies also provide best practices for how to consume and properly extend the models. 
 
-## Convert existing industry-standard models to DTDL
+## Convert existing models to DTDL
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/[), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
