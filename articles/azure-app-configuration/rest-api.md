@@ -17,7 +17,7 @@ The following reference pages are available to describe the Azure App Configurat
 ## Resources
 
 - [Keys](./rest-api-keys.md)
-- [Key-Values](./rest-api-kv.md)
+- [Key-Values](./rest-api-key-value.md)
 - [Labels](./rest-api-labels.md)
 - [Locks](./rest-api-locks.md)
 - [Revisions](./rest-api-revisions.md)

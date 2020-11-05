@@ -163,7 +163,7 @@
           - name: Keys
             href: ./rest-api-keys.md
           - name: Key-values
-            href: ./rest-api-kv.md
+            href: ./rest-api-key-value.md
           - name: Labels
             href: ./rest-api-labels.md
           - name: Locks

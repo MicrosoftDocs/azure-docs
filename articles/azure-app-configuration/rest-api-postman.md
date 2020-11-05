@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# Test the Azure App Configuration REST API Using Postman
+# Test the Azure App Configuration REST API using Postman
 
 To test the REST API using [Postman](https://www.getpostman.com/), you'll need to include the HTTP headers required for [authentication](./rest-api-authentication-hmac.md) in your requests. Here's how to configure Postman for testing the REST API, generating the authentication headers automatically:
 

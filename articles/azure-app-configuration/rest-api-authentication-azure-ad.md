@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# Azure Active Directory Authentication
+# Azure Active Directory authentication
 
 HTTP requests may be authenticated using the **Bearer** authentication scheme with a token acquired from Azure Active Directory (Azure AD). These requests must be transmitted over TLS.
 

@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# Key-Value Revisions
+# Key-value revisions
 
 api-version: 1.0
 
