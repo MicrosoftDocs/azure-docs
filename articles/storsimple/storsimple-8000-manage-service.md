@@ -101,7 +101,7 @@ Perform the following steps to regenerate a service registration key.
 ### To regenerate the service registration key
 1. In the **StorSimple Device Manager** blade, go to **Management &gt;** **Keys**.
     
-    ![Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Go to Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. In the **Keys** blade, click **Regenerate**.
 
