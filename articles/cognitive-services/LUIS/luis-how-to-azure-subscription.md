@@ -31,7 +31,7 @@ LUIS allows three types of Azure resources and one non-Azure resource:
 
 
 > [!Note]
-> LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource that gives you a 10,000 free transactions monthly and not the authoring resource that gives you 1,000 prediction transactions monthly.
+> LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource, which gives you a 10,000 free transactions monthly, and not the authoring resource, which gives you 1,000 prediction transactions monthly.
 
 When the Azure resource creation process is finished, [assign the resource](#assign-a-resource-to-an-app) to the app in the LUIS portal.
 
@@ -157,7 +157,7 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 ## Sign in to the LUIS portal and begin authoring
 
 1. Sign in to the [LUIS portal](https://www.luis.ai) and agree to the terms of use.
-1. Begin your LUIS app by choosing your Azure LUIS authoring key:
+1. Start authoring your LUIS app by choosing your Azure LUIS authoring key:
 
    ![Screenshot that shows the welcome screen.](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
