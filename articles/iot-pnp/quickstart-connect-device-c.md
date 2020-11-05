@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Connect IoT Plug and Play sample C device code to IoT Hub | Microsoft Docs
+title: Quickstart - Connect IoT Plug and Play sample C device code to Azure IoT Hub | Microsoft Docs
 description: Quickstart - Build and run IoT Plug and Play sample device code on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt

@@ -1,5 +1,5 @@
 ---
-title: Use Time Series Insights to store and analyze your IoT Plug and Play device telemetry  | Microsoft Docs
+title: Use Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  | Microsoft Docs
 description: Set up a Time Series Insights environment and connect your IoT Hub to view and analyze telemetry from your IoT Plug and Play devices.
 author: lyrana
 ms.author: lyhughes
