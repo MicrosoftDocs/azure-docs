@@ -17,7 +17,7 @@ The frontend IPs of an Azure public load balancer can be used to provide outboun
 SNAT enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. Sharing an IP address between backend instances reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
 
 [!Note]
-> For applications with that require large numbers of outbound connections or enterprise customers who require a single set of IPs to be used from a given virtual network, [Virtual Network NAT](https://docs.microsoft.com/en-us/azure/virtual-network/nat-overview) is the recommended solution. It's dynamic allocation allows for simple configuration and the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share a load balancer.
+> For applications with that require large numbers of outbound connections or enterprise customers who require a single set of IPs to be used from a given virtual network, [Virtual Network NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) is the recommended solution. It's dynamic allocation allows for simple configuration and the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share a load balancer.
 
 [!Important]
 > Even without outbound SNAT configured, Azure storage accounts within the same region will still be accessible and backend resources will still have access to Microsoft services such as Windows Updates.
@@ -55,7 +55,7 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
 
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
- | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> [PAT (Port masquerading)](#pat) not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
+ | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
 
  #### Description
