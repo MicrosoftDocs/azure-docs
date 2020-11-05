@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
@@ -219,5 +219,3 @@ To accept the security warning if you used a self-signed certificate, select **D
 ## Next steps
 
 - [Create an application gateway with internal redirection using the Azure CLI](redirect-internal-site-cli.md)
-
-
