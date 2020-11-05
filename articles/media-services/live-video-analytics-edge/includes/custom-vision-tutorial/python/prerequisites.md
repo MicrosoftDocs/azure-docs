@@ -8,5 +8,5 @@ Prerequisites for this tutorial are:
 * Ensure you have:
     
     * [Set up Azure Resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Set up your development environment](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
+    * [Set up your development environment](../../../detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
 
