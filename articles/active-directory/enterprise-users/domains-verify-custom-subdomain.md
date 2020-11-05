@@ -71,18 +71,18 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
 
 ### Change the subdomain authentication type
 
-Use the following command to change the subdomain authentication type:
+1. Use the following command to change the subdomain authentication type:
 
-```powershell
-Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
-```
+   ```powershell
+   Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
+   ```
 
-Verify via GET in Azure AD Graph Explorer that subdomain authentication type is now managed:
+1. Verify via GET in Azure AD Graph Explorer that subdomain authentication type is now managed:
 
-```http
-GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6
-
-Return:
+   ```http
+   GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6
+   
+   Return:
      {
          "authenticationType": "Managed",   <---------- Now this domain is successfully added as Managed and not inheriting Federated status
          "availabilityStatus": null,
@@ -102,7 +102,7 @@ Return:
          "state": null,
          "passwordValidityPeriodInDays": null,
          "passwordNotificationWindowInDays": null }
-```
+   ```
 
 ## Next steps
 
