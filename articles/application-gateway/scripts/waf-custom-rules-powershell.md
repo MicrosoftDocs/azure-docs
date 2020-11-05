@@ -65,6 +65,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-- For more information about WAF custom rules, see [Custom rules for Web Application Firewall](../custom-waf-rules-overview.md)
+- For more information about WAF custom rules, see [Custom rules for Web Application Firewall](../../web-application-firewall/ag/custom-waf-rules-overview.md)
 - For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 - Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).
