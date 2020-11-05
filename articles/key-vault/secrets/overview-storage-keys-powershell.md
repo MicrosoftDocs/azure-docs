@@ -29,13 +29,13 @@ We recommend using Azure Storage integration with Azure Active Directory (Azure 
 
 Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application.
 
-Azure AD uses role-based access control (RBAC) to manage authorization, which is also supported by Key Vault.
+Azure AD uses Azure role-based access control (Azure RBAC) to manage authorization, which is also supported by Key Vault.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Service principal application ID
 
-An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the application ID, which is used during authorization setup for access to other Azure resources via RBAC.
+An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the application ID, which is used during authorization setup for access to other Azure resources via Azure RBAC.
 
 Key Vault is a Microsoft application that's pre-registered in all Azure AD tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 

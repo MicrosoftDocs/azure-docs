@@ -442,7 +442,7 @@ What is the location condition in Azure Active Directory Conditional Access?: ht
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Azure role-based access control (Azure RBAC) to administrate sensitive resources.
 
  
 
