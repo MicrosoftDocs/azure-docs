@@ -1,6 +1,6 @@
 ---
 title: Using IDENTITY to create surrogate keys
-description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
+description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
 services: synapse-analytics
 author:  XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Using IDENTITY to create surrogate keys in Synapse SQL pool
+# Using IDENTITY to create surrogate keys using dedicated SQL pool in AzureSynapse Analytics
 
-In this article, you'll find recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
+In this article, you'll find recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
 
 ## What is a surrogate key
 
@@ -26,7 +26,7 @@ A surrogate key on a table is a column with a unique identifier for each row. Th
 
 ## Creating a table with an IDENTITY column
 
-The IDENTITY property is designed to scale out across all the distributions in the Synapse SQL pool without affecting load performance. Therefore, the implementation of IDENTITY is oriented toward achieving these goals.
+The IDENTITY property is designed to scale out across all the distributions in the dedicated SQL pool without affecting load performance. Therefore, the implementation of IDENTITY is oriented toward achieving these goals.
 
 You can define a table as having the IDENTITY property when you first create the table by using syntax that is similar to the following statement:
 
@@ -48,7 +48,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated due to the distributed architecture of the data warehouse. The IDENTITY property is designed to scale out across all the distributions in the Synapse SQL pool without affecting load performance. 
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated due to the distributed architecture of the data warehouse. The IDENTITY property is designed to scale out across all the distributions in the dedicated SQL pool without affecting load performance. 
 
 The following example is an illustration:
 
@@ -98,7 +98,7 @@ CREATE TABLE AS SELECT (CTAS) follows the same SQL Server behavior that's docume
 
 ## Explicitly inserting values into an IDENTITY column
 
-Synapse SQL pool supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
+Dedicated SQL pool supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
 
 Many data modelers like to use predefined negative values for certain rows in their dimensions. An example is the -1 or "unknown member" row.
 
@@ -159,7 +159,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Synapse SQL pool](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for dedicated SQL pool](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
 
 ## System views
 
@@ -193,7 +193,7 @@ The IDENTITY property can't be used:
 - When the column is also the distribution key
 - When the table is an external table
 
-The following related functions are not supported in Synapse SQL pool:
+The following related functions are not supported in dedicated SQL pool:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

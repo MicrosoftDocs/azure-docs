@@ -2,6 +2,7 @@
 title: 'Migrate from CouchBase to Azure Cosmos DB SQL API'
 description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB SQL API
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
