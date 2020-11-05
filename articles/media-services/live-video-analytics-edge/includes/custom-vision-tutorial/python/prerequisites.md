@@ -7,6 +7,6 @@ Prerequisites for this tutorial are:
 * [Python 3](https://www.python.org/downloads/), [Pip 3](https://pip.pypa.io/en/stable/installing/), and [venv](https://docs.python.org/3/library/venv.html) on your development machine.
 * Ensure you have:
     
-    * [Set up Azure Resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Set up Azure Resources](../../../detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Set up your development environment](../../../detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
 
