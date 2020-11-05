@@ -7,7 +7,7 @@ ms.author: suvirdi
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 11/05/2020
 ---
 
 # Register and scan Azure Blob Storage
@@ -53,7 +53,7 @@ When authentication method selected is **Account Key**, select **Enter manually*
 
 ### SAS URL
 
-To use a SAS URL, you need to generate one. To learn more about how to do this, see this [Storage SAS Overview](../storage/common/storage-sas-overview)
+To use a SAS URL, you need to generate one. To learn more about how to do this, see this [Storage SAS Overview](../storage/common/storage-sas-overview.md)
 
 ### Service principal
 
@@ -78,7 +78,7 @@ have to be real or work.
 
 1. Copy the values from both the display name and the application ID.
 
-1. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../azure/storage/common/storage-auth-aad-app.md)
+1. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md)
 
 1. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
 
