@@ -30,7 +30,7 @@ This article provides guidance for optimizing SQL Server performance in Microsof
 > [!TIP]
 > There is typically a trade-off between optimizing for costs and optimizing for performance. This article is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
-## Quick checklist
+## Quick checklist --
 
 The following is a quick checklist for optimal performance of SQL Server on Azure Virtual Machines:
 
