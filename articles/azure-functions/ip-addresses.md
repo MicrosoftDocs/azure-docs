@@ -47,7 +47,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on the Consumption plan, you may need to add the entire data center to an allow list.
+> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) or the [Premium plan](functions-scale.md#premium-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you may need to add the entire data center to an allow list.
 
 ## Data center outbound IP addresses
 
@@ -85,7 +85,7 @@ The inbound IP address **might** change when you:
 - Delete the last function app in a resource group and region combination, and re-create it.
 - Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan) or in a [Premium plan](functions-scale.md#premium-plan), the inbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 ## Outbound IP address changes
 
@@ -94,7 +94,7 @@ The set of available outbound IP addresses for a function app might change when 
 * Take any action that can change the inbound IP address.
 * Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan) or in a [Premium plan](functions-scale.md#premium-plan), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 To deliberately force an outbound IP address change:
 

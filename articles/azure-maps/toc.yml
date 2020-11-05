@@ -1,4 +1,4 @@
-- name: Azure Maps Documentation 
+- name: Azure Maps documentation 
   href: index.yml
 - name: Overview
   items:
@@ -95,6 +95,8 @@
   items:
   - name: Manage Maps accounts
     items:
+    - name: Create account with ARM template
+      href: how-to-create-template.md
     - name: Manage accounts
       href: how-to-manage-account-keys.md
     - name: Manage authentication
@@ -130,6 +132,8 @@
       href: how-to-request-transit-data.md
     - name: Request real-time public transit data
       href: how-to-request-real-time-data.md
+    - name: Request real-time and forecasted weather data
+      href: how-to-request-weather-data.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
@@ -279,55 +283,55 @@
   - name: REST
     items:
     - name: Data service
-      href: https://docs.microsoft.com/rest/api/maps/data
+      href: /rest/api/maps/data
     - name: Geolocation service
-      href: https://docs.microsoft.com/rest/api/maps/geolocation
+      href: /rest/api/maps/geolocation
     - name: Mobility service
-      href: https://docs.microsoft.com/rest/api/maps/mobility
+      href: /rest/api/maps/mobility
     - name: Render service
-      href: https://docs.microsoft.com/rest/api/maps/render
+      href: /rest/api/maps/render
     - name: Render service V2
-      href: https://docs.microsoft.com/rest/api/maps/renderv2
+      href: /rest/api/maps/renderv2
     - name: Route service
-      href: https://docs.microsoft.com/rest/api/maps/route
+      href: /rest/api/maps/route
     - name: Search service
-      href: https://docs.microsoft.com/rest/api/maps/search
+      href: /rest/api/maps/search
     - name: Spatial service
-      href: https://docs.microsoft.com/rest/api/maps/spatial
+      href: /rest/api/maps/spatial
     - name: Timezone service
-      href: https://docs.microsoft.com/rest/api/maps/timezone
+      href: /rest/api/maps/timezone
     - name: Traffic service
-      href: https://docs.microsoft.com/rest/api/maps/traffic
+      href: /rest/api/maps/traffic
     - name: Weather service
-      href: https://docs.microsoft.com/rest/api/maps/weather
+      href: /rest/api/maps/weather
     - name: Maps Creator service
       items:
       - name: Alias service
-        href: https://docs.microsoft.com/rest/api/maps/alias
+        href: /rest/api/maps/alias
       - name: Conversion service
-        href: https://docs.microsoft.com/rest/api/maps/conversion
+        href: /rest/api/maps/conversion
       - name: Dataset service
-        href: https://docs.microsoft.com/rest/api/maps/dataset
+        href: /rest/api/maps/dataset
       - name: Feature State service
-        href: https://docs.microsoft.com/rest/api/maps/featurestate
+        href: /rest/api/maps/featurestate
       - name: Tileset service
-        href: https://docs.microsoft.com/rest/api/maps/tileset
+        href: /rest/api/maps/tileset
       - name: WFS service
-        href: https://docs.microsoft.com/rest/api/maps/wfs
+        href: /rest/api/maps/wfs
     - name: Maps account management
-      href: https://docs.microsoft.com/rest/api/maps-management
+      href: /rest/api/maps-management
   - name: JavaScript
     items:
     - name: Map control
-      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+      href: /javascript/api/azure-maps-javascript/
     - name: Drawing tools
-      href: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
+      href: /javascript/api/azure-maps-drawing-tools/
     - name: Service module
-      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
+      href: /javascript/api/azure-maps-rest/
     - name: Spatial IO module
-      href: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
+      href: /javascript/api/azure-maps-spatial-io/
     - name: Indoor module
-      href: https://aka.ms/am-indoor-module-websdk/
+      href: /javascript/api/azure-maps-indoor/
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
@@ -335,31 +339,31 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/iot-support-help
+    href: ../iot-fundamentals/iot-support-help.md
   - name: Azure IoT services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub
+      href: ../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
+      href: ../iot-dps/index.yml
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /microsoft-iot-central/
     - name: IoT Edge
-      href: /azure/iot-edge
+      href: ../iot-edge/index.yml
     - name: IoT solution accelerators
-      href: /azure/iot-accelerators
+      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: /azure/iot-pnp
+      href: ../iot-pnp/index.yml
     - name: Azure Maps
-      href: /azure/azure-maps
+      href: ./index.yml
     - name: Time Series Insights
-      href: /azure/time-series-insights
+      href: ../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -383,5 +387,4 @@
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo    
-
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo

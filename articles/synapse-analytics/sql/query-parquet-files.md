@@ -1,6 +1,6 @@
 ---
-title: Query Parquet files using SQL on-demand (preview)
-description: In this article, you'll learn how to query Parquet files using SQL on-demand (preview).
+title: Query Parquet files using serverless SQL pool (preview)
+description: In this article, you'll learn how to query Parquet files using serverless SQL pool (preview).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
-# Query Parquet files using SQL on-demand (preview) in Azure Synapse Analytics
+# Query Parquet files using serverless SQL pool (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) that will read Parquet files.
+In this article, you'll learn how to write a query using serverless SQL pool (preview) that will read Parquet files.
 
 ## Quickstart example
 
@@ -106,7 +106,7 @@ You don't need to use the OPENROWSET WITH clause when reading Parquet files. Col
 The sample below shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2017 without specifying a schema.
 
 > [!NOTE]
-> You don't have to specify columns in the OPENROWSET WITH clause when reading Parquet files. In that case, SQL on-demand Query service will utilize metadata in the Parquet file and bind columns by name.
+> You don't have to specify columns in the OPENROWSET WITH clause when reading Parquet files. In that case, serverless SQL pool query service will utilize metadata in the Parquet file and bind columns by name.
 
 ```sql
 SELECT TOP 10 *
@@ -123,7 +123,7 @@ FROM
 The data set provided in this sample is divided (partitioned) into separate subfolders. You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 
 > [!NOTE]
-> The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
+> The serverless SQL pool query is compatible with Hive/Hadoop partitioning scheme.
 
 ```sql
 SELECT
@@ -150,43 +150,7 @@ ORDER BY
 
 ## Type mapping
 
-Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
-
-| Parquet type | Parquet logical type (annotation) | SQL data type |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY / BYTE_ARRAY | | varbinary |
-| DOUBLE | | float |
-| FLOAT | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*(UTF8 collation) |
-| BINARY |STRING |varchar \*(UTF8 collation) |
-| BINARY |ENUM|varchar \*(UTF8 collation) |
-| BINARY |UUID |uniqueidentifier |
-| BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(UTF8 collation) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), serialized into standardized format |
-| INT32 |INT(8, true) |smallint |
-| INT32 |INT(16, true) |smallint |
-| INT32 |INT(32, true) |int |
-| INT32 |INT(8, false) |tinyint |
-| INT32 |INT(16, false) |int |
-| INT32 |INT(32, false) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |decimal |
-| INT32 |TIME (MILLIS )|time |
-| INT64 |INT(64, true) |bigint |
-| INT64 |INT(64, false ) |decimal(20,0) |
-| INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS / NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(max), serialized into JSON |
-|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialized into JSON |
+For Parquet type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## Next steps
 

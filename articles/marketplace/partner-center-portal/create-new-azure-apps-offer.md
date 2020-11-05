@@ -29,25 +29,25 @@ Designing, building, and testing Azure application offers requires technical kno
 
 Review the following resources as you prepare your Azure application offer for the commercial marketplace.
 
-* [Understand Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Understand Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md)
 
 * Quickstarts:
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     * [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publish application definition](../../managed-applications/publish-service-catalog-app.md)
-    * [Deploy service catalog app](../../managed-applications/deploy-service-catalog-quickstart.md)
+    * [Publish application definition](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Deploy service catalog app](../../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 
 * Tutorials:
 
-    * [Create definition files](../../managed-applications/publish-service-catalog-app.md)
-    * [Publish marketplace application](../../managed-applications/publish-marketplace-app.md)
+    * [Create definition files](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Publish marketplace application]()
 
 * Samples:
 
-    * [Azure CLI](../../managed-applications/cli-samples.md)
-    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
-    * [Managed application solutions](../../managed-applications/sample-projects.md)
+    * [Azure CLI](../../azure-resource-manager/managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../azure-resource-manager/managed-applications/powershell-samples.md)
+    * [Managed application solutions](../../azure-resource-manager/managed-applications/sample-projects.md)
 
 The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
@@ -62,8 +62,8 @@ The video [Building Solution Templates, and Managed Applications for the Azure M
 
 Choose one or both of the following scripting environments to help manage your Azure application:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell](/powershell/azure/)
+* [Azure CLI](/cli/azure)
 
 We recommend adding the following tools to your development environment:
 
@@ -79,17 +79,17 @@ You can review the available tools in the [Azure Developer Tools](https://azure.
 
 There are two kinds of Azure application plans: solution templates and managed applications.
 
-* **Solution template** is one of the main ways to publish a solution in the Marketplace. Use this plan type when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM). With a solution template, you can automate providing of more than one resource, including VMs, networking, and storage resources to provide complex IaaS solutions.  For more information about building solution templates, see [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+* **Solution template** is one of the main ways to publish a solution in the Marketplace. Use this plan type when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM). With a solution template, you can automate providing of more than one resource, including VMs, networking, and storage resources to provide complex IaaS solutions.  For more information about building solution templates, see [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-* **Managed application** is similar to solution templates, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution. Use Managed applications to easily build and deliver fully managed, turnkey applications to your customers.  For more information about the advantages and types of managed applications, see the [Azure managed applications overview](../../managed-applications/overview.md).
+* **Managed application** is similar to solution templates, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution. Use Managed applications to easily build and deliver fully managed, turnkey applications to your customers.  For more information about the advantages and types of managed applications, see the [Azure managed applications overview](../../azure-resource-manager/managed-applications/overview.md).
 
 ## Technical requirements
 
 All Azure applications include at least two files in the root folder of a `.zip` archive:
 
-* A Resource Manager template file named [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md).  This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* A Resource Manager template file named [mainTemplate.json](../../azure-resource-manager/management/overview.md).  This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 
-* A user interface definition for the Azure application creation experience named [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md).  In the user interface, you specify elements that enable consumers to provide parameter values.
+* A user interface definition for the Azure application creation experience named [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
 All new Azure application offers must include an [Azure partner customer usage attribution GUID](../azure-partner-customer-usage-attribution.md). 
 
@@ -131,7 +131,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box. Configure the test drive environment in the [Test drive technical configuration](#test-drive-technical-configuration) section later in this topic.
 
-For additional information, see [Test drive your offer in the commercial marketplace](test-drive.md). You can also read about [test drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) and download the [Test drives overview PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (make sure your pop-up blocker is off)
+For additional information, see [Test drive your offer in the commercial marketplace](../what-is-test-drive.md). You can also read about [test drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) and download the [Test drives overview PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (make sure your pop-up blocker is off)
 
 >[!Note]
 >Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](../azure-resource-manager-test-drive.md).
@@ -237,7 +237,7 @@ Provide the name, email, and phone number for a **Support contact**, **Engineeri
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, ensure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -460,8 +460,8 @@ This tab lets you edit the draft version of your technical configuration.
 
 All Azure application plan packages must include these two files in the root folder of a `.zip` archive:
 
-* A Resource Manager template file named [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md). This template automates the deployment of resources into the customers Azure subscription.  For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
-* A user interface definition for the Azure application creation experience named [createUiDefinition.json](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* A Resource Manager template file named [mainTemplate.json](../../azure-resource-manager/management/overview.md). This template automates the deployment of resources into the customers Azure subscription.  For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* A user interface definition for the Azure application creation experience named [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).
 
 Maximum file sizes supported are:
 
@@ -481,7 +481,7 @@ The **Previously published packages** sub-tab enables you to view all published 
 
 #### Enable just-in-time (JIT) access
 
-Select this option to enable Just-in-time (JIT) access for this plan.  JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.  For more information, see [Enable and request just-in-time access for Azure Managed Applications](../../managed-applications/request-just-in-time-access.md).  To require that consumers of your managed application grant your account permanent access, leave this option unchecked.
+Select this option to enable Just-in-time (JIT) access for this plan.  JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.  For more information, see [Enable and request just-in-time access for Azure Managed Applications](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).  To require that consumers of your managed application grant your account permanent access, leave this option unchecked.
 
 >[!Note]
 >Be sure to update your `createUiDefinition.json` file in order to support this feature.  
@@ -493,7 +493,7 @@ Select whether to configure **Complete** or **Incremental deployment mode** when
 * In **complete mode**, a redeployment of the application by the customer will result in removal of resources in the managed resource group if the resources are not defined in the `mainTemplate.json`. 
 * In **incremental mode**, a redeployment of the application leaves existing resources unchanged.
 
-To learn more about deployment modes, see [Azure Resource Manager deployment modes](../../azure-resource-manager/deployment-modes.md).
+To learn more about deployment modes, see [Azure Resource Manager deployment modes](../../azure-resource-manager/templates/deployment-modes.md).
 
 #### Notification endpoint URL
 
@@ -503,7 +503,7 @@ Specify an HTTPS Webhook endpoint to receive notifications about all CRUD operat
 
 Select this option to specify which actions customers can perform on the managed resources in addition to the "`*/read`" actions that is available by default.
 
-List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](../../role-based-access-control/deny-assignments.md). For available actions, see [Azure Resource Manager resource provider operations](../../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
+List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](../../role-based-access-control/deny-assignments.md). For available actions, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
 #### Global Azure / Azure Government Cloud
 
@@ -513,7 +513,7 @@ Indicate who should have management access to this managed application in each s
 
 **Authorizations** – Add the Azure Active Directory object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../../role-based-access-control/overview.md).
+For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). For more information about Azure role-based access control (Azure RBAC), see [What is Azure RBAC](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Although you may add up to 100 authorizations per cloud, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID." This will allow you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
@@ -538,7 +538,7 @@ Select **Save draft** before continuing.
 
 ## Test drive
 
-Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](test-drive.md).
+Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](../what-is-test-drive.md).
 
 To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 
@@ -550,11 +550,11 @@ To enable a test drive, select the **Enable a test drive** check box on the [Off
 
 To allow the Test Drive to be deployed on your behalf, create and provide a separate, unique Azure Subscription (not required for Power BI test drives).
 
-* **Azure subscription ID** (required for Azure Resource Manager and Logic apps) – Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](../../billing/billing-create-subscription.md) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (such as "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **Azure subscription ID** (required for Azure Resource Manager and Logic apps) – Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](../../cost-management-billing/manage/create-subscription.md) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (such as "a83645ac-1234-5ab6-6789-1h234g764ghty").
 * **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Azure AD tenant name** (required for Dynamic 365) – Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
 * **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-nav menu, select **App registrations**, then look for the **Application ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory application client secret** (required) – Enter your Azure AD application [client secret](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left-nav menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value before leaving this page.)
+* **Azure Active Directory application client secret** (required) – Enter your Azure AD application [client secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left-nav menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value before leaving this page.)
 
 Select **Save draft** before continuing.
 

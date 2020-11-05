@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
@@ -18,18 +18,22 @@ remediation with Azure Policy.
 When Azure Policy runs the template in the **deployIfNotExists** policy definition, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy creates a managed identity for each assignment, but must have details about what roles
-to grant the managed identity. If the managed identity is missing roles, this error is displayed
+to grant the managed identity. If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
-automatically grants the managed identity the listed roles once assignment starts. The _location_ of
-the managed identity doesn't impact its operation with Azure Policy.
+automatically grants the managed identity the listed roles once assignment starts. When using SDK,
+the roles must manually be granted to the managed identity. The _location_ of the managed identity
+doesn't impact its operation with Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot of of a deployIfNotExists policy that is missing a defined permission on the managed identity." border="false":::
 
 > [!IMPORTANT]
-> If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
-> assignment or the template accesses properties on resources outside the scope of the policy
-> assignment, the assignment's managed identity must be [manually granted access](#manually-configure-the-managed-identity)
-> or the remediation deployment will fail.
+> In the following scenarios, the assignment's managed identity must be
+> [manually granted access](#manually-configure-the-managed-identity) or the remediation deployment
+> will fail:
+>
+> - If the assignment is created through SDK
+> - If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy assignment
+> - If the template accesses properties on resources outside the scope of the policy assignment
 
 ## Configure policy definition
 

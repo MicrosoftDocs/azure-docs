@@ -77,7 +77,7 @@ The Snapshot Debugger collects snapshots of the most frequent exceptions in your
 
 3. The first call that has valid values is **ValidZipCode**, and we can see that a zip code was provided with letters that isn't able to be translated into an integer.  This appears to be the error in the code that needs to be corrected.
 
-	![Debug snapshot](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+	![Screenshot that shows an error in the code that needs to be corrected.	](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. You then have the option to download this snapshot into Visual Studio where we can locate the actual code that needs to be corrected. To do so, click **Download Snapshot**.
 5. The snapshot is loaded into Visual Studio.
@@ -93,7 +93,7 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 
 	![Code](media/tutorial-runtime-exceptions/codelens.png)
 
-1. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Screenshot shows Application Insights window which includes several queries.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## Add work item
 If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.

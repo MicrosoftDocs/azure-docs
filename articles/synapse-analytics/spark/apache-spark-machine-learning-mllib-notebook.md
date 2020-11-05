@@ -1,19 +1,19 @@
 ---
-title: Build a machine learning app with Apache Spark MLlib
-description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
+title: 'Tutorial: Build a machine learning app with Apache Spark MLlib'
+description: A tutorial on how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 services: synapse-analytics
 author: euangMS
 ms.service:  synapse-analytics
-ms.reviewer: jrasnick, carlrab
-ms.topic: conceptual
+ms.reviewer: jrasnick 
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
 
 ---
-# Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
+# Tutorial: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
 
-In this article, you learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application that does simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries. This example uses *classification* through logistic regression.
+In this article, you'll learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application that does simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries. This example uses *classification* through logistic regression.
 
 MLlib is a core Spark library that provides many utilities that are useful for machine learning tasks, including utilities that are suitable for:
 
@@ -66,7 +66,7 @@ In the following steps, you develop a model to predict whether a particular trip
 
 Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. While the code below uses the default options, it is possible to force mapping of data types and other schema attributes if needed.
 
-1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
+1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your serverless Apache Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -91,7 +91,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     display(sampled_taxi_df)
     ```
 
-4. Depending on the size of the dataset size generated and your need to experiment or run the notebook many times, it may be advisable to cache the dataset locally in the workspace. There are three ways to perform explicit caching:
+4. Depending on the size of the dataset size generated, and your need to experiment or run the notebook many times, it may be advisable to cache the dataset locally in the workspace. There are three ways to perform explicit caching:
 
    - Save the dataframe locally as a file
    - Save the dataframe as a temporary table or view
@@ -188,7 +188,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## Create a logistic regression model
 
-The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the *feature vector* is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need to be converted into integer representations. There are multiple approaches to performing the conversion, however the approach taken in this example is *OneHotEncoding*, a common approach.
+The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the *feature vector* is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need converting into integer representations. There are multiple approaches to performing the conversion, however the approach taken in this example is *OneHotEncoding*, a common approach.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -201,7 +201,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-This results in a new dataframe with all columns in the right format to train a model.
+This action results in a new dataframe with all columns in the right format to train a model.
 
 ## Train a logistic regression model
 
@@ -281,7 +281,7 @@ After you have finished running the application, shut down the notebook to relea
 
 - [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+- [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
 > Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the [notebook](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) or [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) experiences instead.

@@ -1,6 +1,6 @@
 ---
 title: Azure VM extensions and features for Linux 
-description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
+description: Learn what extensions are available for Azure virtual machines on Linux, grouped by what they provide or improve.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -61,7 +61,7 @@ Extension packages are downloaded from the Azure Storage extension repository, a
 > [!IMPORTANT]
 > If you have blocked access to *168.63.129.16* using the guest firewall, then extensions fail irrespective of the above.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/security-overview.md#service-tags).
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 To redirect agent traffic requests, the Linux Agent has proxy server support. However, this proxy server support does not apply extensions. You must configure each individual extension to work with a proxy.
 

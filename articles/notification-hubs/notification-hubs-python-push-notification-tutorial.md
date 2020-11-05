@@ -410,7 +410,7 @@ Notice the Tags HTTP header, which gets added to the HTTP request (in the exampl
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, Service Bus Notification Tags, and X W N S Type values outlined in red.][3]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, a Service Bus Notification Tag, and X W N S Type values outlined in red.][3]
 
 ### Send notification specifying multiple tags
 
@@ -421,7 +421,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, Service Bus Notification Tags, and X W N S Type values outlined in red.][4]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, multiple Service Bus Notification Tags, and X W N S Type values outlined in red.][4]
 
 ### Templated notification
 

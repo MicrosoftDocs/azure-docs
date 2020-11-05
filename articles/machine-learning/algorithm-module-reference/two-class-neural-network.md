@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 # Two-Class Neural Network module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a neural network model that can be used to predict a target that has only two values.
 

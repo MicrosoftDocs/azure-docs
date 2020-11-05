@@ -10,30 +10,30 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
 
 ---
 
 # Use Azure Machine Learning studio in an Azure virtual network
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use Azure Machine Learning studio in a virtual network. You learn how to:
 
 > [!div class="checklist"]
 > - Access the studio from a resource inside of a virtual network.
+> - Configure private endpoints for storage accounts.
 > - Give the studio access to data stored inside of a virtual network.
-> - Understand how storage security is impacted by the studio.
+> - Understand how the studio impacts storage security.
 
 This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
 
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > **5. Enable studio functionality**
 
 
 > [!IMPORTANT]
-> While most of the studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook]() section.
+> If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
 
 
 ## Prerequisites
@@ -44,7 +44,7 @@ See the other articles in this series:
 
 + An existing [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## Access the studio from a resource inside the VNet
 
@@ -54,8 +54,7 @@ For example, if you are using network security groups (NSG) to restrict outbound
 
 ## Access data using the studio
 
-If your data is stored in a virtual network, you must configure your storage accounts to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
-
+After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 If you do not enable managed identity, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Additionally, the following operations will be disabled:
 
@@ -71,8 +70,11 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
+### Grant workspace managed identity __Reader__ access to storage private link
 
-### Configure datastores to use managed identity
+This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
+
+### Configure datastores to use workspace managed identity
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure your datastores to use managed identity. 
 
@@ -85,7 +87,7 @@ Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect 
 1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace-managed identity__.
 
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure resource-based access control (Azure RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
 > [!NOTE]
 > These changes may take up to 10 minutes to take effect.
@@ -100,9 +102,9 @@ For __Azure Blob storage__, the workspace-managed identity is also added as a [B
 
 ### Azure Data Lake Storage Gen2 access control
 
-You can use both RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
+You can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+To use Azure RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 To use ACLs, the workspace-managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -114,7 +116,7 @@ Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You
 
 To access data stored in an Azure SQL Database using managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### Azure Machine Learning designer default datastore
 
@@ -123,7 +125,7 @@ The designer uses the storage account attached to your workspace to store output
 To set a new default storage for a pipeline:
 
 1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
-1. Select **Select default datastore**.
+1. Select the **Select default datastore**.
 1. Specify a new datastore.
 
 You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.

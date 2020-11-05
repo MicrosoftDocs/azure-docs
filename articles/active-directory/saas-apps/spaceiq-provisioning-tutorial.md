@@ -90,7 +90,7 @@ Before configuring SpaceIQ for automatic user provisioning with Azure AD, you ne
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in SpaceIQ based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for SpaceIQ , following the instructions provided in the [SpaceIQ Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for SpaceIQ , following the instructions provided in the [SpaceIQ Single sign-on tutorial](./spaceiq-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for SpaceIQ in Azure AD:
 
@@ -104,11 +104,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://api.spaceiq.com/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to SpaceIQ. If the connection fails, ensure your SpaceIQ account has Admin permissions and try again.
 

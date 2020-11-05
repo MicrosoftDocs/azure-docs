@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Static Web Apps documentation 
-summary: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
+title: Azure Static Web Apps documentation
+summary: Azure Static Web Apps allows you to build modern web applications that automatically publish from changes made in GitHub.
 
 metadata:
   title: Azure Static Web Apps documentation
-  description: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
+  description: Azure Static Web Apps allows you to build modern web applications that automatically publish from changes made in GitHub.
   ms.topic: landing-page
   ms.service: static-web-apps
   author: craigshoemaker
@@ -44,34 +44,36 @@ landingContent:
           - text: Build and deploy a static web app
             url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
   - title: Publish scenarios
-    linkLists: 
+    linkLists:
       - linkListType: tutorial
-        links: 
+        links:
           - text: Publish from Gatsby
-            url:  publish-gatsby.md
+            url: publish-gatsby.md
           - text: Publish from Hugo
-            url:  publish-hugo.md
+            url: publish-hugo.md
           - text: Publish from VuePress
-            url:  publish-vuepress.md
+            url: publish-vuepress.md
           - text: Publish from Jekyll
-            url:  publish-jekyll.md
+            url: publish-jekyll.md
+          - text: Deploy from Blazor
+            url: deploy-blazor.md
           - text: Deploy from Next.js
-            url:  deploy-nextjs.md
+            url: deploy-nextjs.md
           - text: Deploy from Nuxt.js
-            url:  deploy-nuxtjs.md
+            url: deploy-nuxtjs.md
       - linkListType: learn
         links:
-          - text: Publish a static web app with Gatsby 
+          - text: Publish a static web app with Gatsby
             url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
   - title: Key concepts
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Routes
             url: routes.md
-          - text: Public APIs  
+          - text: Public APIs
             url: apis.md
-          - text: Staging 
+          - text: Staging
             url: review-publish-pull-requests.md
           - text: Restrict access
-            url: authentication-authorization.md 
+            url: authentication-authorization.md

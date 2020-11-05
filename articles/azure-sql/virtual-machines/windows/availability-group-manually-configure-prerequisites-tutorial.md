@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
@@ -19,11 +19,13 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Prerequisites for creating Always On availability groups on SQL Server on Azure Virtual Machines
+# Tutorial: Prerequisites for creating availability groups on SQL Server on Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure Virtual Machines (VMs)](availability-group-manually-configure-tutorial.md). When you've completed the prerequisites, you'll have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
+
+While this article manually configures the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Azure Quickstart templates](availability-group-quickstart-template-configure.md) as well. 
 
 **Time estimate**: It might take a couple of hours to complete the prerequisites. Much of this time is spent creating virtual machines.
 
@@ -33,12 +35,12 @@ The following diagram illustrates what you build in the tutorial.
 
 ## Review availability group documentation
 
-This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 
 ## Create an Azure account
 
-You need an Azure account. You can [open a free Azure account](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic) or [activate Visual Studio subscriber benefits](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
+You need an Azure account. You can [open a free Azure account](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic) or [activate Visual Studio subscriber benefits](/visualstudio/subscriptions/subscriber-benefits).
 
 ## Create a resource group
 
@@ -58,7 +60,7 @@ You need an Azure account. You can [open a free Azure account](https://signup.az
 8. Select a location. The location is the Azure region where you want to create the availability group. This article builds all resources in one Azure location.
 9. Verify that **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure portal dashboard.
 
-   ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Resource group shortcut for the Azure portal](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. Select **Create** to create the resource group.
 
@@ -116,13 +118,13 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 
     Note the subnet that you already created.
 
-   ![Configure the virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![Note the subnet that you already created](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. To create a second subnet, select **+ Subnet**.
 6. On **Add subnet**, configure the subnet by typing **sqlsubnet** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you might require more addresses.
 7. Select **OK**.
 
-    ![Configure the virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Configure subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 The following table summarizes the network configuration settings:
 
@@ -140,7 +142,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../../../virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Server VMs.
 
@@ -200,7 +202,7 @@ The following table shows the settings for these two machines:
 | **Diagnostics storage account** |*Automatically created* |
 
    >[!IMPORTANT]
-   >You can only place a VM in an availability set when you create it. You can't change the availability set after a VM is created. See [Manage the availability of virtual machines](../../../virtual-machines/linux/manage-availability.md).
+   >You can only place a VM in an availability set when you create it. You can't change the availability set after a VM is created. See [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md).
 
 Azure creates the virtual machines.
 
@@ -224,7 +226,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When you're prompted, add any additional features that are required by these roles.
 
    > [!NOTE]
-   > Windows warns you that there is no static IP address. If you're testing the configuration, select **Continue**. For production scenarios, set the IP address to static in the Azure portal, or [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
+   > Windows warns you that there is no static IP address. If you're testing the configuration, select **Continue**. For production scenarios, set the IP address to static in the Azure portal, or [use PowerShell to set the static IP address of the domain controller machine](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip).
    >
 
     ![Add Roles dialog](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
@@ -372,13 +374,13 @@ Now that you've finished configuring Active Directory and the user objects, crea
 
 ## Create SQL Server VMs
 
-Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). However for consistency with previous operating systems, this article uses a virtual machine for a witness.  
+Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness). However for consistency with previous operating systems, this article uses a virtual machine for a witness.  
 
 Before you proceed consider the following design decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Network - Private IP addresses in production**
 
@@ -418,6 +420,10 @@ You're now able to join the VMs to **corp.contoso.com**. Do the following steps 
 7. When you see the "Welcome to the corp.contoso.com domain" message, select **OK**.
 8. Select **Close**, and then select **Restart Now** in the popup dialog.
 
+## Add accounts
+
+Add the installation account as an administrator on each VM, grant permission to the installation account and local accounts within SQL Server, and update the SQL Server service account. 
+
 ### Add the Corp\Install user as an administrator on each cluster VM
 
 After each virtual machine restarts as a member of the domain, add **CORP\Install** as a member of the local administrators group.
@@ -436,16 +442,6 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 7. Select **OK** to close the **Administrator Properties** dialog.
 8. Repeat the previous steps on **sqlserver-1** and **cluster-fsw**.
 
-### <a name="setServiceAccount"></a>Set the SQL Server service accounts
-
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
-
-1. Open **SQL Server Configuration Manager**.
-2. Right-click the SQL Server service, and then select **Properties**.
-3. Set the account and password.
-4. Repeat these steps on the other SQL Server VM.  
-
-For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ### Create a sign-in on each SQL Server VM for the installation account
 
@@ -465,13 +461,54 @@ Use the installation account (CORP\install) to configure the availability group.
 
 1. Enter the domain administrator network credentials.
 
-1. Use the installation account.
+1. Use the installation account (CORP\install).
 
 1. Set the sign-in to be a member of the **sysadmin** fixed server role.
 
 1. Select **OK**.
 
 Repeat the preceding steps on the other SQL Server VM.
+
+### Configure system account permissions
+
+To create an account for the system account and grant appropriate permissions, complete the following steps on each SQL Server instance:
+
+1. Create an account for `[NT AUTHORITY\SYSTEM]` on each SQL Server instance. The following script creates this account:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Grant the following permissions to `[NT AUTHORITY\SYSTEM]` on each SQL Server instance:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   The following script grants these permissions:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="setServiceAccount"></a>Set the SQL Server service accounts
+
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
+
+1. Open **SQL Server Configuration Manager**.
+2. Right-click the SQL Server service, and then select **Properties**.
+3. Set the account and password.
+4. Repeat these steps on the other SQL Server VM.  
+
+For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ## Add Failover Clustering features to both SQL Server VMs
 
@@ -490,7 +527,7 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 Repeat the steps on the other SQL Server VM.
 
   >[!NOTE]
-  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](availability-group-az-cli-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](./availability-group-az-commandline-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
   >
 
 
@@ -522,35 +559,6 @@ The method of opening the ports depends on the firewall solution that you use. T
 
 Repeat these steps on the second SQL Server VM.
 
-## Configure system account permissions
-
-To create an account for the system account and grant appropriate permissions, complete the following steps on each SQL Server instance:
-
-1. Create an account for `[NT AUTHORITY\SYSTEM]` on each SQL Server instance. The following script creates this account:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. Grant the following permissions to `[NT AUTHORITY\SYSTEM]` on each SQL Server instance:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   The following script grants these permissions:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## Next steps
 

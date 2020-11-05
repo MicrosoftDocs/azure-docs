@@ -93,19 +93,19 @@ The following steps show you how the consent experience works for the applicatio
 
     a. Click on the **App registrations** from the left side of menu and open your application by typing the application name in search box.
 
-    ![Graph API](./media/openidoauth-tutorial/application.png)
+    ![Screenshot that shows "App registrations" selected from the left-side menu and the "Application I D" search box highlighted.](./media/openidoauth-tutorial/application.png)
 
     b. Click **View API Permissions**.
 
-    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+    ![Screenshot that shows the "Call A P I" page with the "View A P I Permissions" button selected.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Click on **Add a permission**.
 
-    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+    ![Screenshot that shows the "A P I permissions" section with the "Add a permission" button selected.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Click On **Microsoft Graph**.
 
-    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Screenshot that shows the "Request A P I permissions" page with the "Microsoft A P I" tab and "Microsoft Graph" tile selected.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Select required options from **Delegated permissions** and **Application Permissions**.
 

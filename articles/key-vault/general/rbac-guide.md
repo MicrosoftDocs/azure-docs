@@ -13,15 +13,18 @@ ms.author: mbaldwin
 ---
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)
 
+> [!NOTE]
+> Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
+
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource
-Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+Manager](../../azure-resource-manager/management/overview.md)
 that provides fine-grained access management of Azure resources.
 
 Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. 
 
 The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
 
-For more information, see [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## Best Practices for individual keys, secrets, and certificates
 
@@ -34,8 +37,7 @@ only for specific scenarios:
 -   Multi-layer applications that need to separate access control
     between layers
 
--   Shared key vault with common secrets, when applications need access
-    to subsets of secrets in that key vault
+-   Sharing individual secret between multiple applications
 
 More about Azure Key Vault management guidelines, see:
 
@@ -43,6 +45,8 @@ More about Azure Key Vault management guidelines, see:
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations (preview)
+> [!NOTE]
+> `Key Vault Contributor` role is for management plane operations to manage key vaults. It does not allow access to keys, secrets and certificates.
 
 | Built-in role | Description | ID |
 | --- | --- | --- |
@@ -55,11 +59,18 @@ More about Azure Key Vault management guidelines, see:
 | Key Vault Secrets Officer (preview)| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault Secrets User (preview)| Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-For more information about Azure built-in roles definitions, see [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Using Azure RBAC secret, key, and certificate permissions with Key Vault
 
 The new Azure RBAC permission model for key vault provides alternative to the vault access policy permissions model. 
+
+### Prerequisites
+
+To add role assignments, you must have:
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
 ### Enable Azure RBAC permissions on Key Vault
 
@@ -185,7 +196,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 
 ### Creating custom roles 
 
-[az role definition create command](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 **(CLI bash script)</br>**
 ```azurecli
@@ -207,7 +218,7 @@ az role definition create --role-definition '{ \
 
 For more Information about how to create custom roles, see:
 
-[Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Azure custom roles](../../role-based-access-control/custom-roles.md)
 
 ## Known limits and performance
 
@@ -217,5 +228,5 @@ For more Information about how to create custom roles, see:
 
 ## Learn more
 
-- [Azure RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Custom Roles Tutorial](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Azure RBAC Overview](../../role-based-access-control/overview.md)
+- [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md)

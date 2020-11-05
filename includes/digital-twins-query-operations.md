@@ -25,8 +25,10 @@ Get digital twins by their...
 
 You can further enhance your queries with the following operations:
 * Get twins over multiple relationship types (`JOIN` queries). 
-  - During preview, up to five levels of `JOIN` are allowed.
+  - Up to five levels of `JOIN` are allowed.
 * Select only the top query results (`Select TOP` operator)
+* Count the number of items in a result set using `Select COUNT`
+* Use projections to choose which columns a query will return
 * Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTSWITH`, `ENDSWITH`.
 * Use query comparison operators: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
 * Use any combination (`AND`, `OR`, `NOT` operator) of `IS_OF_MODEL`, scalar functions, and comparison operators.

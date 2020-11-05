@@ -1,7 +1,7 @@
 ---
 title: Monitor and view ML run logs & metrics
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML experiments and view run metrics to enhance the model creation process. Use widgets and the studio portal to explore run status and view run records.
+description: Monitor your ML experiments and view run metrics with Jupyter widgets and the Azure Machine Learning studio. 
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -14,8 +14,6 @@ ms.custom: how-to
 ---
 
 # Monitor and view ML run logs and metrics
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to monitor Azure Machine Learning runs and view their logs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
@@ -53,7 +51,7 @@ Once a run completes, it is no longer displayed on this page. To view informatio
 
 ## Monitor runs using the Jupyter notebook widget
 
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 View the Jupyter widget while waiting for the run to complete.
     
@@ -88,7 +86,7 @@ RunDetails(run).show()
 
 ## Show output upon completion
 
-When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#scriptrunconfig-logs).
+When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## Query run metrics
@@ -100,7 +98,9 @@ You can view the metrics of a trained model using ```run.get_metrics()```. For e
 
 You can browse completed run records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the **Experiments** tab and select your experiment. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
+Navigate to the **Experiments** tab. To view all your runs in your Workspace across Experiments, select the **All runs** tab. You can drill down on runs for specific Experiments by applying the Experiment filter in the top menu bar. 
+
+For the individual Experiment view, select the **All experiments** tab. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
 
 Drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment so you can share the experiment folder with others.
 
@@ -124,7 +124,6 @@ Use the following methods in the logging APIs to influence the studio visualizes
 
 Try these next steps to learn how to use Azure Machine Learning:
 
-* Learn how to [track experiments and enable logs in the Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
+* Learn how to [track experiments and enable logs in the Azure Machine Learning designer](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-

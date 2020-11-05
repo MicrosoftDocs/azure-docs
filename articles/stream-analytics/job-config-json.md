@@ -10,7 +10,7 @@ ms.date: 02/14/2020
 
 # Azure Stream Analytics JobConfig.json fields
 
-The following fields are supported in the *JobConfig.json* file used to [create an Azure Stream Analytics job using Visual Studio Code](quick-create-vs-code.md).
+The following fields are supported in the *JobConfig.json* file used to [create an Azure Stream Analytics job using Visual Studio Code](quick-create-visual-studio-code.md).
 
 ```json
 {
@@ -50,7 +50,7 @@ The following fields are supported in the *JobConfig.json* file used to [create 
 
 ## Next steps
 
-* [Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
-*[Deploy an Azure Stream Analytics job using CI/CD npm package](setup-cicd-vs-code.md)
+*[Deploy an Azure Stream Analytics job using CI/CD npm package](./cicd-overview.md)

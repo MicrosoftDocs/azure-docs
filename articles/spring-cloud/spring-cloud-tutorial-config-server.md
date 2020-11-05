@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Set up a Spring Cloud Config Server instance for your service
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
 Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you have a central place to manage external properties for applications across all environments.​ For more information, see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
@@ -74,6 +76,9 @@ All configurable properties used to set up private Git repository with SSH are l
 | `host-key`                 | No     | The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`. |
 | `host-key-algorithm`       | No     | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
 | `strict-host-key-checking` | No     | Indicates whether the Config Server instance will fail to start when leveraging the private `host-key`. Should be *true* (default value) or *false*. |
+
+> [!NOTE]
+> Config Server takes `master` (om Git itself) as default label if not specified. But GitHub has changed the default branch from `master` to `main` recently. To avoid Azure Spring Cloud Config Server failure, please pay attention for the default label when setting up Config Server with GitHub, especially for new created repositories.
 
 -----
 
@@ -158,7 +163,7 @@ If you want to use an optional **Pattern repository** to configure your service,
 
 If you have written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Cloud. A simple YAML file for a private repository with basic authentication would look like this:
 
-```yml
+```yaml
 spring:
     cloud:
         config:

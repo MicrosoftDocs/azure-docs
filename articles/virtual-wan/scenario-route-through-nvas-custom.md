@@ -1,131 +1,121 @@
 ---
-title: 'Scenario: Route traffic through NVAs using custom settings'
+title: Route traffic through NVAs by using custom settings
 titleSuffix: Azure Virtual WAN
-description: This scenario helps you route traffic through NVAs using a different NVA for Internet-bound traffic.
+description: This scenario helps you route traffic through NVAs by using a different NVA for internet-bound traffic.
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-
 ---
-# Scenario: Route traffic through NVAs - custom (Preview)
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA (Network Virtual Appliance) scenario, the goal is to route traffic through an NVA for communication between VNets and branches, and use a different NVA for Internet-bound traffic. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+# Scenario: Route traffic through NVAs by using custom settings
 
-## <a name="design"></a>Design
+When you're working with Azure Virtual WAN virtual hub routing, you have a number of options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-In this scenario we will use the naming convention:
+## Design
 
-* "Service VNet" for virtual networks where users have deployed an NVA (VNet 4 in **Figure 1**) to inspect non-Internet traffic.
-* "DMZ VNet" for virtual networks where users have deployed an NVA to be used to inspect Internet-bound traffic (VNet 5 in **Figure 1**).
-* "NVA Spokes" for virtual networks connected to an NVA VNet (VNet 1, VNet 2, and VNet 3 in **Figure 1**).
-* "Hubs" for Microsoft-managed Virtual WAN Hubs.
+* **Spokes** for virtual networks connected to the virtual hub. (For example, VNet 1, VNet 2, and VNet 3 in the diagram later in this article.)
+* **Service VNet** for virtual networks where users have deployed an NVA to inspect non-internet traffic, and possibly with common services accessed by spokes. (For example, VNet 4 in the diagram later in this article.) 
+* **Perimeter VNet** for virtual networks where users have deployed an NVA to be used to inspect internet-bound traffic. (For example, VNet 5 in the diagram later in this article.)
+* **Hubs** for Virtual WAN hubs managed by Microsoft.
 
-The following connectivity matrix summarizes the flows supported in this scenario:
+The following table summarizes the connections supported in this scenario:
 
-**Connectivity matrix**
+| From          | To|Spokes|Service VNet|Branches|Internet|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes**| ->| directly |directly | through Service VNet |through Perimeter VNet |
+| **Service VNet**| ->| directly |n/a| directly | |
+| **Branches** | ->| through Service VNet |directly| directly |  |
 
-| From          | To:|*NVA Spokes*|*Service VNet*|*DMZ VNet*|*Branches Static*|
-|---|---|---|---|---|---|
-| **NVA Spokes**| &#8594;|      X |            X |   Peering |    Static    |
-| **Service VNet**| &#8594;|    X |            X |      X    |      X       |
-| **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
-| **Branches** | &#8594;|  Static |            X |      X    |      X       |
+Each of the cells in the connectivity matrix describes whether connectivity flows directly over Virtual WAN or over one of the virtual networks with an NVA. 
 
-Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) learns a destination prefix (the "To" side of the flow, the column headers in italics) for a specific traffic flow. An "X" means that connectivity is provided natively by Virtual WAN, and "Static" means that connectivity is provided by Virtual WAN using static routes. Let's go in detail over the different rows:
-
-* NVA Spokes:
+Note the following details:
+* Spokes:
   * Spokes will reach other spokes directly over Virtual WAN hubs.
-  * Spokes will get connectivity to branches via a static route pointing to the Service VNet. They should not learn specific prefixes from the branches (otherwise those would be more specific and override the summary).
-  * Spokes will send Internet traffic to the DMZ VNet through a direct VNet peering.
-* Branches:
-  * Branches will get to spokes via a static routing pointing to the Service VNet. They should not learn specific prefixes from the VNets that override the summarized static route.
-* The Service VNet will be similar to a Shared Services VNet that needs to be reachable from every VNet and every branch.
-* The DMZ VNet does not really need to have connectivity over Virtual WAN, since the only traffic it will support will come over direct VNet peerings. However, we will use the same connectivity model as for the DMZ VNet to simplify configuration.
+  * Spokes will get connectivity to branches via a static route pointing to the Service VNet. They don't learn specific prefixes from the branches, because those are more specific and override the summary.
+  * Spokes will send internet traffic to the Perimeter VNet through a direct VNet peering.
+* Branches will get to spokes via a static routing pointing to the Service VNet. They don't learn specific prefixes from the virtual networks that override the summarized static route.
+* The Service VNet will be similar to a Shared Services VNet that needs to be reachable from every virtual network and every branch.
+* The Perimeter VNet doesn't need to have connectivity over Virtual WAN, because the only traffic it will support comes over direct virtual network peerings. To simplify configuration, however, use the same connectivity model as for the Perimeter VNet.
 
-So, our connectivity matrix gives us three distinct connectivity patterns, which translates to three route tables. The associations to the different VNets will be as follows:
+There are three distinct connectivity patterns, which translates to three route tables. The associations to the different virtual networks are:
 
-* NVA Spokes:
+* Spokes:
   * Associated route table: **RT_V2B**
   * Propagating to route tables: **RT_V2B** and **RT_SHARED**
-* NVA VNets (internal and Internet):
+* NVA VNets (Service VNet and DMZ VNet):
   * Associated route table: **RT_SHARED**
   * Propagating to route tables: **RT_SHARED**
 * Branches:
   * Associated route table: **Default**
   * Propagating to route tables: **RT_SHARED** and **Default**
 
-We need these static routes to make sure that VNet-to-branch and branch-to-VNet traffic goes through the NVA in the Service VNet (VNet 4):
+These static routes ensure that traffic to and from the virtual network and branch goes through the NVA in the Service VNet (VNet 4):
 
 | Description | Route table | Static route              |
 | ----------- | ----------- | ------------------------- |
 | Branches    | RT_V2B      | 10.2.0.0/16 -> vnet4conn  |
-| NVA Spokes  | Default     | 10.1.0.0/16 -> vnet4conn  |
+| NVA spokes  | Default     | 10.1.0.0/16 -> vnet4conn  |
 
-Now Virtual WAN knows which connection to send the packets to, but the connection needs to know what to do when receiving those packets: This is where the connection route tables are used.
+Now you can use Virtual WAN to select the correct connection to send the packets to. You also need to use Virtual WAN to select the correct action to take when receiving those packets. You use the connection route tables for this, as follows:
 
 | Description | Connection | Static route            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16 -> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16 -> 10.4.0.5 |
 
-At this point, everything should be in place.
+For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+## Architecture
 
-## <a name="architecture"></a>Architecture
+Here is a diagram of the architecture described earlier in the article.
 
-In **Figure 1**, there is one hub, **Hub 1**.
+There's one hub, called **Hub 1**.
 
 * **Hub 1** is directly connected to NVA VNets **VNet 4** and **VNet 5**.
 
-* Traffic between VNets 1, 2, and 3 and Branches (VPN/ER/P2S) is expected to go via **VNet 4 NVA** 10.4.0.5.
+* Traffic between VNets 1, 2, and 3 and branches is expected to go via **VNet 4 NVA** 10.4.0.5.
 
-* All Internet bound traffic from VNets 1, 2, and 3 is expected to go via **VNet 5 NVA** 10.5.0.5.
+* All internet bound traffic from VNets 1, 2, and 3 is expected to go via **VNet 5 NVA** 10.5.0.5.
 
-**Figure 1**
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Diagram of network architecture.":::
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Figure 1":::
-
-## <a name="workflow"></a>Workflow
+## Workflow
 
 To set up routing via NVA, here are the steps to consider:
 
-1. In order for Internet-bound traffic to go via VNet 5, you need VNets 1, 2, and 3 to directly connect via VNet peering to VNet 5. You also need a UDR set up in the VNets for 0.0.0.0/0 and next hop 10.5.0.5. Currently, Virtual WAN does not allow a next hop NVA in the virtual hub for 0.0.0.0/0.
+1. For internet-bound traffic to go via VNet 5, you need VNets 1, 2, and 3 to directly connect via virtual network peering to VNet 5. You also need a user-defined route set up in the virtual networks for 0.0.0.0/0 and next hop 10.5.0.5. Currently, Virtual WAN doesn't allow a next hop NVA in the virtual hub for 0.0.0.0/0.
 
-1. In the Azure portal, navigate to your virtual hub and create a custom route table **RT_Shared** that will learn routes via propagation from all VNets and Branch connections. In **Figure 2**, this is depicted as an empty Custom Route Table **RT_Shared**.
+1. In the Azure portal, go to your virtual hub and create a custom route table called **RT_Shared**. This table learns routes via propagation from all virtual networks and branch connections. You can see this empty table in the following diagram.
 
-   * **Routes:** You do not need to add any static routes.
+   * **Routes:** You don't need to add any static routes.
 
-   * **Association:** Select VNets 4 and 5,  which will mean that VNets 4 and 5 connections associate to route table **RT_Shared**.
+   * **Association:** Select VNets 4 and 5, which mean that the connections of these virtual networks associate to the route table **RT_Shared**.
 
-   * **Propagation:** Since you want all branches and VNet connections to propagate their routes dynamically to this route table, select branches and all VNets.
+   * **Propagation:** Because you want all branches and virtual network connections to propagate their routes dynamically to this route table, select branches and all virtual networks.
 
-1. Create a custom route table **RT_V2B** for directing traffic from VNets 1, 2, and 3 to branches.
+1. Create a custom route table called **RT_V2B** for directing traffic from VNets 1, 2, and 3 to branches.
 
-   * **Routes:** Add an aggregated static route entry for Branches (VPN/ER/P2S) (10.2.0.0/16 in **Figure 2**) with next hop as the VNet 4 connection. You also need to configure a static route in VNet 4’s connection for branch prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
+   * **Routes:** Add an aggregated static route entry for branches, with next hop as the VNet 4 connection. Configure a static route in VNet 4’s connection for branch prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
    * **Association:** Select all VNets 1, 2, and 3. This implies that VNet connections 1, 2, and 3 will associate to this route table and be able to learn routes (static and dynamic via propagation) in this route table.
 
-   * **Propagation:** Connections propagate routes to route tables. Selecting VNets 1, 2, and 3 will enable propagating routes from VNets 1, 2, and 3 to this route table. There is no need to propagate routes from branch connections to RT_V2B, as branch VNet traffic goes via the NVA in VNet 4.
+   * **Propagation:** Connections propagate routes to route tables. Selecting VNets 1, 2, and 3 enable propagating routes from VNets 1, 2, and 3 to this route table. There's no need to propagate routes from branch connections to **RT_V2B**, because branch virtual network traffic goes via the NVA in VNet 4.
   
-1. Edit the default route table **DefaultRouteTable**.
+1. Edit the default route table, **DefaultRouteTable**.
 
-   All VPN, ExpressRoute, and User VPN connections are associated to the default route table. All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables.
+   All VPN, Azure ExpressRoute, and user VPN connections are associated to the default route table. All VPN, ExpressRoute, and user VPN connections propagate routes to the same set of route tables.
 
-   * **Routes:** Add an aggregated static route entry for VNets 1, 2, and 3 (10.1.0.0/16 in **Figure 2**) with next hop as the VNet 4 connection. You also need to configure a static route in VNet 4’s connection for VNet 1, 2, and 3 aggregated prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
+   * **Routes:** Add an aggregated static route entry for VNets 1, 2, and 3, with next hop as the VNet 4 connection. Configure a static route in VNet 4’s connection for VNet 1, 2, and 3 aggregated prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
-   * **Association:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring on-premises branch connections are associated to the *defaultroutetable*.
+   * **Association:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring that on-premises branch connections are associated to the default route table.
 
-   * **Propagation from:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring on-premise connections are propagating routes to the *defaultroutetable*.
+   * **Propagation from:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring that on-premises connections are propagating routes to the default route table.
 
-**Figure 2**
-
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagram of workflow." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## Next steps
 

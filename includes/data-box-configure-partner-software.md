@@ -22,4 +22,4 @@ If this is the first time you are using Storage Explorer, you need to perform th
 
 2. Restart the Storage Explorer for the changes to take effect.
 
-    ![Data Box dashboard](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![Data Box dashboard 2](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

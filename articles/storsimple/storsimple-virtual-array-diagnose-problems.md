@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot StorSimple Virtual Array | Microsoft Docs
-description: Describes the StorSimple Device Manager diagnose capability and explains how to use it to troubleshoot your StorSimple Virtual Array.
+description: Learn about the self-serve troubleshooting capability provided within the StorSimple Device Manager service.
 services: storsimple
 documentationcenter: ''
 author: manuaery

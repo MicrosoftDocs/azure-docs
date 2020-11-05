@@ -1,19 +1,23 @@
 ---
 title: 'Deep learning vs. machine learning'
-titleSuffix: Azure
-description: Learn how deep learning relates to machine learning and artificial intelligence. Deep learning is used in scenarios such as fraud detection, voice & facial recognition, sentiment analytics, and time series forecasting.
+titleSuffix: Azure Machine Learning
+description: Learn how deep learning relates to machine learning and AI. In Azure Machine Learning, use deep learning models for fraud detection, object detection, and more.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
+ms.date: 09/22/2020
+
+ms.custom: contperfq1
 ---
 
-# Deep learning vs. machine learning
+# Deep learning vs. machine learning in Azure Machine Learning
 
-This article helps you compare deep learning vs. machine learning. You'll learn how the two concepts compare and how they fit into the broader category of artificial intelligence. The article also describes how deep learning can be applied to real-world scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
+This article explains deep learning vs. machine learning and how they fit into the broader category of artificial intelligence. Learn about deep learning solutions you can build on Azure Machine Learning, such as fraud detection, voice and facial recognition, sentiment analysis, and time series forecasting.
+
+For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## Deep learning, machine learning, and AI
 
@@ -32,7 +36,7 @@ Consider the following definitions to understand deep learning vs. machine learn
 
 - **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning. 
  
-It's important to understand the relationship among AI, machine learning, and deep learning. Machine learning is a way to achieve artificial intelligence. By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include image recognition, speech recognition, and language translation.
+By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include image recognition, speech recognition, and language translation.
 
 ## Techniques of deep learning vs. machine learning 
 
@@ -53,7 +57,7 @@ The following table compares the two techniques in more detail:
 
 Because of the artificial neural network structure, deep learning excels at identifying patterns in unstructured data such as images, sound, video, and text. For this reason, deep learning is rapidly transforming many industries, including healthcare, energy, finance, and transportation. These industries are now rethinking traditional business processes. 
 
-Some of the most common applications for deep learning are described in the following paragraphs.
+Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model from you build from an open-source framework or build the model using the tools provided.
 
 ### Named-entity recognition
 
@@ -64,6 +68,8 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
+
+Learn how to use an image classification model from an open-source framework in Azure Machine Learning: [Classify images by using a Pytorch model](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### Image caption generation
 
@@ -83,6 +89,8 @@ Text analytics based on deep learning methods involves analyzing large quantitie
 
 Companies use deep learning to perform text analysis to detect insider trading and compliance with government regulations. Another common example is insurance fraud: text analytics has often been used to analyze large amounts of documents to recognize the chances of an insurance claim being fraud. 
 
+Learn how to use a TensorFlow model in Azure Machine Learning: [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
+
 ## Artificial neural networks
 
 Artificial neural networks are formed by layers of connected nodes. Deep learning models use neural networks that have a large number of layers. 
@@ -91,7 +99,7 @@ The following sections explore most popular artificial neural network typologies
 
 ### Feedforward neural network
 
-The feedforward neural network is the most basic type of artificial neural network. In a feedforward network, information moves in only one direction from input layer to output layer. Feedforward neural networks transform an input by putting it through a series of hidden layers. Every layer is made up of a set of neurons, and each layer is fully connected to all neurons in the layer before. The last fully connected layer (the output layer) represents the generated predictions.
+The feedforward neural network is the most simple type of artificial neural network. In a feedforward network, information moves in only one direction from input layer to output layer. Feedforward neural networks transform an input by putting it through a series of hidden layers. Every layer is made up of a set of neurons, and each layer is fully connected to all neurons in the layer before. The last fully connected layer (the output layer) represents the generated predictions.
 
 ### Recurrent neural network
 
@@ -101,18 +109,12 @@ Recurrent neural networks are a widely used artificial neural network. These net
 
 A convolutional neural network is a particularly effective artificial neural network, and it presents a unique architecture. Layers are organized in three dimensions: width, height, and depth. The neurons in one layer connect not to all the neurons in the next layer, but only to a small region of the layer's neurons. The final output is reduced to a single vector of probability scores, organized along the depth dimension. 
 
-Convolutional neural networks have been used in areas such as video recognition, image recognition and recommender systems.
+Convolutional neural networks have been used in areas such as video recognition, image recognition, and recommender systems.
 
 ## Next steps
 
-The following articles show you how to use deep learning technology in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+The following articles show you more options for using open-source deep learning models in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Classify handwritten digits by using a TensorFlow model](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+- [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Classify handwritten digits by using a TensorFlow estimator and Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
-
-- [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
-- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Also, use the [Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md) to choose algorithms for your model.
+- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md)
