@@ -24,7 +24,7 @@ For information on other machine learning development environments, see [Set up 
 
 ## Prerequisite
 
-* Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
+Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
 
 ## Azure Databricks with Azure Machine Learning and autoML
@@ -64,7 +64,8 @@ To use automated ML, skip to [Add the Azure ML SDK with AutoML](#add-the-azure-m
 
 
 1. Right-click the current Workspace folder where you want to store the library. Select **Create** > **Library**.
-    > [Tip]
+    
+    > [!TIP]
     > If you have an old SDK version, deselect it from cluster's installed libraries and move to trash. Install the new SDK version and restart the cluster. If there is an issue after the restart, detach and reattach your cluster.
 
 1. Choose the following option (no other SDK installations are supported)
@@ -73,7 +74,7 @@ To use automated ML, skip to [Add the Azure ML SDK with AutoML](#add-the-azure-m
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
 
-   > [!Warning]
+   > [!WARNING]
    > No other SDK extras can be installed. Choose only the [`databricks`] option .
 
    * Do not select **Attach automatically to all clusters**.
@@ -102,8 +103,8 @@ For Databricks Runtime 7.0 and lower, install the Azure Machine Learning SDK usi
 
 In AutoML config, when using Azure Databricks add the following parameters:
 
-    1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster.
-    2. ```spark_context=sc``` is based on the default spark context.
+1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster.
+2. ```spark_context=sc``` is based on the default spark context.
 
 ## ML notebooks that work with Azure Databricks
 
