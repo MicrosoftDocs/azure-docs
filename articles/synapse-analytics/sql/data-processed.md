@@ -11,7 +11,7 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-## Data processed with serverless SQL pool in Azure Synapse Analytics
+# Data processed with serverless SQL pool in Azure Synapse Analytics
 
 Data processed is the amount of data temporarily stored in the system while executing a query and consists of:
 
