@@ -160,6 +160,8 @@
     href: pricing-concepts.md
   - name: Naming rules
     href: naming-rules.md
+  - name: Data Redundancy
+    href: concepts-data-redundancy.md
 - name: How-to guides
   items:
   - name: Author
