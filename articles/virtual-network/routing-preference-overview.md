@@ -87,7 +87,7 @@ Routing Preference support is available in the following regions for services su
 Routing Preference support for storage account is available in the following Azure regions - North Central US, West Central US, South Central US, East US, West US,  North Europe, France South, Germany West Central, Switzerland West, South East Asia, Japan East, and Japan West.
 ## Limitations
 
-* Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.
+* Routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
 * Routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
 * Virtual machines with multiple NICs can have only one type of routing preference.
 
