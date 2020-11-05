@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Set up sign-in for a single-page app (SPA)"
+title: "Quickstart: Set up sign in for a single-page app (SPA)"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
@@ -14,7 +14,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Quickstart: Set up sign-in for a single-page app using Azure Active Directory B2C
+# Quickstart: Set up sign in for a single-page app using Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts, and enterprise accounts using open standard protocols. In this quickstart, you use a single-page application to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
