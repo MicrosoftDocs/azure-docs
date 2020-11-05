@@ -36,26 +36,26 @@ The following scanning functions are supported for Azure Synapse Analytics:
 
    1. **Service Principal:** You need to [create an Azure AD application and service principal that can access resources if you don't have one already](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). In addition, you must also create an Azure AD user in Azure SQL Database by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
 
-    ```sql
-    CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
-    GO
+     ```sql
+     CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
+     GO
 
-    EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
-    GO
-    ```
+     EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+     GO
+     ```
 
-    > [!Note]
-    > Babylon will need the **Application (client) ID** and the **client secret** in order to scan.
+     > [!Note]
+     > Babylon will need the **Application (client) ID** and the **client secret** in order to scan.
 
    1. **Managed Identity:** Your Babylon account has its own Managed Identity which is basically your Babylon name when you created it. You must create an Azure AD user in Azure Synapse Analytics with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
 
-    ```sql
-    CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
-    GO
+     ```sql
+     CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
+     GO
 
-    EXEC sp_addrolemember 'db_owner', [BabylonManagedIdentity]
-    GO
-    ```
+     EXEC sp_addrolemember 'db_owner', [BabylonManagedIdentity]
+     GO
+     ```
 
 1. The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_owner` permission to the identity.
 
