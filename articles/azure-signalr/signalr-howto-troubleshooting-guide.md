@@ -5,7 +5,7 @@ author: YanJin
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: yanjin1
+ms.author: yajin1
 ---
 # Troubleshooting Guide
 
@@ -141,7 +141,7 @@ For ASP.NET SignalR, when the [client connection drops](#client_connection_drop)
 For **Free** instances, **Concurrent** connection count limit is 20
 For **Standard** instances, **concurrent** connection count limit **per unit** is 1K, which means Unit100 allows 100K **concurrent** connections.
 
-The connections include both client and server connections. check [here](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) for how connections are counted.
+The connections include both client and server connections. check [here](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) for how connections are counted.
 
 ## 500 Error when negotiate: Azure SignalR Service is not connected yet, please try again later.
 
@@ -155,7 +155,7 @@ Please enable server-side trace to find out the error details when the server tr
 
 #### Enable server side logging for ASP.NET Core SignalR
 
-Server side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) provided in the ASP.NET Core framework. You can enable server side logging by using `ConfigureLogging`, a sample usage as follows:
+Server side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) provided in the ASP.NET Core framework. You can enable server side logging by using `ConfigureLogging`, a sample usage as follows:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {
@@ -199,6 +199,8 @@ When using SDK version >= `1.0.0`, you can enable traces by adding the following
     <trace autoflush="true" />
   </system.diagnostics>
 ```
+
+<a name="client_connection_drop"></a>
 
 ## Client connection drops
 
@@ -277,9 +279,11 @@ This issue often occurs when someone establishes SignalR client connection in Az
 1. Instead of using SignalR clients in Azure function, you can create SignalR clients anywhere else and use [Azure Functions Bindings for Azure SignalR Service](https://github.com/Azure/azure-functions-signalrservice-extension) to [negotiate](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L22) the client to Azure SignalR. And you can also utilize the binding to [send messages](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L40). Samples to negotiate client and send messages can be found [here](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples). Further information can be found [here](https://github.com/Azure/azure-functions-signalrservice-extension).
 1. When you use SignalR clients in Azure function, there might be a better architecture to your scenario. Check if you design a proper serverless architecture. You can refer to [Real-time serverless applications with the SignalR Service bindings in Azure Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService).
 
+<a name="server_connection_drop"></a>
+
 ## Server connection drops
 
-When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](internal.md), Azure SignalR routes incoming client traffics to these server connections. Once a server connection is dropped, all the client connections it serves will be closed too.
+When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffics to these server connections. Once a server connection is dropped, all the client connections it serves will be closed too.
 
 As the connections between the app server and SignalR Service are persistent connections, they may experience network connectivity issues. In the Server SDK, we have **Always Reconnect** strategy to server connections. As the best practice, we also encourage users to add continuous reconnect logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
 
@@ -305,6 +309,8 @@ Server-service connection is closed by **ASRS**(**A**zure **S**ignal**R** **S**e
 
 ## Tips
 
+<a name="view_request"></a>
+
 * How to view the outgoing request from client?
 Take ASP.NET Core one for example (ASP.NET one is similar):
     1. From browser:
@@ -318,16 +324,18 @@ Take ASP.NET Core one for example (ASP.NET one is similar):
         You can view local web traffics using [Fiddler](https://www.telerik.com/fiddler). WebSocket traffics are supported since Fiddler 4.5.
 
         ![Fiddler View Network](./media/signalr-howto-troubleshooting-guide/fiddler_view_network.png)
-	
+
+<a name="restart_connection"></a>
+
 * How to restart client connection?
 	
-	Here are the [Sample codes](../samples/) containing restarting connection logic with *ALWAYS RETRY* strategy:
+	Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samples) containing restarting connection logic with *ALWAYS RETRY* strategy:
 
-	* [ASP.NET Core C# Client](../samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
+	* [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-	* [ASP.NET Core JavaScript Client](../samples/ChatSample/ChatSample/wwwroot/index.html#L164)
+	* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample/wwwroot/index.html#L164)
 
-	* [ASP.NET C# Client](../samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
+	* [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
-	* [ASP.NET JavaScript Client](../samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+	* [ASP.NET JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
  name="tls_1.2_required"></a>
