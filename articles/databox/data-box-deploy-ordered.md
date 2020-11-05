@@ -279,11 +279,11 @@ Do the following steps in the Azure portal to order a device.
 
     Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.<!--Inconsistency: In "Use customer-managed keys...", this key is referred to as "your BitLocker key."-->
 
-   ![Security screen with Encryption type settings expanded](./media/data-box-deploy-ordered/customer-managed-key-01.png)
+   ![Security screen showing Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-01.png)
 
 10. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
    
-    ![Security screen, Encryption type options for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-02.png)
+    ![Security screen, settings for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-02.png)
 
 11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.<!--What term should be used for a dialog box? Certainly not "blade"?--> 
 
@@ -303,7 +303,7 @@ Do the following steps in the Azure portal to order a device.
 
     - Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
-      ![New Azyure Key Vault review screen](./media/data-box-deploy-ordered/customer-managed-key-05.png)
+      ![New Azure Key Vault review screen](./media/data-box-deploy-ordered/customer-managed-key-05.png)
 
 12. In **Select key from Azure Key Vault**, you can select an existing key in the key vault.
 
@@ -325,17 +325,17 @@ Do the following steps in the Azure portal to order a device.
 
     On the **Security** page, the **Encryption type** settings show the key vault and key selected for your customer-managed key.
 
-    ![Key and key vault for customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
+    ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
 14. Select a user identity to associate this resource with the customer-managed key.
 
     The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview)  
 
-    ![Save customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-10.png)
+    ![Select a user identity](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 
     The selected user identity is shown in the **Encryption type** settings.
 
-    ![Customer-managed key URL](./media/data-box-deploy-ordered/customer-managed-key-11.png)<!--Reshoot in narrow window.-->
+    ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-11.png)<!--Reshoot in narrow window.-->
 
     You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
