@@ -80,32 +80,31 @@ To add the MSIX image:
 4. Select **MSIX packages** to open the data grid with all **MSIX packages** currently added to the
 host pool.
 
-1. Select **+ Add** to open the **Add MSIX package** tab.
+5. Select **+ Add** to open the **Add MSIX package** tab.
 
-2. In the **Add MSIX package** tab, enter the following values:
+6. In the **Add MSIX package** tab, enter the following values:
 
-- For **MSIX image path**, enter a valid UNC path pointing to the MSIX image on the file
-share. (For example, `\\storageaccount.file.core.windows.net\msixshare\appfolder\MSIXimage.vhd`.)
+      - For **MSIX image path**, enter a valid UNC path pointing to the MSIX image on the file share. (For example, `\\storageaccount.file.core.windows.net\msixshare\appfolder\MSIXimage.vhd`.) When you're done, select **Add** to interrogate the MSIX container to check if the path is valid.
 
-- For **MSIX package**, select the relevant MSIX package name from the drop-down menu. This menu will only be populated if you've entered a valid image path in **MSIX image path**.
+      - For **MSIX package**, select the relevant MSIX package name from the drop-down menu. This menu will only be populated if you've entered a valid image path in **MSIX image path**.
 
-- For **Package applications**, make sure the list contains all MSIX applications you want to be available to users in your MSIX package.
+      - For **Package applications**, make sure the list contains all MSIX applications you want to be available to users in your MSIX package.
 
-- Optionally, enter a **Display name** if you want your package to have a more user-friendly in your user deployments.
+      - Optionally, enter a **Display name** if you want your package to have a more user-friendly in your user deployments.
 
-- Make sure the **Version** has the correct version number.
+      - Make sure the **Version** has the correct version number.
 
-- Select the **Registration type** you want to use. Which one you use depends on your needs:
+      - Select the **Registration type** you want to use. Which one you use depends on your needs:
 
     - **On-demand registration** postpones the full registration of the MSIX application until the user starts the application. This is the registration type we recommend you use.
 
     - **Log on blocking** only registers while the user is signing in. We don't recommend this type because it can lead to longer sign-in times for users.
 
-- For **State**, select your preferred state.
+7.  For **State**, select your preferred state.
     -  The **Active** status lets users interact with the package.
     -  The **Inactive** status causes Windows Virtual Desktop to ignore the package and not deliver it to users.
 
-7. When you're done, select **Save**.
+7. When you're done, select **Add**.
 
 ## Prepare the VHD image for Azure
 
@@ -169,6 +168,8 @@ To publish the apps:
         - Start menu
         - App path
         - MSIX package
+
+    - For **Application name**, enter a descriptive name for the application.
 
 6. Configure these optional features, if you want:
    
