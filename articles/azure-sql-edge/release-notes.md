@@ -31,9 +31,9 @@ This article describes what is new and what has changed with every new build of 
    - Enable Parallel Execution scenarios
 6. Power saving improvements for low-power mode
 7. Streaming new feature support 
-   - [Snapshot Windows](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : new window type allowing to group by events arriving at the exact same time. 
-   - Enable [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) and [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) as analytic function, This will allow to return records ordered by the column of your choice, without the needed to be part of a window. 
-   - Improvements to [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Snapshot Windows](/stream-analytics-query/snapshot-window-azure-stream-analytics) : new window type allowing to group by events arriving at the exact same time. 
+   - Enable [TopOne](/stream-analytics-query/topone-azure-stream-analytics) and [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) as analytic function, This will allow to return records ordered by the column of your choice, without the needed to be part of a window. 
+   - Improvements to [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### Fixes
 1. Additional error messages and details for troubleshooting TSQL Streaming operations. 

@@ -50,6 +50,7 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
+| [Public IP addresses per Resource Group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contact support. | 
 | Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
 
@@ -101,6 +102,6 @@ The following limits apply only for networking resources managed through Azure R
 | User-defined routes per route table |400 |400 |
 | Public IP addresses (dynamic) |500 |500 |
 | Reserved public IP addresses |500 |500 |
-| Public VIP per deployment |5 |Contact support |
-| Private VIP (internal load balancing) per deployment |1 |1 |
+| Public IP per deployment |5 |Contact support |
+| Private IP (internal load balancing) per deployment |1 |1 |
 | Endpoint access control lists (ACLs) |50 |50 |

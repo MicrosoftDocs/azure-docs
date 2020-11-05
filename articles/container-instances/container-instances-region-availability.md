@@ -34,17 +34,18 @@ The following regions and maximum resources are available to container groups wi
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | East US 2 | 4 | 16 | 4 | 16 | 50 | N/A |
+| France Central | 4 | 16 | 4 | 16 | 50 | N/A |
 | Japan East | 2 | 8 | 4 | 16 | 50 | N/A |
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A |
-| North Central US | 2 | 3.5 | 4 | 16 | 50 | N/A |
+| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | North Europe | 4 | 16 | 4 | 16 | 50 | K80 |
 | South Central US | 4 | 16 | 4 | 16 | 50 | N/A |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | South India | 4 | 16 | N/A | N/A | 50 | N/A |
 | UK South | 4 | 16 | 4 | 16 | 50 | N/A |
-| West Central US| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| West Central US| 4 | 16 | 4 | 16 | 50 | N/A |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| West US | 4 | 16 | 2 | 4 | 16| N/A |
+| West US | 4 | 16 | 4 | 16 | 50 | N/A |
 | West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
@@ -62,29 +63,63 @@ The following maximum resources are available to a container group deployed with
 
 The following regions and maximum resources are available to container groups with [supported and preview](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server containers.
 
-| Region | Windows Server 2016 Max CPU | Windows Server 2016 Max Memory (GB) | Windows Server 2019 LTSC Max CPU | Windows Server 2019 LTSC Max Memory (GB) | Storage (GB) |
+###  Windows Server 2016
+
+> [!NOTE]
+> See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
+
+| Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia East | 2 | 3.5 | 4 | 16 | 20 |
+| Australia East | 2 | 8 | 2 | 3.5 | 20 |
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canada Central | 2 | 3.5 | 4 | 16 | 20 |
-| Central India | 2 | 3.5 | 4 | 16 | 20 |
-| Central US | 2 | 3.5 | 4 | 16 | 20 |
-| East Asia | 2 | 3.5 | 4 | 16 | 20 |
-| East US | 2 | 8 | 4 | 16 | 20 |
-| East US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
-| France Central | 4 | 16 | 4 | 16 | 20 |
+| Canada Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| Central India | 2 | 3.5 | 2 | 3.5 | 20 |
+| Central US | 2 | 3.5 | 2 | 3.5 | 20 |
+| East Asia | 2 | 3.5 | 2 | 3.5 | 20 |
+| East US | 4 | 16 | 2 | 8 | 20 |
+| East US 2 | 2 | 3.5 | 4 | 16 | 20 |
 | Japan East | 4 | 16 | 4 | 16 | 20 |
 | Korea Central | 4 | 16 | 4 | 16 | 20 |
-| North Central US | 2 | 3.5 | 4 | 16 | 20 |
-| North Europe | 2 | 3.5 | 4 | 16 | 20 |
-| South Central US | 2 | 3.5 | 4 | 16 | 20 |
-| South India | 2 | 3.5 | 4 | 16 | 20 |
-| Southeast Asia | 2 | 3.5 | 4 | 16 | 20 |
-| UK South | 2 | 3.5 | 4 | 16 | 20 |
+| North Central US | 4 | 16 | 4 | 16 | 20 |
+| North Europe | 2 | 3.5 | 2 | 8 | 20 |
+| South Central US | 2 | 3.5 | 2 | 3.5 | 20 |
+| Southeast Asia | N/A | N/A | 2 | 3.5 | 20 |
+| South India | 2 | 3.5 | 2 | 3.5 | 20 |
+| UK South | 2 | 8 | 2 | 3.5 | 20 |
 | West Central US | 4 | 16 | 4 | 16 | 20 |
 | West Europe | 4 | 16 | 4 | 16 | 20 |
-| West US | 4 | 14 | N/A | N/A | 20 |
+| West US | 4 | 16 | 2 | 8 | 20 |
 | West US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+
+
+### Windows Server 2019 LTSC
+
+> [!NOTE]
+> See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
+
+| Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Australia East | 4 | 16 | 4 | 16 | 20 |
+| Brazil South | 4 | 16 | 4 | 16 | 20 |
+| Canada Central | 4 | 16 | 4 | 16 | 20 |
+| Central India | 4 | 16 | 4 | 16 | 20 |
+| Central US | 4 | 16 | 4 | 16 | 20 |
+| East Asia | 4 | 16 | 4 | 16 | 20 |
+| East US | 4 | 16 | 4 | 16 | 20 |
+| East US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| France Central | 4 | 16 | 4 | 16 | 20 |
+| Japan East | N/A | N/A | 4 | 16 | 20 |
+| Korea Central | 4 | 16 | 4 | 16 | 20 |
+| North Central US | 4 | 16 | 4 | 16 | 20 |
+| North Europe | 4 | 16 | 4 | 16 | 20 |
+| South Central US | 4 | 16 | 4 | 16 | 20 |
+| Southeast Asia | 4 | 16 | 4 | 16 | 20 |
+| South India | 4 | 16 | 4 | 16 | 20 |
+| UK South | 4 | 16 | 4 | 16 | 20 |
+| West Central US | 4 | 16 | 4 | 16 | 20 |
+| West Europe | 4 | 16 | 4 | 16 | 20 |
+| West US | 4 | 16 | 4 | 16 | 20 |
+| West US 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## Next steps
 
