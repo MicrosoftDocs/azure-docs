@@ -12,7 +12,7 @@ ms.date: 09/19/2020
 
 This article outlines how to register a Teradata connector in Babylon and set up a scan.
 
-> [!IMPORTANT]
+>[!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback.
 
 ## Supported Capabilities
