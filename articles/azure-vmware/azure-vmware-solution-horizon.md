@@ -130,7 +130,7 @@ Horizon's sizing methodology on a host running in Azure VMware Solution is simpl
 
 The table shows the sizing of common VDI profiles for Azure VMware Solution for login VSI workloads.
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads.png" alt-text="Table of common VDI profiles for VMware Horizon" lightbox="media/horizon/common-vdi-profiles-vsi-workloads.png":::
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads.png" alt-text="Table of common VDI profiles for VMware Horizon" lightbox="media/horizon/common-vdi-profiles-vsi-workloads.png" border="false":::
 
 | **Sizing Table for Common VDI Profiles for Horizon on AVS for Login VSI Knowledge Worker workloads**
 
