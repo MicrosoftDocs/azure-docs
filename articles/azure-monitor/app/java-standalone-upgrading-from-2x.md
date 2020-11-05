@@ -6,7 +6,7 @@ ms.date: 11/04/2020
 
 ---
 
-# Upgrading from Application Insights Java SDK 2.x
+# Upgrading from Azure Monitor Application Insights Java SDK 2.x
 
 If you're already using Application Insights Java SDK 2.x in your application, there is no need to remove it.
 The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java SDK 2.x,

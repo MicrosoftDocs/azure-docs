@@ -6,7 +6,10 @@ ms.date: 10/29/2020
 
 ---
 
-# Telemetry processors with Java Standalone Agent - preview
+# Telemetry processors for Azure Monitor Application Insights Java
+
+> [!NOTE]
+> This feature is still under preview.
 
 Java 3.0 Agent for Application Insights now has the capabilities to process telemetry data before the data is exported.
 
