@@ -25,7 +25,7 @@ You use PowerShell to manage VM extensions on your hybrid servers managed by Azu
 Install-Module -Name Az.ConnectedMachine
 ```
 
-When the installation completes, you see the following message:
+When the installation finishes, you see the following message:
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
@@ -33,7 +33,7 @@ When the installation completes, you see the following message:
 
 1. Open a PowerShell console with elevated privileges.
 
-2. Sign into Azure by running the command `Connect-AzAccount`.
+2. Sign in to Azure by running the command `Connect-AzAccount`.
 
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in. Run one of the following commands:
 
@@ -57,7 +57,7 @@ Here's how to configure one or more Windows servers with servers enabled with Az
 
 1. Open a PowerShell console as an Administrator.
 
-2. Sign into Azure by running the command `Connect-AzAccount`.
+2. Sign in to Azure by running the command `Connect-AzAccount`.
 
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
