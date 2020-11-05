@@ -25,7 +25,7 @@ To create a SQL managed instance using Kubernetes tools, you will need to have t
 
 ## Overview
 
-To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the sqlmanagedinstance custom resource definition.
+To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the sqlmanagedinstance custom resource definition. The login secret must be created before the SQL managed instance custom resource. 
 
 ## Create a yaml file
 
