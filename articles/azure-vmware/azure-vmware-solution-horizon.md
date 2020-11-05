@@ -126,41 +126,15 @@ Horizon's sizing methodology on a host running in Azure VMware Solution is simpl
 
 ### Sizing tables
 
-#### Common VDI profiles for VMware Horizon on Azure VMware Solution
+The tables show the sizing of common VDI profiles for Azure VMware Solution for login VSI workloads.  
 
-The table shows the sizing of common VDI profiles for Azure VMware Solution for login VSI workloads.
+#### Knowledge worker workloads
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads.png" alt-text="Table of common VDI profiles for VMware Horizon" lightbox="media/horizon/common-vdi-profiles-vsi-workloads.png" border="false":::
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power Worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
 
-| **Sizing Table for Common VDI Profiles for Horizon on AVS for Login VSI Knowledge Worker workloads**
+#### Power worker workloads
 
- |
-| --- |
-| **vCPU per VM** | **vRAM per VM (GB)** | **100 VMs** | **200 VMs** | **300 VMs** | **400 VMs** | **500 VMs** | **600 VMs** | **700 VMs** | **800 VMs** | **900 VMs** | **1000 VMs** | **2000 VMs** | **3000 VMs** | **4000 VMs** | **5000 VMs** |
-| 2 | 3.5 | 3 | 3 | 4 | 4 | 5 | 6 | 6 | 7 | 8 | 9 | 17 | 25 | 33 | 41 |
-| 2 | 4 | 3 | 3 | 4 | 5 | 6 | 6 | 7 | 8 | 9 | 9 | 18 | 26 | 34 | 42 |
-| 2 | 6 | 3 | 4 | 5 | 6 | 7 | 9 | 10 | 11 | 12 | 13 | 26 | 38 | 51 | 62 |
-| 2 | 8 | 3 | 5 | 6 | 8 | 9 | 11 | 12 | 14 | 16 | 18 | 34 | 51 | 67 | 84 |
-| 2 | 12 | 4 | 6 | 9 | 11 | 13 | 16 | 19 | 21 | 23 | 26 | 51 | 75 | 100 | 124 |
-| 2 | 16 | 5 | 8 | 11 | 14 | 18 | 21 | 24 | 27 | 30 | 34 | 67 | 100 | 133 | 165 |
-| 4 | 3.5 | 3 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 22 | 33 | 44 | 55 |
-| 4 | 4 | 3 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 22 | 33 | 44 | 55 |
-| 4 | 6 | 3 | 4 | 5 | 6 | 7 | 9 | 10 | 11 | 12 | 13 | 26 | 38 | 51 | 62 |
-| 4 | 8 | 3 | 5 | 6 | 8 | 9 | 11 | 12 | 14 | 16 | 18 | 34 | 51 | 67 | 84 |
-| 4 | 12 | 4 | 6 | 9 | 11 | 13 | 16 | 19 | 21 | 23 | 26 | 51 | 75 | 100 | 124 |
-| 4 | 16 | 5 | 8 | 11 | 14 | 18 | 21 | 24 | 27 | 30 | 34 | 67 | 100 | 133 | 165 |
-| 6 | 3.5 | 3 | 4 | 5 | 6 | 7 | 9 | 10 | 11 | 13 | 14 | 27 | 41 | 54 | 68 |
-| 6 | 4 | 3 | 4 | 5 | 6 | 7 | 9 | 10 | 11 | 13 | 14 | 27 | 41 | 54 | 68 |
-| 6 | 6 | 3 | 4 | 5 | 6 | 7 | 9 | 10 | 11 | 13 | 14 | 27 | 41 | 54 | 68 |
-| 6 | 8 | 3 | 5 | 6 | 8 | 9 | 11 | 12 | 14 | 16 | 18 | 34 | 51 | 67 | 84 |
-| 6 | 12 | 4 | 6 | 9 | 11 | 13 | 16 | 19 | 21 | 23 | 26 | 51 | 75 | 100 | 124 |
-| 6 | 16 | 5 | 8 | 11 | 14 | 18 | 21 | 24 | 27 | 30 | 34 | 67 | 100 | 133 | 165 |
-| 8 | 3.5 | 3 | 4 | 6 | 7 | 9 | 10 | 12 | 14 | 15 | 17 | 33 | 49 | 66 | 82 |
-| 8 | 4 | 3 | 4 | 6 | 7 | 9 | 10 | 12 | 14 | 15 | 17 | 33 | 49 | 66 | 82 |
-| 8 | 6 | 3 | 4 | 6 | 7 | 9 | 10 | 12 | 14 | 15 | 17 | 33 | 49 | 66 | 82 |
-| 8 | 8 | 3 | 5 | 6 | 8 | 9 | 11 | 12 | 14 | 16 | 18 | 34 | 51 | 67 | 84 |
-| 8 | 12 | 4 | 6 | 9 | 11 | 13 | 16 | 19 | 21 | 23 | 26 | 51 | 75 | 100 | 124 |
-| 8 | 16 | 5 | 8 | 11 | 14 | 18 | 21 | 24 | 27 | 30 | 34 | 67 | 100 | 133 | 165 |
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power Worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### Azure VMware Solution host instance
 
