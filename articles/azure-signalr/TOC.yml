@@ -103,6 +103,10 @@
       href: signalr-howto-diagnostic-logs.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshooting guides
+      href: signalr-howto-troubleshooting-guide.md
 
 - name: References
   items:
