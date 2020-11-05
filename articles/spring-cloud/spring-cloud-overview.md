@@ -45,8 +45,8 @@ This documentation includes sections that explain how to get started and leverag
     * [Launch your first app](spring-cloud-quickstart.md)
     * [Provision an Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md)
     * [Set up the configuration server]()
-    * Build and deploy apps]()
-    * Use logs metrics and tracing]()
+    * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
+    * [Use logs metrics and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 * How-to
     * [Prepare apps](spring-cloud-tutorial-prepare-app-deployment.md): Prepare an existing Java Spring application for deployment to Azure Spring Cloud. When configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update Java Spring Cloud applications.
     * [Manage apps](spring-cloud/spring-cloud-howto-start-stop-delete.md):  Start, stop, and delete your Azure Spring Cloud applications. Change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
