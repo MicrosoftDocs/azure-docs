@@ -77,6 +77,9 @@ All configurable properties used to set up private Git repository with SSH are l
 | `host-key-algorithm`       | No     | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
 | `strict-host-key-checking` | No     | Indicates whether the Config Server instance will fail to start when leveraging the private `host-key`. Should be *true* (default value) or *false*. |
 
+> [!NOTE]
+>Config Server takes master (from Git itself) as default label if not specified. But Github changed its' default branch from master to main recently. You may need pay attention for default label when setup Config Server with Github, especially for new created repositories. The master branch may not exist from such repositories which may result in setup Config Server from Azure Spring Cloud failure.
+
 -----
 
 ### Private repository with basic authentication
