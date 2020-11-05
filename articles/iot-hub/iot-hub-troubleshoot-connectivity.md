@@ -22,9 +22,23 @@ Connectivity issues for IoT devices can be difficult to troubleshoot because the
 
 In both cases, these capabilities are limited to what IoT Hub can observe, so we also recommend that you follow monitoring best practices for your devices and other Azure services.
 
+## Event Grid vs. Azure Monitor
+
+Event Grid provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure. Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alerts when that number drops below a static threshold.
+
+Consider the following when deciding whether to use Event Grid or Azure Monitor for a particular scenario:
+
+* Alert latency: IoT Hub connection events are delivered much more quickly through Event Grid. This makes Event Grid a better choice for scenarios where quick notification is desirable.
+
+* Per-device notifications: Event Grid provides the ability to track connects and disconnects for individual devices. This makes Event Grid a better choice for scenarios where you need to monitor the connections for critical devices.
+
+* Lightweight setup: Azure Monitor metric alerts provide a lightweight setup experience that doesn't require integrating with other services to deliver notifications through Email, SMS, Voice, and other notifications.  With Event Grid you need to integrate with other Azure services to deliver notifications. Both services can integrate with other services to trigger more complex actions.
+
+Due to its low-latency, per-device capabilities, for production environments, we highly recommend using Event Grid to monitor connections. Of course, the choice is not exclusive, you can use both Azure Monitor metric alerts and Event Grid. Regardless of your choice for tracking disconnects, you will likely use Azure Monitor resource logs to help troubleshoot the reasons for unexpected device disconnects. The following sections discuss each of these options in more detail.
+
 ## Event Grid: Monitor device connect and disconnect events
 
-To monitor device connect and disconnect events in production, we recommend subscribing to the [**device disconnected** event](iot-hub-event-grid.md#event-types) on Event Grid to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than for the total number of connected devices. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than for the total number of connected devices. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
 
 When you use Event Grid to monitor or trigger alerts on device disconnects, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal on devices that use the Azure IoT SDKs. To learn more, see [MQTT device disconnect behavior with Azure IoT SDKs](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 

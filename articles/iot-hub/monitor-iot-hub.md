@@ -287,6 +287,14 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
+## Monitor per-device disconnects with Event Grid
+
+Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alerts when number of connected devices drops below a threshold value. While this may be sufficient for some scenarios, [Azure Event Grid](/azure/event-grid/) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+
+With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than for the total number of connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
+
+For more detailed information about monitoring device connections with Event Grid and Azure Monitor, see [Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
+
 ## Next steps
 
 - See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
