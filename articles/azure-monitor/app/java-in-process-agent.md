@@ -25,8 +25,8 @@ The 3.0 agent supports Java 8 and above.
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
 >
-> Please review all the [configuration options](./java-standalone-config.md), as the structure has completely changed,
-> in addition to the file name itself which went all lowercase.
+> Please review all the [configuration options](./java-standalone-config.md) carefully,
+> as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
 Download [applicationinsights-agent-3.0.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
 

@@ -11,8 +11,8 @@ ms.custom: devx-track-java
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
 >
-> Please review all the configuration settings below, as the structure has completely changed, in addition to the
-> file name itself which went all lowercase.
+> Please review all the configuration options below carefully, as the json structure has completely changed,
+> in addition to the file name itself which went all lowercase.
 
 ## Connection string and role name
 
