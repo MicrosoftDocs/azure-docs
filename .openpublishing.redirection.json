@@ -36593,6 +36593,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/mitigate-se.md",
+      "redirect_url": "/azure/virtual-machines/mitigate-se",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/mitigate-se.md",
+      "redirect_url": "/azure/virtual-machines/mitigate-se",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/about-disks-and-vhds.md",
       "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
       "redirect_document_id": false
