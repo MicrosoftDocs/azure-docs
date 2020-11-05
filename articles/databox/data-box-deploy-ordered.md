@@ -263,7 +263,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Screenshot of the Order wizard showing the Data destination step of the wizard with the correct info filled in.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure"
    > [!NOTE]
    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
@@ -275,19 +275,21 @@ Do the following steps in the Azure portal to order a device.
 
     ![Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-9. If you want to use your own customer-managed key to protect your BitLocker key, expand **Encryption type**.
+9. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
-    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect your BitLocker key.
+    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.<!--Inconsistency: In "Use customer-managed keys...", this key is referred to as "your BitLocker key."-->
 
-   ![Security screen with Encryption type settings expanded](./media/data-box-deploy-ordered/security-managed-key-01.png)
+   ![Security screen with Encryption type settings expanded](./media/data-box-deploy-ordered/customer-managed-key-01.png)
 
 10. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
    
-    ![Security screen, Encryption type options for a customer-managed key](./media/data-box-deploy-ordered/security-managed-key-02.png)
+    ![Security screen, Encryption type options for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-02.png)
 
-11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
+11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.<!--What term should be used for a dialog box? Certainly not "blade"?--> 
 
-    ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/security-managed-key-03.png)
+    For **Key vault**, you can select an existing key vault from the dropdown list. The key vault should be in the same region as the resource.
+
+    ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/customer-managed-key-03.png)
 
     If you want to create a new key:
 
@@ -297,46 +299,48 @@ Do the following steps in the Azure portal to order a device.
       - Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. 
       - Select **Review + Create**.
 
-      ![Create a new Azure Key Vault settings](./media/data-box-deploy-ordered/security-managed-key-04.png)
+      ![Create a new Azure Key Vault settings](./media/data-box-deploy-ordered/customer-managed-key-04.png)
 
-    - Review the information associated with your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+    - Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
-      ![New Azyure Key Vault review screen](./media/data-box-deploy-ordered/security-managed-key-05.png)
+      ![New Azyure Key Vault review screen](./media/data-box-deploy-ordered/customer-managed-key-05.png)
 
-12. In **Select key from Azure Key Vault**, you can select a key in the existing key vault.
+12. In **Select key from Azure Key Vault**, you can select an existing key in the key vault.
 
-    ![Select existing key from Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)<!--Test existing key vault and reshoot, security-managed-key-06-->
+    ![Select existing key from Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)<!--Test existing key vault and reshoot, customer-managed-key-06-->
 
     If you want to create a new key:
 
     - Select **Create new** and create a key. RSA key size can be 2048 or greater.
 
-      Provide the name for your key, accept the other defaults, and select **Create**.
+      Enter a name for your new key, accept the other defaults, and select **Create**.
 
-      ![Create a new key option](./media/data-box-deploy-ordered/security-managed-key-07.png)
+      ![Create a new key option](./media/data-box-deploy-ordered/customer-managed-key-07.png)
 
       You are notified that a key is created in your key vault.
 
-    - Select the **Version**, and then choose **Select**.
+    - Select the **Version** for the key, and then choose **Select**.<!--Should we discuss version options?-->
 
-      ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)<!--Reshoot, security-managed-key-08-->
+      ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)<!--Reshoot, customer-managed-key-08-->
 
     On the **Security** page, the **Encryption type** settings show the key vault and key selected for your customer-managed key.
 
-    ![Key and key vault for customer-managed key](./media/data-box-deploy-ordered/security-managed-key-09.png)
+    ![Key and key vault for customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
-14. Select a user identity to use with the key vault and key for this order.
+14. Select a user identity to associate this resource with the customer-managed key.
 
-    ![Save customer-managed key](./media/data-box-deploy-ordered/security-managed-key-10.png)
+    The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview)  
 
-    You can't create a new user identity here. For information about creating a user identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    ![Save customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 
-    The user identity is displayed in the **Encryption type** settings.
+    The selected user identity is shown in the **Encryption type** settings.
 
-    ![Customer-managed key URL](./media/data-box-deploy-ordered/security-managed-key-11.png)<!--Reshoot in narrow window.-->
+    ![Customer-managed key URL](./media/data-box-deploy-ordered/customer-managed-key-11.png)<!--Reshoot in narrow window.-->
+
+    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
     > [!IMPORTANT]
-    > You can disable Microsoft managed key and move to a customer-managed key at any stage of the Data Box order. However, once you have created a customer-managed key, you cannot switch back to the Microsoft managed key.
+    > You can disable creation of a Microsoft managed key and move to a customer-managed key at any stage of the Data Box order. However, once you have created a customer-managed key, you cannot switch back to the Microsoft managed key.
 
 14. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password**.
 
