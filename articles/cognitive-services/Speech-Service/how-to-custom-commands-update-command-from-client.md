@@ -122,7 +122,7 @@ To test this, let's create a new command in our current application.
     > [!div class="mx-imgBorder"]
     > ![Send client context activity](media/custom-commands/send-client-context-activity.png)
 
-Please note a couple of things.
+Please note a few things.
 1. You only need to send this activity once (ideally right after you started a connection).
 1. You can use complex objects for ClientContext.
 1. You can use ClientContext in speech responses, for sending activities and when calling web endpoints.
