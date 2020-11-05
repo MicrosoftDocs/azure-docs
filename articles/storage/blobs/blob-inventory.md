@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 10/29/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
@@ -39,6 +39,7 @@ Enable blob inventory reports by adding a policy to your storage account. Add, e
 1. Navigate to the [Azure portal](https://portal.azure.com/)
 1. Select one of your storage accounts
 1. Under **Blob service**, select **Blob inventory**
+1. Make sure **Blob inventory enabled** is enabled
 1. Select **Add a rule**
 1. Name your new rule
 1. Select the **Blob types** for your inventory report
@@ -96,6 +97,8 @@ Each rule within the policy has several parameters:
 | name           | String                         | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
 | enabled        | Boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
 | definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
+
+The global **Blob inventory enabled** flag takes precedence over the *enabled* property in a rule.
 
 ### Rule filters
 
@@ -157,7 +160,9 @@ Each inventory run generates a set of CSV formatted files in the specified inven
 
 Each inventory run generates the following files:
 
-- **Inventory CSV file**: A CSV formatted file for each inventory rule. Each file contains matched objects and their metadata. The first row in every CSV formatted file is always the schema row.
+- **Inventory CSV file**: A comma separated values (CSV) file for each inventory rule. Each file contains matched objects and their metadata. The first row in every CSV formatted file is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
+
+:::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
 - **Manifest file**: A manifest.json file containing the details of the inventory files generated for every rule in that run. The manifest file also captures the rule definition provided by the user and the path to the inventory for that rule.
 
