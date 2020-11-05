@@ -75,7 +75,7 @@ Now, specify the container credentials in the IoT Edge module.
 
 2. On the **IoT Edge Module Marketplace** blade, search for *Azure SQL Edge* and pick *Azure SQL Edge Developer*. 
 
-3. Click on the newly added *Azure SQL Edge* module under **IoT Edge Modules** to configure the Azure SQL Edge module. For more information on the configuration options, see [Deploy Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+3. Click on the newly added *Azure SQL Edge* module under **IoT Edge Modules** to configure the Azure SQL Edge module. For more information on the configuration options, see [Deploy Azure SQL Edge](./deploy-portal.md).
 
 4. Add the `MSSQL_PACKAGE` environment variable to the *Azure SQL Edge* module deployment, and specify the SAS URL of the database dacpac file created in step 8 of [Part one](tutorial-deploy-azure-resources.md) of this tutorial.
 

@@ -65,8 +65,6 @@ In part three of this three-part tutorial for predicting iron ore impurities in 
 
 4. In the **File** section, open **/DeploymentScripts/MiningProcess_ONNX.jpynb** from the folder where you have cloned the project files on your machine.
 
-5. Make sure you have updated the cells with the actual paths/names from your deployment.
-
 5. Set the kernel to Python 3.
 
 
