@@ -1,9 +1,7 @@
 - name: Cloud Services (extended support) documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: What is Cloud Services (extended support)?
-    href: overview.md
+  href: overview.md
 - name: Quickstart
   items: 
   - name: Deploy a Cloud Service - PowerShell
@@ -18,6 +16,7 @@
     href: enable-rdp.md
   - name: Update a Cloud Service - PowerShell
     href: update-powershell.md
+- name: Reference
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cloud-services
@@ -37,4 +36,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
-
