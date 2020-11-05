@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 ## Connection string and role name
 
-These are the most common settings needed to get started
+Connection string and role name are the most common settings needed to get started:
 
 ```json
 {
