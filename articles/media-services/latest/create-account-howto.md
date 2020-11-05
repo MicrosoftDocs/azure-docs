@@ -21,7 +21,7 @@ ms.custom: devx-track-azurecli
 
 To start encrypting, encoding, analyzing, managing, and streaming media content in Azure, you need to create a Media Services account. The Media Services account needs to be associated with one or more storage accounts. This article describes steps for creating a new Azure Media Services account.
 
-[!INCLUDE [note 2020-05-01 API](./includes/note-2020-05-02-account-creation.md)]
+[!INCLUDE [note 2020-05-01 API](./includes/note-2020-05-01-account-creation.md)]
 
  You can use either the Azure portal or the CLI to create a Media Services account. Choose the tab for the method you would like to use.
 
