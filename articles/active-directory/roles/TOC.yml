@@ -11,7 +11,7 @@
 - name: Tutorials
   items:
   - name: Create a dynamic group    
-    href: ../../enterprise-users/users-revoke-access?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ../../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   expanded: true
   items:
