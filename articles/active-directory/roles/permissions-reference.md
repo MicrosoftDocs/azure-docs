@@ -85,7 +85,7 @@ The [Privileged authentication administrator](#privileged-authentication-adminis
 
 ### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
 
-Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed by the company's Azure AD organization. It is important to note that this role does not grant any other Azure DevOps specific permissions (e.g. Project Collection Administrators) inside any of these Azure DevOps organizations backed by the companys Azure AD. 
+Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed by the company's Azure AD organization. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
 
 All enterprise Azure DevOps policies can be managed by users in this role.
 
