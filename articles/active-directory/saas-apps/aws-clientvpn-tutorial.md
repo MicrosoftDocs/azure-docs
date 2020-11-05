@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click on **Manifest** and give the Reply URL value as `http://<LOCALHOST>` instead of `https://<LOCALHOST>`, click on **Save**.
 
-    ![](./media/aws-clientvpn-tutorial/reply-url.png)
+    ![manifest page](./media/aws-clientvpn-tutorial/reply-url.png)
 
 1. AWS ClientVPN application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
