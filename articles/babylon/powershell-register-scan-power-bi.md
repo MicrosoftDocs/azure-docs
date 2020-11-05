@@ -1,6 +1,7 @@
 ---
 title: Use PowerShell to register and scan Power BI (preview)
-description: Learn how use PowerShell to register and scan a Power BI tenant in Azure Babylon.
+titleSuffix: Azure Purview
+description: Learn how use PowerShell to register and scan a Power BI tenant in Azure Purview.
 author: darrenparker
 ms.author: hophan
 ms.service: data-catalog
@@ -9,9 +10,9 @@ ms.topic: how-to
 ms.date: 10/12/2020
 ---
 
-# Use PowerShell to register and scan Power BI in Azure Babylon (preview) 
+# Use PowerShell to register and scan Power BI in Azure Purview (preview) 
 
-This article shows how to use PowerShell to set up a scan of a Power BI tenant in an Azure Babylon catalog.
+This article shows how to use PowerShell to set up a scan of a Power BI tenant in an Azure Purview catalog.
 
 ## Power BI authentication background
 
@@ -197,4 +198,4 @@ To do delegated authentication, you must have admin user credentials, as well as
 
 ## Next steps
 
-To get started with Azure Babylon, see [Quickstart: Create an Azure Babylon account](create-catalog-portal.md).
+To get started with Azure Purview, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).

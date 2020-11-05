@@ -1,6 +1,7 @@
 ---
 title: How to provide feedback
-description: This article describes how to provide feedback for Azure Babylon. 
+titleSuffix: Azure Purview
+description: This article describes how to provide feedback for Azure Purview. 
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
@@ -11,13 +12,13 @@ ms.date: 10/19/2020
 ---
 # How to provide feedback
 
-The Azure Babylon public preview is a great opportunity for you to let us know what is and isn't working well for you. By providing direct feedback to Microsoft, you help us understand what Azure Babylon functionality you value and what we need to change.
+The Azure Purview public preview is a great opportunity for you to let us know what is and isn't working well for you. By providing direct feedback to Microsoft, you help us understand what Azure Purview functionality you value and what we need to change.
 
 You can provide feedback in any of these ways:
 
-* Send email to BabylonDiscussion@Microsoft.com. Your message goes directly to the entire Azure Babylon team.
+* Send email to BabylonDiscussion@Microsoft.com. Your message goes directly to the entire Azure Purview team.
 
-* Use the feedback feature in the Azure Babylon user interface.
+* Use the feedback feature in the Azure Purview user interface.
 
 * Participate in Microsoft-sponsored research studies, scheduled webinars, and other feedback opportunities.
 

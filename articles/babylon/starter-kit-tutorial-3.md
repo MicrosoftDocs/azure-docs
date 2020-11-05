@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Browse assets and view their lineage'
+titleSuffix: Azure Purview
 description: This tutorial describes how to browse for assets in the catalog and view data lineage. 
 author: hophan
 ms.author: hophan
@@ -11,7 +12,7 @@ ms.date: 09/29/2020
 
 # Tutorial: Browse assets and view their lineage
 
-Browsing Azure Babylon is a powerful way to discover assets and view their important details, such as lineage.
+Browsing Azure Purview is a powerful way to discover assets and view their important details, such as lineage.
 
 In this tutorial, you learn how to:
 
@@ -33,11 +34,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Browse for assets in the catalog
 
-In the preceding tutorial, you learned how search can help you discover assets in Azure Babylon catalog. Another way to discover assets in the catalog is by using the catalog's browsing experience.
+In the preceding tutorial, you learned how search can help you discover assets in Azure Purview catalog. Another way to discover assets in the catalog is by using the catalog's browsing experience.
 
-To browse your Azure Babylon catalog, follow these steps:
+To browse your Azure Purview catalog, follow these steps:
 
-1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your Azure Babylon account name>`.
+1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your Azure Purview account name>`.
 
 1. On the **Home** page, select **Browse by asset type**.
 

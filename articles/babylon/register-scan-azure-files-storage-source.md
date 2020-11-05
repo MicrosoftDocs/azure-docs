@@ -1,6 +1,6 @@
 ---
 title: 'How to scan Azure files'
-titleSuffix: Babylon
+titleSuffix: Azure Purview
 description: This how to guide describes details of how to scan Azure files. 
 author: SunetraVirdi
 ms.author: suvirdi

@@ -1,6 +1,6 @@
 ---
 title: 'How to scan Azure Cosmos Database (SQL API)'
-titleSuffix: Babylon
+titleSuffix: Azure Purview
 description: This how to guide describes details of how to scan Azure Cosmos Database (SQL API). 
 author: nayenama
 ms.author: nayenama

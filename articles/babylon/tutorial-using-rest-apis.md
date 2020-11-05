@@ -1,6 +1,7 @@
 ---
 title: "Tutorial: Use the REST APIs"
-description: This tutorial describes how to use the Azure Babylon REST APIs to access the contents of your catalog.
+titleSuffix: Azure Purview
+description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your catalog.
 author: yaronyg
 ms.author: yarong
 ms.service: data-catalog
@@ -13,7 +14,7 @@ ms.date: 10/16/2020
 
 # Tutorial: Use the REST APIs
 
-In this tutorial, you learn how to use the Azure Babylon REST APIs. Anyone who wants to submit data to an Azure Babylon catalog, include the catalog as part of an automated process, or build their own user experience on the catalog can use the REST APIs to do so.
+In this tutorial, you learn how to use the Azure Purview REST APIs. Anyone who wants to submit data to an Azure Purview catalog, include the catalog as part of an automated process, or build their own user experience on the catalog can use the REST APIs to do so.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* To get started, you must have an existing Azure Babylon catalog. If you don't have a catalog, see the [quickstart for creating a Azure Babylon account](create-catalog-portal.md).
+* To get started, you must have an existing Azure Purview catalog. If you don't have a catalog, see the [quickstart for creating a Azure Purview account](create-catalog-portal.md).
 
 * If you need to add data to your catalog, see the [tutorial to run the starter kit and scan data](starter-kit-tutorial-1.md).
 
@@ -73,12 +74,12 @@ its password. Here's how:
 
 ## Configure your catalog to trust the service principal (application)
 
-To configure Azure Babylon to trust your new service principal:
+To configure Azure Purview to trust your new service principal:
 
-1. Go to the [Azure Babylon accounts page](https://aka.ms/babylonportal) in the Azure portal.
-1. Find and select your Azure Babylon account in the list.
-1. From your Azure Babylon account page, select **Launch Babylon account**.
-1. On your Azure Babylon catalog page, select **Management Center** from the left pane.
+1. Go to the [Azure Purview accounts page](https://aka.ms/babylonportal) in the Azure portal.
+1. Find and select your Azure Purview account in the list.
+1. From your Azure Purview account page, select **Launch Babylon account**.
+1. On your Azure Purview catalog page, select **Management Center** from the left pane.
 1. Select **Assign roles** from the left pane.
 1. Select **Add user**, and then select **Catalog administrator**.
 1. Enter the name of your new service principal in the search box. This name is the same as the application name you used in the previous section.
@@ -90,7 +91,7 @@ To configure Azure Babylon to trust your new service principal:
 
 To view the API Swagger documentation, download APIDocumentation.zip, extract its files, and open index.html.
 
-If you want to learn more about the advanced search/suggest API that Azure Babylon provides, see the Rest API Search Filter documentation. The AutoRest generated client doesn't currently support customized search parameters. Ss a workaround, follow the search-filter document to define filter classes in code as API call parameters. The index.html document has examples of these APIs.
+If you want to learn more about the advanced search/suggest API that Azure Purview provides, see the Rest API Search Filter documentation. The AutoRest generated client doesn't currently support customized search parameters. Ss a workaround, follow the search-filter document to define filter classes in code as API call parameters. The index.html document has examples of these APIs.
 
 ## Collect the necessary values to use the REST APIs
 
@@ -100,7 +101,7 @@ Find and save the following values:
   * In the [Azure portal](https://portal.azure.com), search for and select **Azure Active Directory**.
   * In the **Manage** section in the left pane, select **Properties**, find the **Tenant ID**, and then select the **Copy to clipboard** icon to save its value.
 * Atlas endpoint:
-  * From the [Azure Babylon accounts page](https://aka.ms/babylonportal) in the Azure portal, find and select your Azure Babylon account in the list.
+  * From the [Azure Purview accounts page](https://aka.ms/babylonportal) in the Azure portal, find and select your Azure Purview account in the list.
   * Select **Overview**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
 * Account name:
   * Extract the name of your catalog from the Atlas endpoint string. For example, if your Atlas endpoint is `https://ThisIsMyCatalog.catalog.babylon.azure.com`, your account name is `ThisIsMyCatalog`.
@@ -189,7 +190,7 @@ namespace BabylonSdkTest
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Azure Babylon client");
+            Console.WriteLine("Azure Purview client");
 
             // Example for operating role assignments - replace the User ID in the code
             //DoRoleAssignmentOperations();

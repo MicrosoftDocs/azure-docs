@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Create and import glossary terms'
+titleSuffix: Azure Purview
 description: This tutorial describes how to create glossary terms, add glossary terms to an asset, and import glossary terms. 
 author: hophan
 ms.author: hophan
@@ -52,7 +53,7 @@ Here's a summary of some of the most-common fields on the **Glossary term** page
 
 Create a glossary term by following these steps:
 
-1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your Azure Babylon account name>`.
+1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your Azure Purview account name>`.
 
 1. Select **Glossary** from the left pane to open the **Glossary terms** page.
 

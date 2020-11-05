@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial: Navigate the home page and search for an asset'
-description: This tutorial describes how to use features on the Azure Babylon home page and search in the catalog. 
+titleSuffix: Azure Purview
+description: This tutorial describes how to use features on the Azure Purview home page and search in the catalog. 
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -11,13 +12,13 @@ ms.date: 09/28/2020
 
 # Tutorial: Navigate the home page and search for an asset
 
-Become familiar with Azure Babylon by navigating the features of the home page and searching for an asset in the catalog.
+Become familiar with Azure Purview by navigating the features of the home page and searching for an asset in the catalog.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Navigate the Azure Babylon home page.
+> * Navigate the Azure Purview home page.
 > * Search for an asset.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -30,15 +31,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Navigate the Azure Babylon home page
+## Navigate the Azure Purview home page
 
 Follow these steps to explore the home page:
 
-1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your babylon account name>`, and then select **Home**.
+1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your babylon account name>`, and then select **Home**.
 
-   The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 16,000 assets in total and 189 glossary terms. This number updates as your organization scans and adds more terms to Azure Babylon.
+   The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 16,000 assets in total and 189 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
 
-   :::image type="content" source="./media/starter-kit-tutorial-2/babylon-home-page.png" alt-text="Screenshot showing the Azure Babylon home page.":::
+   :::image type="content" source="./media/starter-kit-tutorial-2/babylon-home-page.png" alt-text="Screenshot showing the Azure Purview home page.":::
 
 1. To navigate to other areas, select: **Browse by asset type**, **View insights**, or **Manage your data**.
 
@@ -96,11 +97,11 @@ Follow these steps to search for an asset, pin it, and mark yourself as owner:
 
     The description, owner name, and expert name fields are now populated.
 
-1. To return to the Azure Babylon home page, select  **Home** at the top left. Azure displays the asset you created in both the **Recently accessed** and **Pinned assets** lists.
+1. To return to the Azure Purview home page, select  **Home** at the top left. Azure displays the asset you created in both the **Recently accessed** and **Pinned assets** lists.
 
    :::image type="content" source="./media/starter-kit-tutorial-2/pinned-assets-list.png" alt-text="Screenshot showing classifications on the home page.":::
 
-1. To learn about the supported stores and classifications in Azure Babylon, under **FAQ/Documentation** at the lower right, select **Supported Stores and Classifications**.
+1. To learn about the supported stores and classifications in Azure Purview, under **FAQ/Documentation** at the lower right, select **Supported Stores and Classifications**.
 
 ## Next steps
 
@@ -108,10 +109,10 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
-> * Navigate the Azure Babylon home page.
+> * Navigate the Azure Purview home page.
 > * Search for an asset.
 
-Advance to the next tutorial to learn how to browse for assets in Azure Babylon and discover asset lineage.
+Advance to the next tutorial to learn how to browse for assets in Azure Purview and discover asset lineage.
 
 > [!div class="nextstepaction"]
 > [Browse assets and view their lineage](starter-kit-tutorial-3.md)

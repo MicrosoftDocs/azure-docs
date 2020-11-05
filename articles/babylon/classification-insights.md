@@ -1,5 +1,6 @@
 ---
 title: Classification reporting on your data using Babylon Insights
+titleSuffix: Azure Purview
 description: This how-to guide describes how to view and use Babylon Insights classification reporting on your data. 
 author: batamig
 ms.author: bagol

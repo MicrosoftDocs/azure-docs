@@ -1,6 +1,7 @@
 ---
 title: Create a custom classification rule
-description: This article explains the steps to create a custom classification rule in an Azure Babylon catalog.
+titleSuffix: Azure Purview
+description: This article explains the steps to create a custom classification rule in an Azure Purview catalog.
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
@@ -11,11 +12,11 @@ ms.date: 10/09/2020
 
 # Create a custom classification rule
 
-This article describes how you can create custom classification rules in Azure Babylon, which let you find specified data throughout your data estate.
+This article describes how you can create custom classification rules in Azure Purview, which let you find specified data throughout your data estate.
 
 ## Custom classification rules
 
-Azure Babylon provides a set of default classification rules, which are used by the scanner to automatically detect certain data types. You can also add your own custom classification rules to detect other types of data that you might be interested in finding across your data estate. This capability is powerful when you're trying to find data within your data estate.
+Azure Purview provides a set of default classification rules, which are used by the scanner to automatically detect certain data types. You can also add your own custom classification rules to detect other types of data that you might be interested in finding across your data estate. This capability is powerful when you're trying to find data within your data estate.
 
 As an example, suppose your company, Contoso, has employee IDs that are standardized throughout the company with the word *Employee* followed by a GUID to create `EMPLOYEE{GUID}`. For this example, an instance of an employee ID looks like `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55`.
 
@@ -27,7 +28,7 @@ To create a custom classification rule:
 
 1. Create a custom classification by following the instructions in [Create a custom classification](create-a-custom-classification.md). Add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
 
-1. From the left pane of your Azure Babylon catalog, select **Management Center**.
+1. From the left pane of your Azure Purview catalog, select **Management Center**.
 
 1. In the **Metadata management** section, select **Classifications rules**, and then select **New**.
 

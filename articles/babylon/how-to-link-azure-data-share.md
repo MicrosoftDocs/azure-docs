@@ -1,5 +1,6 @@
 ---
 title: How to link Azure Data Share account with Babylon
+titleSuffix: Azure Purview
 description: This article gives an overview of How to link Azure Data Share account with Babylon
 author: chanuengg
 ms.author: csugunan

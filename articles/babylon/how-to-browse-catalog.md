@@ -1,5 +1,6 @@
 ---
 title: How to browse the data catalog 
+titleSuffix: Azure Purview
 description: This article gives an overview of How to browse a data catalog using 'Browse by asset type tile'
 author: chanuengg
 ms.author: csugunan

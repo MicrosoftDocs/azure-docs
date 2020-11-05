@@ -1,5 +1,6 @@
 ---
 title: Create and manage integration runtimes in Babylon
+titleSuffix: Azure Purview
 description: This article explains the steps to create and manage integration runtimes in Babylon.
 author: viseshag
 ms.author: viseshag

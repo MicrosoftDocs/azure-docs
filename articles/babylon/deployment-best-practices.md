@@ -1,5 +1,6 @@
 ---
 title: 'Deployment best practices'
+titleSuffix: Azure Purview
 description: This article provides an overview of Project Babylon, including its features and the problems it addresses. Project Babylon enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan

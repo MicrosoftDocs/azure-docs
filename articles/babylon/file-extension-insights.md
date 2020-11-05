@@ -1,5 +1,6 @@
 ---
 title: File extension reporting on your data using Babylon Insights 
+titleSuffix: Azure Purview
 description: This how-to guide describes how to view and use the Babylon Insights file extension reporting on your data.
 author: batamig
 ms.author: bagol

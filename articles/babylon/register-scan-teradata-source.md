@@ -1,5 +1,6 @@
 ---
 title: Register a Teradata Connector and Setup Scans (Preview)
+titleSuffix: Azure Purview
 description: This article outlines how to register a Teradata connector in Babylon and set up a scan.
 author: chandrakavya
 ms.author: kchandra

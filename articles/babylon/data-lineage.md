@@ -1,5 +1,6 @@
 ---
-title: Data lineage in Azure Babylon
+title: Data lineage in Azure Purview
+titleSuffix: Azure Purview
 description: Describes the concepts for data lineage. 
 author: chanuengg
 ms.author: csugunan
@@ -9,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ---
 
-# Data lineage in Azure Babylon Data Catalog client
+# Data lineage in Azure Purview Data Catalog client
 
 This document provides an overview of lineage in Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. The data could span from landing zone(on-prem/multi-cloud) to raw, cooked zone and finally to visualization platforms.
 

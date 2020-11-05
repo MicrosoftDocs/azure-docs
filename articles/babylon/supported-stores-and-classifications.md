@@ -1,6 +1,7 @@
 ---
 title: Supported stores and classifications
-description: This article lists the supported stores and system classifications in Azure Babylon.
+titleSuffix: Azure Purview
+description: This article lists the supported stores and system classifications in Azure Purview.
 author: darrenparker    
 ms.author: dpark
 ms.service: data-catalog
@@ -12,11 +13,11 @@ ms.date: 10/22/2020
 
 # Supported stores and classifications
 
-This article describes the supported store types and defined system classifications in Azure Babylon.
+This article describes the supported store types and defined system classifications in Azure Purview.
 
 ## Supported stores
 
-Azure Babylon supports the following stores:
+Azure Purview supports the following stores:
 
 | Store type | Supported auth type | Set up scans via UX/PowerShell |
 | ---------- | ------------------- | ------------------------------ |
@@ -33,7 +34,7 @@ Azure Babylon supports the following stores:
 
 ## Defined system classifications
 
-Azure Babylon defines the following system classifications. Each classification name is prefixed by MICROSOFT.
+Azure Purview defines the following system classifications. Each classification name is prefixed by MICROSOFT.
 
 | Friendly name | Classification name | Description |
 | ------------- | ------------------- | ----------- |

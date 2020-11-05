@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Resource sets, asset details, schemas, and classifications'
+titleSuffix: Azure Purview
 description: This tutorial describes how to use resource sets, asset details, schemas, and classifications. 
 author: viseshag
 ms.author: viseshag
@@ -37,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 A resource set is a single object in the catalog that represents many physical objects in storage. The objects usually share a common schema and, in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. For more information about resource sets, see [Understand resource sets](concept-resource-sets.md).
 
-1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your Azure Babylon account name>`.
+1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your Azure Purview account name>`.
 
 2. Enter *Contoso_staging_positivecashflow** in the **Search assets** box, and then select **Contoso_staging_positivecashflow.json** in the search results.
 
@@ -54,7 +55,7 @@ A resource set is a single object in the catalog that represents many physical o
    * **partitionCount**: Indicates the number of physical files that are associated with this resource set.
    * **schemaCount**: Indicates the number of variations of schema that were found within this resource set.
 
-   Azure Babylon populates these properties within 24 hours after you complete the scan described in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
+   Azure Purview populates these properties within 24 hours after you complete the scan described in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
 
 1. Select the **Contacts** tab and review the **Experts**, and **Owners** values.
 

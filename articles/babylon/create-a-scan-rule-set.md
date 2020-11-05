@@ -1,6 +1,7 @@
 ---
 title: Create a scan rule set
-description: Create a scan rule set in Azure Babylon to quickly scan data sources in your organization.
+titleSuffix: Azure Purview
+description: Create a scan rule set in Azure Purview to quickly scan data sources in your organization.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
@@ -11,7 +12,7 @@ ms.date: 10/09/2020
 
 # Create a scan rule set
 
-In an Azure Babylon catalog, you can create scan rule sets to enable you to quickly scan data sources in your organization.
+In an Azure Purview catalog, you can create scan rule sets to enable you to quickly scan data sources in your organization.
 
 A scan rule set is a container for grouping a set of scan rules together so that you can easily associate them with a scan. For example, you might create a default scan rule set for each of your data source types, and then use these scan rule sets by default for all scans within your company. You might also want users with the right permissions to create other scan rule sets with different configurations based on business need.
 
@@ -19,7 +20,7 @@ A scan rule set is a container for grouping a set of scan rules together so that
 
 To create a scan rule set:
 
-1. From your Azure Babylon catalog, select **Management Center**.
+1. From your Azure Purview catalog, select **Management Center**.
 
    :::image type="content" source="./media/create-a-scan-rule-set/select-management-center.png" alt-text="Screenshot showing how to select Management Center.":::
 
@@ -63,7 +64,7 @@ To create a scan rule set:
 
 ### Create a custom file type
 
-Azure Babylon supports adding a custom extension and defining a custom column delimiter in a scan rule set.
+Azure Purview supports adding a custom extension and defining a custom column delimiter in a scan rule set.
 
 To create a custom file type:
 
@@ -99,7 +100,7 @@ To create a custom file type:
 
 ## System scan rule sets
 
-System scan rule sets are Microsoft-defined scan rule sets that are automatically created for each Azure Babylon catalog. Each system scan rule set is associated with a specific data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
+System scan rule sets are Microsoft-defined scan rule sets that are automatically created for each Azure Purview catalog. Each system scan rule set is associated with a specific data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
 
 1. To view the list of system scan rule sets, select **Scan rule sets** in the **Management Center** and choose the **System** tab.
 

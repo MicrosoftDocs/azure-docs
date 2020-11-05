@@ -1,5 +1,6 @@
 ---
 title: Bring new data sources under management (preview)
+titleSuffix: Azure Purview
 description: Learn how to add, view, edit, and delete data sources from the Babylon Management Center.
 author: chandrakavya
 ms.author: kchandra

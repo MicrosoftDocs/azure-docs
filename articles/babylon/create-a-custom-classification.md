@@ -1,6 +1,7 @@
 ---
 title: Create a custom classification
-description: This article describes how to create custom Azure Babylon classifications to define data types in your data estate that are unique to your organization.
+titleSuffix: Azure Purview
+description: This article describes how to create custom Azure Purview classifications to define data types in your data estate that are unique to your organization.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
@@ -11,7 +12,7 @@ ms.date: 10/08/2020
 
 # Create a custom classification
 
-This article describes how you can create custom Azure Babylon classifications to define data types in your data estate that are unique to your organization.
+This article describes how you can create custom Azure Purview classifications to define data types in your data estate that are unique to your organization.
 
 ## Default classifications
 
@@ -25,7 +26,7 @@ To display the default classifications, select the **System** tab on the **Class
 
 To create a custom classification:
 
-1. From your Azure Babylon account page, select **Launch Babylon account**, and then select **Management Center**.
+1. From your Azure Purview account page, select **Launch Babylon account**, and then select **Management Center**.
 
    :::image type="content" source="media/create-a-custom-classification/select-management-center.png" alt-text="Screenshot showing how to select Management Center.":::
 

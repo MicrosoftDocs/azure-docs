@@ -1,5 +1,6 @@
 ---
 title: Sensitivity label reporting on your data in Azure Blob Storage 
+titleSuffix: Azure Purview
 description: This how-to guide describes how to view and use Babylon sensitivity label reporting on your data in Azure Blob Storage. 
 author: batamig
 ms.author: bagol
@@ -10,7 +11,7 @@ ms.date: 11/02/2020
 # Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
-# Sensitivity label insights about your data in Azure Babylon
+# Sensitivity label insights about your data in Azure Purview
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data, in Azure Blob Storage, Azure files, ADLS GEN1, and ADLS GEN 2.
 

@@ -1,5 +1,7 @@
 ---
 title: Apply classifications
+titleSuffix: Azure Purview
+titleSuffix: Azure Purview
 description: This article explains how to apply a system or custom classification in any asset.
 author: hophan
 ms.author: hophan
@@ -11,11 +13,11 @@ ms.date: 10/08/2020
 
 # Apply classifications
 
-In Azure Babylon, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
+In Azure Purview, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
 
 ## Add a classification to a file asset
 
-Azure Babylon can scan and automatically classify documentation files. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Azure Babylon adds the classification **EU National Identification Number** to the file asset's detail page.
+Azure Purview can scan and automatically classify documentation files. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Azure Purview adds the classification **EU National Identification Number** to the file asset's detail page.
 
 In some scenarios, you might want to manually add classifications to your file asset. If you have multiple files that are grouped into a resource set, add classifications at the resource set level.
 
@@ -39,7 +41,7 @@ Follow these steps to add a custom or system classification to a partition resou
 
 ## Add a classification to a table asset
 
-When Azure Babylon scans your data sources, it doesn't automatically assign classifications to table assets. If you want your table asset to have a classification, you must add it manually.
+When Azure Purview scans your data sources, it doesn't automatically assign classifications to table assets. If you want your table asset to have a classification, you must add it manually.
 
 To add a classification to a table asset:
 
@@ -55,13 +57,13 @@ To add a classification to a table asset:
 
 1. Select **Save** to save the classifications.
 
-1. On the **Overview** page, verify that Azure Babylon added your new classifications.
+1. On the **Overview** page, verify that Azure Purview added your new classifications.
 
     :::image type="content" source="./media/use-classifications/verify-classifications-added-to-table.png" alt-text="Screenshot showing how to verify that classifications were added to a table asset.":::
 
 ## Add a classification to a column asset
 
-Azure Babylon automatically scans and adds classifications to all column assets. However, if you want to change the classification, you can do so at the column level.
+Azure Purview automatically scans and adds classifications to all column assets. However, if you want to change the classification, you can do so at the column level.
 
 To add a classification to a column:
 

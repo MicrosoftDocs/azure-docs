@@ -1,6 +1,7 @@
 ---
 title: Catalog lineage user guide
-description: This article provides an overview of the catalog lineage feature of Azure Babylon.
+titleSuffix: Azure Purview
+description: This article provides an overview of the catalog lineage feature of Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: data-catalog
@@ -11,29 +12,29 @@ ms.date: 10/07/2020
 
 # Catalog lineage user guide
 
-One of the primary features of Azure Babylon is the ability to show the lineage between datasets, based on its integration with Azure Data Factory (ADF). Azure Babylon supports capturing data lineage from the ADF activities Copy Data, Data Flow, and Execute SSIS Package. In addition to the native integration, custom lineage reporting is also supported via Atlas hooks and REST API.
+One of the primary features of Azure Purview is the ability to show the lineage between datasets, based on its integration with Azure Data Factory (ADF). Azure Purview supports capturing data lineage from the ADF activities Copy Data, Data Flow, and Execute SSIS Package. In addition to the native integration, custom lineage reporting is also supported via Atlas hooks and REST API.
 
 ## Common scenarios
 
-Lineage in Azure Babylon is aimed to support root cause analysis and impact analysis scenarios for data producers and data consumers.
+Lineage in Azure Purview is aimed to support root cause analysis and impact analysis scenarios for data producers and data consumers.
 
 ### Root cause analysis
 
-Data engineers own data sources within a data estate. In situations when a data source has incorrect data because of upstream issues, data engineers can use Azure Babylon lineage as a centralized platform to understand upstream process failures and be informed about the reasons for their data sources discrepancy.
+Data engineers own data sources within a data estate. In situations when a data source has incorrect data because of upstream issues, data engineers can use Azure Purview lineage as a centralized platform to understand upstream process failures and be informed about the reasons for their data sources discrepancy.
 
 ### Impact analysis
 
-If data producers want to change the attributes of a data source they own, such as deprecating columns, they'll want to know who's affected. They can use Azure Babylon lineage as a centralized place to know all the downstream consumers of their data sources and understand the impact of these changes on downstream assets.
+If data producers want to change the attributes of a data source they own, such as deprecating columns, they'll want to know who's affected. They can use Azure Purview lineage as a centralized place to know all the downstream consumers of their data sources and understand the impact of these changes on downstream assets.
 
 ## Configure catalog to collect ADF lineage
 
-This section explains the configuration steps required to report lineage in Azure Babylon for ADF pipelines at execution time. For instructions about how to connect Azure Data Factory with Azure Babylon and configure lineage reporting, see [Connection to Azure Data Factory](catalog-client-overview.md#connection-to-azure-data-factory-adf). This configuration is a one-time step to start ingesting lineage from ADF into Azure Babylon.
+This section explains the configuration steps required to report lineage in Azure Purview for ADF pipelines at execution time. For instructions about how to connect Azure Data Factory with Azure Purview and configure lineage reporting, see [Connection to Azure Data Factory](catalog-client-overview.md#connection-to-azure-data-factory-adf). This configuration is a one-time step to start ingesting lineage from ADF into Azure Purview.
 
-Lineage for the ADF Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Babylon, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+Lineage for the ADF Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
 ## Supported Azure Data Factory activities
 
-Azure Babylon captures runtime lineage from the following Azure Data Factory activities:
+Azure Purview captures runtime lineage from the following Azure Data Factory activities:
 
 * Copy Data
 
@@ -42,9 +43,9 @@ Azure Babylon captures runtime lineage from the following Azure Data Factory act
 * Execute SSIS Package
 
 > [!IMPORTANT]
-> Azure Babylon drops lineage if the source or destination uses an unsupported data storage system.
+> Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
 
-Azure Babylon/ADF native integration supports only a subset of the data systems that ADF supports, as described in the following sections.
+Azure Purview/ADF native integration supports only a subset of the data systems that ADF supports, as described in the following sections.
 
 ### ADF Copy Data support
 
@@ -79,7 +80,7 @@ Azure Babylon/ADF native integration supports only a subset of the data systems 
 | On-premises SQL \* | Yes |
 | Azure Files | Yes |
 
-\* For SQL (Azure and on-premises) scenarios, Azure Babylon doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.
+\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.
 
 ## Get started with lineage
 
@@ -94,11 +95,11 @@ Lineage uses the following terminology:
 
 Follow these steps to access the lineage information of an asset:
 
-1. In the Azure portal, go to the [Azure Babylon accounts page](https://aka.ms/babylonportal).
+1. In the Azure portal, go to the [Azure Purview accounts page](https://aka.ms/babylonportal).
 
-1. Select your Azure Babylon account from the list, and then select **Launch babylon account** from the **Overview** page.
+1. Select your Azure Purview account from the list, and then select **Launch babylon account** from the **Overview** page.
 
-1. On the Azure Babylon **Home** page, search for a data asset. In the **Search catalog** box, enter the name of the input used in the ADF Copy or Data Flow activity and press Enter.
+1. On the Azure Purview **Home** page, search for a data asset. In the **Search catalog** box, enter the name of the input used in the ADF Copy or Data Flow activity and press Enter.
 
 1. From the search results, select the data asset and select its **Lineage** tab.
 
@@ -106,10 +107,10 @@ Follow these steps to access the lineage information of an asset:
 
 ## Supported lineage patterns for ADF activities
 
-The generated lineage data is based on the type of source and sink used in the ADF activities. Although ADF supports over 80 source/sinks, Azure Babylon supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
+The generated lineage data is based on the type of source and sink used in the ADF activities. Although ADF supports over 80 source/sinks, Azure Purview supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
 To configure ADF to send lineage, see [Get started with lineage](#get-started-with-lineage).
 
-There are several patterns of lineage that Azure Babylon captures, described as follows:
+There are several patterns of lineage that Azure Purview captures, described as follows:
 
 * In the **Lineage** tab, hover over the node or edge to get information about the asset's taxonomy, like asset type.
 
@@ -133,7 +134,7 @@ Lineage of SQL table -\> SQL table; SQL table -\> Azure blob/ADLS Gen1/ADLS Gen2
 
 ### Data movement with 1:1 lineage and wildcard support
 
-In this scenario, data is moved from Azure Blob storage to Azure Data Lake storage using an ADF Copy activity with wildcard support. When you use a wildcard in the ADF Copy activity to copy multiple files together, Azure Babylon captures file-level lineage for each individual file that's copied by the ADF copy activity.
+In this scenario, data is moved from Azure Blob storage to Azure Data Lake storage using an ADF Copy activity with wildcard support. When you use a wildcard in the ADF Copy activity to copy multiple files together, Azure Purview captures file-level lineage for each individual file that's copied by the ADF copy activity.
 
 Lineage of Azure Blob/ADLS Gen1/Gen2 -\> Azure Blob/ADLS Gen1/Gen2 file(s):
 
@@ -147,7 +148,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> Azure Blob/ADLS Gen1/Gen2 file(s):
 
 ### Data movement with n:1 lineage
 
-You can use ADF Data Flow activities to merge or join more than one source dataset to produce a target dataset. In this example, Azure Babylon captures file-level lineage for individual input files that are part of an ADF Data Flow activity flowing into a SQL table.
+You can use ADF Data Flow activities to merge or join more than one source dataset to produce a target dataset. In this example, Azure Purview captures file-level lineage for individual input files that are part of an ADF Data Flow activity flowing into a SQL table.
 
 Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
@@ -161,7 +162,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
 ### Lineage for resource sets
 
-A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Resource sets in Azure Data Catalog](concept-resource-sets.md). When Azure Babylon captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
+A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Resource sets in Azure Data Catalog](concept-resource-sets.md). When Azure Purview captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
 
 In the following example, an Azure Data Lake Gen2 resource set is produced from an Azure Blob:
 
@@ -175,7 +176,7 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 ## Column-level lineage
 
-Azure Babylon supports column-level lineage for the ADF Copy and ADF Data Flow activities. To see column-level lineage, go to the **Lineage** tab of the current asset in the catalog and follow these steps:
+Azure Purview supports column-level lineage for the ADF Copy and ADF Data Flow activities. To see column-level lineage, go to the **Lineage** tab of the current asset in the catalog and follow these steps:
 
 1. Select the current data asset node to expand it, and then select **View columns**.
 

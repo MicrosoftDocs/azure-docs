@@ -1,5 +1,6 @@
 ---
 title: Catalog client overview
+titleSuffix: Azure Purview
 description: This article gives an overview of the catalog client
 author: darrenparker
 ms.author: dpark

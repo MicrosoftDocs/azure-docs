@@ -1,5 +1,6 @@
 ---
 title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
+titleSuffix: Azure Purview
 description: This tutorial describes how to scan Azure Data Lake Storage Gen2. 
 author: prmujumd
 ms.author: prmujumd

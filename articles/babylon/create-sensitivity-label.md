@@ -1,5 +1,6 @@
 ---
 title: Automatically apply sensitivity labels to your content
+titleSuffix: Azure Purview
 description: Learn how to create sensitivity labels and automatically apply them to your content during a scan.
 author: batamig
 ms.author: bagol
@@ -151,7 +152,7 @@ For more information, see:
 |**Azure Data Lake Storage**     |[Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
 |**Azure Files**   |[Register and scan Azure Files](register-scan-azure-files-storage-source.md)         |
 |**Azure SQL Databases**|[Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
-|**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Babylon](scan-sqlresource-firewall.md)         |
+|**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Purview](scan-sqlresource-firewall.md)         |
 |**Teradata**   |[Register and scan Teradata source (Preview)](register-scan-teradata-source.md)         |
 | | |
 

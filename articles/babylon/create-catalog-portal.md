@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Create an Azure Babylon account"
-description: This quickstart describes how to create an Azure Babylon account. 
+title: "Quickstart: Create an Azure Purview account"
+titleSuffix: Azure Purview
+description: This quickstart describes how to create an Azure Purview account. 
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -10,9 +11,9 @@ ms.date: 10/23/2020
 # Customer intent: As a data steward, I want create a new Azure Data Catalog so that I can scan and classify my data.
 ---
 
-# Quickstart: Create an Azure Babylon account
+# Quickstart: Create an Azure Purview account
 
-In this quickstart, you create an Azure Babylon account.
+In this quickstart, you create an Azure Purview account.
 
 ## Prerequisites
 
@@ -26,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Configure your subscription
 
-If necessary, follow these steps to configure your subscription to enable Azure Babylon to run in your subscription:
+If necessary, follow these steps to configure your subscription to enable Azure Purview to run in your subscription:
 
    1. In the Azure portal, search for and select **Subscriptions**.
 
@@ -38,36 +39,36 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
       :::image type="content" source="./media/create-catalog-portal/register-babylon-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Project Babylon resource provider in the Azure portal.":::
 
-## Create an Azure Babylon account instance
+## Create an Azure Purview account instance
 
-1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal, and then select **Add** to create a new Azure Babylon account.
+1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal, and then select **Add** to create a new Azure Purview account.
 
-   :::image type="content" source="./media/create-catalog-portal/add-babylon-instance.png" alt-text="Screenshot showing how to create an Azure Babylon account instance in the Azure portal.":::
+   :::image type="content" source="./media/create-catalog-portal/add-babylon-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
-   You can add only one Azure Babylon account at a time.
+   You can add only one Azure Purview account at a time.
 
 1. Select a **Resource group**, and then enter a **Babylon account name** for your catalog. Spaces and symbols aren't allowed.
 
 1. Make a choice for **Location**, and then select **Next: Tags**.
 1. Optionally, add one or more tags. These tags are for use only in the Azure portal, not the catalog.
-1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the catalog creation. The newly created Azure Babylon account instance appears in the list on your **Babylon accounts** page.
+1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the catalog creation. The newly created Azure Purview account instance appears in the list on your **Babylon accounts** page.
 1. When the new account is ready, select **Go to resource**.
 
 1. Select **Launch babylon account**.
 
-   :::image type="content" source="./media/create-catalog-portal/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Babylon account catalog.":::
+   :::image type="content" source="./media/create-catalog-portal/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
 
 ## Clean up resources
 
-If you no longer need this Azure Babylon account, delete it with the following steps:
+If you no longer need this Azure Purview account, delete it with the following steps:
 
 1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
-2. Select the Azure Babylon account that you created at the beginning of this quickstart. Select **Delete**, enter the name of the account, and then select **Delete**.
+2. Select the Azure Purview account that you created at the beginning of this quickstart. Select **Delete**, enter the name of the account, and then select **Delete**.
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Babylon account.
+In this quickstart, you learned how to create an Azure Purview account.
 
 Advance to the next article to learn how to add a security principal to a role.
 

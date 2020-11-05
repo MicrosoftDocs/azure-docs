@@ -1,5 +1,6 @@
 ---
 title: 'Register and scan Azure Data Lake Storage (Azure Data Lake Storage) Gen1'
+titleSuffix: Azure Purview
 description: This tutorial describes how to scan Azure Data Lake Storage Gen1. 
 author: prmujumd
 ms.author: prmujumd

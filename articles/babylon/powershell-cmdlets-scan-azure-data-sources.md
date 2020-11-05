@@ -1,5 +1,6 @@
 ---
 title: Use PowerShell cmdlets to scan Azure data sources
+titleSuffix: Azure Purview
 description: Learn how to use PowerShell cmdlets to register and scan Azure data sources.
 author: chandrakavya
 ms.author: kchandra

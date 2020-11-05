@@ -1,11 +1,12 @@
 ### YamlMime:Landing
 
-title: Azure Babylon documentation
-summary: Learn how to use Azure Babylon so your organization can find, understand, and consume data sources.
+title: Azure Purview documentation
+summary: Learn how to use Azure Purview so your organization can find, understand, and consume data sources.
 
 metadata:
-  title: Azure Babylon documentation
-  description: Learn how to use Azure Babylon where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
+  title: Azure Purview documentation
+  titleSuffix: Azure Purview
+description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
   ms.service: data-catalog
   ms.topic: landing-page
   author: jasonwhowell
@@ -16,11 +17,11 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Azure Babylon
+  - title: About Azure Purview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Babylon?
+          - text: What is Azure Purview?
             url: overview.md
           - text: Product limitations
             url: product-limitations.md

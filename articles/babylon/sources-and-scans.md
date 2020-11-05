@@ -1,5 +1,6 @@
 ---
 title: Sources and scans
+titleSuffix: Azure Purview
 description: This article provides conceptual details about supported data sources and file types in Babylon.
 author: viseshag
 ms.author: viseshag
@@ -9,13 +10,13 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ---
 
-# Supported data sources in Azure Babylon
+# Supported data sources in Azure Purview
 
 This article discusses supported data sources and file types in Babylon.
 
 ## Supported sources
 
-Azure Babylon supports the following sources:
+Azure Purview supports the following sources:
 
 | Store type | Supported auth type | Set up scans via UX/PowerShell |
 | ---------- | ------------------- | ------------------------------ |

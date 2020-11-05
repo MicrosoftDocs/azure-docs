@@ -1,5 +1,6 @@
 ---
 title: Use PowerShell cmdlets to scan on-premises data sources (preview)
+titleSuffix: Azure Purview
 description: Learn how to use PowerShell cmdlets to register and scan on-premises data sources.
 author: aaronyan87
 ms.author: royan
@@ -16,7 +17,7 @@ In this tutorial you use PowerShell to scan on-premises SQL server data sources.
 
 ## Introduction
 
-With Azure Babylon you can use the catalog UI or PowerShell cmdlets to scan and classify, at regular intervals, on-premises data. This article shows how to connect to a catalog session to manage data sources, scans, triggers, and classification rules.
+With Azure Purview you can use the catalog UI or PowerShell cmdlets to scan and classify, at regular intervals, on-premises data. This article shows how to connect to a catalog session to manage data sources, scans, triggers, and classification rules.
 
 To run scans on on-premise data sources, do the following:
 

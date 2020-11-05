@@ -1,5 +1,6 @@
 ---
 title: 'Register and scan an on-premises SQL server'
+titleSuffix: Azure Purview
 description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR. 
 author: viseshag
 ms.author: viseshag

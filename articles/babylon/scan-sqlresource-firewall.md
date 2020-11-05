@@ -1,6 +1,7 @@
 ---
-title: Scan storage accounts behind a firewall in Azure Babylon
-description: Learn how to scan resources behind a firewall using the Azure Babylon portal.
+title: Scan storage accounts behind a firewall in Azure Purview
+titleSuffix: Azure Purview
+description: Learn how to scan resources behind a firewall using the Azure Purview portal.
 author: sudhandkumar
 ms.author: kumarsud
 ms.service: data-catalog
@@ -8,9 +9,9 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 10/16/2020
 ---
-# Scan Storage Accounts behind a Firewall in Azure Babylon
+# Scan Storage Accounts behind a Firewall in Azure Purview
 
-In this article, you learn how to use Azure Babylon to scan a resource behind a firewall.
+In this article, you learn how to use Azure Purview to scan a resource behind a firewall.
 
 ## Prerequisites
 
@@ -30,11 +31,11 @@ The first step is to add the catalog's MSI to an Azure SQL DB via the [Scan Azur
 
 1. Browse to [https://ms.web.babylon.azure.com/](https://ms.web.babylon.azure.com/) and select the **Babylon Account**.
 
-   :::image type="content" source="./media/scan-resource-firewall/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Babylon account catalog.":::
+   :::image type="content" source="./media/scan-resource-firewall/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
   
 1. On the Babylon landing page, select **Management Center** (last icon on the left).
 
-   :::image type="content" source="./media/scan-resource-firewall/landing-babylon.png" alt-text="Screenshot of the selection to launch the Azure Babylon Management Center.":::
+   :::image type="content" source="./media/scan-resource-firewall/landing-babylon.png" alt-text="Screenshot of the selection to launch the Azure Purview Management Center.":::
 
 1. Select **Data Sources** from **Sources and Scanning**.
 

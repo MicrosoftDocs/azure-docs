@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial: Use the portal to scan Azure data sources (preview)'
-description: This tutorial describes how to use the Azure Babylon portal to scan Azure data sources.
+titleSuffix: Azure Purview
+description: This tutorial describes how to use the Azure Purview portal to scan Azure data sources.
 author: prmujumd
 ms.author: prmujumd
 ms.service: data-catalog

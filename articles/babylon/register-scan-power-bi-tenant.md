@@ -1,6 +1,7 @@
 ---
 title: Register and scan a Power BI tenant (preview)
-description: Learn how to use the Azure Babylon portal to register and scan a Power BI tenant. 
+titleSuffix: Azure Purview
+description: Learn how to use the Azure Purview portal to register and scan a Power BI tenant. 
 author: darrenparker
 ms.author: dpark
 ms.service: data-catalog
@@ -11,7 +12,7 @@ ms.date: 10/12/2020
 
 # Register and scan a Power BI tenant (preview)
 
-This article shows how to use Azure Babylon portal to register and scan a Power BI tenant.
+This article shows how to use Azure Purview portal to register and scan a Power BI tenant.
 
 > [!Note]
 > If the Babylon instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. If the Babylon instance and Power BI tenant are in different Azure tenants, you must authenticate with delegated authentication, and you must use PowerShell to set up your scans. See [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md).

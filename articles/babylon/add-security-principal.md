@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Add a security principal to a role"
+titleSuffix: Azure Purview
 description: This article gives an overview of how to add or remove a security principal from a role
 author: rogerbu
 ms.author: rogerbu
@@ -11,9 +12,9 @@ ms.date: 09/10/2020
 
 # Quickstart: Add a security principal to a role
 
-In this quickstart, you add a security principal to a security role in the Azure Babylon portal.
+In this quickstart, you add a security principal to a security role in the Azure Purview portal.
 
-A security principal can be a user, Azure Active Directory group, service principal, or managed identity. Azure Babylon uses role-based access control (RBAC) to manage permissions for security principals. You use the Azure Babylon portal to add or remove them from the following defined security roles: Catalog administrator, Data source administrator, Curator, Contributor, Automated data source process.
+A security principal can be a user, Azure Active Directory group, service principal, or managed identity. Azure Purview uses role-based access control (RBAC) to manage permissions for security principals. You use the Azure Purview portal to add or remove them from the following defined security roles: Catalog administrator, Data source administrator, Curator, Contributor, Automated data source process.
 
 ## Prerequisites
 
@@ -27,11 +28,11 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Add a security principal to a security role
 
-To add a security principal to a Catalog administrator security role in an Azure Babylon account:
+To add a security principal to a Catalog administrator security role in an Azure Purview account:
 
 1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
-1. Select the Azure Babylon account you want to modify.
+1. Select the Azure Purview account you want to modify.
 
 1. On the **Babylon account** page, select **Launch babylon account**.
 
@@ -61,7 +62,7 @@ To add a security principal to a Catalog administrator security role in an Azure
 
 To scan content into the catalog, you must be an Owner or Contributor in the Azure portal as well as a Catalog administrator or Data source administrator in the Azure Data Catalog portal.
 
-The previous section described how to add a security principal to the Catalog administrator role in the Azure Babylon portal. This section describes how to assign a security principal to the Contributor role on the catalog in the Azure portal. It's the final step to enable a security principal to scan content.
+The previous section described how to add a security principal to the Catalog administrator role in the Azure Purview portal. This section describes how to assign a security principal to the Contributor role on the catalog in the Azure portal. It's the final step to enable a security principal to scan content.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your catalog resource.
 
@@ -81,9 +82,9 @@ The previous section described how to add a security principal to the Catalog ad
 
 ## Clean up resources
 
-If you no longer need the role assignment you made for your security principal in the Azure Babylon portal, remove it with the following steps:
+If you no longer need the role assignment you made for your security principal in the Azure Purview portal, remove it with the following steps:
 
-1. In the Azure Babylon portal for your account, select **Management Center** in the left pane, and then select **Assign roles**.
+1. In the Azure Purview portal for your account, select **Management Center** in the left pane, and then select **Assign roles**.
 
 1. In the **Catalog administrator** list, select the name of the security principal that you want to remove, and then select **Remove access** from the top menu.
 
@@ -99,7 +100,7 @@ If you no longer need the role assignment you made in the Azure portal, remove i
 
 ## Next steps
 
-In this quickstart, you learned how to add a security principal to an Azure Babylon role.
+In this quickstart, you learned how to add a security principal to an Azure Purview role.
 
 Advance to the next article to learn how to run the starter kit and scan data into the catalog.
 

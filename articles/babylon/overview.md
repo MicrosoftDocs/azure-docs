@@ -1,6 +1,7 @@
 ---
-title: Introduction to Azure Babylon
-description: This article provides an overview of Azure Babylon, including its features and the problems it addresses. Azure Babylon enables any user to register, discover, understand, and consume data sources.
+title: Introduction to Azure Purview
+titleSuffix: Azure Purview
+description: This article provides an overview of Azure Purview, including its features and the problems it addresses. Azure Purview enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -9,9 +10,9 @@ ms.topic: overview
 ms.date: 09/10/2020
 ---
 
-# What is Azure Babylon?
+# What is Azure Purview?
 
-Azure Babylon is a new cloud service for use by data users. You use Azure Babylon to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
+Azure Purview is a new cloud service for use by data users. You use Azure Purview to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
 
 With the UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
 
@@ -47,11 +48,11 @@ Users who are responsible for ensuring the security of their organization's data
 * Ensuring that your organization's continues to comply with corporate security policies is a challenging task as your content grows and changes, and as those requirements and policies are updated for changing digital realities. Security administrators are often tasked with ensuring data security in the quickest time possible.
 
 
-## Azure Babylon advantages
+## Azure Purview advantages
 
-Azure Babylon is designed to address the issues mentioned in the previous sections and to help enterprises get the most value from their existing information assets. The catalog makes data sources easily discoverable and understandable by the users who manage the data.
+Azure Purview is designed to address the issues mentioned in the previous sections and to help enterprises get the most value from their existing information assets. The catalog makes data sources easily discoverable and understandable by the users who manage the data.
 
-Azure Babylon provides a cloud-based service into which you can register data sources. During registration, the data remains in its existing location, but a copy of its metadata is added to Azure Babylon, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
+Azure Purview provides a cloud-based service into which you can register data sources. During registration, the data remains in its existing location, but a copy of its metadata is added to Azure Purview, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
 
 After you register a data source, you can then enrich its metadata. Either the user who registered the data source or another user in the enterprise adds the metadata. Any user can annotate a data source by providing descriptions, tags, or other metadata for requesting data source access. This descriptive metadata supplements the structural metadata, such as column names and data types, that's registered from the data source.
 
@@ -61,5 +62,5 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 
 ## Next steps
 
-For information about Azure Babylon warnings that you might receive, see [Product limitations](product-limitations.md).
-To get started with Azure Babylon, see [Create an Azure Babylon account](create-catalog-portal.md).
+For information about Azure Purview warnings that you might receive, see [Product limitations](product-limitations.md).
+To get started with Azure Purview, see [Create an Azure Purview account](create-catalog-portal.md).

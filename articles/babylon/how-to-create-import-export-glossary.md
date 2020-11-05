@@ -1,6 +1,7 @@
 ---
 title: How to create, import, and export glossary terms
-description: Learn how to create, import, and export glossary terms in Azure Babylon.
+titleSuffix: Azure Purview
+description: Learn how to create, import, and export glossary terms in Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: data-catalog
@@ -11,7 +12,7 @@ ms.date: 11/04/2020
 
 # How to create, import, and export glossary terms
 
-This article describes how to create a business glossary term in Azure Babylon data catalog, and import and export glossary terms in .csv files.
+This article describes how to create a business glossary term in Azure Purview data catalog, and import and export glossary terms in .csv files.
 
 ## Create a new term
 
@@ -52,7 +53,7 @@ This article describes how to create a business glossary term in Azure Babylon d
 
 ## Import Terms into the Glossary
 
-The Azure Babylon Data Catalog provides a template .csv file for you to import your terms into your Glossary.
+The Azure Purview Data Catalog provides a template .csv file for you to import your terms into your Glossary.
 
 You can import terms in the catalog. The duplicate terms in file will be overwritten.
 

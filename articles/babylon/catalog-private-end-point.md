@@ -1,5 +1,6 @@
 ---
 title: Use private endpoints for your Babylon account (Preview)
+titleSuffix: Azure Purview
 description: This article describes how you can set up a private end point for your Babylon account
 author: viseshag
 ms.author: viseshag

@@ -1,6 +1,7 @@
 ---
 title: How scans detect deleted assets
-description: This article explains how an Azure Babylon account detects deleted assets during scans.
+titleSuffix: Azure Purview
+description: This article explains how an Azure Purview account detects deleted assets during scans.
 author: yaronyg
 ms.author: yarong
 ms.service: data-catalog
@@ -11,11 +12,11 @@ ms.date: 10/16/2020
 
 # How scans detect deleted assets
 
-This article describes how Azure Babylon uses scan results to detect deleted assets.
+This article describes how Azure Purview uses scan results to detect deleted assets.
 
 ## Background info
 
-An Azure Babylon catalog is aware of the state of a data store only when it  scans it. For the catalog to know if a file, table, or container was deleted, it compares the last scan output against the current scan output. For example, suppose that the last time you scanned an Azure Data Lake Storage Gen2 account, it included a folder named *folder1*. When the same account is scanned again, *folder1* is missing. Therefore, the catalog assumes the folder has been deleted.
+An Azure Purview catalog is aware of the state of a data store only when it  scans it. For the catalog to know if a file, table, or container was deleted, it compares the last scan output against the current scan output. For example, suppose that the last time you scanned an Azure Data Lake Storage Gen2 account, it included a folder named *folder1*. When the same account is scanned again, *folder1* is missing. Therefore, the catalog assumes the folder has been deleted.
 
 ## Detecting deleted files
 
@@ -27,4 +28,4 @@ When you enumerate large data stores like Data Lake Storage Gen2, there are mult
 
 ## Next steps
 
-To get started with Azure Babylon catalogs, see [Quickstart: Create a Babylon account](create-catalog-portal.md).
+To get started with Azure Purview catalogs, see [Quickstart: Create a Babylon account](create-catalog-portal.md).

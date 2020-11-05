@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial: Run the starter kit and scan data'
-description: This tutorial describes how to run the starter kit to set up a data estate, and then to scan data from data sources into your Azure Babylon catalog. 
+titleSuffix: Azure Purview
+description: This tutorial describes how to run the starter kit to set up a data estate, and then to scan data from data sources into your Azure Purview catalog. 
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
@@ -12,15 +13,15 @@ ms.date: 09/23/2020
 
 # Tutorial: Run the starter kit and scan data
 
-The starter kit in this tutorial gives you a quick tour of how Azure Babylon works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
+The starter kit in this tutorial gives you a quick tour of how Azure Purview works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
 
 * Creates an Azure Blob storage account.
 * Populates the account with test data.
 * Creates an Azure Data Lake Storage Gen2 account.
 * Creates an Azure Data Factory instance.
-* Associates the Azure Data Factory instance to Azure Babylon.
+* Associates the Azure Data Factory instance to Azure Purview.
 * Sets up and triggers a copy activity pipeline between the Azure Blob storage and Azure Data Lake Storage Gen2 accounts.
-* Pushes the associated lineage from Azure Data Factory to Azure Babylon.
+* Pushes the associated lineage from Azure Data Factory to Azure Purview.
 
 After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Azure Data Lake Storage Gen2 accounts. This environment is then reused throughout the next tutorials in the series.
 
@@ -41,7 +42,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * [Prepare your Windows machine by running a series of scripts](#prepare-your-machine-to-run-the-starter-kit). These scripts work only on Windows. If this requirement prevents you from running the starter kit, contact BabylonDiscussion\@microsoft.com.
 
-* [Create an Azure Babylon account](create-catalog-portal.md).
+* [Create an Azure Purview account](create-catalog-portal.md).
 
 ## Sign in to Azure
 
@@ -111,14 +112,14 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
    1. In the **Manage** section in the left pane, select **Properties**, and then select the copy icon for **Tenant ID** to save the value.
 
 * SubscriptionID:
-   1. In the Azure portal, search for and select the name of the Azure Babylon instance that you created. 
+   1. In the Azure portal, search for and select the name of the Azure Purview instance that you created. 
    1. Select the **Overview** section and save the GUID for the **Subscription ID**.
 
    > [!NOTE]
    > Make sure you're using the same subscription as the one in which you created the catalog. This is the same subscription that was placed in the allow list.
   
 * PathtoStarterKit: The Windows file folder path where you downloaded and extracted the starter kit's .zip file.
-* CatalogName: The name of the Azure Babylon account that you created in [Create an Azure Babylon account](create-catalog-portal.md).
+* CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
 * NewResourceGroupName: The new resource group name to use. Resource group names must be unique with your subscription, all lowercase, and made up of only A-Z and 0-9 characters.
 
    > [!IMPORTANT]
@@ -126,11 +127,11 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 
 ### Verify the user running the script has catalog permissions
 
-Follow these steps to add the Catalog admin running the script to the Azure Babylon account that was created in [Create a Babylon account](create-catalog-portal.md). If you created the Azure Babylon account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
+Follow these steps to add the Catalog admin running the script to the Azure Purview account that was created in [Create a Babylon account](create-catalog-portal.md). If you created the Azure Purview account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
 
-1. Browse to the Azure Babylon catalog home page by using one of these methods:
-   * Go to `https://web.babylon.azure.com/resource/<Your Azure Babylon account name>`.
-   * In the [Azure portal](https://portal.azure.com), search for and select your Azure Babylon account, and then select **Launch babylon account**.
+1. Browse to the Azure Purview catalog home page by using one of these methods:
+   * Go to `https://web.babylon.azure.com/resource/<Your Azure Purview account name>`.
+   * In the [Azure portal](https://portal.azure.com), search for and select your Azure Purview account, and then select **Launch babylon account**.
 1. Select **Management Center** in the left pane, and then select **Assign roles**.
 
 1. Select the **Add user** drop-down list from the top menu, and then select **Catalog administrator**.
