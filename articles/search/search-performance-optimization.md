@@ -26,7 +26,7 @@ Before undertaking a larger deployment effort, make sure you know what a typical
 
 1. Start with a low number of queries per second (QPS) and then gradually increase the number executed in the test until the query latency drops below the predefined target. This is an important benchmark to help you plan for scale as your application grows in usage.
 
-1. Wherever possible, reuse HTTP connections. If you are using the Azure Cognitive Search .NET SDK, this means you should reuse an instance or [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
+1. Wherever possible, reuse HTTP connections. If you are using the Azure Cognitive Search .NET SDK, this means you should reuse an instance or [SearchClient](/dotnet/api/azure.search.documents.searchclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
 
 1. Vary the substance of query requests so that search occurs over different parts of your index. Variation is important because if you continually execute the same search requests, caching of data will start to make performance look better than it might with a more disparate query set.
 
