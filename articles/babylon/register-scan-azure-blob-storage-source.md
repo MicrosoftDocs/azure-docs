@@ -1,6 +1,5 @@
 ---
 title: 'How to scan Azure storage blob'
-titleSuffix: Babylon
 titleSuffix: Azure Purview
 description: Learn how to scan Azure blob storage in your Azure Purview data catalog. 
 author: SunetraVirdi

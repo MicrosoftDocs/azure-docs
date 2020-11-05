@@ -5,8 +5,7 @@ summary: Learn how to use Azure Purview so your organization can find, understan
 
 metadata:
   title: Azure Purview documentation
-  titleSuffix: Azure Purview
-description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
+  description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
   ms.service: data-catalog
   ms.topic: landing-page
   author: jasonwhowell

@@ -1,6 +1,5 @@
 ---
 title: 'How to scan Azure Data Explorer'
-titleSuffix: Babylon
 titleSuffix: Azure Purview
 description: This how to guide describes details of how to scan Azure Data Explorer. 
 author: nayenama

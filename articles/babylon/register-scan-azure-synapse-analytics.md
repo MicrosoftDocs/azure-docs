@@ -1,6 +1,5 @@
 ---
 title: 'How to scan Azure Synapse Analytics'
-titleSuffix: Babylon
 titleSuffix: Azure Purview
 description: This how to guide describes details of how to scan Azure Synapse Analytics. 
 author: SunetraVirdi
