@@ -12,8 +12,8 @@ ms.date: 09/19/2020
 
 This article outlines how to register a Teradata connector in Babylon and set up a scan.
 
-    [!IMPORTANT]
-    This connector is currently in preview. You can try it out and give us feedback.
+> [!IMPORTANT]
+> This connector is currently in preview. You can try it out and give us feedback.
 
 ## Supported Capabilities
 
@@ -101,13 +101,13 @@ For example, the full URL [https://web.babylon.azure.com/?feature.ext.datasource
 
    - Maximum memory available: Maximum memory(in GB) available on customer's VM to be used by scanning processes. This configuration is dependent on the size of Teradata source to be scanned. As a thumb rule, provide 2-GB memory for every 1000 tables
 
-     :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image5.png" alt-text="setup scan":::
+     :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image5.png" alt-text="Setup a scan":::
 
 5. Select **Continue**
 
 6. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
-   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image6.png" alt-text="setup scan":::
+   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image6.png" alt-text="Setup a scan trigger":::
 
 7. Review your scan and Select *Save and Run.*
 
