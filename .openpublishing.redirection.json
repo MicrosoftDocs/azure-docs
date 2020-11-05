@@ -5689,6 +5689,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/prepay-reserved-vm-instances.md",
+      "redirect_url": "/azure/virtual-machines/prepay-reserved-vm-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/prepay-reserved-vm-instances.md",
+      "redirect_url": "/azure/virtual-machines/prepay-reserved-vm-instances",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
       "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
       "redirect_document_id": false

@@ -1,7 +1,7 @@
 ---
 title: Migrate VMware VMs to Azure (agentless) - PowerShell
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate through PowerShell.
-services:
+services: 
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: rahugup
 ---
 # Migrate VMware VMs to Azure (agentless) - PowerShell
 
-In this article, you'll learn how to migrate discovered VMware VMs with the agentless method using Azure PowerShell for [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+In this article, you'll learn how to migrate discovered VMware VMs with the agentless method using Azure PowerShell for [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool). 
 
 You learn how to:
 
@@ -37,10 +37,10 @@ Before you begin this tutorial, you should:
 
 ## Install Azure Migrate PowerShell module
 
-Azure Migrate PowerShell module is available in preview. You'll need to install the PowerShell module using the following command.
+Azure Migrate PowerShell module is available in preview. You'll need to install the PowerShell module using the following command. 
 
 ```azurepowershell
-Install-Module -Name Az.Migrate
+Install-Module -Name Az.Migrate 
 ```
 
 ## Sign in to your Microsoft Azure subscription
@@ -79,10 +79,10 @@ $MigrateProject | ConvertTo-JSON
 
 Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance-architecture.md). As part of the prerequisites, you would have deployed the Azure Migrate appliance as a VMware VM.
 
-To retrieve a specific VMware VM in an Azure Migrate project, specify name of the Azure Migrate project (`ProjectName`), resource group of the Azure Migrate project (`ResourceGroupName`), and the VM name (`DisplayName`).
+To retrieve a specific VMware VM in an Azure Migrate project, specify name of the Azure Migrate project (`ProjectName`), resource group of the Azure Migrate project (`ResourceGroupName`), and the VM name (`DisplayName`). 
 
-> [!IMPORTANT]
-> The VM name is case sensitive when used as a value for the `DisplayName` parameter.
+> [!NOTE]
+> **The VM name (`DisplayName`) parameter value is case-sensitive**.
 
 ```azurepowershell
 # Get a specific VMware VM in an Azure Migrate project
@@ -97,9 +97,9 @@ You can also retrieve all VMware VMs in an Azure Migrate project by using the `P
 
 ```azurepowershell
 # Get all VMware VMs in an Azure Migrate project
-$DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName
+$DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName 
 ```
-If you have multiple appliances in an Azure Migrate project, you can use `ProjectName`, `ResourceGroupName`, and `ApplianceName` parameters to retrieve all VMs discovered using a specific Azure Migrate appliance.
+If you have multiple appliances in an Azure Migrate project, you can use `ProjectName`, `ResourceGroupName`, and `ApplianceName` parameters to retrieve all VMs discovered using a specific Azure Migrate appliance. 
 
 ```azurepowershell
 # Get all VMware VMs discovered by an Azure Migrate Appliance in an Azure Migrate project
@@ -120,16 +120,16 @@ Before replicating the first VM in the Azure Migrate project, run the following 
 
 > [!NOTE]
 > One Azure Migrate project supports migrations to one Azure region only. Once you run this script, you can't change the target region to which you want to migrate your VMware VMs.
-> You'll need to run the `Initialize-AzMigrateReplicationInfrastructure` script if you configure a new appliance in your Azure Migrate project.
+> You'll need to run the `Initialize-AzMigrateReplicationInfrastructure` script if you configure a new appliance in your Azure Migrate project. 
 
-In the article, we'll initialize the replication infrastructure so that we can migrate our VMs to `Central US` region. You can [download the file](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) from the GitHub repository or run it using the following snippet.
+In the article, we'll initialize the replication infrastructure so that we can migrate our VMs to `Central US` region. You can [download the file](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) from the GitHub repository or run it using the following snippet. 
 
 ```azurepowershell
-# Download the script from Azure Migrate GitHub repository
+# Download the script from Azure Migrate GitHub repository 
 Invoke-WebRequest https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-migrate/migrate-at-scale-vmware-agentles/Initialize-AzMigrateReplicationInfrastructure.ps1 -OutFile .\AzMigrateReplicationinfrastructure.ps1
 
 # Run the script for initializing replication infrastructure for the current Migrate project
-.\AzMigrateReplicationInfrastructure.ps1 -ResourceGroupName $ResourceGroup.ResourceGroupName -ProjectName $MigrateProject.Name -Scenario agentlessVMware -TargetRegion "CentralUS"
+.\AzMigrateReplicationInfrastructure.ps1 -ResourceGroupName $ResourceGroup.ResourceGroupName -ProjectName $MigrateProject.Name -Scenario agentlessVMware -TargetRegion "CentralUS" 
 ```
 
 
@@ -139,22 +139,22 @@ After completing discovery and initializing replication infrastructure, you can 
 
 You can specify the replication properties as follows.
 
-- **Target subscription and resource group** - Specify the subscription and resource group that the VM should be migrated to by providing the resource group ID using the `TargetResourceGroupId` parameter.
-- **Target virtual network and subnet** - Specify the ID of the Azure Virtual Network and the name of the subnet that the VM should be migrated to by using the `TargetNetworkId` and `TargetSubnetName` parameters respectively.
+- **Target subscription and resource group** - Specify the subscription and resource group that the VM should be migrated to by providing the resource group ID using the `TargetResourceGroupId` parameter. 
+- **Target virtual network and subnet** - Specify the ID of the Azure Virtual Network and the name of the subnet that the VM should be migrated to by using the `TargetNetworkId` and `TargetSubnetName` parameters respectively. 
 - **Target VM name** - Specify the name of the Azure VM to be created by using the `TargetVMName` parameter.
-- **Target VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".
+- **Target VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".  
 - **License** - To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for `LicenseType` parameter as "WindowsServer". Otherwise, specify the value for `LicenseType` parameter as "NoLicenseType".
 - **OS Disk** - Specify the unique identifier of the disk that has the operating system bootloader and installer. The disk ID to be used is the unique identifier (UUID) property for the disk retrieved using the `Get-AzMigrateServer` cmdlet.
 - **Disk Type** - Specify the value for the `DiskType` parameter as follows.
-    - To use premium-managed disks, specify "Premium_LRS" as value for `DiskType` parameter.
-    - To use standard SSD disks, specify "StandardSSD_LRS" as value for `DiskType` parameter.
-    - To use standard HDD disks, specify "Standard_LRS" as value for `DiskType` parameter.
-- **Infrastructure redundancy** - Specify infrastructure redundancy option as follows.
+    - To use premium-managed disks, specify "Premium_LRS" as value for `DiskType` parameter. 
+    - To use standard SSD disks, specify "StandardSSD_LRS" as value for `DiskType` parameter. 
+    - To use standard HDD disks, specify "Standard_LRS" as value for `DiskType` parameter. 
+- **Infrastructure redundancy** - Specify infrastructure redundancy option as follows. 
     - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for `TargetAvailabilityZone` parameter.
-    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for `TargetAvailabilitySet` parameter.
+    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for `TargetAvailabilitySet` parameter. 
 
 ### Replicate VMs with all disks
-In this tutorial, we'll replicate all the disks of the discovered VM and specify a new name for the VM in Azure. We specify the first disk of the discovered server as OS Disk and migrate all disks as Standard HDD. The OS disk is the disk that has the operating system bootloader and installer.
+In this tutorial, we'll replicate all the disks of the discovered VM and specify a new name for the VM in Azure. We specify the first disk of the discovered server as OS Disk and migrate all disks as Standard HDD. The OS disk is the disk that has the operating system bootloader and installer. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
 
 ```azurepowershell
 # Retrieve the resource group that you want to migrate to
@@ -177,15 +177,15 @@ Write-Output $MigrateJob.State
 ```
 
 ### Replicate VMs with select disks
-You can also selectively replicate the disks of the discovered VM by using `New-AzMigrateDiskMapping` cmdlet and providing that as an input to the `DiskToInclude` parameter in the `New-AzMigrateServerReplication` cmdlet. You can also use `New-AzMigrateDiskMapping` cmdlet to specify different target disk types for each individual disk to be replicated.
+You can also selectively replicate the disks of the discovered VM by using `New-AzMigrateDiskMapping` cmdlet and providing that as an input to the `DiskToInclude` parameter in the `New-AzMigrateServerReplication` cmdlet. You can also use `New-AzMigrateDiskMapping` cmdlet to specify different target disk types for each individual disk to be replicated. 
 
 Specify values for the following parameters of the `New-AzMigrateDiskMapping` cmdlet.
 
-- **DiskId** - Specify the unique identifier for the disk to be migrated. The disk ID to be used is the unique identifier (UUID) property for the disk retrieved using the `Get-AzMigrateServer` cmdlet.
+- **DiskId** - Specify the unique identifier for the disk to be migrated. The disk ID to be used is the unique identifier (UUID) property for the disk retrieved using the `Get-AzMigrateServer` cmdlet.  
 - **IsOSDisk** - Specify "true" if the disk to be migrated is the OS disk of the VM, else "false".
-- **DiskType** - Specify the type of disk to be used in Azure.
+- **DiskType** - Specify the type of disk to be used in Azure. 
 
-In the following example, we'll replicate only two disks of the discovered VM. we'll specify the OS disk and use different disk types for each disk to be replicated.
+In the following example, we'll replicate only two disks of the discovered VM. we'll specify the OS disk and use different disk types for each disk to be replicated. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
 
 ```azurepowershell
 # View disk details of the discovered server
@@ -197,7 +197,7 @@ $OSDisk = New-AzMigrateDiskMapping -DiskID $DiscoveredServer.Disk[0].Uuid -DiskT
 $DataDisk = New-AzMigrateDiskMapping -DiskID $DiscoveredServer.Disk[1].Uuid -DiskType "Premium_LRS" -IsOSDisk "false"
 
 $DisksToReplicate += $OSDisk
-$DisksToReplicate += $DataDisk
+$DisksToReplicate += $DataDisk 
 
 # Retrieve the resource group that you want to migrate to
 $TargetResourceGroup = Get-AzResourceGroup -Name "MyTargetResourceGroup"
@@ -218,7 +218,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
-## Monitor replication
+## Monitor replication 
 
 Replication occurs as follows:
 
@@ -226,10 +226,10 @@ Replication occurs as follows:
 - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica-managed disks in Azure.
 - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
 
-Track the status of the replication by using the `Get-AzMigrateServerReplication` cmdlet.
+Track the status of the replication by using the `Get-AzMigrateServerReplication` cmdlet. 
 
 > [!NOTE]
-> The discovered VM ID and replicating VM ID are two different unique identifiers. Both these identifiers can be used to retrieve details of a replicating server.
+> The discovered VM ID and replicating VM ID are two different unique identifiers. Both these identifiers can be used to retrieve details of a replicating server.  
 
 ### Monitor replication using discovered VM identifier
 ```azurepowershell
@@ -244,11 +244,11 @@ $ReplicatingServer = Get-AzMigrateServerReplication -DiscoveredMachineId $Discov
 $ReplicatingServer = Get-AzMigrateServerReplication -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName | where MachineName -eq $DiscoveredServer.DisplayName
 
 # Retrieve replicating VM details using replicating VM identifier
-$ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id
+$ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id 
 ```
 
-You can track the "Migration State" and "Migration State Description" properties in the output.
-- For initial replication, the values for migration state and migration state description properties will be "InitialSeedingInProgress" and "Initial replication" respectively.
+You can track the "Migration State" and "Migration State Description" properties in the output. 
+- For initial replication, the values for migration state and migration state description properties will be "InitialSeedingInProgress" and "Initial replication" respectively. 
 - During delta replication, the values for migrate state and migration state description properties will be "Replicating" and "Ready to migrate" respectively.
 - After you complete the migration, the values for migrate state and migration state description properties will be "Migration succeeded" and "Migrated" respectively.
 
@@ -307,37 +307,46 @@ Replication occurs as follows:
 - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica-managed disks in Azure.
 - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
 
+## Retrieve the status of a job
+
+You can monitor the status of a job by using the `Get-AzMigrateJob` cmdlet. 
+
+```azurepowershell
+# Retrieve the updated status for a job
+$job = Get-AzMigrateJob -InputObject $job
+```
+
 ## Update properties of a replicating VM
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
+[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
 
 ```azurepowershell
 # Retrieve the replicating VM details by using the discovered VM identifier
 $ReplicatingServer = Get-AzMigrateServerReplication -DiscoveredMachineId $DiscoveredServer.ID
 
 # View NIC details of the replicating server
-Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
+Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic 
 ```
 The following properties can be updated for a VM.
 
 - **VM Name** - Specify the name of the Azure VM to be created by using the `TargetVMName` parameter.
-- **VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".
-- **Virtual Network** - Specify the ID of the Azure Virtual Network that the VM should be migrated to by using the `TargetNetworkId` parameter.
+- **VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".  
+- **Virtual Network** - Specify the ID of the Azure Virtual Network that the VM should be migrated to by using the `TargetNetworkId` parameter. 
 - **Resource Group** - Specify the ID of the resource group that the VM should be migrated to by providing the resource group ID using the `TargetResourceGroupId` parameter.
-- **Network Interface** - NIC configuration can be specified using the `New-AzMigrateNicMapping` cmdlet. The object is then passed an input to the `NicToUpdate` parameter in the `Set-AzMigrateServerReplication` cmdlet.
+- **Network Interface** - NIC configuration can be specified using the `New-AzMigrateNicMapping` cmdlet. The object is then passed an input to the `NicToUpdate` parameter in the `Set-AzMigrateServerReplication` cmdlet. 
 
     - **Change IP allocation** -To specify a static IP for a NIC, provide the IPv4 address to be used as static IP for the VM using the `TargetNicIP` parameter. To dynamically assign an IP for a NIC, provide "auto" as the value for the `TargetNicIP` parameter.
-    - Use values "Primary", "Secondary" or "DoNotCreate" for `TargetNicSelectionType` parameter to specify whether the NIC should be primary, secondary, or is not to be created on the migrated VM. Only one NIC can be specified as the primary NIC for the VM.
-    - To make a NIC primary, you'll also need to specify the other NICs that should be made secondary or are not to be created on the migrated VM.
+    - Use values "Primary", "Secondary" or "DoNotCreate" for `TargetNicSelectionType` parameter to specify whether the NIC should be primary, secondary, or is not to be created on the migrated VM. Only one NIC can be specified as the primary NIC for the VM. 
+    - To make a NIC primary, you'll also need to specify the other NICs that should be made secondary or are not to be created on the migrated VM.  
     - To change the subnet for the NIC, specify the name of the subnet by using the `TargetNicSubnet` parameter.
 
  - **Availability Zone** - To use availability zones, specify the availability zone value for `TargetAvailabilityZone` parameter.
  - **Availability Set** - To use availability set, specify the availability set ID for `TargetAvailabilitySet` parameter.
 
-In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration and update the target VM name and size.
+In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration and update the target VM name and size. 
 
 ```azurepowershell
-# Specify the NIC properties to be updated for a replicating VM.
+# Specify the NIC properties to be updated for a replicating VM. 
 $NicMapping = @()
 $NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP "xxx.xxx.xxx.xxx" -TargetNicSelectionType "Primary"
 $NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType "DoNotCreate"
@@ -347,6 +356,15 @@ $NicMapping += $NicMapping2
 
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize "Standard_DS13_v2" -TargetVMName "MyMigratedVM" -NicToUpdate $NicMapping
+
+# Track job status to check for completion
+while (($UpdateJob.State -eq "InProgress") -or ($UpdateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $UpdateJob = Get-AzMigrateJob -InputObject $UpdateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $UpdateJob.State
 ```
 
 You can also list all replicating servers in an Azure Migrate project and then use the replicating VM identifier to update VM properties.
@@ -356,52 +374,89 @@ You can also list all replicating servers in an Azure Migrate project and then u
 $ReplicatingServer = Get-AzMigrateServerReplication -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName | where MachineName -eq $DiscoveredServer.DisplayName
 
 # Retrieve replicating VM details using replicating VM identifier
-$ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id
+$ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id 
 ```
 
 
 ## Run a test migration
 
-When delta replication begins, you can run a test migration for the VMs before running a full migration to Azure. We highly recommend that you do test migration at least once for each machine before you migrate it.
+When delta replication begins, you can run a test migration for the VMs before running a full migration to Azure. We highly recommend that you do test migration at least once for each machine before you migrate it. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
 
-- Running a test migration checks that migration will work as expected. Test migration doesn't impact the on-premises machine, which remains operational, and continues replicating.
+- Running a test migration checks that migration will work as expected. Test migration doesn't impact the on-premises machine, which remains operational, and continues replicating. 
 - Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production VNet in your Azure subscription).
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
 Select the Azure Virtual Network to be used for testing by specifying the ID of the virtual network using the `TestNetworkID` parameter.
 
 ```azurepowershell
-# Retrieve the Azure virtual network created for testing
+# Retrieve the Azure virtual network created for testing 
 $TestVirtualNetwork = Get-AzVirtualNetwork -Name MyTestVirtualNetwork
 
 # Start test migration for a replicating server
 $TestMigrationJob = Start-AzMigrateTestMigration -InputObject $ReplicatingServer -TestNetworkID $TestVirtualNetwork.Id
+
+# Track job status to check for completion
+while (($TestMigrationJob.State -eq "InProgress") -or ($TestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $TestMigrationJob = Get-AzMigrateJob -InputObject $TestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $TestMigrationJob.State
 ```
 
-After testing is complete, clean-up the test migration using the `Start-AzMigrateTestMigrationCleanup` cmdlet.
+After testing is complete, clean-up the test migration using the `Start-AzMigrateTestMigrationCleanup` cmdlet. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
 
 ```azurepowershell
 # Clean-up test migration for a replicating server
 $CleanupTestMigrationJob = Start-AzMigrateTestMigrationCleanup -InputObject $ReplicatingServer
+
+# Track job status to check for completion
+while (($CleanupTestMigrationJob.State -eq "InProgress") -or ($CleanupTestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $CleanupTestMigrationJob = Get-AzMigrateJob -InputObject $CleanupTestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $CleanupTestMigrationJob.State
 ```
 
 ## Migrate VMs
 
-After you've verified that the test migration works as expected, you can migrate the replicating server using the following cmdlet.
+After you've verified that the test migration works as expected, you can migrate the replicating server using the following cmdlet. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
+
+If you don't want to turn-off the source server, then don't use `TurnOffSourceServer` parameter.
 
 ```azurepowershell
 # Start migration for a replicating server and turn off source server as part of migration
-$MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer
+$MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer 
+
+# Track job status to check for completion
+while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $MigrateJob = Get-AzMigrateJob -InputObject $MigrateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $MigrateJob.State
 ```
-If you don't want to turn-off the source server, then don't use `TurnOffSourceServer` parameter.
 
 ## Complete the migration
 
-1. After the migration is done, stop replication for the on-premises machine and clean-up replication state information for the VM using the following cmdlet.
+1. After the migration is done, stop replication for the on-premises machine and clean-up replication state information for the VM using the following cmdlet. The cmdlet returns a job which can be tracked for monitoring the status of the operation. 
 
 ```azurepowershell
 # Stop replication for a migrated server
-$StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer
+$StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer 
+
+# Track job status to check for completion
+while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $StopReplicationJob = Get-AzMigrateJob -InputObject $StopReplicationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $StopReplicationJob.State
 ```
 
 2. Install the Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) or [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines.
@@ -410,7 +465,7 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
 5. Cut over traffic to the migrated Azure VM instance.
 6. Remove the on-premises VMs from your local VM inventory.
 7. Remove the on-premises VMs from local backups.
-8. Update any internal documentation to show the new location and IP address of the Azure VMs.
+8. Update any internal documentation to show the new location and IP address of the Azure VMs. 
 
 ## Post-migration best practices
 
