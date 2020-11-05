@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
@@ -28,7 +28,8 @@ See the following sections to learn how a resource can validate and use the clai
 
 > [!IMPORTANT]
 > Access tokens are created based on the *audience* of the token, meaning the application that owns the scopes in the token.  This is how a resource setting `accessTokenAcceptedVersion` in the [app manifest](reference-app-manifest.md#manifest-reference) to `2` allows a client calling the v1.0 endpoint to receive a v2.0 access token.  Similarly, this is why changing the access token [optional claims](active-directory-optional-claims.md) for your client do not change the access token received when a token is requested for `user.read`, which is owned by the resource.
-> For the same reason, while testing your client application with a personal account (such as hotmail.com or outlook.com), you may find that the access token received by your client is an opaque string. This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets that are encrypted and can't be understood by the client.
+>
+> For the same reason, while testing your client application with a Microsoft API that supports personal account (such as hotmail.com or outlook.com), you will find that the access token received by your client is an opaque string. This is because the resource being accessed has uses encrypted tokens and can't be understood by the client.  This is expected, and should not be an issue for your app - client apps should never have a dependency on the format of the access token.
 
 ## Sample tokens
 
@@ -240,7 +241,7 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 
 ### Token timeouts
 
-Using [token lifetime configuration](active-directory-configurable-token-lifetimes.md), the lifetime of refresh tokens can be altered.  It is normal and expected for some tokens to go without use (e.g. the user does not open the app for 3 months) and therefore expire.  Apps will encounter scenarios where the login server rejects a refresh token due to its age. 
+Using [token lifetime configuration](active-directory-configurable-token-lifetimes.md), the lifetime of refresh tokens can be altered.  It is normal and expected for some tokens to go without use (e.g. the user does not open the app for 3 months) and therefore expire.  Apps will encounter scenarios where the login server rejects a refresh token due to its age.
 
 * MaxInactiveTime: If the refresh token hasn't been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid.
 * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then reauthentication will be required after the time set in the MaxAgeSession* elapses.
@@ -250,7 +251,7 @@ Using [token lifetime configuration](active-directory-configurable-token-lifetim
 
 ### Revocation
 
-Refresh tokens can be revoked by the server due to a change in credentials, or due to use or admin action.  Refresh tokens fall into two classes - those issued to confidential clients (the rightmost column) and those issued to public clients (all other columns).   
+Refresh tokens can be revoked by the server due to a change in credentials, or due to use or admin action.  Refresh tokens fall into two classes - those issued to confidential clients (the rightmost column) and those issued to public clients (all other columns).
 
 | Change | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -270,12 +271,12 @@ A *non-password-based* login is one where the user didn't type in a password to 
 - FIDO2 key
 - SMS
 - Voice
-- PIN 
+- PIN
 
 > [!NOTE]
 > Primary Refresh Tokens (PRT) on Windows 10 are segregated based on the credential. For example, Windows Hello and password have their respective PRTs, isolated from one another. When a user signs-in with a Hello credential (PIN or biometrics) and then changes the password, the password based PRT obtained previously will be revoked. Signing back in with a password invalidates the old PRT and requests a new one.
 >
-> Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.  However, your app should discard the old one as soon as it's used and replace it with the new one, as the new token has a new expiration time in it. 
+> Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.  However, your app should discard the old one as soon as it's used and replace it with the new one, as the new token has a new expiration time in it.
 
 ## Next steps
 

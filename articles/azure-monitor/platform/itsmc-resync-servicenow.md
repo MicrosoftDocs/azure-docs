@@ -19,16 +19,16 @@ Use the following synchronization process to reactivate the connection and refre
 
 1. Search for the solution in the top search banner, then select the relevant solutions
 
-    ![New connection](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![Screenshot that shows the top search banner and where to select the relevant solutions.](media/itsmc-resync-servicenow/solution-search-8bit.png)
 
 1. In solution screen, choose "Select All" in the subscription filter and then filter by "ServiceDesk"
 
-    ![New connection](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![Screenshot that shows where to choose Select All and where to filter by ServiceDesk.](media/itsmc-resync-servicenow/solutions-list-8bit.png)
 
 1. Select the solution of your ITSM connection.
 1. Select ITSM connection in the left banner.
 
-    ![New connection](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![Screenshot that shows where to select ITSM Connections.](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
 
 1. Select each connector from the list. 
     1. Click the Connector name in order to configure it
@@ -38,7 +38,7 @@ Use the following synchronization process to reactivate the connection and refre
 
     1. Click on sync
 
-       ![New connection](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![Screenshot that highlights the Sync button.](media/itsmc-resync-servicenow/resync-8bit2.png)
 
     1. Click on save
 

@@ -1,8 +1,8 @@
 ---
 title: Regional endpoints for Azure Cosmos DB Graph database
 description: Learn how to connect to nearest Graph database endpoint for your application
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-region writes](how-to-multi-master.md) capability.
 
 Reasons to choose more than one region:

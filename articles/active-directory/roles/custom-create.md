@@ -6,9 +6,9 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -177,4 +177,4 @@ Like built-in roles, custom roles are assigned by default at the default organiz
 
 - Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - For more about roles and Administrator role assignment, see [Assign administrator roles](permissions-reference.md).
-- For default user permissions, see a [comparison of default guest and member user permissions](/azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- For default user permissions, see a [comparison of default guest and member user permissions](/azure/active-directory/fundamentals/users-default-permissions).

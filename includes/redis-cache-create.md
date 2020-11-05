@@ -35,9 +35,11 @@ ms.custom: "include file"
 
 1. Select the **Next: Advanced** tab or click the **Next: Advanced** button on the bottom of the page.
 
-1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port.
+1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port. You can also select which Redis version you would like use, either 4 or (PREVIEW) 6.
 
-1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence.
+    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Redis version 4 or 6.":::
+
+1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. You can also select which Redis version you would like use, either 4 or (PREVIEW) 6. 
 
 1. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
 
