@@ -11,14 +11,14 @@
 - name: Tutorials
   items:
   - name: Create a dynamic group    
-    href: ../../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ./enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   expanded: true
   items:
   - name: Delegate Azure AD admin roles
     href: concept-delegation.md
   - name: Compare default user permissions    
-    href: ../azure/active-directory/fundamentals/users-default-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ./fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
   - name: Compare Azure and Azure AD roles    
     href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
   - name: Understand administrative units in Azure AD
