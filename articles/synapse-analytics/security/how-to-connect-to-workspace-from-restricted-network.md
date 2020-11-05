@@ -23,7 +23,6 @@ From this article, you'll learn how to connect to your Azure Synapse workspace f
 * **A restricted network**: The restricted network is maintained by the company IT admin. IT admin has the permission to configure the network policy. The virtual network name and its subnet will be needed in following step 3.
 
 
-
 ## Step 1: Add network outbound security rules to the restricted network
 
 You'll need to add four network outbound security rules with four service tags. Learn more about [Service tags overview](/azure/virtual-network/service-tags-overview.md) 
@@ -46,9 +45,9 @@ You'll need to create an Azure Synapse Analytics (private link hubs) from Azure 
 
 ![Creating Synapse Analytics private link hubs](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## Step 3: Create private link endpoint for Synapse Studio gateway
+## Step 3: Create private endpoint for Synapse Studio gateway
 
-To access the Synapse Studio gateway, you'll need to create private link endpoint from Azure portal. Search "**Private Link**" through the Azure portal. Select "**Create private endpoint**" in the "**Private Link Center**" and then fill the needed field and create it. 
+To access the Synapse Studio gateway, you'll need to create private endpoint from Azure portal. Search "**Private Link**" through the Azure portal. Select "**Create private endpoint**" in the "**Private Link Center**" and then fill the needed field and create it. 
 
 > [!Note]
 > The region should be same as the one where your Synapse workspace is.
@@ -68,7 +67,7 @@ In the next tab of "**Configuration**",
 
 After the private link endpoint is created, you can access the sign-in page of Synapse studio web tool. However you are not able to access the resources inside your Synapse workspace yet until you will need to complete the next step.
 
-## Step 4: Create private link endpoints for Synapse Studio workspace resource
+## Step 4: Create private endpoints for Synapse Studio workspace resource
 
 To access the resources inside your Synapse Studio workspace resource, you'll need to create at least one private link endpoint with "**Dev**" type of "**Target sub-resource**" and two other optional private link endpoints with types of "**Sql**" or "**SqlOnDemand**" depends on what resources in Synapse studio workspace you'd like to access. This private link endpoint creation for Synapse studio workspace is similar as above endpoint creation.  
 
@@ -83,9 +82,9 @@ Pay attention to below areas in tab of "**Resource**":
 ![Creating private endpoint for Synapse studio workspace](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
 
 
-## Step 5: Create private link endpoints for Synapse Studio workspace linked storage
+## Step 5: Create private endpoints for Synapse Studio workspace linked storage
 
-To access the Synapse Studio workspace linked storage, you'll need to create one private link endpoint with the similar steps in above step 3. 
+To access the linked storage with storage explorer in Synapse Studio workspace, you'll need to create one private endpoint with the similar steps in above step 3. 
 
 Pay attention to below areas in tab of "**Resource**":
 * Select "**Microsoft.Synapse/storageAccounts**" to "**Resource type**".
@@ -96,15 +95,13 @@ Pay attention to below areas in tab of "**Resource**":
 
 ![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
 
-Now, you can access the linked storage resource from your workstation within your vNet.
+Now, you can access the linked storage resource from storage explorer in your Synapse Studio workspace within vNet.
 
 If your workspace has "**Enable managed virtual network**" during your workspace creation as below,
 
 ![Creating private endpoint for Synapse studio workspace linked storage 1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
 
-And you'd like your Notebook to access the linked storage resources under certain storage account, you need to add a "**Managed private endpoints**" under your Synapse Studio. The "**Storage account name**" should be the one your notebook needs to access.
-
-![Creating private endpoint for Synapse studio workspace linked storage 2](./media/how-to-connect-to-workspace-from-restricted-network/mgd-pe-creation.png)
+And you'd like your Notebook to access the linked storage resources under certain storage account, you need to add a "**Managed private endpoints**" under your Synapse Studio. The "**Storage account name**" should be the one your notebook needs to access. Learn the detailed steps from [Create a Managed private endpoint to your data source](./how-to-create-managed-private-endpoints.md).
 
 After this endpoint is created, the "**Approval state**" will be "**Pending**", you need to request the owner of this storage account to approve it in the "**Private endpoint connections**" tab of this storage account in Azure portal. After it's approved, your Notebook will be able to access the linked storage resources under this storage account.
 
