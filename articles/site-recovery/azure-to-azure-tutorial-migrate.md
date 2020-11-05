@@ -63,7 +63,7 @@ In this tutorial, you learn how to:
 - For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
 - Make sure that you're not using an authentication proxy to control network connectivity for VMs that you want to move.
 
-- If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
@@ -111,7 +111,7 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 1. For this tutorial, accept the other default settings.
 1. Select **Enable replication**. This step starts a job to enable replication for the VM.
 
-    ![Enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## Move
 

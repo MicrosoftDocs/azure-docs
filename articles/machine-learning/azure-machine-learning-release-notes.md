@@ -17,6 +17,15 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-11-05
+
+### Data Labeling for image instance segmentation (polygon annotation) (preview)
+
+The image instance segmentation (polygon annotations) project type in data labeling is available now, so users can draw and annotate with polygons around the contour of the objects in the images. Users will be able assign a class and a polygon to each object which of interest within an image.
+
+Learn more about [image instance segmentation labeling](how-to-label-images.md).
+
+
 ## 2020-10-26
 
 ### Azure Machine Learning SDK for Python v1.17.0
