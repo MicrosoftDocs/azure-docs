@@ -89,7 +89,7 @@ There are a number of applications you can use to connect to your Azure Database
    > [!TIP]
    > If the firewall is not configured to allow the IP address of your client, the following error occurs:
    >
-   > "psql: FATAL:  no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+   > "psql: FATAL:  no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry."
    >
    > Confirm your client's IP address is allowed in the firewall rules.
 
