@@ -49,7 +49,7 @@ After the retirement date for each PostgreSQL database version, if you continue 
 - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for PostgreSQL may only be available to supported database server versions.
 - Uptime SLAs will apply solely to Azure Database for PostgreSQL service-related issues and not to any downtime caused by database engine-related bugs.  
-- In the extreme event of a serious threat to the Azure service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure may choose to stop the compute node of your database server. In such cases, you may be asked to upgrade the server before bringing the server online.
+- In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure may choose to stop the compute node of your database server. In such case, you may be asked to upgrade the server before bringing it online.
 
 ## PostgreSQL version syntax
 Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number. For example, 9.5 to 9.6 was considered a _major_ version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a _minor_ release upgrade. Version 10 to 11 is a _major_ version upgrade.
