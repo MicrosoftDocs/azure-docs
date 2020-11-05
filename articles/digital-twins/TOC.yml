@@ -184,7 +184,7 @@
         - name: JavaScript SDK - source
           href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core
         - name: Python SDK - PyPi
-          href: https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/
+          href: https://pypi.org/project/azure-digitaltwins-core/
         - name: Python SDK - source
           href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core
   - name: Digital Twins CLI 

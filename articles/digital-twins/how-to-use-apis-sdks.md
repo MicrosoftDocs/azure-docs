@@ -68,7 +68,7 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
    - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * You can use the **Python** SDK. To use the Python SDK...
-   - you can view and install the package: [Azure Azure Digital Twins Core client library for Python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
+   - you can view and install the package: [Azure Azure Digital Twins Core client library for Python](https://pypi.org/project/azure-digitaltwins-core/).
    - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
