@@ -18,7 +18,7 @@ Following good error handling practices is important to avoid loss of data or mi
 - [Enable Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Use structured error handling](#use-structured-error-handling)
 - [Design for idempotency](../articles/azure-functions/functions-idempotent.md)
-- [Implement retry policies](#retry-policies) (where appropriate)
+- [Implement retry policies](#retry-policies-preview) (where appropriate)
 
 ### Use structured error handling
 
@@ -26,7 +26,7 @@ Capturing and logging errors is critical to monitoring the health of your applic
 
 ## Retry policies (preview)
 
-A retry policy can be defined on any function for any trigger type in your function app.  The retry policy re-executes a function until either successful execution or until the maximum number of retries occur.  Retry policies can be defined for all functions in an app or for individual functions.  By default, a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#trigger-specific-retry-support)).  A retry policy is evaluated whenever an execution results in an uncaught exception.  As a best practice, you should catch all exceptions in your code and rethrow any errors that should result in a retry.  Event Hubs and Azure Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition is paused until the current batch has completed.
+A retry policy can be defined on any function for any trigger type in your function app.  The retry policy re-executes a function until either successful execution or until the maximum number of retries occur.  Retry policies can be defined for all functions in an app or for individual functions.  By default, a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#using-retry-support-on-top-of-trigger-resilience)).  A retry policy is evaluated whenever an execution results in an uncaught exception.  As a best practice, you should catch all exceptions in your code and rethrow any errors that should result in a retry.  Event Hubs and Azure Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition is paused until the current batch has completed.
 
 ### Retry policy options
 
