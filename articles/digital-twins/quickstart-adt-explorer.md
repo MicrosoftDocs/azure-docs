@@ -34,7 +34,7 @@ The quickstart contains the following major steps:
 
 The sample graph you'll be working with represents a building with two floors and two rooms. The graph will look like this image:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of four circular nodes connected by arrows. A circle labeled "Floor1" is connected by an arrow labeled "contains" to a circle labeled "Room1". A circle labeled "Floor0" is connected by an arrow labeled "contains" to a circle labeled "Room0". "Floor1" and "Floor0" aren't connected.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of four circular nodes connected by arrows. A circle labeled 'Floor1' is connected by an arrow labeled 'contains' to a circle labeled 'Room1'. A circle labeled 'Floor0' is connected by an arrow labeled 'contains' to a circle labeled 'Room0'. 'Floor1' and 'Floor0' aren't connected.":::
 
 ## Prerequisites
 
@@ -136,14 +136,14 @@ Follow these steps to upload models.
 
 >[!NOTE]
 >If you see the following error message:
-> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading "Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser." with a Close button at the bottom." border="false"::: 
+> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading 'Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser.' with a Close button at the bottom." border="false"::: 
 > Try disabling your pop-up blocker or using a different browser.
 
 ADT Explorer now uploads these model files to your Azure Digital Twins instance. They should show up in the **MODEL VIEW** box and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="A view of the Model View box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter "i" in a circle is highlighted for each model." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="A view of the Model View box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The View Model information icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -190,7 +190,7 @@ Follow these steps to import the graph.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="A dialog box indicating graph import success. It reads "Import successful. 4 twins imported. 2 relationships imported."" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="A dialog box indicating graph import success. It reads 'Import successful. 4 twins imported. 2 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -208,7 +208,7 @@ This action runs the default query to select and display all digital twins. ADT 
 
 Now you can see the uploaded graph of the sample scenario.
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of the Graph View box with a twin graph inside. A circle labeled "floor1" is connected by an arrow labeled "contains" to a circle labeled "room1." A circle labeled "floor0" is connected by an arrow labeled "contains" to a circle labeled "room0."":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of the Graph View box with a twin graph inside. A circle labeled 'floor1' is connected by an arrow labeled 'contains' to a circle labeled 'room1.' A circle labeled 'floor0' is connected by an arrow labeled 'contains' to a circle labeled 'room0.'":::
 
 The circles (graph "nodes") represent digital twins. The lines represent relationships. The **Floor0** twin contains **Room0**, and the **Floor1** twin contains **Room1**.
 

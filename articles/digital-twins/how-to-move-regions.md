@@ -174,7 +174,7 @@ ADT Explorer now uploads your models and graph (including the twins and relation
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog box indicating graph import success. It reads "Import successful. 2 models imported. 4 twins imported. 2 relationships imported."" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 2 models imported. 4 twins imported. 2 relationships imported.'" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
