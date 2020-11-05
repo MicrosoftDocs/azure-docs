@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/05/2020
 ms.author: b-juche
 ---
 
@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
 
-## October 2020
+## November 2020
 
 * [Snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
 
