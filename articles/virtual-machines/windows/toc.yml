@@ -36,21 +36,21 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Manage VMs
+  - name: 10 - Enable disaster recovery
+    href: tutorial-disaster-recovery.md
+  - name: 11 - Manage VMs
     displayName: scope policy RBAC lock tag
     href: tutorial-govern-resources.md
-  - name: 11 - Track and update VMs
+  - name: 12 - Track and update VMs
     href: tutorial-config-management.md
-  - name: 12 - Monitor VMs
+  - name: 13 - Monitor VMs
     href: tutorial-monitor.md
-  - name: 13 - Manage VM security
+  - name: 14 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 14 - Install a SQL\IIS\.NET stack
+  - name: 15 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 15 - Secure web server with SSL
-    href: tutorial-secure-web-server.md
-  - name: 16 - Enable disaster recovery for a VM
-    href: tutorial-disaster-recovery.md
+  - name: 16 - Secure web server with SSL
+    href: tutorial-secure-web-server.md 
 - name: Samples
   items:
   - name: PowerShell index

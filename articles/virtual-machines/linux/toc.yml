@@ -36,32 +36,32 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Manage VMs
-    href: tutorial-govern-resources.md
-  - name: 11 - Track and update VMs
-    href: tutorial-config-management.md
-  - name: 12 - Monitor VMs
-    href: tutorial-monitor.md
-  - name: 13 - Manage VM security
-    href: tutorial-azure-security.md
-  - name: 14a - Build with Jenkins
-    href: /azure/developer/jenkins/pipeline-with-github-and-docker
-  - name: 14b - Integrate Jenkins with Azure DevOps
-    href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-  - name: 15a - Configure Rolling deployment strategy
-    href: tutorial-devops-azure-pipelines-classic.md
-  - name: 15b - Configure Canary deployment strategy
-    href: tutorial-azure-devops-canary-strategy.md
-  - name: 15c - Configure Blue-Green deployment strategy
-    href: tutorial-azure-devops-blue-green-strategy.md
-  - name: 15d - CI/CD with Azure Pipelines(YAML)
-    href: tutorial-build-deploy-azure-pipelines.md
-  - name: 16 - Create LAMP stack
-    href: tutorial-lamp-stack.md
-  - name: 17 - Secure web server with SSL
-    href: tutorial-secure-web-server.md
-  - name: 18 - Enable disaster recovery for a VM
+  - name: 10 - Enable disaster recovery 
     href: tutorial-disaster-recovery.md
+  - name: 11 - Manage VMs
+    href: tutorial-govern-resources.md
+  - name: 12 - Track and update VMs
+    href: tutorial-config-management.md
+  - name: 13 - Monitor VMs
+    href: tutorial-monitor.md
+  - name: 14 - Manage VM security
+    href: tutorial-azure-security.md
+  - name: 15a - Build with Jenkins
+    href: /azure/developer/jenkins/pipeline-with-github-and-docker
+  - name: 15b - Integrate Jenkins with Azure DevOps
+    href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
+  - name: 16a - Configure Rolling deployment strategy
+    href: tutorial-devops-azure-pipelines-classic.md
+  - name: 16b - Configure Canary deployment strategy
+    href: tutorial-azure-devops-canary-strategy.md
+  - name: 16c - Configure Blue-Green deployment strategy
+    href: tutorial-azure-devops-blue-green-strategy.md
+  - name: 16d - CI/CD with Azure Pipelines(YAML)
+    href: tutorial-build-deploy-azure-pipelines.md
+  - name: 17 - Create LAMP stack
+    href: tutorial-lamp-stack.md
+  - name: 18 - Secure web server with SSL
+    href: tutorial-secure-web-server.md
 - name: Samples
   items:
   - name: Azure CLI
