@@ -5689,6 +5689,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/prepay-reserved-vm-instances.md",
+      "redirect_url": "/azure/virtual-machines/prepay-reserved-vm-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/prepay-reserved-vm-instances.md",
+      "redirect_url": "/azure/virtual-machines/prepay-reserved-vm-instances",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
       "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
       "redirect_document_id": false
@@ -35828,6 +35838,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/portal-create-fqdn.md",
+      "redirect_url": "/azure/virtual-machines/create-fqdn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/portal-create-fqdn.md",
+      "redirect_url": "/azure/virtual-machines/create-fqdn",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/media-services-protect-hls-with-fairplay.md",
       "redirect_url": "/azure/media-services/previous/media-services-protect-hls-with-fairplay",
       "redirect_document_id": false
@@ -36580,6 +36600,16 @@
     {
       "source_path": "articles/virtual-machines/linux/about-disks-and-vhds.md",
       "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/mitigate-se.md",
+      "redirect_url": "/azure/virtual-machines/mitigate-se",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/mitigate-se.md",
+      "redirect_url": "/azure/virtual-machines/mitigate-se",
       "redirect_document_id": false
     },
     {

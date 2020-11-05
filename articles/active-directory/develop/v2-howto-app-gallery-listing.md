@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -92,6 +92,7 @@ The following table compares the main standards: Open Authentication 2.0 (OAuth 
 | Mobile-based single sign-out| √| √* |
 | Conditional Access policies for mobile applications| √| X |
 | Seamless MFA experience for mobile applications| √| X |
+| SCIM Provisioning| √| √ |
 | Access Microsoft Graph| √| X |
 
 *Possible, but Microsoft doesn't provide samples or guidance.
@@ -256,7 +257,7 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-If you are implementing a SCIM 2.0 endpoint for user provisioning, select the option as shown. 
+If you are implementing a [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 endpoint for user provisioning, select the option as shown. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 

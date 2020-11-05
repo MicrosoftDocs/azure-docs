@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invites click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
+In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 
 The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
@@ -40,6 +40,8 @@ To create a suggester, add one to an [index schema](/rest/api/searchservice/crea
 
 + Use the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`) on the field
 
+If you try to create a suggester using pre-existing fields, the API will disallow it. Prefixes are generated during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you will have to rebuild the index if you want to add them to a suggester. For more information, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
+
 ### Choose fields
 
 Although a suggester has several properties, it is primarily a collection of string fields for which you are enabling a search-as-you-type experience. There is one suggester for each index, so the suggester list must include all fields that contribute content for both suggestions and autocomplete.
@@ -60,12 +62,6 @@ Fields that use [custom analyzers](index-add-custom-analyzers.md) or [predefined
 
 > [!NOTE]
 > If you need to work around the analyzer constraint, for example if you need a keyword or ngram analyzer for certain query scenarios, you should use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
-
-### When to create a suggester
-
-The best time to create a suggester is when you are also creating the field definition itself.
-
-If you try to create a suggester using pre-existing fields, the API will disallow it. Prefixes are generated during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you will have to rebuild the index if you want to add them to a suggester. For more information, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
 
 ## Create using REST
 
@@ -142,9 +138,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 A suggester is used in a query. After a suggester is created, call one of the following APIs for a search-as-you-type experience:
 
-+ [Suggestions REST API](/rest/api/searchservice/suggestions) 
-+ [Autocomplete REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [Suggestions REST API](/rest/api/searchservice/suggestions)
++ [Autocomplete REST API](/rest/api/searchservice/autocomplete)
++ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
 + [AutocompleteWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 In a search application, client code should leverage a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query and provide the match. For more information about this task, see [Add autocomplete or suggested results to client code](search-autocomplete-tutorial.md).
@@ -162,8 +158,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## Sample code
 
 + [Create your first app in C# (lesson 3 - Add search-as-you-type)](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample runs on a sandbox Azure Cognitive Search service and uses a pre-loaded Hotels index so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
-
-+ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) is an older sample containing both C# and Java code. It also demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample uses the hosted [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample data. 
 
 ## Next steps
 
