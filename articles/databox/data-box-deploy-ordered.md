@@ -267,31 +267,94 @@ Do the following steps in the Azure portal to order a device.
    > [!NOTE]
    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
-    Select **Next: Security** to continue.
+8. Select **Next: Security** to continue.
 
-    The **Security** screen lets you use your own device and share passwords and choose to use double encryption. 
+    The **Security** screen lets you use your own encryption key and device and share passwords, and choose to use double encryption.
 
     All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
     ![Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-1. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password**.
+9. If you want to use your own customer-managed key to protect your BitLocker key, expand **Encryption type**.
 
-   The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
+    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect your BitLocker key.
 
-   ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+   ![Security screen with Encryption type settings expanded](./media/data-box-deploy-ordered/security-managed-key-01.png)
+
+10. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
+   
+    ![Security screen, Encryption type options for a customer-managed key](./media/data-box-deploy-ordered/security-managed-key-02.png)
+
+11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
+
+    ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/security-managed-key-03.png)
+
+    If you want to create a new key:
+
+    - Select **Create new** to create a new key vault. 
+    - On the **Create key vault** screen:
+      - Enter the resource group and the key vault name. 
+      - Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. 
+      - Select **Review + Create**.
+
+      ![Create a new Azure Key Vault settings](./media/data-box-deploy-ordered/security-managed-key-04.png)
+
+    - Review the information associated with your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+
+      ![New Azyure Key Vault review screen](./media/data-box-deploy-ordered/security-managed-key-05.png)
+
+12. In **Select key from Azure Key Vault**, you can select a key in the existing key vault.
+
+    ![Select existing key from Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)<!--Test existing key vault and reshoot, security-managed-key-06-->
+
+    If you want to create a new key:
+
+    - Select **Create new** and create a key. RSA key size can be 2048 or greater.
+
+      Provide the name for your key, accept the other defaults, and select **Create**.
+
+      ![Create a new key option](./media/data-box-deploy-ordered/security-managed-key-07.png)
+
+      You are notified that a key is created in your key vault.
+
+    - Select the **Version**, and then choose **Select**.
+
+      ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)<!--Reshoot, security-managed-key-08-->
+
+    On the **Security** page, the **Encryption type** settings show the key vault and key selected for your customer-managed key.
+
+    ![Key and key vault for customer-managed key](./media/data-box-deploy-ordered/security-managed-key-09.png)
+
+14. Select a user identity to use with the key vault and key for this order.
+
+    ![Save customer-managed key](./media/data-box-deploy-ordered/security-managed-key-10.png)
+
+    You can't create a new user identity here. For information about creating a user identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+
+    The user identity is displayed in the **Encryption type** settings.
+
+    ![Customer-managed key URL](./media/data-box-deploy-ordered/security-managed-key-11.png)<!--Reshoot in narrow window.-->
+
+    > [!IMPORTANT]
+    > You can disable Microsoft managed key and move to a customer-managed key at any stage of the Data Box order. However, once you have created a customer-managed key, you cannot switch back to the Microsoft managed key.
+
+14. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password**.
+
+    The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
+
+    ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
    
      ![Security screen for Data Box import, options for using your own device password](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
-   - To use your own passwords for shares:
+ - To use your own passwords for shares:
 
-     1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
+   - By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
         ![Security screen for Data Box import, options for using your own share passwords](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-     1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
+    - Type a password for each storage account in the order. The password will be used on all shares for the storage account.
      
         To use the same password for all of the storage accounts, select **Copy to all**. When you finish, select **Save**.
      
@@ -299,38 +362,38 @@ Do the following steps in the Azure portal to order a device.
 
        On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
-1. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
+15. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
-   ![Security screen for Data Box import, enabling software-based encryption for a Data Box order](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+    ![Security screen for Data Box import, enabling software-based encryption for a Data Box order](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
-   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
+    The software-based encryption is performed in addition to the  AES-256 bit encryption of the data on the Data Box.
 
-   > [!NOTE]
-   > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
+    > [!NOTE]
+    > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
 
-   Select **Next: Contact details** to continue.
+    Select **Next: Contact details** to continue.
 
-8. In **Contact details**, select **+ Add Shipping Address**.
+16. In **Contact details**, select **+ Add Shipping Address**.
 
     ![Screenshot of the Order wizard showing the Contact details step of the wizard with the Add Shipping Address option called out.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+17. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
-   ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media/data-box-deploy-ordered/select-data-box-import-10.png)
+    ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
-   If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
+    If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-10. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
+18. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-11. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+19. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
     ![Screenshot of the Email section of the Contact details step of the Order wizard with the Email text box and the Next: Review and Order option called out.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-12. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+20. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
-13. Select **Order**. The order takes a few minutes to be created.
+21. Select **Order**. The order takes a few minutes to be created.
 
     ![Screenshot of the Order wizard showing the Review and Order step and the Order option called out.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
