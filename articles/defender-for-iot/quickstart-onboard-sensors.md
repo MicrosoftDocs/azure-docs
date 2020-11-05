@@ -54,7 +54,7 @@ Onboarding sensors lets you:
 
 4. Select an option for acquiring a sensor.
 
-   ![Azure Defender for IoT network sector view](media/updates/image6.png)
+   ![Azure Defender for IoT network sensor view](media/updates/image6.png)
 
   - **Buy a preconfigured sensor**: Microsoft and Arrow have partnered to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: <hardware.sales@arrow.com>. The sensor will be delivered to your facility. The most current version is installed.
 

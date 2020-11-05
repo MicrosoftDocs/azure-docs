@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 10/26/2020
+ ms.date: 11/05/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -83,3 +83,7 @@ A session should be initiated only from the Azure portal. Sign in to the Azure p
 ### <a name="udr"></a>How do I handle deployment failures?
 
 Review any error messages and [raise a support request in the Azure portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures may result from [Azure subscription limits, quotas and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+
+### <a name="dr"></a>How do I incorporate Azure Bastion in my DR plan?
+
+Because Azure Bastion is associated to an Azure Region and is deployed within VNets or peered VNets, you are responsible for deploying Azure Bastion to a disaster recovery (DR) site VNet. In the event of an Azure region failure, you perform a failover operation for virtual machines, then use the Azure Bastion host that's deployed in the DR region to connect to the VMs deployed in the DR region.
