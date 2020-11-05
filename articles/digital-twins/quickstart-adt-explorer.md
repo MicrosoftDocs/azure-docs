@@ -136,7 +136,7 @@ Follow these steps to upload models.
 
 >[!NOTE]
 >If you see the following error message:
-> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading "Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser." with a **Close** button at the bottom." border="false"::: 
+> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading "Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser." with a Close button at the bottom." border="false"::: 
 > Try disabling your pop-up blocker or using a different browser.
 
 ADT Explorer now uploads these model files to your Azure Digital Twins instance. They should show up in the **MODEL VIEW** box and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.

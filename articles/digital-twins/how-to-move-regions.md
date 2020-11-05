@@ -88,7 +88,7 @@ Next, set up and configure permissions for ADT Explorer. Follow the instructions
 
 1. Set up an Azure Digital Twins instance. You can skip this part because you already have an instance.
 1. Set up local Azure credentials to provide access to your instance.
-1. Run ADT Explorer and configure it to connect to your instance. You'll use the *hostname* of your original Azure Digital Twins instance that you're moving.
+1. Run ADT Explorer and configure it to connect to your instance. You'll use the *host name* of your original Azure Digital Twins instance that you're moving.
 
 Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
@@ -126,7 +126,7 @@ First, create a new instance of Azure Digital Twins in your target region. Follo
 * You can keep the same name for the new instance *if* it's in a different resource group. If you need to use the same resource group that contains your original instance, your new instance will need its own distinct name.
 * Enter the new target region when prompted for a location.
 
-After this step is complete, you'll need the hostname of your new instance to continue setting it up with your data. If you didn't make a note of the hostname during setup, follow [these instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) to get it now from the Azure portal.
+After this step is complete, you'll need the host name of your new instance to continue setting it up with your data. If you didn't make a note of the host name during setup, follow [these instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) to get it now from the Azure portal.
 
 ### Repopulate the old instance
 
@@ -144,7 +144,7 @@ Currently, ADT Explorer is connected to your original Azure Digital Twins instan
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon in the upper-right corner of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Replace the **ADT URL** to reflect your new instance. Change this value so that it reads **https://{new instance hostname}**.
+Replace the **ADT URL** to reflect your new instance. Change this value so that it reads *https://{new instance host name}*.
 
 Select **Connect**. You might be asked to sign in again with your Azure credentials or grant this application consent for your instance.
 
@@ -156,9 +156,9 @@ To upload your models, twins, and graph, select the **Import Graph** icon in the
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
 
-In the file selector box, go to your downloaded graph. Select the graph **.json** file and select **Open**.
+In the file selector box, go to your downloaded graph. Select the graph **.json** file, and select **Open**.
 
-After a few seconds, ADT Explorer opens an **Import** view that shows a preview of the graph that's going to be loaded.
+After a few seconds, ADT Explorer opens an **Import** view that shows a preview of the graph to be loaded.
 
 To confirm the graph upload, select the **Save** icon in the upper-right corner of the **GRAPH VIEW** box.
 
@@ -198,7 +198,7 @@ If you have endpoints or routes in your original instance, you'll need to re-cre
 
 Otherwise, follow the steps in [Manage endpoints and routes](how-to-manage-routes-portal.md) using the new instance. Keep these pointers in mind:
 
-* You do *not* need to re-create the Event Grid, Event Hub, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to re-create the endpoint on the Azure Digital Twins instance.
+* You do *not* need to re-create the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to re-create the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
 * Remember to add any required filters to the routes you create.
 
@@ -208,11 +208,11 @@ If you have other apps or Azure resources that are connected to your original Az
 
 If you don't have any other resources connected to your original instance or you don't want to move them to the new instance, you can skip to the [next section](#verify).
 
-Otherwise, consider the connected resources in your scenario. You don't need to delete and re-create any connected resources. Instead, you just need to edit the points where they connect to an Azure Digital Twins instance through its hostname. Then you update these points to use the hostname of the new instance instead of the original.
+Otherwise, consider the connected resources in your scenario. You don't need to delete and re-create any connected resources. Instead, you just need to edit the points where they connect to an Azure Digital Twins instance through its host name. Then you update these points to use the host name of the new instance instead of the original.
 
 The exact resources you need to edit depends on your scenario, but here are some common integration points:
 
-* Azure Functions. If you have an Azure function whose code includes the hostname of the original instance, you should update this value to the new instance's hostname and republish the function.
+* Azure Functions. If you have an Azure function whose code includes the host name of the original instance, you should update this value to the new instance's host name and republish the function.
 * Event Grid, Event Hubs, or Service Bus.
 * Logic Apps.
 * Time Series Insights.
