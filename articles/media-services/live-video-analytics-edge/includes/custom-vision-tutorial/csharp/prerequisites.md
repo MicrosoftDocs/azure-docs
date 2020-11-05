@@ -7,5 +7,5 @@ Prerequisites for this tutorial are:
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
 * Ensure you have:
     
-    * [Set up Azure Resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Set up Azure Resources](../../../detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Set up your development environment](../../../detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
