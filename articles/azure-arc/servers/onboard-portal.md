@@ -149,7 +149,7 @@ bash ~/Install_linux_azcmagent.sh
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.sh` script.
 
-If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is */opt/logs*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is */opt/logs.
 
 ## Verify the connection with Azure Arc
 
