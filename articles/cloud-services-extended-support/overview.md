@@ -19,7 +19,7 @@ Cloud Services (extended support) provides two paths for customers to migrate fr
 
 ## Changes in deployment model  
 
-Minimal changes are required to cscfg/csdef to deploy to ARM based Cloud Services (extended support) redeploy path. No changes are required to runtime code. However the deployment scripts will need to be updated to call new ARM based APIs. Please find below primary differences between Cloud Services (classic) and Cloud Services (extended support) re-deploy path w.r.t deployment artifacts are: 
+Minimal changes are required to cscfg/csdef to deploy to ARM based Cloud Services (extended support) redeploy path. No changes are required to runtime code. However, the deployment scripts will need to be updated to call new ARM based APIs. 
 
 - The ARM template needs to be maintained and kept consistent with cscfg/csdef for Cloud Services (extended support) deployments.
 - Cloud Services (extended support) does not have a concept of Hosted Service. Each deployment is its own separate cloud service. Likewise, the concept of Staging and Production slots do not exist for Cloud Services (extended support).
