@@ -1,12 +1,12 @@
 ---
 title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
-author: msft-tacox
-ms.author: tacox
-ms.reviewer: jasonh
+author: kevxmsft
+ms.author: kevx
+ms.reviewer: 
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 11/4/2020
 ---
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -35,14 +35,18 @@ HDInsight 3.6 by default does not support ACID tables. If ACID tables are presen
 
 ### 3. Upgrade the metastore schema
 
-Use [`Hive Schema Tool`](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) from HDInsight 4.0 to upgrade the schema.
+This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) from HDInsight 4.0 to upgrade the metastore schema.
 
 > [!Warning]
 > This step is not reversible. Run this only on a copy of the metastore.
 
-1. Create a temporary HDInsight 4.0 cluster **without specifying database for Hive Metastore**. This cluster will be used solely for the `Hive Schema Tool`, because create request is invalid when configuring un-upgraded HDInsight 3.6 Hive schema. It is conceivable to configure this cluster to the metastore after upgrading, but we recommend to create a new cluster instead, for automatic validations and Hive configurations.
+1. Create a temporary HDInsight 4.0 cluster with a [default Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#default-metastore).
 
-1. From the HDInsight 4.0 cluster, execute `schematool`:
+    We can specify the custom Hive metastore for HDInsight 4.0 only after we upgrade its schema. We have not yet upgraded the schema, so do not specify a custom metastore yet.
+
+    After schema upgrade, we recommend not to configure the metastore on an existing cluster. Instead, create a new cluster for automatic validations and configurations.
+
+1. From the HDInsight 4.0 cluster, execute `schematool` to upgrade the metastore:
 
     ```sh
     SERVER='servername.database.windows.net'  # replace with your SQL Server
@@ -57,23 +61,37 @@ Use [`Hive Schema Tool`](https://cwiki.apache.org/confluence/display/Hive/Hive+S
     > This utility uses client `beeline` to execute SQL scripts in `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`, following the order in file `upgrade.order.mssql`.
     >
     > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) and [Query Editor on Azure Portal](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) require keyword `GO` after each command.
+    >
+    > If any script fails due to resource capacity or transaction timeouts, scale the SQL Database up.
 
 1. Verify the final version with query `select schema_version from dbo.version`.
 
+1. Delete the temporary HDInsight 4.0 cluster.
+
+
 ### 4. Deploy a new HDInsight 4.0 cluster
 
-1. Create a new HDInsight 4.0 cluster, [selecting the upgraded Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#select-a-custom-metastore-during-cluster-creation).
+Create a new HDInsight 4.0 cluster, [selecting the upgraded Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#select-a-custom-metastore-during-cluster-creation) and the same Storage Accounts.
 
-1. A Hive table or database will not be accessible to the cluster until its storage account is configured. Configure all required storage accounts now.
+* If using [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/overview-data-lake-storage-gen1) the new cluster also requires the same mount point so that table locations with prefix `adl://home` translate correctly. To confirm, check HDFS config `dfs.adls.home.mountpoint` in `Custom core-site` via [Ambari](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari).
 
-    * A metastore query like this could help identify the storage accounts.
+* Azure Data Lake Storage Gen2 and Azure Blob Storage do not require the same container.
 
-        ```SQL
-        SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TBLS.SD_ID = SDS.SD_ID AND TBLS.DB_ID = DBS.DB_ID ORDER BY DBS.NAME, TBLS.TBL_NAME ASC
-        ```
+* See article [Add additional Storage Accounts to HDInsight](../hdinsight-hadoop-add-storage.md) if the metastore uses multiple Storage Accounts.
 
-    * If using [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/overview-data-lake-storage-gen1) the new cluster requires the same mount point; otherwise, table locations with prefix `adl://home` are interpreted differently. Verify that HDFS config `dfs.adls.home.mountpoint` in `Custom core-site` has the same value between clusters via [Ambari](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari).
-    * See article [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md) if the metastore uses multiple storage accounts.
+* If Hive jobs fail due to storage inaccessibility, verify that the table location is in a configured Storage Account.
+
+    Here are some options to identify table locations.
+
+    ```sql
+    -- Hive command
+    SHOW CREATE TABLE ([db_name.]table_name|view_name);
+    ```
+
+    ```sql
+    -- Metastore SQL query
+    SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TBLS.SD_ID = SDS.SD_ID AND TBLS.DB_ID = DBS.DB_ID ORDER BY DBS.NAME, TBLS.TBL_NAME ASC;
+    ```
 
 ### 5. Convert Tables for ACID Compliance
 
