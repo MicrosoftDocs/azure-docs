@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.author: allensu
 ---
 
-# Configuring SNAT for Outbound Connections
+# Using SNAT for Outbound Connections
 
 The frontend IPs of an Azure public load balancer can be used to provide outbound connectivity to the internet for backend instances.This configuration uses **source network address translation (SNAT)**. SNAT rewrites the IP address of the backend to the public IP address of your load balancer. 
 
