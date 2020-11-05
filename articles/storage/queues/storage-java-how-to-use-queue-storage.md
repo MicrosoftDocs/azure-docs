@@ -148,7 +148,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-You can store this string in the service config file called *ServiceConfiguration.cscfg*. For an app running within a  Microsoft Azure role, access the connection string by calling **RoleEnvironment.getConfigurationSettings**. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString*:
+
+You can store this string in the service config file called *ServiceConfiguration.cscfg*. For an app running within a Microsoft Azure role, access the connection string by calling **RoleEnvironment.getConfigurationSettings**. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString*:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -596,10 +597,10 @@ catch (Exception e)
 
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
-* [Azure Storage SDK for Java][Azure Storage SDK for Java]
-* [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]
-* [Azure Storage Services REST API][Azure Storage Services REST API]
-* [Azure Storage Team Blog][Azure Storage Team Blog]
+- [Azure Storage SDK for Java][Azure Storage SDK for Java]
+- [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]
+- [Azure Storage Services REST API][Azure Storage Services REST API]
+- [Azure Storage Team Blog][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
