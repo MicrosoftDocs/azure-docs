@@ -14,24 +14,21 @@ ms.custom:
 
 Frequently asked questions related to Cloud Services (extended support) Migration.
 
-
 ## How do I migrate my existing deployment to ARM? 
 
-We recommend following steps: 
+- Read docs and understand what cloud services (extended support) have to offer. 
 
-Read docs and understand what cloud services (extended support) have to offer. 
+- Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.  
 
-Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.  
+- Understand the set of features used and blockers for migration 
 
-Understand the set of features used and blockers for migration 
+- Build a catalog of custom tools, automations, dashboard built that need to update to start using newer APIs, PS/CLI commands & SDKs. 
 
-Build a catalog of custom tools, automations, dashboard built that need to updated to start using newer APIs, PS/CLI commands & SDKs. 
+- Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A) 
 
-Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A) 
+- Build a detailed migration plan and execution timeline.  
 
-Build a detailed migration plan and execution timeline.  
-
-Start and complete migration. Customers can either do a lift & shift migration (create parallel deployment on ARM, thoroughly test the deployment, migrate traffic from old to new deployment) or migrate within microsoft provided migration tool (will be soon released).  
+- Start and complete migration. Customers can either do a lift & shift migration (create parallel deployment on ARM, thoroughly test the deployment, migrate traffic from old to new deployment) or migrate within microsoft provided migration tool (will be soon released).  
 
 ## What other compute products are available for migration and how to migrate? 
 
@@ -79,7 +76,7 @@ Microsoft Support is available for technical assistance and to handle migration 
 
 ## Why am I able to see a Load Balancer resource in my subscription and resource group? 
 
-Cloud services (extended support) aims to give customers more control and/or visibility into their 	deployment. The load balancer is now an explicit 'read only' resource automatically created by the platform; customers only need to provide the load balancer name in the ARM template. 
+Cloud services (extended support) aim to give customers more control and/or visibility into their 	deployment. The load balancer is now an explicit 'read only' resource automatically created by the platform; customers only need to provide the load balancer name in the ARM template. 
 
 ## Why is a Virtual Network mandatory for my cloud service (extended support) deployments? 
 
@@ -95,4 +92,4 @@ Cloud services (extended support) can only use 'Basic' SKU Public IPs in ARM. Yo
 
 ## Do I get a DNS name for my cloud services (extended support)? 
 
-Yes, cloud services (extended support) can also be given a DNS name . With Azure Resource Manager, the DNS label is an optional property of the Public IP address that is assigned to the cloud service. The format of the DNS name for ARM based deployments as <userlabel>.<region>. cloudapp.azure.com 
+Yes, cloud services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the Public IP address that is assigned to the cloud service. The format of the DNS name for ARM based deployments as `userlabel.region.cloudapp.azure.com `
