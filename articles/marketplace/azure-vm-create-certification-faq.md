@@ -32,6 +32,9 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 > [!Note]
 > If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Azure Marketplace.  
 
+> [!Note]
+> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
+
 ## VM extension failure
 
 Check to see whether your image supports VM extensions.
@@ -73,6 +76,45 @@ Provisioning issues can include the following failure scenarios:
 > For more information about VM generalization, see:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## VHD specifications
+
+### Conectix cookie and other VHD specifications
+The 'conectix' string is part of the VHD specification, and defined as the 8 byte 'cookie' in the VHD footer below that identifies the file creator. All vhd files created by Microsoft have this cookie. 
+
+A VHD formatted blob should have a 512 byte footer; this is the VHD footer format:
+
+|Hard disk footer fields|Size (bytes)|
+|---|---|
+Cookie|8
+Features|4
+File Format Version|4
+Data Offset|8
+Time Stamp|4
+Creator Application|4
+Creator Version|4
+Creator Host OS|4
+Original Size|8
+Current Size|8
+Disk Geometry|4
+Disk Type|4
+Checksum|4
+Unique ID|16
+Saved State|1
+Reserved|427
+
+
+### VHD specifications
+To ensure a seamless publishing experience, ensure that **VHD meets the following criteria :**
+* The cookie must contain the string “conectix”
+* The disk type must be Fixed
+* The VHD’s virtual size is at least 20MB
+* The VHD is aligned (i.e. the virtual size must be a multiple of 1 MB)
+* The VHD blob length = virtual size + VHD footer length (512)
+
+You can download the VHD specification [here.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## Software compliance for Windows
 
@@ -143,7 +185,7 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |
 
-If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team.
+If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team. 
 
 ## Data disk size verification
 
@@ -176,7 +218,7 @@ As VMs allow access to the underlying operating system, ensure that the VHD size
 
 To prevent a potential attack related to the WannaCry virus, ensure that all Windows image requests are updated with the latest patch.
 
-To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table:
+To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table: 
 
 The image file version can be verified from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
@@ -200,13 +242,13 @@ Update the kernel with an approved version, and resubmit the request. You can fi
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
-- CVE-2019-11477
-- CVE-2019-11478
+- CVE-2019-11477 
+- CVE-2019-11478 
 - CVE-2019-11479
 
 |OS family|Version|Kernel|
 |---|---|---|
-|Ubuntu|14.04 LTS|4.4.0-151|
+|Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
@@ -237,7 +279,7 @@ If your image isn't installed with one of the following kernel versions, update 
 ||SLES15|4.12.14-5.30.1 (kernel-azure)|
 ||SLES15 for SAP|4.12.14-5.30.1 (kernel-azure)|
 ||SLES15SP1|4.12.14-5.30.1 (kernel-azure)|
-|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3
+|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK follows RHEL above|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS Stable 2079.6.0|4.19.43*|
@@ -262,13 +304,22 @@ If you come across access denied issues while you're running the test cases on t
 
 Check to see whether proper access is enabled for the account on which the self-test cases are running. If access is not enabled, enable it to run the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
 
-## Download failure
+If you want to submit your request with SSH disabled image for certification process, please follow the below steps
 
+1. Execute the Azure toolkit on your image. (Please download [Latest Toolkit](https://aka.ms/AzureCertificationTestTool)
+
+2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport), attach the toolkit report and provide offer details- offer name, publisher name, plan id/SKU and version.
+
+3. Please re-submit your certification request..
+
+
+## Download failure
+    
 Refer to the following table for any issues that arise when you download the VM image by using a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
-|1|Blob not found|The VHD might either be deleted or moved from the specified location.||
+|1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
 |2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it by using an SAS URL.|
 |3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
@@ -282,6 +333,95 @@ When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Othe
 
 >[!NOTE]
 >*For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a Billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
+
+
+## Steps for creating First MB (2048 KB) partition (Only for Linux) on an Empty VHD
+
+Step 1: Create any kind of VM (Example: Ubuntu, Cent OS, etc). Fill the required fields and click on “Next:Disks>” \
+![Next: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Step 2: Create an un-managed disk for the above VM.
+![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
+
+Step 3: After creating the VM, please click on “Disks” which is on the left side as shown below
+![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Step 4:  Please attach your VHD as data disk to the above VM for creating Partition table as below.
+![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Click on Add DataDisk -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click OK as below \
+![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
+
+Step 5:  After re-starting the VM, Login into the VM using Putty(or any other client) and run “sudo  -i” command to gain root access.
+
+![Login into the VM](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Step 6: Follow below steps to create partition on your VHD.
+
+a) Type fdisk /dev/sdb command
+
+b) For viewing the existing partition list from your VHD, Type p
+
+c) Type d for deleting all existing partition available in your VHD (You can skip this step, if it is not required)
+![Delete all existing partition](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) Type n to create new partition and select p for (primary partition).
+
+e) Please enter 2048 as “First Sector” value and you can leave “last Sector” as it will take default value.Please note that any data will be erased till 2048 KB.
+           
+>[!NOTE]
+>*Please note that by creating the partition as above any existing data will be erased till 2048 KB, hence it is advised to take a backup of the VHD before executing the above command.
+
+Please find the below screenshot for your reference.
+![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) Type w to confirm the creation of partition. 
+
+![Creation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) You can verify the partition table by running the command n fdisk /dev/sdb and typing p, then you can see as below, that partition is created with 2048 offset value. 
+
+ ![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+Step 7:  please detach the VHD from VM and Delete the VM.
+
+         
+## Steps for creating First MB (2048 KB) partition (Only for Linux) by moving the existing data on VHD
+
+Step 1: Create any kind of VM (Example: Ubuntu, Cent OS, etc). Fill the required fields and click on “Next:Disks>” \
+![Click on “Next:Disks>”](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Step 2: Create an un-managed disk for the above VM.
+![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
+
+Step 3: After creating the VM, please click on “Disks” which is on the left side as shown below
+![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Step 4:  Please attach your VHD as data disk to the above VM for creating Partition table as below.
+![Partition table](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Click on Add DataDisk -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click OK as below \
+![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
+
+Step 5:  After re-starting the VM, Login into the VM using Putty and run “sudo  -i” command to gain root access. \
+![Login after restart](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Step 6: Please excute the command echo '+1M,' | sfdisk --move-data /dev/sdc -N 1
+      ![Execute command](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>*Please note that the above command may take more time to complete, as it depends upon the size of the disk
+
+Step 7:  please detach the VHD from VM and Delete the VM.
+
 
 ## Default credentials
 
@@ -321,7 +461,7 @@ For solutions to errors that are related to the data disk, use the following tab
 
 ## Remote access issue
 
-If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error.
+If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error. 
 
 Enable RDP access for Windows images before you submit them.
 
@@ -407,7 +547,7 @@ To complete these steps you'll need to prepare the technical assets for the VM i
 5. On the **Technical configuration** tab, under **VM Images** , select **+ Add VM Image**.
 
 > [!NOTE]
-> You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one and wait until it reaches the Publisher sign-off stage, then add the next VM image.
+> You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one live before you add the next VM image.
 
 6. In the boxes that appear, provide a new disk version and the virtual machine image.
 7. Select **Save draft**.

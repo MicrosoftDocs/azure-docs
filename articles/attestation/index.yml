@@ -54,7 +54,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Authoring and signing an attestation policy
+          - text: Authoring an attestation policy
             url: author-sign-policy.md
           - text: SGX attestation code samples
             url: /samples/browse/?expanded=azure&terms=attestation

@@ -123,8 +123,6 @@
       href: platform/data-platform-metrics.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
-  - name: Insights
-    href: insights/insights-overview.md
   - name: Data security
     items:
     - name: Log data
@@ -212,8 +210,6 @@
       href: log-query/get-started-portal.md
     - name: Query scope
       href: log-query/scope.md
-    - name: Simple logs experience
-      href: log-query/simple-logs.md
     - name: Query with Azure Data Explorer
       href: platform/azure-data-explorer-monitor-proxy.md
     - name: Log queries
@@ -292,8 +288,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: PowerShell
           href: platform/powershell-workspace-configuration.md
-        - name: Resource Manager template
-          href: ./samples/resource-manager-workspace.md
+      - name: Monitor a workspace
+        href: platform/monitor-workspace.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Manage access
@@ -556,8 +552,6 @@
         href: platform/alerts-managing-smart-groups.md   
       - name: Manage alert and smart group states
         href: platform/alerts-managing-alert-states.md  
-      - name: Manage alerts from other monitoring services
-        href: platform/alerts-managing-nagios-zabbix-scom.md   
     - name: Alert API
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
@@ -576,8 +570,6 @@
         href: platform/itsmc-service-manager-script.md
       - name: Fix ServiceNow ITSM sync problems
         href: platform/itsmc-resync-servicenow.md
-    - name: Alert Management solution
-      href: platform/alert-management-solution.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -700,13 +692,15 @@
         href: app/kubernetes-codeless.md
       - name: Standalone - any environment
         items:  
-          - name: Java (preview)
+          - name: Java
             items:
             - name: Overview
               href: app/java-in-process-agent.md
             - name: Configuration options
-              href: app/java-standalone-config.md 
-            - name: JVM arguments setup 
+              href: app/java-standalone-config.md
+            - name: Telemetry processors
+              href: app/java-standalone-telemetry-processors.md
+            - name: JVM arguments setup
               href: app/java-standalone-arguments.md
       - name: On-Premises servers
         items:
@@ -1022,8 +1016,12 @@
       href: insights/container-insights-analyze.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
+    - name: Monitor network configuration
+      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
       href: insights/container-insights-deployment-hpa-metrics.md
+    - name: Monitor Persistent Volumes (PVs)
+      href: insights/container-insights-persistent-volumes.md
     - name: View live data
       items:
       - name: Live Data (preview) overview
@@ -1064,7 +1062,7 @@
           href: insights/container-insights-optout-hybrid.md
     - name: Troubleshooting
       href: insights/container-insights-troubleshoot.md
-  - name: Other insights
+  - name: Insights
     items: 
     - name: Azure Cache for Redis (preview)
       href: insights/redis-cache-insights-overview.md
@@ -1081,59 +1079,61 @@
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
-  - name: Solutions
-    items:
-    - name: Overview
-      href: insights/solutions.md
-      displayName: Azure CLI, az monitor log-analytics
-    - name: Target solutions
-      href: insights/solution-targeting.md
-    - name: Available solutions
+    - name: Solutions
       items:
-      - name: AD health assessment
-        href: insights/ad-assessment.md
-      - name: AD Replication Status
-        href: insights/ad-replication-status.md
-      - name: Capacity and performance solution
-        href: insights/capacity-performance.md
-      - name: Docker and Windows Container monitoring
-        href: insights/containers.md
-      - name: Networks
+      - name: Overview
+        href: insights/solutions.md
+        displayName: Azure CLI, az monitor log-analytics
+      - name: Target solutions
+        href: insights/solution-targeting.md
+      - name: Available solutions
         items:
-        - name: Networking Analytics
-          href: insights/azure-networking-analytics.md
-        - name: DNS
-          href: insights/dns-analytics.md
-        - name: Network Performance Monitor
+        - name: AD health assessment
+          href: insights/ad-assessment.md
+        - name: AD Replication Status
+          href: insights/ad-replication-status.md
+        - name: Capacity and performance solution
+          href: insights/capacity-performance.md
+        - name: Docker and Windows Container monitoring
+          href: insights/containers.md
+        - name: Networks
           items:
-          - name: Solution overview
-            href: insights/network-performance-monitor.md
-          - name: Performance Monitor
-            href: insights/network-performance-monitor-performance-monitor.md
-          - name: Service Connectivity Monitor
-            href: insights/network-performance-monitor-service-connectivity.md
-          - name: ExpressRoute
-            href: insights/network-performance-monitor-expressroute.md
-          - name: Pricing
-            href: insights/network-performance-monitor-pricing-faq.md
-          - name: FAQ
-            href: insights/network-performance-monitor-faq.md
-      - name: Office 365
-        href: insights/solution-office-365.md
-      - name: Service Map solution
-        href: insights/service-map.md
-      - name: Service Map and Operations Manager
-        href: insights/service-map-scom.md
-      - name: Azure SQL
-        href: insights/azure-sql.md
-      - name: SQL Server
-        href: insights/sql-assessment.md
-      - name: Surface Hub
-        href: insights/surface-hubs.md
-      - name: VMware Analytics solution
-        href: insights/vmware.md
-      - name: Wire Data solution
-        href: insights/wire-data.md
+          - name: Networking Analytics
+            href: insights/azure-networking-analytics.md
+          - name: DNS
+            href: insights/dns-analytics.md
+          - name: Network Performance Monitor
+            items:
+            - name: Solution overview
+              href: insights/network-performance-monitor.md
+            - name: Performance Monitor
+              href: insights/network-performance-monitor-performance-monitor.md
+            - name: Service Connectivity Monitor
+              href: insights/network-performance-monitor-service-connectivity.md
+            - name: ExpressRoute
+              href: insights/network-performance-monitor-expressroute.md
+            - name: Pricing
+              href: insights/network-performance-monitor-pricing-faq.md
+            - name: FAQ
+              href: insights/network-performance-monitor-faq.md
+        - name: Office 365
+          href: insights/solution-office-365.md
+        - name: Service Map solution
+          href: insights/service-map.md
+        - name: Service Map and Operations Manager
+          href: insights/service-map-scom.md
+        - name: Azure SQL
+          href: insights/azure-sql.md
+        - name: SQL Server
+          href: insights/sql-assessment.md
+        - name: Surface Hub
+          href: insights/surface-hubs.md
+        - name: VMware Analytics solution
+          href: insights/vmware.md
+        - name: Wire Data solution
+          href: insights/wire-data.md
+        - name: Alert Management solution
+          href: platform/alert-management-solution.md
   - name: Workbooks
     items:
     - name: Overview

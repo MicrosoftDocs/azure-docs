@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Message enrichments
       href: tutorial-message-enrichments.md
-    - name: Use metrics and diagnostic logs
+    - name: Use metrics and logs
       href: tutorial-use-metrics-and-diags.md
     - name: Perform manual failover
       href: tutorial-manual-failover.md
@@ -135,12 +135,12 @@
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Add queries to message routes
                   href: iot-hub-devguide-routing-query-syntax.md
-            - name: React to IoT Hub events
-              href: iot-hub-event-grid.md
             - name: Send cloud-to-device messages from IoT Hub
               href: iot-hub-devguide-messages-c2d.md
             - name: Choose a communication protocol
               href: iot-hub-devguide-protocols.md
+        - name: React to IoT Hub events with Event Grid
+          href: iot-hub-event-grid.md
         - name: Upload files from a device
           href: iot-hub-devguide-file-upload.md
         - name: Manage device identities
@@ -224,8 +224,6 @@
           href: iot-hub-devguide-no-sdk.md
         - name: Query Avro data from a hub route
           href: iot-hub-query-avro-data.md
-        - name: Order device connection state events from Event Grid
-          href: iot-hub-how-to-order-connection-state-events.md
         - name: Send cloud-to-device messages
           items:
             - name: .NET
@@ -317,16 +315,10 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Metrics in Azure Monitor
-          href: iot-hub-metrics.md
-        - name: Set up diagnostic logs
-          href: iot-hub-monitor-resource-health.md
         - name: Secure your hub with an X.509 certificate
           href: iot-hub-security-x509-get-started.md
         - name: Upgrade an IoT hub
           href: iot-hub-upgrade.md
-        - name: Enable message tracing
-          href: iot-hub-distributed-tracing.md
         - name: Configure IP filtering
           href: iot-hub-ip-filtering.md
         - name: Manage public network access
@@ -339,6 +331,18 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: Bulk import and export IoT devices
           href: iot-hub-bulk-identity-mgmt.md
+    - name: Monitor
+      items:
+        - name: Monitor IoT Hub
+          href: monitor-iot-hub.md
+        - name: Monitoring data reference
+          href: monitor-iot-hub-reference.md
+        - name: Enable message tracing
+          href: iot-hub-distributed-tracing.md
+        - name: IoT Hub service and resource health
+          href: iot-hub-azure-service-health-integration.md
+        - name: Order device connection state events from Event Grid
+          href: iot-hub-how-to-order-connection-state-events.md
     - name: Use real devices
       items:
         - name: Use an online simulator

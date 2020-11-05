@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
+ms.custom: contperfq2
 ---
 
 # Understand OIDC-based single sign-on
@@ -27,7 +28,7 @@ The nice thing with adding an app that uses the OIDC standard for single sign-on
 
 Adding an OIDC-based app in Azure Active Directory
 
-> [!VIDEO https://www.youtube.com/embed/4kv-upsZCI0]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## Next steps
 

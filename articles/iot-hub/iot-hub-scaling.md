@@ -37,7 +37,7 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | [Message routing](iot-hub-devguide-messages-read-custom.md), [message enrichments](iot-hub-message-enrichments-overview.md), and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
 | [HTTP, AMQP, and MQTT protocols](iot-hub-devguide-protocols.md) | Yes | Yes |
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Yes | Yes |
-| [Monitoring and diagnostics](iot-hub-monitor-resource-health.md) | Yes | Yes |
+| [Monitoring and diagnostics](monitor-iot-hub.md) | Yes | Yes |
 | [Cloud-to-device messaging](iot-hub-devguide-c2d-guidance.md) |   | Yes |
 | [Device twins](iot-hub-devguide-device-twins.md), [Module twins](iot-hub-devguide-module-twins.md), and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Device streams (preview)](iot-hub-device-streams-overview.md) |   | Yes |

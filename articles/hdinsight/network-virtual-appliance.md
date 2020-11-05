@@ -12,7 +12,7 @@ ms.date: 06/30/2020
 # Configure network virtual appliance in Azure HDInsight
 
 > [!Important]
-> The following information is **only** required if you wish to configure a network virtual appliance (NVA) other than [Azure Firewall](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic).
+> The following information is **only** required if you wish to configure a network virtual appliance (NVA) other than [Azure Firewall](./hdinsight-restrict-outbound-traffic.md).
 
 Azure Firewall FQDN tag is automatically configured to allow traffic for many of the common important FQDNs. Using another network virtual appliance will require you to configure a number of additional features. Keep the following factors in mind as you configure your network virtual appliance:
 

@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Create an application gateway with TLS termination using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [TLS termination](ssl-overview.md). For backend servers, you can use a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [TLS termination](ssl-overview.md). For backend servers, you can use a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) . In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 

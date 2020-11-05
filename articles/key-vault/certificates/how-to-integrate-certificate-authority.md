@@ -19,7 +19,7 @@ Azure Key Vault allows you to easily provision, manage, and deploy digital certi
 
 Azure key vault users can generate DigiCert certificates directly from their Key Vault. Key Vault would ensure end-to-end certificate lifecycle management for those certificates issued by DigiCert through Key Vault’s trusted partnership with DigiCert Certificate Authority.
 
-For more general information about Certificates, see [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
+For more general information about Certificates, see [Azure Key Vault Certificates](./about-certificates.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -49,9 +49,9 @@ After gathering above information from DigiCert CertCentral account, you can now
 1.	To add DigiCert certificate authority, navigate to the key vault you want to add DigiCert. 
 2.	On the Key Vault properties pages, select **Certificates**.
 3.	Select **Certificate Authorities** tab.
-![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+![select certificate authorities](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.	Select **Add** option.
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![add certificate authorities](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.	On the **Create a certificate Authority** screen choose the following values:
     - 	**Name**: Add an identifiable Issuer name. Example DigicertCA
     - 	**Provider**: Select DigiCert from the menu.
@@ -98,24 +98,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - Define **Account ID** variable
 - Define **Org ID** variable
 - Define **API Key** variable
-- Define **Issuer Name** variable
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault.
+4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault. To learn more about the parameters, [read here](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Setting Policy for the certificate and issuing certificate** from DigiCert directly inside Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -125,7 +123,7 @@ Certificate has now been successfully issued by Digicert CA inside specified Key
 
 If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the DigiCert error message for that certificate.
 
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Certificate operation](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 

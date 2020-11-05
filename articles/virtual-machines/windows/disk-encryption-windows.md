@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 

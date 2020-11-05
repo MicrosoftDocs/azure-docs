@@ -34,7 +34,7 @@ You may also secure your Azure Database for MySQL server with firewall rules. Th
 
 - [How to configure Private Link for Azure Database for MySQL](howto-configure-privatelink-portal.md)
 
-- [How to create and manage VNet service endpoints and VNet rules in Azure Database for MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [How to create and manage VNet service endpoints and VNet rules in Azure Database for MySQL](../azure-sql/database/vnet-service-endpoint-rule-overview.md)
 
 - [How to configure Azure Database for MySQL firewall rules](howto-manage-firewall-using-portal.md)
 
@@ -132,7 +132,7 @@ Note: Azure Database for MySQL uses the "Microsoft.Sql" Service Tags.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples/)
+- [Azure Policy samples for networking](../governance/policy/samples/index.md)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -148,7 +148,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as **R
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -158,7 +158,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Database for MySQL instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -200,7 +200,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to configure and access audit logs for Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Not available
 
@@ -220,7 +220,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -254,7 +254,7 @@ In addition, you may enable Server Logs and Diagnostic Settings for MySQL and se
 
 - [How to configure and access audit logs for Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -386,7 +386,7 @@ Use Azure AD Risk Detections to view alerts and reports on risky user behavior.
 
 - [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -406,7 +406,7 @@ Use Azure AD Risk Detections to view alerts and reports on risky user behavior.
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-For signing into Azure Database for MySQL it is recommended to use Azure AD and utilize an Azure AD token to connect. When using an Azure AD token, different methods are supported, such as an Azure AD user, an Azure AD group, or an Azure AD application connecting to the database. 
+For signing into Azure Database for MySQL it is recommended to use Azure AD and utilize an Azure AD token to connect. When using an Azure AD token, different methods are supported, such as an Azure AD user, an Azure AD group, or an Azure AD application connecting to the database.
 
 Azure AD credentials may also be used for administration at the management plane level (e.g. the Azure portal) to control MySQL admin accounts.
 
@@ -420,7 +420,7 @@ Azure AD credentials may also be used for administration at the management plane
 
 **Guidance**: Review the Azure Active Directory logs to help discover stale accounts which can include those with Azure Database for MySQL administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Database for MySQL, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right Users have continued access.
 
-- [Understand Azure AD Reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD Reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -432,11 +432,11 @@ Azure AD credentials may also be used for administration at the management plane
 
 **Guidance**: Enable Diagnostic Settings for Azure Database for MySQL and Azure Active Directory, sending all logs to a Log Analytics workspace. Configure desired alerts (such as failed authentication attempts) within Log Analytics.
 
-- [How to configure and access slow query logs for Azure Database for MySQL](/Azure/mysql/howto-configure-server-logs-in-portal)
+- [How to configure and access slow query logs for Azure Database for MySQL](./howto-configure-server-logs-in-portal.md)
 
-- [How to configure and access audit logs for Azure Database for MySQL](/Azure/mysql/howto-configure-audit-logs-portal)
+- [How to configure and access audit logs for Azure Database for MySQL](./howto-configure-audit-logs-portal.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Not available
 
@@ -454,7 +454,7 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 - [Overview of Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -480,7 +480,7 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 **Guidance**: Use tags to assist in tracking Azure Database for MySQL instances or related resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -490,13 +490,13 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Use a combination of Private Link, Service Endpoints, and/or firewall rules to isolate and limit network access to your Azure Database for MySQL instances.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to configure Private Link for Azure Database for MySQL](concepts-data-access-security-private-link.md)
 
-- [How to create and manage VNet service endpoints and VNet rules in Azure Database for MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [How to create and manage VNet service endpoints and VNet rules in Azure Database for MySQL](../azure-sql/database/vnet-service-endpoint-rule-overview.md)
 
 - [How to configure Azure Database for MySQL firewall rules](concepts-firewall-rules.md)
 
@@ -542,7 +542,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. Azure RBAC does not affect user permissions within the database.
 
@@ -652,7 +652,7 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -664,7 +664,7 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 
 **Guidance**: Apply tags to Azure Database for MySQL instances and other related resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -674,11 +674,11 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Database for MySQL instances and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -744,7 +744,7 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -794,7 +794,7 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 Enforce SSL connection should be enabled for MySQL database servers
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -834,9 +834,9 @@ Enforce SSL connection should be enabled for MySQL database servers
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Database for MySQL instances and related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -894,7 +894,7 @@ Enforce SSL connection should be enabled for MySQL database servers
 
 - [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/general/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1046,7 +1046,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 - [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1094,7 +1094,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-- [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1102,5 +1102,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
