@@ -103,13 +103,13 @@ For example, the full URL [https://web.babylon.azure.com/?feature.ext.datasource
 
      :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image5.png" alt-text="Setup a scan":::
 
-5. Select **Continue**
+5. Select **Continue**.
 
 6. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
    :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image6.png" alt-text="Setup a scan trigger":::
 
-7. Review your scan and Select *Save and Run.*
+7. Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 
