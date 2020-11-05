@@ -130,7 +130,7 @@ The tables show the sizing of common VDI profiles for Azure VMware Solution for 
 
 #### Knowledge worker workloads
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power Worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Knowledge Worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
 
 #### Power worker workloads
 
