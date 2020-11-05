@@ -1,8 +1,8 @@
 ---
-title: Monitor availability and responsiveness of any web site | Azure Monitor 
-description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
+title: Monitor availability and responsiveness of any web site - Azure Monitor 
+description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/05/2020
 
 ms.reviewer: sdash
 ---
@@ -13,6 +13,9 @@ The name "URL ping test" is a bit of a misnomer. To be clear, these tests are no
 
 There are two types of URL ping test you can create, basic and standard ping tests.
 
+> [!NOTE]
+> Standard ping tests is currently in public preview.  This preview version is provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
+
 Basic vs Standard:
 
 - Basic is restricted to five locations per test.
@@ -20,7 +23,7 @@ Basic vs Standard:
 - Standard tests can have custom headers or request body.
 - Standard tests can use any HTTP request method while basic can only use `GET`.
 - SSL certificate lifetime check alerts you of a set period time before your certificate expires.
-- Standard test are a paid feature.
+- Standard tests are a paid feature.
 
 > [!NOTE]
 > There are currently no additional charges for the preview feature Standard Ping tests. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Standard Ping tests after the notice period, you will be billed at the applicable rate.

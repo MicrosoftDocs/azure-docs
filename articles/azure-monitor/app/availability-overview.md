@@ -1,12 +1,12 @@
 ---
 title: Application Insights availability overview 
-description: Set up recurring tests to monitor availability and responsiveness of your app or website.
+description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 11/05/2020
 
 ---
 
-# Availability test overview
+# Availability tests overview
 
 After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Azure Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
 
