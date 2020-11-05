@@ -23,6 +23,9 @@ SNAT enables **IP masquerading** of the backend instance. This masquerading prev
 [!Important]
 > Even without outbound SNAT configured, Azure storage accounts within the same region will still be accessible and backend resources will still have access to Microsoft services such as Windows Updates.
 
+>[!NOTE] 
+>This article covers Azure Resource Manager deployments only. Review [Outbound connections (Classic)](load-balancer-outbound-connections-classic.md) for all Classic deployment scenarios in Azure.
+
 ## <a name ="snat"></a> Sharing frontend IP address across backend resources
 
 If the backend resources of a load balancer don't have instance-level public IP (ILPIP) addresses, they establish outbound connectivity via the frontend IP of the public load balancer. Ports are used to generate unique identifiers used to maintain distinct flows. The internet uses a five-tuple to provide this distinction.
