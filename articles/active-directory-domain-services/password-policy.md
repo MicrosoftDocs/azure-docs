@@ -14,7 +14,7 @@ ms.date: 07/06/2020
 ms.author: joflore
 
 ---
-# Password and account lockout policies on Active Directory Domain Services managed domains
+# Password and account lockout policies on Azure Active Directory Domain Services managed domains
 
 To manage user security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific groups of users.
 
