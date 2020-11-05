@@ -53,7 +53,9 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
 
 Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
