@@ -2,7 +2,7 @@
 title: Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery.
 description: Tutorial to learn how to fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 11/05/2020
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
 ---
@@ -68,8 +68,8 @@ Before you start this tutorial, you should have:
 3. To start the failover, select **OK**.
 4. Monitor the failover in notifications.
 
-    ![Progress notification](./media/azure-to-azure-tutorial-failover-failback/notification1.png)
-    ![Success notification](./media/azure-to-azure-tutorial-failover-failback/notification2.png)     
+    ![Progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-failover-start.png)
+    ![Success notification](./media/azure-to-azure-tutorial-failover-failback/notification-failover-finish.png)     
 
 5. After the failover, the Azure VM created in the target region appears in **Virtual Machines**. Make sure that the VM is running, and sized appropriately. If you want to use a different recovery point for the VM, select **Change recovery point**, on the **Essentials** page.
 6. When you're satisfied with the failed over VM, select **Commit** on the overview page, to finish the failover.
@@ -80,8 +80,8 @@ Before you start this tutorial, you should have:
 
 8. Monitor the commit progress in notifications.
 
-    ![Commit progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit1.png)
-    ![Commit success notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit2.png)    
+    ![Commit progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png)
+    ![Commit success notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
 
 9. Site Recovery doesn't clean up the source VM after failover. You need to do that manually.
 
@@ -103,8 +103,8 @@ After failover, you reprotect the VM in the secondary region, so that it replica
 6. Select **OK** to start the reprotect process. The process sends initial data to the target location, and then replicates delta information for the VMs to the target.
 7. Monitor reprotect progress in the notifications. 
 
-    ![Reprotect progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-reprotect1.png)
-    ![Reprotect success notification](./media/azure-to-azure-tutorial-failover-failback/notification-reprotect2.png)
+    ![Reprotect progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-reprotect-start.png)
+    ![Reprotect success notification](./media/azure-to-azure-tutorial-failover-failback/notification-reprotect-finish.png)
     
 
 ## Next steps

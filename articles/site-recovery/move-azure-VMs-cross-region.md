@@ -95,7 +95,6 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 4. Choose to use the default target resources or those that you pre-created.
 5. Select **Enable replication** to start the job.
 
-   ![Enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 

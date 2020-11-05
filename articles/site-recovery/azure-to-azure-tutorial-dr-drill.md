@@ -3,7 +3,7 @@ title:  Tutorial to run an Azure VM disaster recovery drill with Azure Site Reco
 description: In this tutorial, run an Azure VM disaster recovery drill to another region using Site Recovery.
 services: site-recovery
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 11/05/2020
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to run a drill to check that VM disaster recovery is working.
 ---
@@ -62,8 +62,8 @@ Before you start this tutorial, you must enable disaster recovery for one or mor
 4. To start the failover, select **OK**.
 5. Monitor the test failover in notifications.
 
-    ![Progress notification](./media/azure-to-azure-tutorial-dr-drill/notification1.png)
-    ![Success notification](./media/azure-to-azure-tutorial-dr-drill/notification2.png)     
+    ![Progress notification](./media/azure-to-azure-tutorial-dr-drill/notification-start-test-failover.png)
+    ![Success notification](./media/azure-to-azure-tutorial-dr-drill/notification-finish-test-failover.png)     
 
 
 5. After the failover finishes, the Azure VM created in the target region appears in the Azure portal **Virtual Machines**. Make sure that the VM is running, sized appropriately, and connected to the network you selected.
@@ -81,8 +81,8 @@ Before you start this tutorial, you must enable disaster recovery for one or mor
 
 4. Monitor cleanup progress in notifications.
 
-    ![Cleanup progress notification](./media/azure-to-azure-tutorial-dr-drill/notification-cleanup1.png)
-    ![Cleanup success notification](./media/azure-to-azure-tutorial-dr-drill/notification-cleanup2.png)
+    ![Cleanup progress notification](./media/azure-to-azure-tutorial-dr-drill/notification-start-cleanup.png)
+    ![Cleanup success notification](./media/azure-to-azure-tutorial-dr-drill/notification-finish-cleanup.png)
 
 ## Next steps
 

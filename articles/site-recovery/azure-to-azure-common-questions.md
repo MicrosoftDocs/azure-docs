@@ -165,7 +165,7 @@ To understand how Site Recovery generates recovery points, let's use an example.
 
 So, in the last hour, you can choose from 12 crash-consistent points, and one app-consistent point, as shown in the graphic.
 
-   ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![List of generated recovery points](./media/azure-to-azure-common-questions/recovery-points.png)
 
 ### How far back can I recover?
 
@@ -286,7 +286,7 @@ In a recovery plan, you can create multiple groups of VM for sequencing. Groups 
 
 To check the RTO of a recovery plan, do a test failover for the recovery plan. In **Site Recovery jobs**, check the test failover duration. In the example  screenshot, the **SAPTestRecoveryPlan** test failover job took 8 minutes and 59 seconds.
 
-![List jobs showing the duration of the test failover for RTO](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
+![List jobs showing the duration of the test failover for RTO](./media/azure-to-azure-common-questions/recovery-plan-rto.png)
 
 ### Can I add automation runbooks to recovery plans?
 

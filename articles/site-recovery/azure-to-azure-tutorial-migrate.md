@@ -111,7 +111,7 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 1. For this tutorial, accept the other default settings.
 1. Select **Enable replication**. This step starts a job to enable replication for the VM.
 
-    ![Enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## Move
 
