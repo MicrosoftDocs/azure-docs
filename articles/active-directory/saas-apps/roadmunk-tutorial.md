@@ -19,7 +19,7 @@ ms.author: jeedes
 In this tutorial, you'll learn how to integrate Roadmunk with Azure Active Directory (Azure AD). When you integrate Roadmunk with Azure AD, you can:
 
 * Control in Azure AD who has access to Roadmunk.
-* Enable your users to be automatically signed in to Roadmunk with their Azure AD accounts.
+* Enable your users to be automatically signed in to Roadmunk by using their Azure AD accounts.
 * Manage your accounts in one central location, the Azure portal.
 
 ## Prerequisites
@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-Roadmunk supports SSO that's initiated by the *service provider* (SP) and by the *identity provider* (IDP).
+Roadmunk supports SSO that's started by the *service provider* (SP) and by the *identity provider* (IDP).
 
 ## Add Roadmunk from the gallery
 
@@ -51,10 +51,10 @@ To integrate Roadmunk into Azure AD, from the gallery, add Roadmunk to your list
 
 Configure and test Azure AD SSO with Roadmunk by using a test user called *B.Simon*. To make SSO work, you need to establish a link relationship between an Azure AD user and the related user in Roadmunk.
 
-To configure and test Azure AD SSO with Roadmunk:
+Here's an overview of how to configure and test Azure AD SSO with Roadmunk:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) so that your users can use this feature.
-    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD SSO with B.Simon.
+    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD SSO by using B.Simon.
     1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD SSO.
 1. [Configure Roadmunk SSO](#configure-roadmunk-sso) to configure the SSO settings on the application side.
     1. [Create a Roadmunk test user](#create-roadmunk-test-user) so that you can link the counterpart of B.Simon in Roadmunk to the Azure AD representation of the user.
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML**. Then select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot showing the SAML signing certificate download link.](common/metadataxml.png)
+	![Screenshot showing the download link for the SAML signing certificate.](common/metadataxml.png)
 
 1. In the **Set up Roadmunk** section, copy the URL or URLs that you need.
 
@@ -133,7 +133,7 @@ In this section, you'll enable B.Simon to use Azure SSO by granting access to Ro
 
 1. Go to **Company** > **Authentication Settings**.
 
-1. On the Authentication Settings page, follow these steps:
+1. On the **Authentication Settings** page, follow these steps:
 
 	![Screenshot showing the Authentication Settings page.](./media/roadmunk-tutorial/saml-sso.png)
 
@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure SSO by granting access to Ro
 
 1. Open the **Users** tab, and then select **Invite User**.
 
-	![Screenshot showing the Users tab. The Invite User button is highlighted. In the open window, the Email and Role fields are also highlighted.](./media/roadmunk-tutorial/create-user.png)
+	![Screenshot showing the Users tab. The Invite User button is highlighted. In the open window, the Email and Role fields are highlighted.](./media/roadmunk-tutorial/create-user.png)
 
 1. In the form that appears, fill in the required information, and then select **Invite**.
 
@@ -171,6 +171,8 @@ In the access panel, when you select the **Roadmunk** tile, you should be automa
 
 ## Next steps
 
-After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. Learn how to [enforce session control by using Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. 
+
+Learn how to [enforce session control by using Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 
