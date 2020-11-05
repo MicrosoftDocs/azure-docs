@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm & module reference"
-description: Learn about the modules available in Azure Machine Learning designer
+description: Learn about the Azure Machine Learning designer modules you can use to create your own machine learning projects.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
