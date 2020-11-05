@@ -146,6 +146,7 @@ Once users have been added to the lab, they will need to register in order to ac
     In the row for the student you've selected, select the envelope icon in the list or, clicking **Invite** at the top of the screen.
 
     :::image type="content" source="./media/get-started-manage-labs/send-invitation.png" alt-text="Send an invitation":::
+    
     In the **Send invitation** by email window, enter an optional message (like a username and password) to students, and then click **Send**. 
     
     :::image type="content" source="./media/get-started-manage-labs/send-invitation-mail.png" alt-text="Send an invitation by mail":::
@@ -153,6 +154,7 @@ Once users have been added to the lab, they will need to register in order to ac
     Alternatively, from the same **Users** page, you can click the **Registration link** button at the top of the screen. 
 
     :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="User registration link":::
+    
     Copy the registration link from the text field and paste it into email or your preferred secure messaging tool.  
     
     :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Send user registration":::
