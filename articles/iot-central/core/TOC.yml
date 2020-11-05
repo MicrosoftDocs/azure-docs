@@ -49,6 +49,8 @@
         href: tutorial-connect-device-nodejs.md
       - name: Connect a  device (Python)
         href: tutorial-connect-device-python.md
+      - name: Connect a  device (Java)
+        href: tutorial-connect-device-java.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device

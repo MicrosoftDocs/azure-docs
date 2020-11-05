@@ -13,3 +13,4 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-central/core/tutorial-connect-device-nodejs.md)
 > * [Python](../articles/iot-central/core/tutorial-connect-device-python.md)
+> * [Java](../articles/iot-central/core/tutorial-connect-device-java.md)
