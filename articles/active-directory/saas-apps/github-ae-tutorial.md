@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate GitHub AE with Azure Active Dire
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* [GitHub AE](https://docs.github.com/github-ae@latest/admin/overview/about-github-ae), ready for [initialization](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae).
+* GitHub AE, ready for [initialization](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae).
 
 ## Scenario description
 
