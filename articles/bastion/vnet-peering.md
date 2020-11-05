@@ -57,7 +57,6 @@ Make sure user has Read access to VM and peered VNET. Check under IAM that user 
 • Reader role on the Azure Bastion resource
 • Reader Role on the Virtual Network ( This is not needed if there is no peered virtual network )
 
-:::image type="content" source="./media/vnet-peering/permissions.png" alt-text="user permissions":::
 
 ## Next steps
 
