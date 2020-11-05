@@ -1,16 +1,18 @@
 ---
-title: Configuration - Azure Monitor Application Insights Java
-description: Configuration for Azure Monitor Application Insights Java
+title: Configuration options - Azure Monitor Application Insights Java
+description: Configuration options for Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
 ---
 
-# Configuration options - Java standalone agent for Azure Monitor Application Insights
+# Configuration options for Azure Monitor Application Insights Java
 
 
 
-## Most common settings: Connection string and role name
+## Connection string and role name
+
+These are the most common settings needed to get started
 
 ```json
 {
@@ -21,9 +23,10 @@ ms.custom: devx-track-java
 }
 ```
 
-The connection string is required, and the role name is important any time you are sending data from different applications to the same Application Insights resource.
+The connection string is required, and the role name is important any time you are sending data
+from different applications to the same Application Insights resource.
 
-You will find more details and additional configuration options below for more details.
+You will find more details and additional configuration options below.
 
 ## Configuration file path
 
