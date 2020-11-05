@@ -155,15 +155,15 @@ We provide metadata disaster recovery coverage on our end (the Notification Hubs
 
 1. Create a secondary notifications hub in a different data center. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
 
-2. Populate the secondary notification hub with the registrations from your primary notification hub. We don't recommend trying to maintain registrations on both hubs and keep them in sync as registrations come in. This practice doesn’t work well because of the inherent tendency of registrations to expire on the PNS side. Notification Hubs cleans them up as it receives PNS feedback about expired or invalid registrations.  
-
-We have two recommendations for app backends:
-
-* Use an app backend that maintains a given set of registrations at its end. It can then perform a bulk insert into the secondary notification hub.
-* Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
+2. Maintain the secondary notification hub in sync with primary notification hub using one of the options below.
+  * Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations allow you to specify your own unique device identifier making it more suitable for the replication scenario that registrations. [Sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample). 
+  * Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
 
 > [!NOTE]
 > Registrations Export/Import functionality available in the Standard tier is described in the [Registrations Export/Import] document.
+
+> [!NOTE]
+> Secondary notification hub may end up with expired installations/registrations. When push is made to an expired handle Notification Hubs automatically cleans associated installation/registration record based on the response received from PNS server. To clean expired records from a secondary notification hub add a custom logic that would process feedback from each send and expire installation/registration in the secondary notification hub.
 
 If you don’t have a backend, when the app starts on target devices, they perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
 
