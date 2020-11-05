@@ -31,7 +31,7 @@ Before you begin, keep in mind the following concepts:
 
 ## Option 1: Use the key vault backup and restore commands
 
-You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob. You can then restore the blob into your new key vault. For a list of commands, see [Azure Key Vault commands](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob. You can then restore the blob into your new key vault. For a list of commands, see [Azure Key Vault commands](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
 
 Using the backup and restore commands has two limitations:
 
