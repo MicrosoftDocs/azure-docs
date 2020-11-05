@@ -79,10 +79,12 @@ The most important thing to remember when managing our VMs is that anytime a mac
 
     :::image type="content" source="./media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png" alt-text="Stop your VMs":::
 
-    * You can stop individual VMs by clicking the state toggle.
-    * You can also stop multiple VMs by using the checks and clicking the “Stop” button at the top of the screen.
+### Stopping and resetting VMs
 
-    If a student is experiencing difficulties connecting to the VM, or the VM needs to be reset for any other reason, you can use the reset function.
+* You can stop individual VMs by clicking the state toggle.
+* You can also stop multiple VMs by using the checks and clicking the “Stop” button at the top of the screen.
+
+If a student is experiencing difficulties connecting to the VM, or the VM needs to be reset for any other reason, you can use the reset function.
 1. To reset one or more VMs, select them using the checks, then click the **Reset** button at the top of the page.
 1. In the pop-up window, click **Reset**.
 
@@ -91,14 +93,14 @@ The most important thing to remember when managing our VMs is that anytime a mac
     > [!NOTE]
     > Turning on a student VM will not affect the quota for the student. Quotas for users specifies the number of lab hours available to the user outside of the scheduled class time.
 
-## Connect to Virtual Machines
+### Connect to Virtual Machines
 
 Teachers are able to connect to a student VM as long as it is turned on, and the student is NOT connected to the VM. By connecting to the VM, you will be able to access local files on the VM and help students troubleshoot issues.
 
 1. To connect to the student VM, hover the mouse on the VM in the list and click the **Connect** button. 
 1. Then follow the getting started guide for students for either Chromebooks, Macs or PCs
 
-### Add and manage lab users
+## Add and manage lab users
 
 Teachers are able to add student users to a lab and monitor their hour quotas. 
 
@@ -149,6 +151,7 @@ Once users have been added to the lab, they will need to register in order to ac
     Alternatively, from the same **Users** page, you can click the **Registration link** button at the top of the screen. 
 
     Copy the registration link from the text field and paste it into email or your preferred secure messaging tool.  
+
     :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="User registration link":::
     
     :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Send user registration":::
