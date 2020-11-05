@@ -130,7 +130,7 @@ Enter the following Python code in the Azure Data Studio notebook and run it.
    df.describe()
    ```
 
-1. Start the AzureML experiment to find and train the best algorithm. In this case, you're testing with all the regression algorithms, with a primary metric of Normalized Root Mean Squared Error (NRMSE). For more information, see [Azure ML Experiments Primary Metric](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#primary-metric). The following code will start a local run of the ML experiment.
+1. Start the AzureML experiment to find and train the best algorithm. In this case, you're testing with all the regression algorithms, with a primary metric of Normalized Root Mean Squared Error (NRMSE). For more information, see [Azure ML Experiments Primary Metric](../machine-learning/how-to-configure-auto-train.md#primary-metric). The following code will start a local run of the ML experiment.
 
    ```python
    ## Define the X_train and the y_train data sets for the AutoML experiments. X_Train are the inputs or the features, while y_train is the outcome or the prediction result. 
