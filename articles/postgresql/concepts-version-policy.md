@@ -41,15 +41,15 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2023
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
 
-## Retired PostgreSQL engine versions not supported in Azure PostgreSQL
+## Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL
 
 After the retirement date for each PostgreSQL database version, if you continue running the retired version, note the following restrictions:
 - As the community will not be releasing any further bug fixes or security fixes, Azure for PostgreSQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. You may experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
-- If any support issue you may experience relates to the PostgreSQL database, we will be unable to provide you with support. In such cases, you will have to upgrade your database in order for us to provide you with any support.
+- If any support issue you may experience relates to the PostgreSQL database, we may not be able to provide you with support. In such cases, you will have to upgrade your database in order for us to provide you with any support.
 - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for PostgreSQL may only be available to supported database server versions.
 - Uptime SLAs will apply solely to Azure Database for PostgreSQL service-related issues and not to any downtime caused by database engine-related bugs.  
-- In the event of a serious database security vulnerability identified in the retired database version, Azure may choose to automatically upgrade your database to a higher version.
+- In the extreme event of a serious threat to the Azure service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure may choose to stop the compute node of your database server. In such cases, you may be asked to upgrade the server before bringing the server online.
 
 ## PostgreSQL version syntax
 Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number. For example, 9.5 to 9.6 was considered a _major_ version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a _minor_ release upgrade. Version 10 to 11 is a _major_ version upgrade.

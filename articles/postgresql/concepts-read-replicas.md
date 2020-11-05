@@ -26,7 +26,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 ### Considerations
 The feature is meant for scenarios where the lag is acceptable and meant for offloading queries. It isn't meant for synchronous replication scenarios where the replica data is expected to be up-to-date. There will be a measurable delay between the primary and the replica. This can be in minutes or even hours depending on the workload and the latency between the primary and the replica. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay. 
 
-> [!WARNING]
+> [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
 
 ## Cross-region replication
@@ -73,7 +73,7 @@ The replica inherits the admin account from the primary server. All user account
 
 You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **my replica** with the admin username **myadmin**, you can connect to the replica by using psql:
 
-```
+```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
@@ -136,7 +136,7 @@ Since replication is asynchronous, there could be a considerable lag between the
 Once you have decided you want to failover to a replica, 
 
 1. Stop replication to the replica<br/>
-   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will restart and be delinked from the primary. Once you initiate stop replication, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
+   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will restart and be delinked from the primary. Once you initiate stop replication, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [stop replication](#stop-replication--promote-replica) section of this article to understand the implications of this action.
 	
 2. Point your application to the (former) replica<br/>
    Each server has a unique connection string. Update your application connection string to point to the (former) replica instead of the primary.
