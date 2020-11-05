@@ -34,7 +34,7 @@ The quickstart contains the following major steps:
 
 The sample graph you'll be working with represents a building with two floors and two rooms. The graph will look like this image:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of four circular nodes connected by arrows. A circle labeled 'Floor1' is connected by an arrow labeled 'contains' to a circle labeled 'Room1'. A circle labeled 'Floor0' is connected by an arrow labeled 'contains' to a circle labeled 'Room0'. 'Floor1' and 'Floor0' aren't connected.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of four circular nodes connected by arrows. A circle labeled "Floor1" is connected by an arrow labeled "contains" to a circle labeled "Room1". A circle labeled "Floor0" is connected by an arrow labeled "contains" to a circle labeled "Room0". "Floor1" and "Floor0" aren't connected.":::
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
    After a few seconds, a browser window opens and the app appears in the browser.
 
-   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains tabs for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains boxes for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
 1. Select the **Sign In** button in the upper-right corner of the window, as shown in the following image, to configure ADT Explorer to work with the instance you've set up.
 
@@ -136,7 +136,7 @@ Follow these steps to upload models.
 
 >[!NOTE]
 >If you see the following error message:
-> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading 'Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser.' with a **Close** button at the bottom." border="false"::: 
+> :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="A pop-up box reading "Error: Error fetching models: ClientAuthError: Error opening popup window. This can happen if you are using IE or if popups are blocked in the browser." with a **Close** button at the bottom." border="false"::: 
 > Try disabling your pop-up blocker or using a different browser.
 
 ADT Explorer now uploads these model files to your Azure Digital Twins instance. They should show up in the **MODEL VIEW** box and display their friendly names and full model IDs. You can select the **View Model** information icons to see the DTDL code behind them.
@@ -190,7 +190,7 @@ Follow these steps to import the graph.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="A dialog box indicating graph import success. It reads 'Import successful. 4 twins imported. 2 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="A dialog box indicating graph import success. It reads "Import successful. 4 twins imported. 2 relationships imported."" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -200,7 +200,7 @@ Follow these steps to import the graph.
 
 5. The graph has now been uploaded to ADT Explorer. To see the graph, select the **Run Query** button in the **GRAPH EXPLORER** box, near the top of the ADT Explorer window.
 
-   :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="The Run Query button near the top of the window is highlighted." lightbox="media/quickstart-adt-explorer/run-query.png":::
+   :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="The Run Query button in the upper-right corner of the window is highlighted." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 This action runs the default query to select and display all digital twins. ADT Explorer retrieves all twins and relationships from the service. It draws the graph defined by them in the **GRAPH VIEW** box.
 
@@ -208,7 +208,7 @@ This action runs the default query to select and display all digital twins. ADT 
 
 Now you can see the uploaded graph of the sample scenario.
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of the Graph View box with a twin graph inside. A circle labeled 'floor1' is connected by an arrow labeled 'contains' to a circle labeled 'room1.' A circle labeled 'floor0' is connected by an arrow labeled 'contains' to a circle labeled 'room0.'":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of the Graph View box with a twin graph inside. A circle labeled "floor1" is connected by an arrow labeled "contains" to a circle labeled "room1." A circle labeled "floor0" is connected by an arrow labeled "contains" to a circle labeled "room0."":::
 
 The circles (graph "nodes") represent digital twins. The lines represent relationships. The **Floor0** twin contains **Room0**, and the **Floor1** twin contains **Room1**.
 
