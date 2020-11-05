@@ -68,13 +68,13 @@
       displayName: Register and scan Teradata 
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
-      displayName: Register and scan azure blob storage      
-    - name: Azure Cosmos Database
+      displayName: Register and scan azure blob storage
+    - name: Azure Cosmos DB
       href: register-scan-azure-cosmos-database.md
       displayName: Register and scan Azure Cosmos DB
     - name: Azure Data Explorer
       href: register-scan-azure-data-explorer.md
-      displayName: Register and scan Azure Data Explorer Kusto      
+      displayName: Register and scan Azure Data Explorer Kusto
     - name: Azure Data Lake Storage Gen 1
       href: register-scan-adls-gen1.md
       displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
@@ -110,6 +110,12 @@
       href: register-scan-azure-synapse-analytics.md
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
+  - name: Business glossary
+    items:
+    - name: Create, import, & export glossary terms
+      href: how-to-create-import-export-glossary.md
+    - name: Manage term templates
+      href: how-to-manage-term-templates.md
   - name: Classify
     items: 
     - name: Use classifications
@@ -122,7 +128,7 @@
       href: apply-classifications.md
     - name: Automatically label your content
       href: create-sensitivity-label.md
-    - name: Custom classification and classification rule
+    - name: Custom classification & classification rule
       href: create-a-custom-classification-and-classification-rule.md
   - name: Search & browse
     items:
