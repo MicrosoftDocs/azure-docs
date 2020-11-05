@@ -54,8 +54,8 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 
 ### See also
 
-* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)
-* [Attach a secondary storage to a Media Services account](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest&preserve-view=true)
+* [Attach a secondary storage to a Media Services account](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add&preserve-view=true)
 
 ---
 

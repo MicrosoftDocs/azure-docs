@@ -69,7 +69,7 @@
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
     - name: Customer-managed keys with Media Services REST API
-      href: tutorial-byok=postman.md
+      href: tutorial-byok-postman.md
   - name: CLI
     items:
     - name: Encode and stream a remote file CLI
