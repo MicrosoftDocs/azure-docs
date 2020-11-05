@@ -3,9 +3,9 @@ title: Publish and subscribe to events with Azure IoT Edge | Microsoft Docs
 description: Use IoT Edge MQTT broker to publish and subscribe to events
 services: iot-edge
 keywords: 
-author: kgremban, ebertrams
+author: kgremban
 
-ms.author: kgremban, ebertrams
+ms.author: kgremban, ebertra
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
@@ -21,7 +21,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe to events. This 
 ## Pre-requisites
 
 - An Azure account with a valid subscription
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot).
+- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot).
 - An **IoT Hub** of SKU either F1, S1, S2 or S3.
 - Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
 
@@ -50,7 +50,7 @@ Transport Layer Security (TLS) is used to establish an encrypted communication b
 
 To disable TLS, use port 1883(MQTT) and bind the edgeHub container to port 1883.
 
-To enable TLS, If a client connects on port 8883 (MQTTS) to the MQTT broker, a TLS channel will be initiated. The broker sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the MQTT broker must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the MQTT broker with a certificate verification error. The steps to follow to install this root certificate of the broker on the client are the same as in the [transparent gateway](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-create-transparent-gateway) case and are described in the [prepare a downstream device](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-connect-downstream-device#prepare-a-downstream-device) documentation.
+To enable TLS, If a client connects on port 8883 (MQTTS) to the MQTT broker, a TLS channel will be initiated. The broker sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the MQTT broker must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the MQTT broker with a certificate verification error. The steps to follow to install this root certificate of the broker on the client are the same as in the [transparent gateway](how-to-create-transparent-gateway.md) case and are described in the [prepare a downstream device](how-to-connect-downstream-device#prepare-a-downstream-device) documentation.
 
 ### Authentication
 
@@ -74,10 +74,10 @@ For a MQTT client to authenticate itself, it first needs to send a CONNECT packe
 
 - The `password` field of the CONNECT packet depends on the authentication mode:
 
-    - In case of the [symmetric keys authentication](./how-to-authenticate-downstream-device#symmetric-key-authentication), the `password` field is a SAS token.
-    - In case of the [X.509 self-signed authentication](./how-to-authenticate-downstream-device#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](#using-x509-certificate-for-client-authentication).
+    - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device#symmetric-key-authentication), the `password` field is a SAS token.
+    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device#using-x509-certificate-for-client-authentication).
 
-Modules deployed by IoT Edge use [symmetric keys authentication](./how-to-authenticate-downstream-device#symmetric-key-authentication) and can call the local [IoT Edge workload API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) to programmatically get a SAS token even when offline.
+Modules deployed by IoT Edge use [symmetric keys authentication](how-to-authenticate-downstream-device#symmetric-key-authentication) and can call the local [IoT Edge workload API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) to programmatically get a SAS token even when offline.
 
 ### Authorization
 
@@ -205,7 +205,7 @@ Now that you understand how to connect to the IoT Edge MQTT broker, let's see ho
 
 ## Publish / Subscribe on user-defined topics
 
-In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](./how-to-authenticate-downstream-device#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](./how-to-authenticate-downstream-device#x509-self-signed-authentication) or [X.509 self-signed authentication](./how-to-authenticate-downstream-device#x509-self-signed-authentication).
+In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](how-to-authenticate-downstream-device#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](how-to-authenticate-downstream-device#x509-self-signed-authentication) or [X.509 self-signed authentication](./how-to-authenticate-downstream-device#x509-self-signed-authentication).
 
 ### Create publisher and subscriber clients
 
@@ -359,7 +359,7 @@ Executing the command, the **sub_client** MQTT client receives the "hello" messa
 
 ### Symmetric keys authentication with TLS
 
-To enable TLS, port must be changed from 1883(MQTT) to 8883(MQTTS) and clients must have the root certificate of the MQTT broker to be able to validate the certificate chain sent by the MQTT broker. This can be done by following the steps provided in section [TLS certificates](#tls-certificates).
+To enable TLS, port must be changed from 1883(MQTT) to 8883(MQTTS) and clients must have the root certificate of the MQTT broker to be able to validate the certificate chain sent by the MQTT broker. This can be done by following the steps provided in section [Secure connection (TLS)](#secure-connection-tls).
 
 Because the clients are running on the same device as the MQTT broker in the example above, the same steps apply to enable TLS just by changing the port number from 1883 (MQTT) to 8883 (MQTTS).
 
@@ -397,7 +397,7 @@ Receiving a direct method is very similar to receiving full twins with the addit
 To connect two MQTT brokers such as two IoT Edge devices or an IoT Edge device and a third party MQTT broker,the IoT Edge hub includes a MQTT bridge. A MQTT bridge is commonly used to connect an MQTT broker running at the edge to a remote MQTT broker. Only a subset of the local traffic is typically pushed to a remote broker.
 
 > [!NOTE]
-> The IoT Edge hub bridge cannot be used to send data to IoT hub since IoT hub is not a full-featured MQTT broker. To learn more, see [Communicate with your IoT hub using the MQTT protocol](./iot-hub-mqtt-support)
+> The IoT Edge hub bridge cannot be used to send data to IoT hub since IoT hub is not a full-featured MQTT broker. To learn more, see [Communicate with your IoT hub using the MQTT protocol](iot-hub-mqtt-support)
 
 <!-- TODO: Ask Varun: do I need to use MQTT as the upstream protocol to use the bridge? -->
 
@@ -454,7 +454,7 @@ Add a section on the peristence of messages
 
 ## 5. Troubleshoot
 
-IoT Edge [official troubleshooting guide](https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot) still applies for this private preview. Below are a few more troubleshooting tips specific to the new MQTT broker.
+IoT Edge [official troubleshooting guide](https://docs.microsoft.com/azure/iot-edge/troubleshoot) still applies for this private preview. Below are a few more troubleshooting tips specific to the new MQTT broker.
 
 ### Check the IoT Edge hub container logs for issues
 
