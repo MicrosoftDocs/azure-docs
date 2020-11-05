@@ -458,7 +458,7 @@
           href: msal-net-user-gets-consent-for-multiple-resources.md
         - name: Provide your own HttpClient
           href: msal-net-provide-httpclient.md
-      - name: MSAL.js (Javascript and Node.js)
+      - name: MSAL.js (JavaScript and Node.js)
         items:
           - name: Avoid page reloads
             href: msal-js-avoid-page-reloads.md
