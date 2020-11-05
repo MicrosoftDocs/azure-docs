@@ -110,7 +110,10 @@ You can restore a server to another Azure region where the service is available 
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 
+If a geo-restore is performed for a newly created server, the recovery time may take more than 24 hours depending on data size as the initial full snapshot backup copy time is much higher. Subsequent backups are incremental copy and hence the restores are faster after 24 hours of server creation. If you are evaluating geo-restores to define your RTO, we recommend you to evaluate geo-restore after 24 hours of server creation for accurate estimates.
+
 During geo-restore, the server configurations that can be changed include compute generation, vCore, backup retention period, and backup redundancy options. Changing pricing tier (Basic, General Purpose, or Memory Optimized) or storage size during geo-restore is not supported.
+
 
 ### Perform post-restore tasks
 
