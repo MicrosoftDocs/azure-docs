@@ -18,14 +18,14 @@ This article describes how to use compute acceleration on Azure Stack Edge devic
 
 ## About compute acceleration 
 
-In computing, hardware acceleration refers to the use of specialized computer hardware to perform some functions more efficiently than is possible to run the same functions in a general-purpose central processing unit (CPU). The implementation of computing tasks in specialized hardware aims to decrease the latency and increase throughput.
+The Central Processing Unit (CPU) is your default general purpose compute for most processes running on a computer. Often a specialized computer hardware is used to perform some functions more efficiently than running those in the software in a CPU. For example, a Graphics Processing Unit (GPU) can be used to accelerate the processing of pixel data.  
 
-Compute acceleration is a term used specifically for Azure Stack Edge devices where a Graphical Processing (GPU), a Vision Processing Unit (VPU), or a Field Programmable Gate Array (FPGA) are used for hardware acceleration. 
+Compute acceleration is a term used specifically for Azure Stack Edge devices where a Graphical Processing Unit (GPU), a Vision Processing Unit (VPU), or a Field Programmable Gate Array (FPGA) are used for hardware acceleration. Most workloads deployed on your Azure Stack Edge device involve critical timing, multiple camera streams, and/or high frame rates, all of which require specific hardware acceleration.
 
 The article will discuss compute acceleration only using GPU or VPU for the following devices:
 
-- **Azure Stack Edge Pro GPU** - These devices can have 1 or 2 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/)
-- **Azure Stack Edge Pro R** - These devices have 1 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/)
+- **Azure Stack Edge Pro GPU** - These devices can have 1 or 2 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack Edge Pro R** - These devices have 1 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 - **Azure Stack Edge Mini R** - These devices have 1 Intel Movidius Myriad X VPU. For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX).
 
 
