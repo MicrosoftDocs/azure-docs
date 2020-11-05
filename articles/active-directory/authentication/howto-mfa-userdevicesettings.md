@@ -32,16 +32,16 @@ When managing Azure Multi-Factor Authentication methods for your users, Authenti
 
 ## Add authentication methods for a user 
 
-You can add authentication methods for a user via the Azure Portal or Microsoft Graph.  
+You can add authentication methods for a user via the Azure portal or Microsoft Graph.  
 
 > [!NOTE]
 > For security reasons, public user contact information fields should not be used to perform MFA. Instead, users should populate their authentication method numbers to be used for MFA.  
 
 :::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Add authentication methods from the Azure portal":::
 
-To add authentication methods for a user via the Azure Portal:  
+To add authentication methods for a user via the Azure portal:  
 
-1. Sign into the **Azure Portal**. 
+1. Sign into the **Azure portal**. 
 1. Browse to **Azure Active Directory** > **Users** > **All users**. 
 1. Choose the user for whom you wish to add an authentication method and select **Authentication methods**.  
 1. At the top of the window, select **+ Add authentication method**.
@@ -98,7 +98,7 @@ If you're assigned the *Authentication Administrator* role, you can require user
    
     :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Azure portal":::
 
-## Delete users existing app passwords
+## Delete users' existing app passwords
 
 For users that have defined app passwords, administrators can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or need to reset their authentication methods. Non-browser apps that were associated with these app passwords will stop working until a new app password is created. 
 
