@@ -10,18 +10,6 @@
  ms.custom: include file
 ---
 
----
- title: include file
- description: include file
- services: bastion
- author: cherylmc
- ms.service: bastion
- ms.topic: include
- ms.date: 11/05/2020
- ms.author: cherylmc
- ms.custom: include file
----
-
 ### <a name="regions"></a>Which regions are available?
 
 [!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
