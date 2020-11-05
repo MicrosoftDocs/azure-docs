@@ -1,16 +1,19 @@
 ---
-title: Collect on Performance Counters in Azure Cloud Services | Microsoft Docs
+title: Collect on Performance Counters in Azure Cloud Services (classic) | Microsoft Docs
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Collect performance counters for your Azure Cloud Service
+# Collect performance counters for your Azure Cloud Service (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Performance counters provide a way for you to track how well your application and the host are performing. Windows Server provides many different performance counters related to hardware, applications, the operating system, and more. By collecting and sending performance counters to Azure, you can analyze this information to help make better decisions. 
 

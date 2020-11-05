@@ -1,19 +1,20 @@
 ---
-title: Install .NET on Azure Cloud Services roles | Microsoft Docs
+title: Install .NET on Azure Cloud Services (classic) roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Install .NET on Azure Cloud Services roles
+# Install .NET on Azure Cloud Services (classic) roles
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article describes how to install versions of .NET Framework that don't come with the Azure Guest OS. You can use .NET on the Guest OS to configure your cloud service web and worker roles.
 
 For example, you can install .NET Framework 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET Framework 4.6. (The Guest OS family 5 does come with .NET Framework 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 

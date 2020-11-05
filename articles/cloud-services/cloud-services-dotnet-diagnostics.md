@@ -1,20 +1,20 @@
 ---
-title: How to use Azure diagnostics (.NET) with Cloud Services | Microsoft Docs
+title: How to use Azure diagnostics (.NET) with Cloud Services (classic) | Microsoft Docs
 description: Using Azure diagnostics to gather data from Azure cloud Services for debugging, measuring performance, monitoring, traffic analysis, and more.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 05/22/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enabling Azure Diagnostics in Azure Cloud Services
-See [Azure Diagnostics Overview](../azure-monitor/platform/diagnostics-extension-overview.md) for a background on Azure Diagnostics.
+# Enabling Azure Diagnostics in Azure Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
+See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Worker Role
 This walkthrough describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role, Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure SDKs for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.

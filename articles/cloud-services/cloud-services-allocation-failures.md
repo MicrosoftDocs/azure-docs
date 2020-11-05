@@ -1,21 +1,19 @@
 ---
-title: Troubleshooting Cloud Service allocation failure | Microsoft Docs
+title: Troubleshooting Cloud Service (classic) allocation failure | Microsoft Docs
 description: Troubleshoot an allocation failure when you deploy Azure Cloud Services. Learn how allocation works and why allocation can fail.
-services: azure-service-management, cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
+ms.topic: article
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.topic: troubleshooting
-ms.date: 06/15/2018
-ms.author: v-six
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Troubleshooting allocation failure when you deploy Cloud Services in Azure
+# Troubleshooting allocation failure when you deploy Cloud Services (classic) in Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 ## Summary
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 

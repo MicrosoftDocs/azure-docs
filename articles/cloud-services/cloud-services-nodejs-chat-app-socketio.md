@@ -1,20 +1,21 @@
 ---
 title: Node.js application using Socket.io - Azure
-description: Use this tutorial to learn how to host a socket.IO-based chat application on Azure. Socket.IO provides real-time communication for a node.js server and clients.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
+description: Use this tutorial to learn how to host a socket.IO-based chat application on Azure. Socket.IO provides real time communication for a node.js server and clients.
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Build a Node.js chat application with Socket.IO on an Azure Cloud Service
+# Build a Node.js chat application with Socket.IO on an Azure Cloud Service (classic)
 
-Socket.IO provides realtime communication between your node.js
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
+Socket.IO provides real time communication between your node.js
 server and clients. This tutorial walks you through hosting a
 socket.IO based chat application on Azure. For more information
 on Socket.IO, see [socket.io](https://socket.io).
@@ -48,7 +49,7 @@ The following steps create the cloud service project that will host the Socket.I
     PS C:\> cd node
     ```
 
-4. Enter the following commands to create a new solution named **chatapp** and a worker role named **WorkerRole1**:
+4. Enter the following commands to create a new solution named `chatapp` and a worker role named `WorkerRole1`:
 
     ```powershell
     PS C:\node> New-AzureServiceProject chatapp
