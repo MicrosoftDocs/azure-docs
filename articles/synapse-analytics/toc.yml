@@ -14,8 +14,9 @@
   - name: Release notes
     href: release-notes.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Introduction
+  - name: Get started
     href: get-started.md
     displayName: get, started, quickstart
   - name: 1 Create a Synapse workspace

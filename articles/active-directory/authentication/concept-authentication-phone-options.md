@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -49,8 +49,6 @@ With phone call verification during SSPR or Azure Multi-Factor Authentication, a
 
 ## Office phone verification
 
-The office phone attribute is managed by the Azure AD administrator and can't be registered by a user themselves.
-
 With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
 ## Troubleshooting phone options
@@ -80,7 +78,7 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 
 To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
