@@ -21,7 +21,7 @@ ACL inheritance is already available for new child items that are created under 
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account) instructions to create one.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - The correct permissions to execute the recursive ACL process. The correct permission includes either of the following: 
 
