@@ -112,6 +112,7 @@ Once your application is successfully processing reads and writes, you have comp
 | Scenario | Limitation/Consideration |
 |:-|:-|
 | Replica on server with zone-redundant HA enabled | Not supported |
+| Cross region read replication | Not supported |
 | Pricing | The cost of running the replica server is based on the region where the replica server is running |
 | Source server restart | When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period |
 | New replicas | A read replica is created as a new Azure Database for MySQL flexible server. An existing server can't be made into a replica. You can't create a replica of another read replica |
