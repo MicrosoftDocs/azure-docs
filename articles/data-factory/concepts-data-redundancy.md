@@ -4,8 +4,8 @@ description: 'Learn about meta-data redundancy mechanisms in Azure Data Factory'
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: WeeHyongTok
-ms.reviewer: nabhishek
+manager: weehyongtok
+ms.reviewer: abnarain
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: nabhishek
+ms.author: abnarain
 ---
 
-# **Azure Data Factory Data Redundancy**
+# **Azure Data Factory Data redundancy**
 
 Azure Data Factory data includes metadata (pipeline, datasets, linked services, integration runtime and triggers) and monitoring data (pipeline, trigger and activity runs). 
 
@@ -29,7 +29,7 @@ Due to data residency requirements in Brazil South, and Southeast Asia, Azure Da
 
 
 
-## **Using Source Control in Azure Data Factory**
+## **Using source control in Azure Data Factory**
 
 To ensure that you are able to track and audit the changes made to your Azure data factory metadata, you should consider setting up source control for your Azure Data Factory. This will also enable you to access your metadata JSON files for pipelines, datasets, linked services and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). 
 
@@ -40,7 +40,7 @@ To ensure that you are able to track and audit the changes made to your Azure da
 
 
 
-## **Data Stores**
+## **Data stores**
 
 Azure Data Factory enables you to move data among data stores located on-premises and in the cloud. To ensure business continuity with your data stores, you should refer to the business continuity recommendations for each of these data stores. 
 
