@@ -109,7 +109,7 @@ Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#
 3.	Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
 4.	Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
 
-:::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of "Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permisions." lightbox="media/access-control.png":::
+:::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permisions." lightbox="media/access-control.png":::
 
 
 5.	It might take up to one minute for the permissions to propagate. Then, select your Metrics Advisor workspace, and select the **Email setting** option in the left navigation panel. Fill in the required items, in particular the SMTP related info. 
