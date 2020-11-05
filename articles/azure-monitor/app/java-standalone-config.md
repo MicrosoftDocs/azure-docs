@@ -166,7 +166,7 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
-## Telemetry processors
+## Telemetry processors (preview)
 
 This is a preview feature.
 
