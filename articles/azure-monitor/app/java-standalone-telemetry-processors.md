@@ -13,12 +13,12 @@ ms.date: 10/29/2020
 
 Java 3.0 Agent for Application Insights now has the capabilities to process telemetry data before the data is exported.
 
-### Some Use Cases:
+### Some use cases:
  * Mask sensitive data
  * Conditionally add custom dimensions
  * Update the telemetry name used for aggregation and display
 
-### Supported Processors:
+### Supported processors:
  * Attribute Processor
  * Span Processor
 
@@ -48,7 +48,7 @@ Create a configuration file named `applicationinsights.json`, and place it in th
 }
 ```
 
-## Include/Exclude Spans
+## Include/exclude spans
 
 The attribute processor and the span processor expose the option to provide a set of properties of a span to match against, to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least one `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified condition. All of the specified conditions must evaluate to true for a match to occur. 
 
@@ -62,7 +62,7 @@ The attribute processor and the span processor expose the option to provide a se
 > [!NOTE]
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties.
 
-#### Sample Usage
+#### Sample usage
 
 The following demonstrates specifying the set of span properties to
 indicate which spans this processor should be applied to. The `include` of
@@ -120,7 +120,7 @@ The following spans do not match the include properties and processor actions ar
 
 * Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
 
-## Attribute Processor 
+## Attribute processor 
 
 The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans.
 It takes a list of actions which are performed in order specified in the configuration file. The supported actions are:
@@ -145,7 +145,7 @@ For the `hash` action,
 
 The list of actions can be composed to create rich scenarios, such as back filling attribute, copying values to a new key, redacting sensitive information.
 
-#### Sample Usage
+#### Sample usage
 
 The following example demonstrates inserting keys/values into spans:
 
@@ -204,8 +204,9 @@ The following example demonstrates configuring the processor to only update exis
 }
 ```
 
-The following example demonstrates how to process spans that have a span name that match regexp patterns. This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.*" 
-and where span name does not match "login.*".
+The following example demonstrates how to process spans that have a span name that match regexp patterns.
+This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.\*" 
+and where span name does not match "login.\*".
 
 ```json
 {
@@ -243,7 +244,7 @@ and where span name does not match "login.*".
 }
 ```
 
-## Span Processors
+## Span processors
 
 The span processor modifies either the span name or attributes of a span based on the span name. It optionally supports the ability to include/exclude spans.
 
@@ -259,7 +260,7 @@ The following setting can be optionally configured:
 > [!NOTE]
 > If renaming is dependent on attributes being modified by the attributes processor, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
-#### Sample Usage
+#### Sample usage
 
 The following example specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
 ```json
@@ -291,7 +292,7 @@ The following settings are required:
 
 `rules` : A list of rules to extract attribute values from span name. The values in the span name are replaced by extracted attribute names. Each rule in the list is regex pattern string. Span name is checked against the regex. If the regex matches, all named subexpressions of the regex are extracted as attributes and are added to the span. Each subexpression name becomes an attribute name and subexpression matched portion becomes the attribute value. The matched portion in the span name is replaced by extracted attribute name. If the attributes already exist in the span, they will be overwritten. The process is repeated for all rules in the order they are specified. Each subsequent rule works on the span name that is the output after processing the previous rule.
 
-#### Sample Usage
+#### Sample usage
 
 Let's assume the input span name is /api/v1/document/12345678/update. Applying the following results in the output span name /api/v1/document/{documentId}/update will add a new attribute "documentId"="12345678" to the span.
 ```json

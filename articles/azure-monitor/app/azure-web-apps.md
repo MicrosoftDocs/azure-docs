@@ -398,7 +398,7 @@ If you wish to test out codeless server and client-side monitoring for ASP.NET o
 
 ### PHP and WordPress are not supported
 
-PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
+PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
 
 ### Connection string and instrumentation key
 

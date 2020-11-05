@@ -702,8 +702,6 @@
               href: app/java-standalone-telemetry-processors.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
-            - name: Upgrading from 2.x SDK
-              href: app/java-standalone-upgrading-from-2x.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
