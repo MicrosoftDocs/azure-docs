@@ -1,5 +1,5 @@
 ---
-title: Use customer-managed keys or BYOK
+title: Use customer-managed keys or BYOK REST API
 description: In this tutorial, use customer-managed keys or bring your own key (BYOK) with an Azure Media Services storage account.
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -8,9 +8,9 @@ ms.topic: tutorial
 ms.date: 10/18/2020
 ---
 
-# Tutorial: Use customer-managed keys or BYOK with Media Services
+# Tutorial: Use customer-managed keys or BYOK with Media Services REST API
 
-With the 2020-05-01 API, you can use a customer-managed RSA key with an Azure Media Services account that has a system-managed identity. This tutorial includes a Postman collection and environment to send REST requests to Azure services. The services used are:
+With the 2020-05-01 API, you can use a customer-managed RSA key with an Azure Media Services account that has a system-managed identity.This tutorial includes a Postman collection and environment to send REST requests to Azure services. The services used are:
 
 - Azure Active Directory (Azure AD) application registration for Postman
 - Microsoft Graph API

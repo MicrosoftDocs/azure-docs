@@ -68,8 +68,8 @@
     items:
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
-    - name: Customer-managed keys with Media Services
-      href: tutorial-byok.md
+    - name: Customer-managed keys with Media Services REST API
+      href: tutorial-byok=postman.md
   - name: CLI
     items:
     - name: Encode and stream a remote file CLI
@@ -80,6 +80,8 @@
       href: stream-files-nodejs-quickstart.md
   - name: Azure portal
     items:
+    - name: Customer-managed keys or BYOK with Media Services
+      href: tutorial-byok-portal.md
     - name: Store AMS events in Azure Log Analytics
       href: tutorial-events-log-analytics.md
 - name: Samples

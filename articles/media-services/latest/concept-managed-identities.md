@@ -44,7 +44,12 @@ The next two sections describe the differences in the two scenarios.
 
 For more information about customer managed keys and Key Vault, see [Bring your own key (customer-managed keys) with Media Services](concept-use-customer-managed-keys-byok.md)
 
-Try the tutorial, [Use customer-managed keys or bring your own key (BYOK) with Media Services](tutorial-byok.md). It takes you through the steps of both scenarios using the REST API and Postman.
+## Tutorials
+
+These tutorials include both of the scenarios mentioned above.
+
+[Use the Azure portal to use customer-managed keys or BYOK with Media Services](tutorial-byok-portal.md)
+[Use customer-managed keys or BYOK with Media Services REST API](tutorial-byok-postman.md). It takes you through the steps of both scenarios using the REST API and Postman.
 
 ## Next steps
 
