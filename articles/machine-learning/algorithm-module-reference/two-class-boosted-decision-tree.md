@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Boosted Decision Tree: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Two-Class Boosted Decision Tree module in Azure Machine Learning to create a machine learning model that is based on the boosted decision trees algorithm. 
+description: Learn how to use the Two-Class Boosted Decision Tree module in the designer to create a binary classifier.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
