@@ -1,5 +1,5 @@
 ---
-title: How to find your tenant ID - Azure AD
+title: How to find your tenant ID - Azure Active Directory
 description: Instructions about how to find and Azure Active Directory tenant ID to an existing Azure subscription.
 services: active-directory
 author: ajburnle
@@ -64,7 +64,7 @@ For Microsoft 365 CLI, use the cmdlet **tenant id** as shown in the following ex
 m365 tenant id get
 ```
 
-For more information, see the M365 [tenant id get](https://pnp.github.io/cli-microsoft365/cmd/tenant/id/id-get/) command reference.
+For more information, see the Microsoft 365 [tenant id get](https://pnp.github.io/cli-microsoft365/cmd/tenant/id/id-get/) command reference.
 
 
 ## Next steps
