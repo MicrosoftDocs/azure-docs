@@ -1,1 +1,40 @@
+- name: Cloud Services (extended support) documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Cloud Services (extended support)?
+    href: overview.md
+- name: Quickstart
+  items: 
+  - name: Deploy a Cloud Service - PowerShell
+    href: deploy-powershell.md
+- name: Concepts
+  items: 
+  - name: Available VM sizes
+    href: available-sizes.md
+- name: How To
+  items:
+  - name: Enable Remote Desktop
+    href: enable-rdp.md
+  - name: Update a Cloud Service - PowerShell
+    href: update-powershell.md
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=cloud-services
+  - name: REST
+    href: /rest/api/compute/cloudservices/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Learning path
+    href: /learn/paths/azure-fundamentals/
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cloud-services.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cloud-services/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
 
