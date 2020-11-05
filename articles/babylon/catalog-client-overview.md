@@ -479,7 +479,7 @@ Data Catalog provides a template .csv file for you to import your terms into you
 
 2. Download the csv template and use it to enter your terms you would like to add.
 
-> [!IMPORTANT\]
+> [!Important]
 > The system only supports importing columns that are available in the template. You can also review the file for issues after upload.
 > :::image type="content" source="./media/catalog-client-overview/image74.png" alt-text="Screenshot":::
 
@@ -613,11 +613,11 @@ This system will prompt you to confirm the deletion
 
 Select **Delete** and the classification should be removed from the list.
 
-> \[!TIP\] You cannot delete custom classifications that have been
-> associated to an asset(s). You will get an error
-
- :::image type="content" source="./media/catalog-client-overview/image104.png" alt-text="Error":::. You must first remove the
-> classification from the asset.
+> [!Tip]
+> You cannot delete custom classifications that have been associated to an asset(s). You will the following error. You must first remove the classification from the asset.
+>
+> :::image type="content" source="./media/catalog-client-overview/image104.png" alt-text="Error":::
+>
 
 ## Connection to Azure Data Factory (ADF)
 
@@ -632,17 +632,17 @@ At a given time, more than one ADF can connect to a catalog and push lineage inf
 
 1. Select **Management center**
 
-   ![Management Center](./media/catalog-client-overview/image105.png)
+   :::image type="content" source="media/catalog-client-overview/image105.png" alt-text="Management Center":::
 
 2. Select **Data factory connection**
 
-   ![Data factory connection tile](./media/catalog-client-overview/image106.png)
+   :::image type="content" source="media/catalog-client-overview/image106.png" alt-text="Data factory connection tile":::
 
 3. Data factory connection list
 
-   ![Data factory connection list](./media/catalog-client-overview/image107.png)
+   :::image type="content" source="media/catalog-client-overview/image107.png" alt-text="Data factory connection list":::
 
-Status explanation
+#### Status explanation
 
 - **Connected**: the data factory is successfully connected to current data catalog.
 
