@@ -146,11 +146,12 @@ Stop replication as follows:
 
     :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Page to disable replication and provide a reason."::: 
 
-    The Site Recovery extension installed on the VM during replication isn't removed automatically. If you disable replication for the VM, and you don't want to replicate it again at a later time, you can remove the Site Recovery extension manually, as follows: 
 
-3. Go the the VM **Settings** > **Extensions**.
-4. In the **Extensions** page, select each *Microsoft.Azure.RecoveryServices* entry for Linux.
-5. In the  properties page for the extension, select **Uninstall**.
+The Site Recovery extension installed on the VM during replication isn't removed automatically. If you disable replication for the VM, and you don't want to replicate it again at a later time, you can remove the Site Recovery extension manually, as follows: 
+
+1. Go the the VM **Settings** > **Extensions**.
+2. In the **Extensions** page, select each *Microsoft.Azure.RecoveryServices* entry for Linux.
+3. In the  properties page for the extension, select **Uninstall**.
 
    :::image type="content" source="./media/tutorial-disaster-recovery/uninstall-extension.png" alt-text="Page to uninstall the Site Recovery VM extension.":::
 
