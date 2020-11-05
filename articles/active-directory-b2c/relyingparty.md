@@ -113,11 +113,12 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
-|ScriptExecution| 0:1| The supported [JavaScript](javascript-samples.md) execution modes. Possible values: `Allow` or `Disallow` (default).
+|ScriptExecution| 0:1| The supported [JavaScript](javascript-samples.md) execution modes. Possible values: `Allow` or `Disallow` (default). |
+| JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 
 ### SingleSignOn
 
-The **SingleSignOn** element contains in the following attribute:
+The **SingleSignOn** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -162,6 +163,15 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | Name | Yes | The name of the key value pair. |
 
 For more information, see [Configure the UI with dynamic content by using custom policies](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+
+### JourneyFraming
+
+The **JourneyFraming** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Enabled | Yes | Enables this policy to be loaded within an iframe. Possible values: `false` (default), or `true`. |
+| Sources | Yes | Contains the domains which will load host the iframe. For more information, see [Loading Azure B2C in an iframe](<<TBD>>.md). |
 
 ## TechnicalProfile
 
