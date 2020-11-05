@@ -79,7 +79,7 @@ When users activate their role and the role setting requires approval, approvers
 - Request to approve or deny the user's activation request (sent by the request approval engine)
 - The user's request is approved (sent by the request approval engine)
 
-Also, Global administraotrs and Privileged Role administrators receive an email for each approval:
+Also, Global administrators and Privileged Role administrators receive an email for each approval:
 
 - The user's role is activated (sent by Privileged Identity Management)
 
