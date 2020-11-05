@@ -120,7 +120,7 @@ have to be real or work.
 
 1. Then select **Register**.
 
-1. Copy the values fro both the display name and the application ID.
+1. Copy the values from both the display name and the application ID.
 
 1. Add your service principal to a role on the data stores that you would like to scan. You do this step in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md).
 
