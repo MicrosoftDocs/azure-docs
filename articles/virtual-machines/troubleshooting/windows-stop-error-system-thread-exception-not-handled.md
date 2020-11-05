@@ -1,5 +1,5 @@
 ---
-title: Windows Stop Error - 0x0000007E System Thread Exception Not Handled
+title: Windows stop error - 0x0000007E system thread exception not handled
 description: This article provides steps to resolve issues where the Guest OS encounters a problem and wishes to restart your Azure VM. The message will state that "A system thread exception wasn’t handled".
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: v-mibufo
 
 ---
 
-# Windows Stop Error - 0x0000007E System Thread Exception Not Handled
+# Windows stop error - 0x0000007E system thread exception not handled
 
 This article provides steps to resolve issues where the Guest OS encounters a problem and wishes to restart your Azure VM. The message will state that "A system thread exception wasn’t handled".
 

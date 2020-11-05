@@ -1,5 +1,5 @@
 ---
-title: VM is unresponsive while waiting for the Local Session Manager
+title: VM is unresponsive while waiting for the local session manager
 description: This article provides steps to resolve issues where the Guest OS is stuck waiting for the Local Session Manager to finish processing while booting an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: v-mibufo
 
 ---
 
-# VM is unresponsive while waiting for the Local Session Manager
+# VM is unresponsive while waiting for the local session manager
 
 This article provides steps to resolve issues where the Guest OS is stuck waiting for the Local Session Manager to finish processing while booting an Azure virtual machine (VM).
 
