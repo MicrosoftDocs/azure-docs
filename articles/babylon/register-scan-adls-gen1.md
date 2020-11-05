@@ -105,13 +105,13 @@ To use a service principal, you must first create one following these steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. Select "Azure Active Directory" from the left-hand side menu.
+1. Select **Azure Active Directory** from the left-hand side menu.
 
 1. Select **App registrations**.
 
-1. Select **+ New application registration**
+1. Select **+ New application registration**.
 
-1. Enter a name for the **application** (the service principal name)
+1. Enter a name for the **application** (the service principal name).
 
 1. Select **Accounts in this organizational directory only**.
 
@@ -120,7 +120,7 @@ have to be real or work.
 
 1. Then select **Register**.
 
-1. Copy down both the display name and the application ID
+1. Copy the values fro both the display name and the application ID.
 
 1. Add your service principal to a role on the data stores that you would like to scan. You do this step in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md).
 

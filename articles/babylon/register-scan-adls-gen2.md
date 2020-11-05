@@ -79,19 +79,19 @@ on.
 
 1. Fill in the form as follows:
 
-    1. Under **Role**, Choose 'Storage Blob Data Reader' from the list.
+   1. Under **Role**, Choose 'Storage Blob Data Reader' from the list.
 
-        :::image type="content" source="./media/register-scan-adls-gen2/image102.png" alt-text="Set role":::
+      :::image type="content" source="./media/register-scan-adls-gen2/image102.png" alt-text="Set role":::
 
-    1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
+   1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
 
-        :::image type="content" source="./media/register-scan-adls-gen2/image103.png" alt-text="Assign access":::
+      :::image type="content" source="./media/register-scan-adls-gen2/image103.png" alt-text="Assign access":::
 
-    1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
+   1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
 
-        :::image type="content" source="./media/register-scan-adls-gen2/image104.png" alt-text="Select your catalog":::
+      :::image type="content" source="./media/register-scan-adls-gen2/image104.png" alt-text="Select your catalog":::
 
-    1. Select **Save**.
+   1. Select **Save**.
 
 > [!Note]
 > Once you have added the catalog's MSI on the data source, wait up to 15 minutes for the permissions to propagate before setting up a scan.
@@ -136,17 +136,17 @@ have to be real or work.
 
 2. Select **+ New scan**. Choose the authentication method that you want to use and provide required details.
 
-    :::image type="content" source="media/register-scan-adls-gen2/image4.png" alt-text="Choose scan authentication method":::
+   :::image type="content" source="media/register-scan-adls-gen2/image4.png" alt-text="Choose scan authentication method":::
 
 3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provide a database name, then you can scope your scan to specific tables.
 
 4. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
-    :::image type="content" source="media/register-scan-adls-gen2/image8.png" alt-text="Setup scan trigger":::
+   :::image type="content" source="media/register-scan-adls-gen2/image8.png" alt-text="Setup scan trigger":::
 
 5. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-    :::image type="content" source="media/register-scan-adls-gen2/image9.png" alt-text="Select scan rule set":::
+   :::image type="content" source="media/register-scan-adls-gen2/image9.png" alt-text="Select scan rule set":::
 
 6. Review your scan and select **Save** and run.
 
@@ -164,7 +164,7 @@ have to be real or work.
 
 2. Select the scan you would like to manage. You can edit the scan by select **Edit**.
 
-    :::image type="content" source="media/register-scan-adls-gen2/image10.png" alt-text="edit scan":::
+   :::image type="content" source="media/register-scan-adls-gen2/image10.png" alt-text="edit scan":::
 
 3. You can delete your scan by selecting **Delete**.
 
