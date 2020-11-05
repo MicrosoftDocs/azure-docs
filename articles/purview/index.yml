@@ -1,0 +1,112 @@
+### YamlMime:Landing
+
+title: Azure Purview documentation
+summary: Learn how to use Azure Purview so your organization can find, understand, and consume data sources.
+
+metadata:
+  title: Azure Purview documentation
+  description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
+  ms.service: data-catalog
+  ms.topic: landing-page
+  author: jasonwhowell
+  ms.author: jasonh
+  ms.date: 10/01/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card
+  - title: About Azure Purview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Purview?
+            url: overview.md
+          - text: Product limitations
+            url: product-limitations.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Purview account
+            url: create-catalog-portal.md
+          - text: Add a security principal
+            url: add-security-principal.md
+      - linkListType: tutorial
+        links:
+          - text: 1 - Run starter kit and scan data 
+            url: starter-kit-tutorial-1.md
+          - text: 2 - Home page and search
+            url: starter-kit-tutorial-2.md
+          - text: 3 - Browse and lineage 
+            url: starter-kit-tutorial-3.md
+          - text: 4 - Resource sets, assets, schemas, classifications 
+            url: starter-kit-tutorial-4.md
+          - text: 5 - Glossary terms
+            url: starter-kit-tutorial-5.md
+  # Card
+  - title: Scan Azure data sources
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1 - Run starter kit and scan data 
+            url: starter-kit-tutorial-1.md
+      - linkListType: how-to-guide
+        links:
+          - text: Scan Azure SQL Database
+            url: starter-kit-tutorial-1.md # update link
+          - text: Scan Azure Data Lake Storage Gen 2
+            url: starter-kit-tutorial-1.md # update link
+          - text: Scan Azure Cosmos DB
+            url: starter-kit-tutorial-1.md # update link
+          - text: Power BI Tenant
+            url: starter-kit-tutorial-1.md # update link
+          - text: Register and scan Azure Blob Storage
+            url: register-scan-azure-files-storage-source.md
+  - title: Scan non-Azure data sources
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Scan SQL server on-premises
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan Teradata
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan SAP S/4 HANA
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan SAP ECC
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan AWS S3
+          url: starter-kit-tutorial-1.md # update link
+  - title: Understand your data estate 
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create labels in M365 and scan with Babylon
+          url: starter-kit-tutorial-1.md # update link
+  - title: Curate data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: 4 - Resource sets, assets, schemas, classifications
+          url: starter-kit-tutorial-4.md # update link
+        - text: 5 - Glossary terms
+          url: starter-kit-tutorial-5.md # update link
+    - linkListType: how-to-guide
+      links:
+        - text: Create, edit, & delete custom classifications and rules
+          url: starter-kit-tutorial-1.md # update link
+        - text: Create, import, & export a glossary
+          url: starter-kit-tutorial-1.md # update link
+  - title: Discover data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: 3 - Browse and lineage
+          url: starter-kit-tutorial-3.md # update link
+    - linkListType: how-to-guide
+      links:
+        - text: Browse by asset type
+          url: how-to-browse-catalog.md # update link
+        - text: Search for assets, terms, annotations, and contacts
+          url: starter-kit-tutorial-1.md # update link
