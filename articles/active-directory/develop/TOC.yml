@@ -1,30 +1,30 @@
 - name: Microsoft identity platform documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
-  - name: What is Microsoft identity platform?
+  - name: What is the Microsoft identity platform?
     href: v2-overview.md
   - name: What's new in docs?
     href: whats-new-docs.md
 - name: Quickstarts
-  expanded: true
   items:
-  - name: Set up a tenant
-    href: quickstart-create-new-tenant.md
-  - name: Configure an application
+  - name: Prepare for development
     items:
-    - name: Register an app
+    - name: Get an Azure AD tenant
+      href: quickstart-create-new-tenant.md
+    - name: Register app or web API
       href: quickstart-register-app.md
-    - name: Configure app to expose a web API
+    - name: Expose scopes in web API registration
       href: quickstart-configure-app-expose-web-apis.md
-    - name: Configure app to access a web API
+    - name: Grant scoped permission to web API
+      displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
     - name: Modify accounts supported by an app
       href: quickstart-modify-supported-accounts.md
     - name: Remove an app
       href: quickstart-remove-app.md
-  - name: Single-page apps
-    displayName: SPA
+  - name: Single-page app (SPA)
     items:
     - name: Angular
       href: quickstart-v2-angular.md
@@ -32,7 +32,7 @@
       href: quickstart-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
-  - name: Web apps
+  - name: Web app
     items:
     - name: ASP.NET
       href: quickstart-v2-aspnet-webapp.md
@@ -41,19 +41,18 @@
     - name: Node.js - MSAL | Preview
       href: quickstart-v2-nodejs-webapp-msal.md
     - name: Node.js - Passport.js
-      href: quickstart-v2-nodejs-webapp.md
       displayName: OIDC
     - name: Java
       href: quickstart-v2-java-webapp.md
     - name: Python
       href: quickstart-v2-python-webapp.md
-  - name: Web APIs
+  - name: Web API
     items:
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-web-api.md
-  - name: Mobile and desktop apps
+  - name: Mobile and desktop
     items:
     - name: Android
       href: quickstart-v2-android.md
@@ -64,7 +63,7 @@
       href: quickstart-v2-uwp.md
     - name: Windows Desktop .NET
       href: quickstart-v2-windows-desktop.md
-  - name: Daemon apps
+  - name: Daemon or back-end service
     items:
     - name: .NET Core console (daemon)
       href: quickstart-v2-netcore-daemon.md
@@ -72,8 +71,7 @@
       href: quickstart-v2-python-daemon.md
 - name: Tutorials
   items:
-  - name: Single-page apps
-    displayName: SPA
+  - name: Single-page app (SPA)
     items:
     - name: Angular
       href: tutorial-v2-angular.md
@@ -83,13 +81,13 @@
       href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
-  - name: Web apps
+  - name: Web app
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
     - name: Blazor Server
       href: tutorial-blazor-server.md
-  - name: Mobile and desktop apps
+  - name: Mobile and desktop
     items:
     - name: Android
       href: tutorial-v2-android.md
@@ -102,12 +100,48 @@
       href: tutorial-v2-windows-desktop.md
     - name: Use shared-device mode in your Android app
       href: tutorial-v2-shared-device-mode.md
-  - name: Daemon apps
+  - name: Daemon or back-end service
     items:
     - name: ASP.NET daemon web app
       href: tutorial-v2-aspnet-daemon-web-app.md
 - name: Samples
-  href: sample-v2-code.md
+  items:
+  - name: Code sample index
+    href: sample-v2-code.md
+  - name: Code samples on GitHub
+    items:
+    - name: Single-page app (SPA)
+      items:
+      - name: Angular
+        items:
+        - name: SPA calls Microsoft Graph
+          href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular
+        - name: SPA calls web API
+          href: https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi
+        - name: SPA calls web API with App Roles & Security Groups
+          href: https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups
+        - name: SPA with Azure AD B2C
+          href: https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa
+      - name: JavaScript
+        items:
+        - name: SPA calls Microsoft Graph - auth code flow w/PKCE
+          href: https://github.com/Azure-Samples/ms-identity-javascript-v2
+        - name: SPA calls Microsoft Graph - implicit flow
+          href: https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2
+        - name: SPA calls web API that calls Microsoft Graph
+          href: https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph
+        - name: SPA with Azure AD B2C - auth code flow w/PKCE
+          href: https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa
+        - name: SPA with Azure AD B2C - implicit flow
+          href: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+      - name: React
+        items:
+        - name: SPA calls web API that calls Microsoft Graph
+          href: https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo
+    - name: Web app
+    - name: Web API
+    - name: Mobile and desktop
+    - name: Daemon or back-end service
 - name: Concepts
   expanded: true
   items:
