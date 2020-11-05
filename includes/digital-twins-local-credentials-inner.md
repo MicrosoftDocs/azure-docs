@@ -7,7 +7,7 @@ ms.date: 10/22/2020
 ms.author: baanders
 ---
 
-With `DefaultAzureCredential`, the sample will search for credentials in your local environment, like an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio or Visual Studio Code. For this reason, you should **sign in to Azure locally** through one of these mechanisms to set up credentials for the sample.
+With `DefaultAzureCredential`, the sample will search for credentials in your local environment, like an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio or Visual Studio Code. For this reason, you should *sign in to Azure locally* through one of these mechanisms to set up credentials for the sample.
 
 If you're using Visual Studio or Visual Studio Code to run the code sample, make sure you're signed in to that editor with the same Azure credentials that you want to use to access your Azure Digital Twins instance.
 
