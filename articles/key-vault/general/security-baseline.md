@@ -341,7 +341,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Role-based access control.
+**Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Azure role-based access control (Azure RBAC).
 
 
 **Azure Security Center monitoring**: Not applicable
