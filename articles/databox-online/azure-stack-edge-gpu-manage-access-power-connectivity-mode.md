@@ -69,7 +69,7 @@ Follow these steps to rotate the encryption-at-rest keys.
 
     ![Select Rotate keys for Encryption-at-rest in the Get started page](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
 
-1. You can use your own BitLocker key protectors or use system-generate key protectors. The key protectors are used for the self-encrypting drives. 
+1. You can use your own BitLocker keys or use the system-generated keys.  
 
     To provide your own key, enter a 32 character long Base-64 encoded string. The input is similar to what you would provide when you configure the encryption-at-rest for the first time.
 
