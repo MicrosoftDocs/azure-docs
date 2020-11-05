@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/06/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -24,29 +24,43 @@ This article is updated monthly. Make sure to check back here often to keep up w
 
 Here's what changed in October 2020:
 
+### Improved performance
+
 - We've optimized performance by reducing connection latency in the following Azure geographies:
     - Switzerland
     - Canada
 
 You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
 
-- We've released new versions of the clients. Learn more at [Client updates](#client-updates).
+### Azure Government Cloud availability
 
-- The Azure Government Cloud is now generally available. Learn more at [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+The Azure Government Cloud is now generally available. Learn more at [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
 
-- We've made some updates to the Windows Virtual Desktop Azure portal:
-     - Fixed a resourceID error that prevented users from opening the "Sessions" tab.
-     - Streamlined the UI on the "Session hosts" tab.
-     - Fixed the "Defaults," "Usability," and "Restore defaults" settings under RDP properties.
-     - Made "Remove" and "Delete" functions consistent across all tabs.
-     - The portal now validates app names in the "Add an app" workflow.
-     - Fixed an issue where the session host export data wasn't aligned in the columns.
-     - Fixed an issue where the portal couldn't retrieve user sessions.
-     - Fixed an issue in session host retrieval that happened when the virtual machine was created in a different resource group.
-     - Updated the "Session host" tab to list both active and disconnected sessions.
-     - The "Applications" tab now has pages.
-     - Fixed an issue where the "requires command line" text didn't display correctly in the "Application list" tab.
-     - Fixed an issue when the portal couldn't deploy host pools or virtual machines while using the German-language version of the Shared Image Gallery.
+### Windows Virtual Desktop Azure portal updates
+
+We've made some updates to the Windows Virtual Desktop Azure portal:
+
+- Fixed a resourceID error that prevented users from opening the "Sessions" tab.
+- Streamlined the UI on the "Session hosts" tab.
+- Fixed the "Defaults," "Usability," and "Restore defaults" settings under RDP properties.
+- Made "Remove" and "Delete" functions consistent across all tabs.
+- The portal now validates app names in the "Add an app" workflow.
+- Fixed an issue where the session host export data wasn't aligned in the columns.
+- Fixed an issue where the portal couldn't retrieve user sessions.
+- Fixed an issue in session host retrieval that happened when the virtual machine was created in a different resource group.
+- Updated the "Session host" tab to list both active and disconnected sessions.
+- The "Applications" tab now has pages.
+- Fixed an issue where the "requires command line" text didn't display correctly in the "Application list" tab.
+- Fixed an issue when the portal couldn't deploy host pools or virtual machines while using the German-language version of the Shared Image Gallery.
+
+### Client updates for October 2020
+
+We've released new versions of the clients. See these articles to learn more:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+For more information about the other clients, see [Client updates](#client-updates).
 
 ## September 2020
 
