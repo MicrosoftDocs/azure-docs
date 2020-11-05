@@ -144,7 +144,7 @@ Because agentless replication folds in data, the *churn pattern* is more importa
 
 The formula to schedule the next replication cycle is (previous cycle time / 2) or one hour, whichever is higher.
 
-For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled after two hours, and not in the next hour. The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
+For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled in two hours, and not in the next hour. The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
 
 ## How do I migrate Windows Server 2003 running on VMware/Hyper-V to Azure?
 
