@@ -180,7 +180,7 @@
         - name: JavaScript SDK - npm
           href: https://www.npmjs.com/package/@azure/digital-twins-core
         - name: JavaScript SDK - reference
-          href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+          href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
         - name: JavaScript SDK - source
           href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core
         - name: Python SDK - PyPi
