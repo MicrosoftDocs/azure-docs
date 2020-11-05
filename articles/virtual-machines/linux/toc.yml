@@ -717,7 +717,7 @@
       - name: Agent update
         href: ../extensions/update-linux-agent.md
     - name: Mitigating speculative execution
-      href: mitigate-se.md
+      href: ../mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Get usage metrics with REST

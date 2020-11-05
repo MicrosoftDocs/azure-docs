@@ -13,8 +13,6 @@ ms.author: cynthn
 
 ---
 
-
-
 # Guidance for mitigating speculative execution side-channel vulnerabilities
 
-[!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
+[!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]

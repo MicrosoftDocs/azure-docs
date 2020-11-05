@@ -666,7 +666,7 @@
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
-      href: mitigate-se.md
+      href: ../mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization

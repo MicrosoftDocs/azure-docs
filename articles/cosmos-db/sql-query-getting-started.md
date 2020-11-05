@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
 
 ---
@@ -16,26 +16,35 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
 **Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](request-units.md) with a latency under 10 ms. Point reads return a single item.
 
-**SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
-
-Most read-heavy workloads on Azure Cosmos DB use a combination of both point reads and SQL queries. If you just need to read a single item, point reads are cheaper and faster than queries. Point reads don't need to use the query engine to access data and can read the data directly. Of course, it's not possible for all workloads to exclusively read data using point reads, so support of SQL as a query language and [schema-agnostic indexing](index-overview.md) provide a more flexible way to access your data.
-
-Here are some examples of how to do point reads with each SDK:
+Here are some examples of how to do **Point reads** with each SDK:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
+
+Most read-heavy workloads on Azure Cosmos DB use a combination of both point reads and SQL queries. If you just need to read a single item, point reads are cheaper and faster than queries. Point reads don't need to use the query engine to access data and can read the data directly. Of course, it's not possible for all workloads to exclusively read data using point reads, so support of SQL as a query language and [schema-agnostic indexing](index-overview.md) provide a more flexible way to access your data.
+
+Here are some examples of how to do **SQL queries** with each SDK:
+
+- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, create a container called `Families`. Create two simple JSON items in the container. You can run most of the sample queries in the Azure Cosmos DB query documentation using this data set.
+In your SQL API Cosmos DB account, open the [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 
-The following code creates two simple JSON items about families. The simple JSON items for the Andersen and Wakefield families include parents, children and their pets, address, and registration information. The first item has strings, numbers, Booleans, arrays, and nested properties.
+The following 2 JSON items are documents about the Andersen and Wakefield families. They include parents, children and their pets, address, and registration information. 
+
+The first item has strings, numbers, Booleans, arrays, and nested properties:
 
 ```json
 {
@@ -59,7 +68,7 @@ The following code creates two simple JSON items about families. The simple JSON
 }
 ```
 
-The second item uses `givenName` and `familyName` instead of `firstName` and `lastName`.
+The second item uses `givenName` and `familyName` instead of `firstName` and `lastName`:
 
 ```json
 {
