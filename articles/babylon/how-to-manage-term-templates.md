@@ -37,7 +37,7 @@ Using term templates, you can create custom attributes, group them together and 
 
 5. Once all the custom attributes are created, select **Preview** to arrange the sequence of custom attributes. You can drag and drop custom attributes in the desired sequence.
 
-   :::image type="content" source="./media/how-to-manage-glossary-term-templates/preview.png" alt-text="Screenshot of Glossary terms > Preview term template.":::
+   :::image type="content" source="./media/how-to-manage-glossary-term-templates/preview-term-template.png" alt-text="Screenshot of Glossary terms > Preview term template.":::
 
 6. Once all the custom attributes are defined, select **Create** to create a term template with custom attributes.
 

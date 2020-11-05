@@ -64,9 +64,9 @@ Notice that term names are case-sensitive. For example, `Sample` and `saMple` co
 
    :::image type="content" source="media/how-to-create-import-export-glossary/import-button.png" alt-text="Screenshot of the Glossary terms page, Import term button.":::
 
-2. The term template page opens, to match with .CSV you want to import
+2. The term template page opens. Match the term template to the kind of .CSV you want to import.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Screenshot of the Glossary terms page, Import term button.":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Screenshot of the Glossary terms page, Import terms button.":::
 
 3. Download the csv template and use it to enter your terms you would like to add.
 
