@@ -38,7 +38,7 @@ To step through this how-to-guide, you need:
 - A source database running 9.5, 9.6, or 10 (Azure Database for PostgreSQL – Single Server)
 - Target database server with the desired PostgreSQL major version [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md). 
 - A client system (Linux) with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
-- Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure Portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
+- Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
 - Your PostgreSQL client location such as a VM preferably running in the same region as the source and target servers). 
 
 ## Additional details and considerations
