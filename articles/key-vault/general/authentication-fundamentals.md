@@ -19,8 +19,8 @@ As an administrator, you can tightly control which users and applications can ac
 
 This document assumes you are familiar with the following concepts. If you are not familiar with any of these concepts, follow the help links before proceeding.
 
-* Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* Security Principals [link](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals)
+* Azure Active Directory [link](../../active-directory/fundamentals/active-directory-whatis.md)
+* Security Principals [link](./authentication.md#app-identity-and-security-principals)
 
 ## Key Vault Configuration Steps Summary
 
@@ -37,8 +37,8 @@ When a user or application makes a request to key vault, the request must first 
 Follow the documentation links below to understand how to register a user or application in Azure Active Directory.
 **Make sure you create a password for user registration and a client secret or client certificate credential for applications.**
 
-* Registering a user in Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* Registering an application in Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+* Registering a user in Azure Active Directory [link](../../active-directory/fundamentals/add-users-azure-active-directory.md)
+* Registering an application in Azure Active Directory [link](../../active-directory/develop/quickstart-register-app.md)
 
 ## Assign your security principal a role in Azure Active Directory
 
@@ -52,8 +52,8 @@ In the context of key vault, these role assignments determine a security princip
 >[!NOTE]
 > When you assign a role assignment to a user at the Azure Active Directory tenant level, this set of permissions will trickle down to all subscriptions, resource-groups, and resources within the scope of the assignment. To follow the principal of least-privilege you can make this role assignment at a more granular scope. For example you can assign a user a Reader role at the subscription level, and an Owner role for a single key vault. Go to the Identity Access Management (IAM) settings of a subscription, resource-group, or key vault to make a role assignment at a more granular scope.
 
-* To learn more about Azure Active Directory roles [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-* To learn more about assigning or removing role assignments [link](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* To learn more about Azure Active Directory roles [link](../../role-based-access-control/built-in-roles.md)
+* To learn more about assigning or removing role assignments [link](../../role-based-access-control/role-assignments-portal.md)
 
 ## Configure key vault access policies for your security principal
 
@@ -116,8 +116,8 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 
 To learn more about Key Vault RBAC, see the following documents:
 
-* Azure Key Vault RBAC [link](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
-* Azure Key Vault RBAC Roles (Preview) [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview)
+* Azure Key Vault RBAC [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Azure Key Vault RBAC Roles (Preview) [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
 
 ## Configure Key Vault Firewall
 
@@ -127,9 +127,9 @@ To enable key vault firewall, click on the Networking tab in the key vault porta
 
 * Add IPv4 addresses to the key vault firewall allow list. This option works best for applications that have static IP addresses.
 
-* Add a virtual network to the key vault firewall. This option works best for Azure resources that have dynamic IP addresses such as Virtual Machines. You can add Azure resources to a virtual network and add the virtual network to the key vault firewall allow list. This option uses a service endpoint which is a private IP address within the virtual network. This provides an additional layer of protection so no traffic between key vault and your virtual network are routed over the public internet. To learn more about service endpoint see the following documentation. [link](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Add a virtual network to the key vault firewall. This option works best for Azure resources that have dynamic IP addresses such as Virtual Machines. You can add Azure resources to a virtual network and add the virtual network to the key vault firewall allow list. This option uses a service endpoint which is a private IP address within the virtual network. This provides an additional layer of protection so no traffic between key vault and your virtual network are routed over the public internet. To learn more about service endpoint see the following documentation. [link](./network-security.md)
 
-* Add a private link connection to the key vault. This option connects your virtual network directly to a particular instance of key vault, effectively bringing your key vault inside your virtual network. To learn more about configuring a private endpoint connection to key vault, see the following [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
+* Add a private link connection to the key vault. This option connects your virtual network directly to a particular instance of key vault, effectively bringing your key vault inside your virtual network. To learn more about configuring a private endpoint connection to key vault, see the following [link](./private-link-service.md)
 
 ## Test your service principal's ability to access key vault
 
@@ -137,11 +137,11 @@ Once you have followed all of the steps above, you will be able to set and retri
 
 ### Authentication process for users (examples)
 
-* Users can log in to the Azure portal to use key vault. [Key Vault portal Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Users can log in to the Azure portal to use key vault. [Key Vault portal Quickstart](./quick-create-portal.md)
 
-* User can use Azure CLI to use key vault. [Key Vault Azure CLI Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* User can use Azure CLI to use key vault. [Key Vault Azure CLI Quickstart](./quick-create-cli.md)
 
-* User can use Azure PowerShell to use key vault. [Key Vault Azure PowerShell Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* User can use Azure PowerShell to use key vault. [Key Vault Azure PowerShell Quickstart](./quick-create-powershell.md)
 
 ### Azure Active Directory authentication process for applications or services (examples)
 
@@ -151,7 +151,7 @@ Once you have followed all of the steps above, you will be able to set and retri
 
 * An Azure resource uses MSI authentication to get an Azure Active Directory token. 
 
-* Learn more about MSI authentication [link](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* Learn more about MSI authentication [link](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ### Authentication process for application (Python Example)
 
@@ -191,4 +191,4 @@ if __name__ == "__main__":
 
 ## Next Steps
 
-To learn about key vault authentication in more detail, see the following document. [Key Vault Authentication](https://docs.microsoft.com/azure/key-vault/general/authentication)
+To learn about key vault authentication in more detail, see the following document. [Key Vault Authentication](./authentication.md)

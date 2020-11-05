@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
+ms.custom: contperfq2
 ---
 
 # Reference for writing expressions for attribute mappings in Azure AD
@@ -491,7 +492,7 @@ Returns a sanitized proxyAddress attribute where all duplicate values have been 
 Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description:**
-Replaces values within a string. It works differently depending on the parameters provided:
+Replaces values within a string in a case-sensitive manner. The function behaves differently depending on the parameters provided:
 
 * When **oldValue** and **replacementValue** are provided:
   

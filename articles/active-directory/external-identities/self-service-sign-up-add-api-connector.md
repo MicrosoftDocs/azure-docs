@@ -40,7 +40,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 > Previously, you had to configure which user attributes to send to the API ('Claims to send') and which user attributes to accept from the API ('Claims to receive'). Now, all user attributes are sent by default if they have a value and any user attribute can be returned by the API in a 'continuation' response.
 
 ## The request sent to your API
-An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) user properties. 
+An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
 
 **Example request**
 ```http
@@ -81,7 +81,7 @@ Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all 
 > If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check for the value it expects.
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
+> [**identities ('identities')**](/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
 
 ## Enable the API connector in a user flow
 

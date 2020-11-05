@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: CLI sample index
+          href: functions-cli-samples.md
+        - name: Create function app
+          items:
+            - name: Serverless function app
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Serverless Python app
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Scalable Premium plan app
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Dedicated (App Service) plan app  
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrate services
+          items:
+            - name: Connect Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Connect Azure Cosmos DB  
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Python mount Files share
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Continuous deployment
+          items:
+            - name: GitHub deployment
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: DevOps deployment
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
     - name: Compare runtime versions
@@ -141,6 +167,9 @@
           displayName: secure, ssl
         - name: Security baseline
           href: security-baseline.md
+    - name: Monitoring
+      href: functions-monitoring.md
+      displayName: App Insights, Application Insights, logs, logging
     - name: Diagnostics
       href: functions-diagnostics.md
     - name: Consumption plan costs
@@ -241,7 +270,7 @@
         - name: Manage connections
           href: manage-connections.md
           displayName: best practice
-        - name: Error handling
+        - name: Error handling and retries
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
@@ -282,11 +311,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Monitor
       items:
-        - name: Monitor functions
-          href: functions-monitoring.md
+        - name: Configure monitoring
+          href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
-        - name: Analyze logs
+        - name: Analyze telemetry data
+          href: analyze-telemetry-data.md  
+          displayName: App Insights, Application Insights, Kusto
+        - name: Streaming logs
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Diagnostic logs
           href: functions-monitor-log-analytics.md
+          displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Secure
       items:
         - name: Add SSL cert

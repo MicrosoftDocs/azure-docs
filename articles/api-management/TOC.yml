@@ -62,8 +62,6 @@
         items:
             - name: Security baseline
               href: security-baseline.md
-            - name: Built-in security controls
-              href: api-management-security-controls.md
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Versions
@@ -80,6 +78,8 @@
         href: self-hosted-gateway-overview.md
       - name: Observability
         href: observability.md
+      - name: CI/CD using ARM templates
+        href: devops-api-development-templates.md
 
 - name: How-to guides
   items:
@@ -159,6 +159,8 @@
         items:
             - name: Understand the developer portal
               href: api-management-howto-developer-portal.md
+            - name: Migrate from deprecated to new developer portal
+              href: developer-portal-deprecated-migration.md
             - name: Authenticate with Azure AD
               href: api-management-howto-aad.md
             - name: Authenticate with Azure AD B2C
@@ -169,13 +171,13 @@
               href: api-management-howto-configure-notifications.md
             - name: Enable console OAuth support
               href: api-management-howto-oauth2.md
-            - name: Legacy portal - customize the portal
+            - name: Deprecated portal - customize the portal
               href: api-management-customize-styles.md
-            - name: Legacy portal - modify pages and layouts
+            - name: Deprecated portal - modify pages and layouts
               href: api-management-modify-content-layout.md
-            - name: Legacy portal - customize with templates
+            - name: Deprecated portal - customize with templates
               href: api-management-developer-portal-templates.md
-      - name: Legacy portal templates
+      - name: Deprecated portal templates
         items:
             - name: Data model reference
               href: api-management-template-data-model-reference.md
@@ -265,8 +267,10 @@
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Reference
   items:
+      - name: Azure CLI
+        href: /cli/azure/apim
       - name: Azure PowerShell
-        href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+        href: /powershell/module/az.apimanagement/
       - name: REST
         href: /rest/api/apimanagement/
       - name: REST (original)
@@ -276,6 +280,8 @@
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
+      - name: Resource log schema
+        href: gateway-log-schema-reference.md
 - name: Resources
   items:
       - name: FAQ

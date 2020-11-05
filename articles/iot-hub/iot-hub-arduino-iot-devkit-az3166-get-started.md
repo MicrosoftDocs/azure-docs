@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.custom:  [mqtt, 'Role: Cloud Development']
+ms.custom:  [mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub

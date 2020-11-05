@@ -12,7 +12,7 @@ ms.author: matjazl
 
 # Frequently asked questions about the Azure API for FHIR
 
-## Azure API for FHIR
+## Azure API for FHIR: The Basics
 
 ### What is FHIR?
 The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The Azure API for FHIR supports R4 and also supports the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
@@ -29,15 +29,25 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 We support versions 4.0.0 and 3.0.1 on both the Azure API for FHIR (PaaS) and FHIR Server for Azure (open source).
 
-For details, see [Supported features](fhir-features-supported.md). Read about what has changed between versions in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
+For details, see [Supported features](fhir-features-supported.md). Read about what has changed between FHIR versions (i.e. STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
-### What's the difference between the open-source Microsoft FHIR Server for Azure and the Azure API for FHIR?
+Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4, and is visible only on R4 instances of Azure API for FHIR.
+
+### What's the difference between 'Microsoft FHIR Server for Azure' and the 'Azure API for FHIR'?
 
 The Azure API for FHIR is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates. 
 
-When you're running FHIR Server for Azure, you have direct access to the underlying services. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
+When you run the FHIR Server for Azure, you have direct access to the underlying services, but are responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
-From a development standpoint, every feature is deployed to the open-source Microsoft FHIR Server for Azure first. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. 
+For a development standpoint, every feature that doesn't apply only to the managed service is first deployed to the open-source Microsoft FHIR Server for Azure. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. This is the same process for all of our services, such as Azure IoT Connector for FHIR (preview).
+
+### Where can I see what is releasing into the Azure API for FHIR?
+
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+
+### In which regions is Azure API for FHIR Available?
+
+Currently, we have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
@@ -47,6 +57,8 @@ To see some of what is releasing into the Azure API for FHIR, please refer to th
 
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
+
+## FHIR Implementations and Specifications
 
 ### Can I create a custom FHIR resource?
 
@@ -58,7 +70,7 @@ We allow you to load any valid FHIR JSON data into the server. If you want to st
 
 ### What is the limit on _count?
 
-The current limit on count is 100.
+The current limit on _count is 100. If you set _count to more than 100, you will receive a warning in the bundle that only 100 records will be shown.
 
 ### Are there any limitations on the Group Export functionality?
 
@@ -78,49 +90,40 @@ Some examples of this are below:
 * GET Patient/<id>/Observation
 * GET Patient/<id>/Observation?code=8302-2
 
+### What is the default sort when searching for resources in Azure API for FHIR?
+
+We support sorting by the date last updated: _sort=_lastUpdated. For more information about other supported search parameters, check out our [supported features page](./fhir-features-supported.md#search).
+
+### How does $export work?
+
+$export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](./export-data.md).
+
+## Using Azure API for FHIR
+
+### How do I enable log analytics for Azure API for FHIR?
+
+We enable diagnostic logging and allow reviewing sample queries for these logs. For details on enabling audit logs and sample queries, check out [this section](./enable-diagnostic-logging.md). If you want to include additional information in the logs, check out [using custom HTTP headers](./use-custom-headers.md).
+
 ### Where can I see some examples of using the Azure API for FHIR within a workflow?
 
 We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
 
-## Azure IoT Connector for FHIR (preview)
+### Where can I see an example of connecting a web application to Azure API for FHIR?
 
-### What is IoMT?
-IoMT stands for Internet of Medical Things and it's a category of IoT devices that capture and exchange health and wellness data with other healthcare IT systems over a network. Some examples of IoMT devices include fitness and clinical wearables, monitoring sensors, activity trackers, point of care kiosks, or even a smart pill.
+We have a [Health Architecture GitHub page](https://github.com/microsoft/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
 
-### How many Azure IoT Connector for FHIR (preview) do I need?
-A single Azure IoT Connector for FHIR* can be used to ingest data from a large number of different types of devices. You may still decide to use different connectors for the following reasons:
-- **Scale**: For public preview, Azure IoT Connector for FHIR resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more Azure IoT Connector for FHIR, if higher throughput is needed.
-- **Device type**: You may setup a separate Azure IoT Connector for FHIR for each type of IoMT devices you have for device management reasons.
+## Azure API for FHIR Features and Services 
 
-### Is there a limit on number of Azure IoT Connector for FHIR (preview) during public preview?
-Yes, you can create only two Azure IoT Connector for FHIR per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is available for free during the preview. On request this limit could be raised up to a maximum of five Azure IoT Connector for FHIR.
+### Is there a way to encrypt my data using my personal key not a default key?
 
-### What Azure regions Azure IoT Connector for FHIR (preview) feature is available during public preview?
-Azure IoT Connector for FHIR is available in all Azure regions where Azure API for FHIR is available.
+Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](./customer-managed-key.md).
+
+## Azure API for FHIR: Preview Features
 
 ### Can I configure scaling capacity for Azure IoT Connector for FHIR (preview)?
+
 Since Azure IoT Connector for FHIR is free of charge during public preview, its scaling capacity is fixed and limited. Azure IoT Connector for FHIR configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
 
-### What FHIR version does Azure IoT Connector for FHIR (preview) support?
-Azure IoT Connector for FHIR currently supports only FHIR version R4. Hence, this feature is visible only on the R4 instances of Azure API for FHIR and Microsoft doesn't plan to support version STU3 at this time.
-
 ### Why can't I install Azure IoT Connector for FHIR (preview) when Private Link is enabled on Azure API for FHIR?
+
 Azure IoT Connector for FHIR doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install Azure IoT Connector for FHIR and vice-versa. This limitation is expected to go away when Azure IoT Connector for FHIR is available for General Availability (GA).
-
-### What's the difference between the open-source IoMT FHIR Connector for Azure and Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR service?
-Azure IoT Connector for FHIR is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates.
-
-When you're running IoMT FHIR Connector for Azure, you have direct access to the underlying resources. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
-
-From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS Azure IoT Connector for FHIR feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
-
-## Next steps
-
-In this article, you've read some of the frequently asked questions about the Azure API for FHIR. Read about the supported features in FHIR Server for Azure:
- 
->[!div class="nextstepaction"]
->[Supported FHIR features](fhir-features-supported.md)
-
-*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
-
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.

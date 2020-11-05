@@ -36,29 +36,31 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Manage VMs
+  - name: 10 - Enable disaster recovery 
+    href: tutorial-disaster-recovery.md
+  - name: 11 - Manage VMs
     href: tutorial-govern-resources.md
-  - name: 11 - Track and update VMs
+  - name: 12 - Track and update VMs
     href: tutorial-config-management.md
-  - name: 12 - Monitor VMs
+  - name: 13 - Monitor VMs
     href: tutorial-monitor.md
-  - name: 13 - Manage VM security
+  - name: 14 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 14a - Build with Jenkins
+  - name: 15a - Build with Jenkins
     href: /azure/developer/jenkins/pipeline-with-github-and-docker
-  - name: 14b - Integrate Jenkins with Azure DevOps
+  - name: 15b - Integrate Jenkins with Azure DevOps
     href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-  - name: 15a - Configure Rolling deployment strategy
+  - name: 16a - Configure Rolling deployment strategy
     href: tutorial-devops-azure-pipelines-classic.md
-  - name: 15b - Configure Canary deployment strategy
+  - name: 16b - Configure Canary deployment strategy
     href: tutorial-azure-devops-canary-strategy.md
-  - name: 15c - Configure Blue-Green deployment strategy
+  - name: 16c - Configure Blue-Green deployment strategy
     href: tutorial-azure-devops-blue-green-strategy.md
-  - name: 15d - CI/CD with Azure Pipelines(YAML)
+  - name: 16d - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
-  - name: 16 - Create LAMP stack
+  - name: 17 - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 17 - Secure web server with SSL
+  - name: 18 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -285,7 +287,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
+        href: ../prepay-reserved-vm-instances.md
       - name: Prepay for Dedicated Hosts
         href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: What are Azure reservations?
@@ -320,7 +322,7 @@
     - name: Select a disk type for IaaS VMs
       href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encryption
-      href: disk-encryption.md
+      href: ../disk-encryption.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Virtual machine and disk performance
@@ -328,7 +330,7 @@
     - name: Designing for high performance
       href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk bursting
-      href: disk-bursting.md
+      href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -354,8 +356,6 @@
       href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
-    - name: Built-in security controls
-      href: virtual-machines-linux-security-controls.md
     - name: Bastion
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: States and lifecycle
@@ -584,7 +584,7 @@
   - name: Secure VMs
     items:
     - name: Recommendations
-      href: security-recommendations.md
+      href: ../security-recommendations.md
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Use Bastion
@@ -719,7 +719,7 @@
       - name: Agent update
         href: ../extensions/update-linux-agent.md
     - name: Mitigating speculative execution
-      href: mitigate-se.md
+      href: ../mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
@@ -1026,10 +1026,6 @@
         href: disks-benchmarks.md
       - name: Optimizing performance
         href: optimization.md
-      - name: Configure software RAID
-        href: configure-raid.md
-      - name: Configure LVM
-        href: configure-lvm.md
     - name: Find unattached disks - CLI
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal
@@ -1051,7 +1047,7 @@
     - name: Use accelerated networking
       href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Assign public DNS name
-      href: portal-create-fqdn.md
+      href: ../create-fqdn.md
     - name: Find and delete unattached NICs
       href: find-unattached-nics.md
     - name: DNS resolution

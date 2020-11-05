@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
+ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
 ---
 
 # Set up a development environment for Azure Machine Learning
@@ -50,7 +50,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 
 This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
-To use this file from your code, use the [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) method. This code loads the information from the file and connects to your workspace.
+To use this file from your code, use the [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) method. This code loads the information from the file and connects to your workspace.
 
 Create a workspace configuration file in one of the following methods:
 
@@ -62,7 +62,7 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure Machine Learning Python SDK
 
-    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
+    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
     ```python
     from azureml.core import Workspace
@@ -92,7 +92,7 @@ To configure a local development environment (which might also be a remote virtu
     > If you're on Linux or macOS and use a shell other than bash (for example, zsh) you might receive errors when you run some commands. To work around this problem, use the `bash` command to start a new bash shell and run the commands there.
 
 1. Activate your newly created Python virtual environment.
-1. Install the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 1. To to configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
 
 Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-sdk-setup-local.md) to get started.
@@ -117,6 +117,9 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 
 See the [Azure Machine Learning notebooks repository](https://github.com/Azure/MachineLearningNotebooks) to get started with Azure Machine Learning and Jupyter Notebooks.
 
+> [!NOTE]
+> A community-driven repository of examples can be found at https://github.com/Azure/azureml-examples.
+
 ### <a id="vscode"></a>Visual Studio Code
 
 To use Visual Studio Code for development:
@@ -134,10 +137,10 @@ There is nothing to install or configure for a compute instance.
 
 Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> To prevent incurring charges for an unused compute instance, [stop the compute instance](how-to-create-manage-compute-instance.md#manage).
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
@@ -215,7 +218,7 @@ How Azure Databricks works with Azure Machine Learning:
 
 ### Set up your Databricks cluster
 
-Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
+Create a [Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
 **It will take few minutes to create the cluster.**
 
 Use these settings:
@@ -271,7 +274,7 @@ If install was successful, the imported library should look like one of these:
 If the cluster was created with Databricks non ML runtime 7.1 or above, run the following command in the first cell of your notebook to install the AML SDK.
 
 ```
-%pip install -r https://aka.ms/automl_linux_requirements.txt
+%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
 For Databricks non ML runtime 7.0 and lower, install the AML SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 
@@ -290,4 +293,4 @@ Try it out:
 ## Next steps
 
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
-- View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference
+- View the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference
