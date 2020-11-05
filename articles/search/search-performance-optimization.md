@@ -39,7 +39,7 @@ While creating these test workloads, there are some characteristics of Azure Cog
 + Azure Cognitive Search does not run indexing tasks in the background. If your service handles query and indexing workloads concurrently, take this into account by either introducing indexing jobs into your query tests, or by exploring options for running indexing jobs during off peak hours.
 
 > [!Tip]
-> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) or use one of these [alternatives](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) or use one of these [alternatives](/azure/devops/test/load-test/overview#alternatives).
 
 ## Scale for high query volume
 
