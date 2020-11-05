@@ -144,7 +144,8 @@ This returns a string representing the current state of a call:
 * 'Connected' - call is connected
 * 'Hold' - call is put on hold, no media is flowing between local endpoint and remote participant(s)
 * 'Disconnecting' - transition state before the call goes to 'Disconnected' state
-* 'Disconnected' - final call state
+* 'Disconnected' - final call state.
+   * If network connection is lost, state goes to 'Disconnected' after about 2 minutes.
 
 
 * To see why a given call ended, inspect the `callEndReason` property.
@@ -267,7 +268,8 @@ State can be one of
 * 'Connected' - participant is connected to the call
 * 'Hold' - participant is on hold
 * 'EarlyMedia' - announcement is played before participant is connected to the call
-* 'Disconnected' - final state - participant is disconnected from the call
+* 'Disconnected' - final state - participant is disconnected from the call.
+   * If remote participant loses their network connectivity, then remote participant state goes to 'Disconnected' after about 2 minutes.
 
 To learn why participant left the call, inspect `callEndReason` property:
 ```js
