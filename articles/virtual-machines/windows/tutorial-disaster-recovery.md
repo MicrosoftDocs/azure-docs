@@ -46,8 +46,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. If you're using network security groups (NSGs) to limit network traffic for VMs, create NSG rules that allow outbound connectivity (HTTPS 443) for the VM using these service tags (groups of IP addresses). Try out the rules on a test NSG first.
 
-    **Tag** | **Allow** | **Details**
-    --- | --- | ---
+    **Tag** | **Allow** 
+    --- | --- 
     Storage tag | Allows data to be written from the VM to the cache storage account.
     Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
     EventsHub tag | Allows access to Site Recovery monitoring.
