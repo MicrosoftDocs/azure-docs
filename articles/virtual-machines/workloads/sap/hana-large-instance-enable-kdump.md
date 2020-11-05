@@ -24,7 +24,7 @@ Configuring and enabling kdump is a step that is needed to troubleshoot system c
 There are times when a system will unexpectedly crash that cannot be explained by a hardware or infrastructure problem.
 In these cases it can be an operating system or application problem and kdump will allow SUSE to determine why a system crashed.
 
-# Enable Kdump service
+## Enable Kdump service
 
 This document describes the details on how to enable Kdump service on Azure HANA Large
 Instance(**Type I and Type II**)
