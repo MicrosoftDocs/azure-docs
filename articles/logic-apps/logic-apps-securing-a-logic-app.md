@@ -340,7 +340,7 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 * If your nested logic app uses the **Specific IP ranges** option for other inbound calls, such as other logic apps that use the HTTP action, set the `addressRange` property to the permitted IP range.
 
-This example shows a reource definition for a nested logic app that permits inbound calls only from logic apps that use the built-in Azure Logic Apps action:
+This example shows a resource definition for a nested logic app that permits inbound calls only from logic apps that use the built-in Azure Logic Apps action:
 
 ```json
 {
@@ -387,7 +387,7 @@ This example shows a reource definition for a nested logic app that permits inbo
 }
 ```
 
-This example shows a reource definition for a nested logic app that permits inbound calls from logic apps that use the HTTP action:
+This example shows a resource definition for a nested logic app that permits inbound calls from logic apps that use the HTTP action:
 
 ```json
 {
