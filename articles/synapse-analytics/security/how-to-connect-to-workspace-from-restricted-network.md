@@ -90,7 +90,7 @@ Pay attention to below areas in tab of "**Resource**":
 * Select "**Microsoft.Synapse/storageAccounts**" to "**Resource type**".
 * Select "**YourWorkSpaceName**" to "**Resource**" which you've created before.
 * Select the endpoint type in "**Target sub-resource**":
-  * **blob**: is for the blob storage.
+  * **blob**: is for the Azure blob storage.
   * **dfs**: is for Azure Data Lake Storage Gen2.
 
 ![Creating private endpoint for Synapse studio workspace linked storage](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
