@@ -13,7 +13,7 @@ ms.custom:
 # Collect performance counters for your Azure Cloud Service (classic)
 
 > [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Performance counters provide a way for you to track how well your application and the host are performing. Windows Server provides many different performance counters related to hardware, applications, the operating system, and more. By collecting and sending performance counters to Azure, you can analyze this information to help make better decisions. 
 

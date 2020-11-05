@@ -13,7 +13,8 @@ ms.custom:
 # Configuration and management issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)
 
 > [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article includes frequently asked questions about configuration and management issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -52,7 +53,7 @@ This article includes frequently asked questions about configuration and managem
 
 **Generic**
 
-- [How do I add "nosniff" to my website?](#how-do-i-add-nosniff-to-my-website)
+- [How do I add `nosniff` to my website?](#how-do-i-add-nosniff-to-my-website)
 - [How do I customize IIS for a web role?](#how-do-i-customize-iis-for-a-web-role)
 - [What is the quota limit for my Cloud Service?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Why does the drive on my Cloud Service VM show very little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -136,9 +137,9 @@ For more information, see the following documents:
 You can enable Windows Azure Diagnostics (WAD) logging through following options:
 1. [Enable from Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Enable through .NET code](./cloud-services-dotnet-diagnostics.md)
-3. [Enable through Powershell](./cloud-services-diagnostics-powershell.md)
+3. [Enable through PowerShell](./cloud-services-diagnostics-powershell.md)
 
-In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
+In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
 
 
 ## Network configuration
@@ -244,7 +245,7 @@ For more information about how to enable Azure Diagnostics Logging for Cloud Ser
 
 ## Generic
 
-### How do I add "nosniff" to my website?
+### How do I add `nosniff` to my website?
 To prevent clients from sniffing the MIME types, add a setting in your *web.config* file.
 
 ```xml
@@ -274,11 +275,11 @@ See [Service-specific limits](../azure-resource-manager/management/azure-subscri
 ### Why does the drive on my Cloud Service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 
-The %approot% drive size is calculated as \<size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
+The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
 
 It is unsupported to write to the %approot% drive. If you are writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you are not sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
 
-Azure will not write anything to the %approot% drive. Once the VHD is created from your .cspkg and mounted into the Azure VM, the only thing that might write to this drive is your application. 
+Azure will not write anything to the %approot% drive. Once the VHD is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
 
 The journal settings are non-configurable, so you can't turn it off.
 
