@@ -49,7 +49,7 @@ The following steps create the cloud service project that will host the Socket.I
     PS C:\> cd node
     ```
 
-4. Enter the following commands to create a new solution named **"chatapp"** and a worker role named **WorkerRole1**:
+4. Enter the following commands to create a new solution named `chatapp` and a worker role named `WorkerRole1`:
 
     ```powershell
     PS C:\node> New-AzureServiceProject chatapp
