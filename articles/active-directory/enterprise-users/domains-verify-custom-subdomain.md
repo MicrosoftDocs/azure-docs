@@ -1,5 +1,5 @@
 ---
-title: Verify subdomain names as managed domains using PowerShell and Graph - Azure Active Directory | Microsoft Docs
+title: Verify subdomain names as managed using PowerShell and Graph - Azure Active Directory | Microsoft Docs
 description: Change default subdomain authentication settings inherited from root domain settings in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
