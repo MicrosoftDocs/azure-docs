@@ -707,10 +707,6 @@
         href: data-lake-storage-supported-azure-services.md
       - name: Supported open source platforms
         href: data-lake-storage-supported-open-source-platforms.md
-    - name: Migration
-      items:
-      - name: Migrate with WANdisco LiveData Migrator
-        href: migrate-gen2-wandisco-live-data-migrator.md
     - name: Monitoring
       items:
       - name: Monitor Blob storage
@@ -737,6 +733,8 @@
         href: data-lake-storage-migrate-gen1-to-gen2.md
       - name: Migrate an on-premises HDFS store
         href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+      - name: Migrate with WANdisco LiveData Migrator
+        href: migrate-gen2-wandisco-live-data-migrator.md
     - name: Manage
       items:
       - name: .NET
