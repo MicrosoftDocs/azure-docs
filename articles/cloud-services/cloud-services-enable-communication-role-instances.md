@@ -104,7 +104,7 @@ The **Instances** property returns a collection of **RoleInstance** objects. Thi
 > 
 > 
 
-To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
+To determine the port number for an internal endpoint on a role instance, you can use the [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The `PublicIPEndpoint` property returns the port for a load balanced endpoint. The IP address portion of the `PublicIPEndpoint` property is not used.
 
 Here is an example that iterates role instances.
 

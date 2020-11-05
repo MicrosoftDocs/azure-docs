@@ -15,7 +15,7 @@ ms.custom:
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
-Socket.IO provides realtime communication between your node.js
+Socket.IO provides real time communication between your node.js
 server and clients. This tutorial walks you through hosting a
 socket.IO based chat application on Azure. For more information
 on Socket.IO, see [socket.io](https://socket.io).
