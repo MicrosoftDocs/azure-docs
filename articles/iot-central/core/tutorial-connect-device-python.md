@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Connect a generic Python client app to Azure IoT Central | Microsoft Docs
-description: This tutorial shows you how, as a device developer, to connect a device running a Python client app to your Azure IoT Central application. You create a device template by importing a device twins definition language (DTDL) model and add views that let you interact with a connected device.
+description: This tutorial shows you how, as a device developer, to connect a device running a Python client app to your Azure IoT Central application. You modify the automatically generated device template by adding views that let an operator interact with a connected device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/03/2020
