@@ -83,6 +83,8 @@
     items:
     - name: Use the APIs and SDKs
       href: how-to-use-apis-sdks.md
+    - name: Configure Postman
+      href: how-to-configure-postman-apis.md
     - name: Create custom SDKs with AutoRest
       href: how-to-create-custom-sdks.md
     - name: Integrate with Azure SignalR Service
