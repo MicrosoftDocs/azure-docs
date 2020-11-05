@@ -13,18 +13,10 @@ A private endpoint is a network interface that connects you privately and secure
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
+> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.  Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. As an exception, you can allow access to Event Hubs resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
+
+>[!NOTE]
 > This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
->
-> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.  Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. 
-> 
-> Here are some of the services that can't access Event Hubs resources when private endpoints are enabled. Note that the list is **NOT** exhaustive.
->
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
-> - Azure Event Grid
-> - Azure Monitor (Diagnostic Settings)
->
-> As an exception, you can allow access to Event Hubs resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
 ## Add a private endpoint using Azure portal
 

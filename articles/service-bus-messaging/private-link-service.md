@@ -15,17 +15,10 @@ A private endpoint is a network interface that connects you privately and secure
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
->[!WARNING]
-> Implementing private endpoints can prevent other Azure services from interacting with Service Bus.
+>[!IMPORTANT]
+> Implementing private endpoints can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 >
-> Trusted Microsoft services are not supported when using Virtual Networks.
->
-> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Integration with Azure Event Grid
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
->
-> The below Microsoft services are required to be on a virtual network
+> The following Microsoft services are required to be on a virtual network
 > - Azure App Service
 > - Azure Functions
 
@@ -106,6 +99,8 @@ If you already have an existing namespace, you can create a private endpoint by 
 12. Confirm that the private endpoint is created. If you are the owner of the resource and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
