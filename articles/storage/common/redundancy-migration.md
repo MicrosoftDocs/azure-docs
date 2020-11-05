@@ -138,7 +138,7 @@ You can request live migration through the [Azure Support portal](https://ms.por
 A support person will contact you and provide any assistance you need.
 
 > [!NOTE]
-> Premium file shares (FileStorage accounts) only support LRS and ZRS.
+> Premium file shares (FileStorage accounts) are only available for LRS and ZRS.
 >
 > GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 >
