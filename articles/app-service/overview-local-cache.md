@@ -117,3 +117,6 @@ Local Cache does help prevent storage-related app restarts. However, your app co
 
 ### Does Local Cache exclude any directories from being copied to the faster local drive?
 As part of the step that copies the storage content, any folder that is named repository is excluded. This helps with scenarios where your site content may contain a source control repository that may not be needed in day to day operation of the app. 
+
+### How to reset the local cache logs and get a fresh one after doing any site management operations?
+For resetting the local cache logs, Stop/Start the application and then Restart this will clear the old cache. 
