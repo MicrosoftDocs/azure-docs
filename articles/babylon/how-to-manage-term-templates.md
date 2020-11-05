@@ -23,7 +23,7 @@ Using term templates, you can create custom attributes, group them together and 
 
 2. The page shows both system as well as custom attributes. Select the **custom** tab to create or edit term templates.
 
-   :::image type="content" source="./media/how-to-manage-glossary-term-templates/custom-blade.png" alt-text="Screenshot of Glossary terms > Manage term templates page.":::
+   :::image type="content" source="./media/how-to-manage-glossary-term-templates/manage-term-custom.png" alt-text="Screenshot of Glossary terms > Manage term templates page.":::
 
 3. Select **New Term Template** and enter a template name and description.
 
