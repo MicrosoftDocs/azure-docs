@@ -1,7 +1,7 @@
 ---
 title: "Extract N-Gram Features from Text module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Extract N-Gram module in the Azure Machine Learning to featurize text data.
+description: Learn how to use the Extract N-Gram module in the Azure Machine Learning designer to featurize text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

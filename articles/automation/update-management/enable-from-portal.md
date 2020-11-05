@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Enable Update Management from the Azure portal
 
-This article describes how you can enable the [Update Management](overview.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management.
+This article describes how you can enable the [Update Management](overview.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../../azure-resource-manager/templates/cross-scope-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Update Management. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
 
@@ -29,7 +29,7 @@ Sign in to Azure at https://portal.azure.com.
 
 1. In the Azure portal, navigate to **Virtual machines**.
 
-2. Use the checkboxes to choose the VMs to add to Update Management. You can add machines for up to three different resource groups at a time. Azure VMs can exist in any region, no matter the location of your Automation account.
+2. On the **Virtual machines** page, use the checkboxes to choose the VMs to add to Update Management. You can add machines for up to three different resource groups at a time. Azure VMs can exist in any region, no matter the location of your Automation account.
 
     ![List of VMs](media/enable-from-portal/vmlist.png)
 
