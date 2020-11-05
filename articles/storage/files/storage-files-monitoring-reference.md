@@ -21,7 +21,7 @@ The following tables list the platform metrics collected for Azure Files.
 
 ### Capacity metrics
 
-Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
+Capacity metrics values are sent to Azure Monitor and refreshed every 6 hours. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Files provides the following capacity metrics in Azure Monitor.
 
