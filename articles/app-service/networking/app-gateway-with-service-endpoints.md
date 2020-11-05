@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -24,7 +24,7 @@ There are three variations of App Service that require slightly different config
 ## Integration with App Service (multi-tenant)
 App Service (multi-tenant) has a public internet facing endpoint. Using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) you can allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. In the following scenario, we'll use this functionality to ensure that an App Service instance can only receive traffic from a specific Application Gateway instance.
 
-![Application Gateway integration with App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![Diagram shows the Internet flowing to an Application Gateway in an Azure Virtual Network and flowing from there through a firewall icon to instances of apps in App Service.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 There are two parts to this configuration besides creating the App Service and the Application Gateway. The first part is enabling service endpoints in the subnet of the Virtual Network where the Application Gateway is deployed. Service endpoints will ensure all network traffic leaving the subnet towards the App Service will be tagged with the specific subnet ID. The second part is to set an access restriction of the specific web app to ensure that only traffic tagged with this specific subnet ID is allowed. You can configure it using different tools depending on preference.
 
@@ -37,7 +37,7 @@ With Azure portal, you follow four steps to provision and configure the setup. I
 
 You can now access the App Service through Application Gateway, but if you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
 
-![Application Gateway integration with App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Screenshot shows the text of an Error 403 - This web app is stopped.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## Using Azure Resource Manager template
 The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it. 
@@ -81,6 +81,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## Next steps
-For more information on the App Service Environment, see [App Service Environment documentation](https://docs.microsoft.com/azure/app-service/environment).
+For more information on the App Service Environment, see [App Service Environment documentation](/azure/app-service/environment).
 
 To further secure your web app, information about Web Application Firewall on Application Gateway can be found in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).

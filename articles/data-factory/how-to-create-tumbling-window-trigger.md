@@ -3,14 +3,14 @@ title: Create tumbling window triggers in Azure Data Factory
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/25/2020
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -142,7 +142,7 @@ To use the **WindowStart** and **WindowEnd** system variable values in the pipel
 
 ### Execution order of windows in a backfill scenario
 
-If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TriggerSliceSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
+If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TumblingWindowSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
 
 ### Existing TriggerResource elements
 
@@ -157,7 +157,20 @@ In case of pipeline failures, tumbling window trigger can retry the execution of
 
 ### Tumbling window trigger dependency
 
-If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md). 
+If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
+
+### Cancel tumbling window run
+
+You can cancel runs for a tumbling window trigger, if the specific window is in _Waiting_, _Waiting on Dependency_, or _Running_ state
+
+* If the window is in **Running** state, cancel the associated _Pipeline Run_, and the trigger run will be marked as _Canceled_ afterwards
+* If the window is in **Waiting** or **Waiting on Dependency** state, you can cancel the window from Monitoring:
+
+![Cancel a tumbling window trigger from Monitoring page](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+You can also rerun a canceled window. The rerun will take the _latest_ published definitions of the trigger, and dependencies for the specified window will be _re-evaluated_ upon rerun
+
+![Rerun a tumbling window trigger for previously canceled runs](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## Sample for Azure PowerShell
 

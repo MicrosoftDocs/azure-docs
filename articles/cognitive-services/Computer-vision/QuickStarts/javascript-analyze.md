@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ---
 # Quickstart: Analyze a remote image using the REST API and JavaScript in Computer Vision
 
@@ -53,7 +53,7 @@ To create and run the sample, do the following steps:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v3.0/analyze";
+        var uriBase = endpoint + "vision/v3.1/analyze";
 
         // Request parameters.
         var params = {

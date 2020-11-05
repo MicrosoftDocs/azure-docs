@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 05/04/2020
+ ms.date: 10/26/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -40,6 +40,10 @@ Both RDP and SSH are a usage-based protocol. High usage of sessions will cause t
 
 At this time, only text copy/paste is supported. Features such as file copy are not supported. Please feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
+### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
+
+This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+
 ### <a name="browsers"></a>Which browsers are supported?
 
 Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
@@ -61,7 +65,7 @@ In order to make a connection, the following roles are required:
 For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
-No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
 
 ### <a name="keyboard"></a>What keyboard layouts are supported during the Bastion remote session?
 

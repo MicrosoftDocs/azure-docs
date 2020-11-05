@@ -18,13 +18,12 @@ You can use the Azure CLI to [configure the hosting of multiple web sites](multi
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create backend listeners
-> * Create routing rules
-> * Create virtual machine scale sets with the backend pools
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Create backend listeners
+* Create routing rules
+* Create virtual machine scale sets with the backend pools
+* Create a CNAME record in your domain
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
 
@@ -121,7 +120,7 @@ Add listeners that are needed to route traffic using [az network application-gat
 
 >[!NOTE]
 > With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) for more information.
->To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
+>To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to five host names as space-separated values. For example, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

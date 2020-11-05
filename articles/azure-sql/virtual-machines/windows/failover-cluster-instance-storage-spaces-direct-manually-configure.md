@@ -9,7 +9,7 @@ tags: azure-service-management
 ms.service: virtual-machines-sql
 
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
@@ -53,7 +53,7 @@ Before you complete the instructions in this article, you should already have:
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
 - [Two or more prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in an [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
-- The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## Add the Windows cluster feature
@@ -77,7 +77,7 @@ Before you complete the instructions in this article, you should already have:
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-For more information about the next steps, see the instructions in the "Step 3: Configure Storage Spaces Direct" section of [Hyperconverged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+For more information about the next steps, see the instructions in the "Step 3: Configure Storage Spaces Direct" section of [Hyperconverged solution using Storage Spaces Direct in Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 
 ## Validate the cluster
@@ -146,9 +146,9 @@ Configure the quorum solution that best suits your business needs. You can confi
 
 ## Add storage
 
-The disks for Storage Spaces Direct need to be empty. They can't contain partitions or other data. To clean the disks, follow the instructions in [Deploy Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+The disks for Storage Spaces Direct need to be empty. They can't contain partitions or other data. To clean the disks, follow the instructions in [Deploy Storage Spaces Direct](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives).
 
-1. [Enable Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Enable Storage Spaces Direct](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    The following PowerShell script enables Storage Spaces Direct:  
 
@@ -158,9 +158,9 @@ The disks for Storage Spaces Direct need to be empty. They can't contain partiti
 
    In **Failover Cluster Manager**, you can now see the storage pool.
 
-1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Create a volume](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
-   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmdlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a CSV. This example creates an 800-gigabyte (GB) CSV:
+   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmdlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a CSV. This example creates an 800 gigabyte (GB) CSV:
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -207,7 +207,7 @@ After you've configured the failover cluster and all cluster components, includi
 1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
 
    >[!NOTE]
-   >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. For more information, see [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. For more information, see [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 
@@ -229,22 +229,22 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## Configure connectivity 
 
-To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 and Windows Server 2019, you can preview the [distributed network name](hadr-distributed-network-name-dnn-configure.md) feature instead. 
+To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2 (or later) and Windows Server 2016 (or later), you can use the [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) feature instead. 
 
 ## Limitations
 
-- Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on CSVs and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+- Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on CSVs and a [standard load balancer](../../../load-balancer/load-balancer-overview.md).
 - Disks that have been attached as NTFS-formatted disks can be used with Storage Spaces Direct only if the disk eligibility option is unchecked, or cleared, when storage is being added to the cluster. 
-- Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported.
+- Only registering with the SQL VM resource provider in [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) is supported.
 
 ## Next steps
 
-If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 If Storage Spaces Direct isn't the appropriate FCI storage solution for you, consider creating your FCI by using [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Premium File Shares](failover-cluster-instance-premium-file-share-manually-configure.md) instead. 
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md). 
 
-For additional information, see: 
+For more information, see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

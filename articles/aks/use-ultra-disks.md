@@ -9,19 +9,14 @@ ms.date: 07/10/2020
 
 # Use Azure ultra disks on Azure Kubernetes Service (preview)
 
-[Azure ultra disks](../virtual-machines/linux/disks-enable-ultra-ssd.md) offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
+[Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
 
 ## Before you begin
 
 This feature can only be set at cluster creation or node pool creation time.
 
 > [!IMPORTANT]
-> Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### Prerequisites
-
-- Ensure you have the `EnableUltraSSD` feature flag enabled.
-- Ensure you have the latest `aks-preview` [CLI extension][az-extension-add] installed.
+> Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### Register the `EnableUltraSSD` preview feature
 
@@ -60,7 +55,7 @@ az extension update --name aks-preview
 ``` 
 
 ### Limitations
-- See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - The supported size range for a Ultra disks is between 100 and 1500
 
 ## Create a new cluster that can use Ultra disks
@@ -74,7 +69,7 @@ Create an Azure resource group:
 az group create --name myResourceGroup --location westus2
 ```
 
-Create the AKS cluster with managed Azure AD integration and Azure RBAC for Kubernetes Authorization.
+Create the AKS cluster with support for Ultra Disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -129,7 +124,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## Create a persistent volume claim
 
-A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
+A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use the previously created storage class to create an ultra disk.
 
 Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *1000 GB* in size with *ReadWriteOnce* access. The *ultra-disk-sc* storage class is specified as the storage class.
 
@@ -169,7 +164,7 @@ metadata:
 spec:
   containers:
   - name: nginx-ultra
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -222,7 +217,7 @@ Events:
 
 ## Next steps
 
-- For more about ultra disks, see [Using Azure ultra disks](../virtual-machines/linux/disks-enable-ultra-ssd.md).
+- For more about ultra disks, see [Using Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
@@ -236,7 +231,7 @@ Events:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

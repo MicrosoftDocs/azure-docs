@@ -28,18 +28,19 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 
 **VMware** | **Details**
 --- | ---
-**vCenter Server** | Machines you want to discover and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
+**vCenter Server** | Machines you want to discover and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, 6.7 or 7.0.<br/><br/> The discovery of VMware VMs by providing ESXi host details in the appliance is currently not supported.
 **Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account need privileges enable for **Virtual Machines** > **Guest Operations**.
 
 ## VM requirements
 **VMware** | **Details**
 --- | ---
 **VMware VMs** | All operating systems can be assessed for migration. 
+**Storage** | Disks attached to SCSI, IDE and SATA based controllers are supported.
 
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a VMware VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
@@ -60,14 +61,13 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 
 **Support** | **Details**
 --- | ---
-**Supported machines** | App discovery is currently supported for VMware VMs only.
+**Supported machines** | App discovery is currently supported for VMware VMs only. You can discover apps installed on up to 10000 VMware VMs from each Azure Migrate appliance.
+**Operating systems** | App-discovery is supported for VMs running all  Windows and Linux versions.
+**VM requirements** | VMware tools must be installed and running on VMs on which you want to discover apps. <br/><br/> The VMware tools version must be later than 10.2.0.<br/><br/> VMs must have PowerShell version 2.0 or later installed.
 **Discovery** | App discovery is agentless. It uses machine guest credentials, and remotely accesses machines using WMI and SSH calls.
-**VM support** | App-discovery is supported for VMs running all  Windows and Linux versions.
 **vCenter** | The vCenter Server read-only account used for assessment, needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for application discovery.
 **VM access** | App discovery needs a local user account on the VM for application discovery.<br/><br/> Azure Migrate currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
-**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/><br/> The VMware tools version must be later than 10.2.0.
-**PowerShell** | VMs must have PowerShell version 2.0 or later installed.
-**Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
+**Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running VMs on which you want to discover apps. The vCenter Server returns an ESXI  host connection, to download the file containing the app information.
 **Limits** | For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
 
 
@@ -79,14 +79,13 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 --- | --- 
 **Before deployment** | You should have an Azure Migrate project in place, with the Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises VMware machines.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> [Learn how](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for assessment of VMware VMs.
 **Supported machines** | Currently supported for VMware VMs only.
-**Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).
+**Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).<br/>Microsoft Windows Server 2008 (32-bit). Ensure PowerShell is installed.
 **vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **Windows VM permissions** |  For dependency analysis, the Azure Migrate appliance needs a domain administrator account, or a local admin account, to access Windows VMs.
-**Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
+**Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 and newer
+**Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a root user account<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE. Set these capabilities using the following commands: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
 **Required agents** | No agent required on machines you want to analyze.
 **VMware Tools** | VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.
-
 **PowerShell** | Windows VMs must have PowerShell version 2.0 or above installed.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 
@@ -112,4 +111,4 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 ## Next steps
 
 - [Review](best-practices-assessment.md) best practices for creating assessments.
-- [Prepare for VMware](tutorial-prepare-vmware.md) assessment.
+- [Prepare for VMware](./tutorial-discover-vmware.md) assessment.

@@ -8,10 +8,10 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/01/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,7 @@ After deployment, many organizations want to know how or if self-service passwor
 The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -50,7 +50,7 @@ In the Azure portal experience, we have improved the way that you can view passw
 
 ### Combined registration
 
-If you have enabled [combined registration](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
+If you have enabled [combined registration](./concept-registration-mfa-sspr-combined.md), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -177,7 +177,7 @@ The following list explains this activity in detail:
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
+* [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)

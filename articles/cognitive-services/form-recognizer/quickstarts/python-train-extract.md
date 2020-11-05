@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
@@ -18,13 +18,13 @@ ms.custom: devx-track-python
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to train and score forms to extract key-value pairs and tables.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an standard-performance-tier Azure Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in an standard-performance-tier Azure Storage account.
 
 > [!NOTE]
 > This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
@@ -48,6 +48,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
 
+    # [v2.0](#tab/v2-0)
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
     import json
@@ -87,7 +88,53 @@ To train a Form Recognizer model with the documents in your Azure blob container
     except Exception as e:
         print("POST model failed:\n%s" % str(e))
         quit() 
-    ```
+    ```    
+    # [v2.1 preview](#tab/v2-1)
+    ```python
+    ########### Python Form Recognizer Labeled Async Train #############
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<endpoint>"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    source = r"<SAS URL>"
+    prefix = "<Blob folder name>"
+    includeSubFolders = False
+    useLabelFile = False
+    
+    headers = {
+        # Request headers
+        'Content-Type': 'application/json',
+        'Ocp-Apim-Subscription-Key': '<subsription key>',
+    }
+    
+    body =     {
+        "source": source,
+        "sourceFilter": {
+            "prefix": prefix,
+            "includeSubFolders": includeSubFolders
+        },
+        "useLabelFile": useLabelFile
+    }
+    
+    try:
+        resp = post(url = post_url, json = body, headers = headers)
+        if resp.status_code != 201:
+            print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
+            quit()
+        print("POST model succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["location"]
+    except Exception as e:
+        print("POST model failed:\n%s" % str(e))
+        quit() 
+    ```    
+
+
+    ---
+
+
 1. Save the code in a file with a .py extension. For example, *form-recognizer-train.py*.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-train.py`.
@@ -200,254 +247,282 @@ Copy the `"modelId"` value for use in the following steps.
 
 When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value pair associations and tables are in the `"pageResults"` node. If you also specified plain text extraction through the *includeTextDetails* URL parameter, then the `"readResults"` node will show the content and positions of all the text in the document.
 
-```bash
+
+This sample JSON output has been shortened for simplicity.
+
+# [v2.0](#tab/v2-0)
+```JSON
 {
-  "analyzeResult":{ 
-    "readResults":[ 
-      { 
-        "page":1,
-        "width":8.5,
-        "height":11.0,
-        "angle":0,
-        "unit":"inch",
-        "lines":[ 
-          { 
-            "text":"Contoso",
-            "boundingBox":[ 
-              0.5278,
-              1.0597,
-              1.4569,
-              1.0597,
-              1.4569,
-              1.4347,
-              0.5278,
-              1.4347
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T00:46:25Z",
+  "lastUpdatedDateTime": "2020-08-21T00:46:32Z",
+  "analyzeResult": {
+    "version": "2.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "text": "Project Statement",
+            "boundingBox": [
+              5.0153,
+              0.275,
+              8.0944,
+              0.275,
+              8.0944,
+              0.7125,
+              5.0153,
+              0.7125
             ],
-            "words":[ 
-              { 
-                "text":"Contoso",
-                "boundingBox":[ 
-                  0.5278,
-                  1.0597,
-                  1.4569,
-                  1.0597,
-                  1.4569,
-                  1.4347,
-                  0.5278,
-                  1.4347
+            "words": [
+              {
+                "text": "Project",
+                "boundingBox": [
+                  5.0153,
+                  0.275,
+                  6.2278,
+                  0.275,
+                  6.2278,
+                  0.7125,
+                  5.0153,
+                  0.7125
+                ]
+              },
+              {
+                "text": "Statement",
+                "boundingBox": [
+                  6.3292,
+                  0.275,
+                  8.0944,
+                  0.275,
+                  8.0944,
+                  0.7125,
+                  6.3292,
+                  0.7125
                 ]
               }
             ]
-          },
-          ...
-          { 
-            "text":"PT",
-            "boundingBox":[ 
-              6.2181,
-              3.3528,
-              6.3944,
-              3.3528,
-              6.3944,
-              3.5417,
-              6.2181,
-              3.5417
-            ],
-            "words":[ 
-              { 
-                "text":"PT",
-                "boundingBox":[ 
-                  6.2181,
-                  3.3528,
-                  6.3944,
-                  3.3528,
-                  6.3944,
-                  3.5417,
-                  6.2181,
-                  3.5417
-                ]
-              }
-            ]
-          }
+          }, 
+        ...
         ]
       }
     ],
-    "version":"2.0.0",
-    "errors":[ 
-
-    ],
-    "documentResults":[ 
-
-    ],
-    "pageResults":[ 
-      { 
-        "page":1,
-        "clusterId":1,
-        "keyValuePairs":[ 
-          { 
-            "key":{ 
-              "text":"Address:",
-              "boundingBox":[ 
-                0.7972,
-                1.5125,
-                1.3958,
-                1.5125,
-                1.3958,
-                1.6431,
-                0.7972,
-                1.6431
+    "pageResults": [
+      {
+        "page": 1,
+        "keyValuePairs": [
+          {
+            "key": {
+              "text": "Date:",
+              "boundingBox": [
+                6.9722,
+                1.0264,
+                7.3417,
+                1.0264,
+                7.3417,
+                1.1931,
+                6.9722,
+                1.1931
               ],
-              "elements":[ 
-                "#/readResults/0/lines/1/words/0"
+              "elements": [
+                "#/readResults/0/lines/2/words/0"
               ]
             },
-            "value":{ 
-              "text":"1 Redmond way Suite 6000 Redmond, WA 99243",
-              "boundingBox":[ 
-                0.7972,
-                1.6764,
-                2.15,
-                1.6764,
-                2.15,
-                2.2181,
-                0.7972,
-                2.2181
-              ],
-              "elements":[ 
-                "#/readResults/0/lines/4/words/0",
-                "#/readResults/0/lines/4/words/1",
-                "#/readResults/0/lines/4/words/2",
-                "#/readResults/0/lines/4/words/3",
-                "#/readResults/0/lines/6/words/0",
-                "#/readResults/0/lines/6/words/1",
-                "#/readResults/0/lines/6/words/2",
-                "#/readResults/0/lines/8/words/0"
-              ]
-            },
-            "confidence":0.86
+            "confidence": 1
           },
-          { 
-            "key":{ 
-              "text":"Invoice For:",
-              "boundingBox":[ 
-                4.3903,
-                1.5125,
-                5.1139,
-                1.5125,
-                5.1139,
-                1.6431,
-                4.3903,
-                1.6431
-              ],
-              "elements":[ 
-                "#/readResults/0/lines/2/words/0",
-                "#/readResults/0/lines/2/words/1"
-              ]
-            },
-            "value":{ 
-              "text":"Microsoft 1020 Enterprise Way Sunnayvale, CA 87659",
-              "boundingBox":[ 
-                5.1917,
-                1.4458,
-                6.6583,
-                1.4458,
-                6.6583,
-                2.0347,
-                5.1917,
-                2.0347
-              ],
-              "elements":[ 
-                "#/readResults/0/lines/3/words/0",
-                "#/readResults/0/lines/5/words/0",
-                "#/readResults/0/lines/5/words/1",
-                "#/readResults/0/lines/5/words/2",
-                "#/readResults/0/lines/7/words/0",
-                "#/readResults/0/lines/7/words/1",
-                "#/readResults/0/lines/7/words/2"
-              ]
-            },
-            "confidence":0.86
-          },
-          ...
+         ...
         ],
-        "tables":[ 
-          { 
-            "caption":null,
-            "rows":2,
-            "columns":5,
-            "cells":[ 
-              { 
-                "rowIndex":0,
-                "colIndex":0,
-                "header":true,
-                "text":"Invoice Number",
-                "boundingBox":[ 
-                  0.5347,
-                  2.8722,
-                  1.575,
-                  2.8722,
-                  1.575,
-                  3.0028,
-                  0.5347,
-                  3.0028
+        "tables": [
+          {
+            "rows": 4,
+            "columns": 5,
+            "cells": [
+              {
+                "text": "Training Date",
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "boundingBox": [
+                  0.6931,
+                  4.2444,
+                  1.5681,
+                  4.2444,
+                  1.5681,
+                  4.4125,
+                  0.6931,
+                  4.4125
                 ],
-                "elements":[ 
-                  "#/readResults/0/lines/9/words/0",
-                  "#/readResults/0/lines/9/words/1"
-                ]
-              },
-              { 
-                "rowIndex":0,
-                "colIndex":1,
-                "header":true,
-                "text":"Invoice Date",
-                "boundingBox":[ 
-                  1.9403,
-                  2.8722,
-                  2.7569,
-                  2.8722,
-                  2.7569,
-                  3.0028,
-                  1.9403,
-                  3.0028
+                "confidence": 1,
+                "rowSpan": 1,
+                "columnSpan": 1,
+                "elements": [
+                  "#/readResults/0/lines/15/words/0",
+                  "#/readResults/0/lines/15/words/1"
                 ],
-                "elements":[ 
-                  "#/readResults/0/lines/10/words/0",
-                  "#/readResults/0/lines/10/words/1"
-                ]
-              },
-              { 
-                "rowIndex":0,
-                "colIndex":2,
-                "header":true,
-                "text":"Invoice Due Date",
-                "boundingBox":[ 
-                  3.3403,
-                  2.8722,
-                  4.4583,
-                  2.8722,
-                  4.4583,
-                  3.0028,
-                  3.3403,
-                  3.0028
-                ],
-                "elements":[ 
-                  "#/readResults/0/lines/11/words/0",
-                  "#/readResults/0/lines/11/words/1",
-                  "#/readResults/0/lines/11/words/2"
-                ]
+                "isHeader": true,
+                "isFooter": false
               },
               ...
             ]
           }
-        ]
+        ], 
+        "clusterId": 0
       }
-    ]
-  },
-  "lastUpdatedDateTime":"2019-10-07T19:32:18+00:00",
-  "status":"succeeded",
-  "createdDateTime":"2019-10-07T19:32:15+00:00"
+    ],
+    "documentResults": [],
+    "errors": []
+  }
 }
-```
+```    
+# [v2.1 preview](#tab/v2-1)    
+```JSON
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T01:13:28Z",
+  "lastUpdatedDateTime": "2020-08-21T01:13:42Z",
+  "analyzeResult": {
+    "version": "2.1.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "text": "Project Statement",
+            "boundingBox": [
+              5.0444,
+              0.3613,
+              8.0917,
+              0.3613,
+              8.0917,
+              0.6718,
+              5.0444,
+              0.6718
+            ],
+            "words": [
+              {
+                "text": "Project",
+                "boundingBox": [
+                  5.0444,
+                  0.3587,
+                  6.2264,
+                  0.3587,
+                  6.2264,
+                  0.708,
+                  5.0444,
+                  0.708
+                ]
+              },
+              {
+                "text": "Statement",
+                "boundingBox": [
+                  6.3361,
+                  0.3635,
+                  8.0917,
+                  0.3635,
+                  8.0917,
+                  0.6396,
+                  6.3361,
+                  0.6396
+                ]
+              }
+            ]
+          }, 
+          ...
+        ] 
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 1,
+        "keyValuePairs": [
+          {
+            "key": {
+              "text": "Date:",
+              "boundingBox": [
+                6.9833,
+                1.0615,
+                7.3333,
+                1.0615,
+                7.3333,
+                1.1649,
+                6.9833,
+                1.1649
+              ],
+              "elements": [
+                "#/readResults/0/lines/2/words/0"
+              ]
+            },
+            "value": {
+              "text": "9/10/2020",
+              "boundingBox": [
+                7.3833,
+                1.0802,
+                7.925,
+                1.0802,
+                7.925,
+                1.174,
+                7.3833,
+                1.174
+              ],
+              "elements": [
+                "#/readResults/0/lines/3/words/0"
+              ]
+            },
+            "confidence": 1
+          },
+          ...
+        ], 
+        "tables": [
+          {
+            "rows": 5,
+            "columns": 5,
+            "cells": [
+              {
+                "text": "Training Date",
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "boundingBox": [
+                  0.6944,
+                  4.2779,
+                  1.5625,
+                  4.2779,
+                  1.5625,
+                  4.4005,
+                  0.6944,
+                  4.4005
+                ],
+                "confidence": 1,
+                "rowSpan": 1,
+                "columnSpan": 1,
+                "elements": [
+                  "#/readResults/0/lines/15/words/0",
+                  "#/readResults/0/lines/15/words/1"
+                ],
+                "isHeader": true,
+                "isFooter": false
+              },
+              ...
+            ]
+          }
+        ], 
+        "clusterId": 0
+      }
+    ], 
+    "documentResults": [],
+    "errors": []
+  }
+}
+``` 
+
+---
+
 
 ## Improve results
 

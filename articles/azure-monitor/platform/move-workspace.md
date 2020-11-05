@@ -35,7 +35,21 @@ Solutions that must be removed before you can unlink your automation account:
 - Azure Security Center
 
 >[!IMPORTANT]
-> - Once enabled on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. If you need to move the workspace, contact [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+> **Azure Sentinel customers**
+> - Currently, after Azure Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
+> - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> 
+> **Re-create alerts**
+> - All alerts must be re-created after a move because the permissions are based on the Azure Resource ID of the workspace, which changes during a workspace move.
+>
+> **Update resource paths**
+> - After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
+> 
+>   *Examples:*
+>   - [Azure Monitor alert rules](alerts-resource-move.md)
+>   - Third-party applications
+>   - Custom scripting
+>
 
 ### Delete solutions in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:
@@ -89,7 +103,7 @@ Use the following procedure to move your workspace using the Azure portal:
 4. Select a destination **Subscription** and **Resource group**. If you're moving the workspace to another resource group in the same subscription, you won't see the **Subscription** option.
 5. Click **OK** to move the workspace and selected resources.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Screenshot shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.](media/move-workspace/portal.png)
 
 ### PowerShell
 To move your workspace using PowerShell, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) as in the following example:

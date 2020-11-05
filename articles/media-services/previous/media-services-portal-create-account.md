@@ -3,7 +3,7 @@ title: Create an Azure Media Services account with the Azure portal | Microsoft 
 description: This tutorial walks you through the steps of creating an Azure Media Services account with the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -13,11 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
+ms.date: 11/03/2020
+ms.author: inhenkel
 
 ---
 # Create a Media Services account using the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
@@ -29,11 +31,11 @@ The Media Services account and all associated storage accounts must be in the sa
 This article shows how to create a Media Services account using the Azure portal.
 
 > [!NOTE]
-> For information about availability of Azure Media Services features in different regions, see [availability of AMS features across datacenters](scenarios-and-availability.md#availability).
+> For information about availability of Azure Media Services features in different regions, see [AMS features across regions](availability-regions-v-2.md).
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create an AMS account
 
@@ -48,11 +50,11 @@ The steps in this section show how to create an AMS account.
    3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../../azure-resource-manager/management/overview.md#resource-groups).
    4. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
    5. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
-      
+
        Learn more about storage [here](../../storage/common/storage-introduction.md).
    6. Select **Pin to dashboard** to see the progress of the account deployment.
 4. Click **Create** at the bottom of the form.
-   
+
     Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in the **Stopped** state. 
 
     >[!NOTE]

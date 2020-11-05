@@ -5,7 +5,7 @@ description: Use this Azure PowerShell example script to create a managed instan
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: "seo-dt-2019"
+ms.custom: "seo-dt-2019, devx-track-azurepowershell"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
@@ -41,7 +41,7 @@ Instance name, SQL administrator username, VNet/subnet, and collation cannot be 
 This sample assumes that you have [created a valid network environment](../virtual-network-subnet-create-arm-template.md) or [modified an existing VNet](../vnet-existing-add-subnet.md) for your managed instance. You can prepare the network environment using a separate [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), if necessary. 
 
 
-The sample uses the cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), so make sure that you have installed the following PowerShell modules:
+The sample uses the cmdlets [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), so make sure that you have installed the following PowerShell modules:
 
 ```powershell
 Install-Module Az.Network

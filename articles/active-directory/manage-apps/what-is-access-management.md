@@ -40,7 +40,7 @@ With certain types of applications, you have the option of [requiring users to b
 * Application Proxy applications that use Azure Active Directory Pre-Authentication
 * Applications built on the Azure AD application platform that use OAuth 2.0 / OpenID Connect Authentication after a user or admin has consented to that application.Certain enterprise applications offer additional control over who is allowed to sign in.
 
-When user assignment is *not required*, unassigned users don't see the app on their My Apps access panel, but they can still sign in to the application itself (also known as SP-initiated sign-on) or they can use the **User Access URL** in the application’s **Properties** page (also known as IDP-initiated sign on).
+When user assignment is *not required*, unassigned users don't see the app on their My Apps, but they can still sign in to the application itself (also known as SP-initiated sign-on) or they can use the **User Access URL** in the application’s **Properties** page (also known as IDP-initiated sign on).
 
 For some applications, the option to require user assignment isn't available in the application's properties. In these cases, you can use PowerShell to set the appRoleAssignmentRequired property on the service principal.
 
@@ -48,12 +48,12 @@ For some applications, the option to require user assignment isn't available in 
 
 Azure AD provides [several customizable ways to deploy applications](end-user-experiences.md) to end users in your organization:
 
-* Azure AD My Apps access panel
-* Office 365 application launcher
+* Azure AD My Apps
+* Microsoft 365 application launcher
 * Direct sign-on to federated apps (service-pr)
 * Deep links to federated, password-based, or existing apps
 
-You can determine whether users assigned to an enterprise app can see it in the access panel and Office 365 application launcher.
+You can determine whether users assigned to an enterprise app can see it in My Apps and Microsoft 365 application launcher.
 
 ## Example: Complex application assignment with Azure AD
 Consider an application like Salesforce. In many organizations, Salesforce is primarily used by the marketing and sales teams. Often, members of the marketing team have highly privileged access to Salesforce, while members of the sales team have limited access. In many cases, a broad population of information workers has restricted access to the application. Exceptions to these rules complicate matters. It's often the prerogative of the marketing or sales leadership teams to grant a user access or change their roles independently of these generic rules.
@@ -67,26 +67,26 @@ With Azure AD, applications like Salesforce can be pre-configured for single sig
 
 * To enable the exception mechanism, a self-service group could be created for each role. For example, the "Salesforce marketing exception" group can be created as a self-service group. The group can be assigned to the Salesforce marketing role and the marketing leadership team can be made owner. Members of the marketing leadership team could add or remove users, set a join policy, or even approve or deny individual users' requests to join. This mechanism is supported through an information worker appropriate experience that does not require specialized training for owners or members.
 
-In this case, all assigned users would be automatically provisioned to Salesforce, as they are added to different groups their role assignment would be updated in Salesforce. Users would be able to discover and access Salesforce through the Microsoft application access panel, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
+In this case, all assigned users would be automatically provisioned to Salesforce, as they are added to different groups their role assignment would be updated in Salesforce. Users would be able to discover and access Salesforce through My Apps, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
 
 Administrators can employ [Azure AD Conditional Access](../conditional-access/concept-conditional-access-users-groups.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
 
 ## Access to Microsoft applications
 
-Microsoft Applications (like Office 365 Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
+Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
 
 There are three main ways that a user can get access to a Microsoft-published application.
 
-- For applications in the Office 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
+- For applications in the Microsoft 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
 - For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may be granted access through [user consent](configure-user-consent.md). This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 - For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may also be granted access through [administrator consent](manage-consent-requests.md). This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
-Some applications combine these methods. For example, certain Microsoft applications are part of an Office 365 subscription, but still require consent.
+Some applications combine these methods. For example, certain Microsoft applications are part of a Microsoft 365 subscription, but still require consent.
 
-Users can access Office 365 applications through their Office 365 portals. You can also show or hide Office 365 applications in the My Apps access panel with the [Office 365 visibility toggle](hide-application-from-user-portal.md) in your directory's **User settings**. 
+Users can access Microsoft 365 applications through their Office 365 portals. You can also show or hide Microsoft 365 applications in the My Apps with the [Office 365 visibility toggle](hide-application-from-user-portal.md) in your directory's **User settings**. 
 
 As with enterprise apps, you can [assign users](assign-user-or-group-access-portal.md) to certain Microsoft applications via the Azure portal or, if the portal option isn't available, by using PowerShell.
 
 ## Next steps
 * [Protecting apps with Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Self-service group management/SSAA](../enterprise-users/groups-self-service-management.md)

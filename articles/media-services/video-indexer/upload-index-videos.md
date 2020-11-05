@@ -11,6 +11,7 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  
@@ -67,15 +68,15 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 > A name of the video must be no greater than 80 characters.
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
-2. To upload a video, press the **Upload** button or link.
+1. To upload a video, press the **Upload** button or link.
 
-    ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
+1. Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
 
-    Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
-
-    ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
+1. Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
 ## <a name="apis"></a>Upload and index with API
 
@@ -162,7 +163,7 @@ If the `videoUrl` is not specified, the Video Indexer expects you to pass the fi
 
 The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
-#### Instructions for running this code sample
+**Instructions for running the following code sample**
 
 After copying this code into your development platform you will need to provide two parameters: API Management authentication key and video URL.
 

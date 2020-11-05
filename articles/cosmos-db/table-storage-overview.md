@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Table storage
-description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
+description: Learn how to use Azure Table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -12,6 +12,7 @@ ms.reviewer: sngun
 
 ---
 # Azure Table storage overview
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -25,10 +26,10 @@ You can use Table storage to store flexible datasets like user data for web appl
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-* [Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK](table-storage-how-to-use-dotnet.md)
+* [Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK](./tutorial-develop-table-dotnet.md)
 
 * View the Table service reference documentation for complete details about available APIs:
 
-    * [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Storage Client Library for .NET reference](/dotnet/api/overview/azure/storage)
 
-    * [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API reference](/rest/api/storageservices/)

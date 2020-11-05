@@ -18,7 +18,7 @@ This article shows you how to enable Managed Identity for the Power BI output(s)
 
 The following are required for using this feature:
 
-- A Power BI account with a [Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- A Power BI account with a [Pro license](/power-bi/service-admin-purchasing-power-bi-pro).
 
 - An upgraded workspace within your Power BI account. See [Power BI's announcement](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) of this feature for more details.
 
@@ -40,7 +40,7 @@ The following are required for using this feature:
 
 ## Azure Resource Manager deployment
 
-Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](/cli/azure/). The below examples use the Azure CLI.
 
 
 1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
@@ -150,14 +150,14 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
 
 ## Give the Stream Analytics job access to your Power BI workspace
 
-Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace.
+Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace. Once you have given your job access, allow a few minutes for the identity to propagate.
 
 ### Use the Power BI UI
 
    > [!Note]
-   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](https://docs.microsoft.com/power-bi/developer/embed-service-principal) for more details.
+   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](/power-bi/developer/embed-service-principal) for more details.
 
-1. Navigate to the workspace's access settings. See this article for more details: [Give access to your workspace](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Navigate to the workspace's access settings. See this article for more details: [Give access to your workspace](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Type the name of your Stream Analytics job in the text box and select **Contributor** as the access level.
 
@@ -190,7 +190,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### Use the Power BI REST API
 
-The Stream Analytics job can also be added as a Contributor to the workspace by using the "Add Group User" REST API directly. Full documentation for this API can be found here: [Groups - Add Group User](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+The Stream Analytics job can also be added as a Contributor to the workspace by using the "Add Group User" REST API directly. Full documentation for this API can be found here: [Groups - Add Group User](/rest/api/power-bi/groups/addgroupuser).
 
 **Sample Request**
 ```http

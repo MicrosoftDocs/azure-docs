@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Sending requests to the Bing Spell Check API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
 
 ```
@@ -38,7 +43,7 @@ For a list of all request and response headers, see [Headers](https://docs.micro
 
 When calling the Bing Spell Check API using JavaScript, your browser's built-in security features might prevent you from accessing the values of these headers.
 
-To resolve this issue, you can make the Bing Spell Check API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+To resolve this issue, you can make the Bing Spell Check API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that filters response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow the [tutorial app](../tutorials/spellcheck.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 

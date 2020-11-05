@@ -18,8 +18,9 @@ For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azu
 
 To complete this tutorial:
 
-* [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+* [Create an App Service app](./index.yml), or use an app that you created for another tutorial.
 * [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
+* An App Service in an Azure Public Region. Please note at this time, Azure National Clouds are not supported.
 
 ## Prepare the app
 
@@ -47,7 +48,7 @@ In the left navigation of the app page, scroll to the **Settings** section and s
 
 The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **F1** tier. Custom DNS is not supported in the **F1** tier. 
 
-![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot of the left navigation menu of the app page with Scale up (App Service plan) selected.":::
 
 If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Buy the domain](#buy-the-domain).
 
@@ -57,7 +58,7 @@ Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in
 
 Click **Apply**.
 
-![Check pricing tier](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot of the custom domain pricing tiers in the Production category with the Production tab, B1 plan, and the Apply button highlighted.":::
 
 When you see the following notification, the scale operation is complete.
 

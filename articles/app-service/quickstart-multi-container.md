@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Create a multi-container (preview) app using a Docker Compose configuration
@@ -15,7 +15,7 @@ ms.custom: mvc, seodec18
 > [!NOTE]
 > Multi-container is in preview.
 
-[Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
+[Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](../cloud-shell/overview.md) using a Docker Compose configuration.
 
 You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later). 
 

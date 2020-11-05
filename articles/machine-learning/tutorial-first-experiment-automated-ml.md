@@ -10,17 +10,14 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-
+ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
 # Tutorial: Create a classification model with automated ML in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you learn how to create a basic classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
->[!IMPORTANT]
-> The automated machine learning experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
+In this tutorial, you learn how to create a simple classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -44,9 +41,9 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-Create an **Enterprise edition** workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
@@ -242,7 +239,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
++ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

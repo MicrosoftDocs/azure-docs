@@ -8,7 +8,7 @@ editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
@@ -26,7 +26,7 @@ This document shows you how to use PowerShell to do one of the following tasks:
 
 An availability group listener is a virtual network name that clients connect to for database access. On Azure Virtual Machines, a load balancer holds the IP address for the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. Usually, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. 
 
-The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in the Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure Virtual Machines in the Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](availability-group-azure-marketplace-template-configure.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the availability group, including the internal load balancer for you. If you prefer, you can [manually configure an Always On availability group](availability-group-manually-configure-tutorial.md).
+The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in the Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure Virtual Machines in the Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](./availability-group-quickstart-template-configure.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the availability group, including the internal load balancer for you. If you prefer, you can [manually configure an Always On availability group](availability-group-manually-configure-tutorial.md).
 
 To complete the steps in this article, your availability groups need to be already configured.  
 
@@ -45,11 +45,11 @@ The examples in this article are tested using Azure PowerShell module version 5.
 
 Verify that your PowerShell module is 5.4.1 or later.
 
-See [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ## Configure the Windows Firewall
 
-Configure the Windows Firewall to allow SQL Server access. The firewall rules allow TCP connections to the ports use by the SQL Server instance, and the listener probe. For detailed instructions, see [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Create an inbound rule for the SQL Server port and for the probe port.
+Configure the Windows Firewall to allow SQL Server access. The firewall rules allow TCP connections to the ports use by the SQL Server instance, and the listener probe. For detailed instructions, see [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access#Anchor_1). Create an inbound rule for the SQL Server port and for the probe port.
 
 If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
 
@@ -57,10 +57,10 @@ If you are restricting access with an Azure Network Security Group, ensure that 
 
 [Azure load balancer](../../../load-balancer/load-balancer-overview.md) is available in two SKUs: Basic & Standard. The standard load balancer is recommended. If the virtual machines are in an availability set, basic load balancer is permitted. If the virtual machines are in an availability zone, a standard load balancer is required. Standard load balancer requires that all VM IP addresses use standard IP addresses.
 
-The current [Microsoft template](availability-group-azure-marketplace-template-configure.md) for an availability group uses a basic load balancer with basic IP addresses.
+The current [Microsoft template](./availability-group-quickstart-template-configure.md) for an availability group uses a basic load balancer with basic IP addresses.
 
    > [!NOTE]
-   > You will need to configure a [service endpoint](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) if you use a standard load balancer and Azure Storage for the cloud witness. 
+   > You will need to configure a [service endpoint](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) if you use a standard load balancer and Azure Storage for the cloud witness. 
    > 
 
 The examples in this article specify a standard load balancer. In the examples, the script includes `-sku Standard`.
@@ -78,7 +78,7 @@ $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $
 ## Example Script: Create an internal load balancer with PowerShell
 
 > [!NOTE]
-> If you created your availability group with the [Microsoft template](availability-group-azure-marketplace-template-configure.md), the internal load balancer was already created.
+> If you created your availability group with the [Microsoft template](./availability-group-quickstart-template-configure.md), the internal load balancer was already created.
 
 The following PowerShell script creates an internal load balancer, configures the load-balancing rules, and sets an IP address for the load balancer. To run the script, open Windows PowerShell ISE, and then paste the script in the Script pane. Use `Connect-AzAccount` to log in to PowerShell. If you have multiple Azure subscriptions, use `Select-AzSubscription` to set the subscription. 
 
@@ -140,7 +140,7 @@ The front-end port is the port that applications use to connect to the SQL Serve
 > For SQL Server availability groups, each IP address requires a specific probe port. For example, if one IP address on a load balancer uses probe port 59999, no other IP addresses on that load balancer can use probe port 59999.
 
 * For information about load balancer limits, see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* For information about availability group limits, see [Restrictions (Availability Groups)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* For information about availability group limits, see [Restrictions (Availability Groups)](/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability#RestrictionsAG).
 
 The following script adds a new IP address to an existing load balancer. The ILB uses the listener port for the load-balancing front-end port. This port can be the port that SQL Server is listening on. For default instances of SQL Server, the port is 1433. The load-balancing rule for an availability group requires a floating IP (direct server return) so the back-end port is the same as the front-end port. Update the variables for your environment. 
 
@@ -218,7 +218,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica. 
 
 > [!NOTE]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx). 
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
 > 
 
 ## Guidelines and limitations
@@ -232,7 +232,7 @@ Note the following guidelines on availability group listener in Azure using inte
   - The load balancer floating IP addresses for the AG listener
   - The cluster core IP address, if applicable.
 
-* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Grant access from a virtual network](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Grant access from a virtual network](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
 
 ## For more information
 
@@ -242,9 +242,9 @@ For more information, see [Configure Always On availability group in Azure VM ma
 
 Use the following PowerShell cmdlets to create an internal load balancer for Azure Virtual Machines.
 
-* [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) creates a load balancer. 
-* [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) creates a front-end IP configuration for a load balancer. 
-* [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) creates a rule configuration for a load balancer. 
-* [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) creates a backend address pool configuration for a load balancer. 
-* [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
-* [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) removes a load balancer from an Azure resource group.
+* [New-AzLoadBalancer](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancer) creates a load balancer. 
+* [New-AzLoadBalancerFrontendIpConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerFrontendIpConfig) creates a front-end IP configuration for a load balancer. 
+* [New-AzLoadBalancerRuleConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerRuleConfig) creates a rule configuration for a load balancer. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) creates a backend address pool configuration for a load balancer. 
+* [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) creates a probe configuration for a load balancer.
+* [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) removes a load balancer from an Azure resource group.

@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -28,6 +28,10 @@ landingContent:
         links:
           - text: Create SQL Managed Instance
             url: instance-create-quickstart.md
+      - linkListType: video
+        links:
+          - text: Azure SQL Managed Instance overview
+            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: What's new? 
@@ -70,12 +74,24 @@ landingContent:
 
 
   # Card 
-  - title: Reference 
+  - title: Learn Azure SQL 
     linkLists:
       - linkListType: learn
         links:
+        - text: Azure SQL for beginners
+          url: https://aka.ms/azuresql4beginners
+        - text: Azure SQL fundamentals 
+          url: /learn/paths/azure-sql-fundamentals/
+        - text: Azure SQL hands-on labs
+          url: https://aka.ms/asqlworkshop
+        - text: Azure SQL bootcamp 
+          url: https://aka.ms/azuresqlbootcamp
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
+
+  # Card 
+  - title: Reference 
+    linkLists:
       - linkListType: deploy
         links:
         - text: Azure CLI samples
@@ -101,11 +117,11 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
+            url: /cli/azure/sql
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
+            url: /powershell/module/az.sql
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
+            url: /rest/api/sql/
 
   # Card 
   - title: Business continuity  
@@ -134,12 +150,3 @@ landingContent:
             url: instance-pools-overview.md
           - text: Configure
             url: instance-pools-configure.md
-
-
-
-
-
-
-
-
-

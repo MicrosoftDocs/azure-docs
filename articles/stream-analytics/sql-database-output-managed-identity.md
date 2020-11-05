@@ -55,15 +55,15 @@ After you've created a managed identity, you select an Active Directory admin.
 
    ![Add Active Directory admin](./media/sql-db-output-managed-identity/add-admin.png)
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they're not supported as Azure AD administrators. See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server. Also, the selected user or group is the user who will be able to create the **Contained Database User** in the next section.
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Azure role-based access control (Azure RBAC) applies only to the portal and is not propagated to SQL Server. Also, the selected user or group is the user who will be able to create the **Contained Database User** in the next section.
 
 1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.
 
-   When you set up the Azure AD admin, the new admin name (user or group) can't be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail and roll back its creation, indicating that an admin (name) already exists. Since the SQL Server authentication user is not part of Azure AD, any effort to connect to the server using Azure AD authentication as that user fails. 
+   When you set up the Azure Active Directory admin, the new admin name (user or group) can't be present in the virtual primary database as a SQL Server authentication user. If present, the Azure Active Directory admin setup will fail and roll back its creation, indicating that an admin (name) already exists. Since the SQL Server authentication user is not part of Azure Active Directory, any effort to connect to the server using Azure Active Directory authentication as that user fails. 
 
 ## Create a contained database user
 
-Next, you create a contained database user in your SQL Database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the master database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job. 
+Next, you create a contained database user in your SQL Database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the primary database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job. 
 
 1. Connect to SQL Database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication. 
 
@@ -117,7 +117,7 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 1. Select **Add > SQL Database**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
-1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](stream-analytics-define-outputs.md#sql-database). When you are finished, select **Save**. 
+1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**. 
 
 ## Next steps
 

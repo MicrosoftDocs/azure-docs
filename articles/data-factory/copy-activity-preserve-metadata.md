@@ -6,14 +6,13 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-
 ---
+
 #  Preserve metadata and ACLs using copy activity in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,16 +21,16 @@ When you use Azure Data Factory copy activity to copy data from source to sink, 
 
 ## <a name="preserve-metadata"></a> Preserve metadata for lake migration
 
-When you migrate data from one data lake to another including [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), you can choose to preserve the file metadata along with data.
+When you migrate data from one data lake to another including [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), and [Azure File Storage](connector-azure-file-storage.md), you can choose to preserve the file metadata along with data.
 
 Copy activity supports preserving the following attributes during data copy:
 
 - **All the customer specified metadata** 
 - And the following **five data store built-in system properties**: `contentType`, `contentLanguage` (except for Amazon S3), `contentEncoding`, `contentDisposition`, `cacheControl`.
 
-**Handle differences in metadata:** Amazon S3 and Azure Storage allow different sets of characters in the keys of customer specified metadata. When you choose to preserve metadata using copy acivity, ADF automatically replaces the invalid characters with '_'.
+**Handle differences in metadata:** Amazon S3 and Azure Storage allow different sets of characters in the keys of customer specified metadata. When you choose to preserve metadata using copy activity, ADF automatically replaces the invalid characters with '_'.
 
-When you copy files as-is from Amazon S3/Azure Data Lake Storage Gen2/Azure Blob to Azure Data Lake Storage Gen2/Azure Blob with binary format, you can find the **Preserve** option on the **Copy Activity** > **Settings** tab for activity authoring or the **Settings** page in Copy Data Tool.
+When you copy files as-is from Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage to Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage with binary format, you can find the **Preserve** option on the **Copy Activity** > **Settings** tab for activity authoring or the **Settings** page in Copy Data Tool.
 
 ![Copy activity preserve metadata](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 

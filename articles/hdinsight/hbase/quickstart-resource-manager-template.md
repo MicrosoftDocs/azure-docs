@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux/).
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-199" highlight="103-136":::
+:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -56,13 +56,14 @@ Two Azure resources are defined in the template:
     |Ssh User Name|Provide the username, default is sshuser|
     |Ssh Password|Provide the password.|
 
-    ![Resource Manager template HBase](./media/quickstart-resource-manager-template/resource-manager-template-hbase.png)
+    ![Deploy Resource Manager template HBase](./media/quickstart-resource-manager-template/resource-manager-template-hbase.png)
 
 1. Review the **TERMS AND CONDITIONS**. Then select **I agree to the terms and conditions stated above**, then **Purchase**. You'll receive a notification that your deployment is in progress. It takes about 20 minutes to create a cluster.
 
+
 ## Review deployed resources
 
-Once the cluster is created, you'll receive a **Deployment succeeded** notification with a **Go to resource** link. Your Resource group page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Storage](../hdinsight-hadoop-use-blob-storage.md) account or an [Azure Data Lake Storage account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It's referred as the default storage account. The HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
+Once the cluster is created, you'll receive a **Deployment succeeded** notification with a **Go to resource** link. Your Resource group page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Blob Storage](../hdinsight-hadoop-use-blob-storage.md) account, an [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md), or an  [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) dependency. It's referred as the default storage account. The HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
 
 ## Clean up resources
 
@@ -70,7 +71,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 From the Azure portal, navigate to your cluster, and select **Delete**.
 
-![Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
+[Delete Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 

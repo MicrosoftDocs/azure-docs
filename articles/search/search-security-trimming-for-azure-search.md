@@ -105,13 +105,13 @@ If you need to update an existing document with the list of groups, you can use 
 }
 ```
 
-For full details on adding or updating documents, you can read [Edit documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+For full details on adding or updating documents, you can read [Edit documents](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## Apply the security filter
 
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
-For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](/rest/api/searchservice/search-documents).
 Note that this sample shows how to search documents using a POST request.
 
 Issue the HTTP POST request:

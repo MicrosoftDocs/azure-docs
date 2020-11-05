@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # Tutorial: Deploy an image classification model in Azure Container Instances
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  Now you're ready to deploy the model as a web service. A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
@@ -355,6 +355,6 @@ service.delete()
 
 + Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
-+  [Make predictions on large quantities of data](how-to-use-parallel-run-step.md) asynchronously.
++  [Make predictions on large quantities of data](./tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
-+ Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 
++ Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial.

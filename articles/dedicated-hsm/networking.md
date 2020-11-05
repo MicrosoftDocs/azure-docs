@@ -81,7 +81,7 @@ For globally distributed applications or for high availability regional failover
 > [!NOTE]
 > Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time and VPN gateway should be used instead. 
 
-![global-vnet](media/networking/global-vnet.png)
+![Diagram shows two regions connected by two V P N gateways. Each region contains peered virtual networks.](media/networking/global-vnet.png)
 
 ## Next steps
 

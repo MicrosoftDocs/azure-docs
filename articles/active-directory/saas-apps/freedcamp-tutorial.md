@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Freedcamp | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Freedcamp.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: bfc73563-017d-458f-b634-162f93e03b74
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Freedcamp with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Freedcamp with Azure Active Dire
 * Enable your users to be automatically signed-in to Freedcamp with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -113,11 +106,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the top-right corner of the page, click on **profile** and then navigate to **My Account**.
 
-	![Freedcamp configuration](./media/freedcamp-tutorial/config01.png)
+	![Screenshot that shows "Profile" and "My Account" selected.](./media/freedcamp-tutorial/config01.png)
 
 5. From the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
 
-	![Freedcamp configuration](./media/freedcamp-tutorial/config02.png)
+	![Screenshot that shows "S S O" selected in the left-side menu bar and the "Your S S O connections" page with values entered and the "Submit" button selected.](./media/freedcamp-tutorial/config02.png)
 
 	a. In the **Title** text box, type the title.
 
@@ -167,13 +160,13 @@ To enable Azure AD users, sign in to Freedcamp, they must be provisioned into Fr
 
 1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
 
-2. On the top-toright corner of the page, click on **profile** and then navigate to **Manage System**.
+2. On the top-right corner of the page, click on **profile** and then navigate to **Manage System**.
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config03.png)
 
 3. On the right side of the Manage System page, perform the following steps:
 
-	![Freedcamp configuration](./media/freedcamp-tutorial/config04.png)
+	![Screenshot that shows the "Add Or Invite Users" button selected, the "Email" field highlighted, and the "Add User" button selected.](./media/freedcamp-tutorial/config04.png)
 
 	a. Click on **Add or invite Users**.
 
@@ -183,12 +176,12 @@ To enable Azure AD users, sign in to Freedcamp, they must be provisioned into Fr
 
 ### Test SSO
 
-When you select the Freedcamp tile in the Access Panel, you should be automatically signed in to the Freedcamp for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Freedcamp tile in the Access Panel, you should be automatically signed in to the Freedcamp for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

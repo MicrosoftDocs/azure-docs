@@ -14,6 +14,11 @@ ms.author: aahi
 
 # Frequently asked questions (FAQ) about the Bing Image Search API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
 
 ## Response headers in JavaScript
@@ -30,7 +35,7 @@ It is particularly important to persist the client ID and return it with subsequ
 
 However, when you call the Bing Image Search API from JavaScript, your browser's built-in security features (CORS) might prevent you from accessing the values of these headers.
 
-To gain access to the headers, you can make the Bing Image Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+To gain access to the headers, you can make the Bing Image Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that filters response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our [tutorial app](tutorial-bing-image-search-single-page-app.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 

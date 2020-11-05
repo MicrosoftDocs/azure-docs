@@ -31,7 +31,7 @@ You also need the Azure CLI version 2.6.0 or later installed and configured. Run
 
 The kube-dashboard addon is **enabled by default on clusters older than K8s 1.18**. The addon can be disabled by running the following command.
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
@@ -97,7 +97,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## Sign in to the dashboard (kubernetes 1.16+)
 
 > [!IMPORTANT]
-> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) or kubernetes v1.16+ the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, requests without auth info return a 401 unauthorized error. A bearer token retrieved from a service account can still be used as in this [Kubernetes Dashboard example](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), but this impacts the login flow of the dashboard add-on compared to older versions.
+> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) or kubernetes v1.16+ the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, requests without auth info return a [401 unauthorized error](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). A bearer token retrieved from a service account can still be used as in this [Kubernetes Dashboard example](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), but this impacts the login flow of the dashboard add-on compared to older versions.
 >
 >If you still run a version prior to 1.16 you can still give permissions to the "kubernetes-dashboard" service account, but this is **not recommended**:
 > ```console

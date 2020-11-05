@@ -3,14 +3,14 @@ title: Language support - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.author: diberry
+
 ---
 
 # Language and region support for LUIS
@@ -110,8 +110,8 @@ The following cultures have custom tokenizer versions:
 |--|--|--|
 |German<br>`de-de`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ich fahre einen krankenwagen` as an utterance, it is turned to `Ich fahre einen kranken wagen`. Allowing the marking of `kranken` and `wagen` independently as different entities.|
 |German<br>`de-de`|1.0.2|Tokenizes words by splitting them on spaces.<br> If a user enters `Ich fahre einen krankenwagen` as an utterance, it remains a single token. Thus `krankenwagen` is marked as a single entity. |
-|Dutch<br>`de-de`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ik ga naar de kleuterschool` as an utterance, it is turned to `Ik ga naar de kleuter school`. Allowing the marking of `kleuter` and `school` independently as different entities.|
-|Dutch<br>`de-de`|1.0.1|Tokenizes words by splitting them on spaces.<br> If a user enters `Ik ga naar de kleuterschool` as an utterance, it remains a single token. Thus `kleuterschool` is marked as a single entity. |
+|Dutch<br>`nl-nl`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ik ga naar de kleuterschool` as an utterance, it is turned to `Ik ga naar de kleuter school`. Allowing the marking of `kleuter` and `school` independently as different entities.|
+|Dutch<br>`nl-nl`|1.0.1|Tokenizes words by splitting them on spaces.<br> If a user enters `Ik ga naar de kleuterschool` as an utterance, it remains a single token. Thus `kleuterschool` is marked as a single entity. |
 
 
 ### Migrating between tokenizer versions

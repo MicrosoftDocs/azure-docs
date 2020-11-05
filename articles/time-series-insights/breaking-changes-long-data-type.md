@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: dpalled
 ---
 
@@ -28,7 +28,7 @@ If you're affected by any of the following cases, make the recommended changes:
 
 If any of the cases apply to you, make changes to your model. Update the Time Series Expression (TSX) in your variable definition with the recommended changes. Update both:
 
-- Azure Time Series Insights Gen2 explorer
+- Azure Time Series Insights Explorer
 - Any custom client that uses our APIs
 
 Depending on your IoT solution and constraints, you might not have visibility into the data that's sent to your Azure Time Series Insights Gen2 environment. If you're unsure if your data is integral only or both integral and nonintegral, you have a few options:
@@ -67,11 +67,11 @@ If you want to query data across these two columns for the **propertyValue** pro
 
 *Previous variable definition:*
 
-[![Previous Variable Definition](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable, numeric.](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
 *New variable definition:*
 
-[![New Variable Definition](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable with a custom value, numeric.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
 You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
@@ -134,11 +134,11 @@ If you currently use categorical variables that map integer values to categories
 
 *Previous variable definition:*
 
-[![Previous Variable Definition](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable, categorical.](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
 *New variable definition:*
 
-[![New Variable Definition](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable with a custom value, categorical.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
 You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

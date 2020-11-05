@@ -30,8 +30,8 @@ This module introduces you to some additional capabilities you may need to consi
 
 For a broad overview of systems-wide architecture best practices, visit:
 
-* [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
-* [Get Started Guide for Azure Developers](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Azure Architecture Center](/azure/architecture/)
+* [Get Started Guide for Azure Developers](../../../../guides/developer/azure-developer-guide.md)
 
 ## Analytics
 
@@ -49,7 +49,7 @@ To achieve this, Azure offers a service called resource tagging, which associate
 
 For more information on resource naming and tagging, a good place to start is:
 
-* [Resource Naming and Tagging Decision Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [Resource Naming and Tagging Decision Guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 ### Diagnostics
 
@@ -57,9 +57,9 @@ Powerful tools such as Event Tracing for Windows (ETW) and Event Trace Logging (
 
 For more information, visit:
 
-* [Create Client-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [How to Collect Event Tracing for Windows (ETW) data](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Using the Windows Device Portal: Logging](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [Create Client-side Performance Traces](../../../how-tos/performance-tracing.md)
+* [How to Collect Event Tracing for Windows (ETW) data](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Using the Windows Device Portal: Logging](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### Usage analysis
 
@@ -67,19 +67,19 @@ Azure Application Insights helps you understand how people use your Azure Remote
 
 For more information, visit:
 
-* [Usage Analysis with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Usage Analysis with Application Insights](../../../../azure-monitor/app/usage-overview.md)
 
 ## Fast startup time strategies
 
 Your use case may require fast startup from application launch to 3D model viewing. For example, during an important meeting where it’s critical to have everything up and running ahead of time. Another example is during a CAD 3D model review where fast design iteration between a CAD application and mixed reality is key to efficiency.
 
-Azure Remote Rendering requires preprocessed 3D models, and Azure currently takes several minutes to create a VM and load a model for rendering. Making this process as seamless and fast as possible requires preparation of the 3D model data and ARR session ahead of time.
+Azure Remote Rendering requires preprocessed 3D models, and Azure currently takes several minutes to create a session and load a model for rendering. Making this process as seamless and fast as possible requires preparation of the 3D model data and ARR session ahead of time.
 
 The suggestions shared here aren’t currently part of the standard Azure Remote Rendering, but you can implement them on your own for faster startup times.
 
 ### Initiate early
 
-To reduce startup time, the simplest solution is to move the creation and initialization of the VM as early as possible in the user workflow. One strategy is to initialize the session as soon as it’s known that an ARR session will be needed. This will often be when the user starts to upload a 3D model to Azure Blob Storage to use with Azure Remote Rendering. In this case, session creation and VM initialization can be initiated at the same time as the 3D model upload such that both work streams run in parallel.
+To reduce startup time, the simplest solution is to move the creation and initialization of the session as early as possible in the user workflow. One strategy is to initialize the session as soon as it’s known that an ARR session will be needed. This will often be when the user starts to upload a 3D model to Azure Blob Storage to use with Azure Remote Rendering. In this case, session creation and initialization can be initiated at the same time as the 3D model upload such that both work streams run in parallel.
 
 This process can be streamlined further by ensuring that the chosen Azure Blob Storage input and output containers are in the same regional data center as the Azure Remote Rendering session.
 
@@ -87,41 +87,41 @@ This process can be streamlined further by ensuring that the chosen Azure Blob S
 
 If you know you have a future need for Azure Remote Rendering, you can schedule a specific date and time to start up the Azure Remote Rendering session.
 
-This option could be offered through a web portal where people can both upload a 3D model and schedule a time to view it in the future. This would also be a good place to ask for other preferences like Standard or Premium rendering. Premium rendering may be suitable if there’s a desire to show a mix of assets where the ideal size is harder to automatically determine or a need to ensure that the Azure region has VMs available at that specified time.
+This option could be offered through a web portal where people can both upload a 3D model and schedule a time to view it in the future. This would also be a good place to ask for other preferences like [*Standard*](../../../reference/vm-sizes.md) or [*Premium*](../../../reference/vm-sizes.md) rendering. *Premium* rendering may be suitable if there’s a desire to show a mix of assets where the ideal size is harder to automatically determine or a need to ensure that the Azure region has VMs available at that specified time.
 
 ### Session pooling
 
 In the most demanding situations, another option is session pooling, where one or more sessions are created and initialized at all times. This creates a session pool for immediate use by a requesting user. The downside of this approach is that once the VM is initialized, billing for the service starts. It may not be cost-effective to keep a session pool running at all times, but based on analytics, it may be possible to predict peak loads or can be combined with the scheduling strategy above to predict when sessions will be needed and ramp up and down the session pool accordingly.
 
-This strategy also helps with optimizing the choice between Standard and Premium sessions in a more dynamic fashion because it would be much quicker to switch between the two types within a single user session such as the case where a Premium complexity model is viewed first, followed by one that can work within Standard. If these user sessions are quite lengthy, there can be significant cost savings.
+This strategy also helps with optimizing the choice between *Standard* and *Premium* sessions in a more dynamic fashion because it would be much quicker to switch between the two types within a single user session such as the case where a *Premium* complexity model is viewed first, followed by one that can work within *Standard*. If these user sessions are quite lengthy, there can be significant cost savings.
 
 For more on Azure Remote Rendering sessions, check out:
 
-* [Remote Rendering Sessions](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Remote Rendering Sessions](../../../concepts/sessions.md)
 
-## Standard vs. Premium VM routing strategies
+## Standard vs. Premium server size routing strategies
 
-Needing to select whether to create a Standard or Premium VM presents a challenge in designing your user experience and end-to-end system. Although using only Premium sessions is an option, Standard sessions use much less Azure compute resources and are less expensive than Premium. This provides a strong motivation to use Standard sessions whenever possible and only use Premium when needed.
+Needing to select whether to create a *Standard* or *Premium* server size presents a challenge in designing your user experience and end-to-end system. Although using only *Premium* sessions is an option, *Standard* sessions use much less Azure compute resources and are less expensive than *Premium*. This provides a strong motivation to use *Standard* sessions whenever possible and only use *Premium* when needed.
 
 Here we share several options, from least to most comprehensive, to address the desire to manage session choices.
 
 ### Use only Standard or Premium
 
-If you’re certain that your needs will *always* fall below the threshold between Standard and Premium, then this simplifies your decision considerably. Just use Standard. Keep in mind though that the impact on the user experience is significant if the sum total complexity of the loaded assets is rejected as too complex for a Standard session.
+If you’re certain that your needs will *always* fall below the threshold between *Standard* and *Premium*, then this simplifies your decision considerably. Just use *Standard*. Keep in mind though that the impact on the user experience is significant if the sum total complexity of the loaded assets is rejected as too complex for a *Standard* session.
 
-Likewise, if you expect a large portion of uses to exceed the threshold between Standard and Premium, or cost isn’t a key factor in your use case, then always choosing Premium is also an option to keep it simple.
+Likewise, if you expect a large portion of uses to exceed the threshold between *Standard* and *Premium*, or cost isn’t a key factor in your use case, then always choosing *Premium* is also an option to keep it simple.
 
 ### Ask the user
 
-If you do wish to support both Standard and Premium, the easiest way to determine which type of VM session to instantiate is to ask the user when they select 3D assets to view. The challenge with this approach is that it requires the user to understand the complexity of the 3D asset or even multiple assets that will be viewed. Typically, this is not recommended for that reason. If the user selects wrong and chooses Standard, the resulting user experience could be compromised at an inopportune moment.
+If you do wish to support both *Standard* and *Premium*, the easiest way to determine which type of session to instantiate is to ask the user when they select 3D assets to view. The challenge with this approach is that it requires the user to understand the complexity of the 3D asset or even multiple assets that will be viewed. Typically, this is not recommended for that reason. If the user selects wrong and chooses *Standard*, the resulting user experience could be compromised at an inopportune moment.
 
 ### Analyze the 3D model
 
-Another relatively simple approach is to analyze the complexity of the selected 3D assets. If the model complexity is below the threshold for Standard, initiate a Standard session, otherwise initiate a Premium session. Here, the challenge is that a single session may ultimately be used to view multiple models of which some may exceed the complexity threshold of a Standard session, resulting in the inability to seamlessly use the same session for a sequence of different 3D assets.
+Another relatively simple approach is to analyze the complexity of the selected 3D assets. If the model complexity is below the threshold for *Standard*, initiate a *Standard* session, otherwise initiate a *Premium* session. Here, the challenge is that a single session may ultimately be used to view multiple models of which some may exceed the complexity threshold of a *Standard* session, resulting in the inability to seamlessly use the same session for a sequence of different 3D assets.
 
 ### Automatic switching
 
-Automatic switching between Standard and Premium sessions can make a lot of sense in a system design that also includes session pooling. This strategy allows for further optimization of resource utilization. As the user loads models for viewing, the complexity is determined, and the correct session size is requested from the session pooling service.
+Automatic switching between *Standard* and *Premium* sessions can make a lot of sense in a system design that also includes session pooling. This strategy allows for further optimization of resource utilization. As the user loads models for viewing, the complexity is determined, and the correct session size is requested from the session pooling service.
 
 ## Working with networks
 
@@ -159,9 +159,9 @@ Other examples include streamed video, simultaneous background uploads of other 
 For more information on network analytics, view:
 
 * [Azure Storage Blob Download Speed Test](https://www.azurespeed.com/Azure/Download)
-* [Azure Network Round Trip Latency Statistics](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [Server-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [Client-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Azure Network Round Trip Latency Statistics](../../../../networking/azure-network-latency.md)
+* [Server-side Performance Traces](../../../overview/features/performance-queries.md)
+* [Client-side Performance Traces](../../../how-tos/performance-tracing.md)
 
 ## Collaboration considerations
 
@@ -187,8 +187,8 @@ However, for 3D assets that will be used repeatedly, such as in a training use c
 
 For more information:
 
-* [Shared Experiences in Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Azure Storage Redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Shared Experiences in Mixed Reality](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Azure Storage Redundancy](../../../../storage/common/storage-redundancy.md)
 
 ## Managing model access
 
@@ -208,7 +208,7 @@ Based on the anticipated use case, determine the best place or combination of pl
 
 If your use case has usage patterns where the same 3D asset may be uploaded multiple times, the back-end will track which models are already converted for use with ARR such that a model is only pre-processed one time for multiple future selections. A design review example would be where a team has access to a common original 3D asset. Each team member is expected to review the model using ARR at some point in their work stream. Only the first view would then trigger the pre-processing step. The subsequent views would look up the associated post-processed file in the SAS output container.
 
-Depending on the use case, you’ll likely want to determine and potentially persist the correct Azure Remote Rendering VM size, Standard or Premium, for each 3D asset or group of assets that will be viewed together in the same session.  
+Depending on the use case, you’ll likely want to determine and potentially persist the correct Azure Remote Rendering server size, *Standard* or *Premium*, for each 3D asset or group of assets that will be viewed together in the same session.  
 
 ### On-device model selection list
 
@@ -225,7 +225,7 @@ This approach could be taken one step further by persisting an association betwe
 For more information:
 
 * [Microsoft Power Automate Template for OneDrive to Azure Storage Replication](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [OneDrive File Storage API Overview](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [OneDrive File Storage API Overview](/graph/onedrive-concept-overview)
 
 ### Direct CAD access
 
@@ -250,7 +250,7 @@ Many enterprise clients mandate that your Azure Stack can be deployed under thei
 For more information:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutorial: Publish Azure managed applications in the Marketplace](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [Tutorial: Publish Azure managed applications in the Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 
 ### Security
 
@@ -272,6 +272,6 @@ For authentication, it’s wise to move as much of the ARR authentication and se
 
 For more information:
 
-* [Azure AD Service Authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Azure AD Service Authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Strengthen Your Security Posture with Azure](https://azure.microsoft.com/overview/security/)
 * [Cloud Security](https://azure.microsoft.com/product-categories/security/)

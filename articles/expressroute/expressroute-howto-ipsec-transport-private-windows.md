@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute private peering: Configure IPsec transport mode - Windows hosts'
 description: How to enable IPsec transport mode between Azure Windows VMs and on-premises Windows hosts through ExpressRoute private peering using GPOs and OUs.
 services: expressroute
-author: fabferri
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
 
 ---
@@ -61,7 +61,7 @@ When configuring IPsec policy, it's important to understand the following IPsec 
 
 Ensure that you meet the following prerequisites:
 
-* You must have a functioning Active Directory configuration that you can use to implement Group Policy settings. For more information about GPOs, see [Group Policy Objects](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx).
+* You must have a functioning Active Directory configuration that you can use to implement Group Policy settings. For more information about GPOs, see [Group Policy Objects](/previous-versions/windows/desktop/Policy/group-policy-objects).
 
 * You must have an active ExpressRoute circuit.
   * For information about creating an ExpressRoute circuit, see [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md). 

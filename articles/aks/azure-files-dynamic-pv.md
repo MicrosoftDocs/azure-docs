@@ -31,6 +31,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Standard_ZRS* - standard zone redundant storage (ZRS)
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 * *Premium_LRS* - premium locally redundant storage (LRS)
+* *Premium_ZRS* - premium zone redundant storage (ZRS)
 
 > [!NOTE]
 > Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher, minimum premium file share is 100GB
@@ -76,7 +77,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: my-azurefile
   resources:
     requests:
       storage: 5Gi
@@ -114,7 +115,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -143,7 +144,7 @@ You now have a running pod with your Azure Files share mounted in the */mnt/azur
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Fri, 01 Mar 2019 23:56:16 +0000

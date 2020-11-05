@@ -36,7 +36,7 @@ Before you start, do the following actions:
 
 ## Create an Azure Event Hub
 
-Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you will send data to Azure by using  [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs).
+Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you will send data to Azure by using  [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Use the following steps to create an Event Hub and send call data to that Event Hub:
 
@@ -182,11 +182,11 @@ The last step is to define an output sink for the job where it can write the tra
 
    ![Configure Stream Analytics output](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. When you select **Authorize**, a pop-up window opens and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings.
+4. When you select **Authorize**, a pop-up window opens and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings. To use Managed Identity, see [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md).
 
 ## Define a query to analyze input data
 
-The next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). The query used in this tutorial detects fraudulent calls from the phone data.
+The next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference). The query used in this tutorial detects fraudulent calls from the phone data.
 
 In this example, fraudulent calls are made from the same user within five seconds but in separate locations. For example, the same user can't legitimately make a call from the US and Australia at the same time. To define the transformation query for your Stream Analytics job:
 
@@ -207,7 +207,7 @@ In this example, fraudulent calls are made from the same user within five second
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   To check for fraudulent calls, you can self-join the streaming data based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the **ON** clause of the join using the [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics) function.
+   To check for fraudulent calls, you can self-join the streaming data based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the **ON** clause of the join using the [DATEDIFF](/stream-analytics-query/datediff-azure-stream-analytics) function.
 
    This query is just like a normal SQL join except for the **DATEDIFF** function. The **DATEDIFF** function used in this query is specific to Stream Analytics, and it must appear within the `ON...BETWEEN` clause.
 
@@ -259,9 +259,9 @@ You can test a query from the query editor using sample data. Run the following 
 
 ## Embedding your Power BI Dashboard in a Web Application
 
-For this part of the tutorial, you'll use a sample [ASP.NET](https://asp.net/) web application created by the Power BI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
+For this part of the tutorial, you'll use a sample [ASP.NET](https://asp.net/) web application created by the Power BI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](/power-bi/developer/embedding) article.
 
-To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since we are using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
+To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since we are using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your Power BI account.

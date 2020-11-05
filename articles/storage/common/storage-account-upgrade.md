@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram   
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Upgrade to a general-purpose v2 storage account
@@ -36,7 +36,7 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) for information about installing PowerShell.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
@@ -45,7 +45,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # [Azure CLI](#tab/azure-cli)
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](/cli/azure/install-azure-cli) for information about installing the CLI.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
@@ -107,7 +107,7 @@ To decide on the best access tier for your needs, it can be helpful to determine
 
 To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics, which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the storage service for GPv1, GPv2, and Blob storage account types. This data is stored in well-known tables in the same storage account.
 
-For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+For more information, see [About Storage Analytics Metrics](../blobs/monitor-blob-storage.md) and [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)
 
 > [!NOTE]
 > Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account.

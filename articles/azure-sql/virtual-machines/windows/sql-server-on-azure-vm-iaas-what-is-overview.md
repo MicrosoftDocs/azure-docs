@@ -8,7 +8,7 @@ tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
 
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/27/2019
@@ -24,7 +24,10 @@ ms.reviewer: jroth
 
 [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server virtual machines (VMs) also simplify licensing costs when you pay as you go.
 
-Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/windows/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for many different SQL Server workloads.
+Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for many different SQL Server workloads.
+
+If you're new to SQL Server on Azure VMs, check out the *SQL Server on Azure VM Overview* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## Automated updates
 
@@ -34,7 +37,7 @@ SQL Server on Azure Virtual Machines can use [Automated Patching](automated-patc
 
 SQL Server on Azure Virtual Machines can take advantage of [Automated Backup](automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](azure-storage-sql-server-backup-restore-use.md).
 
-Azure also offers an enterprise-class backup solution for SQL Server running in Azure VMs. A fully-managed backup solution, it supports Always On availability groups, long-term retention, point-in-time recovery, and central management and monitoring. For more information, see [Azure Backup for SQL Server in Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Azure also offers an enterprise-class backup solution for SQL Server running in Azure VMs. A fully-managed backup solution, it supports Always On availability groups, long-term retention, point-in-time recovery, and central management and monitoring. For more information, see [Azure Backup for SQL Server in Azure VMs](../../../backup/backup-azure-sql-database.md).
   
 
 ## High availability
@@ -127,7 +130,7 @@ For details, see:
 Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](frequently-asked-questions-faq.md#images).
 
 ## Customer experience improvement program (CEIP)
-The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](https://docs.microsoft.com/sql/sql-server/sql-server-privacy).
+The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](/sql/sql-server/sql-server-privacy).
 
 ## Related products and services
 ### Windows virtual machines
@@ -142,7 +145,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 * [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### SQL
-* [SQL Server documentation](https://docs.microsoft.com/sql/index)
+* [SQL Server documentation](/sql/index)
 * [Azure SQL Database comparison](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## Next steps
@@ -157,5 +160,5 @@ Get answers to commonly asked questions about SQL Server VMs:
 
 View Reference Architectures for running N-tier applications on SQL Server in IaaS
 
-* [Windows N-tier application on Azure with SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Run an N-tier application in multiple Azure regions for high availability](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Windows N-tier application on Azure with SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Run an N-tier application in multiple Azure regions for high availability](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

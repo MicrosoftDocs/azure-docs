@@ -6,7 +6,7 @@ ms.date: 06/23/2020
 ---
 
 # Connect your Apache Spark application with Azure Event Hubs
-This tutorial walks you through connecting your Spark application to Event Hubs for real-time streaming. This integration enables streaming without having to change your protocol clients or run your own Kafka or Zookeeper clusters. This tutorial, requires Apache Spark v2.4+ and Apache Kafka v2.0+.
+This tutorial walks you through connecting your Spark application to Event Hubs for real-time streaming. This integration enables streaming without having to change your protocol clients, or run your own Kafka or Zookeeper clusters. This tutorial requires Apache Spark v2.4+ and Apache Kafka v2.0+.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)
@@ -57,7 +57,7 @@ val df = spark.readStream
     .option("kafka.request.timeout.ms", "60000")
     .option("kafka.session.timeout.ms", "30000")
     .option("kafka.group.id", GROUP_ID)
-    .option("failOnDataLoss", "false")
+    .option("failOnDataLoss", "true")
     .load()
 
 //Use dataframe like normal (in this example, write to console)

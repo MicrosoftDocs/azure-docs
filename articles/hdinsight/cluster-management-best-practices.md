@@ -20,12 +20,12 @@ Learn best practices for managing HDInsight clusters.
 | Azure Data Factory | [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Custom Resource Manager template | [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Quickstart templates | [HDInsight Quickstart templates](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Azure samples | [HDInsight Azure samples](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Azure samples | [HDInsight Azure samples](/samples/browse/?products=azure-hdinsight) |
 | Azure portal | [Create Linux-based clusters in HDInsight by using the Azure portal](./spark/apache-spark-intellij-tool-plugin.md) |
 | Azure CLI | [Create HDInsight clusters using the Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Create Linux-based clusters in HDInsight using Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Create Apache Hadoop clusters using the Azure REST API](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDKs (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > If you are creating a cluster and re-using the cluster name from a previously created cluster, wait until the previous cluster deletion is completed before creating your cluster.
@@ -56,6 +56,8 @@ Learn best practices for managing HDInsight clusters.
 | Manual scaling | [Scale Azure HDInsight clusters](./hdinsight-scaling-best-practices.md) |
 | Monitoring with Ambari| [Monitor cluster performance in Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitoring with Azure Monitor logs | [Use Azure Monitor logs to monitor HDInsight clusters](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Service issues, planned maintenance, health & security advisories | [Subscribe to subscription specific service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) |
+
 
 ## How do I check on deleted HDInsight clusters?
 

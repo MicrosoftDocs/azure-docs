@@ -35,7 +35,7 @@ The web API is defined by its `scopes`. Whatever the experience you provide in y
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -367,7 +367,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -983,7 +983,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

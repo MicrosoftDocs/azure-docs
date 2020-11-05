@@ -13,7 +13,7 @@ ms.date: 07/27/2020
 
 # Tag images in a labeling project 
 
-After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](./how-to-create-labeling-projects.md#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -108,7 +108,7 @@ If your project is of type "Object Identification (Bounding Boxes)," you'll spec
 1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-images/rectangular-box-tool.png) or select "R."
 3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
 
-![A screenshot shows basic bounding box creation.](./media/how-to-label-images/bounding-box-sequence.png)
+![Bounding box creation](./media/how-to-label-images/bounding-box-sequence.png)
 
 To delete a bounding box, click the X-shaped target that appears next to the bounding box after creation.
 
@@ -132,5 +132,4 @@ When you're done labeling, select your name in the upper-right corner of the lab
 
 ## Next steps
 
-* Learn to [train image classification models in Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)

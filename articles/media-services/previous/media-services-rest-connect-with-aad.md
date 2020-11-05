@@ -19,6 +19,8 @@ ms.reviewer: willzhan; johndeu
 
 # Use Azure AD authentication to access the Media Services API with REST
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
@@ -65,7 +67,7 @@ To access Media Services API, you need to collect the following data points.
 |Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
 
-### Get AAD auth info from the Azure portal
+### Get Azure Active Directory auth info from the Azure portal
 
 To get the information, follow these steps:
 
@@ -74,7 +76,7 @@ To get the information, follow these steps:
 3. Select **API access**.
 4. Click on **Connect to Azure Media Services API with service principal**.
 
-    ![API access](./media/connect-with-rest/connect-with-rest01.png)
+    ![Screenshot that shows "A P I access" selected from the "Media Services" menu and "Connect to Azure Media Services A P I with service principal" selected from the right pane.](./media/connect-with-rest/connect-with-rest01.png)
 
 5. Select an existing **Azure AD application** or create a new one (shown below).
 
@@ -88,7 +90,7 @@ To get the information, follow these steps:
    3. Press **Create New** again.
    4. Press **Save**.
 
-      ![API access](./media/connect-with-rest/new-app.png)
+      ![Screenshot that shows the "Create New" dialog with the "Create app" text box highlighted, and the "Save" button selected.](./media/connect-with-rest/new-app.png)
 
       The new app shows up on the page.
 
@@ -97,14 +99,14 @@ To get the information, follow these steps:
    1. Select the application.
    2. Get the **Client ID** from the window on the right. 
 
-      ![API access](./media/connect-with-rest/existing-client-id.png)
+      ![Screenshot that shows the "Azure A D app" and "Manage application" selected, and the "Client I D" highlighted in the right pane.](./media/connect-with-rest/existing-client-id.png)
 
 7. Get the application's **Key** (client secret). 
 
    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
    2. Press **Keys**.
     
-       ![API access](./media/connect-with-rest/manage-app.png)
+       ![Screenshot that shows the "Manage application" button selected, the "Application I D" in the center pane highlighted, and "Keys" selected in the right pane.](./media/connect-with-rest/manage-app.png)
    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
     
        Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
@@ -129,7 +131,7 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 4. Select the **Headers** tab.
 5. Enter the **Headers** information using the "Key/Value" data grid. 
 
-    ![Data Grid](./media/connect-with-rest/headers-data-grid.png)
+    ![Screenshot that shows the "Headers" tab and the "Bulk Edit" action selected.](./media/connect-with-rest/headers-data-grid.png)
 
     Alternatively, click **Bulk Edit** link on the right of the Postman window and paste the following code.
 
@@ -154,7 +156,7 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 
 8. Press **Send**.
 
-    ![get token](./media/connect-with-rest/connect-with-rest04.png)
+    ![Screenshot that shows the "Post" text box, "Headers" and "Body" tabs, and "access_token" highlighted, and the "Send" button detected.](./media/connect-with-rest/connect-with-rest04.png)
 
 The returned response contains the **access token** that you need to use to access any AMS APIs.
 

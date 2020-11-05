@@ -3,10 +3,12 @@ title: Understand Azure Reserved VM Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # How the Azure reservation discount is applied to virtual machines
 
 After you buy an Azure Reserved Virtual Machine Instance, the reservation discount is automatically applied to virtual machines that match the attributes and quantity of the reservation. A reservation covers the compute costs of your virtual machines.
@@ -50,7 +52,7 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## Premium storage VMs don't get non-premium discounts
 
@@ -87,7 +89,7 @@ When the setting is on, reservation discounts automatically apply to matching VM
 
 Check the *ConsumedService* value in your usage data to determine if the usage is eligible for reservation discounts.
 
-For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 
 ## Need help? Contact us

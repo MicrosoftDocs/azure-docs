@@ -17,9 +17,13 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 Management operations include upload, validation, retrieval, and deletion of models. 
+
+## Prerequisites
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## Create models
 
@@ -70,7 +74,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Manage models with APIs.
+## Manage models with APIs
 
 The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
 
@@ -85,7 +89,7 @@ The following sections show how to complete different model management operation
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
 > [!TIP]
-> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
+> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
 
 When you're ready to upload a model, you can use the following code snippet:
 
@@ -138,10 +142,9 @@ On upload, model files are validated by the service.
 You can list and retrieve models stored on your Azure Digital Twins instance. 
 
 Here are your options for this:
-* Retrieve all models
 * Retrieve a single model
-* Retrieve a single model with dependencies
-* Retrieve metadata for models
+* Retrieve all models
+* Retrieve metadata and dependencies for models
 
 Here are some example calls:
 
@@ -149,23 +152,56 @@ Here are some example calls:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-The API calls to retrieve models all return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+The API calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
 
 Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
+
+### Update models
+
+Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable. This means there is no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
+
+Instead, if you want to make changes to a model—such as updating `displayName` or `description`—the way to do this is to upload a **newer version** of the model. 
+
+#### Model versioning
+
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
+
+Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
+
+For example, if your previous model ID looked like this:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+version 2 of this model might look like this:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Then, upload the new version of the model to your instance. 
+
+This version of the model will then be available in your instance to use for digital twins. It **does not** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models).
+
+#### Impact on twins
+
+When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.
+
+This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will simply remain instances of the old model version.
+
+You can update these existing twins to the new model version by patching them, as described in the [*Update a digital twin's model*](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
 
 ### Remove models
 
@@ -175,7 +211,7 @@ Models can also be removed from the service, in one of two ways:
 
 These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
 
-### Decommissioning
+#### Decommissioning
 
 Here is the code to decommission a model:
 

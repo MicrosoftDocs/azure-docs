@@ -4,12 +4,12 @@ description: Learn to configure your database in Azure SQL Database and client a
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To complete the tutorial, make sure you've installed the following items:
 

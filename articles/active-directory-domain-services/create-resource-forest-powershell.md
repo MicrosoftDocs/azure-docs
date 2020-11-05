@@ -1,7 +1,7 @@
 ---
 title: Create an Azure AD Domain Services resource forest using Azure PowerShell | Microsoft Docs
 description: In this article, learn how to create and configure an Azure Active Directory Domain Services resource forest and outbound forest to an on-premises Active Directory Domain Services environment using Azure PowerShell.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services resource forest and one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
 
@@ -73,12 +73,12 @@ Before you start, make sure you understand the [network considerations, forest n
 
 Azure AD DS requires a service principal synchronize data from Azure AD. This principal must be created in your Azure AD tenant before you created the managed domain resource forest.
 
-Create an Azure AD service principal for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Don't change this application ID.
+Create an Azure AD service principal for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
 
 Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 ## Create a managed domain resource forest
@@ -87,7 +87,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
 
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -122,7 +122,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
 
 1. Now create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -147,15 +147,15 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
-    * [Azure Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Azure ExpressRoute Overview](/azure/expressroute/expressroute-introduction).
+    * [Azure Site-to-Site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Azure ExpressRoute Overview](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > If you create the connection directly to your managed domain's virtual network, use a separate gateway subnet. Don't create the gateway in the managed domain's subnet.
 
 1. To administer a managed domain, you create a management VM, join it to the managed domain, and install the required AD DS management tools.
 
-    While the managed domain resource forest is being deployed, [create a Windows Server VM](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) then [install the core AD DS management tools](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) to install the needed management tools. Wait to join the management VM to the managed domain until one of the following steps after the domain is successfully deployed.
+    While the managed domain resource forest is being deployed, [create a Windows Server VM](./join-windows-vm.md) then [install the core AD DS management tools](./tutorial-create-management-vm.md) to install the needed management tools. Wait to join the management VM to the managed domain until one of the following steps after the domain is successfully deployed.
 
 1. Validate network connectivity between your on-premises network and the Azure virtual network.
 
@@ -203,7 +203,7 @@ Now provide the script the following information:
 
 The following example creates a trust relationship named *myAzureADDSTrust* to *onprem.contoso.com*. Use your own parameter names and passwords:.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `
@@ -259,7 +259,7 @@ You should have Windows Server virtual machine joined to the managed domain reso
 1. Connect to the Windows Server VM joined to the managed domain resource forest using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!TIP]
-    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
+    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](../bastion/bastion-overview.md) in supported Azure regions.
 
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
@@ -285,7 +285,7 @@ Using the Windows Server VM joined to the managed domain resource forest, you ca
 1. Connect to the Windows Server VM joined to the managed domain resource forest using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!TIP]
-    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
+    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](../bastion/bastion-overview.md) in supported Azure regions.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
 1. Choose the option for **Change advanced sharing** settings.

@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
 description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020

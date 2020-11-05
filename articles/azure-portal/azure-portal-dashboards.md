@@ -139,7 +139,7 @@ To use an existing dashboard as a template for a new dashboard, follow these ste
 
 ## Publish and share a dashboard
 
-When you create a dashboard, it's private by default, which means you're the only one who can see it. To make dashboards available to others, you can publish and share them. For more information, see [Share Azure dashboards by using Role-Based Access Control](azure-portal-dashboard-share-access.md).
+When you create a dashboard, it's private by default, which means you're the only one who can see it. To make dashboards available to others, you can publish and share them. For more information, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
 ### Open a shared dashboard
 
@@ -175,5 +175,5 @@ To permanently delete a private or shared dashboard, follow these steps:
 
 ## Next steps
 
-* [Share Azure dashboards by using Role-Based Access Control](azure-portal-dashboard-share-access.md)
+* [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md)
 * [Programmatically create Azure dashboards](azure-portal-dashboards-create-programmatically.md)

@@ -3,14 +3,14 @@ title: Azure Traffic Manager - FAQs
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: rohink
+ms.author: duau
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)

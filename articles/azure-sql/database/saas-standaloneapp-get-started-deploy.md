@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -103,9 +103,9 @@ Each tenant database is a 50 DTU *standalone* database.
 ## Additional resources
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build on the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](elastic-pool-overview.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](../../sql-database/elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](./elastic-jobs-overview.md)
 -->
 
 - To learn about multi-tenant SaaS applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
@@ -125,5 +125,3 @@ In this tutorial you learned:
 > * How to delete sample resources to stop related billing.
 
 Next, try the [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) tutorial in which you'll explore the use of a catalog of tenants that enables a range of cross-tenant scenarios such as schema management and tenant analytics.
- 
-

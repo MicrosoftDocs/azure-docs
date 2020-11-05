@@ -4,8 +4,7 @@ description: In this quickstart, you will build a Docker image with your applica
 
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Quickstart: Deploy Linux containers to Service Fabric
 
@@ -48,14 +47,14 @@ To deploy the application to Azure, you need a Service Fabric cluster to run the
 #!/bin/bash
 
 # Variables
-ResourceGroupName="containertestcluster" 
-ClusterName="containertestcluster" 
-Location="eastus" 
-Password="q6D7nN%6ck@6" 
-Subject="containertestcluster.eastus.cloudapp.azure.com" 
-VaultName="containertestvault" 
-VmPassword="Mypa$$word!321"
-VmUserName="sfadminuser"
+ResourceGroupName='containertestcluster' 
+ClusterName='containertestcluster' 
+Location='eastus' 
+Password='q6D7nN%6ck@6' 
+Subject='containertestcluster.eastus.cloudapp.azure.com' 
+VaultName='containertestvault' 
+VmPassword='Mypa$$word!321'
+VmUserName='sfadminuser'
 
 # Login to Azure and set the subscription
 az login

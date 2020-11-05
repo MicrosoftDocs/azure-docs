@@ -11,6 +11,7 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Authorize access to blob and queue data with managed identities for Azure resources
@@ -23,7 +24,7 @@ This article shows how to authorize access to blob or queue data from an Azure V
 
 Before you can use managed identities for Azure Resources to authorize access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
-- [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -43,7 +44,7 @@ For more information about the Azure Identity client library for .NET, see [Azur
 
 ### Assign Azure roles for access to data
 
-When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign Azure roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via Azure RBAC, see the section titled **Assign Azure roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### Authenticate the user in the development environment
 
@@ -158,6 +159,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## Next steps
 
-- [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
+- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 - [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md).
+- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-active-directory-powershell.md)

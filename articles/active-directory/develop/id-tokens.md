@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -76,11 +76,13 @@ This list shows the JWT claims that are in most id_tokens by default (except whe
 |`oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they're considered different accounts, even though the user logs into each account with the same credentials. The `oid` claim is a GUID and cannot be reused. |
 |`roles`| Array of strings | The set of roles that were assigned to the user who is logging in. |
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
-|`sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
+|`sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
 |`tid` | String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required to receive this claim. |
 |`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value is unique at any given point in time, but as emails and other identifiers can be reused, this value can reappear on other accounts, and should therefore be used only for display purposes. Only issued in v1.0 `id_tokens`. |
 |`uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
+|`hasgroups`|Boolean|If present, always true, denoting the user is in at least one group. Used in place of the groups claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently 6 or more groups). Indicates that the client should use the Microsoft Graph API to determine the user's groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`).|
+|`groups:src1`|JSON object | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> For more info, see [Groups overage claim](#groups-overage-claim).|
 
 > [!NOTE]
 > The v1.0 and v2.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint, new applications should use the v2.0 "Microsoft identity platform" endpoint.
@@ -98,6 +100,26 @@ To correctly store information per-user,  use `sub` or `oid` alone (which as GUI
 > Do not use the `idp` claim to store information about a user in an attempt to correlate users across tenants.  It will not function, as the `oid` and `sub` claims for a user change across tenants, by design, to ensure that applications cannot track users across tenants.  
 >
 > Guest scenarios, where a user is homed in one tenant, and authenticates in another, should treat the user as if they are a brand new user to the service.  Your documents and privileges in the Contoso tenant should not apply in the Fabrikam tenant. This is important to prevent accidental data leakage across tenants.
+
+### Groups overage claim
+To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object IDs that it includes in the `groups` claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## Validating an id_token
 

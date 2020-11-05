@@ -11,7 +11,7 @@ ms.date: 03/30/2020
 
 # Configure lead management for Dynamics 365 Customer Engagement
 
-This article describes how to set up Dynamics 365 Customer Engagement (previously named Dynamics CRM Online). Read more about the change in [Configure server-based authentication with Customer Engagement and SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your commercial marketplace offer.
+This article describes how to set up Dynamics 365 Customer Engagement (previously named Dynamics CRM Online). Read more about the change in [Configure server-based authentication with Customer Engagement and SharePoint Online](/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your commercial marketplace offer.
 
 >[!NOTE]
 >These instructions are specific for the Microsoft-hosted cloud environment for Dynamics 365 Customer Engagement. Connecting directly to a Dynamics on-premises environment isn't currently supported. There are other options for you to receive leads, such as configuring an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md).
@@ -22,7 +22,7 @@ The following user permissions are necessary to complete the steps in this artic
 
 * Administrator rights on your Dynamics 365 Customer Engagement instance to be able to install a solution.
 * Tenant admin rights to create a new service account for the lead service used to send leads from commercial marketplace offers.
-* Access to the Office 365 admin portal.
+* Access to the admin portal.
 * Access to the Azure portal.
 
 ## Install the solution

@@ -7,7 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
@@ -44,7 +44,7 @@ The license type of SQL Server can be configured when the VM is provisioned, or 
 Changing the licensing model of your SQL Server VM has the following requirements: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
+- A [SQL Server VM](./create-sql-vm-portal.md) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) is a requirement to utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -151,7 +151,9 @@ Changing the license model is:
 
 ## Known errors
 
-### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found.
+Review the commonly known errors and their resolutions. 
+
+**The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found.**
 
 This error occurs when you try to change the license model on a SQL Server VM that has not been registered with the SQL VM resource provider:
 
@@ -160,7 +162,7 @@ This error occurs when you try to change the license model on a SQL Server VM th
 You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the resource provider](sql-vm-resource-provider-register.md). 
 
 
-### The virtual machine '\<vmname\>' has more than one NIC associated
+**The virtual machine '\<vmname\>' has more than one NIC associated**
 
 This error occurs on virtual machines that have more than one NIC. Remove one of the NICs before you change the licensing model. Although you can add the NIC back to the VM after you change the license model, operations in the Azure portal such as automatic backup and patching will no longer be supported. 
 
@@ -173,5 +175,3 @@ For more information, see the following articles:
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)
-
-

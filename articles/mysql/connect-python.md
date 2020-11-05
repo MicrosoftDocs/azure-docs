@@ -55,11 +55,11 @@ Get the connection information you need to connect to Azure Database for MySQL f
    
 1. In the portal search bar, search for and select the Azure Database for MySQL server you created, such as **mydemoserver**.
    
-   ![Azure Database for MySQL server name](./media/connect-python/1_server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
    
 1. From the server's **Overview** page, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this page.
    
-   ![Azure Database for MySQL server name](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL server name 2":::
 
 ## Run the Python examples
 
@@ -262,6 +262,16 @@ else:
   cursor.close()
   conn.close()
   print("Done.")
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

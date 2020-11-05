@@ -95,7 +95,7 @@ In this example, users and or groups are created in an HR database connected to 
 
 In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications.
 
-![Picture 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S a a S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Description of workflow:**
 
@@ -125,7 +125,7 @@ Consider your organizational needs to determine the strategy for deploying user 
 
 ### Engage the right stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 ### Plan communications
 
@@ -141,7 +141,7 @@ A pilot allows you to test with a small group before deploying a capability for 
 
 In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. Use this feedback to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see.
 
-Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../users-groups-roles/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
 
 ## Plan application connections and administration
 
@@ -260,7 +260,7 @@ The provisioning service stores the state of both systems after the initial cycl
 
 Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
-The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
 ## Manage automatic user provisioning
 
@@ -270,7 +270,7 @@ Now that you've deployed, you need to manage the solution.
 
 After a successful [initial cycle](../app-provisioning/user-provisioning.md), the Azure AD provisioning service will run incremental updates indefinitely, at intervals specific to each application, until one of the following events occurs:
 
-* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
+* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 
 * A new initial cycle is triggered by a change in attribute mappings or scoping filters.
 
@@ -306,7 +306,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
 
 * [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 
