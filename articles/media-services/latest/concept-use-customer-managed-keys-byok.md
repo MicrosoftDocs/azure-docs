@@ -38,4 +38,4 @@ You can specify a key name and key version, or just a key name. When you use onl
 
 ## Next steps
 
-* [Tutorial: Use customer managed keys or bring your own key (BYOK) with Media Services](tutorial-byok.md)
+* [Protect your content with Media Services dynamic encryption](content-protection-overview.md)
