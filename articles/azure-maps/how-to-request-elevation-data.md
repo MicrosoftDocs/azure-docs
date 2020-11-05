@@ -137,8 +137,8 @@ Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic 
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
-    ```http
-    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=40.714728,-73.998672|-34.397,150.644&samples=5
+   ```http
+    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
     ```
 
 3. Click the **Send** button.  You'll receive the following JSON response:
@@ -148,38 +148,38 @@ Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic 
         "data": [
             {
                 "coordinate": {
-                    "latitude": 27.775,
-                    "longitude": 86.9797222
+                    "latitude": 40.714728,
+                    "longitude": -73.998672
                 },
-                "elevationInMeter": 7116.0348851572589
+                "elevationInMeter": 12.14236
             },
             {
                 "coordinate": {
-                    "latitude": 27.8282639,
-                    "longitude": 86.9661111
+                    "latitude": 21.936796000000001,
+                    "longitude": -17.838003999999998
                 },
-                "elevationInMeter": 5670.2714332412661
+                "elevationInMeter": 0.0
             },
             {
                 "coordinate": {
-                    "latitude": 27.8815278,
-                    "longitude": 86.9525
+                    "latitude": 3.1588640000000012,
+                    "longitude": 38.322664000000003
                 },
-                "elevationInMeter": 5416.7860142381014
+                "elevationInMeter": 598.66943
             },
             {
                 "coordinate": {
-                    "latitude": 27.9347917,
-                    "longitude": 86.9388889
+                    "latitude": -15.619067999999999,
+                    "longitude": 94.483332000000019
                 },
-                "elevationInMeter": 5776.66349687595
+                "elevationInMeter": 0.0
             },
             {
                 "coordinate": {
-                    "latitude": 27.9880556,
-                    "longitude": 86.9252778
+                    "latitude": -34.397,
+                    "longitude": 150.644
                 },
-                "elevationInMeter": 8683.5778891244227
+                "elevationInMeter": 384.47041
             }
         ]
     }
