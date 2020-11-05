@@ -1,5 +1,5 @@
 ---
-title: Verify subdomain names as managed using PowerShell and Graph - Azure Active Directory | Microsoft Docs
+title: Change subdomain authentication type using PowerShell and Graph - Azure Active Directory | Microsoft Docs
 description: Change default subdomain authentication settings inherited from root domain settings in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Add a custom subdomain name as a managed domain in Azure Active Directory
+# Change subdomain authentication type in Azure Active Directory
 
 After a root domain is added to Azure Active Directory (Azure AD), all subsequent subdomains added to that root in your Azure AD organization automatically inherit the authentication setting from the root domain. However, if you want to manage domain authentication settings independently from the root domain settings, you can now with the Microsoft Graph API. For example, if you have a federated root domain such as contoso.com, this article can help you verify a subdomain such as child.contoso.com as managed instead of federated.
 
