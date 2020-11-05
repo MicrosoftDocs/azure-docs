@@ -24,13 +24,13 @@ This article provides guidance on how to do a complete move and copy over everyt
 
 This process includes the following steps:
 
-1. Prepare: Download your original models, twins, and graph.
-1. Move: Create a new Azure Digital Twins instance in a new region.
-1. Move: Repopulate the new Azure Digital Twins instance.
+* **Prepare:** Download your original models, twins, and graph.
+* **Move:** Create a new Azure Digital Twins instance in a new region.
+* **Move:** Repopulate the new Azure Digital Twins instance.
     - Upload the original models, twins, and graph.
     - Re-create endpoints and routes.
     - Relink connected resources.
-1. Clean up source resources: Delete the original instance.
+* **Clean up source resources:** Delete the original instance.
 
 ## Prerequisites
 
@@ -38,12 +38,12 @@ Before you attempt to re-create your Azure Digital Twins instance, go over the c
 
 Here are some questions to consider:
 
-* What are the **models** uploaded to my instance? How many are there?
-* What are the **twins** in my instance? How many are there?
-* What's the general shape of the **graph** in my instance? How many relationships are there?
-* What **endpoints** do I have in my instance?
-* What **routes** do I have in my instance? Do they have filters?
-* Where does my instance **connect to other Azure services**? Some common integration points include:
+* What are the *models* uploaded to my instance? How many are there?
+* What are the *twins* in my instance? How many are there?
+* What's the general shape of the *graph* in my instance? How many relationships are there?
+* What *endpoints* do I have in my instance?
+* What *routes* do I have in my instance? Do they have filters?
+* Where does my instance *connect to other Azure services*? Some common integration points include:
 
     - Azure Event Grid, Azure Event Hubs, or Azure Service Bus
     - Azure Functions
@@ -51,7 +51,7 @@ Here are some questions to consider:
     - Azure Time Series Insights
     - Azure Maps
     - Azure IoT Hub Device Provisioning Service
-* What other **personal or company apps** do I have that connect to my instance?
+* What other *personal or company apps* do I have that connect to my instance?
 
 You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
@@ -64,7 +64,7 @@ In this section, you'll prepare to re-create your instance by downloading your o
 
 ### Limitations of ADT Explorer
 
-The [ADT Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph and provides visual interaction with your instance. This article shows how to use it to download, and later re-upload, your models, twins, and graphs.
+The [ADT Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph and provides visual interaction with your instance. This article shows how to use it to download, and later reupload, your models, twins, and graphs.
 
 This sample isn't a complete tool. It hasn't been stress tested and wasn't built to handle graphs of a large size. Consequently, keep in mind the following out-of-the-box sample limitations:
 
@@ -98,7 +98,7 @@ To verify the connection, select the **Run Query** button to run the default que
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
 
-You can leave ADT Explorer running because you'll use it again later in this article to re-upload these items to your new instance in the target region.
+You can leave ADT Explorer running because you'll use it again later in this article to reupload these items to your new instance in the target region.
 
 ### Download models, twins, and graph
 
@@ -134,7 +134,7 @@ Next, you'll set up the new instance so that it's a copy of the original.
 
 #### Upload the original models, twins, and graph by using ADT Explorer
 
-In this section, you can re-upload your models, twins, and graph to the new instance. If you don't have any models, twins, or graph in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#re-create-endpoints-and-routes).
+In this section, you can reupload your models, twins, and graph to the new instance. If you don't have any models, twins, or graph in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#re-create-endpoints-and-routes).
 
 Otherwise, return to the browser window running ADT Explorer and follow these steps.
 

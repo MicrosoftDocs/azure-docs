@@ -62,7 +62,7 @@ With this type of authentication, ADT Explorer will search for credentials withi
 
 If you're already signed in to Azure through one of these ways, you can skip to the [next section](#run-and-configure-adt-explorer).
 
-Otherwise, you can install the local Azure CLI with these steps.
+Otherwise, you can install the local Azure CLI with these steps:
 
 1. Follow the process at [this installation link](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS.
 1. Open a console window on your machine.
@@ -184,7 +184,7 @@ Follow these steps to import the graph.
     :::column-end:::
     :::column:::
     :::column-end:::
-:::row-end:::
+   :::row-end:::
 
 4. ADT Explorer now uses the uploaded file to create the requested twins and relationships between them. A dialog box appears when it's finished. Select **Close**.
 
@@ -196,7 +196,7 @@ Follow these steps to import the graph.
     :::column-end:::
     :::column:::
     :::column-end:::
-:::row-end:::
+   :::row-end:::
 
 5. The graph has now been uploaded to ADT Explorer. To see the graph, select the **Run Query** button in the **GRAPH EXPLORER** box, near the top of the ADT Explorer window.
 
