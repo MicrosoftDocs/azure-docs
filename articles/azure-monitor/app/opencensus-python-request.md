@@ -115,58 +115,58 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
 
 ## Tracking FastAPI applications
 
-There is no extension in opencensus for FastAPI, therefore we need to write our own FastAPI middleware.
+OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI middleware, complete the following steps:
 
 1. The following dependencies are required: 
     - [fastapi](https://pypi.org/project/fastapi/)
     - [uvicorn](https://pypi.org/project/uvicorn/)
 
-2. Add [FastAPI middleware](https://fastapi.tiangolo.com/tutorial/middleware/), make sure to set span kind server, `span.span_kind = SpanKind.SERVER`.
+2. Add [FastAPI middleware](https://fastapi.tiangolo.com/tutorial/middleware/). Make sure that you set the span kind server: `span.span_kind = SpanKind.SERVER`.
 
-3. Run your application. Calls made to your FastAPI application should be automatically be tracked and telemetry should be logged directly to Azure Monitor...
+3. Run your application. Calls made to your FastAPI application should be automatically tracked and telemetry should be logged directly to Azure Monitor.
 
-```python 
-# Opencensus imports
-from opencensus.ext.azure.trace_exporter import AzureExporter
-from opencensus.trace.samplers import ProbabilitySampler
-from opencensus.trace.tracer import Tracer
-from opencensus.trace.span import SpanKind
-from opencensus.trace.attributes_helper import COMMON_ATTRIBUTES
-# FastAPI imports
-from fastapi import FastAPI, Request
-# uvicorn
-import uvicorn
+    ```python 
+    # Opencensus imports
+    from opencensus.ext.azure.trace_exporter import AzureExporter
+    from opencensus.trace.samplers import ProbabilitySampler
+    from opencensus.trace.tracer import Tracer
+    from opencensus.trace.span import SpanKind
+    from opencensus.trace.attributes_helper import COMMON_ATTRIBUTES
+    # FastAPI imports
+    from fastapi import FastAPI, Request
+    # uvicorn
+    import uvicorn
 
-app = FastAPI()
+    app = FastAPI()
 
-HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
-HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
+    HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
+    HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
 
-# fastapi middleware for opencensus
-@app.middleware("http")
-async def middlewareOpencensus(request: Request, call_next):
-    tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
-    with tracer.span("main") as span:
-        span.span_kind = SpanKind.SERVER
+    # fastapi middleware for opencensus
+    @app.middleware("http")
+    async def middlewareOpencensus(request: Request, call_next):
+        tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+        with tracer.span("main") as span:
+            span.span_kind = SpanKind.SERVER
 
-        response = await call_next(request)
+            response = await call_next(request)
 
-        tracer.add_attribute_to_current_span(
-            attribute_key=HTTP_STATUS_CODE,
-            attribute_value=response.status_code)
-        tracer.add_attribute_to_current_span(
-            attribute_key=HTTP_URL,
-            attribute_value=str(request.url))
-        
-    return response
+            tracer.add_attribute_to_current_span(
+                attribute_key=HTTP_STATUS_CODE,
+                attribute_value=response.status_code)
+            tracer.add_attribute_to_current_span(
+                attribute_key=HTTP_URL,
+                attribute_value=str(request.url))
 
-@app.get("/")
-async def root():
-    return "Hello World!"
+        return response
 
-if __name__ == '__main__':
-    uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
-```
+    @app.get("/")
+    async def root():
+        return "Hello World!"
+
+    if __name__ == '__main__':
+        uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
+    ```
 
 ## Next steps
 
