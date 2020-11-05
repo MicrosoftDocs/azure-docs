@@ -27,8 +27,9 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 The feature is meant for scenarios where the lag is acceptable and meant for offloading queries. It isn't meant for synchronous replication scenarios where the replica data is expected to be up-to-date. There will be a measurable delay between the primary and the replica. This can be in minutes or even hours depending on the workload and the latency between the primary and the replica. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay. 
 
 > [!NOTE]
-> When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
-
+> For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
+> Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle thru its peak and non-peak times to access the possible lag and the expected RTO/RPO at various points of the workload cycle.
+> 
 ## Cross-region replication
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
@@ -82,9 +83,9 @@ At the prompt, enter the password for the user account.
 ## Monitor replication
 Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](howto-read-replicas-portal.md).
 
-The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only, and will be available only if at least one of the read replica is connected to the primary and the primary is replicating the logs. The lag information does not show details when the replica is in the process of catching up with the primary using archived logs.
+The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary and the primary is in streaming replication mode. The lag information does not show details when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode.
 
-The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:
+The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:
 
 ```SQL
 SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -94,28 +95,15 @@ Set an alert to inform you when the replica lag reaches a value that isn’t acc
 
 For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.
 
-In PostgreSQL version 10 and above:
-
-```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
-In PostgreSQL version 9.6 and 9.5:
-
-```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
 > [!NOTE]
 > If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
 ## Stop replication / Promote replica
-You can stop the replication between a primary and a replica at any time. The stop action causes the replica to restart and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the restart process, the replica applies all the pending logs before accepting client connections.
+You can stop the replication between a primary and a replica at any time. The stop action causes the replica to restart and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the restart process, the replica applies all the pending logs before accepting client connections.  
 
 ### Considerations
 - Before you stop replication on a read replica, check for the replication lag to ensure the replica has all the data that you require. 
+- As the read replica has to apply all pending logs before it can be made a standalone server, RTO can be higher for write heavy workloads when the stop replication happens as there could be a significant delay on the replica. Please pay attention to this when planning to promote a replica.
 - The promoted replica server cannot be made into a replica again.
 - If you promote a replica to be the primary server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
@@ -160,7 +148,6 @@ To configure the right level of logging, use the Azure replication support param
 * **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
 * **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
 
-The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
 
 ### New replicas
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.

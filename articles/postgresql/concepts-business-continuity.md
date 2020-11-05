@@ -19,7 +19,9 @@ As you develop your business continuity plan, you need to understand the maximum
 Azure Database for PostgreSQL provides business continuity features that include geo-redundant backups with the ability to initiate geo-restore, and deploying read replicas in a different region. Each has different characteristics for the recovery time and the potential data loss. With [Geo-restore](concepts-backup.md) feature, a new server is created using the backup data that is replicated from another region. The overall time it takes to restore and recover depends on the size of the database and the amount of logs to recover. The overall time to establish the server varies from few minutes to few hours. With [read replicas](concepts-read-replicas.md), transaction logs from the primary are asynchronously streamed to the replica. In the event of a primary database outage due to a zone-level or a region-level fault, failing over to the replica provides a  shorter RTO and reduced data loss.
 
 > [!NOTE]
-> The lag between the primary and the replica depends on the workload, latency between the sites, and the amount of data to be transmitted.  
+> The lag between the primary and the replica depends on the latency between the sites, the amount of data to be transmitted and most importantly on the write workload of the primary server. Heavy write workloads can generate significant lag. 
+>
+> Because of asynchronous nature of replication used for read-replicas, they **should not** be considered as a High Availability (HA) solution since the higher lags can mean higher RTO and RPO. Only for workloads where the lag remains smaller through the peak and non-peak times of the workload, read replicas can act as a HA alternative. Otherwise read replicas are intended for true read-scale for ready heavy workloads and for (Disaster Recovery) DR scenarios.
 
 The following table compares RTO and RPO in a **typical workload** scenario:
 
@@ -29,7 +31,7 @@ The following table compares RTO and RPO in a **typical workload** scenario:
 | Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
 | Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 
- \* RTO and RPO **can be much higher** in some cases depending on various factors including primary database workload and the latency between regions. 
+ \* RTO and RPO **can be much higher** in some cases depending on various factors including latency between sites, the amount of data to be transmitted, and importantly primary database write workload. 
 
 ## Recover a server after a user or application error
 
