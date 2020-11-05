@@ -23,11 +23,11 @@ Azure Bastion supports the following types of peering:
 
 ## Architecture
 
-With VNet peering support Azure bastion can be deployed in Hub and Spoke topology or full messed topologies.  Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine. Once you provision an Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same and peered virtual network. With VNet peering support now you can consolidate bastion deployment to single VNet with reachability to VM deployed in a peered VNet, centralizing the overall deployment.
+When VNet peering support is configured, Azure Bastion can be deployed in hub-and-spoke or full-mesh topologies. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine. Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same VNet, as well as peered VNets. Because VNet peering is supported, you can consolidate Bastion deployment to single VNet with reachability to VMs deployed in a peered VNet. This centralizes the overall deployment.
 
 :::image type="content" source="./media/vnet-peering/design.png" alt-text="Design and Architecture diagram":::
 
-This figure shows the architecture of an Azure Bastion deployment in hub and spoke model.  In this diagram:
+This figure shows the architecture of an Azure Bastion deployment in a hub-and-spoke model.  In this diagram:
 
 • The Bastion host is deployed in the centralized Hub virtual network.
 
@@ -45,9 +45,9 @@ This figure shows the architecture of an Azure Bastion deployment in hub and spo
 
 ## FAQ
 
-### Can I still deploy multiple bastions across peered virtual networks?
+### Can I still deploy multiple bastion hosts across peered virtual networks?
 
-Yes you can.  User will see multiple bastions detected across peered network in the connect menu. User can select the bastion they prefer to connect to the Virtual machine deployed in a virtual network.  User will see Bastion deployed in virtual network same as where virtual machine resides as default option.
+Yes you can. A user will see multiple bastion hosts detected across peered network in the **Connect** menu. They can then select the bastion host that they prefer to use to connect to the VM deployed in the virtual network. The default experience is that a user will see the bastion host that is deployed in the same virtual network as the VM resides.
 
 ### Will connectivity via bastion work when my peered VNet’s are deployed in two different subscription.
 
