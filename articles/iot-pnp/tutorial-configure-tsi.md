@@ -179,7 +179,7 @@ Repeat the above steps for your second Thermostat.
 
 Navigate back to the charting pane and expand the Device Fleet and TemperatureController. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2.
 
-![Change instance type](./media/tutorial-configure-tsi/charting-values.png)
+![Change instance type for thermostat2](./media/tutorial-configure-tsi/charting-values.png)
 
 ## Next steps
 
