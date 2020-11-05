@@ -540,7 +540,7 @@
             href: msal-handling-exceptions.md?tabs=java
           - name: Logging
             href: msal-logging.md?tabs=java
-      - name: Android
+      - name: MSAL for Android
         items:
           - name: Accounts and tenant profiles
             href: accounts-overview.md
