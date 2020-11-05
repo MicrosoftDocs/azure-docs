@@ -1,6 +1,6 @@
 ---
-title: Create a user defined restore point for a dedicated Synapse SQL pool
-description: How to create a restore point for dedicated Synapse SQL pool.
+title: Create a user defined restore point for a dedicated SQL pool
+description: How to create a restore point for dedicated SQL pool.
 services: synapse-analytics
 author: joannapea
 manager: igorstan
@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 ---
 # User-defined restore points
 
-In this article, you'll learn to create a new user-defined restore point for a dedicated SQL pool in Azure Synapse Analytics by using the Azure portal or the Synapse Studio.
+In this article, you'll learn to create a new user-defined restore point for a dedicated SQL pool in Azure Synapse Analytics by using the Azure portal.
 
 ## Create user-defined restore points through the Azure portal
 
