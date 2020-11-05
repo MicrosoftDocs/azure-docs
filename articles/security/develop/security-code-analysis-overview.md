@@ -68,7 +68,7 @@ Passwords and other secrets stored in source code are a significant problem. Cre
 
 ### Roslyn Analyzers
 
-Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### TSLint
 
