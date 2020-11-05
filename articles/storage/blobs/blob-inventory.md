@@ -98,7 +98,7 @@ Each rule within the policy has several parameters:
 | enabled        | Boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
 | definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
 
-The global **Blob inventory enabled** flag takes precedence over the *enabled* property in a rule.
+The global **Blob inventory enabled** flag takes precedence over the *enabled* parameter in a rule.
 
 ### Rule filters
 
