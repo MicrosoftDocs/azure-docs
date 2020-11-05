@@ -270,7 +270,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
+        href: ../prepay-reserved-vm-instances.md
       - name: Prepay for Dedicated Hosts
         href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: What are Azure reservations?
@@ -666,7 +666,7 @@
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
-      href: mitigate-se.md
+      href: ../mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization
