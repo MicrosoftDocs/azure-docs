@@ -66,12 +66,12 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
  A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
 
- ### <a name="scenario2"></a>Scenario 2: Virtual machine without public IP
+ ### <a name="scenario2"></a>Scenario 2: Virtual machine without public IP and behind Standard public Load Balancer
 
 
  | Associations | Method | IP protocols |
  | ------------ | ------ | ------------ |
- | Public load balancer | Use of load balancer frontend for [SNAT](#snat) with [PAT (Port masquerading)](#pat).| TCP </br> UDP |
+ | Public load balancer | Use of load balancer frontend IPs for [SNAT](#snat).| TCP </br> UDP |
 
 
  #### Description
@@ -95,19 +95,19 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
  In this context, the ephemeral ports used for SNAT are called SNAT ports. It is highly recommend that an [outbound rule](https://docs.microsoft.com/azure/load-balancer/outbound-rules) is explicitly configured. If using default SNAT through a load balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
 
- ### <a name="scenario3"></a>Scenario 3: Virtual machine without public IP and without standard load balancer
+ ### <a name="scenario3"></a>Scenario 3: Virtual machine without public IP and behind Basic Load Balancer
 
 
  | Associations | Method | IP protocols |
  | ------------ | ------ | ------------ |
- |None </br> Basic load balancer | [SNAT](#snat) with [port masquerading (PAT)](#pat)| TCP </br> UDP | 
+ |None </br> Basic load balancer | [SNAT](#snat) with instance-level dynamic IP address| TCP </br> UDP | 
  Every connection to the same destination IP and destination port will use a SNAT port. This connection maintains a distinct **traffic flow** from the backend instance or **client** to a **server**. This process gives the server a distinct port on which to address traffic. Without this process, the client machine is unaware of which flow a packet is part of.
 
 
  #### Description
 
 
- When the VM creates an outbound flow, Azure translates the source IP address to a public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
+ When the VM creates an outbound flow, Azure translates the source IP address to a dynamically allocated public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
 
 
  The public IP address will be released and a new public IP requested if you redeploy the: 
