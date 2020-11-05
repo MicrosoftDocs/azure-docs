@@ -292,11 +292,11 @@ When the VM has restarted, perform the following steps:
 
    1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk.
 
-   This package is preinstalled on most marketplace images
+      This package is preinstalled on most Azure Marketplace images.
 
-   ```bash
-   [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
-   ```
+      ```bash
+      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
+      ```
 
 1. Determine which disk and partition holds the LVM physical volume(s) (PV) in the volume group (VG) named rootvg with the **pvscan** command.  Take note of the size and free space listed between the brackets **[]**.
 
