@@ -138,7 +138,7 @@ You can request live migration through the [Azure Support portal](https://ms.por
 A support person will contact you and provide any assistance you need.
 
 > [!NOTE]
-> Live migration is not currently supported for premium file shares. Only manually copying or moving data is currently supported.
+> Premium file shares (FileStorage accounts) only support LRS and ZRS.
 >
 > GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 >
