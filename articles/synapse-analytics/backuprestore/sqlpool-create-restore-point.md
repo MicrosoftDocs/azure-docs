@@ -1,5 +1,5 @@
 ---
-title: Create a user defined restore point for a dedicated Synapse SQL pool.
+title: Create a user defined restore point for a dedicated Synapse SQL pool
 description: How to create a restore point for dedicated Synapse SQL pool.
 services: synapse-analytics
 author: joannapea

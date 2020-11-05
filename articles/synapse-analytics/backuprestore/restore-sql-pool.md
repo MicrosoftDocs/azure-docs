@@ -1,5 +1,5 @@
 ---
-title: Restore an existing Synapse SQL pool.
+title: Restore an existing Synapse SQL pool
 description: How-to guide for restoring an existing SQL pool.
 services: synapse-analytics
 author: joannapea
@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Restore an existing dedicated SQL pool
 
-In this article, you learn how to restore an existing dedicated SQL pool in Azure Synapse Analytics using Powershell, Azure portal and Synapse Studio. This article applies to both restores and geo-restores. 
+In this article, you learn how to restore an existing dedicated SQL pool in Azure Synapse Analytics using PowerShell, Azure portal and Synapse Studio. This article applies to both restores and geo-restores. 
 
 ## Restore an existing dedicated SQL pool through the Synapse Studio
 
@@ -35,9 +35,9 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
     ![Restore points](../media/sql-pools/restore-point.PNG)
 
-If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
+    If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
 
-If you are restoring a geo-backup, simply select the workspace located in the source region and the dedicated SQL pool you want to restore. 
+    If you are restoring a geo-backup, simply select the workspace located in the source region and the dedicated SQL pool you want to restore. 
 
 9. Select **Review + Create**.
 
@@ -51,9 +51,9 @@ If you are restoring a geo-backup, simply select the workspace located in the so
 
 4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
 
-If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user-defined restore point before restoring. 
+    If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user-defined restore point before restoring. 
 
-If you want to perform a geo-restore, select the workspace and dedicated SQL pool that you want to recover. 
+    If you want to perform a geo-restore, select the workspace and dedicated SQL pool that you want to recover. 
 
 5. Select **Review + Create**.
 
