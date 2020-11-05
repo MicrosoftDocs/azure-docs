@@ -117,10 +117,9 @@ Like in the above example, you can also type a search phrase, for example, "Bank
 
  :::image type="content" source="media/catalog-client-overview/image21.png" alt-text="Screenshot":::
 
-> \[!NOTE\] This list shows all matches for the Asset type, no matter
-> the file type. These suggestions are fuzzy matches. Selecting any
-> asset in the **Suggestions** pane will take you to the **Asset
-> Details** view where you can see more details.
+>[!NOTE]
+>This list shows all matches for the Asset type, no matter the file type. These suggestions are fuzzy matches. Selecting any asset in the **Suggestions** pane will take you to the **Asset Details** view where you can see more details.
+>
 
 ### Search Quick Filter: Search by Person
 
@@ -479,9 +478,10 @@ Data Catalog provides a template .csv file for you to import your terms into you
 
 2. Download the csv template and use it to enter your terms you would like to add.
 
-> [!Important]
-> The system only supports importing columns that are available in the template. You can also review the file for issues after upload.
-> :::image type="content" source="media/catalog-client-overview/image74.png" alt-text="Screenshot":::
+   > [!Important]
+   > The system only supports importing columns that are available in the template. You can also review the file for issues after upload.
+
+   :::image type="content" source="media/catalog-client-overview/image74.png" alt-text="Screenshot":::
 
 - Once you've finished filling out your .csv file, select your file to import and then select the **OK** button.
 - The system will upload the file and add all the terms to your catalog.
@@ -678,7 +678,7 @@ At a given time, more than one ADF can connect to a catalog and push lineage inf
 
 5. Customers will get notified when connections are established.
 
- :::image type="content" source="media/catalog-client-overview/image112.png" alt-text="Screenshot":::
+   :::image type="content" source="media/catalog-client-overview/image112.png" alt-text="Screenshot":::
 
 ### Remove data factory connection
 
