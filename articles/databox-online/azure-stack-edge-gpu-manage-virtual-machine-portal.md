@@ -42,12 +42,8 @@ To view a list of the VMs running on your Azure Stack Edge Pro device, follow th
 To stop or shut down a virtual machine running on your device, follow these steps:
 
 
-```powershell
-Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
-```
 
 
-For more information on this cmdlet, go to [Stop-AzureRmVM cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
 
 ### Add a data disk
 
@@ -60,4 +56,4 @@ to remove a virtual machine from your device, follow these steps:
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+Azure Resource Manager cmdlets
