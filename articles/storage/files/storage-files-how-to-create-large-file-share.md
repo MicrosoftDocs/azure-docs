@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Enable and create large file shares
 
-When you enable large file shares on your storage account, your file shares can scale up to 100 TiB, while also increasing IOPS and throughput limits for the standard shares. You can also enable this scaling on your existing storage accounts for your existing file shares. See [file share and file scale targets](storage-files-scale-targets#file-share-and-file-scale-targets) for details.
+When you enable large file shares on your storage account, your file shares can scale up to 100 TiB, while also increasing IOPS and throughput limits for the standard shares. You can also enable this scaling on your existing storage accounts for your existing file shares. See [file share and file scale targets](storage-files-scale-targets.md#azure-files-scale-targets) for details. 
 
 ## Prerequisites
 
