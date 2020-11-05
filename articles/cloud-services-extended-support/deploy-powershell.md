@@ -37,13 +37,13 @@ Method 1 takes template & parameters file as parameters to create/update the Clo
 
     b.	Or make sure necessary resources already exist and the resource names are correctly mentioned in the cloud services resource section of the Template.
  
-5.	Create Cloud Services (extended support) resource using ARM’s Power shell command to create using Template:
+5.	Create Cloud Services (extended support) resource using Azure Resource Manager’s Power shell command to create using Template:
 
     ```PowerShell
     New-AzResourceGroupDeployment -ResourceGroupName “Resource group name” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file”
     ```
 
-For more information deploying resources using Template, see Deploy resources with ARM Template & Azure PowerShell
+For more information deploying resources using Template, see Deploy resources with Azure Resource Manager (ARM) Template & Azure PowerShell
 
 ## Deployment Method #2
 
