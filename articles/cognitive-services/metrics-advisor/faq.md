@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
 ---
 
@@ -101,6 +101,19 @@ If there's no thresholds, you could use "smart detection" which is powered by AI
 If your data is normally quite unstable and fluctuates a lot, and you want to be alerted when it turns too stable or even becomes a flat line,
 "Change threshold" is able to be configured to detect such data points when the change is too tiny.
 Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods) for details.
+
+### How to set up email settings and enable alerting by email?
+
+1.	A user with subscription administrator or resource group administrator privledges needs to navigate to the Metrics Advisor resource that created in the Azure portal, and select the **Access control(IAM)** tab. 
+2.	Select **Add role assignments**
+3.	Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
+4.	Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
+
+:::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of "Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permisions." lightbox="media/access-control.png":::
+
+
+5.	It might take up to one minute for the permissions to propagate. Then, select your Metrics Advisor workspace, and select the **Email setting** option in the left navigation panel. Fill in the required items, in particular the SMTP related info. 
+6.	Select **Save**, then you're all set with the e-mail configuration. You can create new hooks and subscribe to metric anomalies for near real-time alerts. 
 
 ## Advanced concepts
 
