@@ -1,7 +1,7 @@
 ---
 title: Use AutoML to create models & deploy 
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
+description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
