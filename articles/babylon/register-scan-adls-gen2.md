@@ -32,13 +32,13 @@ The Azure Data Lake Storage Gen2  data source supports the following functionali
 1. Navigate to your Babylon catalog.
 
 2. Click on *Manage your data* tile on the home page.
-![Babylon home page](media/register-scan-adls-gen2/image1.png)
+:::image type="content" source="media/register-scan-adls-gen2/image1.png" alt-text="Babylon home page":::
 
 4. Click on *Data sources* under the Sources and scanning section.
     Click on *New* to register a new data source. Select **Azure Data Lake Storage Gen2** and
     click on Continue.
 
-    ![Set up the Azure Data Lake Storage Gen2 data source](media/register-scan-adls-gen2/image2.png)
+    :::image type="content" source="media/register-scan-adls-gen2/image2.png" alt-text="Set up the Azure Data Lake Storage Gen2 data source":::
 
 5. Provide a friendly name (E.g. Same as your Azure Data Lake Storage resource name) and server endpoint and then click on finish to register the data source.
 
@@ -72,25 +72,25 @@ on.
 
 1. Choose Access control (IAM)
 
-    ![Choose Access control](./media/register-scan-adls-gen2/image100.png)
+    :::image type="content" source="./media/register-scan-adls-gen2/image100.png" alt-text="Choose Access control":::
 
 1. The **Add role assignment** blade will open.
 
-    ![Add role assignement](./media/register-scan-adls-gen2/image101.png)
+    :::image type="content" source="./media/register-scan-adls-gen2/image101.png" alt-text="Add role assignement":::
 
 1. Fill in the form as follows:
 
     1. Under **Role**, Choose 'Storage Blob Data Reader' from the list.
 
-        ![Set role](./media/register-scan-adls-gen2/image102.png)
+        :::image type="content" source="./media/register-scan-adls-gen2/image102.png" alt-text="Set role":::
 
     1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
 
-        ![Assign access](./media/register-scan-adls-gen2/image103.png)
+        :::image type="content" source="./media/register-scan-adls-gen2/image103.png" alt-text="Assign access":::
 
     1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
 
-        ![Select your catalog](./media/register-scan-adls-gen2/image104.png)
+        :::image type="content" source="./media/register-scan-adls-gen2/image104.png" alt-text="Select your catalog":::
 
     1. Click Save.
 
@@ -137,17 +137,17 @@ have to be real or work
 
 2. Click on + New scan. Choose the authentication method that you want to use and provide required details.
 
-    ![Choose scan authentication method](media/register-scan-adls-gen2/image4.png)
+    :::image type="content" source="media/register-scan-adls-gen2/image4.png" alt-text="Choose scan authentication method":::
 
 3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provided a database name, then you can scope your scan to specific tables.
 
 4. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
-    ![Setup scan trigger](media/register-scan-adls-gen2/image8.png)
+    :::image type="content" source="media/register-scan-adls-gen2/image8.png" alt-text="Setup scan trigger":::
 
 5. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-    ![Select scan rule set](media/register-scan-adls-gen2/image9.png)
+    :::image type="content" source="media/register-scan-adls-gen2/image9.png" alt-text="Select scan rule set":::
 
 6. Review your scan and click on Save and run.
 
@@ -165,7 +165,7 @@ have to be real or work
 
 2. Select the scan you would like to manage. You can edit the scan by clicking on the edit.
 
-    ![edit scan](media/register-scan-adls-gen2/image10.png)
+    :::image type="content" source="media/register-scan-adls-gen2/image10.png" alt-text="edit scan":::
 
 3. You can delete your scan by clicking on delete.
 

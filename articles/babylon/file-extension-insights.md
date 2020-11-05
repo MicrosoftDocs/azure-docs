@@ -46,11 +46,11 @@ Babylon is able to detect the file types found in your data estate, and provide 
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-    ![Launch Babylon from the Azure portal](./media/insights/portal-access.png)
+    :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Babylon from the Azure portal":::
 
 1. With Babylon open, select the **View insights** tile to access your insights area.
 
-    ![Babylon Insights area](./media/insights/view-insights.png)
+    :::image type="content" source="./media/insights/view-insights.png" alt-text="Babylon Insights area":::
     
 1. Within **Insights**, select the **File extensions** tab.
 

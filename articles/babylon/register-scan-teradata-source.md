@@ -19,122 +19,113 @@ This article outlines how to register a Teradata connector in Babylon and set up
 
 This Teradata connector supports the following activities:
 
-- **Full scan** to extract Metadata from a Teradata database stored in
-    an on-premises network.
-
+- **Full scan** to extract Metadata from a Teradata database stored in an on-premises network.
 - **Lineage** between data assets.
 
 Specifically, this Teradata connector supports:
 
 - Teradata database versions **12.x to 16.x**
-
 - Scanning by using **Basic database** authentication
 
 ## Prerequisites
 
-1. The connector supports data store located only inside an on-premises
-    network, an Azure virtual network, or Amazon Virtual Private Cloud.
-    Hence you need to set up a [self-hosted integration
-    runtime](https://github.com/Azure/Babylon/blob/master/docs/manage-integration-runtimes.md) to
-    connect to it.
+1. The connector supports data store located only inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud. Hence you need to set up a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to it.
 
 2. Make sure the Java Runtime Environment (JRE) is installed on your virtual machine where self-hosted integration runtime is installed.
- 
-3. Make sure "Visual C++ Redistributable 2012 Update 4" is installed on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
-4. You will have to manually install a driver named Teradata JDBC
-    Driver on your on-premises virtual
-    machine. The executable JAR file can be downloaded from the [Teradata website](https://downloads.teradata.com/).
+3. Make sure "Visual C++ Redistributable 2012 Update 4" is installed on the self-hosted integration runtime machine. If you don't yet have it installed, download the [Visual C++ Redistributable 2012 Update 4](https://www.microsoft.com/download/details.aspx?id=30679).
 
-        [!Note] The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+4. You will have to manually install a driver named Teradata JDBC Driver on your on-premises virtual machine. The executable JAR file can be downloaded from the [Teradata website](https://downloads.teradata.com/).
+
+   >[!Note]
+   >The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 5. Have Read access to the Teradata source being scanned.
 
 ### Feature Flag
 
-Registration and scanning of a Teradata source is available behind a
-feature flag. Please append the following to your URL:
-*?feature.ext.datasource=%7b"teradata":"true"%7d* 
+Registration and scanning of a Teradata source is available behind a feature flag. Append the following to your URL: `*?feature.ext.datasource=%7b"teradata":"true"%7d*`
 
-E.g. full URL [https://web.babylon.azure.com/?feature.ext.datasource=%7b"teradata":"true"%7d](https://web.babylon.azure.com/?feature.ext.datasource=%7b"teradata":"true"%7d)
-
+For example, the full URL [https://web.babylon.azure.com/?feature.ext.datasource=%7b"teradata":"true"%7d](https://web.babylon.azure.com/?feature.ext.datasource=%7b"teradata":"true"%7d)
 
 ## Register a Teradata source
 
 1. Navigate to your Babylon catalog.
 
-2. Click on *Manage your data* tile on the home page.
-![manage your data](media/register-a-teradata-connector-and-setup-scans/image1.png)
+2. Select **Manage your data** tile on the home page.
 
-3. Click on *Data sources* under the Sources and scanning section.
-    Click on *New* to register a Teradata source. Select *Teradata* and
-    click on Continue.
+   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image1.png" alt-text="manage your data":::
 
-![select Teradata](media/register-a-teradata-connector-and-setup-scans/image2.png)
+3. Select **Data sources** under the Sources and scanning section. Select **New** to register a Teradata source. Select **Teradata** and Select **Continue**.
 
-4. Provide a friendly name and Host name to register. The Host name can be IP address of the source or a fully qualified JDBC connection string or a local host by default. Click *Finish*.
+   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image2.png" alt-text="select Teradata":::
 
-![register Teradata](media/register-a-teradata-connector-and-setup-scans/image3.png)
+4. Provide a friendly name and Host name to register. The Host name can be IP address of the source or a fully qualified JDBC connection string or a local host by default. Select **Finish**.
+
+   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image3.png" alt-text="register Teradata":::
 
 ## Creating and running a scan
 
-1. Under Sources and scanning in the left navigation, click on *Integration runtimes*. Make sure a self-hosted integration runtime is setup. If it is not setup, please use the steps mentioned [here](https://github.com/Azure/Babylon/blob/master/docs/manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
+1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned in [Manage integrated runtimes](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
-2. Navigate to the management center. Click on Data sources under the Sources and scanning section.
- 
-3. Navigate to a registered Teradata source. Click on *Set up scan*.
+2. Navigate to the management center. Select Data sources under the Sources and scanning section.
 
-![scan Teradata](media/register-a-teradata-connector-and-setup-scans/image4.png)
+3. Navigate to a registered Teradata source. Select **Set up scan**.
 
-4. Provide the below details:
+   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image4.png" alt-text="scan Teradata":::
 
-- Name: The name of the scan
+4. Provide the following details:
 
-- Connect via integration runtime: Select the configured self-hosted integration runtime
+   - Name: The name of the scan
 
-- Authentication method: Database authentication is the only option supported for now. This will be selected by default
+   - Connect via integration runtime: Select the configured self-hosted integration runtime
 
-- User name: A user name to connect to database server. This username should have read access to the server
+   - Authentication method: Database authentication is the only option supported for now. This will be selected by default
 
-- Password: The user password used to connect to database server
+   - User name: A user name to connect to database server. This username should have read access to the server
 
-- Schema: List subset of schemas to import expressed as a semicolon separated list. e.g.schema1; schema2. All user schemas are imported if that list is  empty. All system schemas (e.g. SysAdmin) and objects are ignored by default.
+   - Password: The user password used to connect to database server
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+   - Schema: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is  empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        Usage of NOT and special characters are not acceptable
+     Acceptable schema name patterns using SQL LIKE expressions syntax include using `%`. Example syntax:
 
-- Driver location: Complete path to Teradata driver location on customer’s VM. The Teradata JDBC driver name must be: com.teradata.jdbc.TeraDriver
+     - `A%` means start with A
+     - `%B` means ends with B
+     - `%C%` means contain C
+     - `D` equals D
 
-- Maximum memory available: Maximum memory(in GB) available on customer’s VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
+   Usage of NOT and special characters are not acceptable
 
-        As a thumb rule, please provide 2GB memory for every 1k tables
+   - Driver location: Complete path to Teradata driver location on customer's VM. The Teradata JDBC driver name must be: com.teradata.jdbc.TeraDriver
 
-![setup scan](media/register-a-teradata-connector-and-setup-scans/image5.png)
+   - Maximum memory available: Maximum memory(in GB) available on customer's VM to be used by scanning processes. This configuration is dependent on the size of Teradata source to be scanned. As a thumb rule, provide 2-GB memory for every 1000 tables
 
-5. Click on *Continue.*
+     :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image5.png" alt-text="setup scan":::
+
+5. Select **Continue**
 
 6. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
-![setup scan](media/register-a-teradata-connector-and-setup-scans/image6.png)
+   :::image type="content" source="media/register-a-teradata-connector-and-setup-scans/image6.png" alt-text="setup scan":::
 
-7. Review your scan and click on *Save and Run.*
+7. Review your scan and Select *Save and Run.*
 
 ## Viewing your scans and scan runs
 
-1. Navigate to the management center. Click on Data sources under the Sources and scanning section click on the Teradata data source.
-2. Click on the scan whose results you are interested to view.
+1. Navigate to the management center. Select Data sources under the Sources and scanning section Select the Teradata data source.
+
+2. Select the scan whose results you are interested to view.
+
 3. You can view all the scan runs along with metrics and status for each scan run.
 
 ## Manage your scans
 
-1. Navigate to the management center. Click on Data sources under the Sources and scanning section click on the Teradata data source.
-2. Select the scan you would like to manage. You can edit the scan by clicking on the edit.
-3. You can delete your scan by clicking on delete.
+1. Navigate to the management center. Select Data sources under the Sources and scanning section Select the Teradata data source.
+
+2. Select the scan you would like to manage. You can edit the scan by selecting **edit**.
+
+3. You can delete your scan by selecting **delete**.
 
 ## Functionalities not supported today
 
