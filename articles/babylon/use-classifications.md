@@ -1,7 +1,6 @@
 ---
 title: Apply classifications
 titleSuffix: Azure Purview
-titleSuffix: Azure Purview
 description: This article explains how to apply a system or custom classification in any asset.
 author: hophan
 ms.author: hophan
