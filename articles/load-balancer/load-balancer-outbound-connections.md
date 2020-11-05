@@ -16,11 +16,11 @@ The frontend IPs of an Azure public load balancer can be used to provide outboun
 
 SNAT enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. Sharing an IP address between backend instances reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
 
-[!Note]
+>[!Note]
 > For applications with that require large numbers of outbound connections or enterprise customers who require a single set of IPs to be used from a given virtual network, 
 > [Virtual Network NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) is the recommended solution. It's dynamic allocation allows for simple configuration and  > the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share > a load balancer.
 
-[!Important]
+>[!Important]
 > Even without outbound SNAT configured, Azure storage accounts within the same region will still be accessible and backend resources will still have access to Microsoft services such as Windows Updates.
 
 >[!NOTE] 
@@ -41,7 +41,7 @@ If a port is used for inbound connections, it will have a **listener** for inbou
 
 By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP(Transmission Control Protocol) and UDP(User Datagram Protocol). When an public IP address is added as a frontend IP to a load balancer, Azure gives 64,000 eligible for use as SNAT ports. 
 
-[!NOTE]
+>[!NOTE]
 > Each port used for a load-balancing or inbound NAT rule will consume a range of eight ports from these 64,000 ports, reducing the number of ports eligible for SNAT. If a load-> balancing or nat rule is in the same range of eight as another it will consume no additional ports. 
 
 Through [outbound rules](https://docs.microsoft.com/azure/load-balancer/outbound-rules) and load-balancing rules, these SNAT ports can be distributed to backend instances to enable them to share the public IPs of the load balancer for outbound connections.
