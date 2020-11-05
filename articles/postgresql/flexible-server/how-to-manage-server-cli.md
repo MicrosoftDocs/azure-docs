@@ -21,13 +21,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 You'll need to be running the Azure CLI version 2.0, or later, locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Sign in to your account by using the [**az login**](/cli/azure/reference-index#az-login) command. 
+Sign in to your account by using the [az login](/cli/azure/reference-index#az-login) command. 
 
 ```azurecli-interactive
 az login
 ```
 
-Select your subscription by using the [**az account set**](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the command below. If you have multiple subscriptions, choose the subscription to which the resource should be billed. To identify all your subscriptions, use the [**az account list**](/cli/azure/account#az-account-list) command.
+Select your subscription by using the [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the following command. If you have multiple subscriptions, choose the subscription to which the resource should be billed. To identify all your subscriptions, use the [az account list](/cli/azure/account#az-account-list) command.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -38,17 +38,17 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can easily scale up your compute tier, vCores, and storage by using the command below. For a list of all the server operations you can run, see the [az postgres flexible-server](https://docs.microsoft.com/cli/azure/postgres/flexible-server) overview.
+You can easily scale up your compute tier, vCores, and storage by using the following command. For a list of all the server operations you can run, see the [az postgres flexible-server](https://docs.microsoft.com/cli/azure/postgres/flexible-server) overview.
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
 ```
 
-Following are the details for the arguments above:
+Following are the details for the arguments in the preceding code:
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Enter a unique name for your server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 and no more than 63 characters.
+name | mydemoserver | Enter a unique name for your server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
 sku-name|Standard_D4ds_v3|Enter the name of the compute tier and size. The value follows the convention *Standard_{VM size}* in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
 storage-size | 6144 | Enter the storage capacity of the server in megabytes. The minimum is 5120, increasing in increments of 1024.
@@ -58,7 +58,7 @@ storage-size | 6144 | Enter the storage capacity of the server in megabytes. The
 
 ## Manage PostgreSQL databases on a server
 
-There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html). Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
+There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html). Let's now use the psql command-line tool to connect to the Azure Database for PostgreSQL server.
 
 1. Run the following **psql** command:
 
@@ -66,13 +66,13 @@ There are a number of applications you can use to connect to your Azure Database
    psql --host=<servername> --port=<port> --username=<user> --dbname=<dbname>
    ```
 
-   For example, the command below connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** through your access credentials. When prompted, enter the `<server_admin_password>` you chose.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** through your access credentials. When you're prompted, enter the `<server_admin_password>` that you chose.
   
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
-   After you connect, the psql utility displays a **postgres** prompt where you can type SQL commands. A warning will appear in the initial connection output if the version of psql you're using is different from the version on the Azure Database for PostgreSQL server.
+   After you connect, the psql tool displays a **postgres** prompt where you can enter SQL commands. A warning will appear in the initial connection output if the version of psql you're using is different from the version on the Azure Database for PostgreSQL server.
 
    Example psql output:
 
@@ -126,7 +126,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## Delete a server
 
-To delete the Azure Database for PostgreSQL flexible server, run the [**az postgres flexible-server delete**](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
+To delete the Azure Database for PostgreSQL flexible server, run the [az postgres flexible-server delete](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver
