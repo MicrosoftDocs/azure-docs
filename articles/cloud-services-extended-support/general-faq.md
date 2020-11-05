@@ -1,6 +1,6 @@
 ---
 title: Cloud Services (extended support) General Questions
-description: Frequently asked questions for Cloud Services (extended support) 
+description: Frequently asked questions for Cloud Services (extended support) - general questions 
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw

@@ -1,6 +1,6 @@
 ---
 title: Cloud Services (extended support) Architecture & Features
-description: Frequently asked questions for Cloud Services (extended support)
+description: Frequently asked questions for Cloud Services (extended support) related to architecture and features
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
