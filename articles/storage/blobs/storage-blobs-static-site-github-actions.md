@@ -26,11 +26,10 @@ An Azure subscription and GitHub account.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with your static website code. If you don't have a GitHub account, [sign up for free](https://github.com/join).  
-- A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). To follow this example, you should also deploy an [Azure CDN](static-website-content-delivery-network.md).
+- A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). To follow this example, you should also deploy [Azure CDN](static-website-content-delivery-network.md).
 
 > [!NOTE]
-> It is common to use a Content Delivery Network (CDN) to reduce latency to your end users across the globe and reduce the number of transactions to your storage account.
-> Depoying static content to a cloud-based storage service can reduce the need for potentially expensive compute instance. See the [Static Content Hosting pattern](../../architecture/patterns/static-content-hosting) for more details.
+> It's common to use a content delivery network (CDN) to reduce latency to your users around the globe and to reduce the number of transactions to your storage account. Deploying static content to a cloud-based storage service can reduce the need for potentially expensive compute instance. For more information, see [Static Content Hosting pattern](/azure/architecture/patterns/static-content-hosting).
 
 ## Generate deployment credentials
 
