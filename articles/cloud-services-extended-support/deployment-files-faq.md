@@ -27,13 +27,13 @@ Replace name property of load balancer probe, Endpoints, Reserved IP, Public IP 
 
 Replace deprecated vm size with mentioned [alternate sizes](Get link for sizes doc from micah). Pricing does not change if the alternate sizes are used. 
 
-Changes to Cscfg: 
+## Changes to Cscfg: 
 
-Update the DNS name (Newer syntax: Get data from altaf) 
+Update the DNS name 
 
 ## Do I need to maintain 4 files (Template, parameter, Csdef, Cscfg) instead of only 2 file? 
 
 Not necessarily. Template & parameter files are only used for deployment automation. Like before, you can still manually create dependent resources first and then a Cloud Services (extended support) deployment using PS/CLI commands.  
 
-You can find details on a basic create operation in the [power shell quick starter](Tanmay to add link once available). 
+You can find details on a basic create operation in the [PowerShell quick starter](). 
 

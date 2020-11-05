@@ -9,7 +9,7 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: 
 ---
-# Update a Cloud Service (extened support) using PowerShell
+# Update a Cloud Service (extended support) using PowerShell
 
 Template & parameters file define the desired state of your cloud service (extended support) deployment. Therefore, there are two methods to update a resource using Template
 
@@ -22,7 +22,7 @@ Template & parameters file define the desired state of your cloud service (exten
 
 2.	Update Storage Account or upload newer copy of Cscfg/Cspkg, obtain SAS URLs & add SAS URLs to cloudservices resource section of Template. 
 
-3.	Update Cloud Services (extended support) resource using ARM’s power shell command to update using Template. (ARM automatically converts the call from create to update)
+3.	Update Cloud Services (extended support) resource using ARM’s PowerShell command to update using Template. (ARM automatically converts the call from create to update)
 
     ```PowerShell
     New-AzResourceGroupDeployment -ResourceGroupName “Resource group name” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file"
@@ -30,7 +30,7 @@ Template & parameters file define the desired state of your cloud service (exten
 
 ## Update Method #2
  
-The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by power shell command or Portal
+The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal
 
 1.	Update Storage Account 
 

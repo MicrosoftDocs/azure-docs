@@ -158,7 +158,7 @@ For more information, see <Add link to CS Powershell reference documents>
 
 
 ## VIP Swap deployment
-Process to define swappable relationship between two deployments and swap Virtual Ips
+Process to define swappable relationship between two deployments and swap Virtual IP addresses.
 1.	Create first cloud services (extended support) deployment 
 2.	Get cloudServicesId of the first deployment
 3.	Create second cloud services (extended support) deployment, but now by adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
@@ -208,13 +208,13 @@ For more information, see <Add link to CS Powershell reference documents>
 6.	Create cloud services deployment
 
 ### RDP into role instance:
-1.	Get the .rdp file for your cloud service.
+1.	Get the RDP file for your cloud service.
 
     ```PowerShell 
     Get-AzCloudServiceRoleInstanceRemoteDesktopFile -CloudServiceName $cloudServiceName -ResourceGroupName $resourceGroupName -RoleInstanceName $roleInstanceName OutFile "C:\temp\ContosoFrontEnd_IN_0.rdp"
     ```
 
-2.	Create .rdp file. Italic values below define the value & it’s syntax that needs to be replaced. 
+2.	Create RDP file. Italic values below define the value & it’s syntax that needs to be replaced. 
     ```PowerShell
     full address:s:cloudservicename.location.cloudapp.azure.com
     username:s:defined_username

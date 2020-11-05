@@ -19,9 +19,9 @@ Frequently asked questions related to Cloud Services (extended support) Migratio
 
 We recommend following steps: 
 
-Read docs and understand what cloud services (extended support) has to offer. 
+Read docs and understand what cloud services (extended support) have to offer. 
 
-Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or Power shell.  
+Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.  
 
 Understand the set of features used and blockers for migration 
 
@@ -65,15 +65,13 @@ Estimating the time required, complexity and efforts for migration is very diffi
 
 Planning is the most time consuming but the most effective step to understand the scope of work, blockers, complexity for migration and many other factors.  
 
-We therefore ask all customers to at least build a catalog of features & scenarios used today, understand what different compute products have to offer, test migration on test deployments and define a detailed plan.  
-
-If you want to migrate to other compute products, then there is nothing stopping you and can start the migration now.  
+We therefore ask all customers to at least build a catalog of features & scenarios used today, understand what different compute products have to offer, test migration on test deployments and define a detailed plan.  .  
 
 If Cloud Services (extended support) is the path for you, early start gives you an opportunity to raise blockers ensuring the product is ready for you immediately after general availability. 
 
 ## What Microsoft resources are available for me to migrate? 
 
-Microsoft Q&A, Stack Overview, Github, Public documents are available for self-help content, community support and to ask microsoft for assistance. This is available for all customers. 
+Microsoft Q&A, Stack Overview, GitHub, Public documents are available for self-help content, community support and to ask microsoft for assistance. This is available for all customers. 
 
 Microsoft Fast Track & Azure Migration Program can assist customers with planning and execution of migration. Dedicated microsoft personals work with customer throughout the migration. This is available for all customers. (Still onboarding AMP) 
 
