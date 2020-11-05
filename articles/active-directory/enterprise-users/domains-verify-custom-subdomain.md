@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -23,11 +23,11 @@ ms.collection: M365-identity-device-management
 
 After a root domain is added to Azure Active Directory (Azure AD), all subsequent subdomains added to that root in your Azure AD organization automatically inherit the authentication setting from the root domain. However, if you want to manage domain authentication settings independently from the root domain settings, you can now with the Microsoft Graph API. For example, if you have a federated root domain such as contoso.com, this article can help you verify a subdomain such as child.contoso.com as managed instead of federated.
 
-In the Azure AD portal, when the parent domain is federated and the admin tries to verify a managed subdomain on the **Custom domain names** page, you'll get a 'Failed to add domain' error with the reason "One or more properties contains invalid values". If the administrator tries to add this subdomain from the Microsoft 365 admin center, they will receive a similar error.
+In the Azure AD portal, when the parent domain is federated and the admin tries to verify a managed subdomain on the **Custom domain names** page, you'll get a 'Failed to add domain' error with the reason "One or more properties contains invalid values". If you try to add this subdomain from the Microsoft 365 admin center, you will receive a similar error. For more information about the error, see [A child domain doesn't inherit parent domain changes in Office 365, Azure, or Intune](/office365/troubleshoot/administration/child-domain-fails-inherit-parent-domain-changes).
 
 ## How to verify a custom subdomain
 
-Because subdomains by default inherit the authentication type of the root domain, you must promote the subdomain to a root domain in Azure AD using the Microsoft Graph so you can set the authentication type to your desired type.
+Because subdomains inherit the authentication type of the root domain by default, you must promote the subdomain to a root domain in Azure AD using the Microsoft Graph so you can set the authentication type to your desired type.
 
 ### Add the subdomain and view its authentication type
 
@@ -37,7 +37,7 @@ Because subdomains by default inherit the authentication type of the root domain
    New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
    ```
 
-1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain. You can see that  the domain isn't a root domain, so it inherits its root domain authentication type. Your command and results might look as follows, using your organization ID:
+1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain. Because the domain isn't a root domain, it inherits the root domain authentication type. Your command and results might look as follows, using your own tenant ID:
 
    ```http
    GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
