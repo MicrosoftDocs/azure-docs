@@ -91,7 +91,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 > [!NOTE]
 > Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](https://aka.ms/mhsm).
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
 
 
 ## Recommendations when configuring customer-managed TDE
@@ -102,7 +102,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - Set a resource lock on the key vault to control who can delete this critical resource and prevent accidental or unauthorized deletion. Learn more about [resource locks](../../azure-resource-manager/management/lock-resources.md).
 
-- Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) is one example of a service that is already integrated.
+- Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) is one example of a service that is already integrated.
 
 - Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there is an outage affecting the key vault in the same region.
 
@@ -152,14 +152,14 @@ It may happen that someone with sufficient access rights to the key vault accide
 
 - deleting the managed identity of the server in Azure Active Directory
 
-Learn more about [the common causes for database to become inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Learn more about [the common causes for database to become inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## Monitoring of the customer-managed TDE
 
 To monitor database state and to enable alerting for loss of TDE protector access, configure the following Azure features:
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). An inaccessible database that has lost access to the TDE protector will show as "Unavailable" after the first connection to the database has been denied.
-- [Activity Log](../../service-health/alerts-activity-log-service-notifications.md) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
+- [Activity Log](../../service-health/alerts-activity-log-service-notifications-portal.md) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
 - [Action Groups](../../azure-monitor/platform/action-groups.md) can be defined to send you notifications and alerts based on your preferences, e.g. Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
 ## Database backup and restore with customer-managed TDE
@@ -176,7 +176,7 @@ If the key that is needed for restoring a backup is no longer available to the t
 
 To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for the target server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for the target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
-To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
+To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for dedicated SQL pool in Azure Synapse Analytics, see [Recover a dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Additional consideration for log files: Backed up log files remain encrypted with the original TDE protector, even if it was rotated and the database is now using a new TDE protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.
 

@@ -31,7 +31,7 @@ In this tutorial, you configure continuous deployment for a custom container ima
 
 Once Continuous Deployment has been enabled, you can view the newly created webhook on your Azure Container Registry webhooks page.
 
-![Screenshot of ACR webhook](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Screenshot that shows where you can view the newly created webhook on your Azure Container Registry webhooks page.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 In your Container Registry, click on Webhooks to view the current webhooks.
 

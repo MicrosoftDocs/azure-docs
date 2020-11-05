@@ -35,9 +35,9 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
-If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md).
 
-If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
+If you are using Azure to host your [DNS domains](../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
 
 
 ## Create a CNAME DNS record
@@ -47,7 +47,7 @@ Before you can use a custom domain with an Azure CDN endpoint, you must first cr
 A custom domain and its subdomain can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Azure service endpoints by using multiple CNAME records. You can also map a custom domain with different subdomains to the same CDN endpoint.
 
 > [!NOTE]
-> Any alias record type can be used for Custom domains if you're using Azure DNS as your domain provider. This walkthrough uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice. If you're using an alias record to add a root domain as a custom domain and you want to enable TLS, you must use manual validation as described in [this article](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). For more information, see [Point zone apex to Azure CDN endpoints](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
+> Any alias record type can be used for Custom domains if you're using Azure DNS as your domain provider. This walkthrough uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice. If you're using an alias record to add a root domain as a custom domain and you want to enable TLS, you must use manual validation as described in [this article](./cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). For more information, see [Point zone apex to Azure CDN endpoints](../dns/dns-alias.md#point-zone-apex-to-azure-cdn-endpoints).
 
 ## Map the temporary cdnverify subdomain
 
@@ -230,5 +230,3 @@ Advance to the next tutorial to learn how to configure HTTPS on an Azure CDN cus
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md)
-
-

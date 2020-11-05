@@ -31,7 +31,7 @@ To configure an Always On availability group, you must have the following prereq
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
 - The latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/install-azure-cli). 
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
@@ -60,7 +60,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> You might see the error `az sql: 'vm' is not in the 'az sql' command group` if you're using an outdated version of the Azure CLI. Download the [latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows) to get past this error.
+> You might see the error `az sql: 'vm' is not in the 'az sql' command group` if you're using an outdated version of the Azure CLI. Download the [latest version of Azure CLI](/cli/azure/install-azure-cli-windows) to get past this error.
 
 
 # [PowerShell](#tab/azure-powershell)
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## Define cluster metadata
 
-The Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group) command group manages the metadata of the Windows Server Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the Active Directory domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create) to define the metadata for WSFC so that when the first SQL Server VM is added, the cluster is created as defined. 
+The Azure CLI [az sql vm group](/cli/azure/sql/vm/group) command group manages the metadata of the Windows Server Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the Active Directory domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](/cli/azure/sql/vm/group#az-sql-vm-group-create) to define the metadata for WSFC so that when the first SQL Server VM is added, the cluster is created as defined. 
 
 The following code snippet defines the metadata for the cluster:
 
@@ -125,7 +125,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## Add VMs to the cluster
 
-Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command add more SQL Server VMs to the newly created cluster. 
+Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](/cli/azure/sql/vm#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command add more SQL Server VMs to the newly created cluster. 
 
 The following code snippet creates the cluster and adds the first SQL Server VM to it: 
 
@@ -519,4 +519,4 @@ For more information, see the following articles:
 * [Administration of an availability group &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
 * [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Overview of Transact-SQL statements for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Overview of PowerShell cmdlets for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+* [Overview of PowerShell cmdlets for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)

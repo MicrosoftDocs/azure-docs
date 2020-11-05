@@ -1,6 +1,6 @@
 ---
-title: Query folders and multiple files using SQL on-demand (preview)  
-description: SQL on-demand (preview) supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
+title: Query folders and multiple files using serverless SQL pool (preview)  
+description: Serverless SQL pool (preview) supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
 services: synapse analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
@@ -13,9 +13,9 @@ ms.reviewer: jrasnick
 
 # Query folders and multiple files  
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics.
+In this article, you'll learn how to write a query using serverless SQL pool (preview) in Azure Synapse Analytics.
 
-SQL on-demand supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed.
+Serverless SQL pool supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Your first step is to **create a database** where you'll execute the queries. Th
 You'll use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016 to June 2018. Files in *csv/taxi* are named after year and month using the following pattern: yellow_tripdata_<year>-<month>.csv
 
 ## Read all files in folder
-    
+
 The example below reads all NYC Yellow Taxi data files from the *csv/taxi* folder and returns the total number of passengers and rides per year. It also shows usage of aggregate functions.
 
 ```sql
@@ -175,6 +175,49 @@ ORDER BY
 > All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
 Since you have only one folder that matches the criteria, the query result is the same as [Read all files in folder](#read-all-files-in-folder).
+
+## Traverse folders recursively
+
+Serverless SQL pool can recursively traverse folders if you specify /** at the end of path. The following query will read all files from all folders and subfolders located in the *csv* folder.
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
 ## Multiple wildcards
 

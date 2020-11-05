@@ -35,7 +35,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 
 # [PowerShell](#tab/azure-powershell)
 
-For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 For specifics on Key Vault, see [PowerShell instructions from Key Vault](../../key-vault/secrets/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
@@ -118,7 +118,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # [The Azure CLI](#tab/azure-cli)
 
-To install the required version of the Azure CLI (version 2.0 or later) and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To install the required version of the Azure CLI (version 2.0 or later) and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli).
 
 For specifics on Key Vault, see [Manage Key Vault using the CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with the CLI](../../key-vault/general/soft-delete-cli.md).
 
