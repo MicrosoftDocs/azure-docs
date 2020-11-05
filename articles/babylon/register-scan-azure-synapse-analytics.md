@@ -18,6 +18,43 @@ Azure Synapse Analytics supports the following:<br />
 ## Prerequisites
 * You need to be a Catalog Admin or Data Source Admin
 
+1. Create a new Babylon account if you don't already have one.
+
+1. Networking access between the Babylon account and Azure Synapse Analytics.
+
+1. Authentication to scan Azure Synapse Analytics. There are three authentication methods that Babylon supports today:
+
+    > [!Note]
+    > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Babylon account should have the appropriate permissions to be able to scan the resource(s).
+    
+   1. **SQL authentication:** You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database. 
+
+   1. **Service Principal:** You need to [create an Azure AD application and service principal that can access resources if you don't have one already](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). In addition, you must also create an Azure AD user in Azure SQL Database by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
+   
+   ```sql
+   CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
+   GO
+
+   EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+   GO
+   ```
+
+   > [!Note]
+   > Babylon will need the **Application (client) ID** and the **client secret** in order to scan.
+
+   1. **Managed Identity:** Your Babylon account has its own Managed Identity which is basically your Babylon name when you created it. You must create an Azure AD user in Azure Synapse Analytics with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
+   
+   ```sql
+   CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
+   GO
+
+   EXEC sp_addrolemember 'db_owner', [BabylonManagedIdentity]
+   GO
+   ```
+
+1. The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_owner` permission to the identity.
+
+
 ## Register an Azure Synapse Analytics server
 Navigate to your Babylon catalog.
 
