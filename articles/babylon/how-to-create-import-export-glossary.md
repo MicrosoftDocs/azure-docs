@@ -50,7 +50,7 @@ This article describes how to create a business glossary term in Azure Babylon d
 
 9. Select **Create** to create your term.
 
-## Import Terms into the Glossary
+## Import terms into the glossary
 
 The Azure Babylon Data Catalog provides a template .csv file for you to import your terms into your Glossary.
 
@@ -80,7 +80,7 @@ Notice that term names are case-sensitive. For example, `Sample` and `saMple` co
 
 5. The system will upload the file and add all the terms to your catalog.
 
-## Export Terms from Glossary with custom attributes
+## Export terms from glossary with custom attributes
 
 You should be able to export terms from glossary as long as the selected terms belong to same term template.
 
