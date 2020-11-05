@@ -12,7 +12,7 @@ ms.custom:
 
 # Manage Cloud Services (extended support) 
 
-Restart, Rebuild & Reimage Cloud Services (extended support):
+Restart, rebuild and reimage Cloud Services (extended support):
 
 ## Deployment:
 
@@ -63,9 +63,6 @@ Invoke-AzCloudServiceRoleInstanceReimage -ResourceGroupName $resourceGroupName -
 ```PowerShell
 Invoke-AzCloudServiceRoleInstanceRebuild -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName 
 ```
-
-For more information, see <Add link to CS Powershell reference documents> 
-
 
 ## Delete Cloud Services (extended support):
 

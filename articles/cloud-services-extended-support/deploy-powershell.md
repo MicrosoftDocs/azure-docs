@@ -13,9 +13,8 @@ ms.custom:
 # Deploy a Cloud Service (extended support) using PowerShell
 Cloud Services (extended support) provides various methods to create a deployment. The following diagram talks about all the possible methods. This document talks about using PowerShell to create Cloud Services (extended support) deployment using Method 1 & 2. 
  
-:::image type="content" source="media/deploy-portal1.png" alt-text="Alt text here.":::
+:::image type="content" source="media/deploy-portal1.png" alt-text="Image shows possible deployment methods and an associated diagram.":::
 
-(Link: https://microsoft.sharepoint.com/:i:/t/CloudServicesonVMSS/EVVevH28W39CsaIQxkvFzOsBX--plPvO_BBiBFEytLfSzw?e=oeCOud) 
 
 ## Deployment Method #1
 Process to create Cloud Services (extended support) deployment using Method 1:
@@ -23,15 +22,15 @@ Method 1 takes template & parameters file as parameters to create/update the Clo
 
 1.	Create the template & parameters   file for your Cloud Service (extended support) deployment. 
 
-2.	Login to PowerShell & select the right subscription.
+2.	Login to PowerShell & select a subscription.
 
     ```PowerShell
     Add-AzureAccount
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
     ```
-3.	Upload Cscfg & Cspkg file to Storage Account and obtain the SAS URLs using Portal or PowerShell. Add SAS URLs to cloud services resource section of Template (Using Portal or PowerShell).
+3.	Upload a `.cscfg` and `.cspkg` file to a storage account and obtain the SAS URLs using portal or PowerShell. Add the SAS URLs to Cloud Services resource section of Azure Resource Manager (ARM) Template.
  
-4.	Ensure necessary resources (Vnet, Resource Group, Public IP, Key Vault, Storage Account) will be available before creating Cloud Services:
+4.	Ensure necessary resources (VNET, Resource Group, Public IP, Key Vault, Storage Account) will be available before creating Cloud Services:
 
     a.	Make sure necessary resources are defined in the Template, dependsOn clause correctly defines the order and resource names are correctly mentioned in the cloud services resource section of the Template. 
 
@@ -48,7 +47,7 @@ For more information deploying resources using Template, see Deploy resources wi
 ## Deployment Method #2
 
 Process to create Cloud Services (extended support) deployment using Method 2:
-In method 2, customers need to use multiple PowerShell commands to manually perform the automations done using Templates or Parameters file. The below process describes the steps needed for a  new environment. It is possible to skip steps for resources that already exist and are to be reused (for example,. storage accounts creation)
+In method 2, customers need to use multiple PowerShell commands to manually perform the automation done using Templates or Parameters file. The below process describes the steps needed for a  new environment. It is possible to skip steps for resources that already exist and are to be reused (for example,. storage accounts creation)
 
 1.	Create Resource Group  . (Optional if using existing Resource Group)
 
@@ -63,7 +62,7 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     $container = New-AzStorageContainer -Name “ContosoContainer” -Context $storageAccount.Context -Permission Blob
     ```
 
-3.	Create cspkg file, upload cspkg to storage account and obtain SAS URL
+3.	Create .`cspkg` file, upload `.cspkg` to storage account and obtain SAS URL
 
     ```PowerShell
     $tokenStartTime = Get-Date
@@ -73,7 +72,7 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     $cspkgUrl = $cspkgBlob.ICloudBlob.Uri.AbsoluteUri + $cspkgToken
     ```
 
-4.	Create cscfg, upload cscfg to storage account & obtain SAS URL or create base64 encoded string for Cloud Services
+4.	Create `.cscfg`, upload `.cscfg` to storage account & obtain SAS URL or create base64 encoded string for Cloud Services
 
     ```PowerShell
     $cscfgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cscfg” -Container ContosoContainer -Blob “ContosoApp.cscfg” -Context $storageAccount.Context
