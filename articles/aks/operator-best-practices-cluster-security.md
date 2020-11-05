@@ -233,4 +233,4 @@ This article focused on how to secure your AKS cluster. To implement some of the
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
-[security-center-aks]: ../security-center/azure-kubernetes-service-integration.md
+[security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md

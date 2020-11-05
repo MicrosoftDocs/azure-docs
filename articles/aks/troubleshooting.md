@@ -193,7 +193,7 @@ When restricting egress traffic from an AKS cluster, there are [required and opt
 
 Verify that your settings aren't conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.
 
-## I'm receiving "429 - Too Many Requests" errors 
+## I'm receiving "429 - Too Many Requests" errors
 
 When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or uses the cluster autoscaler (CA), those operations can result in a large number of HTTP calls that in turn exceed the assigned subscription quota leading to failure. The errors will look like
 
@@ -201,13 +201,19 @@ When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or 
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-These throttling errors are described in detail [here](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) and [here](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+These throttling errors are described in detail [here](../azure-resource-manager/management/request-limits-and-throttling.md) and [here](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
 
 The recommandation from AKS Engineering Team is to ensure you are running version at least 1.18.x which contains many improvements. More details can be found on these improvements [here](https://github.com/Azure/AKS/issues/1413) and [here](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
 
 Given these throttling errors are measured at the subscription level, they might still happen if:
 - There are 3rd party applications making GET requests (eg. monitoring applications, etc...). The recommendation is to reduce the frequency of these calls.
 - There is a lot of AKS clusters / nodepools in the VMSS. The usual recommendation is to have less than 20-30 clusters in a given subscription.
+
+## My cluster's provisioning status changed from Ready to Failed with or without me performing an operation. What should I do?
+
+If your cluster's provisioning status changes from *Ready* to *Failed* with or without you performing any operations, but the applications on your cluster are continuing to run, this issue may be resolved automatically by the service and your applications should not be affected.
+
+If your cluster's provisioning status remains as *Failed* or the applications on your cluster stop working, [submit a support request](https://azure.microsoft.com/support/options/#submit).
 
 
 ## Azure Storage and AKS Troubleshooting
@@ -467,9 +473,6 @@ This error is because of an upstream cluster autoscaler race condition. In such 
 
 On Kubernetes versions **older than 1.15.0**, you may receive an error such as **Error WaitForAttach Cannot find Lun for disk**.  The workaround for this issue is to wait approximately 15 minutes and retry.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
 
@@ -482,3 +485,9 @@ As a result, to mitigate this you can:
 3. Delete the older nodepool
 
 AKS is investigating the capability to mutate active labels on a nodepool to improve this mitigation.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

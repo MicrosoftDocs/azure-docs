@@ -4,7 +4,7 @@ description: Learn about configuring and optimizing the InfiniBand enabled H-ser
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -32,11 +32,24 @@ For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instan
   For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), [CentOS-HPC version 7.6 or a later](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) version VM images in the Marketplace are suitable. These VM images come optimized and pre-loaded with the OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages and are the easiest way to get started.
 
   Example of scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE] 
+  > The latest Azure HPC marketplace images have Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3) will be able to use the following CentOS-HPC VM image versions or older:
+  >- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+  >- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+  >- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+  >- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+  >- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+  >- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
+
 
 ### RHEL/CentOS VM images
 RHEL or CentOS-based non-HPC VM images on the Marketplace can be configured for use on the SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances). Learn more about [enabling InfiniBand](enable-infiniband.md) and [setting up MPI](setup-mpi.md) on the VMs.
 
   Example of scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE]
+  > Mellanox OFED 5.1 and above do not support ConnectX3-Pro InfiniBand cards on SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3). Please use LTS Mellanox OFED version 4.9-0.1.7.0 or older on the N-series VM's with ConnectX3-Pro cards. Please see more details [here](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### Ubuntu VM images
 Ubuntu Server 16.04 LTS, 18.04 LTS, and 20.04 LTS VM images in the Marketplace are supported for both SR-IOV and non-SR-IOV [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances). Learn more about [enabling InfiniBand](enable-infiniband.md) and [setting up MPI](setup-mpi.md) on the VMs.

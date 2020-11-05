@@ -25,6 +25,10 @@ To get started quickly, create a single lab account, and then later create addit
 
 Your administrators are typically the owners and contributors for a lab account. They are responsible for managing the policies that apply to all the labs contained within the lab account. The person that creates the lab account is automatically an owner. You can add additional owners and contributors, typically from the Azure Active Directory (Azure AD) tenant associated with your subscription. This can be useful to help manage a lab account by assigning either the owner or contributor role at the lab account level.
 
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Lab users only see a single list of the virtual machines that they have access to across tenants inside Azure Lab Services.
+
 ### Who will be allowed to create and manage labs?
 
 You might choose to have your administrators and faculty members create and manage labs. These users (typically from the Azure AD tenant associated with your subscription) are assigned to the Lab Creator role within the lab account.

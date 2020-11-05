@@ -1,10 +1,11 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Virtual WAN?
     href: virtual-wan-about.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -14,6 +15,10 @@
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security Baseline
+      href: security-baseline.md
   - name: Work remotely
     items:
     - name: Support for working remotely

@@ -48,7 +48,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
-|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
@@ -81,7 +81,7 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
-      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
+      - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
       > [!TIP]
       > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with Azure Defender, will appear under the **No recommendation** tab.
@@ -131,7 +131,7 @@ To edit the rules for a group of machines:
 
       ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. If you're defining a known safe path, change the **Rule type** to 'Path'. You can include wildcards in the path.
+   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
    
       > [!TIP]
       > Some scenarios for which wildcards in a path might be useful:
@@ -155,7 +155,7 @@ To edit the rules for a group of machines:
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > The **Enforce** option in the file type protection mode settings is greyed out in all scenarios. No enforcement options are available at this time. 
+    > The **Enforce** option, in the file type protection mode settings, is greyed out in **all** scenarios. No enforcement options are available at this time. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
 
@@ -220,7 +220,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 

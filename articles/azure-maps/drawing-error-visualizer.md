@@ -12,7 +12,7 @@ manager: philmea
 
 # Using the Azure Maps Drawing Error Visualizer
 
-The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
+The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of you
 
 ## Next steps
 
-Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](https://docs.microsoft.com/rest/api/maps/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
+Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](/rest/api/maps/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
 
 > [!div class="nextstepaction"]
 > [Drawing Conversion error codes](drawing-conversion-error-codes.md)

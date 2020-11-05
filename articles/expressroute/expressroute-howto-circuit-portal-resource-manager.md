@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/21/2020
 ms.author: duau
 ---
 
@@ -167,7 +167,7 @@ If the ExpressRoute circuit service provider provisioning state is **Provisionin
 
 ## Clean up resources
 
-You can delete your ExpressRoute circuit by selecting the **Delete** icon. 
+You can delete your ExpressRoute circuit by selecting the **Delete** icon. Ensure the provider status is *Not provisioned* before proceeding.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Delete circuit":::
 

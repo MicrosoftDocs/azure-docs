@@ -114,9 +114,12 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 - [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### Step 4. Create a Service Principal for onboarding at scale
+### Step 4. Complete Azure Arc prerequisites
+1. Make sure the appropriate [Azure resources providers](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) are registered:
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
-As an **Owner** on the subscription you want to use for the onboarding, create a a service principal for Azure Arc onboarding as described in [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+1. Create a Service Principal for onboarding at scale. As an **Owner** on the subscription you want to use for the onboarding, create a service principal for Azure Arc onboarding as described in [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 
 ### Step 5. Connect AWS to Security Center
@@ -128,7 +131,7 @@ As an **Owner** on the subscription you want to use for the onboarding, create a
     1. Enter a **Display name** for the connector.
     1. Confirm that the subscription is correct. It is the subscription that will include the connector and AWS Security Hub recommendations.
     1. Depending on the authentication option you chose in [Step 2. Set up authentication for Security Center in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Select  **Assume Role** and paste the ARN from [Create an IAM role for Security Center](#create-an-iam-role-for-security-center)
+        - Select  **Assume Role** and paste the ARN from [Create an IAM role for Security Center](#create-an-iam-role-for-security-center).
             :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure Portal":::
 
             OR
@@ -140,7 +143,7 @@ As an **Owner** on the subscription you want to use for the onboarding, create a
     Security Center discovers the EC2 instances in the connected AWS account and uses SSM to onboard them to Azure Arc. 
 
     > [!TIP]
-    > The list of supported operating systems is in the FAQ below.
+    > For the list of supported operating systems, see [What operating systems for my EC2 instances are supported?](#what-operating-systems-for-my-ec2-instances-are-supported) in the FAQ.
 
     1. Select the **Resource Group** and **Azure Region** that the discovered AWS EC2s will be onboarded to in the selected subscription.
     1. Enter the **Service Principal ID** and **Service Principal Client Secret** for Azure Arc as described here [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)

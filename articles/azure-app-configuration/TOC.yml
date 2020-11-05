@@ -125,9 +125,9 @@
     - name: Configuration
       items:
         - name: Azure CLI
-          href: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
+          href: /cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core provider
-          href: https://go.microsoft.com/fwlink/?linkid=2074664
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Azure SDK for .NET
@@ -140,22 +140,66 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
-        - name: REST API
-          href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management
       items:
         - name: .NET Core library
-          href: https://go.microsoft.com/fwlink/?linkid=2091700
+          href: /dotnet/api/microsoft.featuremanagement
         - name: .NET Core filter library
-          href: https://go.microsoft.com/fwlink/?linkid=2091601
+          href: /dotnet/api/microsoft.featuremanagement.featurefilters
     - name: Config store management
       items:
         - name: REST API
-          href: https://docs.microsoft.com/rest/api/appconfiguration/
+          href: /rest/api/appconfiguration/
         - name: PowerShell
-          href: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+          href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
+    - name: REST API
+      items:
+        - name: Overview
+          href: rest-api.md
+        - name: Resources
+          items:
+          - name: Keys
+            href: ./rest-api-keys.md
+          - name: Key-values
+            href: ./rest-api-key-value.md
+          - name: Labels
+            href: ./rest-api-labels.md
+          - name: Locks
+            href: ./rest-api-locks.md
+          - name: Revisions
+            href: ./rest-api-revisions.md
+        - name: Protocol
+          items:
+          - name: Authentication
+            href: ./rest-api-authentication-index.md
+            items:
+              - name: Azure Active Directory authentication
+                href: rest-api-authentication-azure-ad.md
+              - name: HMAC Authentication
+                href: rest-api-authentication-hmac.md   
+          - name: Authorization
+            href: ./rest-api-authorization-index.md
+            items:
+              - name: Azure Active Directory authorization
+                href: rest-api-authorization-azure-ad.md
+              - name: HMAC authorization
+                href: rest-api-authorization-hmac.md
+          - name: Consistency model
+            href: ./rest-api-consistency.md
+          - name: Common headers
+            href: ./rest-api-headers.md
+          - name: Throttling
+            href: ./rest-api-throttling.md
+          - name: Versioning
+            href: ./rest-api-versioning.md
+        - name: Development
+          items:
+          - name: Fiddler
+            href: ./rest-api-fiddler.md
+          - name: Postman
+            href: ./rest-api-postman.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

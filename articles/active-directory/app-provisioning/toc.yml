@@ -5,6 +5,8 @@
     items:
      - name: What is application provisioning?
        href: user-provisioning.md
+     - name: What's new in docs?
+       href: whats-new-docs.md
   - name: Tutorials
     expanded: true
     items:
@@ -58,8 +60,6 @@
         href: application-provisioning-config-problem.md
       - name: Quarantine status
         href: application-provisioning-quarantine-status.md
-      - name: Authorization issue (unable to save admin credentials)
-        href: application-provisioning-config-problem-storage-limit.md
       - name: Users aren't provisioned 
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Missing source attribute

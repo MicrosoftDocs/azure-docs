@@ -8,13 +8,13 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
-  ms.author: aahi
+  ms.author: mbullwin
 
 landingContent:
 - title: About Metrics Advisor
@@ -29,8 +29,6 @@ landingContent:
           url: quickstarts/explore-demo.md     
         - text: Monitor your first metric on web
           url: quickstarts/web-portal.md
-        - text: Use the REST APIs to customize your solution
-          url: quickstarts/rest-api.md
 
 - title: How-to articles
   linkLists:
@@ -63,6 +61,13 @@ landingContent:
         - text: Metrics Advisor API
           url: https://go.microsoft.com/fwlink/?linkid=2141634
         - text: Azure PowerShell 
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+          url: /powershell/module/az.cognitiveservices
         - text: Azure CLI 
-          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+          url: /cli/azure/cognitiveservices?view=azure-cli-latest
+
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context

@@ -13,11 +13,11 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ---
-# Use Server Trust Groups to setup and manage trust between SQL Managed Instances
+# Use Server Trust Groups to set up and manage trust between SQL Managed Instances
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Server Trust Group is a concept used for managing trust between Azure SQL Managed Instances. By creating a group and adding instances to it certificate-based trust is established between all members and this can be used for different cross-instance scenarios. Removing servers from the group or deleting the group results in removing the trust between the servers. To create or delete Server Trust Group user needs to have write permissions on Managed Instance.
-[Server Trust Group](https://aka.ms/mi-server-trust-group-arm) is an Azure Resource Manager object that corresponds to Azure portal entity named **SQL trust group**.
+Server Trust Group is a concept used for managing trust between Azure SQL Managed Instances. By creating a group, a certificate-based trust is established between its members. This trust can be used for different cross-instance scenarios. Removing servers from the group or deleting the group removes the trust between the servers. To create or delete Server Trust Group user needs to have write permissions on Managed Instance.
+[Server Trust Group](/azure/templates/microsoft.sql/allversions) is an Azure Resource Manager object which has been labeled as **SQL trust group** in Azure portal.
 
 > [!NOTE]
 > Server Trust Group is introduced in public preview of Distributed transactions between Azure SQL Managed Instances and currently has some limitations that will be described later in this article.
@@ -34,18 +34,19 @@ The following section describes setup of Server Trust Group.
 
    :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Server trust groups":::
 
-4. In the Server Trust Group configuration page select the **New Group** icon.
+4. In the Server Trust Group configuration page, select the **New Group** icon.
 
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="New Group":::
 
-5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in all regions where the group members reside. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group and in preview the only applicable trust scope is **Distributed transactions**, so it is preselected and cannot be changed. All **Group members** must belong to the same **subscription** but can be under different resource groups. Select the **Resource group** and **SQL Server / instance** to choose the Azure SQL Managed Instance that will be member of the group.
+5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in all regions where the group members reside. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group. In preview the only applicable trust scope is **Distributed transactions**, so it's preselected and cannot be changed. All **Group members** must belong to the same **subscription** but can be under different resource groups. Select the **Resource group** and **SQL Server / instance** to choose the Azure SQL Managed Instance that will be member of the group.
+
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Server trust group create blade":::
 
 6. After all required fields are populated, click **Save**.
 
 ## Server Trust Group maintenance and deletion
 
-There is no way to edit Server trust group. To remove a Managed Instance from a group you need to delete the group and create a new one.
+Server Trust Group can't be edited. To remove a Managed Instance from a group, you need to delete the group and create a new one.
 
 Following section describes Server trust group deletion process. 
 1. Go to the Azure portal.
@@ -59,21 +60,21 @@ Following section describes Server trust group deletion process.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirm Server trust group deletion":::
 
 > [!NOTE]
-> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](https://docs.microsoft.com/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](https://docs.microsoft.com/azure/azure-sql/database/doc-changes-updates-release-notes?tabs=managed-instance#known-issues) for the latest updates on this.
+> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) for the latest updates on this.
 
 ## Limitations
 
 During public  preview the following limitations apply to Server Trust Groups.
  * Name of the Server Trust Group must be unique in all regions where its members are.
  * Group can contain only Azure SQL Managed Instances and they must be under the same Azure Subscription.
- * Group can have exactly two Managed Instances. If you need to execute distributed transactions across more than two Managed Instances that can be done by creating Server Trust Group for each pair of the Managed Instances.
+ * In preview, group can have exactly two Managed Instances. To execute distributed transactions across more than two Managed Instances you will need to create Server Trust Group for each pair of the Managed Instances.
  * Distributed transactions are the only applicable scope for the Server Trust Groups.
  * Server Trust Group can only be managed from Azure portal. PowerShell and CLI support will come later.
  * Server Trust Group cannot be edited on the Azure portal. It can only be created or dropped.
- * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that SQL Managed Instances that participate in Server Trust Group must be reachable via private endpoints, or in other connectivity must work on the virtual network level. Please make sure that you are aware of the current [distributed transactions limitations for Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview#limitations).
+ * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that there must be connectivity between Managed Instances over private endpoints, via VNET or VNET peering. Make sure that you're aware of the current [distributed transactions limitations for Managed Instance](../database/elastic-transactions-overview.md#limitations).
 
 ## Next steps
 
 * For more information about distributed transactions in Azure SQL Managed Instance, see [Distributed transactions](../database/elastic-transactions-overview.md).
 * For release updates and known issues state, see [Managed Instance release notes](../database/doc-changes-updates-release-notes.md).
-* For feature requests, please add them to the [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* If you have feature requests, add them to the [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
