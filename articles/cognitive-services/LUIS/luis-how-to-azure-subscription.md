@@ -24,7 +24,7 @@ LUIS allows three types of Azure resources and one non-Azure resource:
 
 |Resource|Purpose|Cognitive service `kind`|Cognitive service `type`|
 |--|--|--|--|
-|Authoring resource|Allows you to create, manage, train, test, and publish your applications. [Create a LUIS authoring resource](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) if you intend to author LUIS apps programtically or from the LUIS portal. You need to [migrate your LUIS account](luis-migration-authoring.md#what-is-migration) before you link your Azure authoring resources to your application. You can control permissions to the authoring resource by assigning people [the contributor role](#contributions-from-other-authors). <br><br> One tier is available for the LUIS authoring resource:<br> <ul> <li>**Free F0 authoring resource**, which gives you 1 million free authoring transactions and 1,000 free testing prediction endpoint requests monthly. |`LUIS.Authoring`|`Cognitive Services`|
+|Authoring resource|Allows you to create, manage, train, test, and publish your applications. [Create a LUIS authoring resource](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) if you intend to author LUIS apps programmatically or from the LUIS portal. You need to [migrate your LUIS account](luis-migration-authoring.md#what-is-migration) before you link your Azure authoring resources to your application. You can control permissions to the authoring resource by assigning people [the contributor role](#contributions-from-other-authors). <br><br> One tier is available for the LUIS authoring resource:<br> <ul> <li>**Free F0 authoring resource**, which gives you 1 million free authoring transactions and 1,000 free testing prediction endpoint requests monthly. |`LUIS.Authoring`|`Cognitive Services`|
 |Prediction resource| After you publish your LUIS application, use the prediction resource/key to query prediction endpoint requests. Create a LUIS prediction resource before your client app requests predictions beyond the 1,000 requests provided by the authoring or starter resource. <br><br> Two tiers are available for the prediction resource:<br><ul> <li> **Free F0 prediction resource**, which gives you 10,000 free prediction endpoint requests monthly.<br> <li> **Standard S0 prediction resource**, which is the paid tier. [Learn more about pricing.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Starter/Trial resource|Allows you to create, manage, train, test, and publish your applications. This resource is created by default if you choose the starter resource option when you first sign in to LUIS. The starter key will eventually be deprecated. All LUIS users will need to [migrate their accounts](luis-migration-authoring.md#what-is-migration) and link their LUIS applications to an authoring resource. Unlike the authoring resource, this resource doesn't give you permissions for Azure role-based access control. <br><br> Like the authoring resource, the starter resource gives you 1 million free authoring transactions and 1,000 free testing prediction endpoint requests.|-|Not an Azure resource.|
 |[Cognitive Services multiservice resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported cognitive services.|`CognitiveServices`|`Cognitive Services`|
@@ -92,7 +92,7 @@ You can move your LUIS app. Use the following resources to help you do so by usi
 
 For [migrated authoring resource](luis-migration-authoring.md) apps: You can manage _contributors_ for an authoring resource in the Azure portal by using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md) by using the collaborator's email address and the contributor role.
 
-For apps that have not migrated yet: You can manage all _collaborators_ on the **Manage -> Collaborators** page in the LUIS portal.
+For apps that haven't yet migrated: You can manage all _collaborators_ on the **Manage -> Collaborators** page in the LUIS portal.
 
 ### Query prediction access for private and public apps
 
@@ -145,7 +145,7 @@ When your app is configured as public, _any_ valid LUIS authoring key or LUIS en
 
 A user who isn't an owner or contributor can access a public app's runtime only if given the app ID. LUIS doesn't have a public market or any other way for users to search for a public app.
 
-A public app is published in all regions, so a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
+A public app is published in all regions. So a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
 
 
 ### Control access to your query prediction endpoint
@@ -199,116 +199,122 @@ Resource `kind`:
     ```
 
     > [!Note]
-    > This keys are **not** used by the LUIS portal until they are assigned in the LUIS portal on the **Manage -> Azure resources**.
+    > These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
-### Assign resource in the LUIS portal
+### Assign resources in the LUIS portal
 
 You can assign an authoring resource for a single app or for all apps in LUIS. The following procedure assigns all apps to a single authoring resource.
 
 1. Sign in to the [LUIS portal](https://www.luis.ai).
-1. At the top navigation bar, to the far right, select your user account, then select **Settings**.
-1. On the **User Settings** page, select **Add authoring resource** then select an existing authoring resource. Select **Save**.
+1. In the upper-right corner, select your user account, and then select **Settings**.
+1. On the **User Settings** page, select **Add authoring resource**, and then select an existing authoring resource. Select **Save**.
 
 ## Assign a resource to an app
 
-Please note that if you do not have an Azure subscription, you will not be able to assign or create a new resource. You will have to first go and create an [Azure Free Trial](https://azure.microsoft.com/en-us/free/) then return to LUIS to create a new resource from the portal.
+>[!NOTE]
+>If you don't have an Azure subscription, you won't be able to assign or create a new resource. You'll need to create an [Azure free account](https://azure.microsoft.com/en-us/free/) and then return to LUIS to create a new resource from the portal.
 
-You can assign or create an authoring or a prediction resource to an application with the following procedure:
+You can use this procedure to create an authoring or prediction resource or assign one to an application: 
 
-1. Sign in to the [LUIS portal](https://www.luis.ai), then select an app from the **My apps** list
-1. Navigate to the **Manage -> Azure resources** page
+1. Sign in to the [LUIS portal](https://www.luis.ai). Select an app from the **My apps** list.
+1. Go to **Manage** > **Azure Resources**:
 
-    ![Select the Manage -> Azure resources in the LUIS portal to assign a resource to the app.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+    ![Screenshot that shows the Azure Resources page.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Select the Prediction or Authoring resource tab then select the **Add prediction resource** or **Add authoring resource** button
-1. Select the fields in the form to find the correct resource, then select **Save**
-1. If you dont have an exisiting resource, you can create one by selecting "Create a new LUIS resource?" from the bottom of the window
+1. On the **Prediction resource** or **Authoring resource** tab, select the **Add prediction resource** or **Add authoring resource** button.
+1. Use the fields in the form to find the correct resource, and then select **Save**.
+1. If you don't have an existing resource, you can create one by selecting **Create a new LUIS resource?** at the bottom of the window.
 
 
-### Assign query prediction runtime resource without using LUIS portal
+### Assign a query prediction runtime resource without using the LUIS portal
 
-For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS runtime resource to a LUIS app. In order to do that, you need to perform the following steps:
+For automated processes like CI/CD pipelines, you might want to automate the assignment of a LUIS runtime resource to a LUIS app. To do so, complete these steps:
 
-1. Get an Azure Resource Manager token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an Azure Resource Manager token.
+1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
 
-    ![Request Azure Resource Manager token and receive Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
+    ![Screenshot that shows the website for requesting an Azure Resource Manager token.](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use the token to request the LUIS runtime resources across subscriptions, from the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.
+1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.
 
-    This POST API requires the following settings:
+    This POST API requires the following values:
 
     |Header|Value|
     |--|--|
-    |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
+    |`Authorization`|The value of `Authorization` is `Bearer {token}`. The token value must be preceded by the word `Bearer` and a space.|
     |`Ocp-Apim-Subscription-Key`|Your authoring key.|
 
-    This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. Find the one item in the array that is the LUIS resource to assign to the LUIS app.
+    The API returns an array of JSON objects that represent your LUIS subscriptions. Returned values include the subscription ID, resource group, and resource name, returned as `AccountName`. Find the item in the array that's the LUIS resource that you want to assign to the LUIS app.
 
-1. Assign the token to the LUIS resource with the [Assign a LUIS Azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API.
+1. Assign the token to the LUIS resource by using the [Assign a LUIS Azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API.
 
-    This POST API requires the following settings:
+    This POST API requires the following values:
 
     |Type|Setting|Value|
     |--|--|--|
-    |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
+    |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. The token value must be preceded by the word `Bearer` and a space.|
     |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID.
     |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
-    When this API is successful, it returns a 201 - created status.
+    When this API is successful, it returns `201 - created status`.
 
-## Unassign resource
+## Unassign a resource
 
-1. Sign in to the [LUIS portal](https://www.luis.ai), then select an app from the **My apps** list.
-1. Navigate to the **Manage -> Azure resources** page.
-1. Select the Prediction or Authoring resource tab then select the **Unassign resource** button for the resource.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and then select an app from the **My apps** list.
+1. Go to **Manage** > **Azure Resources**.
+1. On the **Prediction resource** or **Authoring resource** tab, select the **Unassign resource** button for the resource.
 
-When you unassign a resource, it is not deleted from Azure. It is only unlinked from LUIS.
+When you unassign a resource, it's not deleted from Azure. It's only unlinked from LUIS.
 
 
-## Delete account
+## Delete an account
 
 See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account.
 
-## Change pricing tier
+## Change the pricing tier
 
-1.  In [Azure](https://portal.azure.com), find your LUIS subscription. Select the LUIS subscription.
-    ![Find your LUIS subscription](./media/luis-usage-tiers/find.png)
-1.  Select **Pricing tier** in order to see the available pricing tiers.
-    ![View pricing tiers](./media/luis-usage-tiers/subscription.png)
-1.  Select the pricing tier and select **Select** to save your change.
-    ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
-1.  When the pricing change is complete, a pop-up window verifies the new pricing tier.
-    ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
+1.  In [the Azure portal](https://portal.azure.com), find and select your LUIS subscription:
+
+    ![Screenshot that shows a LUIS subscription in the Azure portal.](./media/luis-usage-tiers/find.png)
+1.  Select **Pricing tier** to see the available pricing tiers:
+
+    ![Screenshot that shows the Pricing tier menu item.](./media/luis-usage-tiers/subscription.png)
+1.  Select the pricing tier, and then click **Select** to save your change:
+
+    ![Screenshot that shows how to select and save a pricing tier.](./media/luis-usage-tiers/plans.png)
+
+    When the pricing change is complete, a pop-up window verifies the pricing tier update:
+
+    ![Screenshot of the pop-up window that verifies the pricing update.](./media/luis-usage-tiers/updated.png)
 1. Remember to [assign this endpoint key](#assign-a-resource-to-an-app) on the **Publish** page and use it in all endpoint queries.
 
-## Viewing Azure resource metrics
+## View Azure resource metrics
 
-### Viewing Azure resource summary usage
-You can view LUIS usage information in Azure. The **Overview** page shows recent summary information including calls and errors. If you make a LUIS endpoint request, then immediately watch the **Overview page**, allow up to five minutes for the usage to show up.
+### View a summary of Azure resource usage
+You can view LUIS usage information in the Azure portal. The **Overview** page shows a summary, including recent calls and errors. If you make a LUIS endpoint request, allow up to five minutes for the change to appear.
 
-![Viewing summary usage](./media/luis-usage-tiers/overview.png)
+![Screenshot that shows the Overview page.](./media/luis-usage-tiers/overview.png)
 
 ### Customizing Azure resource usage charts
-Metrics provides a more detailed view into the data.
+The **Metrics** page provides a more detailed view of the data:
 
-![Default metrics](./media/luis-usage-tiers/metrics-default.png)
+![Screenshot that shows the Metrics page.](./media/luis-usage-tiers/metrics-default.png)
 
-You can configure your metrics charts for time period and metric type.
+You can configure your metrics charts for a specific time period and metric type:
 
-![Custom metrics](./media/luis-usage-tiers/metrics-custom.png)
+![Screenshot that shows a customized chart.](./media/luis-usage-tiers/metrics-custom.png)
 
 ### Total transactions threshold alert
-If you would like to know when you have reached a certain transaction threshold, for example 10,000 transactions, you can create an alert.
+If you want to know when you reach a certain transaction threshold, for example 10,000 transactions, you can create an alert:
 
-![Default alerts](./media/luis-usage-tiers/alert-default.png)
+![Screenshot that shows the Alert rules page.](./media/luis-usage-tiers/alert-default.png)
 
-Add a metric alert for the **total calls** metric for a certain time period. Add email addresses of all people that should receive the alert. Add webhooks for all systems that should receive the alert. You can also run a logic app when the alert is triggered.
+Add a metric alert for the **total calls** metric for a certain time period. Add email addresses of all the people who should receive the alert. Add webhooks for all the systems that should receive the alert. You can also run a logic app when the alert is triggered.
 
 ## Next steps
 
-* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
+* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle
 * Migrate to the new [authoring resource](luis-migration-authoring.md)
