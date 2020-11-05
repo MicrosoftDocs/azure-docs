@@ -59,7 +59,7 @@ The server needs to be restarted after a change of this parameter. Internally, t
 
 3. If you are running Postgres 9.5 or 9.6, and use public network access, add the firewall rule to include the public IP address of the client from where you will run the logical replication. The firewall rule name must include **_replrule**. For example, *test_replrule*. Then click **Save**.
 
-   :::image type="content" source="./media/concepts-logical/client-replrule.png" alt-text="Azure Database for PostgreSQL - Replication - Add firewall rule":::
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database for PostgreSQL - Replication - Add firewall rule":::
 
 ## Start logical decoding
 

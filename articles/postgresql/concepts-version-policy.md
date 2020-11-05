@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/05/2020
 ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy

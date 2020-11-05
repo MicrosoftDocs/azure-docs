@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020 
+ms.date: 11/05/2020 
 ms.custom: devx-track-azurecli
 ---
 

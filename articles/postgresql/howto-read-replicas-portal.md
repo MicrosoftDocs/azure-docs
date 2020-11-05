@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/05/2020
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
