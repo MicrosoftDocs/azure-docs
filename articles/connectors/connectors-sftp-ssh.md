@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 11/02/2020
+ms.date: 11/03/2020
 tags: connectors
 ---
 
@@ -257,21 +257,23 @@ If you can't avoid or delay moving the file, you can skip reading the file's met
 
 1. If you need this file metadata later, you can use the **Get file metadata** action.
 
+<a name="connection-attempt-failed"></a>
+
 ### 504 error: "A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond" or "Request to the SFTP server has taken more than '00:00:30' seconds"
 
-This error can happen when the logic app is not able to successfully establish a connection with the SFTP server. There could be a number of different reasons and we suggest troubleshooting the issue from the following aspects. 
+This error can happen when your logic app can't successfully establish a connection with the SFTP server. There might be different reasons for this problem, so try these troubleshooting options:
 
-1. The connection time out is 20 seconds. Please make sure the SFTP server has good performance and intermidiate devices like firewall do not add much overhead. 
+* The connection timeout is 20 seconds. Check that your SFTP server has good performance and intermediate devices, such as firewalls, aren't adding overhead. 
 
-2. If there is a firewall involved, please make sure that the **Managed connector IP** addresses are added to the approved list. You can find these IP addresses for your logic app region [**here**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+* If you have a firewall set up, make sure that you add the **Managed connector IP** addresses to the approved list. To find the IP addresses for your logic app's region, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
 
-3. If this is intermittent issue, please test the retry setting to see whether a higher retry count than the default 4 may help.
+* If this error happens intermittently, change the **Retry policy** setting on the SFTP-SSH action to a retry count higher than the default four retries.
 
-4. Please check whether SFTP server puts a limit on the number of connections from each IP address. If so, you may need to limit the number of concurrent logic app instances. 
+* Check whether SFTP server puts a limit on the number of connections from each IP address. If a limit exists, you might have to limit the number of concurrent logic app instances.
 
-5. Increasing the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to like 1 hour in the SSH configuration on your SFTP server to reduce connection establishment cost.
+* To reduce connection establishment cost, in the SSH configuration for your SFTP server, increase the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to around one hour.
 
-6. You can check SFTP server log to see whether the request from logic app ever reached the SFTP server. You may also take some network trace on your firewall and your SFTP server to dig further into connectivity issue.
+* Review the SFTP server log to check whether the request from logic app reached the SFTP server. To get more information about the connectivity problem, you can also run a network trace on your firewall and your SFTP server.
 
 ## Connector reference
 

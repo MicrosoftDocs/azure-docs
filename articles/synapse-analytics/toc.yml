@@ -14,8 +14,9 @@
   - name: Release notes
     href: release-notes.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Introduction
+  - name: Get started
     href: get-started.md
     displayName: get, started, quickstart
   - name: 1 Create a Synapse workspace
@@ -557,6 +558,8 @@
     items:
     - name: Load data into SQL pools using copy activity
       href: quickstart-copy-activity-load-sql-pool.md
+    - name: Transform data using mapping data flows
+      href: quickstart-data-flow.md
   - name: Concepts
     items:
     - name: Pipeline and activity

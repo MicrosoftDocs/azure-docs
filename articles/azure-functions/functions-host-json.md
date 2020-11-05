@@ -352,7 +352,7 @@ Configuration settings can be found in [Storage queue triggers and bindings](fun
 
 ## retry
 
-Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies) options for all executions in the app.
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) options for all executions in the app.
 
 ```json
 {
