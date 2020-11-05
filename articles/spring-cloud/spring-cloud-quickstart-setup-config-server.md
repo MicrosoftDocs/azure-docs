@@ -82,11 +82,11 @@ The following procedure explains how to troubleshoot config server settings.
 
 3. Click **Config Server Health Check**.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+    ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
 4. Click **Config Server Status** to see more details from the detector.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
+    ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## Next steps
 
