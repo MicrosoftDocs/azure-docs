@@ -126,7 +126,7 @@ Horizon's sizing methodology on a host running in Azure VMware Solution is simpl
 
 ### Sizing tables
 
-The tables show the sizing of common VDI profiles for Azure VMware Solution for login VSI workloads.  
+The tables show the common workloads for Login VSI Knowledge Worker workloads and Power Worker workloads.
 
 #### Knowledge worker workloads
 
