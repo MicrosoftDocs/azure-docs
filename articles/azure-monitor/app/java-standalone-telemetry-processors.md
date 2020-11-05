@@ -6,7 +6,7 @@ ms.date: 10/29/2020
 
 ---
 
-# Telemetry processors for Azure Monitor Application Insights Java (preview)
+# Telemetry processors (preview) for Azure Monitor Application Insights Java
 
 > [!NOTE]
 > This feature is still under preview.
