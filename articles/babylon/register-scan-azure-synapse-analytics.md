@@ -31,7 +31,7 @@ Navigate to your Babylon catalog.
 
 4. **Register sources** appears. Select a source name of your choice.
 
-![Screenshot showing registration of source](./media/register-scan-azure-synapse-analytics/register.png)
+:::image type="content" source="./media/register-scan-azure-synapse-analytics/register.png" alt-text="Screenshot showing registration of source":::
 
 ## Set up authentication for a scan
 1. Set up authentication for Azure Synapse Analytics using Azure subscription or manually.

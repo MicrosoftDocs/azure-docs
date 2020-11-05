@@ -36,7 +36,7 @@ The supported Authentication mechanism for Azure Cosmos Database (SQL API) is **
 Enter the storage account key manually as shown in screenshot below. The account key can be found at Settings--> Keys on Cosmos DB account on Azure portal. Click on "Test connection" to verify if the connection is successful.
 
 
-![Screenshot showing service principal authorization](./media/register-scan-azure-cosmos-database/service-principal-auth.png)
+:::image type="content" source="./media/register-scan-azure-cosmos-database/service-principal-auth.png" alt-text="Screenshot showing service principal authorization":::
 
 ## Create and run a scan
 After you have entered storage account key , select Continue. 
@@ -44,7 +44,7 @@ After you have entered storage account key , select Continue.
 **Scope your scan**
 The next screen here is to scope the scan. Please select the folders you want to scan and select continue (by default all the folders will be selected)
 
-![Screenshot scope scans](./media/register-scan-azure-cosmos-database/scope-scan.png)
+:::image type="content" source="./media/register-scan-azure-cosmos-database/scope-scan.png" alt-text="Screenshot scope scans":::
 
 The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
@@ -58,12 +58,12 @@ You can also set up a trigger on a weekly cadence with an option to choose the d
 **Set scan rule set**
 Select a scan rule set to be used by your scan from the list of available
 
-![Screenshot showing scan rule set](./media/register-scan-azure-cosmos-database/select-scan-rule-set.png)
+:::image type="content" source="./media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set":::
 
 **Review your scan**
 When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
 
-![Screenshot showing review your scan](./media/register-scan-azure-cosmos-database/review-save-run.png)
+:::image type="content" source="./media/register-scan-azure-cosmos-database/review-save-run.png" alt-text="Screenshot showing review your scan":::
 
 **Edit a scan**
 Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
