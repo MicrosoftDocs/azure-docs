@@ -26,8 +26,6 @@ When VNet peering support is configured, Azure Bastion can be deployed in hub-an
 
 Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same VNet, as well as peered VNets. Because VNet peering is supported, you can consolidate Bastion deployment to single VNet and still reach VMs deployed in a peered VNet. This centralizes the overall deployment.
 
-:::image type="content" source="./media/vnet-peering/old/design.png" alt-text="Design and Architecture diagram":::
-
 :::image type="content" source="./media/vnet-peering/design.png" alt-text="Design and Architecture diagram":::
 
 This figure shows the architecture of an Azure Bastion deployment in a hub-and-spoke model. In this diagram you can see the following configuration:
