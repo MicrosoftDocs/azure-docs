@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 11/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
@@ -329,6 +329,51 @@ When removing indexes and immediately running queries the have filters on the dr
 
 > [!NOTE]
 > You can [track index progress](#track-index-progress).
+
+## reIndex command
+
+The `reIndex` command will recreate all indexes on a collection. In most cases, this is unnecessary. However, in some rare cases, query performance may improve after running the `reIndex` command.
+
+You can run the `reIndex` command using the following syntax:
+
+`db.runCommand({ reIndex: <collection> })`
+
+You can use the below syntax to check if you need to run the `reIndex` command:
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+Sample output:
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+If `reIndex` is necessary, **requiresReIndex** will be true. If `reIndex` isn't necessary, this property will be omitted.
 
 ## Migrate collections with indexes
 
