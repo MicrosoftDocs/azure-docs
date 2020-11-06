@@ -31,6 +31,8 @@ To try out the Form Recognizer Invoice Service go the the [Sample Labeling Tool 
 
 You will need an Azure subscription [Create one for free](https://azure.microsoft.com/free/cognitive-services) and a [Form Recognzier resoruce](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
+![Analayzed invoice example](./media/analyze-invoice.png)
+
 ### Fields extracted:
 Following are the fields extracted from an invoice in the JSON output response:  
 
