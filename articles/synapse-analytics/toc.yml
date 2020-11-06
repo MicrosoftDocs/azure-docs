@@ -52,13 +52,13 @@
   #   items:
   - name: Quickstarts
     items:
-    - name: Create a Synapse workspace using the Azure portal
+    - name: Create a workspace using Azure portal
       href: quickstart-create-workspace.md
       displayName: quickstart
-    - name: Create a Synapse workspace using Azure CLI
+    - name: Create a workspace using Azure CLI
       href: quickstart-create-workspace-cli.md
       displayName: quickstart
-    - name: Create a Synapse workspace using Azure PowerShell
+    - name: Create a workspace using Azure PowerShell
       href: quickstart-create-workspace-powershell.md
       displayName: quickstart
     - name: Deploy with a template
