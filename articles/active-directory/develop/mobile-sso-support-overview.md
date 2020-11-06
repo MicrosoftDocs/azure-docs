@@ -27,7 +27,7 @@ This article explains why SSO and APP are important and provides the high-level 
 
 In addition, enabling single sign-on in your app unlocks new authentication mechanisms that come with modern authentication, like [passwordless logins](../authentication/concept-authentication-passwordless.md). Usernames and passwords are one of the most popular attack vectors against applications, and enabling SSO allows you to mitigate this risk by enforcing conditional access or passwordless logins that add additional security or rely on more secure authentication mechanisms. Finally, enabling single sign-on also enables [single sign-out](v2-protocols-oidc.md#single-sign-out). This is useful in situations like work applications that will be used on shared devices.
 
-[App protection policies (APP)](/mem/intune/apps/app-protection-policy) ensure that an organization's data remains safe and contained. They allow companies to manage and protect their data within an app and allow control over who can access the app and its data. Implementing app protection policies enables your app to connect users to resources protected by Conditional Access policies and securely transfer data to and from other protected apps. Scenarios unlocked by app protection policies include requiring a PIN to open an app, controlling the sharing of data between apps, and preventing company app data from being saved to a personal storage location on the device.
+[App protection policies (APP)](/mem/intune/apps/app-protection-policy) ensure that an organization's data remains safe and contained. They allow companies to manage and protect their data within an app and allow control over who can access the app and its data. Implementing app protection policies enables your app to connect users to resources protected by Conditional Access policies and securely transfer data to and from other protected apps. Scenarios unlocked by app protection policies include requiring a PIN to open an app, controlling the sharing of data between apps, and preventing company app data from being saved to personal storage locations.
 
 ## Implementing single sign-on
 
@@ -44,7 +44,7 @@ If you're currently using the [ADAL library](../azuread-dev/active-directory-aut
 
 For iOS applications, we have a [quickstart](quickstart-v2-ios.md) that shows you how to set up sign-ins using MSAL, as well as [guidance for configuring MSAL for various SSO scenarios](single-sign-on-macos-ios.md).
 
-For Android applications, we have a [quickstart](quickstart-v2-android.md) that shows you how to set up sign-ins using MSAL, and guidance for using [brokered authentication](brokered-auth.md) or [authorization agents](authorization-agents.md).
+For Android applications, we have a [quickstart](quickstart-v2-android.md) that shows you how to set up sign-ins using MSAL, and guidance for [how to enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md).
 
 ### Use the system web browser
 

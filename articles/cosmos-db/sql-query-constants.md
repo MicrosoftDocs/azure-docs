@@ -3,6 +3,7 @@ title: SQL constants in Azure Cosmos DB
 description: Learn about how the SQL query constants in Azure Cosmos DB are used to represent a specific data value
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
@@ -10,6 +11,7 @@ ms.author: tisande
 ---
 
 # Azure Cosmos DB SQL query constants  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  A constant, also known as a literal or a scalar value, is a symbol that represents a specific data value. The format of a constant depends on the data type of the value it represents.  
   

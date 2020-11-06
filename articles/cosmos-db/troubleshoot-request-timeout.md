@@ -3,6 +3,7 @@ title: Troubleshoot Azure Cosmos DB service request timeout exceptions
 description: Learn how to diagnose and fix Azure Cosmos DB service request timeout exceptions.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
@@ -10,6 +11,8 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB request timeout exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Azure Cosmos DB returned an HTTP 408 request timeout.
 
 ## Troubleshooting steps

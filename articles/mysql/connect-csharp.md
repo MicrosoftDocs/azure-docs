@@ -269,6 +269,16 @@ namespace AzureMySqlExample
 }
 ```
 
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Migrate your MySQL database to Azure Database for MySQL using dump and restore](concepts-migrate-dump-restore.md)

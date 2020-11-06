@@ -9,7 +9,7 @@ ms.date: 04/16/2020
 
 ---
 
-# Java codeless application monitoring on-premises - Azure Monitor Application Insights - public preview
+# Java codeless application monitoring on-premises - Azure Monitor Application Insights
 
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 

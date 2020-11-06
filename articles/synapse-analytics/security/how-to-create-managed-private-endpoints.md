@@ -16,12 +16,11 @@ This article will teach you how to create a Managed private endpoint to your dat
 
 ## Step 1: Open your Azure Synapse workspace in Azure portal
 
-You can create a Managed private endpoint to your data source from Azure Synapse Studio. Select the **Overview** tab in Azure portal and select **Launch Synapse Studio**.
-![Launch Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+You can create a Managed private endpoint to your data source from Azure Synapse Studio. Select the **Overview** tab in Azure portal and select **Open** on the Open Synapse Studio card in the Getting started section.
 
 ## Step 2: Navigate to the Managed Virtual Networks tab in Synapse Studio
 
-In Azure Synapse Studio, select the **Manage** tab from the left navigation. Select **Managed Virtual Networks** and then select **+ New**.
+In Azure Synapse Studio, select the **Manage** tab from the left navigation. Select **Managed private endpoints** and then select **+ New**.
 ![Create a new Managed private endpoint](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## Step 3: Select the data source type
