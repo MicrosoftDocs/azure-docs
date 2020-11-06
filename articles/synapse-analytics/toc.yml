@@ -356,6 +356,12 @@
         displayname: workload, management
   - name: How-to guides
     items:
+    - name: Backup and restore
+      items:
+      - name: Create restore points
+        href: ./backuprestore/sqlpool-create-restore-point.md
+      - name: Restore a Synapse SQL pool
+        href: ./backuprestore/restore-sql-pool.md
     - name: Manage and monitor
       items:
       - name: Monitor Gen2 cache
