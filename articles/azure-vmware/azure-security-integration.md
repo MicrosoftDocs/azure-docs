@@ -142,7 +142,7 @@ After connecting different sources to Azure Sentinel, you can create rules to ge
 
     Select **Next: Set rule logic >**.
 
-5. On the **Set rule logic** tab, enter the following information.
+5. On the **Set rule logic** tab, enter the required information.
 
     - Rule query
     
