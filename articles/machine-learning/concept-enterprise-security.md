@@ -121,6 +121,7 @@ The `hbi_workspace` flag controls the amount of [data Microsoft collects for dia
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
+* Please note compute instances are not supported in HBI workspace
 
 #### Azure Blob storage
 
