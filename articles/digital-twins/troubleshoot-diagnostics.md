@@ -32,7 +32,7 @@ You can query the logs for your Azure Digital Twins instance to view specific lo
 
     You can also close the *Queries* window without running anything to go straight to the query editor page, where you can write or edit custom query code.
 
-3. After existing the *Queries* window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
+3. After exiting the *Queries* window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
     :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance. The Queries window is gone, and instead there is a list of different logs, an edit pane showing editable query code, and a pane showing Queries History." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
 
     In the left pane, 
