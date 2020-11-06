@@ -33,12 +33,12 @@ The following limits are common across all tiers.
 The following table shows limits that may be different for basic and standard tiers. 
 
 | Limit | Notes | Basic | Standard |
-| --- |  --- | -- | --- |
+|---|---|--|---|
 | Maximum size of Event Hubs event| &nbsp; | 256 KB | 1 MB |
 | Number of consumer groups per event hub | &nbsp; |1 |20 |
 | Number of AMQP connections per namespace | Subsequent requests for additional connections are rejected, and an exception is received by the calling code. |100 |5,000|
 | Maximum retention period of event data | &nbsp; |1 day |1-7 days |
-| Maximum throughput units |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 | 20 | 
+| Maximum throughput units |Exceeding this limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 | 20 | 
 
 ## Dedicated tier vs. standard tier
 The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
@@ -63,7 +63,7 @@ Refer to this [document](https://docs.microsoft.com/azure/event-hubs/event-hubs-
 
 ### Limits that are the same for **standard** and **dedicated** tiers 
 | Feature | Limit | 
-| --- |  --- | -- |
+|---|---|--|
 | Maximum length of a schema group name | 50 |  
 | Maximum length of a schema name | 100 |    
 | Size in bytes per schema | 1 MB |   
@@ -75,9 +75,9 @@ Refer to this [document](https://docs.microsoft.com/azure/event-hubs/event-hubs-
 ### Limits that are different for **standard** and **dedicated** tiers 
 
 | Limit | Standard | Dedicated | 
-| --- |  --- | -- | --- |
+|---|---|--|---|
 | Size of the schema registry (namespace) in mega bytes | 25 |  1024 |
-| Number of schema groups in a schema registry (namespace)| 1 (excluding the default one) | 1000 |
+| Number of schema groups in a schema registry or namespace | 1 - excluding the default group | 1000 |
 | Number of schema versions across all schema groups | 25 | 10000 |
 
 

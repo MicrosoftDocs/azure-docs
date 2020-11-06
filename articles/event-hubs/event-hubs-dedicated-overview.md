@@ -7,9 +7,13 @@ ms.date: 10/23/2020
 
 # Overview of Event Hubs Dedicated
 
-*Event Hubs clusters* offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our Dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the Dedicated cluster include all features of the Standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to Azure Storage or Azure Data Lake. 
+*Event Hubs clusters* offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our Dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the Dedicated cluster include all features of the Standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost. This feature allows you to automatically batch and log data streams to Azure Storage or Azure Data Lake. 
 
-Clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on a variety of factors, such as the number of producers and consumers, payload shape, egress rate (see benchmark results below for more details). 
+Clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on a variety of factors, such as the following ones: 
+
+- Number of producers and consumers
+- Payload shape
+- Egress rate
 
 > [!NOTE]
 > All Event Hubs clusters are Kafka-enabled by default and support Kafka endpoints that can be used by your existing Kafka based applications. Having Kafka enabled on your cluster does not affect your non-Kafka use cases; there is no option or need to disable Kafka on a cluster.
@@ -20,18 +24,18 @@ Dedicated Event Hubs offers three compelling benefits for customers who need ent
 
 #### Single-tenancy guarantees capacity for better performance
 
-A Dedicated cluster guarantees capacity at full scale, and can ingress up to gigabytes of streaming data with fully durable storage and subsecond latency to accommodate any burst in traffic. 
+A dedicated cluster guarantees capacity at full scale. It can ingress up to gigabytes of streaming data with fully durable storage and subsecond latency to accommodate any burst in traffic. 
 
 #### Inclusive and exclusive access to features 
-The Dedicated offering includes features like Capture at no additional cost, and exclusive access to upcoming features like Bring Your Own Key (BYOK). The service also manages load balancing, OS updates, security patches, and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
+The Dedicated offering includes features like Capture at no additional cost, and exclusive access to upcoming features like Bring Your Own Key (BYOK). The service also manages load balancing, OS updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
 #### Cost Savings
 At high ingress volumes (>100 throughput units), a cluster costs significantly less per hour than purchasing a comparable quantity of throughput units in the Standard offering.
 
 
-## Event Hubs Dedicated Quotas and Limits
+## Event Hubs Dedicated quotas and limits
 
-The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
+The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The dedicated tier offers all the features of the standard plan, but with enterprise-scale capacity and limits for customers with demanding workloads. 
 
 | Feature | Standard | Dedicated |
 | --- |:---|:---|
