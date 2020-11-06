@@ -330,7 +330,7 @@ When removing indexes and immediately running queries the have filters on the dr
 > [!NOTE]
 > You can [track index progress](#track-index-progress).
 
-## reIndex command
+## ReIndex command
 
 The `reIndex` command will recreate all indexes on a collection. In most cases, this is unnecessary. However, in some rare cases, query performance may improve after running the `reIndex` command.
 
