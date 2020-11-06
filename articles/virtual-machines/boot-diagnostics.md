@@ -93,7 +93,8 @@ Everything after API version 2020-06-01 supports managed boot diagnostics. For m
 ```
 
 ## Limitations
-- Boot diagnostics is only available for Azure Resource Manager VMs. 
+- Boot diagnostics is only available for Azure Resource Manager VMs.
+- Managed boot diagnostics does not support VMs using unmanaged OS disks.
 - Boot diagnostics does not support premium storage accounts, if a premium storage account is used for boot diagnostics users will receive an `StorageAccountTypeNotSupported` error when starting the VM. 
 - Managed storage accounts are supported in Resource Manager API version "2020-06-01" and later.
 - Azure Serial Console is currently incompatible with a managed storage account for boot diagnostics. Learn more about [Azure Serial Console](./troubleshooting/serial-console-overview.md).
