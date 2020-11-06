@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
 ---
 
@@ -54,9 +54,15 @@ The best practice is to create a new subnet for each cache. You can create a new
 The cache needs DNS to access resources outside of its virtual network. Depending on which resources you are using, you might need to set up a customized DNS server and configure forwarding between that server and Azure DNS servers:
 
 * To access Azure Blob storage endpoints and other internal resources, you need the Azure-based DNS server.
-* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames.
+* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames. You must do this before you create the cache.
 
 If you only need access to Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to other resources, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server.
+
+To use a custom DNS server, you need to do these setup steps before you create your cache:
+
+* Create the DNS server.
+* Create the virtual network that will host the Azure HPC Cache.
+* Add the DNS server to the cache's virtual network from the Azure portal.
 
 A simple DNS server also can be used to load balance client connections among all the available cache mount points.
 
