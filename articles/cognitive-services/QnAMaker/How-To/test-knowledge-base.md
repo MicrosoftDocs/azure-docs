@@ -115,7 +115,7 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 
 You can test the published version of knowledge base in the test pane. Once you have published the KB, select the **Published KB** box and send a query to get results from the published KB.
 
-![Test against a published KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Test against a published KB](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## Batch test with tool
 
