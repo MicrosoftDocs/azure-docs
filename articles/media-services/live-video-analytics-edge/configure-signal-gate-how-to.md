@@ -27,14 +27,14 @@ Suppose you want to record video every time the front door of your building open
 - Last at least *Y* seconds if the door isn't opened again. 
 - Last at most *Z* seconds if the door is repeatedly opened. 
  
-You know that your door sensor has a latency of *K* seconds. To decrease the chance of events being disregarded ("late arrivals"), you want to allow at least *K* seconds for the events to arrive.
+You know that your door sensor has a latency of *K* seconds. To reduce the chance of events being disregarded as late arrivals, you want to allow at least *K* seconds for the events to arrive.
 
 
 ## Solution
 
-***Modify signal gate processor parameters***
+To address the problem, modify your signal gate processor parameters.
 
-A signal gate processor is configured by four parameters:
+To configure a signal gate processor, use these four parameters:
 - Activation evaluation window
 - Activation signal offset
 - Minimum activation window
@@ -49,12 +49,12 @@ An event (event 1) that occurs before another event (event 2), based on media ti
 Correlation IDs are set for every event. These IDs are set from the initial event. They're sequential for each following event.
 
 > [!IMPORTANT]
-> Media time is based on the media time stamp of when an event occurs in the media. The sequence of events arriving at the signal gate might not reflect the sequence of events arriving in the media time.
+> Media time is based on the media time stamp of when an event occurs in the media. The sequence of events that arrive at the signal gate might not reflect the sequence of events that arrive in media time.
 
 
 ### Parameters, based on the physical time that events arrive at the signal gate
 
-* **minimumActivationTime (shortest possible duration of a recording)**: The minimum number of seconds that the signal gate processor remains open after it's triggered to receive new events, unless it's interrupted by the **maximumActivationTime**.
+* **minimumActivationTime (shortest possible duration of a recording)**: The minimum number of seconds that the signal gate processor remains open after it's triggered to receive new events, unless it's interrupted by the maximumActivationTime.
 * **maximumActivationTime (longest possible duration of a recording)**: The maximum number of seconds from the initial event that the signal gate processor remains open after being triggered to receive new events, regardless of what events are received.
 * **activationSignalOffset**: The number of seconds between the activation of the signal gate processor and the start of the video recording. Typically, this value is negative because it starts the recording before the triggering event.
 * **activationEvaluationWindow**: Starting from the initial triggering event, the number of seconds in which an event that occurred before the initial event, in media time, must arrive at the signal gate processor before it's disregarded and considered a late arrival.
@@ -73,7 +73,7 @@ Correlation IDs are set for every event. These IDs are set from the initial even
 * **maximumActivationTime**: 1 second to 1 hour
 
 
-Based on the use case, you would set the parameters as follows:
+In the use case, you would set the parameters as follows:
 
 * **activationEvaluationWindow**: *K* seconds
 * **activationSignalOffset**: *-X* seconds
@@ -118,9 +118,9 @@ Here's an example of how the **Signal Gate Processor** node section would look i
 Now consider how this signal gate processor configuration will behave in different recording scenarios.
 
 
-**1 event from 1 source (*normal activation*)**
+**One event from one source (*normal activation*)**
 
-A signal gate processor that receives one event results in a recording that starts the activation signal offset 5 seconds before the event arrives at the gate. The remainder of the recording has a minimum activation time that's 20 seconds long because no other events arrive before the end of the minimum activation time to retrigger the gate.
+A signal gate processor that receives one event results in a recording that starts the activation signal offset 5 seconds before the event arrives at the gate. The rest of the recording has a minimum activation time that's 20 seconds long because no other events arrive before the end of the minimum activation time to retrigger the gate.
 
 Example diagram:
 > [!div class="mx-imgBorder"]
@@ -129,9 +129,9 @@ Example diagram:
 * Duration of recording = -offset + minimumActivationTime = [E1+offset, E1+minimumActivationTime]
 
 
-**2 events from 1 source (*retriggered activation*)**
+**Two events from one source (*retriggered activation*)**
 
-A signal gate processor that receives two events results in a recording that starts the activation signal offset 5 seconds before the first event arrives at the gate. The second event arrives 5 seconds after the first event, which is before the minimum activation time of 20 seconds from the end of the first event. So the gate is retriggered to stay open. The remainder of the recording has a minimum activation time that's 20 seconds long because no other events arrive before the end of the minimum activation time from the second event to retrigger the gate again.
+A signal gate processor that receives two events results in a recording that starts the activation signal offset 5 seconds before the first event arrives at the gate. The second event arrives 5 seconds after the first event, which is before the minimum activation time of 20 seconds from the end of the first event. So the gate is retriggered to stay open. The rest of the recording has a minimum activation time that's 20 seconds long because no other events arrive before the end of the minimum activation time from the second event to retrigger the gate again.
 
 Example diagram:
 > [!div class="mx-imgBorder"]
@@ -140,7 +140,7 @@ Example diagram:
 * Duration of recording = -offset + (arrival of second event - arrival of first event) + minimumActivationTime
 
 
-***N* events from 1 source (*maximum activation*)**
+***N* events from one source (*maximum activation*)**
 
 A signal gate processor that receives *N* events results in a recording that starts the activation signal offset 5 seconds before the first event arrives at the gate. As each event arrives before the end of the minimum activation time of 20 seconds from the previous event, the gate is continuously retriggered. It remains open until the maximum activation time of 40 seconds after the first event. Then the gate closes and no longer accepts any new events.
 
@@ -155,7 +155,7 @@ Example diagram:
 
 ## Next steps
 
-Try out the the [Event-based video recording tutorial](event-based-video-recording-tutorial.md). Start by editing the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json). Then modify the parameters for the signalgateProcessor node, and follow the rest of the tutorial. Review the video recordings to analyze the effect of the parameters.
+Try out the [Event-based video recording tutorial](event-based-video-recording-tutorial.md). Start by editing the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json). Modify the parameters for the signalgateProcessor node, and then follow the rest of the tutorial. Review the video recordings to analyze the effect of the parameters.
 
 
 
