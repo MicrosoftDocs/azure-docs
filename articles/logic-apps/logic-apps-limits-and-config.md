@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 11/06/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps

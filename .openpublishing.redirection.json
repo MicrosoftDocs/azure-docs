@@ -9139,11 +9139,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode",
-      "redirect_url": "/azure/logic-apps/logic-apps-limits-and-config#run-high-throughput-mode",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps"
     },
