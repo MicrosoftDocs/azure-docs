@@ -28,7 +28,7 @@ Designing, building, and testing Azure application offers requires technical kno
 
 Review the following resources as you plan your Azure application offer for the commercial marketplace.
 
-- [Understand Azure Resource Manager Templates](/azure/azure-resource-manager/resource-group-authoring-templates.md)
+- [Understand Azure Resource Manager Templates](/azure/azure-resource-manager/templates/template-syntax.md)
 - Quickstarts:
     - [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     - [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -66,11 +66,11 @@ We recommend adding the following tools to your development environment:
     - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     - Extension: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
-You can review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page. Also if you are using Visual Studio, the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+You can review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page. If you are using Visual Studio, see the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
 ## Listing options
 
-After your offer is published, the listing options for your offer appear as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the _Get It Now_ button. If you had chosen to offer a test drive, the Test Drive button would also be shown.
+After your offer is published, the listing options for your offer appear as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the _Get It Now_ button. If you had chosen to offer a test drive, the _Test Drive_ button would also be shown.
 
 :::image type="content" source="media/create-new-azure-app-offer/azure-app-listing-page.png" alt-text="Illustrates a listing page on Azure Marketplace.":::
 

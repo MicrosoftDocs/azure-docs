@@ -22,7 +22,7 @@ Under **Categories**, select the **Categories** link and then choose at least on
 
 ## Provide terms and conditions
 
-Under Legal, provide terms and conditions for your offer. You have two options:
+Under **Legal**, provide terms and conditions for your offer. You have two options:
 
 - [Use the standard contract with optional amendments](#use-the-standard-contract)
 - [Use your own terms and conditions](#use-your-own-terms-and-conditions)

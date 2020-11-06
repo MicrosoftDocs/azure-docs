@@ -104,7 +104,8 @@ Under **Plan visibility**, do one of the following:
 
 On the **Technical configuration** tab, you’ll upload the deployment package that lets customers deploy your plan and provide a version number for the package. You’ll also provide other technical information.
 
-This tab won’t be visible if you chose to re-use packages from another plan on the **Plan setup** tab. If so, go to [View your plans](#view-your-plans).
+> [!NOTE]
+> This tab won’t be visible if you chose to re-use packages from another plan on the **Plan setup** tab. If so, go to [View your plans](#view-your-plans).
 
 ### Assign a version number for the package
 
@@ -115,9 +116,7 @@ In the **Version** box provide the current version of the technical configuratio
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 
 > [!NOTE]
-> If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
-
-If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+> If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 
 #### Previously published packages
 
@@ -147,7 +146,7 @@ In the **Notification Endpoint URL** box, provide an HTTPS Webhook endpoint to r
 
 ### Choose who can manage the application
 
-Indicate who should have management access to this managed application in each selected Azure region: _Public Azure_ and _Azure Government Cloud_. You will use Azure AD identities to identify the users, groups, or applications that you want to grant permission to the managed resource group. For more information, see Plan an Azure managed application for an Azure Application offer.
+Indicate who should have management access to this managed application in each selected Azure region: _Public Azure_ and _Azure Government Cloud_. You will use Azure AD identities to identify the users, groups, or applications that you want to grant permission to the managed resource group. For more information, see [Plan an Azure managed application for an Azure Application offer](plan-azure-application-offer.md).
 
 Complete the following steps for Public Azure and Azure Government Cloud, as applicable.
 

@@ -59,7 +59,7 @@ Select **Save draft** before continuing to the next section: Define the technica
 On the **Technical configuration** tab, you’ll upload the deployment package that lets customers deploy your plan and provide a version number for the package.
 
 > [!NOTE]
-> This tab won’t be visible if you chose to re-use packages from another plan on the Plan setup tab. If so, go to [View your plans](#view-your-plans).
+> This tab won’t be visible if you chose to re-use packages from another plan on the **Plan setup** tab. If so, go to [View your plans](#view-your-plans).
 
 ### Assign a version number for the package
 
