@@ -22,7 +22,7 @@ Access tokens enable clients to securely call protected web APIs, and are used b
 
 Clients must treat access tokens as opaque strings because the contents of the token are intended for the resource (the API) only. For validation and debugging purposes *only*, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Be aware, however, that the tokens you receive for a Microsoft API might not always be a JWT, and that you can't always decode them. 
 
-For details on what is inside the access token, clients should use the token response data that's returned with the access token to your client. When your client requests an access token, Microsoft identity platform also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
+For details on what's inside the access token, clients should use the token response data that's returned with the access token to your client. When your client requests an access token, the Microsoft identity platform also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
 
 See the following sections to learn how your API can validate and use the claims inside an access token.  
 
