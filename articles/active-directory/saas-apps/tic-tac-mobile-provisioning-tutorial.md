@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Tic-Tac Mobile to support provisioning with Azure AD
 
-Contact support@tictacmobile.com to get your **Tenant URL** and **Secret Token**. You must have a super admin role in Tic-Tac Mobile to receive a token. The token will be entered in the **Secret Token** box on the **Provisioning** tab of your Tic-tac Mobile application in the Azure portal.
+Contact support@tictacmobile.com to get your **Tenant URL** and **Secret Token**. You must have a super admin role in Tic-Tac Mobile to receive a token. The token will be entered in the **Secret Token** box on the **Provisioning** tab of your Tic-Tac Mobile application in the Azure portal.
 
 ## Step 3. Add Tic-Tac Mobile from the Azure AD application gallery
 
