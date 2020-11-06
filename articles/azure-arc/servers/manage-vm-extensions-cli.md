@@ -16,7 +16,7 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 To enable a VM extension on your Arc enabled server, use [az connectedmachine machine-extension create](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_create) with the `--machine-name`, `--extension-name`, `--location`, `--type`, `settings`, and `--publisher` parameters.
 
-The following example enables the Log Analytics VM extension on a Arc enabled Linux server:
+The following example enables the Log Analytics VM extension on an Arc enabled Linux server:
 
 ```azurecli
 az connectedmachine machine-extension create --machine-name "myMachineName" --name "OmsAgentforLinux" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.EnterpriseCloud.Monitoring" --settings "{\"workspaceId\":\"workspaceId"}" --protected-settings "{\workspaceKey\":"\workspaceKey"} --type-handler-version "1.10" --resource-group "myResourceGroup"

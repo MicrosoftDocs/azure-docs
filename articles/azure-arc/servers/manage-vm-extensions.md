@@ -62,6 +62,8 @@ This feature depends on the following Azure resource providers in your subscript
 
 If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
 
+### Log Analytics VM extension
+
 The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
 
 ### Azure Key Vault VM extension (preview)
