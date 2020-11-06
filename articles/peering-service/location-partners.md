@@ -1,13 +1,14 @@
+---
 title: Azure Peering Service locations and partners
 description: Learn about Azure Peering Service locations and partners
 services: peering-service
 author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.author: derekol
 ---
 
