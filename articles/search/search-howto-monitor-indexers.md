@@ -128,7 +128,7 @@ For more details about status codes and indexer monitoring data, see [GetIndexer
 
 ## Monitor using the .NET SDK
 
-You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **Schedule** property when creating or updating an Indexer.
 
 The following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
 
