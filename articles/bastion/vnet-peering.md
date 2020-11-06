@@ -1,6 +1,6 @@
 ---
 title: 'VNet peering and Azure Bastion architecture'
-description: In this article, learn how VNet peering and Azure Bastion can be used to gether to connect to VMs.
+description: In this article, learn how VNet peering and Azure Bastion can be used together to connect to VMs.
 services: bastion
 author: cherylmc
 
@@ -22,9 +22,9 @@ Azure Bastion supports the following types of peering:
 
 ## Architecture
 
-When VNet peering support is configured, Azure Bastion can be deployed in hub-and-spoke or full-mesh topologies. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine. 
+When VNet peering support is configured, Azure Bastion can be deployed in hub-and-spoke or full-mesh topologies. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
 
-Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same VNet, as well as peered VNets. Because VNet peering is supported, you can consolidate Bastion deployment to single VNet with reachability to VMs deployed in a peered VNet. This centralizes the overall deployment.
+Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same VNet, as well as peered VNets. Because VNet peering is supported, you can consolidate Bastion deployment to single VNet and still reach VMs deployed in a peered VNet. This centralizes the overall deployment.
 
 :::image type="content" source="./media/vnet-peering/old/design.png" alt-text="Design and Architecture diagram":::
 
@@ -51,7 +51,7 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 
 ### If my peered VNets are deployed in different subscriptions, will connectivity via Bastion work?
 
-Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants is not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
+Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
 :::image type="content" source="./media/vnet-peering/global-subscriptions.png" alt-text="Design and Architecture diagram":::
 
@@ -62,7 +62,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network ( This is not needed if there is no peered virtual network ).
+* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
 
 |Permissions|Description|Permission type|
 |---|---| ---|
