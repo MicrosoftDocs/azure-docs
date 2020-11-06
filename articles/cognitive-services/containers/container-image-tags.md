@@ -155,6 +155,8 @@ Release note for `2.6.0-amd64`:
 * Fix the issue that confidence score was always 1 on Diarization mode
 * Migrate to the TextAnalytics 3.0 api
 
+Note that the size of this container image has increased. 
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
