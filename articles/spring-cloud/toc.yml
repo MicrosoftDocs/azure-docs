@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alerts and action groups
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Use IntelliJ to deploy apps
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Circuit Breaker Dashboard
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Provision an Azure Spring Cloud instance with terraform
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Use managed identity to connect Key Vault to Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Deploy Azure Spring Cloud in virtual network
@@ -77,6 +73,8 @@
           href: spring-cloud-howto-staging-environment.md
         - name: Launch Java app from source code
           href: spring-cloud-howto-launch-from-source.md
+        - name: Use IntelliJ to deploy apps
+          href: spring-cloud-tutorial-intellij-deploy-apps.md  
     - name: Configure
       items:
         - name: Start, stop, and delete an app
@@ -115,6 +113,8 @@
           href: spring-cloud-howto-github-actions.md
         - name: Auth with Key Vault in GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
+        - name: Provision an Azure Spring Cloud instance with terraform
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Troubleshoot
       items:
         - name: Self diagnose and solve problems
