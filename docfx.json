@@ -10,9 +10,24 @@
           "**/*.yml"
         ],
         "exclude": [
+          "iot-edge/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-iot-edge",
+        "src": "articles/iot-edge",
+        "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
         ]
       },
       {
@@ -26,11 +41,30 @@
             "**/_themes/**",
             "**/includes/**",
             "**/obj/**"
-          ]
+        ]
       }
     ],
     "resource": [
       {
+        "src": "articles",
+        "dest": ".",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "iot-edge/**",
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-iot-edge",
+        "src": "articles/iot-edge",
+        "dest": "./iot-edge/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -41,9 +75,7 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**"
-        ],
-        "src": "articles",
-        "dest": "."
+        ]
       },
       {
         "src": null,
@@ -56,11 +88,17 @@
           "includes/**/*.svg"
         ],
         "exclude": [
-            "**/_themes/**",
-            "**/obj/**"
-          ]
+          "**/_themes/**",
+          "**/obj/**"
+        ]
       }
     ],
+    "groups": {
+      "grp-iot-edge": {
+        "dest": "destiotedge",
+        "moniker_range": ">=iotedge-2018-06"
+      }
+    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -442,7 +480,7 @@
         "articles/azure-monitor/**/*.md": "carmonm",
         "articles/azure-relay/*.md": "femila",
         "articles/azure-sql/**/*.md": "jroth",
-        "articles/azure-sql-edge/**/*.md" : "jroth",
+        "articles/azure-sql-edge/**/*.md" : "jroth",
         "articles/azure-vmware/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm",
         "articles/batch/**/*.md": "evansma",
@@ -685,6 +723,9 @@
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer"
       },
+      "monikerRange": {
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+      },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
@@ -765,8 +806,8 @@
         "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-arc/**/*.md": "Azure Arc",
         "articles/azure-government/**/*.md": "Azure Government",
-        "articles/azure-monitor/**/*.md" : "Azure Monitor",
-        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md" : "Azure Monitor",
+        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-relay/*.md": "Azure Relay",
         "articles/azure-resource-manager/**/*.md": "Azure Resource Manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "Azure Custom Providers",
@@ -779,7 +820,7 @@
         "articles/azure-sql/managed-instance/**/*.yml": "Azure SQL Managed Instance",
         "articles/azure-sql/virtual-machines/**/*.md": "SQL Server on Azure VM",
         "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VM",
-        "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
+        "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
         "articles/batch/**/*.md": "Azure Batch",
