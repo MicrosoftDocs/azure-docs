@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
 ---
 # Troubleshoot capacity pool issues
@@ -33,7 +33,6 @@ This article describes resolutions to issues you might have when managing capaci
 |-|-|
 | Changing the capacity pool for a volume is not permitted. | You might not be authorized yet to use this feature. <br> The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first and set `-FeatureName ANFTierChange`. See the registration steps in [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md). |
 | The capacity pool size is too small for total volume size. |  The error is a result of the destination capacity pool not having the available capacity for the volume being moved.  <br> Increase the size of the destination pool, or choose another pool that is larger.  See [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| Cannot move a volume when the destination capacity pool has a different encryption type from the original capacity pool.  For example, you are moving from double encryption to single encryption, or vice versa.  | Select a destination capacity pool with the same encryption type as source capacity pool.   |
 |  The pool change cannot be completed because a volume called `'{source pool name}'` already exists in the target pool `'{target pool name}'` | This error occurs because the volume with same name already exists in the target capacity pool.  Select another capacity pool that does not have a volume with same name.   | 
 
 ## Next steps  
