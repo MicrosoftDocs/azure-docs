@@ -19,7 +19,7 @@ ms.reviewer: jrasnick
   - Data read while reading data.
   - Data read while reading metadata (for file formats that contain metadata, like Parquet).
 - Amount of data in intermediate results. This data is transferred among nodes while the query runs. It includes the data transfer to your endpoint, in an uncompressed format. 
-- Amount of data written to storage. If you use CETAS to export your result set to storage, then you're charged for the bytes written out and the amount of data processed for the SELECT part of CETAS.
+- Amount of data written to storage. If you use CETAS to export your result set to storage, then the amount of data written out is added to the amount of data processed for the SELECT part of CETAS.
 
 Reading files from storage is highly optimized. The process uses:
 
@@ -40,10 +40,10 @@ The amount of data processed is rounded up to the nearest MB per query. Each que
 
 ## What data processed doesn't include
 
-- Server-level metadata (like sign-ins, roles, and server-level credentials).
+- Server-level metadata (like logins, roles, and server-level credentials).
 - Databases you create in your endpoint. Those databases contain only metadata (like users, roles, schemas, views, inline table-valued functions [TVFs], stored procedures, database-scoped credentials, external data sources, external file formats, and external tables).
-  - If you use schema inference, then file fragments are read to infer column names and data types.
-- Data definition language (DDL) statements except CREATE STATISTICS because it processes data from storage based on the specified sample percentage.
+  - If you use schema inference, then file fragments are read to infer column names and data types, and the amount of data read is added to the amount of data processed.
+- Data definition language (DDL) statements, except for the CREATE STATISTICS statement because it processes data from storage based on the specified sample percentage.
 - Metadata-only queries.
 
 ## Reducing the amount of data processed
