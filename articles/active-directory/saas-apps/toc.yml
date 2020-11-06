@@ -768,6 +768,8 @@
         href: hosted-heritage-online-sso-tutorial.md
       - name: Hosted MyCirqa
         href: hosted-mycirqa-sso-tutorial.md
+      - name: HowNow WebApp SSO
+        href: hownow-webapp-sso-tutorial.md
       - name: Hoxhunt
         href: hoxhunt-tutorial.md
       - name: HPE SaaS
