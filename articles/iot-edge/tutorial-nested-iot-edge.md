@@ -12,7 +12,7 @@ services: iot-edge
 
 # Tutorial: Create a hierarchy of IoT Edge devices (Preview)
 
-Deploy Azure IoT Edge nodes across networks organized in hierarchical layers.
+Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it.
 
 >[!NOTE]
 >This feature requires IoT Edge version 1.2, which is in public preview.
@@ -53,7 +53,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 
 * Azure CLI v2.3.1 with the latest Azure IoT extension installed. This tutorial uses the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
 
-## Configure your IoT Edge device hierarchy in IoT Hub
+## Configure your IoT Edge device hierarchy
 
 ### Create a hierarchy of IoT Edge devices
 
@@ -75,13 +75,13 @@ The first step, creating your IoT Edge devices, can be done through the Azure po
 
 # [Azure CLI](#tab/azure-cli)
 
-1. In the [Azure Cloud Shell](https://shell.azure.com/), enter the following command to create an edge device in your hub. This device will be the edge top layer device, so enter an appropriate unique device ID:
+1. In the [Azure Cloud Shell](https://shell.azure.com/), enter the following command to create an IoT Edge device in your hub. This device will be the top layer device, so enter an appropriate unique device ID:
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id {top_layer_device_id} --edge-enabled --hub-name {hub_name}
    ```
 
-1. Enter the following command to create your child edge device and create the parent-child relationship between devices:
+1. Enter the following command to create your child IoT Edge device and create the parent-child relationship between devices:
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id {lower_layer_device_id} --edge-enabled --pd {top_layer_device_id} --hub-name {iothub_name}
@@ -194,11 +194,11 @@ Install IoT Edge by following these steps on both devices.
 
 Configure the IoT Edge runtime by following these steps on both your devices. Configuring the IoT Edge runtime for your devices consists of four steps, all accomplished by editing the IoT Edge configuration file:
 
-* Manually provision each device by providing adding that device's connection string to the configuration file.
+* Manually provision each device by adding that device's connection string to the configuration file.
 
-* Finish setting up your devices certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
+* Finish setting up your device's certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
 
-* Bootstrap the system using the IoT Edge Agent.
+* Bootstrap the system using the IoT Edge agent.
 
 * Update the **hostname** parameter for your **top layer** device, and update both the **hostname** parameter and **parent_hostname** parameter for your **lower layer** devices.
 
@@ -249,7 +249,7 @@ Complete these steps and restart the IoT Edge service to configure your devices.
    > [!NOTE]
    > For hierarchies with more than one lower layer, update the *parent_hostname* field with the FQDN of the device in the layer immediately above.
 
-1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the Edge Agent. In this case, we will point the top layer's IoT Edge Agent at the Azure Container Registry with the public preview version of IoT Edge Agent image available.
+1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the IoT Edge agent. In this case, we will point the top layer's IoT Edge agent at the Azure Container Registry with the public preview version of IoT Edge agent image available.
 
    ```yml
    agent:
@@ -448,7 +448,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
    }
    ```
 
-1. Enter the following command to create a set modules deployment to your top layer edge device:
+1. Enter the following command to create a deployment to your top layer edge device:
 
    ```azurecli-interactive
    az iot edge set-modules --device-id <top_layer_device_id> --hub-name <iot_hub_name> --content ./deploymentTopLayer.json
@@ -474,7 +474,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. Select **Runtime Settings**, next to the gear icon.
 
-1. Under **Edge Hub**, in the image field, enter `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Under **Edge Hub**, in the image field, enter `$upstream:8000/azureiotedge-hub:1.2.0-rc1`.
 
 1. Add the following environment variables to your Edge Hub module:
 
@@ -483,9 +483,11 @@ In the [Azure portal](https://ms.portal.azure.com/):
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Under **Edge Agent**, in the image field, enter `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1`. Select **Save**.
+1. Under **Edge Agent**, in the image field, enter `$upstream:8000/azureiotedge-agent:1.2.0-rc1`. Select **Save**.
 
 1. Add the temperature sensor module. Select **+ Add** and choose **Marketplace Module** from the dropdown. Search for `Simulated Temperature Sensor` and select the module.
+
+1. Under **IoT Edge Modules**, select the `Simulated Temperature Sensor` module you just added and update its image URI to point to `$upstream:8000/azureiotedge-simulated-temperature-sensor:1.0`.
 
 1. Select **Save**, **Review + create**, and **Create** to complete the deployment.
 
@@ -509,7 +511,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "modules": {
                        "simulatedTemperatureSensor": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:latest",
+                               "image": "$upstream:8000/azureiotedge-simulated-temperature-sensor:1.0",
                                "createOptions": ""
                            },
                            "type": "docker",
@@ -528,14 +530,14 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc1",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc1",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -575,7 +577,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 ---
 
-Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. Since this device is in a lower layer, it can't have direct connections to the cloud. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module, which handles the image pull.
+Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. We configured this device to not have direct connections to the cloud, because it's in a lower layer. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module, which handles the image pull.
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
