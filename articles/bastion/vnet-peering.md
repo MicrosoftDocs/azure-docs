@@ -34,7 +34,7 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
 * Centralized Network Security Group (NSG) is deployed.
 * A public IP is not required on the Azure VM.
 
-### Steps
+**Steps:**
 
 1. Connect to the Azure portal using any HTML5 browser.
 1. Select the virtual machine to connect to.
@@ -43,10 +43,10 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
 
    :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
 
-For more information about connecting to a VM via Azure Bastion, see:
+   For more information about connecting to a VM via Azure Bastion, see:
 
-* [Connect to a VM - RDP](bastion-connect-vm-rdp.md).
-* [Connect to a VM - SSH](bastion-connect-vm-ssh.md).
+   * [Connect to a VM - RDP](bastion-connect-vm-rdp.md).
+   * [Connect to a VM - SSH](bastion-connect-vm-ssh.md).
 
 ## FAQ
 
