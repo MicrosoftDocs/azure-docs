@@ -11,7 +11,6 @@ ms.date: 11/06/2020
 ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
-
 ---
 # Tutorial: Add a custom domain to your endpoint
 
@@ -21,7 +20,7 @@ The endpoint name in your CDN profile is a subdomain of azureedge.net. By defaul
 
 For example, **https://contoso.azureedge.net/photo.png**.
 
-Azure CDN provides the option of associating a custom domain with a CDN endpoint. This option delivers your content with a custom domain in your URL instead of the default domain.
+Azure CDN provides the option of associating a custom domain with a CDN endpoint. This option delivers content with a custom domain in your URL instead of the default domain.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -54,7 +53,9 @@ For Azure CDN, the source domain name is your custom domain name and the destina
 
 Azure CDN routes traffic addressed to the source custom domain to the destination CDN endpoint hostname after it verifies the CNAME record.
 
-A custom domain and its subdomain can be associated with a single endpoint at a time. Use multiple CNAME records to use different subdomains from the same custom domain for different Azure service endpoints.
+A custom domain and its subdomain can be associated with a single endpoint at a time. 
+
+Use multiple CNAME records for different subdomains from the same custom domain for different Azure services.
 
 You can map a custom domain with different subdomains to the same CDN endpoint.
 
@@ -63,7 +64,9 @@ You can map a custom domain with different subdomains to the same CDN endpoint.
 
 ## Map the temporary cdnverify subdomain
 
-When you map an existing domain that is in production, there are special considerations. While you're registering your custom domain in the Azure portal, a brief period of downtime for the domain can occur. 
+When you map an existing domain that is in production, there are special considerations. 
+
+A brief period of downtime for the domain can occur when registering your custom domain in the Azure portal.
 
 To avoid interruption of web traffic, map your custom domain to your CDN endpoint hostname with the Azure **cdnverify** subdomain. This process creates a temporary CNAME mapping. 
 
@@ -89,8 +92,7 @@ To create a CNAME record with the cdnverify subdomain:
     - Destination: Enter your CDN endpoint hostname, including the cdnverify subdomain, in the following format: **cdnverify.\<endpoint-name>.azureedge.net**. 
         - For example: **cdnverify.contoso.azureedge.net**
 
-4. Save your changes.
-
+3. Save your changes.
 
 ## Associate the custom domain with your CDN endpoint
 
@@ -125,24 +127,21 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
 ## Verify the custom domain
 
-After you have completed the registration of your custom domain, verify that the custom domain references your CDN endpoint.
+After you've completed the registration of your custom domain, verify that the custom domain references your CDN endpoint.
  
-1. Ensure that you have public content that is cached at the endpoint. For example, if your CDN endpoint is associated with a storage account, Azure CDN will cache the content in a public container. To test the custom domain, verify that your container is set to allow public access and contains at least one file.
+1. Ensure that you have public content that is cached at the endpoint. For example, if your CDN endpoint is associated with a storage account, Azure CDN will cache the content in a public container. Set your container to allow public access and it contains at least one file to test the custom domain.
 
-2. In your browser, navigate to the address of the file by using the custom domain. For example, if your custom domain is `www.contoso.com`, the URL to the cached file should be similar to the following URL: `http://www.contoso.com/my-public-container/my-file.jpg`. Verify that the result is that same as when you access the CDN endpoint directly at *&lt;endpoint hostname&gt;*.azureedge.net.
-
+2. In your browser, navigate to the address of the file by using the custom domain. For example, if your custom domain is `www.contoso.com`, the URL to the cached file should be similar to the following URL: `http://www.contoso.com/my-public-container/my-file.jpg`. Verify that the result is that same as when you access the CDN endpoint directly at **\<endpoint-hostname>**.azureedge.net.
 
 ## Map the permanent custom domain
 
-If you have verified that the cdnverify subdomain has been successfully mapped to your endpoint (or if you are using a new custom domain  that is not in production), you can then map the custom domain directly to your CDN endpoint hostname.
+In this section, you map the permanent custom domain to the CDN endpoint. 
 
 To create a CNAME record for your custom domain:
 
 1. Sign in to the web site of the domain provider for your custom domain.
 
-2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
-
-3. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names may vary):
+2. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names may vary):
 
     | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
@@ -156,23 +155,21 @@ To create a CNAME record for your custom domain:
     - Destination: Enter your CDN endpoint hostname in the following format: **\<endpoint-name>.azureedge.net**. 
         - For example: **contoso.azureedge.net**
 
-4. Save your changes.
+3. Save your changes.
 
-5. If you're previously created a temporary cdnverify subdomain CNAME record, delete it. 
+4. If you're previously created a temporary cdnverify subdomain CNAME record, delete it. 
 
-6. If you are using this custom domain in production for the first time, follow the steps for [Associate the custom domain with your CDN endpoint](#associate-the-custom-domain-with-your-cdn-endpoint) and [Verify the custom domain](#verify-the-custom-domain).
-
+5. If you're using this custom domain in production for the first time, follow the steps for [Associate the custom domain with your CDN endpoint](#associate-the-custom-domain-with-your-cdn-endpoint) and [Verify the custom domain](#verify-the-custom-domain).
 
 ## Clean up resources
 
-In the preceding steps, you added a custom domain to a CDN endpoint. If you no longer want to associate your endpoint with a custom domain, you can remove the custom domain by performing these steps:
+If you no longer want to associate your endpoint with a custom domain, remove the custom domain by doing the following steps:
  
 1. In your CDN profile, select the endpoint with the custom domain that you want to remove.
 
 2. From the **Endpoint** page, under Custom domains, right-click the custom domain that you want to remove, then select **Delete** from the context menu. Select **Yes**.
 
    The custom domain is disassociated from your endpoint.
-
 
 ## Next steps
 
