@@ -24,7 +24,7 @@ In both cases, these capabilities are limited to what IoT Hub can observe, so we
 
 ## Event Grid vs. Azure Monitor
 
-Event Grid provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure. Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alerts when that number drops below a static threshold.
+Event Grid provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure. Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when that number drops below a static threshold.
 
 Consider the following when deciding whether to use Event Grid or Azure Monitor for a particular scenario:
 
@@ -32,7 +32,7 @@ Consider the following when deciding whether to use Event Grid or Azure Monitor 
 
 * Per-device notifications: Event Grid provides the ability to track connects and disconnects for individual devices. This makes Event Grid a better choice for scenarios where you need to monitor the connections for critical devices.
 
-* Lightweight setup: Azure Monitor metric alerts provide a lightweight setup experience that doesn't require integrating with other services to deliver notifications through Email, SMS, Voice, and other notifications.  With Event Grid you need to integrate with other Azure services to deliver notifications. Both services can integrate with other services to trigger more complex actions.
+* Lightweight setup: Azure Monitor metric alerts provide a lightweight setup experience that doesn't require integrating with other services to deliver notifications through Email, SMS, Voice, and other notifications.  With Event Grid, you need to integrate with other Azure services to deliver notifications. Both services can integrate with other services to trigger more complex actions.
 
 Due to its low-latency, per-device capabilities, for production environments, we highly recommend using Event Grid to monitor connections. Of course, the choice is not exclusive, you can use both Azure Monitor metric alerts and Event Grid. Regardless of your choice for tracking disconnects, you will likely use Azure Monitor resource logs to help troubleshoot the reasons for unexpected device disconnects. The following sections discuss each of these options in more detail.
 
@@ -76,9 +76,9 @@ To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor
 
 ## Azure Monitor: Use logs to resolve connectivity errors
 
-When you detect device disconnects, whether its with Azure Monitor metric alerts or with Event Grid, you can use logs to help troubleshoot the reason. This section describes how to look for common issues in Azure Monitor Logs. The steps below assume you've already created a [diagnostic setting](#azure-monitor-route-connection-events-to-logs) to send IoT Hub Connections logs to a Log Analytics workspace.
+When you detect device disconnects, whether it's with Azure Monitor metric alerts or with Event Grid, you can use logs to help troubleshoot the reason. This section describes how to look for common issues in Azure Monitor Logs. The steps below assume you've already created a [diagnostic setting](#azure-monitor-route-connection-events-to-logs) to send IoT Hub Connections logs to a Log Analytics workspace.
 
-After you've created a diagnostic setting to route IoT Hub resource logs to Azure Monitor Logs. Follow these steps to view the logs in Azure portal.
+After you've created a diagnostic setting to route IoT Hub resource logs to Azure Monitor Logs, follow these steps to view the logs in Azure portal.
 
 1. Navigate to your IoT hub in [Azure portal](https://portal.azure.com).
 
@@ -117,22 +117,22 @@ By default, the token lifespan is 60 minutes for all SDKs; however, it can be ch
 
 | SDK | Token lifespan | Token renewal | Renewal behavior |
 |-----|----------|---------------------|---------|
-| .NET | 60 minutes, configurable | 85% of lifespan, configurable | SDK connects and disconnects at token lifespan plus a 10 minute grace period. Informational events and errors generated in logs. |
-| Java | 60 minutes, configurable | 85% of lifespan, not configurable | SDK connects and disconnects at token lifespan plus a 10 minute grace period. Informational events and errors generated in logs. |
+| .NET | 60 minutes, configurable | 85% of lifespan, configurable | SDK connects and disconnects at token lifespan plus a 10-minute grace period. Informational events and errors generated in logs. |
+| Java | 60 minutes, configurable | 85% of lifespan, not configurable | SDK connects and disconnects at token lifespan plus a 10-minute grace period. Informational events and errors generated in logs. |
 | Node.js | 60 minutes, configurable | configurable | SDK connects and disconnects at token renewal. Only informational events are generated in logs. |
 | Python | 60 minutes, not configurable | -- | SDK connects and disconnects at token lifespan. |
 
 The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from their defaults as noted.
 
-* .NET device SDK with a 1200 sec (20 min) token lifespan and renewal set to happen at 90% of lifespan. disconnects happen every 30 minutes:
+* .NET device SDK with a 1200 sec (20 minute) token lifespan and renewal set to happen at 90% of lifespan. disconnects happen every 30 minutes:
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/net-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with .NET SDK.":::
 
-* Java SDK with a 300 second (5 min) token lifespan and default 85% of lifespan renewal. Disconnects happen every 15 minutes:
+* Java SDK with a 300 second (5 minute) token lifespan and default 85% of lifespan renewal. Disconnects happen every 15 minutes:
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/java-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Java SDK.":::
 
-* Node SDK with a 300 sec (5 min) token lifespan and token renewal set to happen at 3 minutes. Disconnects happen on token renewal. Also, there are no errors, only informational connect/disconnect events are emitted:
+* Node SDK with a 300 sec (5 minute) token lifespan and token renewal set to happen at 3 minutes. Disconnects happen on token renewal. Also, there are no errors, only informational connect/disconnect events are emitted:
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Node SDK.":::
 
@@ -150,7 +150,7 @@ AzureDiagnostics
 
 As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and related errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether the device implements a device twin setting or a device method that makes this possible.
 
-If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal; for example, by not not triggering actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
+If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal; for example, by not triggering actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
 
 ## I tried the steps, but they didn't work
 
