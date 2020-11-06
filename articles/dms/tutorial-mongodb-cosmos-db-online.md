@@ -20,18 +20,16 @@ You can use Azure Database Migration Service to perform an online (minimal downt
 
 This tutorial demonstrates the steps associated with using Azure Database Migration Service to migrate MongoDB data to Azure Cosmos DB:
 > [!div class="checklist"]
-> <ol>
-> <li> Create an instance of Azure Database Migration Service. </li>
-> <li> Create a migration project. </li>
-> <li> Specify the source. </li>
-> <li> Specify the target. </li>
-> <li> Map to target databases. </li>
-> <li> Run the migration. </li>
-> <li> Monitor the migration. </li>
-> <li> Verify data in Azure Cosmos DB. </li>
-> <li> Complete the migration when you are ready. </li>
-> </ol>
-
+> 
+> * Create an instance of Azure Database Migration Service. 
+> * Create a migration project. 
+> * Specify the source. 
+> * Specify the target. 
+> * Map to target databases. 
+> * Run the migration. 
+> * Monitor the migration. 
+> * Verify data in Azure Cosmos DB. 
+> * Complete the migration when you are ready. 
 
 In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB with minimal downtime by using Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
