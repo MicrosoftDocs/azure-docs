@@ -7,7 +7,7 @@ ms.date: 11/06/2020
 
 # Protect your Azure VMware Solution VMs with Azure Security Center integration
 
-Azure native security tools provide a secure infrastructure for a hybrid environment of Azure, Azure VMware Solution, and on-premises virtual machines (VMs). In this article, we'll show how to set up Azure tools for hybrid environment security. We'll use various tools to identify and address different types of threats.
+Azure native security tools provide a secure infrastructure for a hybrid environment of Azure, Azure VMware Solution, and on-premises virtual machines (VMs). This article shows you how to set up Azure tools for hybrid environment security. You'll use various tools to identify and address different types of threats.
 
 ## Azure native services
 
