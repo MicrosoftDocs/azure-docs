@@ -307,6 +307,8 @@
       href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Marketplace metering service
     items:
+    - name: Anomaly detection service
+      href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
     - name: Authentication strategies
       href: partner-center-portal/marketplace-metering-service-authentication.md
     - name: Marketplace metering service APIs
