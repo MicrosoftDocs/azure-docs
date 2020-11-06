@@ -60,6 +60,8 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 Deploy the spatial analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) as well as a [non-Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) on GitHub, which include a basic deployment configuration for the *spatial-analysis* container. 
 
+Alternatively, you can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. Go to [Deploy Azure IoT Edge Modules from Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) to learn more.
+
 > [!NOTE] 
 > The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find two sample *DeploymentManifest.json* files on Github, for either a [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179) or another [Desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
@@ -186,6 +188,9 @@ Once these 2 settings are added, click **Save**. Then click **Authentication/Aut
 Go to the Azure Web App and verify the deployment was successful, and the web app is running. Navigate to the configured url: `<yourapp>.azurewebsites.net` to view the running app.
 
 ![Test the deployment](./media/spatial-analysis/solution-app-output.png)
+
+## Get the PersonCount Source Code
+If you'd like to view or modify the source code for this application, you can find it [on Github](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## Next steps
 
