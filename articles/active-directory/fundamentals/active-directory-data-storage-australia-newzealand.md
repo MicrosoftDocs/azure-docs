@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18, references_regions"
 ms.collection: M365-identity-device-management
 ---
 
-# Customer Data storage for Australian and New Zealand customers in Azure Active Directory
+# Customer Data storage for Australian and New Zealand customers in Azure Active Directory 
 
 Azure Active Directory (Azure AD) stores its Customer Data in a geographical location based on the country you provided when you signed up for a Microsoft Online service. Microsoft Online services include Microsoft 365 and Azure. 
 
