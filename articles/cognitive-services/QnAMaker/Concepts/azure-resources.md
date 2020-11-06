@@ -75,7 +75,7 @@ Typically there are three parameters you need to consider:
 
     With QnA Maker managed (Preview) you have a choice to setup your QnA Maker service for KBs in a single language or multiple languages. You can make this selection when you create the first knowledge base in your QnA Maker managed (Preview) service.
 
-    ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamakerv2-select-multilanguage-kb.png)
+    ![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
 
     You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
@@ -151,7 +151,7 @@ After the resources are created, they have the same name, except for the optiona
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
 
-## Resource purposes
+### Resource purposes
 
 Each Azure resource created with QnA Maker has a specific purpose:
 
@@ -244,7 +244,7 @@ The terms authoring and query endpoint key are corrective terms. The previous te
 
 You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
 
-## Recommended settings for network isolation
+### Recommended settings for network isolation
 
 * Protect  Cognitive Service Resource from public access by [configuring the virtual network](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
 * Protect App Service (QnA Runtime) from public access:
@@ -254,24 +254,22 @@ You must know what the key is accessing, knowledge base management or knowledge 
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-
-## Resource naming considerations
-
 The resource name for the QnA Maker managed (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
 
 The Azure portal create window allows you to create a QnA Maker managed (Preview) resource and select the pricing tiers for the other resources.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/enter-qnamakerv2-info.png)
+> ![Screenshot of Azure portal for QnA Maker managed (Preview) resource creation](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
 After the resources are created, they have the same name.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-createdv2.png)
+> ![Screenshot of Azure portal resource listing QnA Maker managed (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 > [!TIP]
 > Create a new resource group when you create a QnA Maker resource. That allows you to see all resources associated with the QnA Maker managed (Preview) resource when searching by resource group.
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
-## Resource purposes
+
+### Resource purposes
 
 Each Azure resource created with QnA Maker managed (Preview) has a specific purpose:
 
@@ -303,7 +301,7 @@ The QnA Maker managed (Preview) resource provides access to the authoring and pu
 
 In QnA Maker managed (Preview) both the management and the prediction services are co-located in the same region. Currently QnA Maker managed (Preview) is available in **South Central US, North Europe and Australia East**.
 
-## Keys in QnA Maker managed (Preview)
+### Keys in QnA Maker managed (Preview)
 
 Your QnA Maker managed (Preview) service deals with two kinds of keys: **authoring keys** and **Azure Cognitive Search keys** used to access the service in the customer’s subscription.
 
@@ -311,7 +309,7 @@ If you are looking for your **subscription key**, [the terminology has changed](
 
 Use these keys when making requests to the service through APIs.
 
-![Key management](../media/qnamaker-how-to-key-management/qnamakerv2-key-management.png)
+![Key management managed preview](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
 
 |Name|Location|Purpose|
 |--|--|--|
@@ -324,9 +322,11 @@ The terms authoring and query endpoint key are corrective terms. The previous te
 
 You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
 
-## Recommended settings for network isolation
+### Recommended settings for network isolation 
 
 Protect  Cognitive Service Resource from public access by [configuring the virtual network](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+
+---
 
 ## Next steps
 

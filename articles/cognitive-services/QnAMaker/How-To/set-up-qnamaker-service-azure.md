@@ -57,7 +57,6 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-
 ## Find authoring keys in the Azure portal
 
 You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker resource. These keys may be referred to as subscription keys.
@@ -283,10 +282,6 @@ The high-level idea as represented above is as follows:
 
 1. Finally, use the traffic manager endpoint in your Bot or App.
 
-## Delete Azure resources
-
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
-
 # [QnA Maker managed (preview release)](#tab/v2)
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
@@ -299,7 +294,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 1. In **QnA Maker**, check the Managed (preview) checkbox and select the appropriate tiers and regions:
 
-    ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamakerv2-info.png)
+    ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
 
     * Choose the **Subscription** under which the QnA Maker resource will be deployed.
     * Create a new **Resource group** (recommended) or use an existing one in which to deploy this QnA Maker managed (Preview) resource. QnA Maker managed (Preview) creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
@@ -314,21 +309,21 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 1. After deployment is completed, you'll see the following resources created in your subscription:
 
-   ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-createdv2.png)
+   ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-## Find authoring keys in the Azure portal
+## Find authoring keys in the Azure  (preview)
 
 You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker managed (Preview) resource. These keys may be referred to as subscription keys.
 
 1. Go to the QnA Maker managed (Preview) resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
-    ![QnA Maker managed (Preview) resource list](../media/qnamaker-how-to-key-management/qnamakerv2-resource-list.png)
+    ![QnA Maker managed (Preview) resource list](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
 
 2. Go to **Keys and Endpoint**:
 
-    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-keyv2.PNG)
+    ![QnA Maker managed (Preview) Subscription key](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
 ### Update the resources
 
@@ -367,6 +362,8 @@ If you create a QnA service managed (Preview) and its dependencies (such as Sear
 If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
 
 Free Search resources are deleted after 90 days without receiving an API call.
+
+---
 
 ## Delete Azure resources
 
