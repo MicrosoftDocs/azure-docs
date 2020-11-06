@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Make a configuration change in Azure AD Connect sync'
+title: 'Azure AD Connect sync: Make a change to the default configuration'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 author: billmath
