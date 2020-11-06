@@ -22,14 +22,14 @@ This tutorial demonstrates the steps associated with using Azure Database Migrat
 > [!div class="checklist"]
 > <ol>
 > <li> Create an instance of Azure Database Migration Service. </li>
-> 1. Create a migration project.
-> 1. Specify the source.
-> 1. Specify the target.
-> 1. Map to target databases
-> 1. Run the migration.
-> 1. Monitor the migration.
-> 1. Verify data in Azure Cosmos DB
-> 1. Complete the migration when you are ready.
+> <li> Create a migration project. </li>
+> <li> Specify the source. </li>
+> <li> Specify the target. </li>
+> <li> Map to target databases. </li>
+> <li> Run the migration. </li>
+> <li> Monitor the migration. </li>
+> <li> Verify data in Azure Cosmos DB. </li>
+> <li> Complete the migration when you are ready. </li>
 > </ol>
 
 
