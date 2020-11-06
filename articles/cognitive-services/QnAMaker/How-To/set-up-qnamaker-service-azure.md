@@ -57,40 +57,6 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-## Find authoring keys in the Azure portal
-
-You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker resource. These keys may be referred to as subscription keys.
-
-1. Go to the QnA Maker resource in the Azure portal and select the resource that has the _Cognitive Services_ type:
-
-    ![QnA Maker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. Go to **Keys**:
-
-    ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
-
-## Find query endpoint keys in the QnA Maker portal
-
-The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
-
-Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
-
-1. Sign in to the [QnA Maker portal](https://qnamaker.ai), go to your profile, and then select **Service settings**:
-
-    ![Endpoint key](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. View or reset your keys:
-
-    > [!div class="mx-imgBorder"]
-    > ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
-
-### Update the resources
-
-Learn how to upgrade the resources used by your knowledge base.
-
 ### Upgrade QnA Maker SKU
 
 When you want to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
@@ -115,35 +81,7 @@ Go to the App Service resource in the Azure portal, and select the **Scale up** 
 
 ![QnA Maker App Service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### Upgrade the Azure Cognitive Search service
-
-If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
-
-Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
-
-1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
-
-    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
-
-1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
-
-1. After the data is restored, go to your new Azure search resource, select **Keys**, and write down the **Name** and the **Admin key**:
-
-    ![QnA Maker Azure search keys](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
-
-1. To link the new Azure search resource to the QnA Maker stack, go to the QnA Maker App Service instance.
-
-    ![QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
-
-1. Select **Application settings** and modify the settings in the **AzureSearchName** and **AzureSearchAdminKey** fields from step 3.
-
-    ![QnA Maker App Service setting](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
-
-1. Restart the App Service instance.
-
-    ![Restart of the QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
-
-## Get the latest runtime updates
+### Get the latest runtime updates
 
 The QnAMaker runtime is part of the Azure App Service instance that's deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in the Azure portal. Updates are made periodically to the runtime. The QnA Maker App Service instance is in auto-update mode after the April 2019 site extension release (version 5+). This update is designed to take care of ZERO downtime during upgrades.
 
@@ -164,7 +102,7 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 
     ![Restart of the QnAMaker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## Cognitive Search consideration
+### Cognitive Search consideration
 
 Cognitive Search, as a separate resource, has some different configurations you should be aware of.
 
@@ -225,7 +163,7 @@ If you are not using a QnA maker resource, you should remove all the resources. 
 
 Free Search resources are deleted after 90 days without receiving an API call.
 
-## Configure App service idle setting to avoid timeout
+### Configure App service idle setting to avoid timeout
 
 The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically time out if the service is idle. For QnA Maker, this means your prediction runtime generateAnswer API occasionally times out after periods of no traffic.
 
@@ -244,22 +182,26 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
-## Configure App Service Environment to host QnA Maker App Service
+### Configure App Service Environment to host QnA Maker App Service
 The App Service Environment can be used to host QnA Maker app service. If the App Service Environment is internal, then you need to follow these steps:
 1. Create an App service and an Azure search service.
 2. Expose the app service and allow QnA Maker availability as:
     * Publicly available - default
-    * DNS service tag:
-        * `CognitiveServicesManagement`
-    * IPs associated with QnA Maker are:
-        * 13.91.138.229
-        * 40.88.22.25
-        * 13.86.184.142
-        * 20.185.105.28
-        * 13.86.178.10
+    * DNS service tag: `CognitiveServicesManagement`
+
+### Network isolation for App Service
+
+QnA Maker Cognitive Service uses the service tag: `CognitiveServicesManagement`. Please follow these steps to add the IP Address ranges to an allowlist:
+
+* Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
+* Select the IPs of "CognitiveServicesManagement".
+* Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
+
+We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
+    
 1. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
-## Business continuity with traffic manager
+### Business continuity with traffic manager
 
 The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 
@@ -313,7 +255,41 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-## Find authoring keys in the Azure  (preview)
+---
+
+## Find authoring keys in the Azure portal
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker resource. These keys may be referred to as subscription keys.
+
+1. Go to the QnA Maker resource in the Azure portal and select the resource that has the _Cognitive Services_ type:
+
+    ![QnA Maker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+
+2. Go to **Keys**:
+
+    ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+
+## Find query endpoint keys in the QnA Maker portal
+
+The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
+
+Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
+
+1. Sign in to the [QnA Maker portal](https://qnamaker.ai), go to your profile, and then select **Service settings**:
+
+    ![Endpoint key](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+
+2. View or reset your keys:
+
+    > [!div class="mx-imgBorder"]
+    > ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+
+    >[!NOTE]
+    >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
+
+# [QnA Maker managed (preview release)](#tab/v2)
 
 You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker managed (Preview) resource. These keys may be referred to as subscription keys.
 
@@ -329,7 +305,41 @@ You can view and reset your authoring keys from the Azure portal, where you crea
 
 Learn how to upgrade the resources used by your knowledge base. QnA Maker managed (Preview) is **free** while in preview. 
 
+---
+
+## Upgrade the Azure Cognitive Search service
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
 ### Upgrade the Azure Cognitive Search service
+
+If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
+
+Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
+
+1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
+
+    ![QnA Maker Azure search resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
+
+1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
+
+1. After the data is restored, go to your new Azure search resource, select **Keys**, and write down the **Name** and the **Admin key**:
+
+    ![QnA Maker Azure search keys](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
+
+1. To link the new Azure search resource to the QnA Maker stack, go to the QnA Maker App Service instance.
+
+    ![QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
+
+1. Select **Application settings** and modify the settings in the **AzureSearchName** and **AzureSearchAdminKey** fields from step 3.
+
+    ![QnA Maker App Service setting](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
+
+1. Restart the App Service instance.
+
+    ![Restart of the QnA Maker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+
+# [QnA Maker managed (preview release)](#tab/v2)
 
 If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
@@ -368,8 +378,6 @@ Free Search resources are deleted after 90 days without receiving an API call.
 ## Delete Azure resources
 
 If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
-
----
 
 ## Next steps
 
