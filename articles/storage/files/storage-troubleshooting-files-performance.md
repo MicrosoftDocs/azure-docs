@@ -21,15 +21,11 @@ Requests are throttled when the IOPS, ingress or egress limits for a file share 
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your **Storage account** in the Azure Portal.
 
-1. Select **Storage account** name and then search for **Monitoring** section.
+1. Select **Metrics** under the **Monitoring** section
 
-1. Select **Metrics**.
-
-1. Select your storage account as the resource.
-
-1. Select **File** as the metric namespace.
+1. Select **File** as the metric namespace for your storage account scope.
 
 1. Select **Transactions** as the metric.
 
