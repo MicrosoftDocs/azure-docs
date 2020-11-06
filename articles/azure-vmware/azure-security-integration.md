@@ -132,7 +132,7 @@ After connecting different sources to Azure Sentinel, you can create rules to ge
 
 3. Select **+Create** and on the drop-down, select **Scheduled query rule**.
 
-4. On the **General** tab, fill in the following details.
+4. On the **General** tab, enter the required information.
 
     - Name
     - Description
