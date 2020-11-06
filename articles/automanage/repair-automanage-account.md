@@ -56,10 +56,10 @@ Reset the Automanage Account identity type with the ARM template below. Save the
 ## Step 2: Assign appropriate roles for the Automanage Account
 The Automanage Account requires the Contributor and Resource Policy Contributor roles on the subscription containing the VMs that Automanage is managing. You can assign these roles using the Azure Portal, ARM templates, or Azure CLI.
 
-If you are using an ARM template or Azure CLI, you will need the principal ID of your Automanage Account (this is not necessary if you are using the Azure portal). The Principal ID is the Object ID of your Automanage account. You may find your Object ID of your Automanage account by:
+If you are using an ARM template or Azure CLI, you will need the principal ID (also known as Object ID) of your Automanage Account (this is not necessary if you are using the Azure portal). You may find the Principal ID (Object ID) of your Automanage account by:
 
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): `az ad sp list --display-name <name of your Automanage Account>`.
-1. Azure portal: Navigate to **Azure Active Directory** and search for your Automanage Account by name.
+1. Azure portal: Navigate to **Azure Active Directory** and search for your Automanage Account by name. Click on it when it shows up under **Enterprise Applications**.
 
 ### Azure portal
 1. Under **Subscriptions**, navigate to the subscription containing your Automanaged VMs.
@@ -70,7 +70,7 @@ If you are using an ARM template or Azure CLI, you will need the principal ID of
 1. Repeat steps 3-5, this time with the **Resource Policy Contributor** role
 
 ### ARM template
-Run the following ARM template twice, selecting one builtInRoleType value each time. You will need the Principal ID of your Automanage Account. Enter it when prompted.
+Run the following ARM template. You will need the Principal ID of your Automanage Account - steps to get retrieve the Principal ID are above. Enter it when prompted.
 
 ```json
 {
@@ -82,23 +82,6 @@ Run the following ARM template twice, selecting one builtInRoleType value each t
             "metadata": {
                 "description": "The principal to assign the role to"
             }
-        },
-        "builtInRoleType": {
-            "type": "string",
-            "allowedValues": [
-                "Contributor",
-                "Resource Policy Contributor"
-            ],
-            "metadata": {
-                "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
-            }
         }
     },
     "variables": {
@@ -109,9 +92,18 @@ Run the following ARM template twice, selecting one builtInRoleType value each t
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[parameters('roleNameGuid')]",
+            "name": "[guid(uniqueString(variables('Contributor')))]",
             "properties": {
-                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "roleDefinitionId": "[variables('Contributor')]",
+                "principalId": "[parameters('principalId')]"
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[guid(uniqueString(variables('Resource Policy Contributor')))]",
+            "properties": {
+                "roleDefinitionId": "[variables('Resource Policy Contributor')]",
                 "principalId": "[parameters('principalId')]"
             }
         }
