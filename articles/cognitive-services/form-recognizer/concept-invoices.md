@@ -13,36 +13,36 @@ ms.date: 11/02/2020
 ms.author: pafarley
 ---
 
-# Form Recgonizer Pre-Built Invoice Service
+# Form Recognizer Pre-Built Invoice Service
 
 Azure Form Recognizer can analyze and extract contact information from invoices using its invoice prebuilt models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to and lots more. The Prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview. 
 
 ## What does the Invoice service do?
-The Invoice API extracts key fields from invoices and returns them in an organized strcutured JSON response. Invoices can be from a variety of formats, quality, images taken from phone, scanned invoices, digital invoices or other and the invoice API will extract the structured output of these invoices. 
+The Invoice API extracts key fields from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all these invoices. 
 
 ![Contoso invoice example](./media/invoice-example.jpg)
 
 ## Try it out
 
-To try out the Form Recognizer Invoice Service go the the [Sample Labeling Tool online](https://fott-preview.azurewebsites.net/).
+To try out the Form Recognizer Invoice Service go the [Sample Labeling Tool online](https://fott-preview.azurewebsites.net/).
 
 > [!div class="nextstepaction"]
 > [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
 
-You will need an Azure subscription [Create one for free](https://azure.microsoft.com/free/cognitive-services) and a [Form Recognzier resoruce](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription [Create one for free](https://azure.microsoft.com/free/cognitive-services) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
 ### Fields extracted:
-Following are the fields extracted from an invoice in the JSON output response:  
+The following are the fields extracted from an invoice in the JSON output response:  
 
-|Name| Type | Description | Example |
+| Name| Type | Description | Example |
 |:-----|:----|:----|:----|
-|CustomerName | string | Customer being invoiced | Microsoft Corp |
-| CustomerId | string | Reference Id for the customer | CID-12345 |
+| CustomerName | string | Name of the customer being invoiced | Microsoft Corp |
+| CustomerId | string | Reference ID for the customer | CID-12345 |
 | PurchaseOrder | string | A purchase order reference number | PO-3333 |
-| InvoiceId | string | Id for this specific invoice (often “Invoice Number”) | INV-100 |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 |
-| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 
-| VendorName | string | Vendor who has created this invoice | CONTOSO LTD. |
+| InvoiceId | string | ID for this specific invoice (often “Invoice Number”) | INV-100 |
+| InvoiceDate | date | Date the invoice was issued | 2019-11-15 |
+| DueDate | date | Date the payment for this invoice is due | 2019-12-15 | 
+| VendorName | string | Name of the vendor who created this invoice | CONTOSO LTD. |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters |
 | CustomerAddress | string | Mailing address for the Customer | 123 Other St, Redmond WA, 98052 |
@@ -51,14 +51,14 @@ Following are the fields extracted from an invoice in the JSON output response:
 | BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services |
 | ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 |
 | ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery |
-| SubTotal | number | Subtotal field identified on this invoice | 100 | 
-| TotalTax | number | Total tax field identified on this invoice | 10 |
-| InvoiceTotal | number | Total new charges associated with this invoice | 110 |
-| AmountDue |  number | Total Amount Due to the vendor | 610 |
 | ServiceAddress | string | Explicit service address or property address for the customer | 123 Service St, Redmond WA, 98052 |
 | ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services |
 | RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |
 | RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |
+| SubTotal | number | Subtotal field identified on this invoice | 100 | 
+| TotalTax | number | Total tax field identified on this invoice | 10 |
+| InvoiceTotal | number | Total new charges associated with this invoice | 110 |
+| AmountDue |  number | Total amount due to the vendor | 610 |
 
 ### Input Requirements 
 
@@ -66,7 +66,7 @@ Following are the fields extracted from an invoice in the JSON output response:
 
 ## The Analyze Invoice operation
 
-The [Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync) takes an image or PDF of a invoice as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync) operation takes an image or PDF of an invoice as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -84,13 +84,13 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
-The response to teh Get Analyze Invoice Result operation will be the structured represntation of the invoice with all the information extracted. 
-See here a [sample invoice file](./media/sample-invoice.pdf) and it's structured output [sample invoice output](./media/sample-invoice-output.json).
+The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
+See here for a [sample invoice file](./media/sample-invoice.pdf) and its structured output [sample invoice output](./media/sample-invoice-output.json).
 
 The JSON output has 3 parts: 
-1. "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. 
-2. "pageResults" node contains the tables and selection makrs extracted with their bounding boxes, confidence and a reference to the lines and words in the "readResults"
-2. "documentResults" node contains the invoice specific values that the model discovered. This is where you'll find all the key value pairs from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
+1. "readResults" node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
+2. "pageResults" node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
+2. "documentResults" node contains the invoice specific values that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
 
 ## Next steps
 Try your own invoices and samples in the [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/).
