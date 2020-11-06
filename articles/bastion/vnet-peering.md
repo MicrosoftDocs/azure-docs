@@ -11,9 +11,9 @@ ms.author: cherylmc
 
 ---
 
-# VNet peering and Azure Bastion
+# VNet peering and Azure Bastion (Preview)
 
-Azure Bastion supports VNet peering. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be leveraged to connect to VMs deployed in a peered VNet without deploying an additional Bastion host.
+Azure Bastion supports VNet peering. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional Bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
 Azure Bastion supports the following types of peering:
 
@@ -39,7 +39,9 @@ Steps:
 1. The user connects to the Azure portal using any HTML5 browser.
 1. The user selects the virtual machine to connect to.
 1. Azure Bastion is seamlessly detected across the peered VNet.
-1. With a single click, the RDP/SSH session opens in the browser.
+1. With a single click, the RDP/SSH session opens in the browser. For RDP and SSH concurrent session limits, see [RDP and SSH sessions](bastion-faq.md#limits).
+
+   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
 
 ## FAQ
 
