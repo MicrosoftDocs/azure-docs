@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how update or reset the service principal or AAD Application credentials for an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 06/11/2020
 
 ---
 
@@ -29,6 +29,7 @@ When you want to update the credentials for an AKS cluster, you can choose to ei
 
 > [!WARNING]
 > If you choose to create a *new* service principal, updating a large AKS cluster to use these credentials may take a long time to complete.
+> The most important is, DO NOT forget to update related resources with your cluster manually in case any access exception if not put in the same Resource Group (e.q. Vnet).
 
 ### Check the expiration date of your service principal
 
@@ -91,6 +92,7 @@ Now continue on to [update AKS cluster with new service principal credentials](#
 
 > [!IMPORTANT]
 > For large clusters, updating the AKS cluster with a new service principal may take a long time to complete.
+> And DO NOT forget to update related resources with your cluster manually in case any access exception if not put in the same Resource Group (e.q. Vnet).
 
 Regardless of whether you chose to update the credentials for the existing service principal or create a service principal, you now update the AKS cluster with your new credentials using the [az aks update-credentials][az-aks-update-credentials] command. The variables for the *--service-principal* and *--client-secret* are used:
 
