@@ -60,16 +60,16 @@ If there is an application gateway, you must remove it before you can delete the
 
 ### Check whether Azure container instances still exist in the virtual network
 
-1) Go to the Resource group in Azure portal, stay at the Overview blade.
-2) Click on “Show hidden types” in the middle top of all the resources in the Resource group; Network profile is hidden on Azure Portal by default.
-3) Select the Network profile related to the container groups.
-4) Click Delete.
+1. In the Azure portal, go to the resource group's **Overview** page.
+1. In the header for the list of the resource group's resources, select **Show hidden types**. The network profile type is hidden in the Azure portal by default.
+1. Select the network profile related to the container groups.
+1. Select **Delete**.
 
-![Screenshot of the list of hidden networkprofiles.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+   ![Screenshot of the list of hidden network profiles.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
 
-Delete the subnet or virtual network again.
+1. Delete the subnet or virtual network again.
 
-If the above steps do not work, please use these [Azure CLI commands](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) to clean up resources. 
+If these steps don't resolve the issue, use these [Azure CLI commands](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) to clean up resources. 
 
 ### Check whether Azure Active Directory Domain Service is enabled in the virtual network
 
