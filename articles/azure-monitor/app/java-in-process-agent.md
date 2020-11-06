@@ -45,7 +45,7 @@ If you do not already have an Application Insights resource, you can create a ne
 Point the agent to your Application Insights resource, either by setting an environment variable:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0.jar`, with the following content:
@@ -53,7 +53,7 @@ Or by creating a configuration file named `applicationinsights.json`, and placin
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```
