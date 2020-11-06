@@ -147,11 +147,13 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39522.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't support SSO for authentication to its resources.
+**Guidance**: Azure Advisor uses Azure Active Directory to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
+
+- [Understand Application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
@@ -170,7 +172,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
 
@@ -201,18 +203,24 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39525.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't support capability of conditional access.
+**Guidance**: Azure Advisor supports Azure AD conditional access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
+
+- [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
+
+- [Common conditional access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
+
+- [Configure authentication session management with conditional access](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
@@ -270,7 +278,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-3: Review and reconcile user access regularly
 
@@ -289,7 +297,7 @@ Note: Some Azure services support local users and roles which not managed throug
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-4: Set up emergency access in Azure AD
 
@@ -318,11 +326,13 @@ Note: Some Azure services support local users and roles which not managed throug
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39532.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't support management from a customer workstation.
+**Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
+- [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -341,7 +351,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-8: Choose approval process for Microsoft support  
 
@@ -537,33 +547,53 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39549.).
 
-**Guidance**: Not applicable; Azure Advisor does not produce or expose any logs related to its resources.
+**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for  your Azure Advisor resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+
+- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39550.).
 
-**Guidance**: Not applicable; Azure Advisor does not produce or process any security related logs which would need to be collected centrally for management or analysis.
+**Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
+
+Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
+
+In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
+
+Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
+
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-6: Configure log storage retention
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39551.).
 
-**Guidance**: Azure Advisor does not currently produce any security-related logs, and the customer is unable to set any log retention.
+**Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Advisor logs has the log retention period set according to your organization's compliance regulations.
+
+In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
+
+- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md) 
+
+- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs-collect-storage)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-7: Use approved time synchronization sources
 
@@ -574,7 +604,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Incident Response
 
@@ -807,11 +837,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39559.).
 
-**Guidance**: Not applicable; Azure Advisor is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
+**Guidance**: Azure Advisor doesn't expose any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection; however, the underlying infrastructure under Advisor is handled by Microsoft, which includes antimalware and Endpoint Detection and Response handling.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### ES-2: Use centrally managed modern anti-malware software
 
@@ -822,7 +852,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
@@ -831,9 +861,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 **Guidance**: Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). For Linux VMs, use third party antimalware solution. Also, you can use Azure Security Center's Threat detection for data services to detect malware uploaded to Azure Storage accounts.
 
+The underlying infrastructure under Advisor is handled by Microsoft, which includes frequently updated anti-malware software.
+
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Backup and Recovery
 
