@@ -11,18 +11,17 @@ ms.custom:
 ---
 
 # Deploy a Cloud Service (extended support) using PowerShell
-Cloud Services (extended support) provides various methods to create a deployment. The following diagram talks about all the possible methods. This document talks about using PowerShell to create Cloud Services (extended support) deployment using Method 1 & 2. 
+Cloud Services (extended support) provides various methods to create a deployment.  This article shows you how to use various PowerShell commands to create a Cloud Services (extended support) deployment. 
  
 :::image type="content" source="media/deploy-portal1.png" alt-text="Image shows possible deployment methods and an associated diagram.":::
 
 
-## Deployment Method #1
-Process to create Cloud Services (extended support) deployment using Method 1:
-Method 1 takes template & parameters file as parameters to create/update the Cloud Services (extended support) deployment. 
+## PowerShell Deployment Method #1
+This method takes the users template & parameter file and uses them as parameters to create or update the Cloud Services (extended support) deployment. 
 
-1.	Create the template & parameters   file for your Cloud Service (extended support) deployment. 
+1.	Create the template and parameters file for your Cloud Service (extended support) deployment. 
 
-2.	Login to PowerShell & select a subscription.
+2.	Login and select an Azure subscription.
 
     ```PowerShell
     Add-AzureAccount
@@ -42,27 +41,32 @@ Method 1 takes template & parameters file as parameters to create/update the Clo
     New-AzResourceGroupDeployment -ResourceGroupName “Resource group name” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file”
     ```
 
-For more information deploying resources using Template, see Deploy resources with Azure Resource Manager (ARM) Template & Azure PowerShell
+For more information deploying resources using Template, see [Deploy resources with Azure Resource Manager]()
 
-## Deployment Method #2
+## PowerShell Deployment Method #2
 
-Process to create Cloud Services (extended support) deployment using Method 2:
-In method 2, customers need to use multiple PowerShell commands to manually perform the automation done using Templates or Parameters file. The below process describes the steps needed for a  new environment. It is possible to skip steps for resources that already exist and are to be reused (for example,. storage accounts creation)
+In this method, PowerShell commands are used to create the `.cspkg` and `.cscfg` files needed for a new deployment.
 
-1.	Create Resource Group  . (Optional if using existing Resource Group)
+1.  Login and select an Azure subscription.
+
+    ```PowerShell
+    Add-AzureAccount
+    Select-AzureSubscription –SubscriptionName "My Azure Subscription"
+    ```
+2.	Create a new Resource Group. 
 
     ```PowerShell
     New-AzResourceGroup -ResourceGroupName “ContosoResourceGroup” -Location “East US”
     ```
 
-2.	Create Storage Account (Optional if using existing Storage Account)
+3.	Create a new Storage Account
 
     ```PowerShell
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosoResourceGroup” -Name “ContosoStorageAccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2”
     $container = New-AzStorageContainer -Name “ContosoContainer” -Context $storageAccount.Context -Permission Blob
     ```
 
-3.	Create .`cspkg` file, upload `.cspkg` to storage account and obtain SAS URL
+3.	Create .`cspkg` file and upload it to your newly created storage account. Once uploaded, obtain SAS URL.
 
     ```PowerShell
     $tokenStartTime = Get-Date
@@ -72,7 +76,7 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     $cspkgUrl = $cspkgBlob.ICloudBlob.Uri.AbsoluteUri + $cspkgToken
     ```
 
-4.	Create `.cscfg`, upload `.cscfg` to storage account & obtain SAS URL or create base64 encoded string for Cloud Services
+4.	Create `.cscfg` and uploaded it to your newly created storage account. Once uploaded, obtain the SAS URL. count & obtain SAS URL. 
 
     ```PowerShell
     $cscfgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cscfg” -Container ContosoContainer -Blob “ContosoApp.cscfg” -Context $storageAccount.Context
@@ -80,14 +84,7 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     $cscfgUrl = $cscfgBlob.ICloudBlob.Uri.AbsoluteUri + $cscfgToken
     ```
 
-    OR
-
-    ```PowerShell
-    $cscfgText = [IO.File]::ReadAllText(“./ContosoApp/ContosoApp.cscfg”) 
-    $cscfgBase64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($cscfgText))
-    ``` 
-
-5.	Create VNet, Subnet & Public IP (Optional if using existing Vnet, Subnet or Public Ip)
+5.	Create new virtual network, subnet and public IP address. 
 
     ```PowerShell
     $subnet = New-AzVirtualNetworkSubnetConfig -Name "ContosoWebTier1" -AddressPrefix "10.0.0.0/24" -WarningAction SilentlyContinue
@@ -95,7 +92,7 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     $publicIp = New-AzPublicIpAddress -Name “ContosoPublicIp” -ResourceGroupName “ContosoResourceGroup” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “ContosoAppDNS” -Sku Basic
     ```
 
-6.	Create Key vault & upload the certificates (Optional)
+6.	Create a key vault resource and upload the certificates required to connect. 
 
     ```PowerShell
     New-AzKeyVault -Name "ContosoKeyVault” -ResourceGroupName “ContosoResourceGroup” -Location “East US”
@@ -121,7 +118,11 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
 
 9.	Create OS Profile Object 
 
-10.	Create Network Profile Object (Load balancer frontend IP object + Load balancer object)
+    ```powershell
+    
+    ```
+
+10.	Create a Network Profile Object 
 
     ```PowerShell
     $publicIP = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ContosoResourceGroup/providers/Microsoft.Network/publicIPAddresses/ContosoPublicIP"
@@ -136,7 +137,7 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     $tag=@{"Owner" = "Contoso"}
     ```
 
-12.	Create Cloud Service deployment using profile objects & SAS URLs
+12.	Create Cloud Service deployment using profile objects & SAS URLs.
 
     ```PowerShell
     $cloudService = New-AzCloudService `
@@ -152,7 +153,5 @@ In method 2, customers need to use multiple PowerShell commands to manually perf
     -Tag $tag
     ```
 
-> [!NOTE]
-> The command `-Configuration $cscfgBase64` is also supported
 
 For more information, see [Cloud Services (extended support) Reference Documentation]() 

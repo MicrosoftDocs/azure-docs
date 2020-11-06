@@ -12,11 +12,11 @@ ms.custom:
 
 # Manage Cloud Services (extended support) 
 
-Restart, rebuild and reimage Cloud Services (extended support):
+This article covers common variables and commands used with Cloud Services (extended support).
 
-## Deployment:
+## Deployment
 
-### Variables for common field:
+### Variables for common field
 
 ```PowerShell
 $resourceGroupName = "ContosOrg"
@@ -24,13 +24,13 @@ $cloudServiceName = “ContosoCS"
 $roleInstanceName = "ContosoFrontEnd_IN_0"
 ```
 
-### Restart:
+### Restart
 
 ```PowerShell
 Restart-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName 
 ```
 
-### Reimage:
+### Reimage
 
 ```PowerShell
 Invoke-AzCloudServiceReimage -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName 
@@ -41,18 +41,17 @@ Invoke-AzCloudServiceReimage -ResourceGroupName $resourceGroupName -CloudService
 ```PowerShell
 Invoke-AzCloudServiceRebuild -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
 ```
+ 
 
-For more information, see <Add link to CS Powershell reference documents>  
+## Role Instance
 
-## Role Instance: 
-
-### Restart: 
+### Restart
 
 ```PowerShell
 Restart-AzCloudServiceRoleInstance -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName 
 ```
 
-### Reimage:
+### Reimage
 
 ```PowerShell
 Invoke-AzCloudServiceRoleInstanceReimage -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName 
@@ -64,29 +63,26 @@ Invoke-AzCloudServiceRoleInstanceReimage -ResourceGroupName $resourceGroupName -
 Invoke-AzCloudServiceRoleInstanceRebuild -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName 
 ```
 
-## Delete Cloud Services (extended support):
+## Delete Cloud Services (extended support)
 
-### Delete Cloud Services deployment: 
+### Delete Cloud Services deployment
 
 ```PowerShell
 Remove-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
 ```
 
-### Delete multiple roles within Cloud Services deployment: 
+### Delete multiple roles within Cloud Services deployment 
 
 ```PowerShell
 $roles = @($roleInstanceName1, $roleInstanceName2)
 Remove-AzCloudService -ResourceGroupName $ResourceGroupName -CloudServiceName $CloudServiceName -RoleInstance $roles
 ```
 
-### Delete single role within Cloud Service (extended support) deployment: 
+### Delete single role within Cloud Service (extended support) deployment
 
 ```PowerShell
 Remove-AzCloudServiceRoleInstance -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName
 ```
-
-For more information, see <Add link to CS Powershell reference documents> 
-
 
 ## List details about Cloud Services (extended support)
 
@@ -138,10 +134,7 @@ Get-AzVMExtensionImageType
 
 ```
 
-For more information, see <Add link to CS Powershell reference documents> 
-
-
-## Start & Stop Cloud Services (extended support) deployment:
+## Start & Stop Cloud Services (extended support) deployment
 
 ```PowerShell
 Start-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
@@ -150,8 +143,6 @@ Start-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cl
 ```PowerShell
 Stop-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
 ```
-
-For more information, see <Add link to CS Powershell reference documents> 
 
 
 ## VIP Swap deployment
@@ -168,12 +159,9 @@ Process to define swappable relationship between two deployments and swap Virtua
 
 To update the swappable relationship for a cloud service deployment, call update-AzCloudService command with -SwappableCloudServiceId property containing the Cloud Services Id of the newer deployment.
 
-For more information, see <Add link to CS Powershell reference documents> 
+## RDP using Plugin or Extension
 
-
-## RDP using Plugin or Extension:
-
-### Enable RDP:
+### Enable RDP
 1.	Import RemoteAccess & RemoteAccessForwarder Plugins using Csdef
 
     ```PowerShell
@@ -204,7 +192,7 @@ For more information, see <Add link to CS Powershell reference documents>
 5.	Upload the certificate  to Key Vault and reference the key vault during CS create operation
 6.	Create cloud services deployment
 
-### RDP into role instance:
+### RDP into role instance
 1.	Get the RDP file for your cloud service.
 
     ```PowerShell 
@@ -218,11 +206,4 @@ For more information, see <Add link to CS Powershell reference documents>
     LoadBalanceInfo:s:Cookie: mstshash=RoleName#RoleInstanceName
     ```
 3.	Double click & execute the file to connect to the VM. 
-
-
-### RDP using extension: 
--	Enable RDP:  
-
-
-
 

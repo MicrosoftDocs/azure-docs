@@ -12,7 +12,7 @@ ms.custom:
 
 # Available sizes for Azure Cloud Services (extended support)
 
-This article describes the available sizes for Cloud Services (extended support) role instances (web roles and worker roles).  
+This article describes the available virtual machine sizes for Cloud Services (extended support) role instances.   
 
 | SKU Family |  ACU/ Core | 
 |---|---|
@@ -30,9 +30,9 @@ ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and 
 
 ## Configure sizes for Cloud Services  
 
-You can specify the Virtual Machine size of a role instance as part of the service model described by the service definition file. The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement. 
+You can specify the Virtual Machine size of a role instance as part of the service model described by the service definition file. The size of the role determines the number of CPU cores, memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirements. 
 
-Here is an example for setting the role size to be Standard_D2 for a Web Role instance: 
+For example, setting the role size to `Standard_D2` for a Web Role instance: 
 
 
 ```xml
@@ -42,11 +42,11 @@ Here is an example for setting the role size to be Standard_D2 for a Web Role in
 
 ## Changing the size of an existing role
 
-As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it. 
+To change the size of an existing role, change the VM size in your service definition file (as shown above), repackage your Cloud Service, and redeploy it. 
 
 ## Get a list of sizes 
 
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented here. The following code is a PowerShell command that will list all the sizes available for Cloud Services. 
+Use the following PowerShell command to get a list of available sizes.
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel 

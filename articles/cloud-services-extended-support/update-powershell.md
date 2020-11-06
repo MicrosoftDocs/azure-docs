@@ -11,9 +11,9 @@ ms.custom:
 ---
 # Update a Cloud Service (extended support) using PowerShell
 
-Template & parameters file define the desired state of your cloud service (extended support) deployment. Therefore, there are two methods to update a resource using Template
+Template & parameters file define the desired state of your Cloud Service (extended support) deployment. There are two methods to update a resource using Template
 
-1. Reuse old template by making necessary changes and leaving rest of the template untouched. Azure Resource Manager is smart enough to understand the changes and only incorporate those changes. (This assumes the template is up to date and the properties of a resource were not changed)
+1. Reuse old template by making necessary changes and leaving rest of the template untouched. Azure Resource Manager is smart enough to understand the changes and only incorporate those changes.
 
 2. Define a new template containing desired state of all the resources that needs changes. 
 
@@ -32,25 +32,25 @@ Template & parameters file define the desired state of your cloud service (exten
  
 The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal
 
-1.	Update Storage Account 
+1.	Update Storage Account.
 
-2.	Update cscfg, upload cscfg to storage account & obtain SAS URL. 
+2.	Update `.cscfg`, upload `.cscfg` to storage account & obtain SAS URL. 
 
-3.	Update cspkg file, upload cspkg to storage account and obtain SAS URL
+3.	Update `.cspkg` file, upload `.cspkg` to storage account and obtain SAS URL.
 
-4.	Update public IP
+4.	Update public IP.
 
-5.	Update key vault & upload updated certificates
+5.	Update key vault and upload updated certificates.
 
-6.	Get & update role profile object
+6.	Get and update role profile object.
 
-7.	Get & update extension profile object
+7.	Get and update extension profile object.
 
-8.	Get & update os profile object
+8.	Get and update os profile object.
 
-9.	Get & update network profile object (Load balancer frontend IP + Load balancer object)
+9.	Get and update network profile object.
 
-10.	Get & update cloud services deployment using profile objects & SAS URLs
+10.	Get & update cloud services deployment using profile objects & SAS URLs.
 
     ```PowerShell
     $cloudService = Get-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
@@ -67,10 +67,6 @@ The steps below mention the order to update resources. Depending on the update s
     -NetworkProfileLoadBalancerConfiguration $networkProfile `
     -ExtensionProfileExtension $extension
     ```
-
-For more information, see <Add link to CS Power shell reference documents> 
-
-
 
 
 
