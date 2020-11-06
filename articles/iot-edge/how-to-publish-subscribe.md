@@ -200,7 +200,7 @@ Here is a default authorization policy that can be used to enable all Azure IoT 
 
 Now that you understand how to connect to the IoT Edge MQTT broker, let's see how it can be used to publish and subscribe messages first on user-defined topics, then on IoT hub topics and finally to another MQTT broker.
 
-## Publish / Subscribe on user-defined topics
+## Publish and subscribe on user-defined topics
 
 In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) or [X.509 self-signed authentication](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
 
@@ -210,36 +210,36 @@ Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI f
 
 1. Create two IoT Devices in IoT Hub, parent them to your IoT Edge device:
 
-```azurecli-interactive
-az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-```
+    ```azurecli-interactive
+    az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+    az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+    ```
 
 2. Get their passwords by generating a SAS token:
 
-- For a device:
-
-   ```azurecli-interactive
-   az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
-   ```
-
-   where 3600 is the duration of SAS token in seconds (e.g. 3600 = 1 hour).
-
-- For a module:
-
-   ```azurecli-interactive
-   az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
-   ```
-
-   where 3600 is the duration of SAS token in seconds (e.g. 3600 = 1 hour).
+    - For a device:
+    
+       ```azurecli-interactive
+       az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
+       ```
+    
+       where 3600 is the duration of SAS token in seconds (e.g. 3600 = 1 hour).
+    
+    - For a module:
+    
+       ```azurecli-interactive
+       az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
+       ```
+    
+       where 3600 is the duration of SAS token in seconds (e.g. 3600 = 1 hour).
 
 3. Copy the SAS token which is the value corresponding to the "sas" key from the output. Here is an example output from the Azure CLI command above:
 
-```
-{
-   "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
-}
-```
+    ```
+    {
+       "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
+    }
+    ```
 
 ### Authorize publisher and subscriber clients
 
@@ -352,7 +352,7 @@ Because the clients are running on the same device as the MQTT broker in the exa
 
 ## Publish and subscribe on IoT Hub topics
 
-The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let clients perform IoT Hub operations but they do not allow publishing / subscribing on user-defined topics. IoT Hub operations can be performed using any MQTT clients using publish / subscribe semantics as long as IoT hub primitives protocols are respected. We'll go through the specificities to understand how these protocols work.
+The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let clients perform IoT Hub operations but they do not allow publishing / subscribing on user-defined topics. IoT Hub operations can be performed using any MQTT clients using publish and subscribe semantics as long as IoT hub primitives protocols are respected. We'll go through the specificities to understand how these protocols work.
 
 ### Send telemetry data to IoT Hub
 
