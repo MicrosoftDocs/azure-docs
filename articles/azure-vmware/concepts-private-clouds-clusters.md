@@ -47,9 +47,9 @@ The current software versions of the VMware software used in Azure VMware Soluti
 
 | Software              |    Version   |
 | :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6.7 U2    | 
-| ESXi                  |    6.7 U2    | 
-| vSAN                  |    6.7 U2    |
+| VCSA / vSphere / ESXi |    6.7 U3    | 
+| ESXi                  |    6.7 U3    | 
+| vSAN                  |    6.7 U3    |
 | NSX-T                 |      2.5     |
 
 For any new cluster in a private cloud, the software version matches what's currently running. For any new private cloud in a subscription, the software stack's latest version gets installed.
