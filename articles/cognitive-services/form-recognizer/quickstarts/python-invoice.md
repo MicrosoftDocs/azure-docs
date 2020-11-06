@@ -136,6 +136,52 @@ This sample python script shows you you how to get started using the Invoice API
 > python InvoiceSamplePythonScript.py {file name or folder name}
  
 ```python
+########### Python Form Recognizer Async Invoice #############
+
+import json
+import time
+import os
+import ntpath
+import sys
+from requests import get, post
+import csv
+
+
+def analyzeInvoice(filename):
+    invoiceResultsFilename = filename + ".invoice.json"
+
+    # do not run analyze if .invoice.json file is present on disk
+    if os.path.isfile(invoiceResultsFilename):
+        with open(invoiceResultsFilename) as json_file:
+            return json.load(json_file)
+
+    # Endpoint URL
+    #endpoint = r"<Endpoint>"
+    #apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze"
+    headers = {
+        # Request headers
+        'Content-Type': 'application/octet-stream',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+
+    params = {
+        "includeTextDetails": True
+    }
+
+    with open(filename, "rb") as f:
+        data_bytes = f.read()
+
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            return None
+        print("POST analyze succeeded: %s" % resp.headers["operation-location"])
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        return None
 
     n_tries = 50
     n_try = 0
@@ -189,7 +235,7 @@ def main(argv):
 
     # list of invoice to analyze
     invoiceFiles = []
-    csvPostfix = '-invoiceResutls.csv'
+    csvPostfix = '-invoiceResults.csv'
     if os.path.isfile(argv[1]):
         # Single invoice
         invoiceFiles.append(argv[1])
