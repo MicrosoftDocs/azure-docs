@@ -185,8 +185,8 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 
 10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
-   > [!TIP]
-   > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+    > [!TIP]
+    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
@@ -216,11 +216,11 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 10. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 11. Click **Create alert rule** to create the alert.
 
-   > [!NOTE]
-   > To be notified if your premium file share is close to being throttled due to provisioned ingress, please follow the same steps, except in step 5, select the **Ingress** metric instead.
+    > [!NOTE]
+    > To be notified if your premium file share is close to being throttled due to provisioned ingress, please follow the same steps, except in step 5, select the **Ingress** metric instead.
 
-   > [!NOTE]
-   > To be notified if your premium file share is close to being throttled due to provisioned IOPS, you will have to make a few changes. In step 5, select the **Transactions** metric instead. Also, for step 10, the only option for **aggregation type** is total. Therefore, the threshold value would be dependent on your selected aggregation granularity. For example, if you wanted your threshold to be 80% of provisioned baseline IOPS and you selected 1 hour for **aggregation granularity**, your **threshold value** would be your baseline IOPS (in bytes) x 0.8 x 3600. Besides these changes, follow the same steps listed above. 
+    > [!NOTE]
+    > To be notified if your premium file share is close to being throttled due to provisioned IOPS, you will have to make a few changes. In step 5, select the **Transactions** metric instead. Also, for step 10, the only option for **aggregation type** is total. Therefore, the threshold value would be dependent on your selected aggregation granularity. For example, if you wanted your threshold to be 80% of provisioned baseline IOPS and you selected 1 hour for **aggregation granularity**, your **threshold value** would be your baseline IOPS (in bytes) x 0.8 x 3600. Besides these changes, follow the same steps listed above. 
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
