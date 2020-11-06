@@ -24,13 +24,13 @@ This article provides guidance on how to do a complete move and copy over everyt
 
 This process includes the following steps:
 
-* **Prepare:** Download your original models, twins, and graph.
-* **Move:** Create a new Azure Digital Twins instance in a new region.
-* **Move:** Repopulate the new Azure Digital Twins instance.
+1. Prepare: Download your original models, twins, and graph.
+1. Move: Create a new Azure Digital Twins instance in a new region.
+1. Move: Repopulate the new Azure Digital Twins instance.
     - Upload the original models, twins, and graph.
     - Re-create endpoints and routes.
     - Relink connected resources.
-* **Clean up source resources:** Delete the original instance.
+1. Clean up source resources: Delete the original instance.
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ You can leave ADT Explorer running because you'll use it again later in this art
 
 Next, download the models, twins, and graph in your solution to your machine.
 
-To download all of these items at once, first make sure the full graph is showing in the **GRAPH VIEW** box. To check, rerun the default query of `SELECT * FROM digitaltwins` in the **QUERY EXPLORER** box.
+To download all of these items at once, first make sure the full graph appears in the **GRAPH VIEW** box. If the full graph doesn't appear already, rerun the default query of `SELECT * FROM digitaltwins` in the **QUERY EXPLORER** box.
  
 Then, select the **Export Graph** icon in the **GRAPH VIEW** box.
 
@@ -196,7 +196,7 @@ These views confirm that your models, twins, and graph were re-uploaded to the n
 
 If you have endpoints or routes in your original instance, you'll need to re-create them in your new instance. If you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#relink-connected-resources).
 
-Otherwise, follow the steps in [Manage endpoints and routes](how-to-manage-routes-portal.md) using the new instance. Keep these pointers in mind:
+Otherwise, follow the steps in [How-to: Manage endpoints and routes](how-to-manage-routes-portal.md) using the new instance. Keep these pointers in mind:
 
 * You do *not* need to re-create the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to re-create the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
