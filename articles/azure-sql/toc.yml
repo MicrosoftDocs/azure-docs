@@ -1179,7 +1179,7 @@
       - name: Archived classic RM docs 
         href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
       - name: SQL Server Data Tools (SSDT)
-        href: //sql/ssdt/download-sql-server-data-tools-ssdt
+        href: /sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Management Studio (SSMS)
         href: /sql/ssms/download-sql-server-management-studio-ssms
       - name: SQL Server Tools
