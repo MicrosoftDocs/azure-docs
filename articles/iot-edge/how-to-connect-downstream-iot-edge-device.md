@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: '>= iotedge-1.2'
 ---
 
 # Connect a downstream IoT Edge device to an Azure IoT Edge gateway
