@@ -179,6 +179,15 @@ The following Azure Media Services related considerations apply:
 * If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
+    
+## Automate creation of the Video Indexer account
+
+To automate the creation of the account is a two steps process:
+ 
+1. Use Azure Resource Manager to create an Azure Meidia Services account + Azure AD application.
+
+    See an example of the [Meida Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
+1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
 ## Next steps
 
