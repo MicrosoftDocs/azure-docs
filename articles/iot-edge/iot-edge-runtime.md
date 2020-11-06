@@ -94,7 +94,6 @@ The IoT Edge hub isn't a full version of IoT Hub running locally. IoT Edge hub s
 
 To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices. However, the IoT Edge hub currently only supports combining logical connections into a single physical connection by using AMQP as the upstream protocol and its multiplexing capabilities. AMQP is the default upstream protocol.
 
-<!-- TODO: remove the OT/IT boundary which would require t2o iot edge devices which would conceptually more correct to the reality + maybe add AMQP for the upstream link and AMQP or MQTT as downstream protocols-->
 ![IoT Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
 IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub's module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. For more information, see [Offline capabilities](offline-capabilities.md).
@@ -139,24 +138,39 @@ The IoT Edge hub supports two brokering mechanisms:
 1. The [message routing features supported by IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md) and,
 2. A general-purpose MQTT broker that meets the [MQTT standard v3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
 
-The first brokering mechanism leverages the same routing APIs as IoT Hub. It leverages routes, an IoT Hub concept, to specify how messages are passed between devices or modules. It can be used by devices or modules built with the Azure IoT Hub SDKs that communicate either via the AMQP or the MQTT protocol. To use it, first devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then, a solution developer can route messages between a source, e.g. outputs, and a destination, e.g. inputs, with potential filters. All messaging IoT Hub primitives, e.g. telemetry, direct methods, C2D, twins, are supported. All communication happens on special IoT Hub topics. As an example, the input queue of a module is available on special IoT Hub topic `devices/<device_name>/<module_name>/messages/inputs`. For more information about routes, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+#### Using routing
 
-<!-- I dont think that we need this picture anymore
-![IoT Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/module-endpoints.png) -->
+The first brokering mechanism leverages the same routing features as IoT Hub to specify how messages are passed between devices or modules. First devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then a solution developer can route messages between a source, e.g. outputs, and a destination, e.g. inputs, with potential filters.
 
 ![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
-The second brokering mechanism is based on a standard MQTT broker. MQTT is a simple message transfer protocol that guarantees optimal performances on resource constrained devices. It is a popular publish/subscribe protocol standard. IoT Edge hub implements its own v3.1.1 compatible MQTT broker built-in. This mechanism enables two extra communication patterns: local broadcasting and point-to-point communication. Local broadcasting is useful when one device or module needs to locally alert multiple other devices or modules. Point-to-point communication enables two IoT Edge devices or two IoT devices to communicate locally without round-trip to the cloud. It can be used by devices or modules built with either the Azure IoT Hub SDKs that communicate via the MQTT protocol or any general-purpose MQTT clients. To use it, first a device or module subscribes to a topic, then another device or module publishes a message on the same topic. This topic could be an IoT Hub special topic or a user-defined topic. Because IoT Hub special topics are supported, with the exception of C2D all messaging IoT Hub primitives, e.g. telemetry, direct methods, twins are supported. However, unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features enable the MQTT broker to be faster than routing. Lastly, a MQTT bridge is available to forward topics from the IoT Edge hub MQTT broker to another MQTT broker.
+Routing can be used by devices or modules built with the Azure IoT Device SDKs either via the AMQP or the MQTT protocol. All messaging IoT Hub primitives, e.g. telemetry, direct methods, C2D, twins, are supported but communication over user-defined topics is not supported.
 
-<!--TODO:Add new picture about the MQTT broker -->
-![IoT Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/module-endpoints.png)
+For more information about routes, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md)
+
+#### Using the MQTT broker
+
+The second brokering mechanism is based on a standard MQTT broker. MQTT is a lightweight message transfer protocol that guarantees optimal performances on resource constrained devices and is a popular publish and subscribe standard. Devices or modules subscribe to topics to receive messages published by other devices or modules. IoT Edge hub implements its own MQTT broker that follows [the specifications of MQTT version 3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
+
+The MQTT broker enables two additional communication patterns compared to routing: local broadcasting and point-to-point communication. Local broadcasting is useful when one device or module needs to locally alert multiple other devices or modules. Point-to-point communication enables two IoT Edge devices or two IoT devices to communicate locally without round-trip to the cloud.
+
+![Publish and subscribe locally with IoT Edge hub](./media/iot-edge-runtime/local-communnication-mqtt-broker.png)
+
+The MQTT broker can be used by devices or modules built with either the Azure IoT Device SDKs that communicate via the MQTT protocol or any general-purpose MQTT clients. With the exception of C2D all messaging IoT Hub primitives, e.g. telemetry, direct methods, twins are supported. IoT Hub special topics used by IoT Hub primitives are supported and so are user-defined topics.
+This topic could be an IoT Hub special topic or a user-defined topic.
+
+Unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features however enable the MQTT broker to be faster than routing.
+
+For more information about the MQTT broker, see [Publish and subscribe with IoT Edge](how-to-publish-subscribe.md)
+
+#### Comparison between brokering mechanisms
 
 Here are the features available with each brokering mechanism:
 
 |Features  | Routing  | MQTT broker  |
 |---------|---------|---------|
-| D2C telemetry    |     &#10004;    |         |
-| Local telemetry     |     &#10004;    |    &#10004;     |
+|D2C telemetry    |     &#10004;    |         |
+|Local telemetry     |     &#10004;    |    &#10004;     |
 |DirectMethods     |    &#10004;     |    &#10004;     |
 |Twin     |    &#10004;     |    &#10004;     |
 |C2D for devices     |   &#10004;      |         |
@@ -186,37 +200,15 @@ By default, the IoT Edge hub only accepts connections secured with Transport Lay
 
 If a client connects on port 8883 (MQTTS) or 5671 (AMQPS) to the IoT Edge hub, a TLS channel must be built. During the TLS handshake, the IoT Edge hub sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the IoT Edge hub must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the IoT Edge hub with a certificate verification error.
 
-The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation. Modules can use the same root certificate as the IoT Edge hub by leveraging the IoT Edge daemon API. <!--Varun to verify this last sentence-->
+The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation. Modules can use the same root certificate as the IoT Edge hub by leveraging the IoT Edge daemon API.
 
 #### Authentication
 
 The IoT Edge Hub only accepts connections from devices or modules that have an IoT Hub identity, e.g. that have been registered in IoT Hub and have one of the three client authentication methods supported by IoT hub to provide prove their identity: [Symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), [X.509 CA signed authentication](how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).  These IoT Hub identities can be verified locally by the IoT Edge hub so connections can still be made while offline.
 
 Notes:
-- The IoT Edge hub will not allow connecting two clients using the same credentials information. It will disconnect the already connected client if a second client connects using the same credentials.
 - IoT Edge modules currently only support symmetric key authentication.
 - MQTT clients with only local username and passwords are not accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
-
-<!-- 
-Commented out per Kelly: To be moved to an how-to article
-To authenticate with a MQTT client, you first need to send a CONNECT packet to to the MQTT broker to initiate the connection. This packet provides three authentication information: a `client identifier`, a `username` and `password`. The connect packet delivers the following credentials:
-
--	The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
-
-    - For a device: `<device_name>`
-
-    - For a module: `<device_name>/<module_name>`
-
-- The `username` field is derived from the device or module name, and the IoTHub name the device belongs to using the following syntax:
-
-    - For a device: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
-
-    - For a module: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
-
-- The `password` field of the CONNECT packet depends on the authentication mode:
-
-    - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token. You can use the  [generate-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext_azure_cli_iot_ext_az_iot_hub_generate_sas_token&preserve-view=true) Azure CLI commands to generate SAS token for a device or module.
-    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md). -->
 
 #### Authorization
 
@@ -226,19 +218,19 @@ Once authenticated, the IoT Edge hub has two ways to authorize client connection
 
 - By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.
 
-
 ### Remote configuration
 
 The IoT Edge hub is entirely controlled by the cloud. It gets its configuration from IoT Hub via its [module twin](iot-edge-modules.md#module-twins). It includes:
 
 - Routes configuration
 - Authorization policies
-- MQTT bridge policy
+- MQTT bridge configuration
 
 Additionally, several configuration can be done by setting up environment variables on the IoT Edge hub.
+<!-- TODO: Add pointer to the list of environment variables of the IoT Edge Hub -->
 <!-- </1.2> -->
 
-<!-- In my opinion, we should also explain the concepts about metrics, os updates, etc. -->
+<!-- TODO: also explain the concepts about metrics, os updates, etc. -->
 
 ## Runtime quality telemetry
 
@@ -258,4 +250,6 @@ If you wish to opt out of sending runtime telemetry from your devices, there are
 ## Next steps
 
 * [Understand Azure IoT Edge modules](iot-edge-modules.md)
+* [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md)
+* [Learn how to publish and subscribe with IoT Edge](how-to-publish-subscribe.md)
 * [Learn about IoT Edge runtime metrics](how-to-access-built-in-metrics.md)
