@@ -10,7 +10,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# What's in the current IoT Plug and Play release
+# What is in the current IoT Plug and Play release?
 
 This article summarizes the tools, SDKs, and APIs that support the current IoT Plug and Play release. Version numbers shown reflect the version number at the time IoT Plug and Play became generally available. Version numbers may increment following the release.
 
