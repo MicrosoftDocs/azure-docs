@@ -26,6 +26,8 @@ When VNet peering support is configured, Azure Bastion can be deployed in hub-an
 
 Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same VNet, as well as peered VNets. Because VNet peering is supported, you can consolidate Bastion deployment to single VNet with reachability to VMs deployed in a peered VNet. This centralizes the overall deployment.
 
+:::image type="content" source="./media/vnet-peering/old/design.png" alt-text="Design and Architecture diagram":::
+
 :::image type="content" source="./media/vnet-peering/design.png" alt-text="Design and Architecture diagram":::
 
 This figure shows the architecture of an Azure Bastion deployment in a hub-and-spoke model. In this diagram you can see the following configuration:
@@ -45,7 +47,7 @@ Steps:
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
 
-Yes you can. By default, a user sees the Bastion host that is deployed in the same virtual network in which VM resides. However, in the **Connect** menu, a user can see multiple Bastion hosts detected across peered networks. They can select the Bastion host that they prefer to use to connect to the VM deployed in the virtual network.
+Yes. By default, a user sees the Bastion host that is deployed in the same virtual network in which VM resides. However, in the **Connect** menu, a user can see multiple Bastion hosts detected across peered networks. They can select the Bastion host that they prefer to use to connect to the VM deployed in the virtual network.
 
 ### If my peered VNets are deployed in different subscriptions, will connectivity via Bastion work?
 
