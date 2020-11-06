@@ -209,7 +209,7 @@ You can view and reset your authoring keys from the Azure portal, where you crea
 
     ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## Find query endpoint keys in the QnA Maker portal
+### Find query endpoint keys in the QnA Maker portal
 
 The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
 
