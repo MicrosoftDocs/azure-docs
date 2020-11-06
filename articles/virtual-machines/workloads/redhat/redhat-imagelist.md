@@ -25,10 +25,10 @@ This is a list of RHEL images available in Azure. Unless otherwise stated, all i
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux Agent | 
-|             | 6.8      | RAW    | Linux Agent | 
-|             | 6.9      | RAW    | Linux Agent | 
-|             | 6.10     | RAW    | Linux Agent | 
+RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-els.md)
+|             | 6.8      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-els.md)
+|             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-els.md)
+|             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-els.md)
 |             | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
 |             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 2 counterpart.
 |             | 7lvm-gen2| LVM    | Linux Agent | Generation 2, RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 1 counterpart.
