@@ -1,3 +1,11 @@
+---
+author: russell-cooks
+ms.service: media-services
+ms.topic: include
+ms.date: 10/05/2020
+ms.author: russellcooks
+---
+
 1. In Visual Studio Code, browse to src/edge. You'll see the .env file that you created along with a few deployment template files.
 
     The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
