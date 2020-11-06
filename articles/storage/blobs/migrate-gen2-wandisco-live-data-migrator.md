@@ -13,18 +13,20 @@ ms.subservice: data-lake-storage-gen2
 
 # Meet demanding migration requirements with WANdisco LiveData Platform for Azure (preview)
 
-Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 by using [WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) to reduce business risk and cost overruns and take full advantage of Azure services. Eliminate the need for application downtime, remove the chance of data loss, and ensure data consistency even while operations continue on-premises. WANdisco LiveData Platform for Azure uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication. Use this platform to:
+Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 by using [WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/). This platform eliminates the need for application downtime, remove the chance of data loss, and ensure data consistency even while operations continue on-premises.  
 
-- Rapidly **provision a LiveData service** that supports simple and advanced migration needs.
-- **Reduce the cost and risk** of bringing your business-critical data to [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
-- **Continue to run** your on-premises big data operations while migration is in progress.
+> [!NOTE]
+> WANdisco LiveData Platform for Azure is in public preview and is available in the East US, West US, West US 2, West Central US, North Europe, West Europe, East Asia, and Southeast Asia regions.
+
+[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication.  The platform consists of two services: [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure) to migrate actively used data from on-premises environments to Azure storage, and [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure) which ensures that all modified data or ingest data are replicated consistently. 
+
+You can manage both services by using the Azure portal and the Azure CLI, and both follow the same metered, pay-as-you-go billing model as all other Azure services. LiveData Platform for Azure consumption will appear on the same monthly Azure bill and will provide a consistent and convenient way to track and monitor your usage.
 
 Unlike migrating data _offline_ by [copying static information to Azure Data Box](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster), or by using Hadoop tools like [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), you can maintain full operation of your business systems during _online_ migration with WANdisco LiveData for Azure. Keep your big data environments operating even while moving their data to Azure.
 
-> [!NOTE]
-> WANdisco LiveData Platform for Azure is in public preview and (list regions) regions.
-
 ## Key features of WANdisco LiveData Platform for Azure
+
+Key features of the platform include the following:
 
 - **Data consistency**: Solve the challenges of migrating large data volumes between environments and keeping those data consistent across storage systems throughput migration, even while they are under continual change. Employ WANdisco's unique, wide-area network capable consensus engine directly in Azure to achieve data consistency and to migrate data with consistency guarantees throughout data changes.
 
@@ -38,30 +40,21 @@ Unlike migrating data _offline_ by [copying static information to Azure Data Box
 
 ## Migrate big data faster without risk
 
-The first service of WANdisco LiveData Platform for Azure is [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure); a turnkey solution for migrating actively used data from on-premises environments to Azure storage. LiveData Migrator for Azure is provisioned and managed entirely from the Azure portal or Azure CLI, and operates alongside your Hadoop cluster on-premises without any configuration change, application modifications, or service restarts to begin migrating data immediately.
+The first service of WANdisco LiveData Platform for Azure is [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure); a  solution for migrating actively used data from on-premises environments to Azure storage. LiveData Migrator for Azure is provisioned and managed entirely from the Azure portal or Azure CLI, and operates alongside your Hadoop cluster on-premises without any configuration change, application modifications, or service restarts to begin migrating data immediately.
 
 ![LiveData Migrator for Azure Architecture](./media/migrate-gen2-wandisco-live-data-migrator/live-data-migrator-architecture.png)
 
 Big data migrations can be complex and challenging. Moving petabytes of information without disrupting business operations has been impossible to achieve with offline data copy technologies. [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure) offers simple deployment and can establish a LiveData Service with continuous data migration and replication while applications read, write, and modify the data being migrated.
 
-Performing a migration is as simple as these three steps:
+Provision the LiveData Migrator for Azure instance from the Azure portal to your on-premises Hadoop cluster. No cluster change or downtime is needed, and applications can continue to operate.
 
-1. Provision the LiveData Migrator for Azure instance from the Azure portal to your on-premises Hadoop cluster. No cluster change or downtime is needed, and applications can continue to operate.
+> [!div class="mx-imgBorder"]
+> ![Create a LiveData Migrator for Azure instance](./media/migrate-gen2-wandisco-live-data-migrator/create-live-data-migrator.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Create a LiveData Migrator for Azure instance](./media/migrate-gen2-wandisco-live-data-migrator/create-live-data-migrator.png)
+Connect your Hadoop cluster to the WANdisco LiveData Platform for Azure by downloading, and then installing the migrator. The following image shows the overview page of a [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure) instance. 
 
-2. Define the target Azure Data Lake Storage Gen2-enabled storage account.
-
-   > [!div class="mx-imgBorder"]
-   > ![Create a LiveData Migrator for Azure target](./media/migrate-gen2-wandisco-live-data-migrator/create-target.png)
-
-3. Define the location of the data that you want to migrate, for example: `/user/hive/warehouse`, and start the migration.
-   
-   > [!div class="mx-imgBorder"]
-   > ![Create a LiveData Migrator for Azure migration](./media/migrate-gen2-wandisco-live-data-migrator/create-migration.png)
-
-Monitor your migration progress through standard Azure tooling including the Azure CLI and Azure portal, and continue to use your on-premises environment throughout.
+> [!div class="mx-imgBorder"]
+> ![Create a LiveData Migrator for Azure target](./media/migrate-gen2-wandisco-live-data-migrator/connect-hadoop-storage-to-live-migrator.png)
 
 ## Replicate data under active change
 
